@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "kind": "quality_import_baseline",
+  "component": "fixture_component",
+  "root": "/home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/source",
+  "files": [
+    {
+      "path": "check.cpp",
+      "sha256": "4ed2691db5fc4b253aac29ce4bc3065633e055639a5cffd869e31297b4efbdc6"
+    }
+  ],
+  "expected_units": [
+    "check.cpp"
+  ],
+  "identities": [
+    {
+      "id": "codeql",
+      "name": "CodeQL",
+      "version": "2.21.4",
+      "tool_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "config_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "query_pack": {
+        "name": "fixture-pack",
+        "version": "2.61.0",
+        "sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+      },
+      "suite": {
+        "name": "fixture-suite",
+        "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+      },
+      "libraries": [],
+      "license": "synthetic fixture",
+      "notice": "No executable/pack copied"
+    }
+  ],
+  "digest": "671ded98394b9d806bb37392ad0b5426605b65a704b4cbfb579a8f28718a1d2d"
+}

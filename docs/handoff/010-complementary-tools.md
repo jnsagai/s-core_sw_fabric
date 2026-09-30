@@ -11,9 +11,9 @@ phases, native policy options and binary identity. Probe results are separate fr
 Real seeded defects and fresh corrections are retained. Eleven scoped tasks T033–T043 are complete;
 original broader T001–T032 remain unchecked.
 
-Next useful work is native-output import and extraction validation from US2, reusing the bounded
-readers, original-output indexes and source baseline checks. Then implement disposition and
-guideline coverage interfaces. This handoff proposes that next step and does not authorize it.
+Native-output import/extraction is now implemented in the subsequent
+[native-import handoff](010-native-import.md), reusing bounded readers and source bindings.
+The remaining useful work is disposition and guideline coverage interfaces.
 CodeQL execution still needs eligible use, source/build reconciliation and reporting prerequisites.
 Do not substitute fixtures or local clean output for real readiness or human acceptance.
 

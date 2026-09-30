@@ -1,5 +1,22 @@
 # Increment 010 research
 
+## Native import/extraction measurements (2026-09-30)
+
+The authorized US2 slice inspected pinned Coding Standards SARIF schema, diagnostic queries,
+CSV decoder and reporting source read only; [exact source/license hashes](evidence/native-import-research.json)
+bind commit `06dc6bc32b05152fbe94dbf341a3e854574c9df5`. The native integrity report includes
+error/file counts and a successfully extracted file listing. Import checks those against the
+independent manifest; native compliance summaries remain supporting bytes without decision authority.
+The parser implements a documented bounded subset of
+[SARIF 2.1.0](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html);
+fixtures additionally validate against the full schema at the native pin.
+
+Fresh real Clang-Tidy, Cppcheck and GCC sanitizer outputs were imported with their original run
+and bytes retained. Clang-Tidy emits no fixes YAML on a clean run; empty stdout/stderr can be
+bound to its recorded successful phase, without manufacturing YAML. Every import stays
+unverified even when declared structural scope is adequate. No CodeQL query/reporting script
+was executed. See [validation](native-import-acceptance.md).
+
 ## Complementary adapter measurements (2026-09-30)
 
 The subsequent authorized Cppcheck/ASan/UBSan slice measures actual local probes and seeded/fresh

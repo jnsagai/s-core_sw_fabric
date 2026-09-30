@@ -1,0 +1,82 @@
+# Synthetic fixture only. Rebind paths/hashes on another workstation.
+schema_version: 1
+kind: quality_import_request
+profile:
+  path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
+  sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+baseline:
+  path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/baseline.json
+  sha256: 71c86e8d464f916137c87de9f4617997eb94dc0287221efab9cba6c989790a6d
+artifacts:
+- id: analysis
+  tool: codeql
+  format: sarif-2.1.0
+  role: diagnostics
+  ref:
+    path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/sarif/synthetic.sarif
+    sha256: 98ea3bf6a24fb0cce69eb347d5348751abfa7556017514fcc0e4e8b2fa9e89f5
+  source_root: /native/source
+  units:
+  - check.cpp
+  bindings:
+    source_digest: d3ea960e4532cbbbf64e8216c3a4ed9e4817d202722c0a12a18f4261c0fb4059
+    profile_sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+    identity_digest: 4864845bca58fd46cfcfb54bbd2ddb7da839a2f15d544ba2f9c43186cd18c865
+- id: database_integrity_report.md
+  tool: codeql
+  format: text
+  role: supporting
+  ref:
+    path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/database_integrity_report.md
+    sha256: ad9002e143e97ffe1f7238c57c095e2a889539583c9ed6fa5e11c7a38b6933bf
+  source_root: /native/source
+  units: []
+  bindings:
+    source_digest: d3ea960e4532cbbbf64e8216c3a4ed9e4817d202722c0a12a18f4261c0fb4059
+    profile_sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+    identity_digest: 4864845bca58fd46cfcfb54bbd2ddb7da839a2f15d544ba2f9c43186cd18c865
+- id: deviations_report.md
+  tool: codeql
+  format: text
+  role: supporting
+  ref:
+    path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/deviations_report.md
+    sha256: d96dc188e1ac5f61e41ad32f806a9d942170d6b62aac6049aa58ea5a4bc6f30e
+  source_root: /native/source
+  units: []
+  bindings:
+    source_digest: d3ea960e4532cbbbf64e8216c3a4ed9e4817d202722c0a12a18f4261c0fb4059
+    profile_sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+    identity_digest: 4864845bca58fd46cfcfb54bbd2ddb7da839a2f15d544ba2f9c43186cd18c865
+- id: guideline_recategorizations_report.md
+  tool: codeql
+  format: text
+  role: supporting
+  ref:
+    path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/guideline_recategorizations_report.md
+    sha256: d96dc188e1ac5f61e41ad32f806a9d942170d6b62aac6049aa58ea5a4bc6f30e
+  source_root: /native/source
+  units: []
+  bindings:
+    source_digest: d3ea960e4532cbbbf64e8216c3a4ed9e4817d202722c0a12a18f4261c0fb4059
+    profile_sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+    identity_digest: 4864845bca58fd46cfcfb54bbd2ddb7da839a2f15d544ba2f9c43186cd18c865
+- id: guideline_compliance_summary.md
+  tool: codeql
+  format: text
+  role: supporting
+  ref:
+    path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/guideline_compliance_summary.md
+    sha256: d96dc188e1ac5f61e41ad32f806a9d942170d6b62aac6049aa58ea5a4bc6f30e
+  source_root: /native/source
+  units: []
+  bindings:
+    source_digest: d3ea960e4532cbbbf64e8216c3a4ed9e4817d202722c0a12a18f4261c0fb4059
+    profile_sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+    identity_digest: 4864845bca58fd46cfcfb54bbd2ddb7da839a2f15d544ba2f9c43186cd18c865
+extraction:
+  path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/extraction.json
+  sha256: caacd2fa5a2574877ce7f7fe0b9a6ecb3c57848881b11fc00f75043d6d64efe5
+origin: fixture
+protected_roots:
+- /home/jefferson/s-core_sw_fabric

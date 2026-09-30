@@ -10,7 +10,12 @@ from score_sw_fabric.runtime.request import parse_yaml
 
 
 def diagnostics(
-    data: bytes, artifact_id: str, source: Path, files: dict[str, bytes]
+    data: bytes,
+    artifact_id: str,
+    source: Path,
+    files: dict[str, bytes],
+    *,
+    include_ranges: bool = False,
 ) -> list[dict[str, Any]]:
     record = parse_yaml(data, "/clang-tidy-yaml")
     if not isinstance(record, dict) or not isinstance(record.get("Diagnostics"), list):
@@ -54,6 +59,46 @@ def diagnostics(
             locations.append(
                 {"path": relative, "byte_offset": offset, "message": message["Message"]}
             )
+            if include_ranges:
+                for key, offset_key in (("Ranges", "FileOffset"), ("Replacements", "Offset")):
+                    items = message.get(key, [])
+                    if not isinstance(items, list) or len(items) > 1000:
+                        raise InputError("NATIVE_OUTPUT_INVALID", "Malformed native range/fix list")
+                    for item in items:
+                        if not isinstance(item, dict):
+                            raise InputError("NATIVE_OUTPUT_INVALID", "Malformed native range/fix")
+                        path = item.get("FilePath")
+                        start, length = item.get(offset_key), item.get("Length")
+                        if (
+                            not isinstance(path, str)
+                            or not path
+                            or type(start) is not int
+                            or type(length) is not int
+                            or start < 0
+                            or length < 0
+                        ):
+                            raise InputError(
+                                "NATIVE_OUTPUT_INVALID", "Malformed native range coordinates"
+                            )
+                        candidate = Path(path)
+                        candidate = candidate if candidate.is_absolute() else source / candidate
+                        if not candidate.is_relative_to(source):
+                            raise InputError(
+                                "NATIVE_LOCATION_UNRESOLVED", "External native range/fix"
+                            )
+                        relative = str(candidate.relative_to(source))
+                        if relative not in files or start + length > len(files[relative]):
+                            raise InputError(
+                                "NATIVE_LOCATION_UNRESOLVED", "Range exceeds frozen bytes"
+                            )
+                        locations.append(
+                            {
+                                "path": relative,
+                                "byte_offset": start,
+                                "byte_length": length,
+                                "kind": key,
+                            }
+                        )
         findings.append(
             {
                 "native_id": d["DiagnosticName"],
@@ -65,3 +110,50 @@ def diagnostics(
             }
         )
     return findings
+
+
+def normalize(
+    findings: list[dict[str, Any]], baseline_digest: str, identities: dict[str, dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """Group equal native observations; fingerprints never erase distinct contributors."""
+    from score_sw_fabric.assurance.models import digest
+
+    grouped: dict[str, dict[str, Any]] = {}
+    for finding in findings:
+        tool = finding["tool"]
+        native = finding["native_record"]
+        message = finding.get("message")
+        if message is None:
+            if tool == "clang-tidy":
+                message = native["DiagnosticMessage"]["Message"]
+            elif tool == "cppcheck":
+                message = native["attributes"]["msg"]
+            else:
+                message = native["message"]
+        locations = []
+        for location in finding["locations"]:
+            # Host-specific original paths/attributes remain in the native contributor.
+            locations.append(
+                {k: v for k, v in location.items() if k not in {"native_path", "native_attributes"}}
+            )
+        key = {
+            "tool": tool,
+            "identity_digest": digest(identities[tool]),
+            "baseline_digest": baseline_digest,
+            "native_id": finding["native_id"],
+            "native_level": finding["native_level"],
+            "message": message,
+            "locations": locations,
+            "run_index": finding.get("run_index", 0),
+            "rule_component": finding.get("rule_component", {}),
+            "native_kind": finding.get("native_kind"),
+        }
+        identifier = "finding_" + digest(key)
+        contributor = {k: v for k, v in finding.items() if k != "tool"}
+        contributor.setdefault("run_index", 0)
+        contributor.setdefault("fingerprints", {})
+        contributor.setdefault("suppressions", [])
+        if identifier not in grouped:
+            grouped[identifier] = {**key, "id": identifier, "contributors": []}
+        grouped[identifier]["contributors"].append(contributor)
+    return [grouped[k] for k in sorted(grouped)]

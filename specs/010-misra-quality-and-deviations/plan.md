@@ -9,8 +9,9 @@
 The user authorized Clang-Tidy and then Cppcheck/ASan/UBSan adapters. See the
 [Clang-Tidy contract](contracts/clang-tidy.md), [complementary contract](contracts/complementary-tools.md),
 [initial acceptance](acceptance.md) and [complementary validation](complementary-acceptance.md).
-Eleven scoped tasks capture completed work; the full plan below remains outstanding for CodeQL,
-imports, dispositions, coverage and review authority.
+Sixteen scoped tasks and US2 T014–T018 capture completed work, including
+[native import/extraction](native-import-acceptance.md) under [its exact contract](contracts/native-import.md).
+The remaining plan is outstanding for CodeQL execution, dispositions, coverage and review authority.
 
 ## Summary
 

@@ -1,7 +1,7 @@
 # Increment 010 validation guide
 
 **Status:** Clang-Tidy, Cppcheck and separate GCC ASan/UBSan capability/run adapters implemented.
-The remaining CodeQL, import, disposition
+Read-only native import/extraction validation is also implemented. The remaining CodeQL execution, disposition
 and compliance workflow remains planned in [tasks](tasks.md).
 
 ## Installed tools
@@ -55,7 +55,23 @@ and a new run. See [contract](contracts/complementary-tools.md) and
 [actual capability/seed/fix records](complementary-acceptance.md). Active native suppressions,
 incomplete source scope, truncated reports and unexpected runtime exits block clean evidence.
 
-## Implementation validation sequence
+## Import native outputs without executing tools
+
+The example below selects synthetic SARIF/report/source fixtures and remains `fixture`.
+Tool/pack identities are explicitly synthetic; it is not a CodeQL execution example.
+
+```bash
+uv run --frozen score-fabric quality import --request examples/quality/native-import.yaml --out /tmp/quality-native-import.json --json
+```
+
+It exits 1 and publishes a synthetic native finding with complete declared structural scope.
+Original bytes, contributor references and every authority/compliance gap remain visible.
+For actual local analyzer output, select the frozen source baseline, declared identities,
+original artifacts and independent phase/extraction manifest according to the
+[exact contract](contracts/native-import.md). See [genuine complementary-output imports](native-import-acceptance.md).
+Unknown/empty/partial extraction and inner failures remain incomplete. Imports invoke no tools.
+
+## Remaining increment validation sequence
 
 1. Implement the strict profile/request/native-output contract tests and real local analyzer
    integration tests from `tasks.md`.

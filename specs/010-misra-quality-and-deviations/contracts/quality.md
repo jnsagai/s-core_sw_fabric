@@ -1,8 +1,9 @@
 # Proposed quality contract (010)
 
 **Status:** Full design proposal, awaiting completion and owner review. The local Clang-Tidy
-capability/run slice follows [its exact implemented contract](clang-tidy.md). Other interfaces
-and multi-tool behavior below remain planned.
+capability/run slice follows [its exact implemented contract](clang-tidy.md), additional local
+tools follow [their contract](complementary-tools.md), and read-only native imports follow
+[the import contract](native-import.md). Disposition/packet/assessment behavior below remains planned.
 
 ## Commands and outcomes
 

@@ -3,7 +3,8 @@
 **Input**: [spec](spec.md), [plan](plan.md), [research](research.md),
 [data model](data-model.md), [contract](contracts/quality.md), [quickstart](quickstart.md).
 
-**Status**: Planned only. All implementation and human review tasks remain unchecked.
+**Status**: Scoped adapter slices are implemented below. Original full-increment tasks remain
+unchecked unless their entire stated scope is complete. Human acceptance remains pending.
 Installation evidence is separate from adapter implementation and acceptance.
 Tests are required by the spec. Write the relevant negative tests before implementation.
 `[P]` identifies independent files within the stated phase, not authorization for agents.
@@ -40,11 +41,11 @@ request missing/unsupported tools and incompatible sanitizer combinations (AC010
 **Independent test**: Import original bytes and compare expected/extracted units;
 empty/partial/unknown extraction and failed report/query phases block adequacy (AC010-05–08).
 
-- [ ] T014 [P] [US2] Add native YAML/XML/SARIF tests in tests/contract/test_quality_native_outputs.py for multiple SARIF runs, all location kinds, duplicate fingerprints at different locations, deduplication contributors, suppression fields, bad external paths and malformed/truncated bytes (SC010-02; 010-R04/R08/R11).
-- [ ] T015 [P] [US2] Add extraction cases in tests/contract/test_quality_extraction.py and tests/fixtures/quality/extraction/ for empty/partial/unknown expected sets, unexplained exclusions, failed queries/reports and zero outer exit with inner failures (SC010-03; 010-R03/R09).
-- [ ] T016 [US2] Implement bounded original-format import/normalization in src/score_sw_fabric/quality/native_outputs.py; preserve native IDs, severities, all locations, fingerprints, raw suppression data and every contributing result; deduplicate only same tool/check/baseline/location/message (010-R04/R08).
-- [ ] T017 [US2] Implement expected/processed/extracted unit comparison in src/score_sw_fabric/quality/extraction.py with adequate/incomplete/unknown states; empty/partial/unknown scope, missing reports, truncation and failed mandatory phases block adequacy (010-R03/R09).
-- [ ] T018 [US2] Wire quality import into src/score_sw_fabric/cli.py; enforce original byte/tool/pack/suite/config/baseline identity and imported_unverified origin, expose source/result references and baseline drift without upgrading authority (010-R04/R06/R10/R11).
+- [x] T014 [P] [US2] Add native YAML/XML/SARIF tests in tests/contract/test_quality_native_outputs.py for multiple SARIF runs, all location kinds, duplicate fingerprints at different locations, deduplication contributors, suppression fields, bad external paths and malformed/truncated bytes (SC010-02; 010-R04/R08/R11).
+- [x] T015 [P] [US2] Add extraction cases in tests/contract/test_quality_extraction.py and tests/fixtures/quality/extraction/ for empty/partial/unknown expected sets, unexplained exclusions, failed queries/reports and zero outer exit with inner failures (SC010-03; 010-R03/R09).
+- [x] T016 [US2] Implement bounded original-format import/normalization in src/score_sw_fabric/quality/native_outputs.py; preserve native IDs, severities, all locations, fingerprints, raw suppression data and every contributing result; deduplicate only same tool/check/baseline/location/message (010-R04/R08).
+- [x] T017 [US2] Implement expected/processed/extracted unit comparison in src/score_sw_fabric/quality/extraction.py with adequate/incomplete/unknown states; empty/partial/unknown scope, missing reports, truncation and failed mandatory phases block adequacy (010-R03/R09).
+- [x] T018 [US2] Wire quality import into src/score_sw_fabric/cli.py; enforce original byte/tool/pack/suite/config/baseline identity and imported_unverified origin, expose source/result references and baseline drift without upgrading authority (010-R04/R06/R10/R11).
 
 ## Phase 5: US3 — Dispositions and review proposals (P1)
 
@@ -133,6 +134,21 @@ Broader import/decision/coverage work and human-owned T032 stay outside this sli
 - [x] T042 [US1] Implement bounded Cppcheck XML capability/execution in src/score_sw_fabric/quality/cppcheck.py and separate actual GCC ASan/UBSan build/link/runtime probes/execution in src/score_sw_fabric/quality/sanitizers.py; wire --adapter in src/score_sw_fabric/cli.py.
 - [x] T043 [US1] Record real seed/fix/capability outputs and repository validation in specs/010-misra-quality-and-deviations/evidence/ and complementary-acceptance.md; update quickstart, README.md and docs/handoff/010-complementary-tools.md with remaining blockers.
 
-Current total: 43 tasks, 11 scoped tasks complete; original full-increment T001–T032 remain
+At the end of the complementary-tool slice: 43 tasks, 11 scoped tasks complete; original full-increment T001–T032 remain
 unchecked. Human-owned T032 is pending. No automatic continuation to broader 010 or 011 work
 is authorized by completing this slice.
+
+## Authorized native import/extraction slice (2026-09-30)
+
+The user's `go` follows “implement native-output import and extraction validation”. This
+authorizes US2 and its shared prerequisites, without CodeQL execution, disposition or coverage.
+
+- [x] T044 [US2] Reconcile the exact import/baseline/identity/artifact/extraction/output contract and schemas before readers in contracts/native-import.md and schemas/quality-*.schema.json.
+- [x] T045 [US2] Add parser/deduplication and extraction refusal tests before implementation in tests/contract/test_quality_native_outputs.py and test_quality_extraction.py, with clearly labelled native-output fixtures.
+- [x] T046 [US2] Implement bounded read-only imports, multi-run SARIF resolution and native contributor preservation in quality/imports.py, import_models.py, sarif.py and native_outputs.py; reuse existing native readers.
+- [x] T047 [US2] Implement independent extraction/report/phase assessment in quality/extraction.py and wire guarded quality import publication in cli.py.
+- [x] T048 [US2] Verify genuine complementary-output imports and labelled SARIF fixtures, frozen identity/drift/refusal/portable closure; record repository gates and remaining prerequisites in native-import-acceptance.md and docs/handoff/010-native-import.md.
+
+Current total: 48 tasks; 16 scoped tasks and 5 original US2 tasks complete. The remaining
+27 original tasks, including human-owned T032, remain unchecked. No automatic disposition,
+coverage, CodeQL execution or 011 continuation is authorized.

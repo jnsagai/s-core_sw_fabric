@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "kind": "native_import_research",
+  "origin": "read_only_source_inspection",
+  "commit": "06dc6bc32b05152fbe94dbf341a3e854574c9df5",
+  "repository": "https://github.com/github/codeql-coding-standards",
+  "license": "MIT",
+  "sources": [
+    {
+      "path": "schemas/sarif-schema-2.1.0.json",
+      "sha256": "2b19d2358baef0251d7d24e208d05ffabf1b2a3ab5e1b3a816066fc57fd4a7e8"
+    },
+    {
+      "path": "scripts/reports/diagnostics.py",
+      "sha256": "cad819d268861d64667f82d5edd75e57948292f85ba29ba395ec39339a09ad75"
+    },
+    {
+      "path": "scripts/reports/analysis_report.py",
+      "sha256": "82732bc4e5c928ca9cd20b2d1da08f2fbb6b129dcc1cc237b538c0749b22b9fa"
+    },
+    {
+      "path": "scripts/shared/codeql.py",
+      "sha256": "9ee4b17f1f24d55ff2050a94f383b867d15098f184f6eb0046fb0c675c87879c"
+    },
+    {
+      "path": "cpp/report/src/Diagnostics/SuccessfullyExtractedFiles.ql",
+      "sha256": "34c53e4970e8984b37f6bbc9064cae5f1c06f85ffe65a10055183fa5871114cc"
+    },
+    {
+      "path": "cpp/report/src/Diagnostics/ExtractionErrors.ql",
+      "sha256": "c7fa749447586b6ff39249721b65b72410e7ff59418d74627d47efda30881ec6"
+    },
+    {
+      "path": "LICENSE.md",
+      "sha256": "7dd4234f17de03a374a77487c8727a7cde3e656d0157cf8efaa9c1dd691c82f3"
+    }
+  ],
+  "observations": [
+    "Native reporting uses CSV-decoded successfully extracted files, counts and Markdown listing.",
+    "Raw native Compliant/approved-by strings are unauthenticated.",
+    "SARIF fixture validation uses the full schema at the pinned source; runtime importer supports a documented bounded subset."
+  ],
+  "engineering_readiness": "not_evaluated",
+  "digest": "3fb48c3ae35ba9ac71c21d8bfdff46b948719b413a830d0f4291d61bb6b6c4af"
+}

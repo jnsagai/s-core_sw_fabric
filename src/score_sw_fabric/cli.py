@@ -484,12 +484,14 @@ SAFETY_SUMMARY_FIELDS = ("outcome", "packet_state", "design_prerequisites")
 def _quality(args: argparse.Namespace) -> int:
     from score_sw_fabric.agents.models import bounded_diagnostic
     from score_sw_fabric.process_source.reader import InputError
-    from score_sw_fabric.quality import capabilities, complementary, runner
+    from score_sw_fabric.quality import capabilities, complementary, imports, runner
     from score_sw_fabric.runtime.models import publish
 
     handlers = {"capabilities": capabilities.capabilities, "run": runner.run}
     try:
-        if args.adapter == "clang-tidy":
+        if args.quality_command == "import":
+            status, record, inputs, protected = imports.import_outputs(args.request, args.out)
+        elif args.adapter == "clang-tidy":
             status, record, inputs, protected = handlers[args.quality_command](
                 args.request, args.out
             )
@@ -727,9 +729,15 @@ def main(argv: list[str] | None = None) -> int:
         verify_request.add_argument("--out", type=Path, required=True)
         verify_request.add_argument("--json", action="store_true", dest="as_json")
     quality = commands.add_parser(
-        "quality", help="probe/run local complementary tools; readiness unevaluated"
+        "quality", help="run local quality tools or import outputs; readiness unevaluated"
     )
     quality_commands = quality.add_subparsers(dest="quality_command", required=True)
+    quality_import = quality_commands.add_parser(
+        "import", help="read native outputs without tool execution"
+    )
+    quality_import.add_argument("--request", type=Path, required=True)
+    quality_import.add_argument("--out", type=Path, required=True)
+    quality_import.add_argument("--json", action="store_true", dest="as_json")
     for name in ("capabilities", "run"):
         quality_request = quality_commands.add_parser(name)
         quality_request.add_argument(

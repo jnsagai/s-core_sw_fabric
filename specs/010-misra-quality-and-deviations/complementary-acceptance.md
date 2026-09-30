@@ -4,6 +4,10 @@
 T039–T043 record this work, following [Clang-Tidy validation](acceptance.md).
 Full increment 010 and engineering acceptance remain incomplete; human-owned T032 is unchecked.
 
+This is the historical complementary-tool slice. Subsequent
+[native import/extraction validation](native-import-acceptance.md) implements those interfaces;
+its evidence and limits supersede their earlier unimplemented status below.
+
 ## Implemented scope
 
 `quality capabilities|run --adapter cppcheck|asan|ubsan` selects strict version 1 requests,

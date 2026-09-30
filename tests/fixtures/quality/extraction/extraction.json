@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "kind": "quality_extraction_manifest",
+  "source_digest": "d3ea960e4532cbbbf64e8216c3a4ed9e4817d202722c0a12a18f4261c0fb4059",
+  "outer_exit_code": 0,
+  "observations": [
+    {
+      "tool": "codeql",
+      "identity_digest": "4864845bca58fd46cfcfb54bbd2ddb7da839a2f15d544ba2f9c43186cd18c865",
+      "processed_units": [
+        "check.cpp"
+      ],
+      "extracted_units": [
+        "check.cpp"
+      ],
+      "exclusions": [],
+      "warnings": [],
+      "errors": [],
+      "failed_queries": [],
+      "filtered_checks": [],
+      "required_reports": [
+        "database_integrity_report.md",
+        "deviations_report.md",
+        "guideline_recategorizations_report.md",
+        "guideline_compliance_summary.md"
+      ],
+      "phases": [
+        {
+          "id": "extract",
+          "role": "extract",
+          "status": "completed",
+          "exit_code": 0,
+          "timed_out": false,
+          "artifacts": [
+            "database_integrity_report.md"
+          ]
+        },
+        {
+          "id": "analyze",
+          "role": "analyze",
+          "status": "completed",
+          "exit_code": 0,
+          "timed_out": false,
+          "artifacts": [
+            "analysis"
+          ]
+        },
+        {
+          "id": "reports",
+          "role": "report",
+          "status": "completed",
+          "exit_code": 0,
+          "timed_out": false,
+          "artifacts": [
+            "database_integrity_report.md",
+            "deviations_report.md",
+            "guideline_recategorizations_report.md",
+            "guideline_compliance_summary.md"
+          ]
+        }
+      ]
+    }
+  ],
+  "digest": "097bb67305ff36af348f8e46e43ae6daafcdf01d315e14e33e3f963af1681592"
+}
