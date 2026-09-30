@@ -1,0 +1,1011 @@
+{
+  "steps": [
+    {
+      "type": "by-name",
+      "scans": [
+        {
+          "paths": [
+            "/home/jefferson/.local/share/s-core-tools/codeql-coding-standards-2.61.0"
+          ],
+          "found": {
+            "codeql/misra-cpp-coding-standards": {
+              "version": "2.61.0",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-coding-standards-2.61.0/qlpack.yml"
+            }
+          },
+          "hidden": {},
+          "ambiguous": {}
+        }
+      ],
+      "description": "Searching directories specified by `--additional-packs`. All directories have equal priority."
+    },
+    {
+      "type": "by-name",
+      "scans": [],
+      "description": "Searching directories specified by `--search-path`. Directories are searched in order."
+    },
+    {
+      "type": "by-name",
+      "scans": [
+        {
+          "paths": [
+            "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql"
+          ],
+          "found": {
+            "codeql/actions-all": {
+              "version": "0.4.10",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/actions-all/0.4.10/qlpack.yml"
+            },
+            "codeql/actions-queries": {
+              "version": "0.6.2",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/actions-queries/0.6.2/qlpack.yml"
+            },
+            "codeql/controlflow": {
+              "version": "2.0.8",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/controlflow/2.0.8/qlpack.yml"
+            },
+            "codeql/cpp-all": {
+              "version": "5.0.0",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-all/5.0.0/qlpack.yml"
+            },
+            "codeql/cpp-examples": {
+              "version": "0.0.0",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-examples/0.0.0/qlpack.yml"
+            },
+            "codeql/cpp-queries": {
+              "version": "1.4.1",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/qlpack.yml"
+            },
+            "codeql/csharp-all": {
+              "version": "5.1.7",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/csharp-all/5.1.7/qlpack.yml"
+            },
+            "codeql/csharp-examples": {
+              "version": "0.0.0",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/csharp-examples/0.0.0/qlpack.yml"
+            },
+            "codeql/csharp-queries": {
+              "version": "1.2.1",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/csharp-queries/1.2.1/qlpack.yml"
+            },
+            "codeql/dataflow": {
+              "version": "2.0.8",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/dataflow/2.0.8/qlpack.yml"
+            },
+            "codeql/go-all": {
+              "version": "4.2.6",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/go-all/4.2.6/qlpack.yml"
+            },
+            "codeql/go-examples": {
+              "version": "0.0.0",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/go-examples/0.0.0/qlpack.yml"
+            },
+            "codeql/go-queries": {
+              "version": "1.2.1",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/go-queries/1.2.1/qlpack.yml"
+            },
+            "codeql/java-all": {
+              "version": "7.3.0",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/java-all/7.3.0/qlpack.yml"
+            },
+            "codeql/java-examples": {
+              "version": "0.0.0",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/java-examples/0.0.0/qlpack.yml"
+            },
+            "codeql/java-queries": {
+              "version": "1.5.1",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/java-queries/1.5.1/qlpack.yml"
+            },
+            "codeql/javascript-all": {
+              "version": "2.6.4",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/javascript-all/2.6.4/qlpack.yml"
+            },
+            "codeql/javascript-examples": {
+              "version": "0.0.0",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/javascript-examples/0.0.0/qlpack.yml"
+            },
+            "codeql/javascript-queries": {
+              "version": "1.6.1",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/javascript-queries/1.6.1/qlpack.yml"
+            },
+            "codeql/mad": {
+              "version": "1.0.24",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/mad/1.0.24/qlpack.yml"
+            },
+            "codeql/python-all": {
+              "version": "4.0.8",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/python-all/4.0.8/qlpack.yml"
+            },
+            "codeql/python-examples": {
+              "version": "0.0.0",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/python-examples/0.0.0/qlpack.yml"
+            },
+            "codeql/python-queries": {
+              "version": "1.5.1",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/python-queries/1.5.1/qlpack.yml"
+            },
+            "codeql/quantum": {
+              "version": "0.0.2",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/quantum/0.0.2/qlpack.yml"
+            },
+            "codeql/rangeanalysis": {
+              "version": "1.0.24",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/rangeanalysis/1.0.24/qlpack.yml"
+            },
+            "codeql/regex": {
+              "version": "1.0.24",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/regex/1.0.24/qlpack.yml"
+            },
+            "codeql/ruby-all": {
+              "version": "4.1.7",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ruby-all/4.1.7/qlpack.yml"
+            },
+            "codeql/ruby-examples": {
+              "version": "0.0.0",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ruby-examples/0.0.0/qlpack.yml"
+            },
+            "codeql/ruby-queries": {
+              "version": "1.3.1",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ruby-queries/1.3.1/qlpack.yml"
+            },
+            "codeql/rust-all": {
+              "version": "0.1.9",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/rust-all/0.1.9/qlpack.yml"
+            },
+            "codeql/rust-queries": {
+              "version": "0.1.9",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/rust-queries/0.1.9/qlpack.yml"
+            },
+            "codeql/ssa": {
+              "version": "2.0.0",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ssa/2.0.0/qlpack.yml"
+            },
+            "codeql/suite-helpers": {
+              "version": "1.0.24",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/suite-helpers/1.0.24/qlpack.yml"
+            },
+            "codeql/swift-all": {
+              "version": "5.0.0",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/swift-all/5.0.0/qlpack.yml"
+            },
+            "codeql/swift-queries": {
+              "version": "1.1.4",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/swift-queries/1.1.4/qlpack.yml"
+            },
+            "codeql/threat-models": {
+              "version": "1.0.24",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/threat-models/1.0.24/qlpack.yml"
+            },
+            "codeql/tutorial": {
+              "version": "1.0.24",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/tutorial/1.0.24/qlpack.yml"
+            },
+            "codeql/typeflow": {
+              "version": "1.0.24",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typeflow/1.0.24/qlpack.yml"
+            },
+            "codeql/typeinference": {
+              "version": "0.0.5",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typeinference/0.0.5/qlpack.yml"
+            },
+            "codeql/typetracking": {
+              "version": "2.0.8",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typetracking/2.0.8/qlpack.yml"
+            },
+            "codeql/typos": {
+              "version": "1.0.24",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typos/1.0.24/qlpack.yml"
+            },
+            "codeql/util": {
+              "version": "2.0.11",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/util/2.0.11/qlpack.yml"
+            },
+            "codeql/xml": {
+              "version": "1.0.24",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/xml/1.0.24/qlpack.yml"
+            },
+            "codeql/yaml": {
+              "version": "1.0.24",
+              "kind": "library",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/yaml/1.0.24/qlpack.yml"
+            },
+            "legacy-upgrades": {
+              "version": "0.0.0",
+              "kind": "query",
+              "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/legacy-upgrades/qlpack.yml"
+            }
+          },
+          "hidden": {},
+          "ambiguous": {}
+        }
+      ],
+      "description": "Searching the root of the CodeQL distribution."
+    },
+    {
+      "type": "by-name",
+      "scans": [
+        {
+          "paths": [
+            "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4"
+          ],
+          "found": {},
+          "hidden": {
+            "codeql/actions-all": {
+              "found": [
+                {
+                  "version": "0.4.10",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/actions-all/0.4.10/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.4.10",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/actions-all/0.4.10/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/actions-queries": {
+              "found": [
+                {
+                  "version": "0.6.2",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/actions-queries/0.6.2/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.6.2",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/actions-queries/0.6.2/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/controlflow": {
+              "found": [
+                {
+                  "version": "2.0.8",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/controlflow/2.0.8/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "2.0.8",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/controlflow/2.0.8/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/cpp-all": {
+              "found": [
+                {
+                  "version": "5.0.0",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-all/5.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "5.0.0",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-all/5.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/cpp-examples": {
+              "found": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-examples/0.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-examples/0.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/cpp-queries": {
+              "found": [
+                {
+                  "version": "1.4.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.4.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/csharp-all": {
+              "found": [
+                {
+                  "version": "5.1.7",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/csharp-all/5.1.7/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "5.1.7",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/csharp-all/5.1.7/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/csharp-examples": {
+              "found": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/csharp-examples/0.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/csharp-examples/0.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/csharp-queries": {
+              "found": [
+                {
+                  "version": "1.2.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/csharp-queries/1.2.1/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.2.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/csharp-queries/1.2.1/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/dataflow": {
+              "found": [
+                {
+                  "version": "2.0.8",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/dataflow/2.0.8/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "2.0.8",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/dataflow/2.0.8/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/go-all": {
+              "found": [
+                {
+                  "version": "4.2.6",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/go-all/4.2.6/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "4.2.6",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/go-all/4.2.6/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/go-examples": {
+              "found": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/go-examples/0.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/go-examples/0.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/go-queries": {
+              "found": [
+                {
+                  "version": "1.2.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/go-queries/1.2.1/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.2.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/go-queries/1.2.1/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/java-all": {
+              "found": [
+                {
+                  "version": "7.3.0",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/java-all/7.3.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "7.3.0",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/java-all/7.3.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/java-examples": {
+              "found": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/java-examples/0.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/java-examples/0.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/java-queries": {
+              "found": [
+                {
+                  "version": "1.5.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/java-queries/1.5.1/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.5.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/java-queries/1.5.1/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/javascript-all": {
+              "found": [
+                {
+                  "version": "2.6.4",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/javascript-all/2.6.4/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "2.6.4",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/javascript-all/2.6.4/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/javascript-examples": {
+              "found": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/javascript-examples/0.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/javascript-examples/0.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/javascript-queries": {
+              "found": [
+                {
+                  "version": "1.6.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/javascript-queries/1.6.1/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.6.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/javascript-queries/1.6.1/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/mad": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/mad/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/mad/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/python-all": {
+              "found": [
+                {
+                  "version": "4.0.8",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/python-all/4.0.8/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "4.0.8",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/python-all/4.0.8/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/python-examples": {
+              "found": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/python-examples/0.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/python-examples/0.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/python-queries": {
+              "found": [
+                {
+                  "version": "1.5.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/python-queries/1.5.1/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.5.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/python-queries/1.5.1/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/quantum": {
+              "found": [
+                {
+                  "version": "0.0.2",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/quantum/0.0.2/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.2",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/quantum/0.0.2/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/rangeanalysis": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/rangeanalysis/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/rangeanalysis/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/regex": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/regex/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/regex/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/ruby-all": {
+              "found": [
+                {
+                  "version": "4.1.7",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ruby-all/4.1.7/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "4.1.7",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ruby-all/4.1.7/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/ruby-examples": {
+              "found": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ruby-examples/0.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ruby-examples/0.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/ruby-queries": {
+              "found": [
+                {
+                  "version": "1.3.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ruby-queries/1.3.1/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.3.1",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ruby-queries/1.3.1/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/rust-all": {
+              "found": [
+                {
+                  "version": "0.1.9",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/rust-all/0.1.9/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.1.9",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/rust-all/0.1.9/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/rust-queries": {
+              "found": [
+                {
+                  "version": "0.1.9",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/rust-queries/0.1.9/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.1.9",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/rust-queries/0.1.9/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/ssa": {
+              "found": [
+                {
+                  "version": "2.0.0",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ssa/2.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "2.0.0",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/ssa/2.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/suite-helpers": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/suite-helpers/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/suite-helpers/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/swift-all": {
+              "found": [
+                {
+                  "version": "5.0.0",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/swift-all/5.0.0/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "5.0.0",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/swift-all/5.0.0/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/swift-queries": {
+              "found": [
+                {
+                  "version": "1.1.4",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/swift-queries/1.1.4/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.1.4",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/swift-queries/1.1.4/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/threat-models": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/threat-models/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/threat-models/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/tutorial": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/tutorial/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/tutorial/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/typeflow": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typeflow/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typeflow/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/typeinference": {
+              "found": [
+                {
+                  "version": "0.0.5",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typeinference/0.0.5/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.5",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typeinference/0.0.5/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/typetracking": {
+              "found": [
+                {
+                  "version": "2.0.8",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typetracking/2.0.8/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "2.0.8",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typetracking/2.0.8/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/typos": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typos/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/typos/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/util": {
+              "found": [
+                {
+                  "version": "2.0.11",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/util/2.0.11/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "2.0.11",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/util/2.0.11/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/xml": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/xml/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/xml/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "codeql/yaml": {
+              "found": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/yaml/1.0.24/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "1.0.24",
+                  "kind": "library",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/yaml/1.0.24/qlpack.yml"
+                }
+              ]
+            },
+            "legacy-upgrades": {
+              "found": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/legacy-upgrades/qlpack.yml"
+                }
+              ],
+              "hidden-by": [
+                {
+                  "version": "0.0.0",
+                  "kind": "query",
+                  "path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/legacy-upgrades/qlpack.yml"
+                }
+              ]
+            }
+          },
+          "ambiguous": {}
+        }
+      ],
+      "description": "Searching the parent directory of the CodeQL distribution."
+    },
+    {
+      "type": "by-name-and-version",
+      "path": "/home/jefferson/.codeql/packages",
+      "description": "Searching the local pack cache. This only applies when searching for a particular version of a pack specified in a lock file.",
+      "found": {},
+      "hidden": {}
+    }
+  ]
+}

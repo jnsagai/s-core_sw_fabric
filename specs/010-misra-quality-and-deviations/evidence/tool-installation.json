@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "kind": "local_quality_tool_installation",
+  "recorded_on": "2026-09-30",
+  "clang_tidy": {
+    "command": "/home/jefferson/.local/bin/clang-tidy",
+    "version": "Ubuntu LLVM version 19.1.7\n  Optimized build.",
+    "binary": "/home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/llvm-19/bin/clang-tidy",
+    "binary_sha256": "5f733fae7fdb5ac7122ea1e8fcfb4723a7cbf68b5d779f2f8ead6eb276c03f0c",
+    "packages": {
+      "index_sha256": "b1f790942eb75903eaf9b2da9a895215d9024ce45fff65ee1f12a7b4b6106391",
+      "signature_fingerprint": "6084F3CF814B57C1CF12EFD515CF4D18AF4F7421",
+      "prefix": "/home/jefferson/.local/share/s-core-tools/llvm-19.1.7",
+      "packages": [
+        {
+          "package": "clang-19",
+          "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75",
+          "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/clang-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "sha256": "2b3f974843c66d3c98a9bc558bf1dd3dc235cd8a83bef494cbdd94aeff6bcba4",
+          "file": "/home/jefferson/.local/share/s-core-tools/downloads/llvm-19.1.7/clang-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "bytes": 149682
+        },
+        {
+          "package": "clang-tidy-19",
+          "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75",
+          "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/clang-tidy-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "sha256": "169e45c8f5feb5612d26cfb5e9e328f4f4df50454e44250c41c27c42fa69584f",
+          "file": "/home/jefferson/.local/share/s-core-tools/downloads/llvm-19.1.7/clang-tidy-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "bytes": 2131018
+        },
+        {
+          "package": "clang-tools-19",
+          "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75",
+          "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/clang-tools-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "sha256": "fe7c650221f0fc6d198aff612419ac8c0033a50d1d1ada2b4040e1b834285a59",
+          "file": "/home/jefferson/.local/share/s-core-tools/downloads/llvm-19.1.7/clang-tools-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "bytes": 9833700
+        },
+        {
+          "package": "libclang-common-19-dev",
+          "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75",
+          "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libclang-common-19-dev_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "sha256": "638b26d769263d50999fbe8e0b7ded1f9bdf73288f607f2e96407e83071cabae",
+          "file": "/home/jefferson/.local/share/s-core-tools/downloads/llvm-19.1.7/libclang-common-19-dev_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "bytes": 772478
+        },
+        {
+          "package": "libclang-cpp19",
+          "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75",
+          "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libclang-cpp19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "sha256": "a0c2877eb15ad63ca92bf6765601ce17931473ec2329d184341a0bd7318736da",
+          "file": "/home/jefferson/.local/share/s-core-tools/downloads/llvm-19.1.7/libclang-cpp19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "bytes": 14401708
+        },
+        {
+          "package": "libclang1-19",
+          "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75",
+          "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libclang1-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "sha256": "65b7074356369e132d9e82c1fb6b2a6e2980ca90c0b90cef4cfc558292a20b7b",
+          "file": "/home/jefferson/.local/share/s-core-tools/downloads/llvm-19.1.7/libclang1-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "bytes": 8399998
+        },
+        {
+          "package": "libllvm19",
+          "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75",
+          "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libllvm19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "sha256": "558fbf3cf29c1d3d742e47901bda6079128ae2202a6aa3957126d6e674d23541",
+          "file": "/home/jefferson/.local/share/s-core-tools/downloads/llvm-19.1.7/libllvm19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "bytes": 28823424
+        },
+        {
+          "package": "llvm-19-linker-tools",
+          "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75",
+          "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/llvm-19-linker-tools_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "sha256": "6c0b815e15f9b29cf41027bea7e397c7204379114e1f6dfc78159fca47151665",
+          "file": "/home/jefferson/.local/share/s-core-tools/downloads/llvm-19.1.7/llvm-19-linker-tools_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+          "bytes": 1413896
+        }
+      ]
+    },
+    "native_config_probe_exit": 0,
+    "finding_probe_exit": 1
+  },
+  "codeql": {
+    "command": "/home/jefferson/.local/bin/codeql",
+    "version_probe": {
+      "productName": "CodeQL",
+      "vendor": "GitHub",
+      "version": "2.21.4",
+      "sha": "595bd01e54f908e7eefd23ffd1b4ee7a729a4152",
+      "branches": [
+        "codeql-cli-2.21.4"
+      ],
+      "copyright": "Copyright (C) 2019-2025 GitHub, Inc.",
+      "unpackedLocation": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql",
+      "configFileLocation": "/home/jefferson/.config/codeql/config",
+      "configFileFound": false,
+      "features": {
+        "analysisSummaryV2Default": true,
+        "buildModeOption": true,
+        "bundleSupportsIncludeDiagnostics": true,
+        "bundleSupportsIncludeLogs": true,
+        "databaseInterpretResultsSupportsSarifRunProperty": true,
+        "featuresInVersionResult": true,
+        "indirectTracingSupportsStaticBinaries": false,
+        "informsAboutUnsupportedPathFilters": true,
+        "supportsPython312": true,
+        "mrvaPackCreate": true,
+        "threatModelOption": true,
+        "traceCommandUseBuildMode": true,
+        "v2ramSizing": true,
+        "mrvaPackCreateMultipleQueries": true,
+        "setsCodeqlRunnerEnvVar": true,
+        "sarifMergeRunsFromEqualCategory": true,
+        "forceOverwrite": true,
+        "generateSummarySymbolMap": true,
+        "pythonDefaultIsToNotExtractStdlib": true
+      }
+    },
+    "bundle_url": "https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.21.4/codeql-bundle-linux64.tar.gz",
+    "bundle_sha256": "a94f674bb3c23ea5e9a2ad06b64847dd0277b15014d2517ecd9c41c88e6caa65",
+    "launcher_sha256": "d38df35e9275fce177e76cc6d4b5fc031ba7e9be4e7d224d0be7d6b7d0a21cc1",
+    "license_path": "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/LICENSE.md",
+    "license_sha256": "d0d6cfdc857c1e0153bbd2b6f0d4ab42dfc38acec9b97b2f7f55c1f51ffe9fbf",
+    "analysis_executed": false,
+    "project_use_eligibility": "unresolved",
+    "coding_standards_pack": {
+      "root": "/home/jefferson/.local/share/s-core-tools/codeql-coding-standards-2.61.0",
+      "archive_url": "https://github.com/github/codeql-coding-standards/releases/download/v2.61.0/coding-standards-codeql-packs.zip",
+      "archive_sha256": "fdddef5a7ca1c66ebdbe6c79c60c7b5b6b274dbc3c9ecbc4bb9a0a13cead20a1",
+      "identity": {
+        "library": false,
+        "warnOnImplicitThis": false,
+        "compileForOverlayEval": false,
+        "name": "codeql/misra-cpp-coding-standards",
+        "version": "2.61.0",
+        "description": "MISRA C++ 2023",
+        "license": "MIT",
+        "buildMetadata": {
+          "sha": "fc4e9643243978bd52ce4481ae1eecab94dabb0b",
+          "cliVersion": "2.21.4"
+        },
+        "dependencies": {
+          "advanced-security/qtil": "0.0.3",
+          "codeql/common-cpp-coding-standards": "*",
+          "codeql/cpp-all": "5.0.0"
+        }
+      },
+      "qlpack_sha256": "3d06c897dd580a60bd8435bab198e411e9556236a7ee11bb16ff78c853bebd03",
+      "default_suite_sha256": "8b41feb7188bde80cbb9ad57c643db6e2f95e02bae347171479114dc60c3626e",
+      "license_source_commit": "06dc6bc32b05152fbe94dbf341a3e854574c9df5",
+      "license_sha256": "7dd4234f17de03a374a77487c8727a7cde3e656d0157cf8efaa9c1dd691c82f3",
+      "resolve_packs_probe": {
+        "argv": [
+          "/home/jefferson/.local/bin/codeql",
+          "resolve",
+          "packs",
+          "--format=json",
+          "--additional-packs=/home/jefferson/.local/share/s-core-tools/codeql-coding-standards-2.61.0"
+        ],
+        "exit_code": 0,
+        "stdout_sha256": "03b573ff8e2c339bd2c05efdd6ae1647fcce6c5a70114396a36a52db98e80e76",
+        "stderr": ""
+      },
+      "source_build_commit_reconciliation": "unverified"
+    }
+  },
+  "engineering_readiness": "not_evaluated"
+}
