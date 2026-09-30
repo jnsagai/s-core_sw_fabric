@@ -51,3 +51,17 @@ context. It reproduces the historical gate result; current production use must r
 and protected time. CLI exits are 0 for a passing gate or faithful historical replay, 1 for a
 well-formed non-pass or replay mismatch, and 2 for malformed, unsafe, or unavailable inputs.
 Increment 006 runtime integration and 014+ readiness/release claims remain separate.
+
+Increment 006 adds proposed version-1 `runtime-profile`, `runtime-intent`, `runtime-request`,
+`runtime-binding`, `runtime-snapshot`, `runtime-resume-decision`, `runtime-cancellation`, and
+`runtime-export` schemas. A contract test keeps their required fields equal to the runtime
+readers. Runtime validation additionally enforces exact self-digests, request-file SHA-256
+bindings, symlink refusal, owner-only credential files, loopback candidate profiles, sorted
+demonstrated capabilities (`run_resume` stays undemonstrated), native route allowlists, bounded
+responses, guarded atomic publication and offline export closure. Export blob origins are
+`fabric_source` (sealed 003 package and compiler profile), `runtime_observation` (every Fabro
+event, blob and stage output), and `authenticated_005_reference` only for a separately replayed 005
+assessment. A `production` assurance reference is refused while 005 T009 is pending. Resume
+decisions are `admit`, `refuse_terminal`, `block_unknown`, `block_drift`, or
+`reconciliation_required`. Runtime exits are 0 for the exact operation or faithful observation,
+1 for an explicit published non-success, and 2 for malformed, unsafe, or unavailable input.

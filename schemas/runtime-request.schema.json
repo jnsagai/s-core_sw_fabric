@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/runtime-request-v1.json",
+  "title": "Fabro runtime operation request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "runtime_commit",
+    "intent",
+    "package",
+    "compiler_profile",
+    "runtime_profile",
+    "candidate",
+    "credential_file",
+    "ledger_root",
+    "target",
+    "baseline_now",
+    "evidence",
+    "effects",
+    "subject",
+    "protected_roots"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "runtime_request"
+    },
+    "runtime_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "intent": {
+      "$ref": "#/$defs/file_ref"
+    },
+    "package": {
+      "$ref": "#/$defs/file_ref"
+    },
+    "compiler_profile": {
+      "$ref": "#/$defs/file_ref"
+    },
+    "runtime_profile": {
+      "$ref": "#/$defs/file_ref"
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "executable",
+        "source_api"
+      ],
+      "properties": {
+        "executable": {
+          "$ref": "#/$defs/path"
+        },
+        "source_api": {
+          "$ref": "#/$defs/path"
+        }
+      }
+    },
+    "credential_file": {
+      "$ref": "#/$defs/path"
+    },
+    "ledger_root": {
+      "$ref": "#/$defs/path"
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "disposable_root",
+        "environment_id"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/path"
+        },
+        "disposable_root": {
+          "$ref": "#/$defs/path"
+        },
+        "environment_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      }
+    },
+    "baseline_now": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source_digest",
+            "process_digest",
+            "policy_digest",
+            "tool_digest",
+            "subject_digest",
+            "evidence_digests"
+          ],
+          "properties": {
+            "source_digest": {
+              "$ref": "#/$defs/digest"
+            },
+            "process_digest": {
+              "$ref": "#/$defs/digest"
+            },
+            "policy_digest": {
+              "$ref": "#/$defs/digest"
+            },
+            "tool_digest": {
+              "$ref": "#/$defs/digest"
+            },
+            "subject_digest": {
+              "$ref": "#/$defs/digest"
+            },
+            "evidence_digests": {
+              "type": "array",
+              "maxItems": 10000,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/digest"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assessment",
+          "trust_context"
+        ],
+        "properties": {
+          "assessment": {
+            "$ref": "#/$defs/file_ref"
+          },
+          "trust_context": {
+            "$ref": "#/$defs/file_ref"
+          }
+        }
+      }
+    },
+    "effects": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stage",
+          "effect_id",
+          "state"
+        ],
+        "properties": {
+          "stage": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,120}@[1-9][0-9]{0,6}$"
+          },
+          "effect_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "state": {
+            "enum": [
+              "confirmed_absent",
+              "confirmed_once",
+              "unknown"
+            ]
+          }
+        }
+      }
+    },
+    "subject": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/file_ref"
+        }
+      ]
+    },
+    "protected_roots": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "$ref": "#/$defs/path"
+      }
+    }
+  },
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "file_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "sha256": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    }
+  }
+}

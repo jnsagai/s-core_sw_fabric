@@ -4,8 +4,10 @@
 
 **Created**: 2026-09-30
 
-**Status**: Implementation in progress. Disposable native execution is recorded in acceptance;
-production runtime selection and engineering authority remain pending.
+**Status**: Implementation in progress (39/40 tasks). Disposable candidate execution of the
+public runtime commands is recorded in acceptance. Same-run native checkpoint continuation is not
+demonstrated on the candidate (T025 open); production runtime selection, 005 production authority
+and engineering acceptance remain pending.
 
 **Input**: Continue from the 005 handoff. Specify brief §20.9 and FAB-024–FAB-026:
 register a complete 003 workflow version, run and inspect it through Fabro, handle a human

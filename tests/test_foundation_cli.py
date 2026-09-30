@@ -38,7 +38,7 @@ def test_foundation_success_cannot_claim_engineering_readiness(
     result = json.loads(capsys.readouterr().out)
     assert result["scope"] == "fabric_foundation_files"
     assert result["engineering_readiness"] == "not_evaluated"
-    assert result["runtime_integration"] == "not_implemented"
+    assert result["runtime_integration"] == "candidate_only_not_selected"
 
 
 def test_unimplemented_command_is_rejected() -> None:

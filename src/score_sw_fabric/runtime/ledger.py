@@ -107,6 +107,7 @@ class IntentLedger:
                     "start_state": "not_requested",
                     "baseline_digest": digest(selected["baseline"], exclude="__none__"),
                     "native_observation": None,
+                    "resume_attempts": 0,
                     "reason_codes": [],
                 },
             )
@@ -175,5 +176,47 @@ class IntentLedger:
                     **current,
                     "start_state": "reconciliation_required",
                     "reason_codes": sorted(set(current["reason_codes"] + ["RUN_START_UNCERTAIN"])),
+                },
+            )
+
+    def begin_resume(self, intent_id: str, *, attempt_limit: int) -> dict[str, Any]:
+        """Durably count one same-run resume attempt before any native request."""
+        if type(attempt_limit) is not int or attempt_limit < 1 or attempt_limit > 100:
+            raise InputError("LIMIT_EXCEEDED", "Resume attempt limit is invalid")
+        with self._locked(intent_id) as path:
+            current = self._read(path)
+            if current["creation_state"] != "run_known" or current["start_state"] != "started":
+                raise InputError("RUN_ID_UNKNOWN", "Only a started known run can resume")
+            if "RESUME_UNCERTAIN" in current["reason_codes"]:
+                raise InputError("EFFECT_RECONCILIATION_REQUIRED", "Prior resume is uncertain")
+            if current["resume_attempts"] >= attempt_limit:
+                raise InputError("RESUME_ATTEMPTS_EXHAUSTED", "Resume attempt limit reached")
+            return self._write(path, {**current, "resume_attempts": current["resume_attempts"] + 1})
+
+    def mark_resume_uncertain(self, intent_id: str) -> dict[str, Any]:
+        with self._locked(intent_id) as path:
+            current = self._read(path)
+            return self._write(
+                path,
+                {
+                    **current,
+                    "reason_codes": sorted(set(current["reason_codes"]) | {"RESUME_UNCERTAIN"}),
+                },
+            )
+
+    def record_observation(
+        self, intent_id: str, *, observed_at: str, response_digest: str
+    ) -> dict[str, Any]:
+        """Retain the last native response identity; never a status authority."""
+        with self._locked(intent_id) as path:
+            current = self._read(path)
+            return self._write(
+                path,
+                {
+                    **current,
+                    "native_observation": {
+                        "observed_at": observed_at,
+                        "response_digest": response_digest,
+                    },
                 },
             )

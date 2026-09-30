@@ -70,6 +70,7 @@ def _binding() -> dict[str, Any]:
             "start_state": "not_requested",
             "baseline_digest": SHA,
             "native_observation": None,
+            "resume_attempts": 0,
             "reason_codes": [],
         }
     )
@@ -83,10 +84,13 @@ def _export() -> dict[str, Any]:
             "kind": "runtime_export",
             "source_package": {},
             "wire_projection": {},
+            "runtime": {},
             "binding": _binding(),
             "run_summary": {},
+            "status": {},
             "events": [],
             "checkpoints": [],
+            "stages": [],
             "questions": [],
             "blobs": [
                 {
@@ -97,6 +101,7 @@ def _export() -> dict[str, Any]:
                     "origin": "runtime_observation",
                 }
             ],
+            "assurance_references": [],
             "completeness": "incomplete",
             "limitations": ["Native run source has not been selected."],
         }

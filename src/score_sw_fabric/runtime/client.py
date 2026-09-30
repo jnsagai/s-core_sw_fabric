@@ -9,6 +9,7 @@ import os
 import re
 import stat
 import tempfile
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -54,6 +55,7 @@ CAPABILITIES = {
     "run_resume",
     "run_cancel",
     "output_read",
+    "stage_list",
 }
 ROUTES = {
     "blob_read": ("GET", r"/api/v1/runs/[A-Za-z0-9_-]{1,128}/blobs/[0-9a-f]{64}"),
@@ -73,7 +75,9 @@ ROUTES = {
         "GET",
         r"/api/v1/runs/[A-Za-z0-9_-]{1,128}/stages/[A-Za-z0-9_-]{1,120}@[1-9][0-9]{0,6}/logs/output(?:\?offset=(?:0|[1-9][0-9]{0,19})(?:&limit=(?:[1-9][0-9]{0,6}))?)?",
     ),
+    "stage_list": ("GET", r"/api/v1/runs/[A-Za-z0-9_-]{1,128}/stages"),
 }
+RUN_ID = re.compile(r"[A-Za-z0-9_-]{1,128}")
 Transport = Callable[[str, str, bytes | None, float, int, str], tuple[int, bytes]]
 CredentialProvider = Callable[[], str]
 
@@ -387,6 +391,87 @@ class FabroClient:
         except Exception:
             ledger.mark_start_uncertain(intent_id)
             raise
+
+    def get_object(self, operation: str, path: str) -> dict[str, Any]:
+        """Read one bounded native JSON object through a demonstrated route."""
+        status, body = self.request(operation, "GET", path)
+        return _native_object(status, body, expected_status=200)
+
+    def resume_run(self, decision: dict[str, Any]) -> dict[str, Any]:
+        """Request same-run checkpoint continuation only for an admitted decision.
+
+        Native `/retry` creates another run and is intentionally not a route here.
+        """
+        verify_digest(decision, "/resume_decision")
+        run_id = decision.get("run_id")
+        if (
+            decision.get("kind") != "runtime_resume_decision"
+            or decision.get("decision") != "admit"
+            or not isinstance(run_id, str)
+            or RUN_ID.fullmatch(run_id) is None
+        ):
+            raise InputError("RESUME_NOT_ADMITTED", "Resume admission did not admit this run")
+        status, body = self.request(
+            "run_resume", "POST", f"/api/v1/runs/{run_id}/start", {"resume": True}
+        )
+        observed = _native_object(status, body, expected_status=200)
+        if observed.get("id") != run_id:
+            raise InputError("RUNTIME_RESPONSE", "Native resume returned a different run")
+        return observed
+
+    def cancel_run(
+        self, run_id: str, *, polls: int = 50, interval_seconds: float = 0.2
+    ) -> dict[str, Any]:
+        """Request native cancellation and report terminal state only when observed."""
+        if RUN_ID.fullmatch(run_id) is None:
+            raise InputError("RUN_ID_UNKNOWN", "Invalid native run ID")
+        if type(polls) is not int or polls < 1 or polls > 1000 or not 0 <= interval_seconds <= 5:
+            raise InputError("LIMIT_EXCEEDED", "Cancellation polling limit is invalid")
+        path = f"/api/v1/runs/{run_id}"
+        status, body = self.request("run_cancel", "POST", path + "/cancel", {})
+        if status not in {200, 202}:
+            raise InputError("RUNTIME_RESPONSE", f"Fabro returned HTTP {status}")
+        accepted = _native_object(status, body, expected_status=status)
+        observed: dict[str, Any] = {}
+        for attempt in range(polls):
+            observed = self.get_object("run_inspect", path)
+            if observed.get("id") != run_id:
+                raise InputError("RUNTIME_RESPONSE", "Fabro returned another run")
+            native = _status(observed)
+            if native.get("kind") in {"succeeded", "failed", "dead"}:
+                break
+            if attempt + 1 < polls:
+                time.sleep(interval_seconds)
+        native = _status(observed)
+        confirmed = native == {"kind": "failed", "reason": "cancelled"}
+        terminal = native.get("kind") in {"succeeded", "failed", "dead"}
+        return {
+            "run_id": run_id,
+            "request_http_status": status,
+            "request_pending_control": _pending_control(accepted),
+            "native_status": native,
+            "cancellation": "confirmed"
+            if confirmed
+            else ("terminal_other" if terminal else "pending"),
+            "reason_codes": []
+            if confirmed
+            else (["CANCEL_NOT_CONFIRMED"] if terminal else ["CANCEL_PENDING"]),
+            "engineering_readiness": "not_evaluated",
+        }
+
+
+def _pending_control(acknowledgement: dict[str, Any]) -> Any:
+    # Observed 202 bodies are the lifecycle object; a 200 may carry a run summary.
+    lifecycle = acknowledgement.get("lifecycle")
+    if isinstance(lifecycle, dict):
+        return lifecycle.get("pending_control")
+    return acknowledgement.get("pending_control")
+
+
+def _status(summary: dict[str, Any]) -> dict[str, Any]:
+    lifecycle = summary.get("lifecycle")
+    status = lifecycle.get("status") if isinstance(lifecycle, dict) else None
+    return status if isinstance(status, dict) else {}
 
 
 def _native_object(status: int, body: bytes, *, expected_status: int) -> dict[str, Any]:

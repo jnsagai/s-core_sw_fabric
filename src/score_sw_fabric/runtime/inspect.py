@@ -27,9 +27,42 @@ KNOWN_STATUSES = {
     "failed",
     "dead",
 }
+TERMINAL_STATUSES = {"succeeded", "failed", "dead"}
 MAX_EVENTS = 100_000
 MAX_TIMELINE = 10_000
 MAX_QUESTIONS = 1_000
+MAX_STAGES = 10_000
+
+
+def lifecycle_records(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Return native platform lifecycle records in stream order."""
+    records = []
+    for item in events:
+        envelope = item.get("item") if item.get("kind") == "platform" else None
+        record = envelope.get("record") if isinstance(envelope, dict) else None
+        if isinstance(record, dict) and record.get("kind") == "run.lifecycle":
+            records.append({"stream_seq": item.get("stream_seq"), **record})
+    return records
+
+
+def lifecycle_conflict(summary_status: Any, events: list[dict[str, Any]]) -> bool:
+    """Detect a summary that disagrees with the native lifecycle record stream.
+
+    Native waiting (`blocked`) has no lifecycle record, so only terminal claims are compared:
+    a terminal summary must equal the last status-bearing record, and a non-terminal summary
+    cannot follow a terminal last record. Lifecycle requests after that record are unresolved.
+    """
+    records = lifecycle_records(events)
+    if not records or not isinstance(summary_status, dict):
+        return False
+    with_status = [item for item in records if isinstance(item.get("status"), dict)]
+    if not with_status:
+        return False
+    last = with_status[-1]
+    last_terminal = last["status"].get("kind") in TERMINAL_STATUSES
+    if summary_status.get("kind") in TERMINAL_STATUSES:
+        return last["status"] != summary_status or records[-1] is not last
+    return last_terminal
 
 
 def _object(client: FabroClient, operation: str, path: str) -> dict[str, Any]:
@@ -122,6 +155,8 @@ def inspect_run(client: FabroClient, run_id: str, *, max_pages: int = 100) -> di
             break
     if not complete:
         reasons.add("EVENT_GAP")
+    if not reasons and lifecycle_conflict(status_record, events):
+        reasons.add("NATIVE_STATE_CONFLICT")
     timeline = _object(client, "timeline_read", root + "/timeline")
     checkpoints = timeline.get("entries")
     if not isinstance(checkpoints, list) or len(checkpoints) > MAX_TIMELINE:
@@ -139,6 +174,26 @@ def inspect_run(client: FabroClient, run_id: str, *, max_pages: int = 100) -> di
     ):
         questions = []
         reasons.add("QUESTION_INCOMPLETE")
+    stages: list[Any] | None = None
+    if "stage_list" in client.profile["demonstrated_capabilities"]:
+        stage_page = _object(client, "stage_list", root + "/stages")
+        stages = stage_page.get("data")
+        stage_meta = stage_page.get("meta")
+        if (
+            not isinstance(stages, list)
+            or len(stages) > MAX_STAGES
+            or any(
+                not isinstance(item, dict)
+                or not isinstance(item.get("id"), str)
+                or re.fullmatch(r"[A-Za-z0-9_-]{1,120}@[1-9][0-9]{0,6}", item["id"]) is None
+                or not isinstance(item.get("status"), str)
+                for item in stages
+            )
+            or not isinstance(stage_meta, dict)
+            or stage_meta.get("has_more") is not False
+        ):
+            stages = None
+            reasons.add("STAGE_INCOMPLETE")
     return {
         "run_id": run_id,
         "native_status": native_kind if native_kind in KNOWN_STATUSES else "unknown",
@@ -152,6 +207,7 @@ def inspect_run(client: FabroClient, run_id: str, *, max_pages: int = 100) -> di
         "events": events,
         "checkpoints": checkpoints,
         "questions": questions,
+        "stages": stages,
         "complete": complete and not reasons,
         "reason_codes": sorted(reasons),
         "engineering_readiness": "not_evaluated",

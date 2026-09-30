@@ -113,8 +113,35 @@ retains `engineering_readiness: not_evaluated`; no module, platform, or release 
 conferred. See the [005 quickstart](specs/005-trusted-evidence-and-human-gates/quickstart.md)
 and [005 acceptance record](specs/005-trusted-evidence-and-human-gates/acceptance.md).
 
-Increment 006 will address runtime integration. Module/platform readiness and release decisions
-remain for 014 and later increments; a 005 result cannot substitute for those gates.
+Module/platform readiness and release decisions remain for 014 and later increments; a 005
+result cannot substitute for those gates.
+
+### Runtime integration (006, candidate only)
+
+The following commands were executed against a disposable loopback server built from the pinned
+Fabro candidate `1b4fb15281ebb724426f9e480dce48d0100ff79b`. No production runtime is selected.
+A version-1 `runtime_request` binds the sealed 003 package, runtime intent, candidate profile and
+executable/API bytes, an owner-only disposable token file, a ledger root and a disposable target:
+
+```bash
+uv run --frozen score-fabric runtime register --request REQUEST.yaml --out BINDING.json --json
+uv run --frozen score-fabric runtime run      --request REQUEST.yaml --out BINDING.json --json
+uv run --frozen score-fabric runtime status   --request REQUEST.yaml --out SNAPSHOT.json --json
+uv run --frozen score-fabric runtime resume   --request REQUEST.yaml --out DECISION.json --json
+uv run --frozen score-fabric runtime cancel   --request REQUEST.yaml --out CANCEL.json --json
+uv run --frozen score-fabric runtime export   --request REQUEST.yaml --out EXPORT.json --json
+uv run --frozen score-fabric runtime verify   --export EXPORT.json --json
+```
+
+Exit 0 means the exact operation or faithful observation completed (for `verify`, a complete
+historical reproduction, even of a waiting or failed run). Exit 1 publishes an explicit
+non-success record: reconciliation required, waiting without a bound subject, blocked resume,
+pending cancellation, or incomplete export. Exit 2 leaves prior output byte-identical. Explicit
+same-run resume is **not** a demonstrated capability of the candidate: native resume was accepted
+but inert, so `resume` never admits continuation there. Fabro success, events and answers remain
+runtime observations; 005 production authority is still pending (005 T009). See the
+[006 contract](specs/006-fabro-runtime-integration/contracts/runtime.md) and
+[acceptance record](specs/006-fabro-runtime-integration/acceptance.md).
 
 ## Spec Kit
 
@@ -139,7 +166,7 @@ These are agent instructions, not shell commands.
 Reference clones are read-only. Native documentation builds need disposable copies;
 one pinned process hook writes a local virtual environment and generated portals.
 Runtime selection is unresolved: the inspected stable Fabro release lacks the newer
-workflow registry API. The pinned process baseline and module_template passed disposable `needs_json` and
+workflow registry API, and the nightly candidate used for 006 remains `candidate_only`. The pinned process baseline and module_template passed disposable `needs_json` and
 `docs_check` builds.
 See the locks and capability matrix.
 

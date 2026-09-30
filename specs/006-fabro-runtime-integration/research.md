@@ -116,6 +116,13 @@ and [acceptance](../005-trusted-evidence-and-human-gates/acceptance.md).
 **Alternatives considered:** Assume native checkpoint alone authenticates evidence; restart with
 `/retry` while reporting the same run; replay an old 005 fixture receipt into production.
 
+**Implementation observation (2026-09-30):** On the disposable candidate, explicit
+`start` with `resume=true` returned 200 for terminated, cancelled and succeeded runs but did not
+continue them (terminated: worker `run already finished already — nothing to resume`). Native
+startup continuation after a server crash did continue the same run but re-executed the in-flight
+command, and an orphaned worker race produced contradictory terminal records. `run_resume`
+therefore stays undemonstrated; see [acceptance](acceptance.md).
+
 ## Decision 5 — Export a closed portable run package
 
 **Decision:** Retain the sealed 003 package and the exact projected wire version independently

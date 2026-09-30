@@ -61,22 +61,29 @@ BINDING_FIELDS = {
     "start_state",
     "baseline_digest",
     "native_observation",
+    "resume_attempts",
     "reason_codes",
     "digest",
 }
 EXPORT_FIELDS = {
     "source_package",
     "wire_projection",
+    "runtime",
     "binding",
     "run_summary",
+    "status",
     "events",
     "checkpoints",
+    "stages",
     "questions",
     "blobs",
+    "assurance_references",
     "completeness",
     "limitations",
     "digest",
 }
+BLOB_ORIGINS = {"fabric_source", "runtime_observation", "authenticated_005_reference"}
+REFERENCE_ORIGINS = {"runtime_observation", "authenticated_005_reference"}
 CREATION_STATES = {
     "prepared",
     "create_in_flight",
@@ -205,6 +212,11 @@ def validate_binding(value: Any) -> dict[str, Any]:
         )
         instant(observation["observed_at"], "/runtime_binding/native_observation/observed_at")
         sha(observation["response_digest"], "/runtime_binding/native_observation/response_digest")
+    attempts = record["resume_attempts"]
+    if type(attempts) is not int or attempts < 0 or attempts > 100:
+        raise InputError(
+            "LIMIT_EXCEEDED", "Resume attempts are invalid", "/runtime_binding/resume_attempts"
+        )
     reasons = unique_strings(record["reason_codes"], 1000, "/runtime_binding/reason_codes")
     if reasons != record["reason_codes"]:
         raise InputError(
@@ -217,13 +229,21 @@ def validate_export(value: Any) -> dict[str, Any]:
     record = _record(
         value, "runtime_export", EXPORT_FIELDS, "/runtime_export", maximum=MAX_EXPORTED_BYTES
     )
-    for name in ("source_package", "wire_projection", "binding", "run_summary"):
+    for name in (
+        "source_package",
+        "wire_projection",
+        "runtime",
+        "binding",
+        "run_summary",
+        "status",
+    ):
         if not isinstance(record[name], dict):
             raise InputError("FIELD_TYPE", f"Expected object at /runtime_export/{name}")
     validate_binding(record["binding"])
     for name, maximum in (
         ("events", MAX_EVENT_COUNT),
         ("checkpoints", 10_000),
+        ("stages", 10_000),
         ("questions", 10_000),
     ):
         items = bounded_list(record[name], maximum, f"/runtime_export/{name}")
@@ -251,8 +271,23 @@ def validate_export(value: Any) -> dict[str, Any]:
             raise InputError("FIELD_TYPE", "Invalid runtime blob base64", pointer) from exc
         if len(decoded) != length or hashlib.sha256(decoded).hexdigest() != expected:
             raise InputError("HASH_MISMATCH", "Runtime blob identity mismatch", pointer)
-        if blob["origin"] not in {"runtime_observation", "authenticated_005_reference"}:
+        if blob["origin"] not in BLOB_ORIGINS:
             raise InputError("FIELD_UNKNOWN", "Unknown runtime blob origin", pointer)
+    references = bounded_list(
+        record["assurance_references"], 10_000, "/runtime_export/assurance_references"
+    )
+    for index, raw in enumerate(references):
+        pointer = f"/runtime_export/assurance_references/{index}"
+        reference = exact(
+            raw, {"assessment_digest", "assurance_domain", "outcome", "origin"}, pointer
+        )
+        sha(reference["assessment_digest"], pointer + "/assessment_digest")
+        if reference["assurance_domain"] not in {"fixture_contract", "production", None}:
+            raise InputError("DOMAIN_MISMATCH", "Unknown assurance domain", pointer)
+        if reference["outcome"] is not None:
+            nonempty(reference["outcome"], pointer + "/outcome", max_length=64)
+        if reference["origin"] not in REFERENCE_ORIGINS:
+            raise InputError("FIELD_UNKNOWN", "Unknown assurance reference origin", pointer)
     if record["completeness"] not in {"complete", "incomplete", "unknown"}:
         raise InputError("FIELD_UNKNOWN", "Unknown export completeness")
     limitations = bounded_list(record["limitations"], 1000, "/runtime_export/limitations")

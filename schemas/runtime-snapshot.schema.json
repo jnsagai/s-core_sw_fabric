@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/runtime-snapshot-v1.json",
+  "title": "Fabro runtime status snapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "intent_id",
+    "run_id",
+    "version_id",
+    "native_status",
+    "native_reason",
+    "native_blocked_reason",
+    "pending_control",
+    "event_position",
+    "event_contract_version",
+    "checkpoint_count",
+    "last_checkpoint",
+    "stages",
+    "questions",
+    "gate_handoff",
+    "complete",
+    "reason_codes",
+    "next_action",
+    "assurance_decisions",
+    "engineering_readiness",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "runtime_snapshot"
+    },
+    "intent_id": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "run_id": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "version_id": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "native_status": {
+      "enum": [
+        "submitted",
+        "pending",
+        "runnable",
+        "starting",
+        "running",
+        "blocked",
+        "paused",
+        "removing",
+        "succeeded",
+        "failed",
+        "dead",
+        "unknown"
+      ]
+    },
+    "native_reason": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 64
+    },
+    "native_blocked_reason": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 64
+    },
+    "pending_control": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 64
+    },
+    "event_position": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "event_contract_version": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "checkpoint_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "last_checkpoint": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "stages": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "maxItems": 10000
+    },
+    "questions": {
+      "type": "array",
+      "maxItems": 1000
+    },
+    "gate_handoff": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "maxItems": 1000
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "type": "array",
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      }
+    },
+    "next_action": {
+      "enum": [
+        "none",
+        "external_authorized_human_decision_required"
+      ]
+    },
+    "assurance_decisions": {
+      "const": 0
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "digest": {
+      "$ref": "#/$defs/digest"
+    }
+  },
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

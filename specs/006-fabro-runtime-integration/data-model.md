@@ -34,6 +34,7 @@ silently substituted. The registration object obeys both 003 and Fabro byte/file
 | `start_state` | `not_requested`, `start_in_flight`, `started`, or `reconciliation_required` |
 | `baseline` | Exact source, process, policy, tool, subject and selected 005 evidence identities |
 | `native_observation` | Last native response identity/time for reconciliation, never the status authority |
+| `resume_attempts` | Durable count of same-run resume requests, incremented before the native call; bounded by the intent attempt limit |
 
 The ledger serializes a local intent so two local callers cannot submit it concurrently. It is
 not a global uniqueness service: the inspected Fabro API has no run-create idempotency key.
@@ -69,14 +70,25 @@ diagnostic context and not the sole basis of a portable record.
 | `changed_bindings` | Deterministically sorted changed or missing identities |
 | `effect_ids` | Exact external effect identities and reconciliation outcomes |
 | `attempts` / `attempt_limit` | Finite bounded retry count; unknown native attempt count is not zero |
-| `decision` | `admit`, `block_drift`, `block_unknown`, or `reconciliation_required` |
+| `in_flight_stages` | Native stages not settled at interruption; native continuation re-executes them |
+| `decision` | `admit`, `refuse_terminal`, `block_unknown`, `block_drift`, or `reconciliation_required` |
+| `native_action` | `not_sent`, `accepted` (native 200, not proof of continuation) or `uncertain` |
 
-Only `admit` may call Fabro's resume operation. A checkpoint alone cannot establish that an
+Only `admit` may call Fabro's resume operation, and only when `run_resume` is a demonstrated
+capability; on the inspected candidate it is not, so an otherwise admitted decision is published
+as `block_unknown` with `RUNTIME_CAPABILITY_UNAVAILABLE`. `refuse_terminal` covers succeeded,
+dead, cancelled and non-interruption failures; only `terminated`/`transient_infra` failures are
+resumable sources. A checkpoint alone cannot establish that an
 external command's partial side effect was safe to repeat. An unknown effect requires explicit
 reconciliation. A native retry that creates a new run is a separate operation and cannot be
 reported as resume of the old one.
 
 ## Portable run export
+
+Implemented envelope fields: `source_package`, `wire_projection`, `runtime`, `binding`,
+`run_summary`, `status`, `events`, `checkpoints`, `stages`, `questions`, `blobs`,
+`assurance_references`, `completeness`, `limitations`, `digest`. Blob origins are
+`fabric_source`, `runtime_observation` and `authenticated_005_reference`.
 
 The export contains the sealed 003 package bytes, exact wire projection, registered version and
 run IDs, selected runtime identity, ordered native events, checkpoint timeline, pending or

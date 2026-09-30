@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/runtime-cancellation-v1.json",
+  "title": "Fabro runtime cancellation observation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "intent_id",
+    "version_id",
+    "run_id",
+    "request_http_status",
+    "request_pending_control",
+    "native_status",
+    "cancellation",
+    "reason_codes",
+    "engineering_readiness",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "runtime_cancellation"
+    },
+    "intent_id": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "version_id": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "run_id": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "request_http_status": {
+      "enum": [
+        200,
+        202
+      ]
+    },
+    "request_pending_control": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 64
+    },
+    "native_status": {
+      "type": "object"
+    },
+    "cancellation": {
+      "enum": [
+        "confirmed",
+        "pending",
+        "terminal_other"
+      ]
+    },
+    "reason_codes": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "enum": [
+          "CANCEL_PENDING",
+          "CANCEL_NOT_CONFIRMED"
+        ]
+      }
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "digest": {
+      "$ref": "#/$defs/digest"
+    }
+  },
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

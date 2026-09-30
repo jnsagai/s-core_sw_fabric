@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/runtime-resume-decision-v1.json",
+  "title": "Fabro same-run resume admission v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "intent_id",
+    "run_id",
+    "registered_version_id",
+    "native_status",
+    "checkpoint",
+    "baseline_before_digest",
+    "baseline_now_digest",
+    "changed_bindings",
+    "in_flight_stages",
+    "effects",
+    "evidence",
+    "attempts",
+    "attempt_limit",
+    "decision",
+    "native_action",
+    "reason_codes",
+    "production_authority",
+    "engineering_readiness",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "runtime_resume_decision"
+    },
+    "intent_id": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "run_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 128
+    },
+    "registered_version_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 256
+    },
+    "native_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "reason"
+      ],
+      "properties": {
+        "kind": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 64
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 64
+        }
+      }
+    },
+    "checkpoint": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "baseline_before_digest": {
+      "$ref": "#/$defs/digest"
+    },
+    "baseline_now_digest": {
+      "$ref": "#/$defs/digest"
+    },
+    "changed_bindings": {
+      "type": "array",
+      "maxItems": 20000,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      }
+    },
+    "in_flight_stages": {
+      "type": "array",
+      "maxItems": 10000,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      }
+    },
+    "effects": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stage",
+          "effect_id",
+          "state"
+        ],
+        "properties": {
+          "stage": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,120}@[1-9][0-9]{0,6}$"
+          },
+          "effect_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "state": {
+            "enum": [
+              "confirmed_absent",
+              "confirmed_once",
+              "unknown"
+            ]
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object"
+      }
+    },
+    "attempts": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "attempt_limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "decision": {
+      "enum": [
+        "admit",
+        "refuse_terminal",
+        "block_unknown",
+        "block_drift",
+        "reconciliation_required"
+      ]
+    },
+    "native_action": {
+      "enum": [
+        "not_sent",
+        "accepted",
+        "uncertain"
+      ]
+    },
+    "reason_codes": {
+      "type": "array",
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      }
+    },
+    "production_authority": {
+      "const": "unavailable"
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "digest": {
+      "$ref": "#/$defs/digest"
+    }
+  },
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

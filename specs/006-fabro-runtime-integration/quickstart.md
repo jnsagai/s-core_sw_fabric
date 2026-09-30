@@ -1,9 +1,9 @@
 # Increment 006 validation guide
 
-**Status:** Partial disposable validation recorded in [acceptance](acceptance.md). The
-`score-fabric runtime` commands in the [contract](contracts/runtime.md) are proposed and do not
-yet exist. The pinned candidate registered and ran command-only and human-gate fixtures on a
-matching disposable server. No production runtime or approval channel is selected.
+**Status:** Executed against a disposable pinned-candidate server; results in
+[acceptance](acceptance.md). The `score-fabric runtime` commands in the
+[contract](contracts/runtime.md) exist and were run on that server. No production runtime or
+approval channel is selected, and explicit same-run resume is not a demonstrated capability.
 
 ## Prerequisites and capability gate
 
@@ -22,8 +22,7 @@ matching disposable server. No production runtime or approval channel is selecte
 
 ## Contract and fixture checks to run after implementation
 
-From the repository root, the following are target test commands. Projection, intent and
-inspection tests exist and pass; resume and export tests remain to be implemented:
+From the repository root (all executed; see acceptance for counts):
 
 ```bash
 uv run --frozen pytest -q tests/contract/test_runtime_projection.py
@@ -31,7 +30,24 @@ uv run --frozen pytest -q tests/contract/test_runtime_intents.py
 uv run --frozen pytest -q tests/contract/test_runtime_inspection.py
 uv run --frozen pytest -q tests/contract/test_runtime_resume.py
 uv run --frozen pytest -q tests/contract/test_runtime_export.py
+uv run --frozen pytest -q tests/contract/test_runtime_cancellation.py
+uv run --frozen pytest -q tests/contract/test_runtime_export_origins.py
+uv run --frozen pytest -q tests/contract/test_runtime_cli.py
 ```
+
+The native integration module runs only when a disposable server is explicitly selected:
+
+```bash
+SCORE_FABRO_RUNTIME_DISPOSABLE_ROOT=/tmp/<disposable-root> \
+SCORE_FABRO_RUNTIME_URL=http://127.0.0.1:<port> \
+SCORE_FABRO_RUNTIME_TOKEN_FILE=/tmp/<disposable-root>/token \
+SCORE_FABRO_SOURCE_API=<pinned-checkout>/docs/public/api-reference/fabro-api.yaml \
+SCORE_FABRO_BIN=<disposable-build>/target/debug/fabro \
+uv run --frozen pytest -q tests/integration/test_runtime_fabro.py
+```
+
+The selected root must contain `storage/server.json` whose process runs the selected executable
+from that root, and the token file must be owner-only.
 
 The positive registration fixture must preserve the original 003 package while projecting
 `workflow.fabro` as Fabro's graph entrypoint with exact files and an empty child-workflow map.

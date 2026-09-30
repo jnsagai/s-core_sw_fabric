@@ -280,3 +280,67 @@ def test_disposable_target_parent_escape_is_rejected_before_create(tmp_path: Pat
     assert error.value.code == "RUNTIME_TARGET"
     assert ledger.read("intent-006")["creation_state"] == "prepared"
     assert calls == 0
+
+
+def test_native_label_match_never_clears_reconciliation(tmp_path: Path) -> None:
+    from score_sw_fabric.runtime.client import CAPABILITIES
+    from tests.runtime_support import FakeFabro, linear_sources, project
+    from tests.runtime_support import intent as runtime_intent
+
+    fabro = FakeFabro(lose_create_response=True)
+    client = fabro.client()
+    package, compiler_profile = linear_sources()
+    selected = runtime_intent(package, client)
+    ledger = IntentLedger(tmp_path / "ledger")
+    ledger.prepare(
+        selected,
+        version_id=client.register_package(package, compiler_profile),
+        runtime_commit="a" * 40,
+        source_package_digest=package["digest"],
+        wire_digest=project(package, compiler_profile)["wire_digest"],
+    )
+    (tmp_path / "target").mkdir()
+    arguments = {
+        "target": tmp_path / "target",
+        "disposable_root": tmp_path,
+        "environment_id": "local",
+        "labels": {},
+    }
+    with pytest.raises(InputError):
+        client.create_run(ledger, "intent-006", **arguments)  # type: ignore[arg-type]
+    (native_run,) = fabro.runs.values()
+    assert native_run.events[0]["item"]["record"]["kind"] == "run.created"
+    # A native run exists and could be found by label, but no list route is a capability and
+    # the ledger never infers identity from it.
+    assert not {"run_list", "run_search"} & CAPABILITIES
+    fabro.lose_create_response = False
+    with pytest.raises(InputError) as error:
+        client.create_run(ledger, "intent-006", **arguments)  # type: ignore[arg-type]
+    assert error.value.code == "RUN_CREATE_UNCERTAIN"
+    assert ledger.read("intent-006")["run_id"] is None
+    assert fabro.posts("/api/v1/runs") == 1
+
+
+def test_interrupted_ledger_write_preserves_prior_binding(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    import os
+
+    ledger = IntentLedger(tmp_path / "ledger")
+    _prepare(ledger)
+    (record,) = (tmp_path / "ledger").glob("*.json")
+    before = record.read_bytes()
+
+    def interrupted(_source: str, _target: str) -> None:
+        raise OSError("interrupted before replace")
+
+    monkeypatch.setattr(os, "replace", interrupted)
+    with pytest.raises(InputError) as error:
+        ledger.begin_create("intent-006")
+    assert error.value.code == "OUTPUT_IO"
+    monkeypatch.undo()
+    assert record.read_bytes() == before
+    assert ledger.read("intent-006")["creation_state"] == "prepared"
+    assert sorted(item.name for item in (tmp_path / "ledger").iterdir()) == sorted(
+        [record.name, record.with_suffix(".lock").name]
+    )

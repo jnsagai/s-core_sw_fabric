@@ -136,3 +136,87 @@ def test_native_logical_path_rejects_traversal_and_alias(path: str) -> None:
     with pytest.raises(InputError) as error:
         projection._logical_path(path, "/files")
     assert error.value.code == "PACKAGE_PATH"
+
+
+def _resealed(package: dict[str, Any], files: dict[str, str]) -> dict[str, Any]:
+    """Reseal file records, source map and native receipt so projection checks run."""
+    changed = deepcopy(package)
+    changed["files"] = dict(sorted(files.items()))
+    records = []
+    for path, content in changed["files"].items():
+        encoded = content.encode()
+        records.append(
+            {"path": path, "bytes": len(encoded), "sha256": hashlib.sha256(encoded).hexdigest()}
+        )
+    changed["manifest"]["file_records"] = records
+    for item in changed["source_map"]:
+        if item["kind"] == "file" and item["id"] in changed["files"]:
+            item["content_binding"] = hashlib.sha256(
+                changed["files"][item["id"]].encode()
+            ).hexdigest()
+    changed["manifest"]["source_map_digest"] = hashlib.sha256(
+        canonical(changed["source_map"])
+    ).hexdigest()
+    changed["native_validation"]["source_set_digest"] = hashlib.sha256(
+        canonical(changed["files"])
+    ).hexdigest()
+    changed["digest"] = semantic_digest(changed)
+    return changed
+
+
+@pytest.mark.parametrize(
+    ("change", "code"),
+    [
+        ("extra_undeclared_file", "PACKAGE_CLOSURE"),
+        ("missing_config", "PACKAGE_ENTRYPOINT"),
+        ("graph_elsewhere", "PACKAGE_CLOSURE"),
+        ("case_collision", "PACKAGE_CASE_COLLISION"),
+        ("directory_shadow", "PACKAGE_CLOSURE"),
+        ("child_workflow", "IR_DIGEST"),
+    ],
+)
+def test_undeclared_missing_or_ambiguous_closure_is_refused(change: str, code: str) -> None:
+    package, profile = _sources()
+    original = PACKAGE.read_bytes()
+    files = dict(package["files"])
+    if change == "extra_undeclared_file":
+        files["prompts/extra.md"] = "undeclared"
+    elif change == "missing_config":
+        files.pop("workflow.toml")
+    elif change == "graph_elsewhere":
+        files["workflow.toml"] = files["workflow.toml"].replace("workflow.fabro", "other.fabro")
+        files["other.fabro"] = files["workflow.fabro"]
+    elif change == "case_collision":
+        files["Workflow.fabro"] = files["workflow.fabro"]
+    elif change == "directory_shadow":
+        files["workflow.fabro/child"] = "shadow"
+    if change == "child_workflow":
+        # 003 IR has no child-workflow field; an injected reference fails IR integrity.
+        changed = deepcopy(package)
+        changed["manifest"]["ir"]["child_workflows"] = ["child"]
+        changed["digest"] = semantic_digest(changed)
+    else:
+        changed = _resealed(package, files)
+    with pytest.raises(InputError) as error:
+        projection.project_version(changed, profile)
+    assert error.value.code == code
+    assert PACKAGE.read_bytes() == original
+
+
+def test_non_text_native_file_is_refused() -> None:
+    package, profile = _sources()
+    changed = deepcopy(package)
+    changed["files"]["workflow.fabro"] = 7
+    with pytest.raises(InputError):
+        projection.project_version(changed, profile)
+
+
+def test_relocated_package_bytes_project_to_the_same_wire_identity(tmp_path: Path) -> None:
+    moved = tmp_path / "relocated/package.json"
+    moved.parent.mkdir()
+    moved.write_bytes(PACKAGE.read_bytes())
+    _, profile = _sources()
+    assert (
+        projection.project_version(read_json(moved), profile)["wire_digest"]
+        == projection.project_version(read_json(PACKAGE), profile)["wire_digest"]
+    )

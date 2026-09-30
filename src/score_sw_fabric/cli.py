@@ -32,7 +32,7 @@ def diagnose(root: Path) -> dict[str, Any]:
         "outcome": "pass" if all(c["outcome"] == "pass" for c in checks) else "blocked",
         "checks": checks,
         "engineering_readiness": "not_evaluated",
-        "runtime_integration": "not_implemented",
+        "runtime_integration": "candidate_only_not_selected",
         "limitations": [
             "Only lock-file readability and envelope versions are checked.",
             "Source compatibility, tool availability, credentials and approvals are not checked.",
@@ -349,6 +349,90 @@ def _assurance(args: argparse.Namespace) -> int:
     return 0 if response.get("outcome", "eligible") in {"eligible", "pass"} else 1
 
 
+RUNTIME_SUMMARY_FIELDS = (
+    "intent_id",
+    "run_id",
+    "version_id",
+    "creation_state",
+    "start_state",
+    "native_status",
+    "native_reason",
+    "decision",
+    "native_action",
+    "cancellation",
+    "completeness",
+    "reason_codes",
+    "changed_bindings",
+    "next_action",
+)
+
+
+def _runtime(args: argparse.Namespace) -> int:
+    from score_sw_fabric.process_source.reader import InputError, read_json
+    from score_sw_fabric.runtime import operations
+    from score_sw_fabric.runtime.export import verify_export
+    from score_sw_fabric.runtime.models import bounded_diagnostic, publish
+    from score_sw_fabric.runtime.request import load_request
+
+    def fail(exc: InputError) -> int:
+        print(json.dumps(bounded_diagnostic(exc), sort_keys=True), file=sys.stderr)
+        return 2
+
+    if args.runtime_command == "verify":
+        try:
+            result = verify_export(read_json(args.export))
+        except InputError as exc:
+            return fail(exc)
+        status = 0 if result["reproduced"] and result["completeness"] == "complete" else 1
+        print(
+            json.dumps(result, sort_keys=True, indent=None if args.as_json else 2),
+            file=sys.stdout if status == 0 else sys.stderr,
+        )
+        return status
+    handlers = {
+        "register": operations.register,
+        "run": operations.run,
+        "status": operations.status,
+        "resume": operations.resume,
+        "cancel": operations.cancel,
+        "export": operations.export,
+    }
+    try:
+        request = load_request(args.request)
+        status, record = handlers[args.runtime_command](request)
+        publish(
+            args.out,
+            record,
+            inputs=request.inputs(),
+            protected_roots=[*request.protected_roots, request.ledger_root],
+        )
+    except InputError as exc:
+        return fail(exc)
+    if "native_status" in record and isinstance(record["native_status"], dict):
+        native = record["native_status"]
+        record = {
+            **record,
+            "native_status": native.get("kind"),
+            "native_reason": native.get("reason"),
+        }
+    if record.get("kind") == "runtime_export":
+        record = {**record, **record["status"], "run_id": record["binding"]["run_id"]}
+    response = {name: record[name] for name in RUNTIME_SUMMARY_FIELDS if name in record}
+    response.update(
+        {
+            "path": str(args.out),
+            "kind": record["kind"],
+            "digest": record["digest"],
+            "engineering_readiness": "not_evaluated",
+        }
+    )
+    print(
+        json.dumps(response, sort_keys=True, indent=None if args.as_json else 2),
+        file=sys.stdout if status == 0 else sys.stderr,
+    )
+    return status
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", action="version", version=__version__)
@@ -437,7 +521,26 @@ def main(argv: list[str] | None = None) -> int:
     assurance_verify.add_argument("--assessment", type=Path, required=True)
     assurance_verify.add_argument("--trust-context", type=Path, required=True)
     assurance_verify.add_argument("--json", action="store_true", dest="as_json")
+    runtime = commands.add_parser("runtime", help="operate a selected disposable Fabro runtime")
+    runtime_commands = runtime.add_subparsers(dest="runtime_command", required=True)
+    for name, help_text in (
+        ("register", "register a sealed 003 package version"),
+        ("run", "create and start one run for an intent"),
+        ("status", "read native run status without implying readiness"),
+        ("resume", "admit and request same-run checkpoint continuation"),
+        ("cancel", "request native cancellation and observe terminal state"),
+        ("export", "build a portable historical run record"),
+    ):
+        runtime_request = runtime_commands.add_parser(name, help=help_text)
+        runtime_request.add_argument("--request", type=Path, required=True)
+        runtime_request.add_argument("--out", type=Path, required=True)
+        runtime_request.add_argument("--json", action="store_true", dest="as_json")
+    runtime_verify = runtime_commands.add_parser("verify", help="verify a run export offline")
+    runtime_verify.add_argument("--export", type=Path, required=True)
+    runtime_verify.add_argument("--json", action="store_true", dest="as_json")
     args = parser.parse_args(argv)
+    if args.command == "runtime":
+        return _runtime(args)
     if args.command == "assurance":
         return _assurance(args)
     if args.command == "catalog":
@@ -455,7 +558,9 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Foundation files: {result['outcome']}")
         for check in result["checks"]:
             print(f"  {check['path']}: {check['outcome']} {check.get('reason', '')}".rstrip())
-        print("Engineering readiness: not_evaluated; runtime integration: not_implemented")
+        print(
+            "Engineering readiness: not_evaluated; runtime integration: candidate_only_not_selected"
+        )
         for limitation in result["limitations"]:
             print(f"  {limitation}")
     return 0 if result["outcome"] == "pass" else 2

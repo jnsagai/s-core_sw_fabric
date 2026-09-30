@@ -20,34 +20,77 @@
     "digest"
   ],
   "properties": {
-    "schema_version": {"const": 1},
-    "kind": {"const": "runtime_profile"},
-    "id": {"type": "string", "minLength": 1, "maxLength": 256},
-    "source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
-    "executable_sha256": {"$ref": "#/$defs/digest"},
-    "source_api_sha256": {"$ref": "#/$defs/digest"},
-    "base_url": {"type": "string", "minLength": 1, "maxLength": 512},
-    "auth_mode": {"const": "dev_token_disposable"},
-    "declared_capabilities": {"$ref": "#/$defs/capabilities"},
-    "demonstrated_capabilities": {"$ref": "#/$defs/capabilities"},
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "runtime_profile"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "source_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "executable_sha256": {
+      "$ref": "#/$defs/digest"
+    },
+    "source_api_sha256": {
+      "$ref": "#/$defs/digest"
+    },
+    "base_url": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "auth_mode": {
+      "const": "dev_token_disposable"
+    },
+    "declared_capabilities": {
+      "$ref": "#/$defs/capabilities"
+    },
+    "demonstrated_capabilities": {
+      "$ref": "#/$defs/capabilities"
+    },
     "limits": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["timeout_seconds", "response_bytes"],
+      "required": [
+        "timeout_seconds",
+        "response_bytes"
+      ],
       "properties": {
-        "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 300},
-        "response_bytes": {"type": "integer", "minimum": 1, "maximum": 67108864}
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 300
+        },
+        "response_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 67108864
+        }
       }
     },
-    "status": {"const": "candidate_only"},
-    "digest": {"$ref": "#/$defs/digest"}
+    "status": {
+      "const": "candidate_only"
+    },
+    "digest": {
+      "$ref": "#/$defs/digest"
+    }
   },
   "$defs": {
-    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
     "capabilities": {
       "type": "array",
       "uniqueItems": true,
-      "maxItems": 11,
+      "maxItems": 12,
       "items": {
         "enum": [
           "blob_read",
@@ -60,7 +103,8 @@
           "question_read",
           "run_resume",
           "run_cancel",
-          "output_read"
+          "output_read",
+          "stage_list"
         ]
       }
     }
