@@ -18,7 +18,8 @@ No scheduler or unattended approval flow is added.
 - Current/prior source selections, linked disposition history, raw outputs, original
   licenses/notices and pending human questions retained. Tool executables are identities only.
 - Packet implementation and broad regression pass (1354 passed, 11 skipped); see [packet validation](../../specs/010-misra-quality-and-deviations/packet-acceptance.md).
-- Next bounded work: independent compliance evaluation and CLI, then remaining source
+- Independent compliance assessment and CLI implemented; 28 focused tests and broad validation pass (1382 passed, 11 existing skips). Exact source/domain/time/packet binding and missing engineering prerequisites remain explicit.
+- Next bounded work: remaining source
   and CodeQL prerequisite reconciliation and full task/handoff audit.
 
 Required human review stays open: 010 T032, 009 T018 and protected production authority

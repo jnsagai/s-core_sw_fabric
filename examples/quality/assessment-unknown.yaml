@@ -1,0 +1,16 @@
+schema_version: 1
+kind: quality_assessment_request
+profile:
+  path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
+  sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+packet:
+  path: /home/jefferson/s-core_sw_fabric/specs/010-misra-quality-and-deviations/evidence/packet-unknown.json
+  sha256: 00562e86c6a00824fd062735242e638511df44008332f93b5b0ce244d8a3ce4f
+current_baseline:
+  path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/baseline.json
+  sha256: 71c86e8d464f916137c87de9f4617997eb94dc0287221efab9cba6c989790a6d
+decisions: []
+assurance_domain: production
+as_of: '2026-09-30T23:15:00Z'
+protected_roots:
+- /home/jefferson/s-core_sw_fabric

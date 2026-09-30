@@ -1,0 +1,690 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-compliance-assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "request_path",
+    "request",
+    "profile",
+    "profile_bytes",
+    "packet",
+    "packet_bytes",
+    "packet_replay",
+    "current_baseline",
+    "decisions",
+    "dispositions",
+    "obligations",
+    "denominator",
+    "gaps",
+    "outcome",
+    "accepted_claims",
+    "assurance_domain",
+    "as_of",
+    "time_basis",
+    "origin",
+    "assurance_eligibility",
+    "engineering_readiness",
+    "limitations",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "quality_compliance_assessment"
+    },
+    "request_path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "request": {
+      "$ref": "quality-assessment-request.schema.json"
+    },
+    "profile": {
+      "$ref": "quality-profile.schema.json"
+    },
+    "profile_bytes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "bytes",
+        "sha256",
+        "retained_sha256",
+        "base64",
+        "truncated"
+      ],
+      "properties": {
+        "format": {
+          "const": "bytes"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1048576
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "retained_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "base64": {
+          "type": "string",
+          "maxLength": 1398104
+        },
+        "truncated": {
+          "const": false
+        }
+      }
+    },
+    "packet": {
+      "$ref": "quality-review-packet.schema.json"
+    },
+    "packet_bytes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "bytes",
+        "sha256",
+        "retained_sha256",
+        "base64",
+        "truncated"
+      ],
+      "properties": {
+        "format": {
+          "const": "bytes"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100663296
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "retained_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "base64": {
+          "type": "string",
+          "maxLength": 134217728
+        },
+        "truncated": {
+          "const": false
+        }
+      }
+    },
+    "packet_replay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reproduced",
+        "reason_codes",
+        "packet_state"
+      ],
+      "properties": {
+        "reproduced": {
+          "const": true
+        },
+        "reason_codes": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1200
+          }
+        },
+        "packet_state": {
+          "enum": [
+            "complete",
+            "incomplete"
+          ]
+        }
+      }
+    },
+    "current_baseline": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "record",
+            "record_bytes",
+            "snapshot",
+            "sources"
+          ],
+          "properties": {
+            "record": {
+              "$ref": "quality-import-baseline.schema.json"
+            },
+            "record_bytes": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "format",
+                "bytes",
+                "sha256",
+                "retained_sha256",
+                "base64",
+                "truncated"
+              ],
+              "properties": {
+                "format": {
+                  "const": "bytes"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1048576
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "retained_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "base64": {
+                  "type": "string",
+                  "maxLength": 1398104
+                },
+                "truncated": {
+                  "const": false
+                }
+              }
+            },
+            "snapshot": {
+              "$ref": "quality-import-baseline-snapshot.schema.json"
+            },
+            "sources": {
+              "type": "array",
+              "maxItems": 500,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "raw"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
+                  },
+                  "raw": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "format",
+                      "bytes",
+                      "sha256",
+                      "retained_sha256",
+                      "base64",
+                      "truncated"
+                    ],
+                    "properties": {
+                      "format": {
+                        "const": "bytes"
+                      },
+                      "bytes": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 16777216
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      },
+                      "retained_sha256": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      },
+                      "base64": {
+                        "type": "string",
+                        "maxLength": 22369624
+                      },
+                      "truncated": {
+                        "const": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "decisions": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "selection",
+          "assessment",
+          "trust_context",
+          "assessment_bytes",
+          "trust_context_bytes",
+          "replay",
+          "binding",
+          "current_gate",
+          "reasons"
+        ],
+        "properties": {
+          "selection": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "assessment",
+              "trust_context"
+            ],
+            "properties": {
+              "assessment": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                }
+              },
+              "trust_context": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                }
+              }
+            }
+          },
+          "assessment": {
+            "type": "object"
+          },
+          "trust_context": {
+            "type": "object"
+          },
+          "assessment_bytes": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "format",
+              "bytes",
+              "sha256",
+              "retained_sha256",
+              "base64",
+              "truncated"
+            ],
+            "properties": {
+              "format": {
+                "const": "bytes"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100663296
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "retained_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "base64": {
+                "type": "string",
+                "maxLength": 134217728
+              },
+              "truncated": {
+                "const": false
+              }
+            }
+          },
+          "trust_context_bytes": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "format",
+              "bytes",
+              "sha256",
+              "retained_sha256",
+              "base64",
+              "truncated"
+            ],
+            "properties": {
+              "format": {
+                "const": "bytes"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100663296
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "retained_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "base64": {
+                "type": "string",
+                "maxLength": 134217728
+              },
+              "truncated": {
+                "const": false
+              }
+            }
+          },
+          "replay": {
+            "type": "object"
+          },
+          "binding": {
+            "enum": [
+              "not_checked",
+              "exact_packet",
+              "other_subject"
+            ]
+          },
+          "current_gate": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reasons": {
+            "type": "array",
+            "maxItems": 1000,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "dispositions": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "review_digest",
+          "historical_state",
+          "observation",
+          "current_decision",
+          "reasons"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
+          "review_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "historical_state": {
+            "enum": [
+              "open",
+              "pending_review",
+              "corrected",
+              "stale",
+              "blocked"
+            ]
+          },
+          "observation": {
+            "enum": [
+              "stale",
+              "blocked",
+              "accepted_fixture",
+              "retained_local_correction",
+              "pending_review"
+            ]
+          },
+          "current_decision": {
+            "anyOf": [
+              {
+                "$ref": "quality-disposition-decision-result.schema.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reasons": {
+            "type": "array",
+            "maxItems": 1000,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "obligations": {
+      "type": "array",
+      "maxItems": 1023,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "id",
+              "outcome",
+              "reasons"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "prerequisite",
+                  "guideline",
+                  "analysis"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "outcome": {
+                "enum": [
+                  "pass",
+                  "fail",
+                  "blocked",
+                  "not_evaluated"
+                ]
+              },
+              "reasons": {
+                "type": "array",
+                "maxItems": 1000,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                "uniqueItems": true
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "id",
+              "outcome",
+              "reasons",
+              "observation"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "prerequisite",
+                  "guideline",
+                  "analysis"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "outcome": {
+                "enum": [
+                  "pass",
+                  "fail",
+                  "blocked",
+                  "not_evaluated"
+                ]
+              },
+              "reasons": {
+                "type": "array",
+                "maxItems": 1000,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                "uniqueItems": true
+              },
+              "observation": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              }
+            }
+          }
+        ]
+      }
+    },
+    "denominator": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "gaps": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1200
+      },
+      "uniqueItems": true
+    },
+    "outcome": {
+      "enum": [
+        "pass",
+        "fail",
+        "blocked",
+        "not_evaluated"
+      ]
+    },
+    "accepted_claims": {
+      "const": 0
+    },
+    "assurance_domain": {
+      "enum": [
+        "fixture_contract",
+        "production"
+      ]
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date-time",
+      "maxLength": 64
+    },
+    "time_basis": {
+      "const": "untrusted_request"
+    },
+    "origin": {
+      "enum": [
+        "fixture_contract_evaluation",
+        "local_unprotected_evaluation"
+      ]
+    },
+    "assurance_eligibility": {
+      "const": "not_eligible"
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "limitations": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1200
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

@@ -3,7 +3,7 @@
 **Status:** Clang-Tidy, Cppcheck and separate GCC ASan/UBSan capability/run adapters implemented.
 Read-only native import/extraction validation and draft/correction checks are implemented.
 Independent fixture decision replay and guideline coverage are implemented; the remaining
-CodeQL execution and compliance workflow remain planned in [tasks](tasks.md).
+CodeQL execution and engineering reviews remain planned in [tasks](tasks.md).
 
 ## Installed tools
 
@@ -117,6 +117,21 @@ Exit 0 indicates portable closure. Mapping, manual reviews, CodeQL eligibility a
 authority remain gaps; every human question stays pending. See [contract](contracts/packet.md)
 and [verification](packet-acceptance.md). Selected earlier imports and full disposition history
 can be included, with exact current/prior source snapshots and notice associations.
+
+## Independently evaluate compliance blockers
+
+This executed request replays the portable packet and selects current fixture source bytes.
+It invokes no analyzer and exits 1 with blocked production-domain compliance.
+
+```bash
+uv run --frozen score-fabric quality assess --request examples/quality/assessment-unknown.yaml --out /tmp/quality-010-assessment.json --json
+```
+
+A null current baseline selects offline evaluation with unknown source freshness. Fixture
+decisions are reevaluated at the explicit as-of and domain; source/config/validity drift
+prevents reuse. Even an exact packet-bound supporting 005 pass does not adopt guideline
+policy or discharge manual review. See [contract](contracts/assessment.md) and
+[verification](assessment-acceptance.md). No current profile can produce a compliance pass.
 
 ## Remaining increment validation sequence
 

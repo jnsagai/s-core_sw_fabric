@@ -27,7 +27,8 @@ through `quality disposition`, plus [independent fixture decision replay](specs/
 through `quality decision-subject` and `quality decision`, and the
 [guideline coverage matrix](specs/010-misra-quality-and-deviations/coverage-acceptance.md)
 through `quality coverage`, plus [portable review packets](specs/010-misra-quality-and-deviations/packet-acceptance.md)
-through `quality packet`. Its remaining CodeQL/compliance
+through `quality packet`, and [independent compliance blockers](specs/010-misra-quality-and-deviations/assessment-acceptance.md)
+through `quality assess`. Its remaining CodeQL/engineering review
 work is [planned](specs/010-misra-quality-and-deviations/tasks.md). Local `clang-tidy` 19.1.7
 and `codeql` 2.21.4 resolve through `~/.local/bin/`; MISRA pack 2.61.0 is installed separately.
 [Installation evidence](specs/010-misra-quality-and-deviations/evidence/tool-installation.json)

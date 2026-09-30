@@ -106,3 +106,10 @@ disposition history, native/fixture originals and source/tool notice association
 The runtime replays imports, extraction, coverage and current fixture decision validity
 from portable originals, retains incomplete closure and fixes all human answers at
 `pending_human`. Structural completeness is separate from engineering readiness.
+
+Increment 010 `quality-assessment-request` and `quality-compliance-assessment` schemas
+retain exact original transports, nullable current source closure, native/guideline observations,
+supporting 005 replay/exact packet binding and current fixture disposition validity. Independent
+evaluation and offline replay preserve unknown denominator/freshness and missing primary/manual/
+authority blockers. Overall pass is unavailable under the supported unmapped profile; accepted
+claims remain zero and all engineering reviews remain pending.

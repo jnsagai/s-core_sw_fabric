@@ -65,11 +65,11 @@ records; only independently replayed exact fixture decisions can yield accepted_
 review/authority yield blocked or not_evaluated, with a portable pending-human packet (AC010-13–15).
 
 - [x] T023 [P] [US4] Add coverage tests in tests/contract/test_quality_coverage.py: unknown denominator, missing declared rows, unsupported/audit/manual/excluded mechanisms and changed applicability remain visible; zero accepted claims with required gaps (SC010-04; 010-R05/R09).
-- [ ] T024 [P] [US4] Add portable packet/assessment tests in tests/contract/test_quality_assessment.py for raw-byte/source/license closure, all origins, pending_human answers, fixture/protected separation and positive local findings never implying production readiness (010-R09/R10/R11).
+- [x] T024 [P] [US4] Add portable packet/assessment tests in tests/contract/test_quality_assessment.py and test_quality_compliance.py for raw-byte/source/license closure, all origins, pending_human answers, fixture/protected separation and positive local findings never implying production readiness (010-R09/R10/R11).
 - [x] T025 [US4] Implement coverage matrix in src/score_sw_fabric/quality/coverage.py with unknown/declared scope and covered/findings_open/pending_manual/unsupported/excluded_pending_review/unknown states; bind categories/applicability/mechanisms/limitations to supplied source refs (010-R05/R09).
 - [x] T026 [US4] Implement portable current/prior-run, baseline/output/extraction/matrix/disposition/license closure and pending_human review questions in src/score_sw_fabric/quality/packet.py; retain all unresolved history and import/local/fixture origins (010-R10/R11).
-- [ ] T027 [US4] Implement independent compliance evaluation in src/score_sw_fabric/quality/assessment.py with fixture_contract/production domains and pass/fail/blocked/not_evaluated outcomes; required missing capabilities/extraction/coverage/decisions block claims (010-R05/R07/R09/R10).
-- [ ] T028 [US4] Wire quality packet/assess into src/score_sw_fabric/cli.py with schema-checked atomic publication and deterministic 0/1/2 exits (010-R11).
+- [x] T027 [US4] Implement independent compliance evaluation in src/score_sw_fabric/quality/assessment.py with fixture_contract/production domains and pass/fail/blocked/not_evaluated outcomes; required missing capabilities/extraction/coverage/decisions block claims (010-R05/R07/R09/R10).
+- [x] T028 [US4] Wire quality packet/assess into src/score_sw_fabric/cli.py with schema-checked atomic publication and deterministic 0/1/2 exits (010-R11).
 
 ## Phase 7: Cross-cutting validation and handoff
 
@@ -217,3 +217,17 @@ remain outside this authorization.
 After this packet slice: 64 tasks, 42 complete, 22 original tasks open. T024 and
 T028 remain open until their assessment portions are implemented. Human T032 remains
 open; structural packet completion never constitutes engineering acceptance.
+
+## Autonomous independent assessment slice (2026-10-01, Lisbon)
+
+The existing seven-hour authorization continues through independent assessment and CLI.
+The supported profile remains unmapped; production and fixture overall compliance cannot
+pass. Human-owned T032 and protected/eligible execution gates are still open.
+
+- [x] T065 Define exact current/offline assessment controls, original transport/source closure, source/decision validity and schemas under contracts/assessment.md.
+- [x] T066 Add independent source/origin/denominator/obligation/tampering/refusal and genuine complementary/fixture decision integration tests before implementation in tests/contract/test_quality_compliance.py and tests/integration/test_quality_compliance.py (assessment portion of T024).
+- [x] T067 Implement independent current/offline evaluation and portable replay in quality/assessment.py; wire quality assess with guarded deterministic publication and 0/1/2 semantics (T027/T028; only blocked overall outcomes are possible with the current unmapped profile).
+- [x] T068 Retain the actual blocked unknown-denominator assessment and record verification, remaining source/CodeQL/owner prerequisites in assessment-acceptance.md and docs/handoff/010-assessment.md.
+
+After assessment: 68 tasks, 49 complete, 19 original tasks open. Detailed remaining work
+is limited to 010; no 011 implementation or human review completion is authorized.

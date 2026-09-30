@@ -122,3 +122,10 @@ history and fixture decision originals. Offline import/matrix/fixture decision r
 needs no original host paths or analyzer execution. Notices explicitly associate with
 selected native source/tool IDs. Structural completeness never discharges compliance gaps
 or pending human questions. All packets have zero accepted claims.
+
+The implemented [assessment contract](contracts/assessment.md) replays original portable
+packet/profile/005 transports and nullable current source closure. Every guideline stays
+visible; missing primary/mapping/manual/authority prerequisites block both domains.
+Supporting exact packet-bound 005 passes do not adopt policy, fixture disposition validity
+is reevaluated at the requested time/domain, and historical correction headers alone cannot
+resolve a finding. Independent replay needs no original host files or analyzer execution.
