@@ -130,14 +130,19 @@ The compiled MISRA pack 2.61.0 is installed separately under
 [Pack resolution](evidence/codeql-packs-resolved.json) succeeded with the additional pack root.
 The pack declares build CLI 2.21.4 and build commit
 `fc4e9643243978bd52ce4481ae1eecab94dabb0b`, which differs from inspected source commit
-`06dc6bc32b05152fbe94dbf341a3e854574c9df5`. Their relationship remains unverified and must be
-reconciled before claiming source/build equivalence. Installation does not establish query execution.
+`06dc6bc32b05152fbe94dbf341a3e854574c9df5`. At installation their relationship was unverified.
+The later [read-only reconciliation](source-reconciliation.md) measures identical Git source
+trees and all 233 included MISRA query/library/suite files. Compiled artifact provenance
+remains unverified; source equality does not reproduce or authenticate the build.
+Installation does not establish query execution.
 
 The Coding Standards manual requires Python 3.9 for reporting/configuration; `time` uses
 Python 3.12, outside that stated requirement. CLI feature support for Python 3.12 is unrelated to
 this reporting requirement. `time` applies a report-source patch to add the MISRA display name;
-record pristine-source/patch hashes if using it. Such modification is not unmodified-distribution
-qualification. MISRA default suite excludes audit/default-disabled checks; the pinned tree has no
+record pristine-source/patch hashes if using it. The later disposable patch probe records
+plain Git's rejection and explicit recount transformation without claiming native Bazel
+patch compatibility. Such modification is not unmodified-distribution qualification.
+MISRA default suite excludes audit/default-disabled checks; the pinned tree has no
 `misra-cpp-audit.qls`. Never invent a suite to satisfy missing coverage.
 
 The wrapper uses shell commands, ignores partial `cquery --keep_going` failure when labels exist,

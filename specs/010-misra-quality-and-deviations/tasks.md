@@ -73,7 +73,7 @@ review/authority yield blocked or not_evaluated, with a portable pending-human p
 
 ## Phase 7: Cross-cutting validation and handoff
 
-- [ ] T029 Verify pinned source/config hashes and read-only native repository status in tests/integration/test_quality_native_sources.py; record absent native CSV and unresolved compiled-pack/source relationship without inventing mappings (010-R01/R02/R11).
+- [x] T029 Verify pinned source/config hashes and read-only native repository status in tests/integration/test_quality_native_sources.py; record absent native CSV, measured identical source trees and unresolved compiled artifact provenance without inventing mappings (010-R01/R02/R11).
 - [ ] T030 Run uv sync --frozen, Ruff, mypy, pytest, uv run --frozen python scripts/check_foundation.py and uv build; record exact commands/outcomes, actual tool runs and unmet native CodeQL/report prerequisites in specs/010-misra-quality-and-deviations/acceptance.md (all SC010 criteria; 010-R11).
 - [ ] T031 Update README.md, docs/backlog/requirements-index.md, docs/backlog/roadmap.md and docs/handoff/010-to-011.md with actual implementation limits and owner-review questions; do not authorize 011 work (010-R10/R11).
 - [ ] T032 Obtain authorized owner review of source/tool confidence, 009 T018, applicability denominator, allowed deviation/recategorization policy and CodeQL eligibility/report configuration; record authenticated decisions or remaining blockers in specs/010-misra-quality-and-deviations/acceptance.md. Human-owned: agents must not check off this task (010-R01/R05/R07/R09).
@@ -231,3 +231,10 @@ pass. Human-owned T032 and protected/eligible execution gates are still open.
 
 After assessment: 68 tasks, 49 complete, 19 original tasks open. Detailed remaining work
 is limited to 010; no 011 implementation or human review completion is authorized.
+
+## Native source reconciliation checkpoint (2026-10-01, Lisbon)
+
+T029 is complete with five environment-selected read-only tests and [measured evidence](source-reconciliation.md).
+The source-tree discrepancy is resolved without changing reviewed locks. Native CSV absence,
+compiled build provenance, reporting and use eligibility remain explicit. Current total: 68 tasks,
+50 complete, 18 original tasks open including human T032. No new engineering acceptance is recorded.
