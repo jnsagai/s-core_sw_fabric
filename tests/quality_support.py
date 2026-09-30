@@ -1,4 +1,4 @@
-"""Selections for genuine local Clang-Tidy adapter tests."""
+"""Selections for genuine local quality adapter tests."""
 
 from __future__ import annotations
 
@@ -45,5 +45,31 @@ def request(tmp_path: Path, kind: str = "run", **overrides: Any) -> Path:
         )
     record.update(overrides)
     path = tmp_path / f"{kind}-request.json"
+    path.write_text(json.dumps(record))
+    return path
+
+
+def complementary_request(
+    tmp_path: Path, adapter: str, kind: str = "run", **overrides: Any
+) -> Path:
+    """Exact selections for independently executed complementary modes."""
+    chain_name = "cppcheck27-local-v1" if adapter == "cppcheck" else "gcc11-sanitizers-local-v1"
+    config_name = (
+        "cppcheck-cpp17-local-v1" if adapter == "cppcheck" else adapter + "-gcc11-local-v1"
+    )
+    chain = ROOT / f"profiles/{chain_name}.yaml"
+    config = ROOT / f"profiles/{config_name}.yaml"
+    path = request(tmp_path, kind)
+    record = json.loads(path.read_text())
+    record["kind"] = (
+        f"quality_{adapter}_{'capability' if kind == 'capabilities' else 'run'}_request"
+    )
+    record["toolchain"] = ref(chain)
+    record["config"] = ref(config)
+    if kind == "run" and adapter != "cppcheck":
+        source = tmp_path / "component/check.cpp"
+        shutil.copy2(ROOT / f"tests/fixtures/quality/sanitizers/{adapter}-seeded/check.cpp", source)
+        record["files"] = [dict(ref(source), path="check.cpp")]
+    record.update(overrides)
     path.write_text(json.dumps(record))
     return path

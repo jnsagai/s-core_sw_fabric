@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-asan-run-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "component",
+    "config",
+    "defines",
+    "expected_units",
+    "files",
+    "include_dirs",
+    "output_limit_bytes",
+    "profile",
+    "protected_roots",
+    "root",
+    "timeout_seconds",
+    "toolchain",
+    "translation_units"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "quality-run-request.schema.json#/properties/schema_version"
+    },
+    "kind": {
+      "const": "quality_asan_run_request"
+    },
+    "component": {
+      "$ref": "quality-run-request.schema.json#/properties/component"
+    },
+    "config": {
+      "$ref": "quality-run-request.schema.json#/properties/config"
+    },
+    "defines": {
+      "$ref": "quality-run-request.schema.json#/properties/defines"
+    },
+    "expected_units": {
+      "$ref": "quality-run-request.schema.json#/properties/expected_units"
+    },
+    "files": {
+      "$ref": "quality-run-request.schema.json#/properties/files"
+    },
+    "include_dirs": {
+      "$ref": "quality-run-request.schema.json#/properties/include_dirs"
+    },
+    "output_limit_bytes": {
+      "$ref": "quality-run-request.schema.json#/properties/output_limit_bytes"
+    },
+    "profile": {
+      "$ref": "quality-run-request.schema.json#/properties/profile"
+    },
+    "protected_roots": {
+      "$ref": "quality-run-request.schema.json#/properties/protected_roots"
+    },
+    "root": {
+      "$ref": "quality-run-request.schema.json#/properties/root"
+    },
+    "timeout_seconds": {
+      "$ref": "quality-run-request.schema.json#/properties/timeout_seconds"
+    },
+    "toolchain": {
+      "$ref": "quality-run-request.schema.json#/properties/toolchain"
+    },
+    "translation_units": {
+      "$ref": "quality-run-request.schema.json#/properties/translation_units"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+schema_version: 1
+kind: quality_cppcheck_configuration
+id: cppcheck-cpp17-local-v1
+status: proposed_local_complementary
+standard: c++17
+language: c++
+enable:
+- warning
+- style
+- performance
+- portability
+- information
+- missingInclude
+platform: unix64
+max_configs: 12
+error_exitcode: 2
+xml_version: 2

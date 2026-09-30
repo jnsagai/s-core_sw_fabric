@@ -92,10 +92,8 @@ def load_profile(data: bytes) -> dict[str, Any]:
     return p
 
 
-def load_toolchain(data: bytes) -> dict[str, Any]:
-    p = version(
-        parse_yaml(data, "/toolchain"), "quality_toolchain_profile", TOOLCHAIN_FIELDS, "/toolchain"
-    )
+def load_toolchain(data: bytes, kind: str = "quality_toolchain_profile") -> dict[str, Any]:
+    p = version(parse_yaml(data, "/toolchain"), kind, TOOLCHAIN_FIELDS, "/toolchain")
     stable_id(p["id"], "/toolchain/id")
     nonempty(p["status"], "/toolchain/status", max_length=64)
     tool = exact(p["tool"], {"path", "sha256", "version"}, "/tool")
@@ -114,6 +112,8 @@ def load_toolchain(data: bytes) -> dict[str, Any]:
         absolute_file({"path": d, "sha256": "0" * 64}, "/library_dirs")
         if not Path(d).is_dir():
             raise InputError("INPUT_NOT_DIRECTORY", "Library directory is unavailable")
-    if any(not any(Path(d).is_relative_to(Path(lib)) for lib in dirs) for d in paths):
+    if kind == "quality_toolchain_profile" and any(
+        not any(Path(d).is_relative_to(Path(lib)) for lib in dirs) for d in paths
+    ):
         raise InputError("INPUT_PATH", "Runtime asset outside selected library directories")
     return p

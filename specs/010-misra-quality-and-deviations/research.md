@@ -1,5 +1,20 @@
 # Increment 010 research
 
+## Complementary adapter measurements (2026-09-30)
+
+The subsequent authorized Cppcheck/ASan/UBSan slice measures actual local probes and seeded/fresh
+corrected runs; see [validation](complementary-acceptance.md) and its nine original-output records.
+GCC 11.4 native `asan` and `ubsan_gcc` selections use flags derived from the pinned
+`sanitizers/features/BUILD.bazel`, including implied debug symbols. The native runtime templates
+are retained exactly and rendered with disposable suppression paths. Selected native suppression
+files contain only comments. Active rules require review and block this adapter slice.
+Actual ASan and UBSan defects each return native exit 55; corrected binaries return 0.
+Cppcheck XML v2 preserves nullPointer/error/CWE and every native location. These measurements
+establish local complementary capability, not MISRA mapping or a qualified system build closure.
+Native assets retain their source IDs, commits, hashes and Apache-2.0 notices. Tool profiles
+separately hash compiler helpers, sanitizer libraries, Cppcheck standard configuration and license
+assets. No reference repository build or source hook runs.
+
 Date: 2026-09-30. Research inspected read-only locked checkouts. The Spec Kit planning workflow
 used two research agents for native policies/tool capabilities and the CodeQL source example.
 No engineering decision was accepted. The user separately authorized installation of Clang-Tidy

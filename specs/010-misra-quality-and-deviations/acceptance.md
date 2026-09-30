@@ -3,6 +3,10 @@
 2026-09-30. Implemented for local complementary use. Full increment 010 is incomplete;
 engineering acceptance remains pending and human-owned T032 is unchecked.
 
+This records the initial Clang-Tidy slice and its historical validation. The subsequent
+[Cppcheck/ASan/UBSan slice](complementary-acceptance.md) implements those additional adapters;
+its current profiles and validation supersede the earlier unimplemented capability status.
+
 ## Implemented scope
 
 `score-fabric quality capabilities` and `score-fabric quality run` support the installed

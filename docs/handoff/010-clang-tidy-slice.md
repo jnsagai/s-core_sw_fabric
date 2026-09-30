@@ -9,8 +9,9 @@ strict pinned selections, disposable analysis, bounded raw output, native diagno
 expected-unit checks and guarded publication. Genuine seed/fix CLI runs retain both reports.
 Six scoped tasks T033–T038 are complete; broader T001–T032 remain unchecked.
 
-Next useful work is optional Cppcheck/ASan/UBSan execution from the remaining US1 tasks,
-then full native-output import/extraction and disposition/coverage interfaces. Reuse the
+Cppcheck/ASan/UBSan execution is now implemented in the subsequent
+[complementary-tools handoff](010-complementary-tools.md). Next useful work is full
+native-output import/extraction, followed by disposition/coverage interfaces. Reuse the
 implemented strict Clang-Tidy foundation; do not duplicate it or silently mark broader tasks done.
 CodeQL execution needs established eligible use, source/build reconciliation and reporting
 prerequisites. Do not promote fixtures, local success or native report strings to approval.

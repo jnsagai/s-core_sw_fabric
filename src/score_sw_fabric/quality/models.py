@@ -1,4 +1,4 @@
-"""Strict inputs and bounded native process capture for the Clang-Tidy slice."""
+"""Strict quality selections and bounded native process capture."""
 
 from __future__ import annotations
 
@@ -60,6 +60,9 @@ class Inputs:
     protected: list[Path]
     data: dict[str, bytes] = field(default_factory=dict)
     gaps: list[str] = field(default_factory=list)
+    adapter: str = "clang-tidy"
+    settings: dict[str, Any] = field(default_factory=dict)
+    assets: dict[str, bytes] = field(default_factory=dict)
 
 
 def digest(data: bytes) -> str:
@@ -83,8 +86,11 @@ def _unique_paths(value: Any, pointer: str, limit: int = 500) -> list[str]:
     return paths
 
 
-def load_inputs(path: Path, operation: str) -> Inputs:
-    kind = "quality_capability_request" if operation == "capabilities" else "quality_run_request"
+def load_inputs(path: Path, operation: str, adapter: str = "clang-tidy") -> Inputs:
+    if adapter not in {"clang-tidy", "cppcheck", "asan", "ubsan"}:
+        raise InputError("ADAPTER_UNSUPPORTED", "Unsupported or combined adapter")
+    prefix = "quality" if adapter == "clang-tidy" else f"quality_{adapter}"
+    kind = prefix + ("_capability_request" if operation == "capabilities" else "_run_request")
     fields = CAPABILITY_FIELDS if operation == "capabilities" else RUN_FIELDS
     r, base = load_request(path, kind, fields)
     for key, low, high in [
@@ -98,17 +104,13 @@ def load_inputs(path: Path, operation: str) -> Inputs:
     cp, cb = input_file(base, r["config"], "/config")
     if len(pb) > 1024 * 1024 or len(tb) > 1024 * 1024 or len(cb) > 1024 * 1024:
         raise InputError("LIMIT_EXCEEDED", "Profile/configuration too large")
-    profile, chain = load_profile(pb), load_toolchain(tb)
-    native_config = next(s for s in profile["native_sources"] if s["id"] == "clang_tidy")
-    if digest(cb) != native_config["sha256"]:
-        raise InputError(
-            "CONFIG_IDENTITY_MISMATCH", "Configuration differs from pinned native bytes"
-        )
-    config = parse_yaml(cb, "/config")
-    if not isinstance(config, dict) or any(k in config for k in ("ExtraArgs", "ExtraArgsBefore")):
-        raise InputError("CONFIG_UNSUPPORTED", "Extra compiler arguments are unsupported")
-    if config.get("InheritParentConfig"):
-        raise InputError("CONFIG_UNSUPPORTED", "Parent configuration inheritance is unsupported")
+    tool_kind = {
+        "clang-tidy": "quality_toolchain_profile",
+        "cppcheck": "quality_cppcheck_toolchain_profile",
+        "asan": "quality_sanitizer_toolchain_profile",
+        "ubsan": "quality_sanitizer_toolchain_profile",
+    }[adapter]
+    profile, chain = load_profile(pb), load_toolchain(tb, tool_kind)
     selected = Inputs(
         r,
         profile,
@@ -116,7 +118,31 @@ def load_inputs(path: Path, operation: str) -> Inputs:
         cb,
         [pp, tp, cp],
         protected_roots(base, r["protected_roots"], "/protected_roots"),
+        adapter=adapter,
     )
+    if adapter == "clang-tidy":
+        native_config = next(s for s in profile["native_sources"] if s["id"] == "clang_tidy")
+        if digest(cb) != native_config["sha256"]:
+            raise InputError(
+                "CONFIG_IDENTITY_MISMATCH", "Configuration differs from pinned native bytes"
+            )
+        config = parse_yaml(cb, "/config")
+        if not isinstance(config, dict) or any(
+            k in config for k in ("ExtraArgs", "ExtraArgsBefore")
+        ):
+            raise InputError("CONFIG_UNSUPPORTED", "Extra compiler arguments are unsupported")
+        if config.get("InheritParentConfig"):
+            raise InputError(
+                "CONFIG_UNSUPPORTED", "Parent configuration inheritance is unsupported"
+            )
+    else:
+        from score_sw_fabric.quality.configuration import load_configuration
+
+        selected.settings, selected.assets, paths = load_configuration(
+            cb, cp.parent, profile, adapter
+        )
+        selected.inputs.extend(paths)
+        selected.protected.extend(p.parent for p in paths)
     selected.inputs.extend(Path(d["path"]) for d in [chain["tool"], *chain["dependencies"]])
     selected.protected.extend(Path(d) for d in chain["library_dirs"])
     if operation == "capabilities":
@@ -164,6 +190,8 @@ def load_inputs(path: Path, operation: str) -> Inputs:
     for name, data in selected.data.items():
         text = data.decode("utf-8", "replace")
         if re.search(r"\bNOLINT(?:NEXTLINE|BEGIN|END)?\b", text):
+            selected.gaps.append("UNAPPROVED_SUPPRESSION")
+        if re.search(r"cppcheck-suppress", text):
             selected.gaps.append("UNAPPROVED_SUPPRESSION")
         for match in re.finditer(
             r'^\s*#\s*(?:include|include_next)\s+([<"])([^>"\n]+)[>"]', text, re.M

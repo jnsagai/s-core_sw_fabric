@@ -1,0 +1,29 @@
+# Local candidate for this workstation. Rebind paths/hashes on another host.
+schema_version: 1
+kind: quality_ubsan_run_request
+profile:
+  path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
+  sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+toolchain:
+  path: /home/jefferson/s-core_sw_fabric/profiles/gcc11-sanitizers-local-v1.yaml
+  sha256: c19f6e1886a08b1f74a66ed4ca0c673acfdd4134af827bd1649e81a162299033
+config:
+  path: /home/jefferson/s-core_sw_fabric/profiles/ubsan-gcc11-local-v1.yaml
+  sha256: 4ce48c83af29d15f40a7b024914ea6da2abd2b3aa49ff865d40489f15d99d086
+timeout_seconds: 30
+output_limit_bytes: 1048576
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/score
+- /tmp/s-core-foundation/references
+component: ubsan_quality_probe
+root: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/sanitizers/ubsan-seeded
+files:
+- path: check.cpp
+  sha256: 596912a56d5016f871eaa7b8d6f530377d0828ce8b82a2025cb99be0f4f3d23e
+translation_units:
+- check.cpp
+expected_units:
+- check.cpp
+include_dirs: []
+defines: []

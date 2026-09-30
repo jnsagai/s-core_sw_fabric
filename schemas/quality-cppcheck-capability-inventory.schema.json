@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-cppcheck-capability-inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "artifacts",
+    "assurance_eligibility",
+    "capability",
+    "configuration",
+    "digest",
+    "engineering_readiness",
+    "gaps",
+    "origin",
+    "outcome",
+    "phases",
+    "profile",
+    "toolchain"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "quality-capability-inventory.schema.json#/properties/schema_version"
+    },
+    "kind": {
+      "const": "quality_cppcheck_capability_inventory"
+    },
+    "artifacts": {
+      "type": "array",
+      "maxItems": 501,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "base64",
+          "bytes",
+          "format",
+          "retained_sha256",
+          "sha256",
+          "truncated",
+          "id",
+          "translation_unit"
+        ],
+        "properties": {
+          "format": {
+            "enum": [
+              "cppcheck-xml",
+              "asan-text",
+              "ubsan-text"
+            ]
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "retained_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "base64": {
+            "type": "string",
+            "maxLength": 22369624
+          },
+          "truncated": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "translation_unit": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "maxLength": 1024
+          }
+        }
+      }
+    },
+    "assurance_eligibility": {
+      "$ref": "quality-capability-inventory.schema.json#/properties/assurance_eligibility"
+    },
+    "capability": {
+      "$ref": "quality-capability-inventory.schema.json#/properties/capability"
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "adapter",
+        "effective"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "adapter": {
+          "const": "cppcheck"
+        },
+        "effective": {
+          "type": "object"
+        }
+      }
+    },
+    "digest": {
+      "$ref": "quality-capability-inventory.schema.json#/properties/digest"
+    },
+    "engineering_readiness": {
+      "$ref": "quality-capability-inventory.schema.json#/properties/engineering_readiness"
+    },
+    "gaps": {
+      "$ref": "quality-capability-inventory.schema.json#/properties/gaps"
+    },
+    "origin": {
+      "$ref": "quality-capability-inventory.schema.json#/properties/origin"
+    },
+    "outcome": {
+      "$ref": "quality-capability-inventory.schema.json#/properties/outcome"
+    },
+    "phases": {
+      "type": "array",
+      "maxItems": 506,
+      "items": {
+        "$ref": "quality-capability-inventory.schema.json#/properties/phases/items"
+      }
+    },
+    "profile": {
+      "$ref": "quality-capability-inventory.schema.json#/properties/profile"
+    },
+    "toolchain": {
+      "$ref": "quality-cppcheck-toolchain-profile.schema.json"
+    }
+  }
+}

@@ -484,12 +484,23 @@ SAFETY_SUMMARY_FIELDS = ("outcome", "packet_state", "design_prerequisites")
 def _quality(args: argparse.Namespace) -> int:
     from score_sw_fabric.agents.models import bounded_diagnostic
     from score_sw_fabric.process_source.reader import InputError
-    from score_sw_fabric.quality import capabilities, runner
+    from score_sw_fabric.quality import capabilities, complementary, runner
     from score_sw_fabric.runtime.models import publish
 
     handlers = {"capabilities": capabilities.capabilities, "run": runner.run}
     try:
-        status, record, inputs, protected = handlers[args.quality_command](args.request, args.out)
+        if args.adapter == "clang-tidy":
+            status, record, inputs, protected = handlers[args.quality_command](
+                args.request, args.out
+            )
+        else:
+            complementary_handlers = {
+                "capabilities": complementary.capabilities,
+                "run": complementary.run,
+            }
+            status, record, inputs, protected = complementary_handlers[args.quality_command](
+                args.request, args.adapter, args.out
+            )
         publish(
             args.out, record, inputs=[args.request.absolute(), *inputs], protected_roots=protected
         )
@@ -716,11 +727,14 @@ def main(argv: list[str] | None = None) -> int:
         verify_request.add_argument("--out", type=Path, required=True)
         verify_request.add_argument("--json", action="store_true", dest="as_json")
     quality = commands.add_parser(
-        "quality", help="probe/run local Clang-Tidy; readiness unevaluated"
+        "quality", help="probe/run local complementary tools; readiness unevaluated"
     )
     quality_commands = quality.add_subparsers(dest="quality_command", required=True)
     for name in ("capabilities", "run"):
         quality_request = quality_commands.add_parser(name)
+        quality_request.add_argument(
+            "--adapter", choices=("clang-tidy", "cppcheck", "asan", "ubsan"), default="clang-tidy"
+        )
         quality_request.add_argument("--request", type=Path, required=True)
         quality_request.add_argument("--out", type=Path, required=True)
         quality_request.add_argument("--json", action="store_true", dest="as_json")

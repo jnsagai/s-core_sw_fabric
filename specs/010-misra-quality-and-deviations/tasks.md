@@ -118,6 +118,21 @@ They do not replace T032 or check off owner review.
 - [x] T037 [US1] Verify genuine defect/fix, selected header diagnostics, incomplete scope, compiler failure, suppression, tool/config drift, timeout/truncation and safe publication in tests/contract/test_quality_contracts.py, test_quality_execution.py and tests/integration/test_quality_tools.py (scoped parts of T003/T007/T008).
 - [x] T038 [US1] Record actual CLI outputs and repository validation in specs/010-misra-quality-and-deviations/evidence/, acceptance.md and docs/handoff/010-clang-tidy-slice.md; update README.md and backlog status truthfully (scoped parts of T030/T031).
 
-Current total: 38 tasks; 6 scoped slice tasks complete, all 32 full-increment tasks remain
+At the end of the Clang-Tidy slice: 38 tasks; 6 scoped tasks complete, all 32 full-increment tasks remain
 unchecked because they include broader work or authority. The original 32-task story counts
 above remain the plan for the complete increment. No automatic 011 work is authorized.
+
+## Authorized complementary-tool slice (2026-09-30)
+
+The user's next `go` authorizes Cppcheck and ASan/UBSan adapters and their prerequisites.
+Broader import/decision/coverage work and human-owned T032 stay outside this slice.
+
+- [x] T039 [US1] Define exact adapter selections/configuration/schema contracts in specs/010-misra-quality-and-deviations/contracts/complementary-tools.md and schemas/quality-*.schema.json, retaining the Clang-Tidy version 1 interface.
+- [x] T040 [US1] Add pinned local Cppcheck/GCC/runtime and native feature/template/suppression selections in profiles/ and strict readers in src/score_sw_fabric/quality/configuration.py and models.py.
+- [x] T041 [US1] Write meaningful contract/parser and real seeded/corrected integration tests in tests/contract/test_quality_complementary.py and tests/integration/test_quality_complementary.py before adapter implementation.
+- [x] T042 [US1] Implement bounded Cppcheck XML capability/execution in src/score_sw_fabric/quality/cppcheck.py and separate actual GCC ASan/UBSan build/link/runtime probes/execution in src/score_sw_fabric/quality/sanitizers.py; wire --adapter in src/score_sw_fabric/cli.py.
+- [x] T043 [US1] Record real seed/fix/capability outputs and repository validation in specs/010-misra-quality-and-deviations/evidence/ and complementary-acceptance.md; update quickstart, README.md and docs/handoff/010-complementary-tools.md with remaining blockers.
+
+Current total: 43 tasks, 11 scoped tasks complete; original full-increment T001–T032 remain
+unchecked. Human-owned T032 is pending. No automatic continuation to broader 010 or 011 work
+is authorized by completing this slice.

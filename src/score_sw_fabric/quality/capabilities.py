@@ -41,11 +41,16 @@ def base_record(selected: Inputs, kind: str) -> dict[str, Any]:
                     "PRODUCTION_AUTHORITY_UNAVAILABLE",
                     "TOOL_CONFIDENCE_UNKNOWN",
                     *[
-                        f"ADAPTER_UNIMPLEMENTED:{a['id']}"
+                        (
+                            "CAPABILITY_NOT_SELECTED:"
+                            if a["id"] == "cppcheck"
+                            else "ADAPTER_UNIMPLEMENTED:"
+                        )
+                        + a["id"]
                         for a in selected.profile["analyzers"]
                         if a["id"] != "clang-tidy"
                     ],
-                    *[f"ADAPTER_UNIMPLEMENTED:{a['id']}" for a in selected.profile["sanitizers"]],
+                    *[f"CAPABILITY_NOT_SELECTED:{a['id']}" for a in selected.profile["sanitizers"]],
                 ]
             )
         ),

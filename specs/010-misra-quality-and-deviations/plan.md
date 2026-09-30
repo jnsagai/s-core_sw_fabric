@@ -6,9 +6,11 @@
 
 ## Current implementation slice
 
-The user authorized the Clang-Tidy adapter next. See the [implemented contract](contracts/clang-tidy.md)
-and [slice acceptance](acceptance.md). Six scoped tasks capture completed work; the full plan
-below remains outstanding for other tools, imports, dispositions, coverage and review authority.
+The user authorized Clang-Tidy and then Cppcheck/ASan/UBSan adapters. See the
+[Clang-Tidy contract](contracts/clang-tidy.md), [complementary contract](contracts/complementary-tools.md),
+[initial acceptance](acceptance.md) and [complementary validation](complementary-acceptance.md).
+Eleven scoped tasks capture completed work; the full plan below remains outstanding for CodeQL,
+imports, dispositions, coverage and review authority.
 
 ## Summary
 

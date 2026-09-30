@@ -35,6 +35,51 @@ native_sources:
   native_status: source policy; tailoring pending
   license: Apache-2.0
   notice: Preserve upstream copyright and NOTICE; no MISRA rule text included
+- id: sanitizer_features
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/features/BUILD.bazel
+  sha256: 3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
+- id: asan_runtime
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/templates/asan.env.template
+  sha256: 9e65b0d94fed741c18df299b0e4bbedbbd39f5f384b94d39721ebfcb239ff5ab
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
+- id: asan_suppressions
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/suppressions/asan.supp
+  sha256: 27c9e9ea1f925be8a0021ec78343e7fc057979d2f4f0c9da69e455ac1165c258
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
+- id: ubsan_runtime
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/templates/ubsan.env.template
+  sha256: 2f7f6ed76d89be308e0f9f9c3ecc3ea1e0eee8b003cc2fa2f5d7ae47c0a5c170
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
+- id: ubsan_suppressions
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/suppressions/ubsan.supp
+  sha256: 771127140a9a674ae93d0f04d06f744841c249597c0e4d976d41bd53459fa694
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
 language: c++17
 guideline_edition: MISRA C++:2023
 mapping_state: unknown
@@ -54,9 +99,9 @@ analyzers:
   state: unimplemented
 - id: cppcheck
   role: complementary
-  state: unimplemented
+  state: candidate
 sanitizers:
 - id: asan
-  state: unimplemented
+  state: candidate
 - id: ubsan
-  state: unimplemented
+  state: candidate

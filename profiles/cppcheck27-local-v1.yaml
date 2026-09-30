@@ -1,0 +1,14 @@
+schema_version: 1
+kind: quality_cppcheck_toolchain_profile
+id: cppcheck27-local-v1
+status: candidate_local_not_selected
+tool:
+  path: /usr/bin/cppcheck
+  sha256: d2268c85b26850db5f36f7a3a7a2ae0106377810f4f93988bf4ab636481b4d89
+  version: Cppcheck 2.7
+dependencies:
+- path: /usr/lib/x86_64-linux-gnu/cppcheck/cfg/std.cfg
+  sha256: d734139be930c6c1fd0cabf8be23d7e4680bead20540deca6116ef66b062cffa
+- path: /usr/share/doc/cppcheck/copyright
+  sha256: 7e9e15f45513f9d487a4455cddafc68ed980c10edf885c46e9840347d3e225db
+library_dirs: []

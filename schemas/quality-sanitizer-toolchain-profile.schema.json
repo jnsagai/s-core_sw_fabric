@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-sanitizer-toolchain-profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "dependencies",
+    "id",
+    "library_dirs",
+    "status",
+    "tool"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "quality-toolchain-profile.schema.json#/properties/schema_version"
+    },
+    "kind": {
+      "const": "quality_sanitizer_toolchain_profile"
+    },
+    "dependencies": {
+      "$ref": "quality-toolchain-profile.schema.json#/properties/dependencies"
+    },
+    "id": {
+      "$ref": "quality-toolchain-profile.schema.json#/properties/id"
+    },
+    "library_dirs": {
+      "$ref": "quality-toolchain-profile.schema.json#/properties/library_dirs"
+    },
+    "status": {
+      "$ref": "quality-toolchain-profile.schema.json#/properties/status"
+    },
+    "tool": {
+      "$ref": "quality-toolchain-profile.schema.json#/properties/tool"
+    }
+  }
+}

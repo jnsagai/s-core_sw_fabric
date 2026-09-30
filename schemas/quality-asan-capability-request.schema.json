@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-asan-capability-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "config",
+    "output_limit_bytes",
+    "profile",
+    "protected_roots",
+    "timeout_seconds",
+    "toolchain"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "quality-capability-request.schema.json#/properties/schema_version"
+    },
+    "kind": {
+      "const": "quality_asan_capability_request"
+    },
+    "config": {
+      "$ref": "quality-capability-request.schema.json#/properties/config"
+    },
+    "output_limit_bytes": {
+      "$ref": "quality-capability-request.schema.json#/properties/output_limit_bytes"
+    },
+    "profile": {
+      "$ref": "quality-capability-request.schema.json#/properties/profile"
+    },
+    "protected_roots": {
+      "$ref": "quality-capability-request.schema.json#/properties/protected_roots"
+    },
+    "timeout_seconds": {
+      "$ref": "quality-capability-request.schema.json#/properties/timeout_seconds"
+    },
+    "toolchain": {
+      "$ref": "quality-capability-request.schema.json#/properties/toolchain"
+    }
+  }
+}

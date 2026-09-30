@@ -1,0 +1,15 @@
+schema_version: 1
+kind: quality_sanitizer_configuration
+id: ubsan-gcc11-local-v1
+status: proposed_local_candidate
+mode: ubsan
+feature: ubsan_gcc
+native_features:
+  path: /home/jefferson/s-core_sw_fabric/profiles/native-quality/sanitizer-features.bazel
+  sha256: 3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c
+native_runtime:
+  path: /home/jefferson/s-core_sw_fabric/profiles/native-quality/ubsan.env.template
+  sha256: 2f7f6ed76d89be308e0f9f9c3ecc3ea1e0eee8b003cc2fa2f5d7ae47c0a5c170
+native_suppressions:
+  path: /home/jefferson/s-core_sw_fabric/profiles/native-quality/ubsan.supp
+  sha256: 771127140a9a674ae93d0f04d06f744841c249597c0e4d976d41bd53459fa694

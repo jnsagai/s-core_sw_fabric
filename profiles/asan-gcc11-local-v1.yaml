@@ -1,0 +1,15 @@
+schema_version: 1
+kind: quality_sanitizer_configuration
+id: asan-gcc11-local-v1
+status: proposed_local_candidate
+mode: asan
+feature: asan
+native_features:
+  path: /home/jefferson/s-core_sw_fabric/profiles/native-quality/sanitizer-features.bazel
+  sha256: 3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c
+native_runtime:
+  path: /home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.env.template
+  sha256: 9e65b0d94fed741c18df299b0e4bbedbbd39f5f384b94d39721ebfcb239ff5ab
+native_suppressions:
+  path: /home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.supp
+  sha256: 27c9e9ea1f925be8a0021ec78343e7fc057979d2f4f0c9da69e455ac1165c258

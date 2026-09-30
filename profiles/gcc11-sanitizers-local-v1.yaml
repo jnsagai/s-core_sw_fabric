@@ -1,0 +1,25 @@
+schema_version: 1
+kind: quality_sanitizer_toolchain_profile
+id: gcc11-sanitizers-local-v1
+status: candidate_local_not_selected
+tool:
+  path: /usr/bin/x86_64-linux-gnu-g++-11
+  sha256: 2360901d864cf10bfd6296e261cb2c14053552a80377761ab07146ec9ec9a2c0
+  version: x86_64-linux-gnu-g++-11 (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+dependencies:
+- path: /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus
+  sha256: 283421000e15a9152de4affe89ac2e528f3e0bcf2038b245171a17d8a912ace9
+- path: /usr/lib/gcc/x86_64-linux-gnu/11/collect2
+  sha256: 74da9a263cce4582f98c7995d04fa52110c8366d65cba1c5bc976a00f1b3f14b
+- path: /usr/bin/x86_64-linux-gnu-as
+  sha256: 4e6b50c3faaa834150db32be778fd7d9440a4e1f5fa8beb8a72277b12159d689
+- path: /usr/bin/x86_64-linux-gnu-ld.bfd
+  sha256: 58937fc20c21e147883b4fdaa0fc7438a8e8f2bb886cfcaa4896100ca91139e7
+- path: /usr/lib/x86_64-linux-gnu/libasan.so.6.0.0
+  sha256: 66dd4c48dabb1f0a722b164786c1432447d017e562e6beb68ca96bbf0cfe178b
+- path: /usr/lib/x86_64-linux-gnu/libubsan.so.1.0.0
+  sha256: b2ff12501a22d25610067af24ec7c9dcc29a44fa7ec94916a0e193e12daff5f5
+- path: /usr/share/doc/gcc-11-base/copyright
+  sha256: c2ff6bea4ff8eb81e93a10878e3a03db5015051b32272b363a6f23d3b86b11a2
+library_dirs:
+- /usr/lib/x86_64-linux-gnu

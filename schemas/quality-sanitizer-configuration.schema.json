@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-sanitizer-configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "status",
+    "mode",
+    "feature",
+    "native_features",
+    "native_runtime",
+    "native_suppressions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "quality_sanitizer_configuration"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "mode": {
+      "enum": [
+        "asan",
+        "ubsan"
+      ]
+    },
+    "feature": {
+      "enum": [
+        "asan",
+        "ubsan_gcc"
+      ]
+    },
+    "native_features": {
+      "$ref": "quality-run-request.schema.json#/properties/config"
+    },
+    "native_runtime": {
+      "$ref": "quality-run-request.schema.json#/properties/config"
+    },
+    "native_suppressions": {
+      "$ref": "quality-run-request.schema.json#/properties/config"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "mode": {
+          "const": "asan"
+        },
+        "feature": {
+          "const": "asan"
+        }
+      }
+    },
+    {
+      "properties": {
+        "mode": {
+          "const": "ubsan"
+        },
+        "feature": {
+          "const": "ubsan_gcc"
+        }
+      }
+    }
+  ]
+}

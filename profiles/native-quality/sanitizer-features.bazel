@@ -1,0 +1,222 @@
+# *******************************************************************************
+# Copyright (c) 2026 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc/toolchains:args.bzl", "cc_args")
+load("@rules_cc//cc/toolchains:feature.bzl", "cc_feature")
+load("@rules_cc//cc/toolchains:mutually_exclusive_category.bzl", "cc_mutually_exclusive_category")
+
+cc_mutually_exclusive_category(
+    name = "asan_tsan",
+    visibility = ["//visibility:public"],
+)
+
+cc_mutually_exclusive_category(
+    name = "lsan_tsan",
+    visibility = ["//visibility:public"],
+)
+
+cc_mutually_exclusive_category(
+    name = "asan_tysan",
+    visibility = ["//visibility:public"],
+)
+
+cc_mutually_exclusive_category(
+    name = "lsan_tysan",
+    visibility = ["//visibility:public"],
+)
+
+cc_mutually_exclusive_category(
+    name = "tsan_tysan",
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "debug_symbols_args",
+    actions = [
+        "@rules_cc//cc/toolchains/actions:compile_actions",
+    ],
+    args = ["-g1"],
+    visibility = ["//visibility:public"],
+)
+
+cc_feature(
+    name = "debug_symbols",
+    args = [":debug_symbols_args"],
+    feature_name = "debug_symbols",
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "asan_compile_args",
+    actions = ["@rules_cc//cc/toolchains/actions:compile_actions"],
+    args = ["-fsanitize=address"],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "asan_link_args",
+    actions = ["@rules_cc//cc/toolchains/actions:link_actions"],
+    args = ["-fsanitize=address"],
+    visibility = ["//visibility:public"],
+)
+
+cc_feature(
+    name = "asan",
+    args = [
+        ":asan_compile_args",
+        ":asan_link_args",
+    ],
+    feature_name = "score_asan",
+    implies = ["debug_symbols"],
+    mutually_exclusive = [
+        ":asan_tsan",
+        ":asan_tysan",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "ubsan_compile_args",
+    actions = ["@rules_cc//cc/toolchains/actions:compile_actions"],
+    args = ["-fsanitize=undefined"],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "ubsan_link_args_base",
+    actions = ["@rules_cc//cc/toolchains/actions:link_actions"],
+    args = ["-fsanitize=undefined"],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "ubsan_link_args_clang_runtime",
+    actions = ["@rules_cc//cc/toolchains/actions:link_actions"],
+    args = ["-fsanitize-link-c++-runtime"],
+    visibility = ["//visibility:public"],
+)
+
+cc_feature(
+    name = "ubsan_base",
+    args = [":ubsan_compile_args", ":ubsan_link_args_base"],
+    feature_name = "score_ubsan_base",
+    implies = ["debug_symbols"],
+    visibility = ["//visibility:public"],
+)
+
+cc_feature(
+    name = "ubsan_gcc",
+    feature_name = "score_ubsan_gcc",
+    implies = ["ubsan_base"],
+    visibility = ["//visibility:public"],
+)
+
+cc_feature(
+    name = "ubsan_clang",
+    args = [":ubsan_link_args_clang_runtime"],
+    feature_name = "score_ubsan_clang",
+    implies = ["ubsan_base"],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "lsan_compile_args",
+    actions = ["@rules_cc//cc/toolchains/actions:compile_actions"],
+    args = ["-fsanitize=leak"],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "lsan_link_args",
+    actions = ["@rules_cc//cc/toolchains/actions:link_actions"],
+    args = ["-fsanitize=leak"],
+    visibility = ["//visibility:public"],
+)
+
+cc_feature(
+    name = "lsan",
+    args = [
+        ":lsan_compile_args",
+        ":lsan_link_args",
+    ],
+    feature_name = "score_lsan",
+    implies = ["debug_symbols"],
+    mutually_exclusive = [
+        ":lsan_tsan",
+        ":lsan_tysan",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "tsan_compile_args",
+    actions = ["@rules_cc//cc/toolchains/actions:compile_actions"],
+    args = [
+        "-fsanitize=thread",
+        "-O1",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "tsan_link_args",
+    actions = ["@rules_cc//cc/toolchains/actions:link_actions"],
+    args = ["-fsanitize=thread"],
+    visibility = ["//visibility:public"],
+)
+
+cc_feature(
+    name = "tsan",
+    args = [
+        ":tsan_compile_args",
+        ":tsan_link_args",
+    ],
+    feature_name = "score_tsan",
+    implies = ["debug_symbols"],
+    mutually_exclusive = [
+        ":asan_tsan",
+        ":lsan_tsan",
+        ":tsan_tysan",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "tysan_compile_args",
+    actions = ["@rules_cc//cc/toolchains/actions:compile_actions"],
+    args = ["-fsanitize=type"],
+    visibility = ["//visibility:public"],
+)
+
+cc_args(
+    name = "tysan_link_args",
+    actions = ["@rules_cc//cc/toolchains/actions:link_actions"],
+    args = ["-fsanitize=type"],
+    visibility = ["//visibility:public"],
+)
+
+cc_feature(
+    name = "tysan",
+    args = [
+        ":tysan_compile_args",
+        ":tysan_link_args",
+    ],
+    feature_name = "score_tysan",
+    implies = ["debug_symbols"],
+    mutually_exclusive = [
+        ":asan_tysan",
+        ":lsan_tysan",
+        ":tsan_tysan",
+    ],
+    visibility = ["//visibility:public"],
+)

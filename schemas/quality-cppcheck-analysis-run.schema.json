@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-cppcheck-analysis-run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "artifacts",
+    "assurance_eligibility",
+    "baseline",
+    "capability",
+    "configuration",
+    "diagnostics",
+    "digest",
+    "engineering_readiness",
+    "extraction",
+    "gaps",
+    "origin",
+    "outcome",
+    "phases",
+    "processed_units",
+    "profile",
+    "source_integrity",
+    "toolchain"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "quality-analysis-run.schema.json#/properties/schema_version"
+    },
+    "kind": {
+      "const": "quality_cppcheck_analysis_run"
+    },
+    "artifacts": {
+      "type": "array",
+      "maxItems": 501,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "base64",
+          "bytes",
+          "format",
+          "retained_sha256",
+          "sha256",
+          "truncated",
+          "id",
+          "translation_unit"
+        ],
+        "properties": {
+          "format": {
+            "enum": [
+              "cppcheck-xml",
+              "asan-text",
+              "ubsan-text"
+            ]
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "retained_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "base64": {
+            "type": "string",
+            "maxLength": 22369624
+          },
+          "truncated": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "translation_unit": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "maxLength": 1024
+          }
+        }
+      }
+    },
+    "assurance_eligibility": {
+      "$ref": "quality-analysis-run.schema.json#/properties/assurance_eligibility"
+    },
+    "baseline": {
+      "$ref": "quality-analysis-run.schema.json#/properties/baseline"
+    },
+    "capability": {
+      "$ref": "quality-analysis-run.schema.json#/properties/capability"
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "adapter",
+        "effective"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "adapter": {
+          "const": "cppcheck"
+        },
+        "effective": {
+          "type": "object"
+        }
+      }
+    },
+    "diagnostics": {
+      "$ref": "quality-analysis-run.schema.json#/properties/diagnostics"
+    },
+    "digest": {
+      "$ref": "quality-analysis-run.schema.json#/properties/digest"
+    },
+    "engineering_readiness": {
+      "$ref": "quality-analysis-run.schema.json#/properties/engineering_readiness"
+    },
+    "extraction": {
+      "$ref": "quality-analysis-run.schema.json#/properties/extraction"
+    },
+    "gaps": {
+      "$ref": "quality-analysis-run.schema.json#/properties/gaps"
+    },
+    "origin": {
+      "$ref": "quality-analysis-run.schema.json#/properties/origin"
+    },
+    "outcome": {
+      "$ref": "quality-analysis-run.schema.json#/properties/outcome"
+    },
+    "phases": {
+      "type": "array",
+      "maxItems": 506,
+      "items": {
+        "$ref": "quality-analysis-run.schema.json#/properties/phases/items"
+      }
+    },
+    "processed_units": {
+      "$ref": "quality-analysis-run.schema.json#/properties/processed_units"
+    },
+    "profile": {
+      "$ref": "quality-analysis-run.schema.json#/properties/profile"
+    },
+    "source_integrity": {
+      "$ref": "quality-analysis-run.schema.json#/properties/source_integrity"
+    },
+    "toolchain": {
+      "$ref": "quality-cppcheck-toolchain-profile.schema.json"
+    }
+  }
+}

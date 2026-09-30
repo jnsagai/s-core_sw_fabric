@@ -4,7 +4,8 @@
 
 **Created**: 2026-09-30
 
-**Status**: Clang-Tidy capability/run slice implemented for local complementary use; full 010
+**Status**: Clang-Tidy, Cppcheck and separate GCC ASan/UBSan capability/run adapters implemented
+for local complementary use; full 010
 implementation and engineering acceptance remain pending. The 009 verification/toolchain profiles still await owner
 review (T018). Production authority remains unavailable (005 T009). No compliance acceptance
 or licensed analyzer execution is recorded.

@@ -1,6 +1,7 @@
 # Increment 010 validation guide
 
-**Status:** Clang-Tidy capability/run slice implemented. The full multi-tool, import, disposition
+**Status:** Clang-Tidy, Cppcheck and separate GCC ASan/UBSan capability/run adapters implemented.
+The remaining CodeQL, import, disposition
 and compliance workflow remains planned in [tasks](tasks.md).
 
 ## Installed tools
@@ -33,6 +34,26 @@ The seeded run returns 1 with native diagnostics. It writes no source fixes. See
 [exact contract](contracts/clang-tidy.md) and [actual seed/fix evidence](acceptance.md).
 The corrected synthetic source has a fresh adequate selected-unit run with zero native
 findings; mapping/authority/compliance gaps remain. Output 0 never means engineering acceptance.
+
+## Run Cppcheck or a separate sanitizer mode
+
+These workstation selections use Cppcheck 2.7 and GCC 11.4. Each capability request executes
+a clean real probe; sanitizer probes compile, link and run with the pinned native policy assets.
+The following commands use the implemented CLI:
+
+```bash
+uv run --frozen score-fabric quality capabilities --adapter cppcheck --request examples/quality/cppcheck-capabilities.yaml --out /tmp/cppcheck-capabilities.json --json
+uv run --frozen score-fabric quality run --adapter cppcheck --request examples/quality/cppcheck-run.yaml --out /tmp/cppcheck-run.json --json
+uv run --frozen score-fabric quality capabilities --adapter asan --request examples/quality/asan-capabilities.yaml --out /tmp/asan-capabilities.json --json
+uv run --frozen score-fabric quality run --adapter asan --request examples/quality/asan-run.yaml --out /tmp/asan-run.json --json
+uv run --frozen score-fabric quality capabilities --adapter ubsan --request examples/quality/ubsan-capabilities.yaml --out /tmp/ubsan-capabilities.json --json
+uv run --frozen score-fabric quality run --adapter ubsan --request examples/quality/ubsan-run.yaml --out /tmp/ubsan-run.json --json
+```
+
+Seeded runs exit 1 and preserve native diagnostics. Corrections require fresh source hashes
+and a new run. See [contract](contracts/complementary-tools.md) and
+[actual capability/seed/fix records](complementary-acceptance.md). Active native suppressions,
+incomplete source scope, truncated reports and unexpected runtime exits block clean evidence.
 
 ## Implementation validation sequence
 

@@ -1,0 +1,18 @@
+# Local candidate for this workstation. Rebind paths/hashes on another host.
+schema_version: 1
+kind: quality_cppcheck_capability_request
+profile:
+  path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
+  sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+toolchain:
+  path: /home/jefferson/s-core_sw_fabric/profiles/cppcheck27-local-v1.yaml
+  sha256: 56510cf7603ddd52c5fe39ed862167dcf6a21d29441193b5f3ee55791ab1a8f5
+config:
+  path: /home/jefferson/s-core_sw_fabric/profiles/cppcheck-cpp17-local-v1.yaml
+  sha256: 62ac2e2c9984b7ef1cefb24db6ede6c4ef495630ebd864cc982d108cf609ebe1
+timeout_seconds: 30
+output_limit_bytes: 1048576
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/score
+- /tmp/s-core-foundation/references
