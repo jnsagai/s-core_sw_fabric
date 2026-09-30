@@ -85,3 +85,10 @@ catalogues and field rules from the pinned native checkouts. Runtime checks addi
 native-file SHA-256 bindings, literal-block exclusion, list-table column resolution, native
 attribute rules, 005 assessment replay and exact file-closure binding. Checklist answers are
 always `pending_human`; no 008 record is a safety acceptance.
+
+Increment 009 adds `verification-profile`, `verification-toolchain-profile`,
+`verification-design-request`, `verification-run-request`, `verification-report-request`,
+`verification-design-report`, `verification-run` and `verification-milestone-report` schemas.
+The readers additionally enforce selected file digests, local toolchain hashes/versions,
+native tags and metadata, exact run-history digests and guarded publication. A passing local
+run remains `local_unprotected_execution` and cannot satisfy 005 evidence or design acceptance.

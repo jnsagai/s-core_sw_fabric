@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/verification-design-request-v1.json",
+  "title": "verification_design_request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "profile",
+    "component",
+    "root",
+    "requirements",
+    "design",
+    "sources",
+    "requirement_scope",
+    "protected_roots"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "verification_design_request"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "component": {
+      "type": "string"
+    },
+    "root": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "array"
+    },
+    "design": {
+      "type": "array"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "requirement_scope": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "protected_roots": {
+      "type": "array"
+    }
+  }
+}

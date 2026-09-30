@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/verification-toolchain-profile-v1.json",
+  "title": "cpp_toolchain_profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "status",
+    "compiler",
+    "test_library",
+    "coverage_tool",
+    "standard",
+    "policy",
+    "link_flags"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "cpp_toolchain_profile"
+    },
+    "id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "compiler": {
+      "type": "object"
+    },
+    "test_library": {
+      "type": "object"
+    },
+    "coverage_tool": {
+      "type": "object"
+    },
+    "standard": {
+      "type": "string"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "link_flags": {
+      "type": "array"
+    }
+  }
+}

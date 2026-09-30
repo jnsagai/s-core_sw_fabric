@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/verification-run-request-v1.json",
+  "title": "verification_run_request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "profile",
+    "toolchain",
+    "component",
+    "root",
+    "requirements",
+    "sources",
+    "tests",
+    "include_dirs",
+    "coverage",
+    "timeout_seconds",
+    "protected_roots"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "verification_run_request"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "toolchain": {
+      "type": "object"
+    },
+    "component": {
+      "type": "string"
+    },
+    "root": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "array"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "tests": {
+      "type": "array"
+    },
+    "include_dirs": {
+      "type": "array"
+    },
+    "coverage": {
+      "type": "boolean"
+    },
+    "timeout_seconds": {
+      "type": "integer"
+    },
+    "protected_roots": {
+      "type": "array"
+    }
+  }
+}

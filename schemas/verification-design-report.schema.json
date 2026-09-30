@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/verification-design-report-v1.json",
+  "title": "detailed_design_report v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "profile",
+    "component",
+    "files",
+    "design",
+    "units",
+    "requirements",
+    "findings",
+    "outcome",
+    "engineering_readiness",
+    "limitations",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "detailed_design_report"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "component": {
+      "type": "string"
+    },
+    "files": {
+      "type": "object"
+    },
+    "design": {
+      "type": "array"
+    },
+    "units": {
+      "type": "array"
+    },
+    "requirements": {
+      "type": "array"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "engineering_readiness": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array"
+    },
+    "digest": {
+      "type": "string"
+    }
+  }
+}

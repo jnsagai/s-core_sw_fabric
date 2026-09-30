@@ -14,8 +14,9 @@ protected production decisions, and model calls remain unevaluated. See the
 [004 acceptance record](specs/004-native-artifact-traceability/acceptance.md),
 [004-to-005 handoff](docs/handoff/004-to-005.md), and [roadmap](docs/backlog/roadmap.md).
 Increment 006 (candidate runtime) and increment 007 (agent context and profiles) are implemented
-for disposable use only, and increment 008 (component safety feedback) for fixture
-demonstrations only; see the [008-to-009 handoff](docs/handoff/008-to-009.md).
+for disposable use only. Increment 008 (component safety feedback) and increment 009 (detailed
+design and unit verification) have fixture demonstrations only; see the
+[009 acceptance record](specs/009-design-implementation-and-unit-verification/acceptance.md).
 
 Spec Kit manages development of this fabric. S-CORE owns target engineering semantics
 and work products. Fabro owns workflow execution/run state. APM/MCP supplies supported
@@ -187,6 +188,24 @@ agents are refused; decisions count only from reproduced 005 assessments bound t
 digests, so the fixture demos stop at `awaiting_decision`. Checklist answers stay with the human
 reviewer. See the [008 contract](specs/008-component-safety-feedback/contracts/safety.md) and
 [acceptance record](specs/008-component-safety-feedback/acceptance.md).
+
+### Detailed design and unit verification (009, fixture demonstration)
+
+The `verify` commands read version-1 requests and publish sealed reports:
+
+```bash
+uv run --frozen score-fabric verify design --request DESIGN.yaml --out DESIGN.json --json
+uv run --frozen score-fabric verify run    --request RUN.yaml    --out RUN.json    --json
+uv run --frozen score-fabric verify report --request REPORT.yaml --out REPORT.json --json
+```
+
+`run` compiles the synthetic C++17 telemetry guard with the recorded local GCC/GoogleTest
+candidate, checks native test metadata and imports gcov line and branch counts. A seeded defect
+demonstrates retained failure diagnostics and a changed-source correction. Exits are 0 for a
+successful command, 1 for a published blocked or failed record, and 2 for rejected input with
+prior output preserved. Results are local unprotected execution, ineligible for 005 evidence,
+safety closure or design acceptance. See the [009 contract](specs/009-design-implementation-and-unit-verification/contracts/verification.md)
+and [acceptance record](specs/009-design-implementation-and-unit-verification/acceptance.md).
 
 ## Spec Kit
 

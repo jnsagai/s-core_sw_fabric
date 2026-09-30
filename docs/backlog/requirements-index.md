@@ -41,9 +41,9 @@ Evidence here is fabric development evidence and never target engineering accept
 | FAB-033 | Proposed mitigation acceptance shall remain distinct from implemented mitigation closure. | 008 | Backlog; evidence not yet produced |
 | FAB-034 | AI sufficiency recommendations shall not become accepted native decisions without required review. | 008 | Backlog; evidence not yet produced |
 | FAB-035 | Analysis applicability/exclusions shall have a rationale and source/decision reference. | 008 | Backlog; evidence not yet produced |
-| FAB-036 | Implementation output shall include detailed design and traceable source/build artifacts. | 009 | Backlog; evidence not yet produced |
-| FAB-037 | Actual build/tests shall produce trusted baseline-specific verification evidence. | 009 | Backlog; evidence not yet produced |
-| FAB-038 | Verification failures shall retain evidence and route to the owning engineering artifact. | 009 | Backlog; evidence not yet produced |
+| FAB-036 | Implementation output shall include detailed design and traceable source/build artifacts. | 009 | [009 acceptance](../../specs/009-design-implementation-and-unit-verification/acceptance.md): pinned template and source-tag checks with baseline-bound local build steps; design review pending |
+| FAB-037 | Actual build/tests shall produce trusted baseline-specific verification evidence. | 009 | [009 acceptance](../../specs/009-design-implementation-and-unit-verification/acceptance.md): real local GCC/GoogleTest/gcov results bound to sources, tests, toolchain and flags; unprotected, ineligible for 005 trusted evidence |
+| FAB-038 | Verification failures shall retain evidence and route to the owning engineering artifact. | 009 | [009 acceptance](../../specs/009-design-implementation-and-unit-verification/acceptance.md): seeded defect retains diagnostics, routes to requirement/unit/test, corrected baseline resolves; nondeterminism and attempt budget block |
 | FAB-039 | The initial C++ target profile shall enforce the selected C++17/MISRA C++:2023 policy. | 010 | Backlog; evidence not yet produced |
 | FAB-040 | Analyzer adequacy shall include extraction integrity and applicable rule/manual coverage. | 010 | Backlog; evidence not yet produced |
 | FAB-041 | Findings, deviations, false-positive dispositions, and suppressions shall be traceable and scoped. | 010 | Backlog; evidence not yet produced |

@@ -1,0 +1,139 @@
+# Pinned native verification profile for increment 009, extracted from the listed sources and
+# re-derived by tests/integration/test_verification_native.py. Owner review pending.
+schema_version: 1
+kind: verification_profile
+id: s-core-verification-v1
+status: draft_owner_review_pending
+sources:
+- id: verification_process_reqs
+  repository: https://github.com/eclipse-score/process_description
+  commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+  path: process/process_areas/verification/guidance/verification_process_reqs.rst
+  sha256: e8969129de240560a88c9b69b1352b8068bdb815240dc8a39a2866d5dd6a3144
+- id: verification_templates
+  repository: https://github.com/eclipse-score/process_description
+  commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+  path: process/process_areas/verification/guidance/verification_templates.rst
+  sha256: c02d00d71a96c8e8187570af14cff1c0319b1bb1acba35b44e22bd1e60d2641c
+- id: source_code_link_parser
+  repository: https://github.com/eclipse-score/docs-as-code
+  commit: d5f3de608cdfc034952c57d40979c78d8cd35957
+  path: scripts_bazel/source_code_link_parser.py
+  sha256: 3ffda02e62aa3159ade36ec8caf42e8f72505c3e63f69d60c3c3e81fc792dbf6
+- id: test_xml_parser
+  repository: https://github.com/eclipse-score/docs-as-code
+  commit: d5f3de608cdfc034952c57d40979c78d8cd35957
+  path: src/extensions/score_source_code_linker/xml_parser.py
+  sha256: bc20ae47407296fdda5f0b68742e36e56f9c97132a9f40f2e8a16bf96038a596
+- id: detailed_design_template
+  repository: https://github.com/eclipse-score/module_template
+  commit: c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d
+  path: score/component_example/docs/detailed_design/detailed_design_example.rst
+  sha256: 3304ab138cc0065f4145c26c854538a2dbbf2f46c9ab9902e06f4a2f91f6c27c
+- id: implementation_inspection_checklist
+  repository: https://github.com/eclipse-score/module_template
+  commit: c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d
+  path: score/component_example/docs/detailed_design/chklst_impl_inspection.rst
+  sha256: e0c4f070d8f9ce5f2a42d3be4d188617c5c0313d05552dc60a6222ef3ab59dee
+test_types:
+- fault-injection
+- interface-test
+- requirements-based
+- resource-usage
+derivation_techniques:
+- requirements-analysis
+- design-analysis
+- boundary-values
+- equivalence-classes
+- fuzz-testing
+- error-guessing
+- explorative-testing
+rules:
+- id: gd_req__verification_link_tests
+  check: metadata_values
+  source: verification_process_reqs
+- id: gd_req__verification_checks
+  check: metadata_required
+  source: verification_process_reqs
+- id: gd_req__verification_checks_extended
+  check: requirement_link
+  source: verification_process_reqs
+source_tags:
+- '# req-traceability:'
+- '# req-Id:'
+- '// req-traceability:'
+- '// req-Id:'
+requirement_directives:
+- comp_req
+- aou_req
+design:
+  work_product: wp__sw_implementation
+  sections:
+  - Description
+  - Rationale Behind Decomposition into Units
+  - Static Diagrams for Unit Interactions
+  - Units within the Component
+  diagram_directives:
+  - uml
+  - image
+  source: detailed_design_template
+inspection_checklist:
+- id: IMPL_01_01
+  criterion: Is the design according to guidelines?
+  source: implementation_inspection_checklist
+- id: IMPL_01_02
+  criterion: Is the implementation according to specification?
+  source: implementation_inspection_checklist
+- id: IMPL_01_03
+  criterion: Are the design decisions and constraints documented?
+  source: implementation_inspection_checklist
+- id: IMPL_01_04
+  criterion: Are all external libraries used by the component specified in the detailed design?
+  source: implementation_inspection_checklist
+- id: IMPL_02_01
+  criterion: Are the static and dynamic code analysis reports verified for violations?
+  source: implementation_inspection_checklist
+- id: IMPL_02_02
+  criterion: Do manual checks, that are derived from the coding guideline, find no safety critical error?
+  source: implementation_inspection_checklist
+- id: IMPL_03_01
+  criterion: Do the UID of the interface in component documentation match the implemented interface names
+    of the unit?
+  source: implementation_inspection_checklist
+- id: IMPL_03_02
+  criterion: Are detailed design and source code consistent and is the respective traceability established
+    ?
+  source: implementation_inspection_checklist
+loop:
+  max_attempts: 3
+pending_obligations:
+- id: misra_static_analysis
+  description: MISRA C++:2023, Clang-Tidy and CodeQL analysis with extraction integrity and deviations
+  owner: increment 010
+- id: sanitizers
+  description: Supported sanitizer configurations from score_cpp_policies
+  owner: increment 010
+- id: native_bazel_toolchain
+  description: Native Bazel targets and the selected S-CORE toolchain instead of the local candidate
+  owner: toolchain selection (owner)
+- id: component_feature_integration
+  description: Component and feature integration verification
+  owner: increment 012
+- id: security_analysis
+  description: Applicable security analysis and verification
+  owner: increment 013
+- id: module_readiness_release
+  description: Module verification report, readiness and release authorization
+  owner: increments 014-015
+- id: protected_evidence
+  description: Protected collection so results can become 005 evidence
+  owner: 005 T009 (owner)
+- id: safety_design_acceptance
+  description: Human design acceptance and closure of the 008 mitigations
+  owner: 008 gates (human)
+- id: code_inspection
+  description: Implementation inspection by an authorized reviewer
+  owner: human reviewer
+- id: verification_plan
+  description: Approved verification plan with required methods and structural-coverage expectations
+  owner: project owner

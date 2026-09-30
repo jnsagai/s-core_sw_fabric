@@ -1,0 +1,76 @@
+# Local candidate C++17 toolchain for increment 009 (not the S-CORE Bazel toolchain; not selected).
+# The 'all' warning level of the pinned policy is unavailable: GCC 11.4 rejects the listed flags.
+schema_version: 1
+kind: cpp_toolchain_profile
+id: cpp17-gcc11-gtest-local-v1
+status: candidate_local_not_selected
+compiler:
+  path: /usr/bin/g++
+  sha256: 2360901d864cf10bfd6296e261cb2c14053552a80377761ab07146ec9ec9a2c0
+  version: g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+test_library:
+  name: googletest
+  version: 1.11.0-3
+  include: /usr/include
+  header:
+    path: /usr/include/gtest/gtest.h
+    sha256: f526b475608018a1326dc442f5069b35ef68d43c88ebdfbe6e7d1c8accf96a83
+  libraries:
+  - path: /usr/lib/x86_64-linux-gnu/libgtest.a
+    sha256: f152371c2983c03dde71687ab916b8c068a100e938ffba6cb005ebd458633c7b
+  - path: /usr/lib/x86_64-linux-gnu/libgtest_main.a
+    sha256: 1b43b228410deee7bae3d255e488945bfd8c8e88d5c6e8de52b93c1edfe85103
+coverage_tool:
+  path: /usr/bin/gcov
+  sha256: a0b03a60cd5c590201a9e9305c667cc3e5d8543527496c3f0bb5aefe7e8b1964
+  version: gcov (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+standard: c++17
+policy:
+  source:
+    repository: https://github.com/eclipse-score/score_cpp_policies
+    commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+    path: warnings/gcc/args/linux/BUILD
+    sha256: 90a434a2d2694c19b7ceac8dc8c70bbd48741273b827955fc55b77d3e62eba05
+  selected_levels:
+  - minimal
+  - strict
+  - warnings_as_errors
+  unavailable_levels:
+  - all
+  flags:
+  - -Wall
+  - -Wcast-align
+  - -Wcast-qual
+  - -Wformat-nonliteral
+  - -Wformat-signedness
+  - -Wformat=2
+  - -Wmissing-format-attribute
+  - -Wpointer-arith
+  - -Wredundant-decls
+  - -Wreturn-local-addr
+  - -Wsizeof-array-argument
+  - -Wundef
+  - -Wwrite-strings
+  - -Wodr
+  - -Wreorder
+  - -Wbool-compare
+  - -Wconversion
+  - -Wdouble-promotion
+  - -Wextra
+  - -Winvalid-pch
+  - -Wlogical-not-parentheses
+  - -Wlogical-op
+  - -Wpedantic
+  - -Wswitch-bool
+  - -Wunused-but-set-parameter
+  - -Wvla
+  - -Wnarrowing
+  - -Werror
+  - -Wno-error=deprecated-declarations
+  unsupported_flags:
+  - -Warray-compare
+  - -Wdangling-pointer=2
+  - -Winfinite-recursion
+  - -Wuse-after-free=2
+link_flags:
+- -pthread

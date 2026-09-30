@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/verification-report-request-v1.json",
+  "title": "verification_report_request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "profile",
+    "design_report",
+    "runs",
+    "safety_reports",
+    "protected_roots"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "verification_report_request"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "design_report": {
+      "type": "object"
+    },
+    "runs": {
+      "type": "array"
+    },
+    "safety_reports": {
+      "type": "array"
+    },
+    "protected_roots": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/verification-profile-v1.json",
+  "title": "verification_profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "status",
+    "sources",
+    "test_types",
+    "derivation_techniques",
+    "rules",
+    "source_tags",
+    "requirement_directives",
+    "design",
+    "inspection_checklist",
+    "loop",
+    "pending_obligations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "verification_profile"
+    },
+    "id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "test_types": {
+      "type": "array"
+    },
+    "derivation_techniques": {
+      "type": "array"
+    },
+    "rules": {
+      "type": "array"
+    },
+    "source_tags": {
+      "type": "array"
+    },
+    "requirement_directives": {
+      "type": "array"
+    },
+    "design": {
+      "type": "array"
+    },
+    "inspection_checklist": {
+      "type": "array"
+    },
+    "loop": {
+      "type": "object"
+    },
+    "pending_obligations": {
+      "type": "array"
+    }
+  }
+}

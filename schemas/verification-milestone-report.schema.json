@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/verification-milestone-report-v1.json",
+  "title": "verification_milestone_report v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "component",
+    "profile",
+    "current",
+    "history",
+    "failures",
+    "nondeterminism",
+    "attempts",
+    "requirement_matrix",
+    "mitigation_candidates",
+    "safety_context",
+    "inspection_packet",
+    "pending_obligations",
+    "findings",
+    "outcome",
+    "origin",
+    "assurance_eligibility",
+    "engineering_readiness",
+    "limitations",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "verification_milestone_report"
+    },
+    "component": {
+      "type": "string"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "current": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "history": {
+      "type": "array"
+    },
+    "failures": {
+      "type": "array"
+    },
+    "nondeterminism": {
+      "type": "array"
+    },
+    "attempts": {
+      "type": "object"
+    },
+    "requirement_matrix": {
+      "type": "array"
+    },
+    "mitigation_candidates": {
+      "type": "array"
+    },
+    "safety_context": {
+      "type": "array"
+    },
+    "inspection_packet": {
+      "type": "object"
+    },
+    "pending_obligations": {
+      "type": "array"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "assurance_eligibility": {
+      "type": "string"
+    },
+    "engineering_readiness": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array"
+    },
+    "digest": {
+      "type": "string"
+    }
+  }
+}

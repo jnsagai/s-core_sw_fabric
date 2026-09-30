@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/verification-run-v1.json",
+  "title": "unit_verification_run v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "profile",
+    "toolchain_profile",
+    "policy",
+    "component",
+    "baseline",
+    "build",
+    "execution",
+    "tests",
+    "metadata_findings",
+    "requirements",
+    "coverage",
+    "findings",
+    "origin",
+    "assurance_eligibility",
+    "outcome",
+    "engineering_readiness",
+    "limitations",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "unit_verification_run"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "toolchain_profile": {
+      "type": "object"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "component": {
+      "type": "string"
+    },
+    "baseline": {
+      "type": "object"
+    },
+    "build": {
+      "type": "object"
+    },
+    "execution": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "tests": {
+      "type": "array"
+    },
+    "metadata_findings": {
+      "type": "array"
+    },
+    "requirements": {
+      "type": "array"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "assurance_eligibility": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "engineering_readiness": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array"
+    },
+    "digest": {
+      "type": "string"
+    }
+  }
+}
