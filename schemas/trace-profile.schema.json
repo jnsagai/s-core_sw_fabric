@@ -1,0 +1,58 @@
+{
+  "$id": "https://score.example/schemas/trace-profile.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_rules": {
+      "type": "array"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "exclusion_rules": {
+      "type": "array"
+    },
+    "id": {
+      "type": "string"
+    },
+    "impact_rules": {
+      "type": "array"
+    },
+    "limits": {
+      "type": "object"
+    },
+    "output_rules": {
+      "type": "array"
+    },
+    "path_rules": {
+      "type": "array"
+    },
+    "review": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "version": {
+      "const": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "review",
+    "artifact_rules",
+    "output_rules",
+    "path_rules",
+    "exclusion_rules",
+    "impact_rules",
+    "limits",
+    "digest"
+  ],
+  "title": "Trace Profile",
+  "type": "object"
+}

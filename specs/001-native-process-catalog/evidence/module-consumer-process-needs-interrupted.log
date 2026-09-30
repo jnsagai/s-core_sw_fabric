@@ -1,0 +1,296 @@
+command: /tmp/s-core-001/bin/bazel --batch --output_user_root=/tmp/s-core-001/bazel-process-output build @score_process_description//:needs_json --jobs=2 --verbose_failures
+OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Analyzing: target @@score_process_description+//:needs_json (1 packages loaded, 0 targets configured)
+Analyzing: target @@score_process_description+//:needs_json (1 packages loaded, 0 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (70 packages loaded, 376 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (72 packages loaded, 376 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (90 packages loaded, 376 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (91 packages loaded, 376 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (91 packages loaded, 376 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (239 packages loaded, 3188 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (240 packages loaded, 3190 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (240 packages loaded, 3190 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (240 packages loaded, 3190 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (240 packages loaded, 3190 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (240 packages loaded, 3190 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (243 packages loaded, 5077 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (243 packages loaded, 5077 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (271 packages loaded, 6620 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (273 packages loaded, 8020 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (275 packages loaded, 8946 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (290 packages loaded, 14922 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (304 packages loaded, 17360 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (308 packages loaded, 18130 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (325 packages loaded, 18813 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (325 packages loaded, 18813 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (355 packages loaded, 26366 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (355 packages loaded, 26366 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (355 packages loaded, 26366 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (355 packages loaded, 26366 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (356 packages loaded, 26386 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (357 packages loaded, 26387 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (358 packages loaded, 26395 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (359 packages loaded, 26515 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (359 packages loaded, 26515 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (360 packages loaded, 26633 targets configured)
+
+Bazel received an interrupt
+ERROR: build interrupted
+INFO: Elapsed time: 264.541s, Critical Path: 0.02s
+INFO: 1 process: 1 internal.
+ERROR: Build did NOT complete successfully
+FAILED: 
+
+wrapper_exit_code: 8

@@ -1,0 +1,18 @@
+schema_version: 1
+id: s-core-execution-mapping-v1
+version: 1
+plan_version: 1
+compiler_profile: deterministic-compiler-v1
+review:
+  state: pending
+  reference: null
+rules:
+- id: pending-owner-review
+  instance_ids:
+  - '*'
+  actions: []
+edges: []
+loop_policies: []
+fan_groups: []
+support_files: []
+digest: b40d4f9ab3c5a74926d8d4d7f6f0864644b16a2fbebb89f07a91d168aed38564

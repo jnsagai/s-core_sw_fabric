@@ -1,0 +1,11 @@
+schema_version: 1
+status: design_proposal
+execution_enabled: false
+model_calls_authorized: false
+paid_call_budget: 0
+provider_fallbacks: []
+requested_target_language: cpp17
+coding_guideline_edition: misra_cpp_2023
+reliability_profile: unresolved
+security_relevance: unresolved
+engineering_readiness: not_evaluated

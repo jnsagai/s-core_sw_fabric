@@ -1,0 +1,96 @@
+{
+  "$id": "https://score.example/schemas/artifact-report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bindings": {
+      "type": "object"
+    },
+    "capabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptance": {
+          "const": "not_evaluated"
+        },
+        "engineering_readiness": {
+          "const": "not_evaluated"
+        },
+        "evidence": {
+          "const": "not_evaluated"
+        },
+        "execution": {
+          "const": "not_evaluated"
+        },
+        "registration": {
+          "const": "not_evaluated"
+        },
+        "release": {
+          "const": "not_evaluated"
+        }
+      },
+      "required": [
+        "registration",
+        "execution",
+        "evidence",
+        "acceptance",
+        "engineering_readiness",
+        "release"
+      ],
+      "type": "object"
+    },
+    "coverage": {
+      "type": "array"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "impact": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "kind": {
+      "const": "artifact_report"
+    },
+    "limitations": {
+      "type": "array"
+    },
+    "obligations": {
+      "type": "array"
+    },
+    "observed_traces": {
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "passed",
+        "blocked"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "status",
+    "bindings",
+    "obligations",
+    "coverage",
+    "impact",
+    "findings",
+    "limitations",
+    "capabilities",
+    "digest",
+    "observed_traces"
+  ],
+  "title": "Artifact Report",
+  "type": "object"
+}

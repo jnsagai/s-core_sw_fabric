@@ -1,0 +1,394 @@
+[
+  {
+    "number": 3140,
+    "url": "https://github.com/eclipse-score/score/pull/3140",
+    "state": "open",
+    "merged": false,
+    "head": "da32256d65692eef24c0bbb23d69016a83594239",
+    "inspected_on": "2026-09-27",
+    "issue-comments": {
+      "count": 13,
+      "sha256": "d8abd6d7258ab51187227d5f1aa7befb9e1017c25bb6db2f2c759f24861680ef",
+      "records": [
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5129461955",
+          "state": null,
+          "id": 5129461955,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5163703944",
+          "state": null,
+          "id": 5163703944,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5166907102",
+          "state": null,
+          "id": 5166907102,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5202596190",
+          "state": null,
+          "id": 5202596190,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5202985246",
+          "state": null,
+          "id": 5202985246,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5206437896",
+          "state": null,
+          "id": 5206437896,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5634144505",
+          "state": null,
+          "id": 5634144505,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5679576235",
+          "state": null,
+          "id": 5679576235,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5679634814",
+          "state": null,
+          "id": 5679634814,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5679830312",
+          "state": null,
+          "id": 5679830312,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5679972359",
+          "state": null,
+          "id": 5679972359,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5680101266",
+          "state": null,
+          "id": 5680101266,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#issuecomment-5680477590",
+          "state": null,
+          "id": 5680477590,
+          "path": null
+        }
+      ]
+    },
+    "review-comments": {
+      "count": 8,
+      "sha256": "9e07ed9544ca7991799fe82ff5c6b119a60c5d3bcec66aac1e6054904d104a5a",
+      "records": [
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#discussion_r3747574602",
+          "state": null,
+          "id": 3747574602,
+          "path": "docs/design_decisions/DR-009-infra.rst"
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#discussion_r3747587947",
+          "state": null,
+          "id": 3747587947,
+          "path": "docs/design_decisions/DR-010-infra.rst"
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#discussion_r3795145270",
+          "state": null,
+          "id": 3795145270,
+          "path": "docs/design_decisions/DR-009-infra.rst"
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#discussion_r3795285016",
+          "state": null,
+          "id": 3795285016,
+          "path": "docs/design_decisions/DR-010-infra.rst"
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#discussion_r3948303871",
+          "state": null,
+          "id": 3948303871,
+          "path": "docs/design_decisions/DR-010-infra.rst"
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#discussion_r4013189748",
+          "state": null,
+          "id": 4013189748,
+          "path": "docs/design_decisions/DR-010-infra.rst"
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#discussion_r4015020179",
+          "state": null,
+          "id": 4015020179,
+          "path": "docs/design_decisions/DR-010-infra.rst"
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#discussion_r4034727749",
+          "state": null,
+          "id": 4034727749,
+          "path": "docs/design_decisions/DR-010-infra.rst"
+        }
+      ]
+    },
+    "reviews": {
+      "count": 11,
+      "sha256": "73a7a464a407442cfef7c489c6be7dc5e0f655a1c9bb0a63a4be09bc5e671f18",
+      "records": [
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-4818019030",
+          "state": "CHANGES_REQUESTED",
+          "id": 4818019030,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-4866014878",
+          "state": "DISMISSED",
+          "id": 4866014878,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-4866032915",
+          "state": "DISMISSED",
+          "id": 4866032915,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-4894654677",
+          "state": "CHANGES_REQUESTED",
+          "id": 4894654677,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-4950124535",
+          "state": "COMMENTED",
+          "id": 4950124535,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-4950294675",
+          "state": "COMMENTED",
+          "id": 4950294675,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-5091314423",
+          "state": "APPROVED",
+          "id": 5091314423,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-5130246006",
+          "state": "COMMENTED",
+          "id": 5130246006,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-5206992309",
+          "state": "CHANGES_REQUESTED",
+          "id": 5206992309,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-5209317736",
+          "state": "COMMENTED",
+          "id": 5209317736,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3140#pullrequestreview-5233083223",
+          "state": "COMMENTED",
+          "id": 5233083223,
+          "path": null
+        }
+      ]
+    },
+    "files": {
+      "count": 1,
+      "sha256": "d854abfdfd8052848367c3be9fcaaa045517713b5d9b369ae62fcda83b541940",
+      "records": [
+        {
+          "url": null,
+          "state": null,
+          "id": "d99f47b2f5751589462637b147818ea89959b6f9",
+          "path": "docs/design_decisions/DR-010-infra.rst"
+        }
+      ]
+    },
+    "commits": {
+      "count": 3,
+      "sha256": "fe68b7501a64e407af15b2975bebb2b73d05931ed1b09e64e1348d6da8674af6",
+      "records": [
+        {
+          "url": "https://github.com/eclipse-score/score/commit/75803810658bd0f939b6f0deee181f4bc3a49f92",
+          "state": null,
+          "id": "75803810658bd0f939b6f0deee181f4bc3a49f92",
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/commit/a289d10a3148bbec0ec0b95fc7ca3dc77f3ebed2",
+          "state": null,
+          "id": "a289d10a3148bbec0ec0b95fc7ca3dc77f3ebed2",
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/commit/da32256d65692eef24c0bbb23d69016a83594239",
+          "state": null,
+          "id": "da32256d65692eef24c0bbb23d69016a83594239",
+          "path": null
+        }
+      ]
+    }
+  },
+  {
+    "number": 3188,
+    "url": "https://github.com/eclipse-score/score/pull/3188",
+    "state": "open",
+    "merged": false,
+    "head": "1c87bf2a7b39a803fd23b8b651a76fd2c6d66f7a",
+    "inspected_on": "2026-09-27",
+    "issue-comments": {
+      "count": 10,
+      "sha256": "584bc31f898c12be89df6df7930c2d71269491ef672e3ab0fc74ac86ce6f8f1d",
+      "records": [
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5314049667",
+          "state": null,
+          "id": 5314049667,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5355248637",
+          "state": null,
+          "id": 5355248637,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5355644078",
+          "state": null,
+          "id": 5355644078,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5355789788",
+          "state": null,
+          "id": 5355789788,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5368484929",
+          "state": null,
+          "id": 5368484929,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5368622836",
+          "state": null,
+          "id": 5368622836,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5368793033",
+          "state": null,
+          "id": 5368793033,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5521974218",
+          "state": null,
+          "id": 5521974218,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5524496649",
+          "state": null,
+          "id": 5524496649,
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/pull/3188#issuecomment-5533246990",
+          "state": null,
+          "id": 5533246990,
+          "path": null
+        }
+      ]
+    },
+    "review-comments": {
+      "count": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "records": []
+    },
+    "reviews": {
+      "count": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "records": []
+    },
+    "files": {
+      "count": 1,
+      "sha256": "c0ed2d8bccc1ea981cd7658cd9c30d0be83bbcef665c10dc050a29e4038a072c",
+      "records": [
+        {
+          "url": null,
+          "state": null,
+          "id": "9a4bf380eae0a94f7b67544b50c735c94a20fc64",
+          "path": "docs/design_decisions/DR-011-infra.rst"
+        }
+      ]
+    },
+    "commits": {
+      "count": 6,
+      "sha256": "150fc85e73c6d7bf40b005b95c6ca4145dcb6d75de4a3f6da191aa49ad24e159",
+      "records": [
+        {
+          "url": "https://github.com/eclipse-score/score/commit/84428df5857a8e0a06138010dd5c93b02206af90",
+          "state": null,
+          "id": "84428df5857a8e0a06138010dd5c93b02206af90",
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/commit/b076e6907b99f09a9cda4c552a029b34a17c2d3d",
+          "state": null,
+          "id": "b076e6907b99f09a9cda4c552a029b34a17c2d3d",
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/commit/0d3b6d197514478dee2a275325de3e5ebd996da6",
+          "state": null,
+          "id": "0d3b6d197514478dee2a275325de3e5ebd996da6",
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/commit/6a66810b73f7e8fd7cf8d05f45b76c2fdd0c07f5",
+          "state": null,
+          "id": "6a66810b73f7e8fd7cf8d05f45b76c2fdd0c07f5",
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/commit/c2aea24557ca76637ae52ea2d829c2d31a347d42",
+          "state": null,
+          "id": "c2aea24557ca76637ae52ea2d829c2d31a347d42",
+          "path": null
+        },
+        {
+          "url": "https://github.com/eclipse-score/score/commit/1c87bf2a7b39a803fd23b8b651a76fd2c6d66f7a",
+          "state": null,
+          "id": "1c87bf2a7b39a803fd23b8b651a76fd2c6d66f7a",
+          "path": null
+        }
+      ]
+    }
+  }
+]

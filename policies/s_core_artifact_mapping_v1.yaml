@@ -1,0 +1,36 @@
+schema_version: 1
+id: s-core-artifact-mapping-v1
+version: 1
+review:
+  state: pending
+  reference:
+    owner_review: required
+  fixture_override:
+    state: reviewed
+    reference: fixture-review-004
+rules:
+- id: fixture-artifact
+  selector:
+    applicability: required
+  wrapper_type: document
+  need_type: comp_req
+  cardinality: one_or_more
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      path: specs/004-native-artifact-traceability/research.md
+    pointer: /fixture-policy
+    decision_ref: fixture-review-004
+    rationale: Fixture-only policy for deterministic contract development; not production
+      authority.
+  required_paths:
+  - verification
+origin:
+  kind: reviewed_project_configuration
+  source_ref:
+    path: specs/004-native-artifact-traceability/research.md
+  pointer: /fixture-policy
+  decision_ref: fixture-review-004
+  rationale: Fixture-only policy for deterministic contract development; not production
+    authority.
+digest: 2231028522a16e0a18e612df959cbc88a40b2a39f9cf7c2f2e83bd49e9eb152f

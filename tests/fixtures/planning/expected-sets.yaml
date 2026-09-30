@@ -1,0 +1,27 @@
+schema_version: 1
+fixture_origin: tests/fixtures/planning
+engineering_readiness: not_evaluated
+scenarios:
+  new_component:
+    native_ids: [wp__plan, wp__fdr_reports]
+    scopes: [component, feature, module, platform]
+    expected_coverage_rows: 8
+    expected_instances: 12
+    expected_effective_disposition: create
+  multi_scope_review:
+    review_native_id: wp__fdr_reports
+    purposes: [plan, package]
+    identities_must_be_distinct: true
+  reused_component:
+    requested_disposition: reuse
+    effective_disposition: unresolved
+    required_findings:
+      - AUTHORITY_UNVERIFIED
+      - CLASSIFICATION_APPROVAL_MISSING
+      - CHANGE_REQUEST_ACCEPTANCE_MISSING
+  security_feature:
+    planning_status: blocked
+    required_findings: [NATIVE_SOURCE_CONFLICT]
+  invalid_input:
+    exit_code: 2
+    prior_output_preserved: true

@@ -1,0 +1,60 @@
+command: /tmp/s-core-001/bin/bazel --batch --output_user_root=/tmp/s-core-001/bazel-process-output build @score_process_description//:needs_json --jobs=2 --verbose_failures
+OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+    currently loading: @@score_process_description+//
+Analyzing: target @@score_process_description+//:needs_json (1 packages loaded, 0 targets configured)
+Analyzing: target @@score_process_description+//:needs_json (1 packages loaded, 0 targets configured)
+
+Analyzing: target @@score_process_description+//:needs_json (64 packages loaded, 376 targets configured)
+
+DEBUG: /tmp/s-core-001/bazel-process-output/aa5fbdc9d9c603cc21112e8022deacf1/external/rules_python+/python/private/config_settings.bzl:251:14: The current configuration rules_python config flags is:
+    @@rules_python+//python/config_settings:pip_whl: "auto"
+    @@rules_python+//python/config_settings:pip_whl_glibc_version: ""
+    @@rules_python+//python/config_settings:pip_whl_muslc_version: ""
+    @@rules_python+//python/config_settings:pip_whl_osx_arch: "arch"
+    @@rules_python+//python/config_settings:pip_whl_osx_version: ""
+    @@rules_python+//python/config_settings:py_freethreaded: "no"
+    @@rules_python+//python/config_settings:py_linux_libc: "glibc"
+    @@rules_python+//python/config_settings:python_version: "3.11"
+
+If the value is missing, then the default value is being used, see documentation:
+https://rules-python.readthedocs.io/en/latest/api/rules_python/python/config_settings
+ERROR: /tmp/s-core-001/bazel-process-output/aa5fbdc9d9c603cc21112e8022deacf1/external/rules_python++pip+docs_as_code_hub_env/jinja2/BUILD.bazel:5:12: configurable attribute "actual" in @@rules_python++pip+docs_as_code_hub_env//jinja2:_no_matching_repository doesn't match this configuration: No matching wheel for current configuration's Python version.
+
+The current build configuration's Python version doesn't match any of the Python
+wheels available for this distribution. This distribution supports the following Python
+configuration settings:
+    //_config:is_cp312
+
+To determine the current configuration's Python version, run:
+    `bazel config <config id>` (shown further below)
+
+For the current configuration value see the debug message above that is
+printing the current flag values. If you can't see the message, then re-run the
+build to make it a failure instead by running the build with:
+    --@@rules_python+//python/config_settings:current_config=fail
+
+However, the command above will hide the `bazel config <config id>` message.
+
+
+This instance of @@rules_python++pip+docs_as_code_hub_env//jinja2:_no_matching_repository has configuration identifier 4fd26d4. To inspect its configuration, run: bazel config 4fd26d4.
+
+For more help, see https://bazel.build/docs/configurable-attributes#faq-select-choose-condition.
+
+ERROR: Analysis of target '@@score_process_description+//:needs_json' failed; build aborted: Analysis failed
+INFO: Elapsed time: 11.946s, Critical Path: 0.02s
+INFO: 1 process: 1 internal.
+ERROR: Build did NOT complete successfully
+FAILED: 
+
+wrapper_exit_code: 1

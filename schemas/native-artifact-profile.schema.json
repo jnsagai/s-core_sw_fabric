@@ -1,0 +1,70 @@
+{
+  "$id": "https://score.example/schemas/native-artifact-profile.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_edits": {
+      "type": "object"
+    },
+    "containment": {
+      "type": "object"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "directives": {
+      "type": "object"
+    },
+    "external_references": {
+      "type": "object"
+    },
+    "id": {
+      "type": "string"
+    },
+    "limits": {
+      "type": "object"
+    },
+    "metamodel": {
+      "type": "object"
+    },
+    "native_validator": {
+      "type": "object"
+    },
+    "review": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "source": {
+      "type": "object"
+    },
+    "templates": {
+      "type": "array"
+    },
+    "version": {
+      "const": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "review",
+    "source",
+    "metamodel",
+    "directives",
+    "templates",
+    "allowed_edits",
+    "external_references",
+    "containment",
+    "native_validator",
+    "limits",
+    "digest"
+  ],
+  "title": "Native Artifact Profile",
+  "type": "object"
+}

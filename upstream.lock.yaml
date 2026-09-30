@@ -1,0 +1,288 @@
+schema_version: 1
+inspection_date: '2026-09-27'
+sources:
+- id: score
+  repository: https://github.com/eclipse-score/score
+  commit: e2373d822fc2f6e9a3f8a0538904f3faa39309ea
+  revision_label: v0.7.2-43-ge2373d822fc
+  license: Apache-2.0
+  license_path: LICENSE
+  inspected_on: '2026-09-27'
+  source_paths:
+  - MODULE.bazel
+  - MODULE.bazel.lock
+  - BUILD
+  - docs/conf.py
+  - docs/features/frameworks/feo/safety_planning/index.rst
+  - docs/platform_management_plan/release_management.rst
+  - docs/platform_management_plan/software_verification.rst
+  - docs/contribute/development/cpp/coding_guidelines.rst
+  source_file_sha256:
+    MODULE.bazel: dccf61c5a24bdc996fd125592857516551913fc2c3b5a8dd88fa5c748d60b968
+    MODULE.bazel.lock: 9a7f08fa6381f33093d36f1fcc7a8d1e17de2f15acd70e77cbdbd1aefa09e212
+    BUILD: e14660443e97ffc605cf05041e7b6537f99174653c84afdcc8b19aa96c28f454
+    docs/conf.py: 0ece09ac4bfd8c2003095812e24e49542ebce54a955a5b5be6c96a70408eec02
+    docs/features/frameworks/feo/safety_planning/index.rst: 305c4719d2e1dd37c0c7bf861e2b9964b36a41d9757afa60808e420a6553231c
+    docs/platform_management_plan/release_management.rst: 4122947b5672730281ece1b6ad7976d4a278cfd20fbe8d3ef68517ef08dd9c15
+    docs/platform_management_plan/software_verification.rst: 874381003c8024b57cfa611e1eb529371bd1b115f0f0b94ef00b8edae53e6c5a
+    docs/contribute/development/cpp/coding_guidelines.rst: 472572e9adf89fae175193f82bbb8aff6dc55bf1aa29b65357cb22d4e6b36333
+  verification: source_inspected
+  role: native_catalogue_baseline
+- id: mcp-servers
+  repository: https://github.com/eclipse-score/mcp-servers
+  commit: 29aeaa8251bd006d7ed3b0ea64229ea8589ce826
+  revision_label: 29aeaa8
+  license: Apache-2.0
+  license_path: LICENSE
+  inspected_on: '2026-09-27'
+  source_paths:
+  - apm.yml
+  - packages/apm-setup/apm.yml
+  - packages/context-discipline/apm.yml
+  - packages/context-discipline/src/context_discipline_mcp.py
+  - packages/graphify-codegraph/pyproject.toml
+  source_file_sha256:
+    apm.yml: f592bb53e5a90a0cca0c3218b46e924ecc5ee9f6703c0f1fe30d74595dc8af8e
+    packages/apm-setup/apm.yml: 12f57a0a80921369177e593c7d6bec94b81058776fb794c6d3ff5a80bbf40160
+    packages/context-discipline/apm.yml: 16ac038f0597ff40c949f09fe08ac8258a5a821d1ee2990d4088815ed599c71e
+    packages/context-discipline/src/context_discipline_mcp.py: 6b30d86f7140eb72bb24a978f15f06c9bb0d90232bb545edf88bc6bbdfcd5945
+    packages/graphify-codegraph/pyproject.toml: 9ec2b05d67537e1e1c2a4f225add015ea4f4e140476752bda9ac05e88ab059a9
+  verification: source_inspected
+  role: future_integration_reference
+- id: fabro-nightly
+  repository: https://github.com/fabro-sh/fabro
+  commit: 1b4fb15281ebb724426f9e480dce48d0100ff79b
+  revision_label: v0.362.0-nightly.0-200-g1b4fb1528
+  license: MIT
+  license_path: LICENSE.md
+  inspected_on: '2026-09-27'
+  source_paths:
+  - Cargo.toml
+  - Cargo.lock
+  - docs/public/api-reference/fabro-api.yaml
+  - docs/public/agents/mcp.mdx
+  - docs/public/human-tools/interviews.mdx
+  - docs/public/integrations/deepseek.mdx
+  - docs/public/execution/checkpoints.mdx
+  - lib/components/fabro-llm/src/catalog.rs
+  source_file_sha256:
+    Cargo.toml: a6cd812cfc2513400c2ba37f8c861daefd7099123036af9ffed24622739b338c
+    Cargo.lock: 6c7e174e55528f4d677836045739ba94ddf6b614d187ded849108f6fe84800ee
+    docs/public/api-reference/fabro-api.yaml: b760ef95cb3a7e3b50ea4a8336d7241716533fcb7b4ff6f8a7155b0684df21ed
+    docs/public/agents/mcp.mdx: 6c5fe3d809fd979ab462f723cb498626f804f38c5325ac6428a2259eb7cffac6
+    docs/public/human-tools/interviews.mdx: 59380ad1879b8f1308946940292829b63072e6d1978d419044b6d12a1e448b81
+    docs/public/integrations/deepseek.mdx: d502c03ebd00633eea63bc7bce22d4c7a7f9635051146ec6cc7f3ed3e4fd77f3
+    docs/public/execution/checkpoints.mdx: 68b26ce279154a36a352c6a37fecd50cd0335c88043df6bb8d8c01755a65e64c
+    lib/components/fabro-llm/src/catalog.rs: 77be6f67fbd813077e7cede74e11dcb569989e275bbdb402dc64357466fd1987
+  verification: source_inspected
+  role: runtime_candidate_not_selected
+- id: codeql-coding-standards
+  repository: https://github.com/github/codeql-coding-standards
+  commit: 06dc6bc32b05152fbe94dbf341a3e854574c9df5
+  revision_label: v2.61.0
+  license: MIT
+  license_path: LICENSE.md
+  inspected_on: '2026-09-27'
+  source_paths:
+  - LICENSE.md
+  - README.md
+  - supported_codeql_configs.json
+  - docs/user_manual.md
+  source_file_sha256:
+    LICENSE.md: 7dd4234f17de03a374a77487c8727a7cde3e656d0157cf8efaa9c1dd691c82f3
+    README.md: 903ca3e98c14756d7e51d1968207a01c9d461e18c68cdb3294a6e68c9c20bdfc
+    supported_codeql_configs.json: 199391f73f9900f137878eefd5be6b5950afd3210650ffb70fd62f4b9b06648a
+    docs/user_manual.md: 8ef1034c800019d968aaaf92fe452f9139222c57eb47b35a70e0f8e87548f7da
+  verification: source_inspected
+  role: future_integration_reference
+- id: docs-as-code
+  repository: https://github.com/eclipse-score/docs-as-code
+  commit: d5f3de608cdfc034952c57d40979c78d8cd35957
+  revision_label: v8.2.0
+  license: Apache-2.0
+  license_path: LICENSE
+  inspected_on: '2026-09-27'
+  source_paths:
+  - MODULE.bazel
+  - docs.bzl
+  - src/requirements.txt
+  - src/extensions/score_metamodel/metamodel.yaml
+  - src/extensions/score_metamodel/metamodel-schema.json
+  - src/extensions/score_metamodel/external_needs.py
+  - src/tests/docs_bzl/scenarios/basic_docs/_expected/needs_json/needs.json
+  - src/extensions/score_metamodel/__init__.py
+  - src/tests/docs_bzl/scenarios/reference_integration/modern_module/_expected/needs_json/needs.json
+  source_file_sha256:
+    MODULE.bazel: fb528ac87b54bd86555484c1e6814f9d2cf728a645fbfcd034fd33f9079c49a7
+    docs.bzl: 9db57c44425100feecf25b1dc5166b7decf03b5a22e1a05e78ccfc1a0e2b0ebc
+    src/requirements.txt: 23c4046bfc85ff3f9e41f8363b21bf58c8d0f853f7e828a01efd0ba752bb427f
+    src/extensions/score_metamodel/metamodel.yaml: fe6a3b6af5ea69271e53c57e3a1694dc69d6ff3df16bd1505dc7242db9976290
+    src/extensions/score_metamodel/metamodel-schema.json: c3dc028691cc55e8d8e2c4d8d3804644d6a0f5977f53955c12489c636ffae724
+    src/extensions/score_metamodel/external_needs.py: 0b8176f6143c5d376b52d7e72916cd4649caab82141592aebca95af2e12f3496
+    src/tests/docs_bzl/scenarios/basic_docs/_expected/needs_json/needs.json: b5417cd919a50a434779143b7d960c4d0461bce0f6a69a98e67a676481bbbdd2
+    src/extensions/score_metamodel/__init__.py: bec12171e2f0a0f7c9d889a020712262498dc2b759b5e7f06953ec8a77a9304d
+    src/tests/docs_bzl/scenarios/reference_integration/modern_module/_expected/needs_json/needs.json: 37d5a7f302b4377aeca76fd4d9165ba0c5d85f3d485b499055b37282b47d2671
+  verification: source_inspected
+  role: native_catalogue_baseline
+- id: fabro-stable
+  repository: https://github.com/fabro-sh/fabro
+  commit: 497aaba6f20c1fac052346c39f52e08fabadb179
+  revision_label: v0.254.0
+  license: MIT
+  license_path: LICENSE.md
+  inspected_on: '2026-09-27'
+  source_paths:
+  - Cargo.toml
+  - Cargo.lock
+  - docs/public/agents/mcp.mdx
+  - docs/public/api-reference/fabro-api.yaml
+  - lib/crates/fabro-interview/src/replay.rs
+  - lib/crates/fabro-cli/src/commands/validate.rs
+  source_file_sha256:
+    Cargo.toml: f5777073cc98c40c04e1108ea8e5e4558dfa54ef6012b2514ce524d61ea66366
+    Cargo.lock: 9b3d1d691f44f069c4213216bf41f0f460fdd96cf4707c222423a61194628cbb
+    docs/public/agents/mcp.mdx: 5df25c0f9dcda0d87113e0120e987c12d2a4f52087982f2ee6f21a95ee2c864b
+    docs/public/api-reference/fabro-api.yaml: 0d0a9e14502890f95b01b106401a0d8a2806e6f715fb74e27d481bfea2f7cfec
+    lib/crates/fabro-interview/src/replay.rs: 6df16a4440c897f4cede1726adcbb9ff28bcd8db2516112165276e9f4232a85e
+    lib/crates/fabro-cli/src/commands/validate.rs: 373dace1cde04de3305bfe4c41a72f9f52223577a666a1d033c8c510955255dd
+  verification: source_inspected
+  role: examined_release_missing_required_registry
+- id: module_template
+  repository: https://github.com/eclipse-score/module_template
+  commit: c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d
+  revision_label: c4d4ad0
+  license: Apache-2.0
+  license_path: LICENSE
+  inspected_on: '2026-09-27'
+  source_paths:
+  - MODULE.bazel
+  - docs/module/safety_mgt/module_safety_plan.rst
+  - docs/module/safety_mgt/module_safety_analysis_fdr.rst
+  - score/component_example/docs/safety_analysis/fmea.rst
+  - score/component_example/docs/safety_analysis/dfa.rst
+  - docs/module/security_mgt/module_security_plan.rst
+  source_file_sha256:
+    MODULE.bazel: 8990c30f80f59d63948c53efadb6249f367d010aa2707981da61ae1c6ce369d8
+    docs/module/safety_mgt/module_safety_plan.rst: 936d2d1752c50874f968ea355ebe1af345e58da2d199a54cc6eab226a1fa539e
+    docs/module/safety_mgt/module_safety_analysis_fdr.rst: 84789ff7f8d0cc301987dce64c9bfddf8a6811aa55cb0e9a238134689cb2c7b6
+    score/component_example/docs/safety_analysis/fmea.rst: 5cf246c79eb28b1bae5960df489856b2759a8d4ef190d7c83caa5c86de9689c2
+    score/component_example/docs/safety_analysis/dfa.rst: 182aed5e2cbc7cdf421219f6e913894e271adc2ce854493a22d02278ea2864ad
+    docs/module/security_mgt/module_security_plan.rst: 5e1958c1ba01a33e2111e8f6745b14913287a38f197fec64fc426397d1fe6218
+  verification: source_inspected
+  role: native_catalogue_baseline
+- id: process_description
+  repository: https://github.com/eclipse-score/process_description
+  commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+  revision_label: v2.1.2
+  license: Apache-2.0
+  license_path: LICENSE
+  inspected_on: '2026-09-27'
+  source_paths:
+  - MODULE.bazel
+  - BUILD
+  - process/conf.py
+  - process/process_areas/safety_analysis/safety_analysis_workproducts.rst
+  - process/process_areas/safety_analysis/safety_analysis_workflow.rst
+  - process/process_areas/safety_management/safety_management_workproducts.rst
+  - process/process_areas/release_management/release_workproducts.rst
+  - process/process_areas/verification/verification_workproducts.rst
+  source_file_sha256:
+    MODULE.bazel: 2aec14ac3b6faa6719891ae599adf6d123e24969d79348ef069df1b50770fe54
+    BUILD: 00aba2c2ddf89c3bd2f7b8e18e044505cd7222617c7eec6fa7a9d514d1ac73cf
+    process/conf.py: 8a2f6b8ac5bcaa0e5c6af0306ae178a6c0dc845fbb817e5f0204c85c637c5ceb
+    process/process_areas/safety_analysis/safety_analysis_workproducts.rst: 1172494144afec0732d57531ea2a43e5e26edebfd59ded2966bf3d30373b4af0
+    process/process_areas/safety_analysis/safety_analysis_workflow.rst: 40eddce0baa96ea8a207911e00804e732a4f8747ba36be94f535727d95cc908b
+    process/process_areas/safety_management/safety_management_workproducts.rst: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    process/process_areas/release_management/release_workproducts.rst: 289cf5c73e4f6620fc0f1e03c1b2e89481a777994bc2ac581f3a63517bfef6dd
+    process/process_areas/verification/verification_workproducts.rst: 23034c2f7d81ee2f6a982e8e133ba5bc2c71e97b7cacef29c83304ef9909638e
+  verification: source_inspected
+  role: native_catalogue_baseline
+- id: reference_integration
+  repository: https://github.com/eclipse-score/reference_integration
+  commit: c4084156ccf7df963b7499fe5c2f67764496e8ae
+  revision_label: c408415
+  license: Apache-2.0
+  license_path: LICENSE
+  inspected_on: '2026-09-27'
+  source_paths:
+  - MODULE.bazel
+  - README.md
+  source_file_sha256:
+    MODULE.bazel: e4585234f4bb1ae1f6d490f0ccc5711af166384395484288614f157b2bd15ce6
+    README.md: 98b8751d0baa8963996b21a8d0f5c171a23d5b69306267150e46fb4a74558037
+  verification: source_inspected
+  role: future_integration_reference
+- id: score_cpp_policies
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  revision_label: 9bcfe82
+  license: Apache-2.0
+  license_path: LICENSE
+  inspected_on: '2026-09-27'
+  source_paths:
+  - MODULE.bazel
+  - README.md
+  source_file_sha256:
+    MODULE.bazel: 86c70eed44e77a220a0b5954f2b059f63ebc046fbefd083ece4cde09eb31c5b4
+    README.md: 17cb5f8306e8d0cdb2acfe641aff9577e442fb58dec272e52f17207f2d452c43
+  verification: source_inspected
+  role: future_integration_reference
+- id: spec-kit
+  repository: https://github.com/github/spec-kit
+  commit: e77daa9021d20db26b878f7dfa5640fe5a42d04e
+  revision_label: v1.0.12
+  license: MIT
+  license_path: LICENSE
+  inspected_on: '2026-09-27'
+  source_paths:
+  - pyproject.toml
+  - templates/commands/constitution.md
+  - templates/commands/plan.md
+  source_file_sha256:
+    pyproject.toml: d26436e27b8c2380e2b0a324ae08132f2a762cb2766b017412d6ab08cdeb4491
+    templates/commands/constitution.md: a915ba6ae5fdbd499c143204eab3888b95a0ff0656e2c16b40282375acb5902c
+    templates/commands/plan.md: 206a0386d20b3eed4c087a4d9de247a3e7b2b59348bf3c801fc74f63ca2726a5
+  verification: source_inspected
+  role: installed_development_tool
+- id: time
+  repository: https://github.com/eclipse-score/time
+  commit: 3723ce687e4abc7d6cb4c0efdbbd30455ed7c303
+  revision_label: 3723ce6
+  license: Apache-2.0
+  license_path: LICENSE
+  inspected_on: '2026-09-27'
+  source_paths:
+  - MODULE.bazel
+  - tools/static_analysis/codeql_lint.py
+  - tools/static_analysis/codeql.bzl
+  source_file_sha256:
+    MODULE.bazel: a2a3479cc9a1c881884e2a63f3d3611d1515db340956f8866695943004596d65
+    tools/static_analysis/codeql_lint.py: c4d12aa3d9fb899b5451f3a886f28aef6338f36fde7b56e9801ef5619533ce4d
+    tools/static_analysis/codeql.bzl: d75ee9b100be67aa09f652e7449852a9ab986b1bb36dded8acbbdd7a781f82d4
+  verification: source_inspected
+  role: future_integration_reference
+compatibility:
+  native_catalogue:
+    status: minimal_consumer_build_verified
+    consumer_sources:
+    - score
+    - module_template
+    process_version: 2.1.2
+    docs_as_code_version: 8.2.0
+    sphinx_needs_version: 8.3.1
+    evidence: specs/001-native-process-catalog/acceptance.md
+    consumer_lock: tests/native_consumer/MODULE.bazel.lock
+    native_export_sha256: 931f1a57ff36208807bfd901ab7eee8d6629edfe60e93790f3f45c70407d65f8
+    caveat: The disposable minimal consumer resolved process 2.1.2 against
+      docs-as-code 8.2.0 and passed needs_json plus docs_check. Full score and
+      module_template documentation bundle builds remain unverified.
+  fabro_runtime:
+    status: unresolved
+    reason: Stable v0.254.0 lacks immutable workflow-version registration; nightly
+      source candidate not runtime validated. Resolve before 003/006.
+  time_quality_example:
+    status: declared_not_executed
+    cpp_policies_override: 9e3800913a3a7ac791d5e6fb9e7339d1e65980f9
+    inspected_cpp_policies_head_is_not_override: true
+    codeql_bundle: 2.21.4
+    coding_standards: 2.61.0

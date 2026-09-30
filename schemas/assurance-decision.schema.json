@@ -1,0 +1,302 @@
+{
+  "$id": "https://score.example/schemas/assurance-decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "else": {
+        "not": {
+          "required": [
+            "baseline_change"
+          ]
+        }
+      },
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "no_impact"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "baseline_change"
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "actor_id": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "assurance_domain": {
+      "enum": [
+        "fixture_contract",
+        "production"
+      ]
+    },
+    "authentication_method": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "authority_ref": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "baseline_change": {
+      "additionalProperties": false,
+      "properties": {
+        "changed_bindings": {
+          "items": {
+            "maxLength": 4096,
+            "pattern": "^(?:/(?:subject|policy)/|/as_of$)",
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "current_policy_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "current_subject_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "prior_assessment_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "prior_policy_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "prior_subject_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prior_assessment_digest",
+        "prior_subject_digest",
+        "current_subject_digest",
+        "changed_bindings",
+        "prior_policy_digest",
+        "current_policy_digest"
+      ],
+      "type": "object"
+    },
+    "conditions": {
+      "items": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "decision_id": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "gate_ids": {
+      "items": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10000,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "identity_provider": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "independence": {
+      "additionalProperties": false,
+      "properties": {
+        "checked_relationships": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "result": {
+          "enum": [
+            "passed",
+            "failed",
+            "unknown"
+          ]
+        },
+        "rule_ids": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "rule_ids",
+        "checked_relationships",
+        "result"
+      ],
+      "type": "object"
+    },
+    "issued_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "assurance_decision"
+    },
+    "obligation_ids": {
+      "items": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100000,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "outcome": {
+      "enum": [
+        "approve",
+        "reject",
+        "conditional_approve",
+        "request_changes",
+        "withdraw",
+        "no_impact"
+      ]
+    },
+    "policy_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "rationale": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "receipt_ref": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "role": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "kind": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "purpose": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "purpose"
+      ],
+      "type": "object"
+    },
+    "subject_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "valid_from": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+      "type": "string"
+    },
+    "valid_until": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "decision_id",
+    "assurance_domain",
+    "actor_id",
+    "role",
+    "authority_ref",
+    "identity_provider",
+    "authentication_method",
+    "independence",
+    "subject_digest",
+    "scope",
+    "obligation_ids",
+    "gate_ids",
+    "policy_digest",
+    "outcome",
+    "rationale",
+    "conditions",
+    "issued_at",
+    "valid_from",
+    "valid_until",
+    "supersedes",
+    "receipt_ref",
+    "digest"
+  ],
+  "title": "Assurance Decision",
+  "type": "object"
+}

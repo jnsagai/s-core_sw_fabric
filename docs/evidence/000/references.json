@@ -1,0 +1,173 @@
+{
+  "scope": "read_only_source_baseline_check",
+  "sources": [
+    {
+      "source": "score",
+      "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "MODULE.bazel": true,
+        "MODULE.bazel.lock": true,
+        "BUILD": true,
+        "docs/conf.py": true,
+        "docs/features/frameworks/feo/safety_planning/index.rst": true,
+        "docs/platform_management_plan/release_management.rst": true,
+        "docs/platform_management_plan/software_verification.rst": true,
+        "docs/contribute/development/cpp/coding_guidelines.rst": true
+      }
+    },
+    {
+      "source": "mcp-servers",
+      "commit": "29aeaa8251bd006d7ed3b0ea64229ea8589ce826",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "apm.yml": true,
+        "packages/apm-setup/apm.yml": true,
+        "packages/context-discipline/apm.yml": true,
+        "packages/context-discipline/src/context_discipline_mcp.py": true,
+        "packages/graphify-codegraph/pyproject.toml": true
+      }
+    },
+    {
+      "source": "fabro-nightly",
+      "commit": "1b4fb15281ebb724426f9e480dce48d0100ff79b",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "Cargo.toml": true,
+        "Cargo.lock": true,
+        "docs/public/api-reference/fabro-api.yaml": true,
+        "docs/public/agents/mcp.mdx": true,
+        "docs/public/human-tools/interviews.mdx": true,
+        "docs/public/integrations/deepseek.mdx": true,
+        "docs/public/execution/checkpoints.mdx": true,
+        "lib/components/fabro-llm/src/catalog.rs": true
+      }
+    },
+    {
+      "source": "codeql-coding-standards",
+      "commit": "06dc6bc32b05152fbe94dbf341a3e854574c9df5",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "LICENSE.md": true,
+        "README.md": true,
+        "supported_codeql_configs.json": true,
+        "docs/user_manual.md": true
+      }
+    },
+    {
+      "source": "docs-as-code",
+      "commit": "d5f3de608cdfc034952c57d40979c78d8cd35957",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "MODULE.bazel": true,
+        "docs.bzl": true,
+        "src/requirements.txt": true,
+        "src/extensions/score_metamodel/metamodel.yaml": true,
+        "src/extensions/score_metamodel/metamodel-schema.json": true,
+        "src/extensions/score_metamodel/external_needs.py": true,
+        "src/tests/docs_bzl/scenarios/basic_docs/_expected/needs_json/needs.json": true,
+        "src/extensions/score_metamodel/__init__.py": true,
+        "src/tests/docs_bzl/scenarios/reference_integration/modern_module/_expected/needs_json/needs.json": true
+      }
+    },
+    {
+      "source": "fabro-stable",
+      "commit": "497aaba6f20c1fac052346c39f52e08fabadb179",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "Cargo.toml": true,
+        "Cargo.lock": true,
+        "docs/public/agents/mcp.mdx": true,
+        "docs/public/api-reference/fabro-api.yaml": true,
+        "lib/crates/fabro-interview/src/replay.rs": true,
+        "lib/crates/fabro-cli/src/commands/validate.rs": true
+      }
+    },
+    {
+      "source": "module_template",
+      "commit": "c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "MODULE.bazel": true,
+        "docs/module/safety_mgt/module_safety_plan.rst": true,
+        "docs/module/safety_mgt/module_safety_analysis_fdr.rst": true,
+        "score/component_example/docs/safety_analysis/fmea.rst": true,
+        "score/component_example/docs/safety_analysis/dfa.rst": true,
+        "docs/module/security_mgt/module_security_plan.rst": true
+      }
+    },
+    {
+      "source": "process_description",
+      "commit": "98d1d5f42dad412a09a888ea25e59c62fa6371ce",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "MODULE.bazel": true,
+        "BUILD": true,
+        "process/conf.py": true,
+        "process/process_areas/safety_analysis/safety_analysis_workproducts.rst": true,
+        "process/process_areas/safety_analysis/safety_analysis_workflow.rst": true,
+        "process/process_areas/safety_management/safety_management_workproducts.rst": true,
+        "process/process_areas/release_management/release_workproducts.rst": true,
+        "process/process_areas/verification/verification_workproducts.rst": true
+      }
+    },
+    {
+      "source": "reference_integration",
+      "commit": "c4084156ccf7df963b7499fe5c2f67764496e8ae",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "MODULE.bazel": true,
+        "README.md": true
+      }
+    },
+    {
+      "source": "score_cpp_policies",
+      "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "MODULE.bazel": true,
+        "README.md": true
+      }
+    },
+    {
+      "source": "spec-kit",
+      "commit": "e77daa9021d20db26b878f7dfa5640fe5a42d04e",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "pyproject.toml": true,
+        "templates/commands/constitution.md": true,
+        "templates/commands/plan.md": true
+      }
+    },
+    {
+      "source": "time",
+      "commit": "3723ce687e4abc7d6cb4c0efdbbd30455ed7c303",
+      "status_before": "",
+      "status_after": "",
+      "source_file_hash_matches": {
+        "MODULE.bazel": true,
+        "tools/static_analysis/codeql_lint.py": true,
+        "tools/static_analysis/codeql.bzl": true
+      }
+    }
+  ],
+  "optional_xverse": {
+    "initial_status": "?? .fabro/workflows/xcom-t010-flash-repair/",
+    "final_status": "M automation/backlog_queue.py\n M automation/start_run.py\n M docs/implementation-journal.md\n?? .fabro/workflows/xcom-t010-flash-repair/\n?? .fabro/workflows/xcom-t020-system-repair/\n?? automation/assemble_xcom_target.py\n?? automation/prepare_xcom_delivery_candidate.py\n?? automation/run_xcom_system_tests.py",
+    "assessment": "Changed outside this session; no session write command targeted this optional nondependency."
+  },
+  "license_matches_initial_HEAD": true,
+  "brief_final_sha256": "1021991cd1c45dcd4641f34be3f883493d7a85006ff477a2b5093d0f37864382",
+  "brief_preservation_evidence": "No write command targeted the pre-existing brief; final hash recorded for next session."
+}

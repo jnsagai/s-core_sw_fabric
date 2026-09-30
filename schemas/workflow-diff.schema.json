@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/workflow-diff-v1.json",
+  "title": "Workflow semantic diff v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "before_identity",
+    "after_identity",
+    "changes",
+    "summary",
+    "equivalent"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "before_identity": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "after_identity": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "kind",
+          "subject",
+          "before",
+          "after",
+          "origins",
+          "affected_ids"
+        ],
+        "properties": {
+          "category": {
+            "enum": [
+              "obligation",
+              "node_action",
+              "edge_control_flow",
+              "gate",
+              "permission",
+              "loop_bound",
+              "fan_group",
+              "generated_file",
+              "compiler_baseline",
+              "validator_baseline"
+            ]
+          },
+          "kind": {
+            "enum": [
+              "added",
+              "removed",
+              "modified"
+            ]
+          },
+          "subject": {
+            "type": "string"
+          },
+          "before": {},
+          "after": {},
+          "origins": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "affected_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "obligation",
+        "node_action",
+        "edge_control_flow",
+        "gate",
+        "permission",
+        "loop_bound",
+        "fan_group",
+        "generated_file",
+        "compiler_baseline",
+        "validator_baseline"
+      ],
+      "properties": {
+        "obligation": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "node_action": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "edge_control_flow": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "gate": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "permission": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "loop_bound": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fan_group": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "generated_file": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compiler_baseline": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "validator_baseline": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "equivalent": {
+      "type": "boolean"
+    }
+  }
+}

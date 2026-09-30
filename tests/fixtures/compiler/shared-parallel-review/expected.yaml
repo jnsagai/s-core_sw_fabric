@@ -1,0 +1,4 @@
+scenario: shared-parallel-review
+logical_actions: [prepare, shared_review, package]
+shared_gate_subjects: [obligation-a, obligation-b]
+origin: tests/compiler_support.py

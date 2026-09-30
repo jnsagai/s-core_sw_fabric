@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/planning-profile-v1.json",
+  "title": "S-CORE planning profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "status",
+    "catalogue_digest",
+    "expected_workproduct_count",
+    "supported",
+    "active_revisions",
+    "limits",
+    "source_refs"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "minLength": 1},
+    "version": {"const": 1},
+    "status": {"enum": ["review_draft"]},
+    "catalogue_digest": {"$ref": "#/$defs/sha256"},
+    "expected_workproduct_count": {"const": 74},
+    "supported": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language", "environment", "safety_classification", "security_relevance"],
+      "properties": {
+        "language": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "environment": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "safety_classification": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "security_relevance": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    },
+    "active_revisions": {
+      "type": "array",
+      "minItems": 74,
+      "maxItems": 74,
+      "items": {"$ref": "#/$defs/native_ref"}
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scopes", "rules", "coverage_rows", "instances", "dependency_edges"],
+      "properties": {
+        "scopes": {"const": 1000},
+        "rules": {"const": 10000},
+        "coverage_rows": {"const": 100000},
+        "instances": {"const": 10000},
+        "dependency_edges": {"const": 100000}
+      }
+    },
+    "source_refs": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "native_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "native_id", "native_version"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "native_id": {"type": "string", "minLength": 1},
+        "native_version": {"type": "integer", "const": 1}
+      }
+    }
+  }
+}

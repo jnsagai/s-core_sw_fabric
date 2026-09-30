@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/compile-report-v1.json",
+  "title": "Workflow compile report v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "package_identity",
+    "counts",
+    "capabilities",
+    "diagnostics"
+  ],
+  "properties": {
+    "status": {
+      "const": "compiled_and_validated"
+    },
+    "package_identity": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nodes",
+        "edges",
+        "files"
+      ],
+      "properties": {
+        "nodes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "edges": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "files": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registration",
+        "execution",
+        "evidence",
+        "acceptance",
+        "engineering_readiness",
+        "release"
+      ],
+      "properties": {
+        "registration": {
+          "const": "not_evaluated"
+        },
+        "execution": {
+          "const": "not_evaluated"
+        },
+        "evidence": {
+          "const": "not_evaluated"
+        },
+        "acceptance": {
+          "const": "not_evaluated"
+        },
+        "engineering_readiness": {
+          "const": "not_evaluated"
+        },
+        "release": {
+          "const": "not_evaluated"
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "$id": "https://score.example/schemas/artifact-request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_profile": {
+      "type": "object"
+    },
+    "local_paths": {
+      "type": "object"
+    },
+    "operation": {
+      "enum": [
+        "index",
+        "candidate",
+        "trace"
+      ]
+    },
+    "operations": {
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "output_root": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "plan": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "target_snapshot": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "trace_profile": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "workflow_package": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "target_snapshot",
+    "artifact_profile",
+    "trace_profile",
+    "plan",
+    "workflow_package",
+    "operations",
+    "local_paths",
+    "output_root"
+  ],
+  "title": "Artifact Request",
+  "type": "object"
+}

@@ -1,0 +1,53 @@
+schema_version: 1
+python:
+  minimum: '3.12'
+  observed_shell: 3.13.13
+  verified_uv_environment: 3.12.14
+uv:
+  version: 0.12.17
+spec_kit:
+  release: v1.0.12
+  commit: e77daa9021d20db26b878f7dfa5640fe5a42d04e
+  integration: codex
+  options: --skills
+  global_cli_left_unchanged: 0.14.0
+python_dependencies:
+  lock: uv.lock
+  backend: hatchling==1.32.4
+  runtime:
+  - cryptography==50.0.1
+  - PyYAML==6.0.3
+  development:
+  - ruff==0.16.9
+  - mypy==2.3.1
+  - pytest==9.1.1
+  - types-PyYAML==6.0.12.20260906
+native_docs:
+  status: minimal_consumer_needs_json_and_docs_check_passed
+  bazel: 8.7.0
+  bazelisk: 1.29.0
+  bazelisk_binary_sha256: 5a408715e932c0250d28bd84555f12edbf70117de42f9181691c736eacc4a992
+  bazel_lock: tests/native_consumer/MODULE.bazel.lock
+  evidence: specs/001-native-process-catalog/acceptance.md
+  declared_sphinx_needs: 8.3.1
+  dependency_lock: docs-as-code/src/requirements.txt at upstream.lock.yaml pin
+  boundary: Full score/module_template documentation builds not verified
+fabro:
+  status: unresolved
+  installed_on_path: false
+apm:
+  status: not_verified
+  installed_on_path: false
+  graphify_dependency_from_manifest: graphifyy[mcp]==0.9.53
+codeql:
+  status: not_run
+  bundle_version: 2.21.4
+  bundle_sha256: a94f674bb3c23ea5e9a2ad06b64847dd0277b15014d2517ecd9c41c88e6caa65
+  query_version: 2.61.0
+  query_archive_sha256: a0ab708bfcd06e29b5f1ddaf49470bd5f234aa23de527aa893572a25a6ff7f47
+  query_pack_archive_sha256: fdddef5a7ca1c66ebdbe6c79c60c7b5b6b274dbc3c9ecbc4bb9a0a13cead20a1
+  license_eligibility: unresolved
+live_execution:
+  authorized: false
+  model_calls: 0
+  cost_incurred_by_demonstrators: 0

@@ -1,0 +1,22 @@
+schema_version: 1
+inputs:
+  plan:
+    path: plan.json
+    sha256: e1d9fce7b0f0d73f4cd40a53eb770dba63975e288f99066a3ad14c6d82feca20
+    semantic_digest: c57c689d52cbb7adc37b265c1e6d29c378a9e3c998c3e67764399c5d9cb40dbd
+  execution_mapping:
+    path: execution_mapping.yaml
+    sha256: b4aff55d466691a7d6fee00643cf92ba5504734d791e405a9ff81f97ab51c902
+    semantic_digest: df29ad19b6fbfcc4a2b24306a23bb011096f364a3124a13651e1bd470986e587
+  compiler_profile:
+    path: compiler_profile.yaml
+    sha256: f72e812b7dcb5371d7d0d749540971da5011bbd6bcd5e0f2397542c72b19647d
+    semantic_digest: 5480ba63ba3fe3fea996783d1a580743d14c0a9bfbc15e48c7cc12aab2bd6468
+  validator_profile:
+    path: validator_profile.yaml
+    sha256: c2ced8f4f25a0161d966776201081eb7e3e9d6e54c8046a9abda06e8f1376d37
+    semantic_digest: 6cb4b5c885db91247a75de78a4545d5ff7cb5da911476ceae7a6166be2fe2762
+local_paths:
+  output_root: out
+  protected_roots:
+  - protected

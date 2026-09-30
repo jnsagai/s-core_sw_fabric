@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/runtime-binding-v1.json",
+  "title": "Fabro runtime binding v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "intent_id",
+    "intent_digest",
+    "source_package_digest",
+    "wire_digest",
+    "runtime_commit",
+    "version_id",
+    "run_id",
+    "creation_state",
+    "start_state",
+    "baseline_digest",
+    "native_observation",
+    "reason_codes",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "kind": {"const": "runtime_binding"},
+    "intent_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "intent_digest": {"$ref": "#/$defs/digest"},
+    "source_package_digest": {"$ref": "#/$defs/digest"},
+    "wire_digest": {"$ref": "#/$defs/digest"},
+    "runtime_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "version_id": {"type": ["string", "null"], "maxLength": 256},
+    "run_id": {"type": ["string", "null"], "maxLength": 256},
+    "creation_state": {"enum": ["prepared", "create_in_flight", "run_known", "reconciliation_required"]},
+    "start_state": {"enum": ["not_requested", "start_in_flight", "started", "reconciliation_required"]},
+    "baseline_digest": {"$ref": "#/$defs/digest"},
+    "native_observation": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["observed_at", "response_digest"],
+          "properties": {
+            "observed_at": {"type": "string", "maxLength": 64},
+            "response_digest": {"$ref": "#/$defs/digest"}
+          }
+        }
+      ]
+    },
+    "reason_codes": {"type": "array", "maxItems": 1000, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 128}},
+    "digest": {"$ref": "#/$defs/digest"}
+  },
+  "$defs": {"digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

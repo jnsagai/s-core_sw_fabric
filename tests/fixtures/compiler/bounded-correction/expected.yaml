@@ -1,0 +1,3 @@
+scenario: bounded-correction
+loop_policy: bounded
+origin: tests/compiler_support.py

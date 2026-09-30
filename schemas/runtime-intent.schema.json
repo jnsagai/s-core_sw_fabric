@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/runtime-intent-v1.json",
+  "title": "Fabro runtime intent v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "intent_id",
+    "package_ref",
+    "runtime_profile_ref",
+    "baseline",
+    "start_args",
+    "limits",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "kind": {"const": "runtime_intent"},
+    "intent_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "package_ref": {"$ref": "#/$defs/file_ref"},
+    "runtime_profile_ref": {"$ref": "#/$defs/file_ref"},
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_digest", "process_digest", "policy_digest", "tool_digest", "subject_digest", "evidence_digests"],
+      "properties": {
+        "source_digest": {"$ref": "#/$defs/digest"},
+        "process_digest": {"$ref": "#/$defs/digest"},
+        "policy_digest": {"$ref": "#/$defs/digest"},
+        "tool_digest": {"$ref": "#/$defs/digest"},
+        "subject_digest": {"$ref": "#/$defs/digest"},
+        "evidence_digests": {"type": "array", "maxItems": 10000, "uniqueItems": true, "items": {"$ref": "#/$defs/digest"}}
+      }
+    },
+    "start_args": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_id", "labels"],
+      "properties": {
+        "target_id": {"type": "string", "minLength": 1, "maxLength": 256},
+        "labels": {"type": "object", "maxProperties": 32, "propertyNames": {"maxLength": 64}, "additionalProperties": {"type": "string", "maxLength": 256}}
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timeout_seconds", "event_pages", "output_bytes", "attempts"],
+      "properties": {
+        "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 3600},
+        "event_pages": {"type": "integer", "minimum": 1, "maximum": 10000},
+        "output_bytes": {"type": "integer", "minimum": 1, "maximum": 67108864},
+        "attempts": {"type": "integer", "minimum": 1, "maximum": 100}
+      }
+    },
+    "digest": {"$ref": "#/$defs/digest"}
+  },
+  "$defs": {
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "file_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "semantic_digest"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1, "maxLength": 4096},
+        "sha256": {"$ref": "#/$defs/digest"},
+        "semantic_digest": {"$ref": "#/$defs/digest"}
+      }
+    }
+  }
+}

@@ -1,0 +1,226 @@
+schema_version: 1
+id: fixture-bounded-correction
+version: 1
+plan_version: 1
+compiler_profile: deterministic-compiler-v1
+review:
+  state: reviewed
+  reference:
+    fixture_review: fixture-review-1
+rules:
+- id: fixture-rule
+  instance_ids:
+  - obligation-a
+  - obligation-b
+  actions:
+  - ref: prepare
+    purpose: Execute prepare
+    type: command
+    label: Prepare
+    instance_ids:
+    - obligation-a
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/prepare.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: prepare produced declared evidence
+    evidence_expectation: evidence/prepare.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/prepare
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+  - ref: check
+    purpose: Execute check
+    type: deterministic_check
+    label: Check
+    instance_ids:
+    - obligation-b
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/check.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: check produced declared evidence
+    evidence_expectation: evidence/check.json
+    fallible_outcomes:
+    - failure
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/check
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+  - ref: correct
+    purpose: Execute correct
+    type: command
+    label: Correct
+    instance_ids:
+    - obligation-b
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/correct.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: correct produced declared evidence
+    evidence_expectation: evidence/correct.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/correct
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+edges:
+- source: start
+  target: prepare
+  type: prerequisite
+  outcome: null
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/start-prepare-None
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: prepare
+  target: check
+  type: success
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/prepare-check-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: check
+  target: exit
+  type: success
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/check-exit-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: check
+  target: correct
+  type: failure
+  outcome: failure
+  condition: null
+  loop_id: correction
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/check-correct-failure
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: correct
+  target: check
+  type: retry
+  outcome: success
+  condition: null
+  loop_id: correction
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/correct-check-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+loop_policies:
+- id: correction
+  max_visits: 3
+  retry_target: check
+  exhausted_destination: exit
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /loop_policies/correction
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+fan_groups: []
+support_files: []
+digest: 5a71f505b96543c95b5678e64c8b77910ec29b5f3d8d1cce9b185c355dc4025a

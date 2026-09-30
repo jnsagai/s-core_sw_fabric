@@ -1,0 +1,30 @@
+schema_version: 1
+sources:
+- id: docs_as_code
+  repository: https://github.com/eclipse-score/docs-as-code
+  commit: d5f3de608cdfc034952c57d40979c78d8cd35957
+  root: source
+exports:
+- source_id: docs_as_code
+  path: needs.json
+  sha256: ac6c878010e5a271333de5cafe9db9134e9861e2ecf30d9e60061f6bff5ad65d
+  version: ''
+  relation_owners: {}
+metamodel:
+  source_id: docs_as_code
+  path: src/extensions/score_metamodel/metamodel.yaml
+  sha256: fe6a3b6af5ea69271e53c57e3a1694dc69d6ff3df16bd1505dc7242db9976290
+mounts:
+- source_id: docs_as_code
+  docname_prefix: concepts/example_bundle
+  path_prefix: src/tests/docs_bzl/scenarios/nested_bundles/parent
+provenance:
+  origin: checked_in_expected
+  argv: null
+  toolchain_ref: docs-as-code@v8.2.0 / sphinx-needs==8.3.1
+  build_log_sha256: null
+  exit_code: null
+metamodel_schema:
+  source_id: docs_as_code
+  path: src/extensions/score_metamodel/metamodel-schema.json
+  sha256: c3dc028691cc55e8d8e2c4d8d3804644d6a0f5977f53955c12489c636ffae724

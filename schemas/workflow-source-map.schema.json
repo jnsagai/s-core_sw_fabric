@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/workflow-source-map-v1.json",
+  "title": "Workflow source map v1",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "kind",
+      "id",
+      "output_file",
+      "plan_instance_ids",
+      "origins",
+      "content_binding"
+    ],
+    "properties": {
+      "kind": {
+        "enum": [
+          "node",
+          "edge",
+          "gate",
+          "loop",
+          "fan_group",
+          "file",
+          "renderer_decision"
+        ]
+      },
+      "id": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "output_file": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "plan_instance_ids": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "origins": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "source_ref",
+            "pointer",
+            "decision_ref",
+            "rationale"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "upstream_process",
+                "reviewed_project_configuration",
+                "authorized_human_decision"
+              ]
+            },
+            "source_ref": {
+              "type": "object"
+            },
+            "pointer": {
+              "type": "string"
+            },
+            "decision_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      },
+      "content_binding": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    }
+  }
+}

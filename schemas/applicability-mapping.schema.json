@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/applicability-mapping-v1.json",
+  "title": "S-CORE applicability mapping v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "coverage_basis", "rules", "source_conflicts"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "coverage_basis": {"type": "object"},
+    "rules": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {"$ref": "#/$defs/rule"}
+    },
+    "source_conflicts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/conflict"}
+    }
+  },
+  "$defs": {
+    "native_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "native_id", "native_version"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "native_id": {"type": "string", "minLength": 1},
+        "native_version": {"type": "integer"}
+      }
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "op", "value"],
+      "properties": {
+        "field": {
+          "enum": [
+            "scope_kind",
+            "scope_id",
+            "development_origin",
+            "language",
+            "environment",
+            "safety_classification",
+            "security_relevance",
+            "reuse_route",
+            "has_subcomponents",
+            "relevant_interactions"
+          ]
+        },
+        "op": {"enum": ["eq", "in"]},
+        "value": {}
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_rule", "purpose", "scope_selector"],
+      "properties": {
+        "target_rule": {"type": "string", "minLength": 1},
+        "purpose": {"type": "string", "minLength": 1},
+        "scope_selector": {"enum": ["self", "owning_module", "owning_platform"]}
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "native",
+        "scope_kinds",
+        "scope_selector",
+        "when",
+        "purposes",
+        "dependencies",
+        "rationale",
+        "source_refs",
+        "template_refs",
+        "required_reviews"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "native": {"$ref": "#/$defs/native_ref"},
+        "scope_kinds": {
+          "type": "array",
+          "items": {"enum": ["feature", "component", "module", "platform"]}
+        },
+        "scope_selector": {
+          "enum": [
+            "self",
+            "owning_module",
+            "owning_platform",
+            "affected_components",
+            "affected_features"
+          ]
+        },
+        "when": {"type": "array", "items": {"$ref": "#/$defs/condition"}},
+        "purposes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "dependencies": {"type": "array", "items": {"$ref": "#/$defs/dependency"}},
+        "rationale": {"type": "string", "minLength": 1},
+        "source_refs": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+        "template_refs": {"type": "array", "items": {"type": "object"}},
+        "required_reviews": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "native_refs", "message", "required_action"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "native_refs": {"type": "array", "minItems": 2, "items": {"type": "object"}},
+        "message": {"type": "string", "minLength": 1},
+        "required_action": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

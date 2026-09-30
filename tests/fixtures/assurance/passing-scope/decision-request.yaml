@@ -1,0 +1,33 @@
+as_of: '2026-09-29T10:00:00Z'
+assurance_domain: fixture_contract
+inputs:
+  decisions:
+  - path: tests/fixtures/assurance/passing-scope/decision.json
+    semantic_digest: 535415941a1566ba02ac14f8dff82e85daa5cecc0e5ec9414895be32c2927bd7
+    sha256: fa01f40de65bc632208b95bf3c630717e624c0ff731a887f7090b91fe3d32ead
+  policy:
+    path: tests/fixtures/assurance/passing-scope/policy.json
+    semantic_digest: 3e8081e917f0479a912509bbd5902a3400a9a276f611e58bd0d78b8a504c6a79
+    sha256: 932950427c0f18c41297bdae9d7c4cb498d800989552e835001f260a170846f2
+  receipts:
+  - path: tests/fixtures/assurance/passing-scope/decision-receipt.json
+    semantic_digest: dd99e1363beac3d0106e679ca4cf4b28c10d3a018e69f1a604873532bca77764
+    sha256: 256e70ac20a5e044686bf7e02965e300c16dd48fa99023a2f8828a32e7df0f22
+  subject:
+    path: tests/fixtures/assurance/passing-scope/out/subject.json
+    semantic_digest: a906460d160762aad0bc603078ef3de7ee7a6f547813a573c7e04a7e8c383798
+    sha256: 624aa949ca0acaf9e172fb31c1290480e5cdeb38d24b16148389d7a85009bb22
+  trust_profile:
+    path: profiles/assurance-fixture-v1.yaml
+    semantic_digest: 0d970ef5c4b03c2b9097e2cd0cca7d3b943a52c1977f1dc178c5f28d52c36939
+    sha256: 1eb98ac63662b3202274931811112b635aeb79a514a4d2e203c9eaba48f0f08f
+local_paths:
+  protected_roots:
+  - tests/fixtures/artifacts/component/target
+operation: decision
+output_root: tests/fixtures/assurance/passing-scope/out
+schema_version: 1
+scope:
+  id: component-005
+  kind: component
+  purpose: fixture verification

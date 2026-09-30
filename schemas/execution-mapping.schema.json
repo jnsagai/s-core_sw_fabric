@@ -1,0 +1,486 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/execution-mapping-v1.json",
+  "title": "Reviewed execution mapping v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "plan_version",
+    "compiler_profile",
+    "review",
+    "rules",
+    "edges",
+    "loop_policies",
+    "fan_groups",
+    "support_files",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "const": 1
+    },
+    "plan_version": {
+      "const": 1
+    },
+    "compiler_profile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "reference"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "pending",
+            "reviewed"
+          ]
+        },
+        "reference": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "instance_ids",
+          "actions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "instance_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "actions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "ref",
+                "purpose",
+                "type",
+                "label",
+                "instance_ids",
+                "role",
+                "allowed_inputs",
+                "allowed_paths",
+                "expected_outputs",
+                "data_destinations",
+                "write_scope",
+                "tool_profile",
+                "model_capability",
+                "budget",
+                "completion_predicate",
+                "evidence_expectation",
+                "fallible_outcomes",
+                "prohibited_authority",
+                "support_files",
+                "origin"
+              ],
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "purpose": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "role": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "tool_profile": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "model_capability": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "completion_predicate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence_expectation": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "type": {
+                  "enum": [
+                    "agent",
+                    "prompt",
+                    "command",
+                    "deterministic_check",
+                    "human",
+                    "conditional",
+                    "parallel",
+                    "parallel_fan_in"
+                  ]
+                },
+                "instance_ids": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "allowed_inputs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "allowed_paths": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "expected_outputs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "data_destinations": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "write_scope": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "fallible_outcomes": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "prohibited_authority": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "support_files": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "budget": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "wall_time_seconds",
+                    "attempts",
+                    "tool_calls",
+                    "input_tokens",
+                    "output_tokens",
+                    "cost_microunits"
+                  ],
+                  "properties": {
+                    "wall_time_seconds": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "attempts": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "tool_calls": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "input_tokens": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "output_tokens": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "cost_microunits": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "origin": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "source_ref",
+                    "pointer",
+                    "decision_ref",
+                    "rationale"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "upstream_process",
+                        "reviewed_project_configuration",
+                        "authorized_human_decision"
+                      ]
+                    },
+                    "source_ref": {
+                      "type": "object"
+                    },
+                    "pointer": {
+                      "type": "string"
+                    },
+                    "decision_ref": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "maxItems": 200000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "target",
+          "type",
+          "outcome",
+          "condition",
+          "loop_id",
+          "origin"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "prerequisite",
+              "success",
+              "failure",
+              "blocked",
+              "timeout",
+              "unknown",
+              "malformed",
+              "infrastructure",
+              "exhausted",
+              "condition",
+              "branch",
+              "merge",
+              "retry",
+              "feedback"
+            ]
+          },
+          "outcome": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "condition": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "loop_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "origin": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "source_ref",
+              "pointer",
+              "decision_ref",
+              "rationale"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "upstream_process",
+                  "reviewed_project_configuration",
+                  "authorized_human_decision"
+                ]
+              },
+              "source_ref": {
+                "type": "object"
+              },
+              "pointer": {
+                "type": "string"
+              },
+              "decision_ref": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "loop_policies": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object"
+      }
+    },
+    "fan_groups": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "support_files": {
+      "type": "array",
+      "maxItems": 510,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "content",
+          "origin"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "source_ref",
+              "pointer",
+              "decision_ref",
+              "rationale"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "upstream_process",
+                  "reviewed_project_configuration",
+                  "authorized_human_decision"
+                ]
+              },
+              "source_ref": {
+                "type": "object"
+              },
+              "pointer": {
+                "type": "string"
+              },
+              "decision_ref": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

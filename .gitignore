@@ -1,0 +1,17 @@
+/.venv/
+/.uv-cache/
+/build/
+/dist/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+*.pyc
+/config.local.yaml
+/.tools/
+
+/tests/fixtures/native/build/
+/tests/fixtures/compiler/*/out/
+/tests/fixtures/artifacts/out/

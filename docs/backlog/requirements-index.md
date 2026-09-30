@@ -1,0 +1,78 @@
+# Fabric requirements index
+
+Requirement text and ownership is preserved from brief §21. Increments 001 and 002 have
+implementation and acceptance evidence; later owners receive tasks/evidence when activated.
+Evidence here is fabric development evidence and never target engineering acceptance.
+
+| ID | Requirement | Owner | Tasks / acceptance |
+| --- | --- | --- | --- |
+| FAB-001 | The implementation shall reside in the independent `s-core_sw_fabric` repository. | 000 | [T000-01, T000-05](../../specs/000-bootstrap-and-discovery/tasks.md) |
+| FAB-002 | Reference repositories shall remain unmodified during ordinary implementation/run operations. | 000 | [T000-01, T000-07](../../specs/000-bootstrap-and-discovery/tasks.md) |
+| FAB-003 | The fabric shall use pinned, compatible upstream/tool baselines with recorded provenance. | 000 | [T000-03](../../specs/000-bootstrap-and-discovery/tasks.md) |
+| FAB-004 | Fabric development shall maintain a Spec Kit constitution and bounded spec/plan/task artifacts. | 000 | [T000-02, T000-06](../../specs/000-bootstrap-and-discovery/tasks.md) |
+| FAB-005 | The system shall distinguish fabric backlog artifacts from native target engineering artifacts. | 000 | [T000-04, T000-06](../../specs/000-bootstrap-and-discovery/tasks.md) |
+| FAB-006 | Every imported native type, workflow, template, and work product shall retain its source reference. | 001 | [T001-01–T001-05, T001-07](../../specs/001-native-process-catalog/tasks.md) |
+| FAB-007 | Unsupported native schemas and unresolved mandatory references shall block dependent compilation. | 001 | [T001-02–T001-07](../../specs/001-native-process-catalog/tasks.md) |
+| FAB-008 | Intake shall identify scope, baselines, language, relevance/classification, constraints, and authority. | 002 | [002 tasks](../../specs/002-applicability-and-work-product-plan/tasks.md); [acceptance](../../specs/002-applicability-and-work-product-plan/acceptance.md) |
+| FAB-009 | The planner shall derive required work-product instances with justified dispositions. | 002 | [002 tasks](../../specs/002-applicability-and-work-product-plan/tasks.md); [acceptance](../../specs/002-applicability-and-work-product-plan/acceptance.md) |
+| FAB-010 | Unapproved tailoring or unknown relevance shall not remove mandatory obligations. | 002 | [002 tasks](../../specs/002-applicability-and-work-product-plan/tasks.md); [acceptance](../../specs/002-applicability-and-work-product-plan/acceptance.md) |
+| FAB-011 | Reused/OSS artifacts shall follow the selected classification and tailoring route. | 002 | [002 tasks](../../specs/002-applicability-and-work-product-plan/tasks.md); [acceptance](../../specs/002-applicability-and-work-product-plan/acceptance.md) |
+| FAB-012 | Each compiled engineering gate shall map to upstream, configured, or human-decision origin. | 003 | [003 tasks](../../specs/003-deterministic-workflow-compiler/tasks.md); [acceptance](../../specs/003-deterministic-workflow-compiler/acceptance.md) |
+| FAB-013 | Compilation shall be deterministic for identical normalized inputs and versions. | 003 | [003 tasks](../../specs/003-deterministic-workflow-compiler/tasks.md); [acceptance](../../specs/003-deterministic-workflow-compiler/acceptance.md) |
+| FAB-014 | The compiler shall reject required-gate bypass, unbounded feedback, and dangling dependencies. | 003 | [003 tasks](../../specs/003-deterministic-workflow-compiler/tasks.md); [acceptance](../../specs/003-deterministic-workflow-compiler/acceptance.md) |
+| FAB-015 | Generated workflow drift shall be detected and resolved through reviewed source changes. | 003 | [003 tasks](../../specs/003-deterministic-workflow-compiler/tasks.md); [acceptance](../../specs/003-deterministic-workflow-compiler/acceptance.md) |
+| FAB-016 | Target artifacts shall preserve native schemas, IDs, relationships, and status semantics. | 004 | [004 tasks](../../specs/004-native-artifact-traceability/tasks.md); [acceptance](../../specs/004-native-artifact-traceability/acceptance.md) |
+| FAB-017 | Traceability checks shall cover expected obligations and allocation, not only existing links. | 004 | [004 tasks](../../specs/004-native-artifact-traceability/tasks.md); [acceptance](../../specs/004-native-artifact-traceability/acceptance.md) |
+| FAB-018 | Both document wrappers and contained needs shall be validated. | 004 | [004 tasks](../../specs/004-native-artifact-traceability/tasks.md); [acceptance](../../specs/004-native-artifact-traceability/acceptance.md) |
+| FAB-019 | Every trusted verification result shall bind to input, tool, policy, and process baselines. | 005 | [005 specification](../../specs/005-trusted-evidence-and-human-gates/spec.md); [plan](../../specs/005-trusted-evidence-and-human-gates/plan.md); [tasks](../../specs/005-trusted-evidence-and-human-gates/tasks.md); [fixture acceptance evidence](../../specs/005-trusted-evidence-and-human-gates/acceptance.md); adversarial matrix complete, production authority pending |
+| FAB-020 | Fixture evidence and agent assertions shall not satisfy real approval/readiness predicates. | 005 | [005 specification](../../specs/005-trusted-evidence-and-human-gates/spec.md); [plan](../../specs/005-trusted-evidence-and-human-gates/plan.md); [tasks](../../specs/005-trusted-evidence-and-human-gates/tasks.md); [fixture acceptance evidence](../../specs/005-trusted-evidence-and-human-gates/acceptance.md); adversarial matrix complete, production authority pending |
+| FAB-021 | Human decisions shall identify actor/role, exact subject, scope, rationale, and trusted origin. | 005 | [005 specification](../../specs/005-trusted-evidence-and-human-gates/spec.md); [plan](../../specs/005-trusted-evidence-and-human-gates/plan.md); [tasks](../../specs/005-trusted-evidence-and-human-gates/tasks.md); [fixture acceptance evidence](../../specs/005-trusted-evidence-and-human-gates/acceptance.md); adversarial matrix complete, production authority pending |
+| FAB-022 | Missing/unknown/stale/timeout results shall not coerce to success. | 005 | [005 specification](../../specs/005-trusted-evidence-and-human-gates/spec.md); [plan](../../specs/005-trusted-evidence-and-human-gates/plan.md); [tasks](../../specs/005-trusted-evidence-and-human-gates/tasks.md); [fixture acceptance evidence](../../specs/005-trusted-evidence-and-human-gates/acceptance.md); adversarial matrix complete, production authority pending |
+| FAB-023 | Engineering agents shall lack the ability to forge trusted evidence or approvals. | 005 | [005 specification](../../specs/005-trusted-evidence-and-human-gates/spec.md); [plan](../../specs/005-trusted-evidence-and-human-gates/plan.md); [tasks](../../specs/005-trusted-evidence-and-human-gates/tasks.md); [fixture acceptance evidence](../../specs/005-trusted-evidence-and-human-gates/acceptance.md); adversarial matrix complete, production authority pending |
+| FAB-024 | The integration shall reuse Fabro as the sole workflow execution/run-state platform. | 006 | [006 specification](../../specs/006-fabro-runtime-integration/spec.md), [plan](../../specs/006-fabro-runtime-integration/plan.md), [tasks](../../specs/006-fabro-runtime-integration/tasks.md); implementation evidence not yet produced |
+| FAB-025 | Workflow registration shall include all referenced local dependencies and immutable version identity. | 006 | [006 specification](../../specs/006-fabro-runtime-integration/spec.md), [plan](../../specs/006-fabro-runtime-integration/plan.md), [tasks](../../specs/006-fabro-runtime-integration/tasks.md); implementation evidence not yet produced |
+| FAB-026 | Resume and retry shall preserve evidence integrity and avoid duplicate side effects. | 006 | [006 specification](../../specs/006-fabro-runtime-integration/spec.md), [plan](../../specs/006-fabro-runtime-integration/plan.md), [tasks](../../specs/006-fabro-runtime-integration/tasks.md); implementation evidence not yet produced |
+| FAB-027 | Applicable S-CORE APM/MCP capabilities shall be integrated through versioned contracts. | 007 | Backlog; evidence not yet produced |
+| FAB-028 | Role context shall identify native sources, allowed tools/paths, and unresolved assumptions. | 007 | Backlog; evidence not yet produced |
+| FAB-029 | Models/reasoning/cost settings shall be configurable and capability-validated. | 007 | Backlog; evidence not yet produced |
+| FAB-030 | Provider fallback shall require an explicit compatible allowlist and budget. | 007 | Backlog; evidence not yet produced |
+| FAB-031 | FMEA and DFA shall use separate logical roles and native applicable templates. | 008 | Backlog; evidence not yet produced |
+| FAB-032 | Missing mitigation shall trigger reviewed requirement/AoU/architecture feedback and re-analysis. | 008 | Backlog; evidence not yet produced |
+| FAB-033 | Proposed mitigation acceptance shall remain distinct from implemented mitigation closure. | 008 | Backlog; evidence not yet produced |
+| FAB-034 | AI sufficiency recommendations shall not become accepted native decisions without required review. | 008 | Backlog; evidence not yet produced |
+| FAB-035 | Analysis applicability/exclusions shall have a rationale and source/decision reference. | 008 | Backlog; evidence not yet produced |
+| FAB-036 | Implementation output shall include detailed design and traceable source/build artifacts. | 009 | Backlog; evidence not yet produced |
+| FAB-037 | Actual build/tests shall produce trusted baseline-specific verification evidence. | 009 | Backlog; evidence not yet produced |
+| FAB-038 | Verification failures shall retain evidence and route to the owning engineering artifact. | 009 | Backlog; evidence not yet produced |
+| FAB-039 | The initial C++ target profile shall enforce the selected C++17/MISRA C++:2023 policy. | 010 | Backlog; evidence not yet produced |
+| FAB-040 | Analyzer adequacy shall include extraction integrity and applicable rule/manual coverage. | 010 | Backlog; evidence not yet produced |
+| FAB-041 | Findings, deviations, false-positive dispositions, and suppressions shall be traceable and scoped. | 010 | Backlog; evidence not yet produced |
+| FAB-042 | Missing MISRA capability shall remain a blocker for the corresponding compliance claim. | 010 | Backlog; evidence not yet produced |
+| FAB-043 | Relevant changes shall invalidate downstream evidence and decisions for the new baseline. | 011 | Backlog; evidence not yet produced |
+| FAB-044 | Impact analysis shall include transitive and newly introduced dependencies. | 011 | Backlog; evidence not yet produced |
+| FAB-045 | Accepted historical artifacts shall not be rewritten to conceal changed applicability. | 011 | Backlog; evidence not yet produced |
+| FAB-046 | Feature-level and component-level analysis/allocation shall remain distinct. | 012 | Backlog; evidence not yet produced |
+| FAB-047 | Multi-component fan-in shall require each expected child result for the correct baseline. | 012 | Backlog; evidence not yet produced |
+| FAB-048 | Component/feature integration evidence shall verify allocated interaction requirements. | 012 | Backlog; evidence not yet produced |
+| FAB-049 | Security-relevant scope shall include the native security lifecycle and required reviews. | 013 | Backlog; evidence not yet produced |
+| FAB-050 | Cross-domain mitigation changes shall trigger safety/security impact assessment when applicable. | 013 | Backlog; evidence not yet produced |
+| FAB-051 | SBOM/license/vulnerability obligations shall not be suppressed solely by `security: NO`. | 013 | Backlog; evidence not yet produced |
+| FAB-052 | Module readiness shall include applicable plans, manuals, reports, packages, and formal reviews. | 014 | Backlog; evidence not yet produced |
+| FAB-053 | Technical readiness, accountable release approval, publishing, and deployment shall be distinct. | 014 | Backlog; evidence not yet produced |
+| FAB-054 | External audit/qualification obligations shall be evidenced or explicitly unresolved. | 014 | Backlog; evidence not yet produced |
+| FAB-055 | Platform readiness shall require a pinned integration baseline and applicable platform evidence. | 015 | Backlog; evidence not yet produced |
+| FAB-056 | A narrower scope's completion shall not imply broader release readiness. | 015 | Backlog; evidence not yet produced |
+| FAB-057 | Night runs shall progress without continuous Codex polling and stop at required human gates. | 016 | Backlog; evidence not yet produced |
+| FAB-058 | Budget/retry/provider failures shall produce a durable blocked handoff. | 016 | Backlog; evidence not yet produced |
+| FAB-059 | Real runs shall reject automatic/replay/default-success human approval. | 016 | Backlog; evidence not yet produced |
+| FAB-060 | A portable evidence package shall remain readable and verifiable without Fabro. | 017 | Backlog; evidence not yet produced |
+| FAB-061 | Assurance tests shall cover forgery, staleness, missing extraction, and gate bypass. | 017 | Backlog; evidence not yet produced |
+| FAB-062 | The final delivery shall distinguish real execution, fixture replay, expected failure, and blocked tests. | 017 | Backlog; evidence not yet produced |
+| FAB-063 | Installation/generation/validation/demo commands shall be tested and version-specific. | 018 | Backlog; evidence not yet produced |
+| FAB-064 | Upstream packaging shall preserve license/provenance and avoid X-Verse dependencies. | 018 | Backlog; evidence not yet produced |
+
+000 results: [acceptance](../../specs/000-bootstrap-and-discovery/acceptance.md).
+001 implementation and bounded native-build evidence: [acceptance](../../specs/001-native-process-catalog/acceptance.md).
+002 bounded draft-planner evidence: [acceptance](../../specs/002-applicability-and-work-product-plan/acceptance.md).
+003 deterministic compiler and pinned native-validation evidence: [acceptance](../../specs/003-deterministic-workflow-compiler/acceptance.md).
+Owner review, the security-FDR source conflict, and full score/module_template documentation builds remain open.

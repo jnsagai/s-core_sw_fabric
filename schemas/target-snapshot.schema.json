@@ -1,0 +1,52 @@
+{
+  "$id": "https://score.example/schemas/target-snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "build_closure": {
+      "type": "object"
+    },
+    "configuration": {
+      "type": "object"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "external_exports": {
+      "type": "array"
+    },
+    "files": {
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source": {
+      "type": "object"
+    },
+    "target_namespace": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "target_namespace",
+    "snapshot_id",
+    "source",
+    "configuration",
+    "files",
+    "external_exports",
+    "build_closure",
+    "digest"
+  ],
+  "title": "Target Snapshot",
+  "type": "object"
+}

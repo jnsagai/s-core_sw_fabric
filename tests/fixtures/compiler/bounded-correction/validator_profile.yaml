@@ -1,0 +1,17 @@
+schema_version: 1
+id: fabro-conformance-1b4fb152-v1
+version: 1
+source_commit: 1b4fb15281ebb724426f9e480dce48d0100ff79b
+source_hashes:
+  Cargo.toml: a6cd812cfc2513400c2ba37f8c861daefd7099123036af9ffed24622739b338c
+  Cargo.lock: 6c7e174e55528f4d677836045739ba94ddf6b614d187ded849108f6fe84800ee
+  docs/public/reference/dot-language.mdx: 643eb11902d94a686474a006d1d79d86e8d2bf6cfb6fdee626915129449f423b
+  docs/public/execution/run-configuration.mdx: e84de643e25ad8dd8a695fe9d9d989b336d0f054968095bb5f4311682852fe8a
+  lib/apps/fabro-cli/src/commands/validate.rs: b87b2ee176e68b8c61a2da3b6ba49fdd28e2e8dfb98818b51870ab97f9d69da4
+  lib/apps/fabro-cli/src/args.rs: f12bcb9269c56f8814d60112a243bfa335d3d8c33bb440ab4a5792ea54aab492
+  lib/components/fabro-tool/src/workflow_version.rs: 5b54c27120b09790b98e379be70581d17916051015c07870298587c99fcf9479
+license: MIT
+command: validate
+timeout_seconds: 30
+executable_sha256: null
+digest: 6cb4b5c885db91247a75de78a4545d5ff7cb5da911476ceae7a6166be2fe2762

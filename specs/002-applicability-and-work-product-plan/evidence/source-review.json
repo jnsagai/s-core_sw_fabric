@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "inspection_date": "2026-09-27",
+  "purpose": "002 planning source review, not engineering acceptance",
+  "sources": [
+    {
+      "source_id": "process_description",
+      "repository": "https://github.com/eclipse-score/process_description",
+      "commit": "98d1d5f42dad412a09a888ea25e59c62fa6371ce",
+      "file_sha256": {
+        "process/process_areas/safety_management/guidance/guideline_safety_management.rst": "2112c7bf10e35b174ca74b1a1c2906b5d5f8a507a46ed41b99c8d26c284acf26",
+        "process/process_areas/safety_management/safety_management_workproducts.rst": "5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74",
+        "process/process_areas/safety_management/safety_management_workflow.rst": "cfb4ec2e62411a824cb1a472172b981523bfcdebb4f1ac0d58592c57fffcd5da",
+        "process/process_areas/safety_analysis/safety_analysis_concept.rst": "0cab3f010b12b89a301211beab383c1aa34ff0c756729258d1427d1745b8f052",
+        "process/process_areas/safety_analysis/safety_analysis_workproducts.rst": "1172494144afec0732d57531ea2a43e5e26edebfd59ded2966bf3d30373b4af0",
+        "process/process_areas/security_management/security_management_workproducts.rst": "f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c",
+        "process/process_areas/security_management/guidance/security_management_guideline.rst": "7e83b1e482f726c569c5c5d9e59b7f386c278e5e5af9858be1e8a6ad46c9b9b2",
+        "process/process_areas/security_analysis/security_analysis_workproducts.rst": "ef4d3483c5171f4b8017d8373187b3f80ab48d73825e296f527e717a78dc73c9",
+        "process/process_areas/security_analysis/security_analysis_concept.rst": "0daa40947fb0859a4b82ca2a8dff3107170e843df4ab8cd97c4d580dd993e2b3",
+        "process/process_areas/requirements_engineering/guidance/requirements_process_reqs.rst": "584848255983c1e0526790df8d8423a2505a6864db174ba631ce2e7122da79a3",
+        "process/process_areas/architecture_design/guidance/architecture_process_reqs.rst": "4e8a476a6a769896ff6eaa3eba73116c99fe4ea8798da5ac707ead6b70a8b577"
+      },
+      "working_bytes_match_commit": true
+    },
+    {
+      "source_id": "module_template",
+      "repository": "https://github.com/eclipse-score/module_template",
+      "commit": "c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d",
+      "file_sha256": {
+        "docs/module/safety_mgt/module_safety_plan.rst": "936d2d1752c50874f968ea355ebe1af345e58da2d199a54cc6eab226a1fa539e",
+        "docs/features/safety_planning/index.rst": "af3a524a2fe097d6e65ae0e196d11e876fa6cd431fa2809c3241f62e2ee36c0d",
+        "score/component_example/docs/component_classification.rst": "585516ab3ccfbf1b56e6c402c5da9cff61c1229f8ffc0b2e6e1748ad889ebb63",
+        "docs/module/security_mgt/module_security_plan.rst": "5e1958c1ba01a33e2111e8f6745b14913287a38f197fec64fc426397d1fe6218",
+        "docs/module/security_mgt/module_security_plan_fdr.rst": "6148969d0f51d2e3197d7da9f81e49a8318dd4a866cd074a57b928b4ca4948af"
+      },
+      "working_bytes_match_commit": true
+    }
+  ],
+  "native_export_sha256": "931f1a57ff36208807bfd901ab7eee8d6629edfe60e93790f3f45c70407d65f8",
+  "native_entities": 1251,
+  "workproduct_entities": 74,
+  "engineering_readiness": "not_evaluated"
+}

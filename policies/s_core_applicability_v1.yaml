@@ -1,0 +1,2026 @@
+schema_version: 1
+coverage_basis:
+  catalogue_digest: a69436e36d00e4950d46eb933488d5d71b806554da96902ca8ff6373c04727f3
+  workproduct_count: 74
+  status: review_draft
+  semantics: Conservative explicit coverage; source interpretation and target applicability remain pending owner review.
+rules:
+- id: rule__wp__audit_report
+  native:
+    source_id: process
+    native_id: wp__audit_report
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 91
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__audit_report
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__audit_report_security
+  native:
+    source_id: process
+    native_id: wp__audit_report_security
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Native security audit is retained; source says tailoring needs discussion, which is not an accepted target tailoring decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 94
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__audit_report_security
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__chm_plan
+  native:
+    source_id: process
+    native_id: wp__chm_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/change_management/change_management_workproducts.rst
+    lineno: 18
+    content_digest: 2f1b32d2ccfe07abc2ffa8ded0b2d8144b23243f6be8c8ee30f46e511a94dabd
+    native_id: wp__chm_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__cmpt_request
+  native:
+    source_id: process
+    native_id: wp__cmpt_request
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/change_management/change_management_workproducts.rst
+    lineno: 72
+    content_digest: 2f1b32d2ccfe07abc2ffa8ded0b2d8144b23243f6be8c8ee30f46e511a94dabd
+    native_id: wp__cmpt_request
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__component_arch
+  native:
+    source_id: process
+    native_id: wp__component_arch
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/architecture_design/architecture_workproducts.rst
+    lineno: 46
+    content_digest: fa0a81a1aec370ef42218e25b1da67750846a8603a6dc1fbc1e0e00076bafedf
+    native_id: wp__component_arch
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__config_mgt_plan
+  native:
+    source_id: process
+    native_id: wp__config_mgt_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/configuration_management/configuration_workproducts.rst
+    lineno: 18
+    content_digest: 6e09fbcf308b9ea7d175dc513b03e64139c8e6ce2c2eb6566c3cbcfaa0f852dc
+    native_id: wp__config_mgt_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__document_mgt_plan
+  native:
+    source_id: process
+    native_id: wp__document_mgt_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/documentation_management/documentation_workproducts.rst
+    lineno: 18
+    content_digest: 7be8a99bccdf95e74710e36d36645190ad7f6b37b3554d62025bb54d4f2acd6d
+    native_id: wp__document_mgt_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__fdr_reports
+  native:
+    source_id: process
+    native_id: wp__fdr_reports
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - plan_review
+  - package_review
+  - analysis_review
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 80
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__fdr_reports
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__fdr_reports_security
+  native:
+    source_id: process
+    native_id: wp__fdr_reports_security
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - security_plan_review
+  - security_analysis_review
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 79
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__fdr_reports_security
+    native_version: 1
+  template_refs:
+  - repository: https://github.com/eclipse-score/module_template
+    commit: c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d
+    path: docs/module/security_mgt/module_security_plan_fdr.rst
+    lines: 20-26
+    declared_native_id: wp__fdr_reports
+    status: conflicting_reference
+  required_reviews: []
+- id: rule__wp__feat_request
+  native:
+    source_id: process
+    native_id: wp__feat_request
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/change_management/change_management_workproducts.rst
+    lineno: 60
+    content_digest: 2f1b32d2ccfe07abc2ffa8ded0b2d8144b23243f6be8c8ee30f46e511a94dabd
+    native_id: wp__feat_request
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__feature_arch
+  native:
+    source_id: process
+    native_id: wp__feature_arch
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/architecture_design/architecture_workproducts.rst
+    lineno: 31
+    content_digest: fa0a81a1aec370ef42218e25b1da67750846a8603a6dc1fbc1e0e00076bafedf
+    native_id: wp__feature_arch
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__feature_dfa
+  native:
+    source_id: process
+    native_id: wp__feature_dfa
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_analysis/safety_analysis_workproducts.rst
+    lineno: 38
+    content_digest: 1172494144afec0732d57531ea2a43e5e26edebfd59ded2966bf3d30373b4af0
+    native_id: wp__feature_dfa
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__feature_fmea
+  native:
+    source_id: process
+    native_id: wp__feature_fmea
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_analysis/safety_analysis_workproducts.rst
+    lineno: 27
+    content_digest: 1172494144afec0732d57531ea2a43e5e26edebfd59ded2966bf3d30373b4af0
+    native_id: wp__feature_fmea
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__feature_security_analysis
+  native:
+    source_id: process
+    native_id: wp__feature_security_analysis
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_analysis/security_analysis_workproducts.rst
+    lineno: 30
+    content_digest: ef4d3483c5171f4b8017d8373187b3f80ab48d73825e296f527e717a78dc73c9
+    native_id: wp__feature_security_analysis
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__issue_track_system
+  native:
+    source_id: process
+    native_id: wp__issue_track_system
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/change_management/change_management_workproducts.rst
+    lineno: 27
+    content_digest: 2f1b32d2ccfe07abc2ffa8ded0b2d8144b23243f6be8c8ee30f46e511a94dabd
+    native_id: wp__issue_track_system
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__module_safety_manual
+  native:
+    source_id: process
+    native_id: wp__module_safety_manual
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 119
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__module_safety_manual
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__module_safety_package
+  native:
+    source_id: process
+    native_id: wp__module_safety_package
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 69
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__module_safety_package
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__module_safety_plan
+  native:
+    source_id: process
+    native_id: wp__module_safety_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 38
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__module_safety_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__module_security_manual
+  native:
+    source_id: process
+    native_id: wp__module_security_manual
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 124
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__module_security_manual
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__module_security_package
+  native:
+    source_id: process
+    native_id: wp__module_security_package
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 68
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__module_security_package
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__module_security_plan
+  native:
+    source_id: process
+    native_id: wp__module_security_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 40
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__module_security_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__module_sw_release_note
+  native:
+    source_id: process
+    native_id: wp__module_sw_release_note
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/release_management/release_workproducts.rst
+    lineno: 37
+    content_digest: 289cf5c73e4f6620fc0f1e03c1b2e89481a777994bc2ac581f3a63517bfef6dd
+    native_id: wp__module_sw_release_note
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__module_sw_release_plan
+  native:
+    source_id: process
+    native_id: wp__module_sw_release_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/release_management/release_workproducts.rst
+    lineno: 67
+    content_digest: 289cf5c73e4f6620fc0f1e03c1b2e89481a777994bc2ac581f3a63517bfef6dd
+    native_id: wp__module_sw_release_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_arch
+  native:
+    source_id: process
+    native_id: wp__platform_arch
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/architecture_design/architecture_workproducts.rst
+    lineno: 20
+    content_digest: fa0a81a1aec370ef42218e25b1da67750846a8603a6dc1fbc1e0e00076bafedf
+    native_id: wp__platform_arch
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_dfa
+  native:
+    source_id: process
+    native_id: wp__platform_dfa
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_analysis/safety_analysis_workproducts.rst
+    lineno: 18
+    content_digest: 1172494144afec0732d57531ea2a43e5e26edebfd59ded2966bf3d30373b4af0
+    native_id: wp__platform_dfa
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_handbook
+  native:
+    source_id: process
+    native_id: wp__platform_handbook
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/release_management/release_workproducts.rst
+    lineno: 78
+    content_digest: 289cf5c73e4f6620fc0f1e03c1b2e89481a777994bc2ac581f3a63517bfef6dd
+    native_id: wp__platform_handbook
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_mgmt
+  native:
+    source_id: process
+    native_id: wp__platform_mgmt
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/platform_management/platform_management_workproducts.rst
+    lineno: 18
+    content_digest: c84bf4948c934e264dd8ffc9b5c99603abab4a70d4b8e05c796f94e915be3dc1
+    native_id: wp__platform_mgmt
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_safety_manual
+  native:
+    source_id: process
+    native_id: wp__platform_safety_manual
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 100
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__platform_safety_manual
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_safety_package
+  native:
+    source_id: process
+    native_id: wp__platform_safety_package
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 58
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__platform_safety_package
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_safety_plan
+  native:
+    source_id: process
+    native_id: wp__platform_safety_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 18
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__platform_safety_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_security_analysis
+  native:
+    source_id: process
+    native_id: wp__platform_security_analysis
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_analysis/security_analysis_workproducts.rst
+    lineno: 20
+    content_digest: ef4d3483c5171f4b8017d8373187b3f80ab48d73825e296f527e717a78dc73c9
+    native_id: wp__platform_security_analysis
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_security_manual
+  native:
+    source_id: process
+    native_id: wp__platform_security_manual
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 104
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__platform_security_manual
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_security_package
+  native:
+    source_id: process
+    native_id: wp__platform_security_package
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 57
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__platform_security_package
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_security_plan
+  native:
+    source_id: process
+    native_id: wp__platform_security_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 17
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__platform_security_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_sw_release_note
+  native:
+    source_id: process
+    native_id: wp__platform_sw_release_note
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/release_management/release_workproducts.rst
+    lineno: 18
+    content_digest: 289cf5c73e4f6620fc0f1e03c1b2e89481a777994bc2ac581f3a63517bfef6dd
+    native_id: wp__platform_sw_release_note
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__platform_sw_release_plan
+  native:
+    source_id: process
+    native_id: wp__platform_sw_release_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/release_management/release_workproducts.rst
+    lineno: 55
+    content_digest: 289cf5c73e4f6620fc0f1e03c1b2e89481a777994bc2ac581f3a63517bfef6dd
+    native_id: wp__platform_sw_release_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__policies
+  native:
+    source_id: process
+    native_id: wp__policies
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/process_management/process_management_workproducts.rst
+    lineno: 20
+    content_digest: 642ee99463c79bc07bae242fe841ac78bb6548439eecdb772e1bfefa4b119d8c
+    native_id: wp__policies
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__prm_plan
+  native:
+    source_id: process
+    native_id: wp__prm_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/problem_resolution/problem_resolution_workproducts.rst
+    lineno: 18
+    content_digest: e4f553cfc6d272eb3285c9afe75d5203ccef4ffce22e2e6c59f1e86de1c097ad
+    native_id: wp__prm_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__process_description
+  native:
+    source_id: process
+    native_id: wp__process_description
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/process_management/process_management_workproducts.rst
+    lineno: 69
+    content_digest: 642ee99463c79bc07bae242fe841ac78bb6548439eecdb772e1bfefa4b119d8c
+    native_id: wp__process_description
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__process_impr_report
+  native:
+    source_id: process
+    native_id: wp__process_impr_report
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/quality_management/quality_workproducts.rst
+    lineno: 43
+    content_digest: f25ec52b86738dbe313d32e9d82ef5f2d291aa4b2f6db5c5f92f14759e0b5107
+    native_id: wp__process_impr_report
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__process_strategy
+  native:
+    source_id: process
+    native_id: wp__process_strategy
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/process_management/process_management_workproducts.rst
+    lineno: 48
+    content_digest: 642ee99463c79bc07bae242fe841ac78bb6548439eecdb772e1bfefa4b119d8c
+    native_id: wp__process_strategy
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__project_mgt
+  native:
+    source_id: process
+    native_id: wp__project_mgt
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/platform_management/platform_management_workproducts.rst
+    lineno: 35
+    content_digest: c84bf4948c934e264dd8ffc9b5c99603abab4a70d4b8e05c796f94e915be3dc1
+    native_id: wp__project_mgt
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__qms_plan
+  native:
+    source_id: process
+    native_id: wp__qms_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/quality_management/quality_workproducts.rst
+    lineno: 18
+    content_digest: f25ec52b86738dbe313d32e9d82ef5f2d291aa4b2f6db5c5f92f14759e0b5107
+    native_id: wp__qms_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__qms_report
+  native:
+    source_id: process
+    native_id: wp__qms_report
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/quality_management/quality_workproducts.rst
+    lineno: 34
+    content_digest: f25ec52b86738dbe313d32e9d82ef5f2d291aa4b2f6db5c5f92f14759e0b5107
+    native_id: wp__qms_report
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__requirements_comp
+  native:
+    source_id: process
+    native_id: wp__requirements_comp
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/requirements_engineering/requirements_workproducts.rst
+    lineno: 36
+    content_digest: 10100778b9f1223d4f657ed8fd5889195044ca999d34725cc882b3891b4bc0cd
+    native_id: wp__requirements_comp
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__requirements_comp_aou
+  native:
+    source_id: process
+    native_id: wp__requirements_comp_aou
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/requirements_engineering/requirements_workproducts.rst
+    lineno: 67
+    content_digest: 10100778b9f1223d4f657ed8fd5889195044ca999d34725cc882b3891b4bc0cd
+    native_id: wp__requirements_comp_aou
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__requirements_feat
+  native:
+    source_id: process
+    native_id: wp__requirements_feat
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/requirements_engineering/requirements_workproducts.rst
+    lineno: 27
+    content_digest: 10100778b9f1223d4f657ed8fd5889195044ca999d34725cc882b3891b4bc0cd
+    native_id: wp__requirements_feat
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__requirements_feat_aou
+  native:
+    source_id: process
+    native_id: wp__requirements_feat_aou
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/requirements_engineering/requirements_workproducts.rst
+    lineno: 58
+    content_digest: 10100778b9f1223d4f657ed8fd5889195044ca999d34725cc882b3891b4bc0cd
+    native_id: wp__requirements_feat_aou
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__requirements_inspect
+  native:
+    source_id: process
+    native_id: wp__requirements_inspect
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/requirements_engineering/requirements_workproducts.rst
+    lineno: 88
+    content_digest: 10100778b9f1223d4f657ed8fd5889195044ca999d34725cc882b3891b4bc0cd
+    native_id: wp__requirements_inspect
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__requirements_proc_tool
+  native:
+    source_id: process
+    native_id: wp__requirements_proc_tool
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/requirements_engineering/requirements_workproducts.rst
+    lineno: 79
+    content_digest: 10100778b9f1223d4f657ed8fd5889195044ca999d34725cc882b3891b4bc0cd
+    native_id: wp__requirements_proc_tool
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__requirements_stkh
+  native:
+    source_id: process
+    native_id: wp__requirements_stkh
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/requirements_engineering/requirements_workproducts.rst
+    lineno: 18
+    content_digest: 10100778b9f1223d4f657ed8fd5889195044ca999d34725cc882b3891b4bc0cd
+    native_id: wp__requirements_stkh
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__requirements_sw_platform_aou
+  native:
+    source_id: process
+    native_id: wp__requirements_sw_platform_aou
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/requirements_engineering/requirements_workproducts.rst
+    lineno: 49
+    content_digest: 10100778b9f1223d4f657ed8fd5889195044ca999d34725cc882b3891b4bc0cd
+    native_id: wp__requirements_sw_platform_aou
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__safety_tailoring
+  native:
+    source_id: process
+    native_id: wp__safety_tailoring
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 159
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__safety_tailoring
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_arch_verification
+  native:
+    source_id: process
+    native_id: wp__sw_arch_verification
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/architecture_design/architecture_workproducts.rst
+    lineno: 64
+    content_digest: fa0a81a1aec370ef42218e25b1da67750846a8603a6dc1fbc1e0e00076bafedf
+    native_id: wp__sw_arch_verification
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_component_class
+  native:
+    source_id: process
+    native_id: wp__sw_component_class
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_management/safety_management_workproducts.rst
+    lineno: 141
+    content_digest: 5645ff44806c650e414d8c701dd37d4a88556027ad8c90bc12ad191bda184e74
+    native_id: wp__sw_component_class
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_component_dfa
+  native:
+    source_id: process
+    native_id: wp__sw_component_dfa
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_analysis/safety_analysis_workproducts.rst
+    lineno: 65
+    content_digest: 1172494144afec0732d57531ea2a43e5e26edebfd59ded2966bf3d30373b4af0
+    native_id: wp__sw_component_dfa
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_component_fmea
+  native:
+    source_id: process
+    native_id: wp__sw_component_fmea
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/safety_analysis/safety_analysis_workproducts.rst
+    lineno: 51
+    content_digest: 1172494144afec0732d57531ea2a43e5e26edebfd59ded2966bf3d30373b4af0
+    native_id: wp__sw_component_fmea
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_component_security_analysis
+  native:
+    source_id: process
+    native_id: wp__sw_component_security_analysis
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_analysis/security_analysis_workproducts.rst
+    lineno: 54
+    content_digest: ef4d3483c5171f4b8017d8373187b3f80ab48d73825e296f527e717a78dc73c9
+    native_id: wp__sw_component_security_analysis
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_development_plan
+  native:
+    source_id: process
+    native_id: wp__sw_development_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/implementation/implementation_workproducts.rst
+    lineno: 41
+    content_digest: 46d678b7e0212a10ca99b5022c30b640f2503d256a4767701a769e755577bb1e
+    native_id: wp__sw_development_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_implementation
+  native:
+    source_id: process
+    native_id: wp__sw_implementation
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/implementation/implementation_workproducts.rst
+    lineno: 18
+    content_digest: 46d678b7e0212a10ca99b5022c30b640f2503d256a4767701a769e755577bb1e
+    native_id: wp__sw_implementation
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_implementation_inspection
+  native:
+    source_id: process
+    native_id: wp__sw_implementation_inspection
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/implementation/implementation_workproducts.rst
+    lineno: 32
+    content_digest: 46d678b7e0212a10ca99b5022c30b640f2503d256a4767701a769e755577bb1e
+    native_id: wp__sw_implementation_inspection
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_module_sbom
+  native:
+    source_id: process
+    native_id: wp__sw_module_sbom
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 154
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__sw_module_sbom
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__sw_platform_sbom
+  native:
+    source_id: process
+    native_id: wp__sw_platform_sbom
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/security_management/security_management_workproducts.rst
+    lineno: 144
+    content_digest: f66298884cb03d39881ca83db478b4879fca0f0bdec48c60fc9accc1070ebe0c
+    native_id: wp__sw_platform_sbom
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__tailoring_work_products
+  native:
+    source_id: process
+    native_id: wp__tailoring_work_products
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/process_management/process_management_workproducts.rst
+    lineno: 90
+    content_digest: 642ee99463c79bc07bae242fe841ac78bb6548439eecdb772e1bfefa4b119d8c
+    native_id: wp__tailoring_work_products
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__tlm_plan
+  native:
+    source_id: process
+    native_id: wp__tlm_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/tool_management/tool_management_workproducts.rst
+    lineno: 18
+    content_digest: 2214d6c7222a0d2c4aec992adfd5b6467b7a1ae1fd8ce4cb9204b7c19d04f316
+    native_id: wp__tlm_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__tool_verification_report
+  native:
+    source_id: process
+    native_id: wp__tool_verification_report
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/tool_management/tool_management_workproducts.rst
+    lineno: 30
+    content_digest: 2214d6c7222a0d2c4aec992adfd5b6467b7a1ae1fd8ce4cb9204b7c19d04f316
+    native_id: wp__tool_verification_report
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__training_path
+  native:
+    source_id: process
+    native_id: wp__training_path
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/quality_management/quality_workproducts.rst
+    lineno: 59
+    content_digest: f25ec52b86738dbe313d32e9d82ef5f2d291aa4b2f6db5c5f92f14759e0b5107
+    native_id: wp__training_path
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__verification_comp_int_test
+  native:
+    source_id: process
+    native_id: wp__verification_comp_int_test
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/verification/verification_workproducts.rst
+    lineno: 145
+    content_digest: 23034c2f7d81ee2f6a982e8e133ba5bc2c71e97b7cacef29c83304ef9909638e
+    native_id: wp__verification_comp_int_test
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__verification_feat_int_test
+  native:
+    source_id: process
+    native_id: wp__verification_feat_int_test
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/verification/verification_workproducts.rst
+    lineno: 84
+    content_digest: 23034c2f7d81ee2f6a982e8e133ba5bc2c71e97b7cacef29c83304ef9909638e
+    native_id: wp__verification_feat_int_test
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__verification_module_ver_report
+  native:
+    source_id: process
+    native_id: wp__verification_module_ver_report
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/verification/verification_workproducts.rst
+    lineno: 104
+    content_digest: 23034c2f7d81ee2f6a982e8e133ba5bc2c71e97b7cacef29c83304ef9909638e
+    native_id: wp__verification_module_ver_report
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__verification_plan
+  native:
+    source_id: process
+    native_id: wp__verification_plan
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/verification/verification_workproducts.rst
+    lineno: 23
+    content_digest: 23034c2f7d81ee2f6a982e8e133ba5bc2c71e97b7cacef29c83304ef9909638e
+    native_id: wp__verification_plan
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__verification_platform_int_test
+  native:
+    source_id: process
+    native_id: wp__verification_platform_int_test
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/verification/verification_workproducts.rst
+    lineno: 39
+    content_digest: 23034c2f7d81ee2f6a982e8e133ba5bc2c71e97b7cacef29c83304ef9909638e
+    native_id: wp__verification_platform_int_test
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__verification_platform_ver_report
+  native:
+    source_id: process
+    native_id: wp__verification_platform_ver_report
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/verification/verification_workproducts.rst
+    lineno: 54
+    content_digest: 23034c2f7d81ee2f6a982e8e133ba5bc2c71e97b7cacef29c83304ef9909638e
+    native_id: wp__verification_platform_ver_report
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+- id: rule__wp__verification_sw_unit_test
+  native:
+    source_id: process
+    native_id: wp__verification_sw_unit_test
+    native_version: 1
+  scope_kinds:
+  - feature
+  - component
+  - module
+  - platform
+  scope_selector: self
+  when: []
+  purposes:
+  - primary
+  dependencies: []
+  rationale: Explicit conservative project-configuration coverage pending owner review; native status is not an applicability decision.
+  source_refs:
+  - source_id: process
+    repository: https://github.com/eclipse-score/process_description
+    commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+    path: process/process_areas/verification/verification_workproducts.rst
+    lineno: 168
+    content_digest: 23034c2f7d81ee2f6a982e8e133ba5bc2c71e97b7cacef29c83304ef9909638e
+    native_id: wp__verification_sw_unit_test
+    native_version: 1
+  template_refs: []
+  required_reviews: []
+source_conflicts:
+- id: security_fdr_native_template_id
+  native_refs:
+  - source_id: process
+    native_id: wp__fdr_reports_security
+    native_version: 1
+  - source_id: module_template
+    native_id: wp__fdr_reports
+    native_version: 1
+  message: The process defines wp__fdr_reports_security while the module security review template declares wp__fdr_reports.
+  required_action: Resolve the upstream process/template identity conflict; do not substitute either native ID locally.
+

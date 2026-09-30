@@ -1,0 +1,21 @@
+{
+  "payload": {
+    "fixture_vector": "This signed test vector has no engineering authority.",
+    "kind": "assurance_evidence",
+    "schema_version": 1
+  },
+  "receipt": {
+    "algorithm": "Ed25519",
+    "assurance_domain": "fixture_contract",
+    "issued_at": "2026-09-29T09:00:00Z",
+    "issuer_id": "fixture-issuer-005",
+    "key_id": "fixture-key-005",
+    "kind": "signed_receipt",
+    "nonce_or_sequence": "fixture-sequence-1",
+    "payload_digest": "974680a06e6b6182591765f7765b775ee4766989e06b176979903738e0934799",
+    "payload_kind": "assurance_evidence",
+    "receipt_digest": "524eff083d37a86accc37d39ea4e433966c69e7fd00dff83a4f4b8b95193dc17",
+    "schema_version": 1,
+    "signature": "UZPC0+klMxQMY9ffLa0Da7mCG2U7hqv5BDquBoauT0ZVlpgN732Oi0KIxifhKSAYsd6T7w5ZE+z88Z7F9rC8AQ=="
+  }
+}

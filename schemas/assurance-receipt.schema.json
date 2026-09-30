@@ -1,0 +1,79 @@
+{
+  "$id": "https://score.example/schemas/assurance-receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm": {
+      "const": "Ed25519"
+    },
+    "assurance_domain": {
+      "enum": [
+        "fixture_contract",
+        "production"
+      ]
+    },
+    "issued_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+      "type": "string"
+    },
+    "issuer_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "key_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "kind": {
+      "const": "signed_receipt"
+    },
+    "nonce_or_sequence": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "payload_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "payload_kind": {
+      "enum": [
+        "assurance_evidence",
+        "assurance_decision",
+        "assurance_trust_profile",
+        "assurance_time"
+      ]
+    },
+    "receipt_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "signature": {
+      "maxLength": 88,
+      "minLength": 88,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "assurance_domain",
+    "payload_kind",
+    "payload_digest",
+    "issuer_id",
+    "key_id",
+    "algorithm",
+    "issued_at",
+    "nonce_or_sequence",
+    "signature",
+    "receipt_digest"
+  ],
+  "title": "Assurance Receipt",
+  "type": "object"
+}

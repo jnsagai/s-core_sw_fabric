@@ -1,0 +1,74 @@
+{
+  "$id": "https://score.example/schemas/artifact-diff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "after": {
+      "type": "string"
+    },
+    "before": {
+      "type": "string"
+    },
+    "capabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptance": {
+          "const": "not_evaluated"
+        },
+        "engineering_readiness": {
+          "const": "not_evaluated"
+        },
+        "evidence": {
+          "const": "not_evaluated"
+        },
+        "execution": {
+          "const": "not_evaluated"
+        },
+        "registration": {
+          "const": "not_evaluated"
+        },
+        "release": {
+          "const": "not_evaluated"
+        }
+      },
+      "required": [
+        "registration",
+        "execution",
+        "evidence",
+        "acceptance",
+        "engineering_readiness",
+        "release"
+      ],
+      "type": "object"
+    },
+    "categories": {
+      "type": "object"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "equivalent": {
+      "type": "boolean"
+    },
+    "kind": {
+      "const": "artifact_diff"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "before",
+    "after",
+    "categories",
+    "equivalent",
+    "capabilities",
+    "digest"
+  ],
+  "title": "Artifact Diff",
+  "type": "object"
+}

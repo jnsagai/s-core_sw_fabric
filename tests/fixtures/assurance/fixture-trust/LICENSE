@@ -1,0 +1,4 @@
+SPDX-License-Identifier: Apache-2.0
+
+The public test key, deterministic seed helper, and signed test vector are original
+fixture data for this repository. They are licensed under the repository's Apache-2.0 license.

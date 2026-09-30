@@ -1,0 +1,106 @@
+{
+  "$id": "https://score.example/schemas/native-artifact-index.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptance": {
+          "const": "not_evaluated"
+        },
+        "engineering_readiness": {
+          "const": "not_evaluated"
+        },
+        "evidence": {
+          "const": "not_evaluated"
+        },
+        "execution": {
+          "const": "not_evaluated"
+        },
+        "registration": {
+          "const": "not_evaluated"
+        },
+        "release": {
+          "const": "not_evaluated"
+        }
+      },
+      "required": [
+        "registration",
+        "execution",
+        "evidence",
+        "acceptance",
+        "engineering_readiness",
+        "release"
+      ],
+      "type": "object"
+    },
+    "counts": {
+      "type": "object"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "files": {
+      "type": "array"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "kind": {
+      "const": "native_artifact_index"
+    },
+    "limitations": {
+      "type": "array"
+    },
+    "native_receipt": {
+      "type": "object"
+    },
+    "needs": {
+      "type": "array"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "reconciliation": {
+      "type": "array"
+    },
+    "relations": {
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "snapshot": {
+      "type": "object"
+    },
+    "valid": {
+      "type": "boolean"
+    },
+    "wrappers": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "profile",
+    "snapshot",
+    "files",
+    "wrappers",
+    "needs",
+    "relations",
+    "reconciliation",
+    "counts",
+    "findings",
+    "valid",
+    "limitations",
+    "capabilities",
+    "digest",
+    "native_receipt"
+  ],
+  "title": "Native Artifact Index",
+  "type": "object"
+}

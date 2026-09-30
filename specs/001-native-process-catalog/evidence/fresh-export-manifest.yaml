@@ -1,0 +1,41 @@
+schema_version: 1
+sources:
+- id: process
+  repository: https://github.com/eclipse-score/process_description
+  commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+  root: process_description
+- id: docs_as_code
+  repository: https://github.com/eclipse-score/docs-as-code
+  commit: d5f3de608cdfc034952c57d40979c78d8cd35957
+  root: docs-as-code
+exports:
+- source_id: process
+  path: fresh-needs.json
+  sha256: 931f1a57ff36208807bfd901ab7eee8d6629edfe60e93790f3f45c70407d65f8
+  version: '0.1'
+  relation_owners: {}
+metamodel:
+  source_id: docs_as_code
+  path: src/extensions/score_metamodel/metamodel.yaml
+  sha256: fe6a3b6af5ea69271e53c57e3a1694dc69d6ff3df16bd1505dc7242db9976290
+metamodel_schema:
+  source_id: docs_as_code
+  path: src/extensions/score_metamodel/metamodel-schema.json
+  sha256: c3dc028691cc55e8d8e2c4d8d3804644d6a0f5977f53955c12489c636ffae724
+mounts:
+- source_id: process
+  docname_prefix: ''
+  path_prefix: process
+provenance:
+  origin: fresh_build
+  argv:
+  - /tmp/s-core-001/bin/bazel
+  - --batch
+  - --output_user_root=/tmp/s-core-001/bazel-process-output
+  - build
+  - '@score_process_description//:needs_json'
+  - --jobs=2
+  - --verbose_failures
+  toolchain_ref: Bazel 8.7.0; rules_python 1.8.5/Python 3.12; score_docs_as_code 8.2.0
+  build_log_sha256: a3538e6101b49cf1d1064f935ff40cbfd17e0a5e96ed49b8e64c3e5589e26a76
+  exit_code: 0

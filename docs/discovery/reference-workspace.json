@@ -1,0 +1,17 @@
+{
+  "description": "Local discovery locations only; not portable dependency identity. Temporary clones may be deleted.",
+  "sources": {
+    "score": "/home/jefferson/score",
+    "mcp-servers": "/home/jefferson/mcp-servers",
+    "fabro-nightly": "/home/jefferson/fabro",
+    "codeql-coding-standards": "/tmp/s-core-foundation/references/codeql-coding-standards",
+    "docs-as-code": "/tmp/s-core-foundation/references/docs-as-code",
+    "fabro-stable": "/tmp/s-core-foundation/references/fabro-stable",
+    "module_template": "/tmp/s-core-foundation/references/module_template",
+    "process_description": "/tmp/s-core-foundation/references/process_description",
+    "reference_integration": "/tmp/s-core-foundation/references/reference_integration",
+    "score_cpp_policies": "/tmp/s-core-foundation/references/score_cpp_policies",
+    "spec-kit": "/tmp/s-core-foundation/references/spec-kit",
+    "time": "/tmp/s-core-foundation/references/time"
+  }
+}

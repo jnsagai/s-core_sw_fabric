@@ -1,0 +1,460 @@
+schema_version: 1
+id: fixture-shared-parallel-review
+version: 1
+plan_version: 1
+compiler_profile: deterministic-compiler-v1
+review:
+  state: reviewed
+  reference:
+    fixture_review: fixture-review-1
+rules:
+- id: fixture-rule
+  instance_ids:
+  - obligation-a
+  - obligation-b
+  actions:
+  - ref: prepare
+    purpose: Execute prepare
+    type: command
+    label: Prepare
+    instance_ids:
+    - obligation-a
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/prepare.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: prepare produced declared evidence
+    evidence_expectation: evidence/prepare.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/prepare
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+  - ref: fork
+    purpose: Execute fork
+    type: parallel
+    label: Fork
+    instance_ids:
+    - obligation-a
+    - obligation-b
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/fork.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: fork produced declared evidence
+    evidence_expectation: evidence/fork.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/fork
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+  - ref: branch_a
+    purpose: Execute branch_a
+    type: command
+    label: Branch A
+    instance_ids:
+    - obligation-a
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/branch_a.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: branch_a produced declared evidence
+    evidence_expectation: evidence/branch_a.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/branch_a
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+  - ref: branch_b
+    purpose: Execute branch_b
+    type: command
+    label: Branch B
+    instance_ids:
+    - obligation-b
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/branch_b.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: branch_b produced declared evidence
+    evidence_expectation: evidence/branch_b.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/branch_b
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+  - ref: join
+    purpose: Execute join
+    type: parallel_fan_in
+    label: Join
+    instance_ids:
+    - obligation-a
+    - obligation-b
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/join.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: join produced declared evidence
+    evidence_expectation: evidence/join.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/join
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+  - ref: shared_review
+    purpose: Execute shared_review
+    type: human
+    label: Shared Review
+    instance_ids:
+    - obligation-a
+    - obligation-b
+    role: reviewer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/shared_review.json
+    data_destinations:
+    - package:evidence
+    write_scope: []
+    tool_profile: none
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: shared_review produced declared evidence
+    evidence_expectation: evidence/shared_review.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/shared_review
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+  - ref: package
+    purpose: Execute package
+    type: command
+    label: Package
+    instance_ids:
+    - obligation-b
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/package.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: package produced declared evidence
+    evidence_expectation: evidence/package.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/package
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+edges:
+- source: start
+  target: prepare
+  type: prerequisite
+  outcome: null
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/start-prepare-None
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: prepare
+  target: fork
+  type: success
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/prepare-fork-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: fork
+  target: branch_a
+  type: branch
+  outcome: null
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/fork-branch_a-None
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: fork
+  target: branch_b
+  type: branch
+  outcome: null
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/fork-branch_b-None
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: branch_a
+  target: join
+  type: merge
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/branch_a-join-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: branch_b
+  target: join
+  type: merge
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/branch_b-join-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: join
+  target: shared_review
+  type: success
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/join-shared_review-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: shared_review
+  target: package
+  type: success
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/shared_review-package-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: package
+  target: exit
+  type: success
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/package-exit-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+loop_policies: []
+fan_groups:
+- id: fixture-parallel
+  fan_out: fork
+  branch_starts:
+  - branch_a
+  - branch_b
+  branch_ends:
+  - branch_a
+  - branch_b
+  fan_in: join
+  required_branches:
+  - branch_a
+  - branch_b
+  allow_partial: false
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /fan_groups/fixture-parallel
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+support_files: []
+digest: df29ad19b6fbfcc4a2b24306a23bb011096f364a3124a13651e1bd470986e587

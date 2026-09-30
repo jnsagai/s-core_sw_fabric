@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/artifact-inventory-v1.json",
+  "title": "S-CORE artifact inventory v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "completeness", "artifacts"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "completeness": {"enum": ["complete", "partial"]},
+    "artifacts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/artifact"}
+    }
+  },
+  "$defs": {
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_namespace",
+        "native_source_id",
+        "native_work_product_id",
+        "scope_kind",
+        "scope_id",
+        "purpose"
+      ],
+      "properties": {
+        "target_namespace": {"type": "string", "minLength": 1},
+        "native_source_id": {"type": "string", "minLength": 1},
+        "native_work_product_id": {"type": "string", "minLength": 1},
+        "scope_kind": {"enum": ["feature", "component", "module", "platform"]},
+        "scope_id": {"type": "string", "minLength": 1},
+        "purpose": {"type": "string", "minLength": 1}
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identity", "requested_disposition"],
+      "properties": {
+        "identity": {"$ref": "#/$defs/identity"},
+        "requested_disposition": {
+          "enum": [
+            "create",
+            "update",
+            "reuse",
+            "tailored_out",
+            "external_obligation",
+            "unresolved"
+          ]
+        },
+        "artifact_bindings": {"type": "array", "items": {"type": "object"}},
+        "decision_refs": {"type": "array", "items": {"type": "string"}},
+        "impact_reason": {"type": "string"},
+        "reuse_route": {"enum": ["Q", "QR", "NQ", "unknown", "not_applicable"]},
+        "accepted_revision": {"type": "string"},
+        "applicability_rationale": {"type": "string"},
+        "dependencies_current": {"type": "boolean"},
+        "classification_approval_ref": {"type": "string"},
+        "accepted_change_request_ref": {"type": "string"},
+        "upstream_permission_ref": {"type": "string"},
+        "impact_analysis_ref": {"type": "string"},
+        "impact_analysis_state": {"enum": ["current", "stale"]},
+        "tailoring_rationale": {"type": "string"},
+        "owner": {"type": "string"},
+        "interface": {"type": "string"},
+        "evidence_owed": {"type": "string"},
+        "boundary": {"type": "string"}
+      }
+    }
+  }
+}

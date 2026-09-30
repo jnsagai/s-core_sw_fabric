@@ -1,0 +1,20 @@
+schema_version: 1
+operation: index
+target_snapshot:
+  path: tests/fixtures/artifacts/feature/snapshot.json
+  sha256: 3cdb9a06731fc15b2b44f6a7019bdbccc527a52c562f3ba742ed4cf6a9697133
+  semantic_digest: 7f524a7568d5771753b2bf8fb6dde94c102f983d3041f224ef662e0aae755d82
+artifact_profile:
+  path: profiles/s_core_native_artifacts_v1.yaml
+  sha256: 7cac85a69d47ef5ca34bb3e420c47c76d1be2bc7327279a57328318e026f1cf8
+  semantic_digest: 01384aaad3bcb3b5f43eb0c5fd72e8ed334271eae52b4da1596c9b8160964dba
+trace_profile: null
+plan: null
+workflow_package: null
+operations: []
+local_paths:
+  snapshot_root: tests/fixtures/artifacts/feature/target
+  protected_roots:
+  - tests/fixtures/artifacts/feature/target
+  fixture_native: true
+output_root: tests/fixtures/artifacts/out

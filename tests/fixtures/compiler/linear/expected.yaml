@@ -1,0 +1,3 @@
+scenario: linear
+logical_actions: [prepare, package]
+origin: tests/compiler_support.py

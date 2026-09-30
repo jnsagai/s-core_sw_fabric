@@ -1,0 +1,3 @@
+scenario: invalid
+expected_result: rejected_before_publication
+origin: tests/compiler_support.py

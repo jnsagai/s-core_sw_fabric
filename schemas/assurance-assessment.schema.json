@@ -1,0 +1,3080 @@
+{
+  "$defs": {
+    "decision": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "not": {
+              "required": [
+                "baseline_change"
+              ]
+            }
+          },
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "no_impact"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "baseline_change"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "actor_id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "assurance_domain": {
+          "enum": [
+            "fixture_contract",
+            "production"
+          ]
+        },
+        "authentication_method": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "authority_ref": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "baseline_change": {
+          "additionalProperties": false,
+          "properties": {
+            "changed_bindings": {
+              "items": {
+                "maxLength": 4096,
+                "pattern": "^(?:/(?:subject|policy)/|/as_of$)",
+                "type": "string"
+              },
+              "maxItems": 20000,
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "current_policy_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "current_subject_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "prior_assessment_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "prior_policy_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "prior_subject_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "prior_assessment_digest",
+            "prior_subject_digest",
+            "current_subject_digest",
+            "changed_bindings",
+            "prior_policy_digest",
+            "current_policy_digest"
+          ],
+          "type": "object"
+        },
+        "conditions": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "decision_id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "gate_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "identity_provider": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "independence": {
+          "additionalProperties": false,
+          "properties": {
+            "checked_relationships": {
+              "items": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "result": {
+              "enum": [
+                "passed",
+                "failed",
+                "unknown"
+              ]
+            },
+            "rule_ids": {
+              "items": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10000,
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "rule_ids",
+            "checked_relationships",
+            "result"
+          ],
+          "type": "object"
+        },
+        "issued_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "assurance_decision"
+        },
+        "obligation_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "outcome": {
+          "enum": [
+            "approve",
+            "reject",
+            "conditional_approve",
+            "request_changes",
+            "withdraw",
+            "no_impact"
+          ]
+        },
+        "policy_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "receipt_ref": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "role": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "scope": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "purpose": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "subject_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "valid_from": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+          "type": "string"
+        },
+        "valid_until": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "decision_id",
+        "assurance_domain",
+        "actor_id",
+        "role",
+        "authority_ref",
+        "identity_provider",
+        "authentication_method",
+        "independence",
+        "subject_digest",
+        "scope",
+        "obligation_ids",
+        "gate_ids",
+        "policy_digest",
+        "outcome",
+        "rationale",
+        "conditions",
+        "issued_at",
+        "valid_from",
+        "valid_until",
+        "supersedes",
+        "receipt_ref",
+        "digest"
+      ],
+      "title": "Assurance Decision",
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "assurance_domain": {
+          "enum": [
+            "fixture_contract",
+            "production"
+          ]
+        },
+        "collector_id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "evidence_id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "exclusions": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "execution_policy_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "finished_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+          "type": "string"
+        },
+        "import_chain": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "original_issuer_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "original_receipt": {
+                "additionalProperties": false,
+                "properties": {
+                  "algorithm": {
+                    "const": "Ed25519"
+                  },
+                  "assurance_domain": {
+                    "enum": [
+                      "fixture_contract",
+                      "production"
+                    ]
+                  },
+                  "issued_at": {
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                    "type": "string"
+                  },
+                  "issuer_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "key_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "kind": {
+                    "const": "signed_receipt"
+                  },
+                  "nonce_or_sequence": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "payload_digest": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "payload_kind": {
+                    "enum": [
+                      "assurance_evidence",
+                      "assurance_decision",
+                      "assurance_trust_profile",
+                      "assurance_time"
+                    ]
+                  },
+                  "receipt_digest": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "schema_version": {
+                    "const": 1,
+                    "type": "integer"
+                  },
+                  "signature": {
+                    "maxLength": 88,
+                    "minLength": 88,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "schema_version",
+                  "kind",
+                  "assurance_domain",
+                  "payload_kind",
+                  "payload_digest",
+                  "issuer_id",
+                  "key_id",
+                  "algorithm",
+                  "issued_at",
+                  "nonce_or_sequence",
+                  "signature",
+                  "receipt_digest"
+                ],
+                "type": "object"
+              },
+              "original_receipt_digest": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "original_record": {
+                "$ref": "#/$defs/evidence"
+              },
+              "original_result": {
+                "enum": [
+                  "pass",
+                  "fail",
+                  "unknown"
+                ]
+              },
+              "original_subject_digest": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "transformation": {
+                "additionalProperties": false,
+                "properties": {
+                  "digest": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "input_digest": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "output_basis_digest": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "input_digest",
+                  "output_basis_digest",
+                  "digest"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "original_record",
+              "original_receipt",
+              "original_receipt_digest",
+              "original_issuer_id",
+              "original_subject_digest",
+              "original_result",
+              "transformation"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "inputs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "digest": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "digest"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "kind": {
+          "const": "assurance_evidence"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "limits": {
+          "additionalProperties": false,
+          "properties": {
+            "duration_seconds": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "duration_seconds"
+          ],
+          "type": "object"
+        },
+        "measurements": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "maxProperties": 100000,
+          "minProperties": 1,
+          "propertyNames": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "obligation_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "origin_class": {
+          "enum": [
+            "protected_observed",
+            "imported_verified",
+            "fixture_replay",
+            "agent_assertion"
+          ]
+        },
+        "process_baseline": {
+          "description": "Opaque sealed 002 process baseline.",
+          "type": "object"
+        },
+        "profile_digests": {
+          "additionalProperties": false,
+          "properties": {
+            "artifact": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "trace": {
+              "anyOf": [
+                {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "artifact",
+            "trace"
+          ],
+          "type": "object"
+        },
+        "raw_outputs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "path": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256",
+              "bytes"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "receipt_ref": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "result": {
+          "enum": [
+            "pass",
+            "fail",
+            "unknown"
+          ]
+        },
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "scope": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "purpose": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "started_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+          "type": "string"
+        },
+        "subject_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "termination": {
+          "enum": [
+            "completed",
+            "failed",
+            "timeout",
+            "crash",
+            "infrastructure_error"
+          ]
+        },
+        "tool": {
+          "additionalProperties": false,
+          "properties": {
+            "executable_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "name": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "version": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "version",
+            "executable_digest"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "evidence_id",
+        "origin_class",
+        "assurance_domain",
+        "subject_digest",
+        "scope",
+        "obligation_ids",
+        "inputs",
+        "process_baseline",
+        "tool",
+        "execution_policy_digest",
+        "profile_digests",
+        "collector_id",
+        "started_at",
+        "finished_at",
+        "termination",
+        "raw_outputs",
+        "measurements",
+        "result",
+        "limits",
+        "exclusions",
+        "receipt_ref",
+        "import_chain",
+        "limitations",
+        "digest"
+      ],
+      "type": "object"
+    },
+    "gate_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_evidence": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "collector_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "evidence_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "max_age_seconds": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "tool": {
+                "additionalProperties": false,
+                "properties": {
+                  "executable_digest": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "name": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "version": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "version",
+                  "executable_digest"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "evidence_id",
+              "collector_id",
+              "tool",
+              "max_age_seconds"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "applicable_scopes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "kind": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "purpose": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "id",
+              "purpose"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "assurance_domain": {
+          "enum": [
+            "fixture_contract",
+            "production"
+          ]
+        },
+        "authority_source": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "source_ref": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "source_ref"
+          ],
+          "type": "object"
+        },
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "expected_set_rule": {
+          "additionalProperties": false,
+          "properties": {
+            "artifact_obligations": {
+              "const": "all"
+            },
+            "plan_instances": {
+              "const": "all"
+            }
+          },
+          "required": [
+            "plan_instances",
+            "artifact_obligations"
+          ],
+          "type": "object"
+        },
+        "freshness_rules": {
+          "additionalProperties": false,
+          "properties": {
+            "max_age_seconds": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "no_impact": {
+              "additionalProperties": false,
+              "properties": {
+                "allowed_paths": {
+                  "items": {
+                    "maxLength": 4096,
+                    "pattern": "^(?:/(?:subject|policy)/|/as_of$)",
+                    "type": "string"
+                  },
+                  "maxItems": 20000,
+                  "minItems": 1,
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "authority_ref": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "role": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "role",
+                "authority_ref",
+                "allowed_paths"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "max_age_seconds"
+          ],
+          "type": "object"
+        },
+        "id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "independence_rules": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "kind": {
+          "const": "assurance_gate_policy"
+        },
+        "limits": {
+          "additionalProperties": false,
+          "properties": {
+            "decisions": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "evidence": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "predicates": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "predicates",
+            "evidence",
+            "decisions"
+          ],
+          "type": "object"
+        },
+        "not_applicable_rules": {
+          "oneOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "whole_gate": {
+                  "const": false
+                }
+              },
+              "required": [
+                "whole_gate"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "decision_id": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "gate_id": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "subject_digest": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "whole_gate": {
+                  "const": true
+                }
+              },
+              "required": [
+                "whole_gate",
+                "gate_id",
+                "subject_digest",
+                "decision_id"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "outcome_routes": {
+          "additionalProperties": false,
+          "properties": {
+            "blocked": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "fail": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "not_applicable": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "not_evaluated": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "pass": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "stale": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "pass",
+            "fail",
+            "blocked",
+            "not_evaluated",
+            "not_applicable",
+            "stale"
+          ],
+          "type": "object"
+        },
+        "predicates": {
+          "items": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "acceptable_result": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "applicability": {
+                    "enum": [
+                      "required",
+                      "not_applicable"
+                    ]
+                  },
+                  "authority_ref": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "evidence_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "gate_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "obligation_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "policy_rule_ref": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "predicate_class": {
+                    "const": "trusted_evidence"
+                  },
+                  "predicate_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "required": {
+                    "const": true
+                  },
+                  "scope": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "kind": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "purpose": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "id",
+                      "purpose"
+                    ],
+                    "type": "object"
+                  },
+                  "source_ref": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "subject_ref": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "predicate_id",
+                  "gate_id",
+                  "subject_ref",
+                  "obligation_id",
+                  "scope",
+                  "required",
+                  "source_ref",
+                  "policy_rule_ref",
+                  "acceptable_result",
+                  "applicability",
+                  "authority_ref",
+                  "predicate_class",
+                  "evidence_id"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "acceptable_result": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "applicability": {
+                    "enum": [
+                      "required",
+                      "not_applicable"
+                    ]
+                  },
+                  "authority_ref": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "gate_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "obligation_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "policy_rule_ref": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "predicate_class": {
+                    "const": "human_decision"
+                  },
+                  "predicate_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "required": {
+                    "const": true
+                  },
+                  "role": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "scope": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "kind": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "purpose": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "id",
+                      "purpose"
+                    ],
+                    "type": "object"
+                  },
+                  "source_ref": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "subject_ref": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "predicate_id",
+                  "gate_id",
+                  "subject_ref",
+                  "obligation_id",
+                  "scope",
+                  "required",
+                  "source_ref",
+                  "policy_rule_ref",
+                  "acceptable_result",
+                  "applicability",
+                  "authority_ref",
+                  "predicate_class",
+                  "role"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "acceptable_result": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "applicability": {
+                    "enum": [
+                      "required",
+                      "not_applicable"
+                    ]
+                  },
+                  "authority_ref": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "check": {
+                    "enum": [
+                      "candidate_valid",
+                      "trace_obligation_satisfied"
+                    ]
+                  },
+                  "gate_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "obligation_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "policy_rule_ref": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "predicate_class": {
+                    "const": "deterministic_check"
+                  },
+                  "predicate_id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "required": {
+                    "const": true
+                  },
+                  "scope": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "kind": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "purpose": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "id",
+                      "purpose"
+                    ],
+                    "type": "object"
+                  },
+                  "source_ref": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "subject_ref": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "predicate_id",
+                  "gate_id",
+                  "subject_ref",
+                  "obligation_id",
+                  "scope",
+                  "required",
+                  "source_ref",
+                  "policy_rule_ref",
+                  "acceptable_result",
+                  "applicability",
+                  "authority_ref",
+                  "predicate_class",
+                  "check"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "maxItems": 100000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "required_roles": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "fixture_only",
+            "pending_production_review",
+            "reviewed"
+          ]
+        },
+        "subject_requirements": {
+          "additionalProperties": false,
+          "properties": {
+            "trace_required": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "trace_required"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "id",
+        "assurance_domain",
+        "authority_source",
+        "applicable_scopes",
+        "subject_requirements",
+        "expected_set_rule",
+        "predicates",
+        "required_roles",
+        "independence_rules",
+        "allowed_evidence",
+        "freshness_rules",
+        "not_applicable_rules",
+        "outcome_routes",
+        "limits",
+        "status",
+        "digest"
+      ],
+      "title": "Assurance Gate Policy",
+      "type": "object"
+    },
+    "gate_result": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "assurance_domain": {
+          "enum": [
+            "fixture_contract",
+            "production"
+          ]
+        },
+        "decision_digests": {
+          "items": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "evaluation_mode": {
+          "enum": [
+            "normal",
+            "not_started",
+            "reuse_prior",
+            "whole_gate_not_applicable"
+          ]
+        },
+        "evaluator_identity": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "evidence_digests": {
+          "items": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "expected_predicate_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "freshness": {
+          "additionalProperties": false,
+          "properties": {
+            "affected_decision_ids": {
+              "items": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "affected_evidence_ids": {
+              "items": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 100000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "affected_gate_ids": {
+              "items": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "changed_bindings": {
+              "items": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 20000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "current_subject_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "impact_paths": {
+              "items": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 20000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "kind": {
+              "const": "assurance_freshness"
+            },
+            "no_impact_decision_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "prior_assessment_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "prior_subject_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "reasons": {
+              "items": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 20000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "schema_version": {
+              "const": 1,
+              "type": "integer"
+            },
+            "scope_expansion": {
+              "enum": [
+                "whole_gate",
+                "exact_changed_refs",
+                "reviewed_no_impact"
+              ]
+            },
+            "state": {
+              "enum": [
+                "current",
+                "stale"
+              ]
+            },
+            "unknown_dependencies": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "schema_version",
+            "kind",
+            "prior_assessment_digest",
+            "prior_subject_digest",
+            "current_subject_digest",
+            "changed_bindings",
+            "affected_evidence_ids",
+            "affected_decision_ids",
+            "affected_gate_ids",
+            "impact_paths",
+            "unknown_dependencies",
+            "scope_expansion",
+            "state",
+            "reasons",
+            "digest"
+          ],
+          "type": "object"
+        },
+        "gate_id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "kind": {
+          "const": "assurance_gate_result"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "next_route": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "outcome": {
+          "enum": [
+            "pass",
+            "fail",
+            "blocked",
+            "not_evaluated",
+            "not_applicable",
+            "stale"
+          ]
+        },
+        "policy_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "predicate_results": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "decision_ids": {
+                "items": {
+                  "maxLength": 4096,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 10000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "evidence_ids": {
+                "items": {
+                  "maxLength": 4096,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "obligation_id": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "predicate_id": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "reason_codes": {
+                "items": {
+                  "maxLength": 4096,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 20000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "required_action": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "state": {
+                "enum": [
+                  "satisfied",
+                  "failed",
+                  "blocked",
+                  "not_evaluated",
+                  "not_applicable",
+                  "stale"
+                ]
+              }
+            },
+            "required": [
+              "predicate_id",
+              "obligation_id",
+              "state",
+              "evidence_ids",
+              "decision_ids",
+              "reason_codes",
+              "required_action"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "reason_codes": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "required_actions": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "scope": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            "purpose": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "subject_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "time_basis_ref": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "trust_profile_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "unmet_obligation_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "unmet_predicate_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "gate_id",
+        "assurance_domain",
+        "scope",
+        "subject_digest",
+        "policy_digest",
+        "trust_profile_digest",
+        "evaluator_identity",
+        "as_of",
+        "time_basis_ref",
+        "outcome",
+        "evaluation_mode",
+        "expected_predicate_ids",
+        "predicate_results",
+        "evidence_digests",
+        "decision_digests",
+        "unmet_predicate_ids",
+        "unmet_obligation_ids",
+        "reason_codes",
+        "required_actions",
+        "next_route",
+        "limitations",
+        "digest"
+      ],
+      "title": "Assurance Gate Result",
+      "type": "object"
+    },
+    "receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "Ed25519"
+        },
+        "assurance_domain": {
+          "enum": [
+            "fixture_contract",
+            "production"
+          ]
+        },
+        "issued_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+          "type": "string"
+        },
+        "issuer_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "key_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "kind": {
+          "const": "signed_receipt"
+        },
+        "nonce_or_sequence": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "payload_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "payload_kind": {
+          "enum": [
+            "assurance_evidence",
+            "assurance_decision",
+            "assurance_trust_profile",
+            "assurance_time"
+          ]
+        },
+        "receipt_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "signature": {
+          "maxLength": 88,
+          "minLength": 88,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "assurance_domain",
+        "payload_kind",
+        "payload_digest",
+        "issuer_id",
+        "key_id",
+        "algorithm",
+        "issued_at",
+        "nonce_or_sequence",
+        "signature",
+        "receipt_digest"
+      ],
+      "type": "object"
+    },
+    "subject": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_candidate": {
+          "additionalProperties": false,
+          "properties": {
+            "bindings": {
+              "additionalProperties": false,
+              "properties": {
+                "artifact_profile": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "plan": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "request": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "snapshot": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "trace_profile": {
+                  "anyOf": [
+                    {
+                      "pattern": "^[0-9a-f]{64}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "workflow_package": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "artifact_profile",
+                "plan",
+                "request",
+                "snapshot",
+                "trace_profile",
+                "workflow_package"
+              ],
+              "type": "object"
+            },
+            "candidate_identity": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "index_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "native_receipt_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "digest",
+            "candidate_identity",
+            "bindings",
+            "index_digest",
+            "native_receipt_digest"
+          ],
+          "type": "object"
+        },
+        "artifact_report": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "digest": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "expected_obligation_ids": {
+                  "items": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "maxItems": 100000,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "index_digest": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "status": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "digest",
+                "status",
+                "index_digest",
+                "expected_obligation_ids"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "assurance_domain": {
+          "enum": [
+            "fixture_contract",
+            "production"
+          ]
+        },
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "expected_obligation_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "file_closure": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "role": {
+                "enum": [
+                  "base",
+                  "overlay"
+                ]
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256",
+              "role"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "kind": {
+          "const": "assurance_subject"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "plan": {
+          "additionalProperties": false,
+          "properties": {
+            "digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "instances": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "disposition": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "disposition"
+                ],
+                "type": "object"
+              },
+              "maxItems": 10000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "semantic_inputs": {
+              "description": "Opaque sealed 002 semantic input identities.",
+              "type": "object"
+            },
+            "target_namespace": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "digest",
+            "target_namespace",
+            "instances",
+            "semantic_inputs"
+          ],
+          "type": "object"
+        },
+        "policy_bindings": {
+          "additionalProperties": false,
+          "properties": {},
+          "required": [],
+          "type": "object"
+        },
+        "process_baseline": {
+          "description": "Opaque sealed 002 process baseline.",
+          "type": "object"
+        },
+        "profiles": {
+          "additionalProperties": false,
+          "properties": {
+            "artifact": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "trace": {
+              "anyOf": [
+                {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "artifact",
+            "trace"
+          ],
+          "type": "object"
+        },
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "scope": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "purpose": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "source_baselines": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "commit": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "repository": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "revision_label": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "source_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "source_lock": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "source_id",
+              "repository",
+              "commit",
+              "revision_label",
+              "source_lock"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "toolchain": {
+          "additionalProperties": false,
+          "properties": {
+            "commands": {
+              "items": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "native_validator": {
+              "description": "Sealed 004 native validator identity.",
+              "type": "object"
+            }
+          },
+          "required": [
+            "native_validator",
+            "commands"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "assurance_domain",
+        "scope",
+        "plan",
+        "artifact_candidate",
+        "artifact_report",
+        "source_baselines",
+        "process_baseline",
+        "toolchain",
+        "profiles",
+        "policy_bindings",
+        "expected_obligation_ids",
+        "file_closure",
+        "limitations",
+        "digest"
+      ],
+      "type": "object"
+    },
+    "trust_profile": {
+      "additionalProperties": false,
+      "properties": {
+        "assurance_domain": {
+          "enum": [
+            "fixture_contract",
+            "production"
+          ]
+        },
+        "authority_source": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "source_ref": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "rationale",
+            "source_ref"
+          ],
+          "type": "object"
+        },
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "identity_providers": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "assurance": {
+                "enum": [
+                  "fixture_only",
+                  "protected"
+                ]
+              },
+              "authentication_method": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "issuer_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "assurance",
+              "authentication_method",
+              "id",
+              "issuer_id"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "import_rules": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "evidence_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "max_age_seconds": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "original_issuer_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "original_policy_digest": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "scope_ids": {
+                "items": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 10000,
+                "minItems": 1,
+                "type": "array"
+              },
+              "transformation_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence_id",
+              "scope_ids",
+              "original_issuer_id",
+              "original_policy_digest",
+              "transformation_id",
+              "max_age_seconds"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "independence_rules": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "disallowed_actor_ids": {
+                "items": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 10000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "disallowed_actor_ids",
+              "id",
+              "required"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "issuer_keys": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "issuer_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "key_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "public_key_base64": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "receipt_kinds": {
+                "items": {
+                  "enum": [
+                    "assurance_evidence",
+                    "assurance_decision",
+                    "assurance_trust_profile",
+                    "assurance_time"
+                  ]
+                },
+                "maxItems": 4,
+                "minItems": 1,
+                "type": "array"
+              },
+              "scope_ids": {
+                "items": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 10000,
+                "minItems": 1,
+                "type": "array"
+              },
+              "valid_from": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                "type": "string"
+              },
+              "valid_until": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "issuer_id",
+              "key_id",
+              "public_key_base64",
+              "receipt_kinds",
+              "scope_ids",
+              "valid_from",
+              "valid_until"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "kind": {
+          "const": "assurance_trust_profile"
+        },
+        "limits": {
+          "additionalProperties": false,
+          "properties": {
+            "control_bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "decisions": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "depth": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "evidence": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "findings": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "package_bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "predicates": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "references": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "control_bytes",
+            "package_bytes",
+            "predicates",
+            "evidence",
+            "decisions",
+            "references",
+            "findings",
+            "depth"
+          ],
+          "type": "object"
+        },
+        "revocations": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "effective_at": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                "type": "string"
+              },
+              "key_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "key_id",
+              "effective_at"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "role_assignments": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actor_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "authority_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "role": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "scope_ids": {
+                "items": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 10000,
+                "minItems": 1,
+                "type": "array"
+              },
+              "valid_from": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                "type": "string"
+              },
+              "valid_until": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "actor_id",
+              "authority_ref",
+              "role",
+              "scope_ids",
+              "valid_from",
+              "valid_until"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "fixture_only",
+            "pending_production_review",
+            "reviewed"
+          ]
+        },
+        "time_authorities": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "issuer_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "key_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "scope_ids": {
+                "items": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 10000,
+                "minItems": 1,
+                "type": "array"
+              }
+            },
+            "required": [
+              "issuer_id",
+              "key_id",
+              "scope_ids"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "id",
+        "assurance_domain",
+        "authority_source",
+        "issuer_keys",
+        "identity_providers",
+        "role_assignments",
+        "independence_rules",
+        "import_rules",
+        "revocations",
+        "time_authorities",
+        "limits",
+        "status",
+        "digest"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://score.example/schemas/assurance-assessment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_records": {
+      "items": {
+        "$ref": "#/$defs/decision"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_records": {
+      "items": {
+        "$ref": "#/$defs/evidence"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "gate_results": {
+      "items": {
+        "$ref": "#/$defs/gate_result"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "history_refs": {
+      "items": {
+        "$ref": "#"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "kind": {
+      "const": "assurance_assessment"
+    },
+    "limitations": {
+      "items": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 20000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "policy_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "record": {
+            "$ref": "#/$defs/gate_policy"
+          },
+          "selected_digest": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "record",
+          "selected_digest"
+        ],
+        "type": "object"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "raw_output_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "bytes": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "content_base64": {
+            "maxLength": 89478488,
+            "type": "string"
+          },
+          "path": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "bytes",
+          "content_base64"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "readable_report": {
+      "additionalProperties": false,
+      "properties": {
+        "assurance_domain": {
+          "enum": [
+            "fixture_contract",
+            "production"
+          ]
+        },
+        "engineering_readiness": {
+          "const": "not_evaluated"
+        },
+        "next_route": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "outcome": {
+          "enum": [
+            "pass",
+            "fail",
+            "blocked",
+            "not_evaluated",
+            "not_applicable",
+            "stale"
+          ]
+        },
+        "reason_codes": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "release": {
+          "const": "not_evaluated"
+        },
+        "scope": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "purpose": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "unmet_predicate_ids": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "assurance_domain",
+        "scope",
+        "outcome",
+        "reason_codes",
+        "unmet_predicate_ids",
+        "next_route",
+        "engineering_readiness",
+        "release"
+      ],
+      "type": "object"
+    },
+    "receipts": {
+      "items": {
+        "$ref": "#/$defs/receipt"
+      },
+      "maxItems": 110000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "subject": {
+      "additionalProperties": false,
+      "properties": {
+        "closure": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "content_base64": {
+                "maxLength": 89478488,
+                "type": "string"
+              },
+              "record": {
+                "type": "object"
+              },
+              "semantic_digest": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "suffix": {
+                "enum": [
+                  ".json",
+                  ".yaml",
+                  ".yml"
+                ]
+              }
+            },
+            "required": [
+              "record",
+              "sha256",
+              "semantic_digest",
+              "suffix",
+              "content_base64"
+            ],
+            "type": "object"
+          },
+          "maxProperties": 8,
+          "minProperties": 6,
+          "type": "object"
+        },
+        "manifest": {
+          "$ref": "#/$defs/subject"
+        },
+        "source_files": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "content_base64": {
+                "maxLength": 89478488,
+                "type": "string"
+              },
+              "path": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256",
+              "bytes",
+              "content_base64"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "manifest",
+        "closure",
+        "source_files"
+      ],
+      "type": "object"
+    },
+    "trust_context_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "record": {
+            "$ref": "#/$defs/trust_profile"
+          },
+          "selected_digest": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "record",
+          "selected_digest"
+        ],
+        "type": "object"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "subject",
+    "policy_refs",
+    "trust_context_refs",
+    "evidence_records",
+    "decision_records",
+    "receipts",
+    "gate_results",
+    "raw_output_refs",
+    "history_refs",
+    "readable_report",
+    "limitations",
+    "digest"
+  ],
+  "title": "Assurance Assessment",
+  "type": "object"
+}

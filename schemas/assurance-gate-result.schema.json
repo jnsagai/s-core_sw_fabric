@@ -1,0 +1,412 @@
+{
+  "$id": "https://score.example/schemas/assurance-gate-result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "as_of": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "assurance_domain": {
+      "enum": [
+        "fixture_contract",
+        "production"
+      ]
+    },
+    "decision_digests": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evaluation_mode": {
+      "enum": [
+        "normal",
+        "not_started",
+        "reuse_prior",
+        "whole_gate_not_applicable"
+      ]
+    },
+    "evaluator_identity": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_digests": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "expected_predicate_ids": {
+      "items": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "freshness": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_decision_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "affected_evidence_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "affected_gate_ids": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "changed_bindings": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "current_subject_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "impact_paths": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "kind": {
+          "const": "assurance_freshness"
+        },
+        "no_impact_decision_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "prior_assessment_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "prior_subject_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 20000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "scope_expansion": {
+          "enum": [
+            "whole_gate",
+            "exact_changed_refs",
+            "reviewed_no_impact"
+          ]
+        },
+        "state": {
+          "enum": [
+            "current",
+            "stale"
+          ]
+        },
+        "unknown_dependencies": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "prior_assessment_digest",
+        "prior_subject_digest",
+        "current_subject_digest",
+        "changed_bindings",
+        "affected_evidence_ids",
+        "affected_decision_ids",
+        "affected_gate_ids",
+        "impact_paths",
+        "unknown_dependencies",
+        "scope_expansion",
+        "state",
+        "reasons",
+        "digest"
+      ],
+      "type": "object"
+    },
+    "gate_id": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "kind": {
+      "const": "assurance_gate_result"
+    },
+    "limitations": {
+      "items": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 20000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "next_route": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "outcome": {
+      "enum": [
+        "pass",
+        "fail",
+        "blocked",
+        "not_evaluated",
+        "not_applicable",
+        "stale"
+      ]
+    },
+    "policy_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "predicate_results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "decision_ids": {
+            "items": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "evidence_ids": {
+            "items": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "obligation_id": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "predicate_id": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "reason_codes": {
+            "items": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 20000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "required_action": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "satisfied",
+              "failed",
+              "blocked",
+              "not_evaluated",
+              "not_applicable",
+              "stale"
+            ]
+          }
+        },
+        "required": [
+          "predicate_id",
+          "obligation_id",
+          "state",
+          "evidence_ids",
+          "decision_ids",
+          "reason_codes",
+          "required_action"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "reason_codes": {
+      "items": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 20000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "required_actions": {
+      "items": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 20000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "kind": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "purpose": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "purpose"
+      ],
+      "type": "object"
+    },
+    "subject_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "time_basis_ref": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "trust_profile_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "unmet_obligation_ids": {
+      "items": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "unmet_predicate_ids": {
+      "items": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "gate_id",
+    "assurance_domain",
+    "scope",
+    "subject_digest",
+    "policy_digest",
+    "trust_profile_digest",
+    "evaluator_identity",
+    "as_of",
+    "time_basis_ref",
+    "outcome",
+    "evaluation_mode",
+    "expected_predicate_ids",
+    "predicate_results",
+    "evidence_digests",
+    "decision_digests",
+    "unmet_predicate_ids",
+    "unmet_obligation_ids",
+    "reason_codes",
+    "required_actions",
+    "next_route",
+    "limitations",
+    "digest"
+  ],
+  "title": "Assurance Gate Result",
+  "type": "object"
+}

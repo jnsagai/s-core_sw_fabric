@@ -1,0 +1,68 @@
+command: /tmp/s-core-001/bin/bazel --batch --output_user_root=/tmp/s-core-001/bazel-process-output run @score_process_description//:docs_check --jobs=2 --verbose_failures
+OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target @@score_process_description+//:docs_check (1 packages loaded, 0 targets configured)
+Analyzing: target @@score_process_description+//:docs_check (1 packages loaded, 0 targets configured)
+
+Analyzing: target @@score_process_description+//:docs_check (211 packages loaded, 1397 targets configured)
+
+Analyzing: target @@score_process_description+//:docs_check (309 packages loaded, 13465 targets configured)
+
+INFO: Analyzed target @@score_process_description+//:docs_check (310 packages loaded, 23747 targets configured).
+[1 / 1] no actions running
+[11 / 101] [Prepa] Expanding template external/score_process_description+/docs_check
+[13 / 101] [Prepa] JavaToolchainCompileClasses external/rules_java+/toolchains/platformclasspath_classes
+[99 / 101] JavaToolchainCompileBootClasspath external/rules_java+/toolchains/platformclasspath.jar; 0s linux-sandbox
+INFO: Found 1 target...
+Target @@score_process_description+//:docs_check up-to-date:
+  bazel-bin/external/score_process_description+/docs_check
+  bazel-bin/external/score_process_description+/docs_check.venv.pth
+INFO: Elapsed time: 10.040s, Critical Path: 2.23s
+INFO: 52 processes: 50 action cache hit, 7 internal, 44 linux-sandbox, 1 worker.
+INFO: Build completed successfully, 52 total actions
+INFO: Running command line: bazel-bin/external/score_process_description+/docs_check
+
+Application error!
+
+Versions
+========
+
+* Platform:         linux; (Linux-6.8.0-138-generic-x86_64-with-glibc2.35)
+* Python version:   3.12.12 (CPython)
+* Sphinx version:   9.1.0
+* Docutils version: 0.22.4
+* Jinja2 version:   3.1.6
+* Pygments version: 2.20.0
+
+Last Messages
+=============
+
+None.
+
+Loaded Extensions
+=================
+
+None.
+
+Traceback
+=========
+
+    Traceback (most recent call last):
+      File "/tmp/s-core-001/bazel-process-output/aa5fbdc9d9c603cc21112e8022deacf1/execroot/_main/bazel-out/k8-fastbuild/bin/external/score_process_description+/docs_check.runfiles/.docs_check.venv/lib/python3.12/site-packages/sphinx/cmd/build.py", line 414, in build_main
+        app = Sphinx(
+              ^^^^^^^
+      File "/tmp/s-core-001/bazel-process-output/aa5fbdc9d9c603cc21112e8022deacf1/execroot/_main/bazel-out/k8-fastbuild/bin/external/score_process_description+/docs_check.runfiles/.docs_check.venv/lib/python3.12/site-packages/sphinx/application.py", line 217, in __init__
+        raise ApplicationError(
+    sphinx.errors.ApplicationError: Cannot find source directory (/tmp/s-core-001/minimal_consumer/process)
+
+
+The full traceback has been saved in:
+/tmp/sphinx-err-4fgtrba7.log
+
+To report this error to the developers, please open an issue at <https://github.com/sphinx-doc/sphinx/issues/>. Thanks!
+Please also report this if it was a user error, so that a better error message can be provided next time.
+docs (check) finished in 0.0 seconds
+
+wrapper_exit_code: 2

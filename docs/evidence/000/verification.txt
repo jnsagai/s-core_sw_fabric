@@ -1,0 +1,128 @@
+Foundation verification — 2026-09-27
+cwd: /home/jefferson/s-core_sw_fabric
+PATH prepended with /tmp/s-core-foundation/bin; no model calls
+
+$ uv sync --frozen
+Checked 15 packages in 0.42ms
+EXIT: 0
+
+$ uv run --frozen ruff check .
+All checks passed!
+EXIT: 0
+
+$ uv run --frozen ruff format --check .
+68 files already formatted
+EXIT: 0
+
+$ uv run --frozen mypy
+Success: no issues found in 2 source files
+EXIT: 0
+
+$ uv run --frozen pytest
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/jefferson/s-core_sw_fabric
+configfile: pyproject.toml
+testpaths: tests
+collected 8 items
+
+tests/test_foundation_cli.py ........                                    [100%]
+
+============================== 8 passed in 0.04s ===============================
+EXIT: 0
+
+$ uv run --frozen python scripts/check_foundation.py
+PASS: 64 unchanged FAB requirements; 19 dependency rows; Spec Kit skills; locks; local links
+Scope: foundation consistency only; no engineering acceptance or native build validation
+EXIT: 0
+
+$ uv run --frozen score-fabric --help
+usage: score-fabric [-h] [--version] {doctor} ...
+
+Offline foundation diagnostics; never an engineering acceptance evaluator.
+
+positional arguments:
+  {doctor}
+    doctor    check foundation lock envelopes offline
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit
+EXIT: 0
+
+$ uv run --frozen score-fabric --version
+0.0.0
+EXIT: 0
+
+$ uv run --frozen score-fabric doctor --json
+{
+  "checks": [
+    {
+      "outcome": "pass",
+      "path": "upstream.lock.yaml"
+    },
+    {
+      "outcome": "pass",
+      "path": "toolchain.lock.yaml"
+    }
+  ],
+  "engineering_readiness": "not_evaluated",
+  "limitations": [
+    "Only lock-file readability and envelope versions are checked.",
+    "Source compatibility, tool availability, credentials and approvals are not checked."
+  ],
+  "outcome": "pass",
+  "runtime_integration": "not_implemented",
+  "schema_version": 1,
+  "scope": "fabric_foundation_files"
+}
+EXIT: 0
+
+$ /tmp/s-core-foundation/bin/specify version
+              ███████╗██████╗ ███████╗ ██████╗██╗███████╗██╗   ██╗              
+              ██╔════╝██╔══██╗██╔════╝██╔════╝██║██╔════╝╚██╗ ██╔╝              
+              ███████╗██████╔╝█████╗  ██║     ██║█████╗   ╚████╔╝               
+              ╚════██║██╔═══╝ ██╔══╝  ██║     ██║██╔══╝    ╚██╔╝                
+              ███████║██║     ███████╗╚██████╗██║██║        ██║                 
+              ╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝╚═╝        ╚═╝                 
+                                                                                
+               GitHub Spec Kit - Spec-Driven Development Toolkit                
+
+╭────────────────────────── Specify CLI Information ───────────────────────────╮
+│                                                                              │
+│     CLI Version    1.0.12                                                    │
+│                                                                              │
+│          Python    3.12.14                                                   │
+│        Platform    Linux                                                     │
+│    Architecture    x86_64                                                    │
+│      OS Version    #138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7        │
+│                    13:43:15 UTC                                              │
+│         OpenSSL    OpenSSL 3.5.8 25 Aug 2026                                 │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+EXIT: 0
+
+$ env SPECIFY_FEATURE_DIRECTORY=/home/jefferson/s-core_sw_fabric/specs/001-native-process-catalog .specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks
+{"FEATURE_DIR":"/home/jefferson/s-core_sw_fabric/specs/001-native-process-catalog","AVAILABLE_DOCS":["research.md","data-model.md","contracts/","quickstart.md","tasks.md"]}
+EXIT: 0
+
+$ env SPECIFY_FEATURE_DIRECTORY=/home/jefferson/s-core_sw_fabric/specs/000-bootstrap-and-discovery .specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks
+{"FEATURE_DIR":"/home/jefferson/s-core_sw_fabric/specs/000-bootstrap-and-discovery","AVAILABLE_DOCS":["research.md","data-model.md","contracts/","quickstart.md","tasks.md"]}
+EXIT: 0
+
+$ uv build
+Building source distribution...
+Building wheel from source distribution...
+Successfully built dist/score_sw_fabric-0.0.0.tar.gz
+Successfully built dist/score_sw_fabric-0.0.0-py3-none-any.whl
+EXIT: 0
+
+$ uv run --no-project --isolated --with dist/score_sw_fabric-0.0.0-py3-none-any.whl score-fabric --version
+Installed 2 packages in 3ms
+0.0.0
+EXIT: 0
+
+$ git diff --check
+
+EXIT: 0
+

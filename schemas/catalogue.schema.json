@@ -1,0 +1,498 @@
+{
+  "$id": "urn:score-sw-fabric:catalogue:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "entities": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "export_key": {
+            "type": "string"
+          },
+          "export_version": {
+            "type": "string"
+          },
+          "is_external": {
+            "type": "boolean"
+          },
+          "is_template": {
+            "type": "boolean"
+          },
+          "native_id": {
+            "type": "string"
+          },
+          "native_version": {
+            "type": "integer"
+          },
+          "normalized": {
+            "type": "object"
+          },
+          "raw": {
+            "type": "object"
+          },
+          "source_id": {
+            "pattern": "^[a-z][a-z0-9_]{0,63}$",
+            "type": "string"
+          },
+          "source_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "commit": {
+                "type": "string"
+              },
+              "content_digest": {
+                "anyOf": [
+                  {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "docname": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "export_ref": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "lineno": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "location_state": {
+                "enum": [
+                  "verified",
+                  "unavailable",
+                  "external"
+                ]
+              },
+              "native_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "native_version": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "path": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "pointer": {
+                "type": "string"
+              },
+              "rendered_url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "repository": {
+                "type": "string"
+              },
+              "source_id": {
+                "pattern": "^[a-z][a-z0-9_]{0,63}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "source_id",
+              "repository",
+              "commit",
+              "native_id",
+              "native_version",
+              "path",
+              "content_digest",
+              "location_state",
+              "docname",
+              "lineno",
+              "export_ref",
+              "pointer",
+              "rendered_url"
+            ],
+            "type": "object"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "template_keys": {
+            "additionalProperties": false,
+            "properties": {
+              "post_template": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "pre_template": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "template": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "template",
+              "pre_template",
+              "post_template"
+            ],
+            "type": "object"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "export_version",
+          "export_key",
+          "native_id",
+          "native_version",
+          "type",
+          "title",
+          "content",
+          "status",
+          "is_external",
+          "is_template",
+          "source_ref",
+          "raw",
+          "normalized",
+          "template_keys"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "manifest": {
+      "type": "object"
+    },
+    "metamodel_raw": {
+      "type": "object"
+    },
+    "relations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "direction": {
+            "enum": [
+              "forward",
+              "backlink"
+            ]
+          },
+          "field": {
+            "type": "string"
+          },
+          "native_id": {
+            "type": "string"
+          },
+          "native_version": {
+            "type": "integer"
+          },
+          "pointer": {
+            "type": "string"
+          },
+          "raw_target": {
+            "type": "string"
+          },
+          "resolved_native_version": {
+            "type": "integer"
+          },
+          "source_id": {
+            "pattern": "^[a-z][a-z0-9_]{0,63}$",
+            "type": "string"
+          },
+          "source_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "commit": {
+                "type": "string"
+              },
+              "content_digest": {
+                "anyOf": [
+                  {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "docname": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "export_ref": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "lineno": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "location_state": {
+                "enum": [
+                  "verified",
+                  "unavailable",
+                  "external"
+                ]
+              },
+              "native_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "native_version": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "path": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "pointer": {
+                "type": "string"
+              },
+              "rendered_url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "repository": {
+                "type": "string"
+              },
+              "source_id": {
+                "pattern": "^[a-z][a-z0-9_]{0,63}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "source_id",
+              "repository",
+              "commit",
+              "native_id",
+              "native_version",
+              "path",
+              "content_digest",
+              "location_state",
+              "docname",
+              "lineno",
+              "export_ref",
+              "pointer",
+              "rendered_url"
+            ],
+            "type": "object"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "target_source_id": {
+            "pattern": "^[a-z][a-z0-9_]{0,63}$",
+            "type": "string"
+          },
+          "target_version_selector": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "source_id",
+          "native_id",
+          "native_version",
+          "field",
+          "direction",
+          "raw_target",
+          "target_id",
+          "target_version_selector",
+          "target_source_id",
+          "resolved_native_version",
+          "source_ref",
+          "pointer"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "types": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "definition": {
+            "type": "object"
+          },
+          "name": {
+            "type": "string"
+          },
+          "source_ref": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "name",
+          "definition",
+          "source_ref"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "manifest",
+    "metamodel_raw",
+    "types",
+    "entities",
+    "relations",
+    "engineering_readiness",
+    "digest"
+  ],
+  "title": "S-CORE native process catalogue v1",
+  "type": "object"
+}

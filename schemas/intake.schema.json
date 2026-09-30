@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/intake-v1.json",
+  "title": "S-CORE work-product planning intake v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "target_namespace",
+    "change",
+    "scopes",
+    "affected_scopes",
+    "catalogue",
+    "profile",
+    "mapping",
+    "inventory",
+    "decisions",
+    "local_paths"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "target_namespace": {"type": "string", "minLength": 1},
+    "change": {"type": "object"},
+    "scopes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "items": {"$ref": "#/$defs/scope"}
+    },
+    "affected_scopes": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/scope_ref"}
+    },
+    "catalogue": {"$ref": "#/$defs/catalogue_ref"},
+    "profile": {"$ref": "#/$defs/document_ref"},
+    "mapping": {"$ref": "#/$defs/document_ref"},
+    "inventory": {"$ref": "#/$defs/document_ref"},
+    "decisions": {"$ref": "#/$defs/document_ref"},
+    "local_paths": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["output_root", "reference_roots"],
+      "properties": {
+        "output_root": {"$ref": "#/$defs/local_path"},
+        "reference_roots": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/local_path"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "local_path": {"type": "string", "minLength": 1},
+    "document_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"$ref": "#/$defs/local_path"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "catalogue_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "digest"],
+      "properties": {
+        "path": {"$ref": "#/$defs/local_path"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "digest": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "scope_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": {"enum": ["feature", "component", "module", "platform"]},
+        "id": {"type": "string", "minLength": 1}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id", "parent", "facts"],
+      "properties": {
+        "kind": {"enum": ["feature", "component", "module", "platform"]},
+        "id": {"type": "string", "minLength": 1},
+        "parent": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/scope_ref"}]},
+        "facts": {"type": "object"}
+      }
+    }
+  }
+}

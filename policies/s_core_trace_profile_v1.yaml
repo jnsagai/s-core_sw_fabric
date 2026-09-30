@@ -1,0 +1,97 @@
+schema_version: 1
+id: s-core-trace-profile-v1
+version: 1
+review:
+  state: pending
+  reference:
+    owner_review: required
+  fixture_override:
+    state: reviewed
+    reference: fixture-review-004
+artifact_rules:
+- id: fixture-artifact
+  selector:
+    applicability: required
+  wrapper_type: document
+  need_type: comp_req
+  cardinality: one_or_more
+  origin: &id001
+    kind: reviewed_project_configuration
+    source_ref:
+      path: specs/004-native-artifact-traceability/research.md
+    pointer: /fixture-policy
+    decision_ref: fixture-review-004
+    rationale: Fixture-only policy for deterministic contract development; not production
+      authority.
+  required_paths:
+  - verification
+output_rules:
+- id: fixture-output
+  pattern: evidence/*
+  classification: non_native_record
+  origin: *id001
+- id: fixture-native-output
+  pattern: artifacts/*
+  classification: native_artifact
+  native_role: comp_req
+  origin: *id001
+- id: fixture-destination
+  pattern: package:*
+  classification: external_boundary
+  origin: *id001
+path_rules:
+- id: allocation
+  source_types:
+  - feat_req
+  target_types:
+  - comp_req
+  hops:
+  - relation: satisfied_by
+    direction: forward
+  completeness: full
+  origin: *id001
+- id: verification
+  source_types:
+  - feat_req
+  - comp_req
+  target_types:
+  - test_case
+  hops:
+  - relation: fully_verifies
+    direction: either
+  completeness: full
+  origin: *id001
+exclusion_rules: []
+impact_rules:
+- id: conservative-native
+  triggers:
+  - requirement
+  - interface
+  - allocation
+  - assumption
+  - analysis
+  - baseline
+  - profile
+  relations:
+  - satisfied_by
+  - derived_from
+  - belongs_to
+  - mitigated_by
+  - fully_verifies
+  - partially_verifies
+  unknown: block
+  origin: *id001
+limits:
+  control_bytes: 67108864
+  package_bytes: 67108864
+  target_bytes: 67108864
+  files: 10000
+  text_file_bytes: 2097152
+  entities: 100000
+  obligations: 100000
+  relations: 500000
+  edits: 10000
+  findings: 20000
+  native_output_bytes: 8388608
+  native_timeout_seconds: 1800
+digest: f7fe4eec7439e99d5dbc9c6ddfd01166fcb9409a39a8edef7534a222b58c137f

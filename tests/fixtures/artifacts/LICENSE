@@ -1,0 +1,3 @@
+SPDX-License-Identifier: Apache-2.0
+
+Fixture material is derived from the repository's pinned, Apache-2.0-compatible native examples and is provided only for deterministic tests.

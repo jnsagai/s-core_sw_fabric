@@ -1,0 +1,12 @@
+s-core_sw_fabric
+Existing project license: Apache-2.0 (LICENSE, preserved unchanged).
+
+Spec Kit assets in .specify/ and .agents/skills/ originate from GitHub Spec Kit
+v1.0.12, commit e77daa9021d20db26b878f7dfa5640fe5a42d04e.
+Copyright GitHub, Inc. MIT license retained in LICENSE.spec-kit.
+Project constitution is project-authored using the installed template.
+
+S-CORE sources are inspected as Apache-2.0 references, not vendored here.
+Fabro is an MIT reference; CodeQL query sources and the CLI have separate terms.
+See upstream.lock.yaml and docs/discovery/upstream-inventory.md. No MISRA rule text
+or CodeQL binary is redistributed by this foundation.

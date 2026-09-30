@@ -1,0 +1,230 @@
+2026/09/27 11:42:10 Downloading https://releases.bazel.build/8.7.0/release/bazel-8.7.0-linux-x86_64...
+2026/09/27 11:42:16 Signed by Bazel Developer (Bazel APT repository key) <bazel-dev@googlegroups.com>
+Extracting Bazel installation...
+Starting local Bazel server (8.7.0) and connecting to it...
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+    currently loading: 
+Loading: 0 packages loaded
+    currently loading: 
+Loading: 0 packages loaded
+    currently loading: 
+Loading: 0 packages loaded
+    currently loading: 
+Loading: 0 packages loaded
+    currently loading: 
+Loading: 0 packages loaded
+    currently loading: 
+Analyzing: target //:needs_json (1 packages loaded, 0 targets configured)
+Analyzing: target //:needs_json (1 packages loaded, 0 targets configured)
+
+Analyzing: target //:needs_json (74 packages loaded, 61 targets configured)
+
+Analyzing: target //:needs_json (84 packages loaded, 61 targets configured)
+
+Analyzing: target //:needs_json (96 packages loaded, 429 targets configured)
+
+Analyzing: target //:needs_json (96 packages loaded, 429 targets configured)
+
+Analyzing: target //:needs_json (145 packages loaded, 5761 targets configured)
+
+Analyzing: target //:needs_json (272 packages loaded, 8810 targets configured)
+
+Analyzing: target //:needs_json (272 packages loaded, 8810 targets configured)
+
+Analyzing: target //:needs_json (272 packages loaded, 8810 targets configured)
+
+Analyzing: target //:needs_json (272 packages loaded, 8810 targets configured)
+
+Analyzing: target //:needs_json (273 packages loaded, 8812 targets configured)
+
+Analyzing: target //:needs_json (273 packages loaded, 8812 targets configured)
+
+Analyzing: target //:needs_json (273 packages loaded, 8812 targets configured)
+
+Analyzing: target //:needs_json (273 packages loaded, 8812 targets configured)
+
+Analyzing: target //:needs_json (274 packages loaded, 8813 targets configured)
+
+Analyzing: target //:needs_json (274 packages loaded, 8813 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (278 packages loaded, 10718 targets configured)
+
+Analyzing: target //:needs_json (294 packages loaded, 11120 targets configured)
+
+Analyzing: target //:needs_json (299 packages loaded, 11718 targets configured)
+
+Analyzing: target //:needs_json (302 packages loaded, 12248 targets configured)
+
+Analyzing: target //:needs_json (305 packages loaded, 12309 targets configured)
+
+Analyzing: target //:needs_json (313 packages loaded, 12580 targets configured)
+
+Analyzing: target //:needs_json (323 packages loaded, 13052 targets configured)
+
+Analyzing: target //:needs_json (325 packages loaded, 13245 targets configured)
+
+Analyzing: target //:needs_json (335 packages loaded, 13422 targets configured)
+
+Analyzing: target //:needs_json (339 packages loaded, 19028 targets configured)
+
+Analyzing: target //:needs_json (345 packages loaded, 19154 targets configured)
+
+Analyzing: target //:needs_json (347 packages loaded, 19192 targets configured)
+
+Analyzing: target //:needs_json (349 packages loaded, 19246 targets configured)
+
+Analyzing: target //:needs_json (355 packages loaded, 21173 targets configured)
+
+Analyzing: target //:needs_json (358 packages loaded, 26300 targets configured)
+
+Analyzing: target //:needs_json (358 packages loaded, 26300 targets configured)
+
+Analyzing: target //:needs_json (358 packages loaded, 26300 targets configured)
+
+Analyzing: target //:needs_json (359 packages loaded, 27439 targets configured)
+
+Analyzing: target //:needs_json (360 packages loaded, 27596 targets configured)
+
+Analyzing: target //:needs_json (360 packages loaded, 27596 targets configured)
+
+Analyzing: target //:needs_json (360 packages loaded, 27596 targets configured)
+
+Analyzing: target //:needs_json (360 packages loaded, 27596 targets configured)
+
+Analyzing: target //:needs_json (360 packages loaded, 27596 targets configured)
+
+Analyzing: target //:needs_json (360 packages loaded, 27596 targets configured)
+
+Analyzing: target //:needs_json (360 packages loaded, 27596 targets configured)
+
+Analyzing: target //:needs_json (361 packages loaded, 28199 targets configured)
+
+Analyzing: target //:needs_json (361 packages loaded, 28199 targets configured)
+
+Analyzing: target //:needs_json (361 packages loaded, 28199 targets configured)
+
+Analyzing: target //:needs_json (361 packages loaded, 28199 targets configured)
+
+Analyzing: target //:needs_json (361 packages loaded, 28199 targets configured)
+
+Analyzing: target //:needs_json (361 packages loaded, 28199 targets configured)
+
+Analyzing: target //:needs_json (361 packages loaded, 28199 targets configured)
+
+Analyzing: target //:needs_json (362 packages loaded, 29174 targets configured)
+
+Analyzing: target //:needs_json (362 packages loaded, 29174 targets configured)
+
+Analyzing: target //:needs_json (362 packages loaded, 29174 targets configured)
+
+Analyzing: target //:needs_json (363 packages loaded, 29294 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+Analyzing: target //:needs_json (364 packages loaded, 29412 targets configured)
+
+
+Bazel caught interrupt signal; cancelling pending invocation.
+
+ERROR: build interrupted
+INFO: Elapsed time: 274.894s, Critical Path: 0.02s
+INFO: 1 process: 1 internal.
+ERROR: Build did NOT complete successfully
+FAILED: 

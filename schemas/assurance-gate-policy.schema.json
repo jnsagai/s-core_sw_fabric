@@ -1,0 +1,689 @@
+{
+  "$id": "https://score.example/schemas/assurance-gate-policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_evidence": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "collector_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "evidence_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "max_age_seconds": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "tool": {
+            "additionalProperties": false,
+            "properties": {
+              "executable_digest": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "name": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "version": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "version",
+              "executable_digest"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "evidence_id",
+          "collector_id",
+          "tool",
+          "max_age_seconds"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "applicable_scopes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "kind": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "purpose": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "id",
+          "purpose"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "assurance_domain": {
+      "enum": [
+        "fixture_contract",
+        "production"
+      ]
+    },
+    "authority_source": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_ref": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "source_ref"
+      ],
+      "type": "object"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "expected_set_rule": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_obligations": {
+          "const": "all"
+        },
+        "plan_instances": {
+          "const": "all"
+        }
+      },
+      "required": [
+        "plan_instances",
+        "artifact_obligations"
+      ],
+      "type": "object"
+    },
+    "freshness_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "max_age_seconds": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "no_impact": {
+          "additionalProperties": false,
+          "properties": {
+            "allowed_paths": {
+              "items": {
+                "maxLength": 4096,
+                "pattern": "^(?:/(?:subject|policy)/|/as_of$)",
+                "type": "string"
+              },
+              "maxItems": 20000,
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "authority_ref": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "role": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "role",
+            "authority_ref",
+            "allowed_paths"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "max_age_seconds"
+      ],
+      "type": "object"
+    },
+    "id": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "independence_rules": {
+      "items": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "kind": {
+      "const": "assurance_gate_policy"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "decisions": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "evidence": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "predicates": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "predicates",
+        "evidence",
+        "decisions"
+      ],
+      "type": "object"
+    },
+    "not_applicable_rules": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "whole_gate": {
+              "const": false
+            }
+          },
+          "required": [
+            "whole_gate"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "decision_id": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "gate_id": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "subject_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "whole_gate": {
+              "const": true
+            }
+          },
+          "required": [
+            "whole_gate",
+            "gate_id",
+            "subject_digest",
+            "decision_id"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "outcome_routes": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "fail": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "not_applicable": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "not_evaluated": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "pass": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "stale": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "pass",
+        "fail",
+        "blocked",
+        "not_evaluated",
+        "not_applicable",
+        "stale"
+      ],
+      "type": "object"
+    },
+    "predicates": {
+      "items": {
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "acceptable_result": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "applicability": {
+                "enum": [
+                  "required",
+                  "not_applicable"
+                ]
+              },
+              "authority_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "evidence_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "gate_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "obligation_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "policy_rule_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "predicate_class": {
+                "const": "trusted_evidence"
+              },
+              "predicate_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "required": {
+                "const": true
+              },
+              "scope": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "kind": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "purpose": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "id",
+                  "purpose"
+                ],
+                "type": "object"
+              },
+              "source_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "subject_ref": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "predicate_id",
+              "gate_id",
+              "subject_ref",
+              "obligation_id",
+              "scope",
+              "required",
+              "source_ref",
+              "policy_rule_ref",
+              "acceptable_result",
+              "applicability",
+              "authority_ref",
+              "predicate_class",
+              "evidence_id"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "acceptable_result": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "applicability": {
+                "enum": [
+                  "required",
+                  "not_applicable"
+                ]
+              },
+              "authority_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "gate_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "obligation_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "policy_rule_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "predicate_class": {
+                "const": "human_decision"
+              },
+              "predicate_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "required": {
+                "const": true
+              },
+              "role": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "scope": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "kind": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "purpose": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "id",
+                  "purpose"
+                ],
+                "type": "object"
+              },
+              "source_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "subject_ref": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "predicate_id",
+              "gate_id",
+              "subject_ref",
+              "obligation_id",
+              "scope",
+              "required",
+              "source_ref",
+              "policy_rule_ref",
+              "acceptable_result",
+              "applicability",
+              "authority_ref",
+              "predicate_class",
+              "role"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "acceptable_result": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "applicability": {
+                "enum": [
+                  "required",
+                  "not_applicable"
+                ]
+              },
+              "authority_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "check": {
+                "enum": [
+                  "candidate_valid",
+                  "trace_obligation_satisfied"
+                ]
+              },
+              "gate_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "obligation_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "policy_rule_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "predicate_class": {
+                "const": "deterministic_check"
+              },
+              "predicate_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "required": {
+                "const": true
+              },
+              "scope": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "kind": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "purpose": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "id",
+                  "purpose"
+                ],
+                "type": "object"
+              },
+              "source_ref": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "subject_ref": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "predicate_id",
+              "gate_id",
+              "subject_ref",
+              "obligation_id",
+              "scope",
+              "required",
+              "source_ref",
+              "policy_rule_ref",
+              "acceptable_result",
+              "applicability",
+              "authority_ref",
+              "predicate_class",
+              "check"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "required_roles": {
+      "items": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "fixture_only",
+        "pending_production_review",
+        "reviewed"
+      ]
+    },
+    "subject_requirements": {
+      "additionalProperties": false,
+      "properties": {
+        "trace_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "trace_required"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "assurance_domain",
+    "authority_source",
+    "applicable_scopes",
+    "subject_requirements",
+    "expected_set_rule",
+    "predicates",
+    "required_roles",
+    "independence_rules",
+    "allowed_evidence",
+    "freshness_rules",
+    "not_applicable_rules",
+    "outcome_routes",
+    "limits",
+    "status",
+    "digest"
+  ],
+  "title": "Assurance Gate Policy",
+  "type": "object"
+}

@@ -1,0 +1,144 @@
+schema_version: 1
+id: fixture-linear
+version: 1
+plan_version: 1
+compiler_profile: deterministic-compiler-v1
+review:
+  state: pending
+  reference: null
+rules:
+- id: fixture-rule
+  instance_ids:
+  - obligation-a
+  - obligation-b
+  actions:
+  - ref: prepare
+    purpose: Execute prepare
+    type: command
+    label: Prepare
+    instance_ids:
+    - obligation-a
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/prepare.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: prepare produced declared evidence
+    evidence_expectation: evidence/prepare.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/prepare
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+  - ref: package
+    purpose: Execute package
+    type: command
+    label: Package
+    instance_ids:
+    - obligation-b
+    role: implementer
+    allowed_inputs:
+    - reviewed-plan
+    allowed_paths:
+    - workspace/**
+    expected_outputs:
+    - evidence/package.json
+    data_destinations:
+    - package:evidence
+    write_scope:
+    - workspace/**
+    tool_profile: local-deterministic-v1
+    model_capability: none
+    budget:
+      wall_time_seconds: 60
+      attempts: 2
+      tool_calls: 4
+      input_tokens: 0
+      output_tokens: 0
+      cost_microunits: 0
+    completion_predicate: package produced declared evidence
+    evidence_expectation: evidence/package.json
+    fallible_outcomes:
+    - success
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    support_files: []
+    origin:
+      kind: reviewed_project_configuration
+      source_ref:
+        fixture_origin: tests/compiler_support.py
+      pointer: /rules/fixture/actions/package
+      decision_ref: fixture-review-1
+      rationale: Synthetic reviewed compiler fixture; never production authority.
+edges:
+- source: start
+  target: prepare
+  type: prerequisite
+  outcome: null
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/start-prepare-None
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: prepare
+  target: package
+  type: success
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/prepare-package-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+- source: package
+  target: exit
+  type: success
+  outcome: success
+  condition: null
+  loop_id: null
+  origin:
+    kind: reviewed_project_configuration
+    source_ref:
+      fixture_origin: tests/compiler_support.py
+    pointer: /edges/package-exit-success
+    decision_ref: fixture-review-1
+    rationale: Synthetic reviewed compiler fixture; never production authority.
+loop_policies: []
+fan_groups: []
+support_files: []
+digest: 0cff19dfbb6b22b8b5f1e8ab478903d3b61b9877d025ef942553314b964b5584

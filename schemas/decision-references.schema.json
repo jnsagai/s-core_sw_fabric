@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/decision-references-v1.json",
+  "title": "S-CORE decision references v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "references"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "decision_class",
+          "subject",
+          "scope",
+          "claimed_actor",
+          "claimed_role",
+          "claimed_outcome",
+          "rationale",
+          "receipt_ref"
+        ],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "decision_class": {"type": "string", "minLength": 1},
+          "subject": {"type": "object"},
+          "scope": {"type": "object"},
+          "claimed_actor": {"type": "string", "minLength": 1},
+          "claimed_role": {"type": "string", "minLength": 1},
+          "claimed_outcome": {"type": "string", "minLength": 1},
+          "rationale": {"type": "string", "minLength": 1},
+          "receipt_ref": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+command: /tmp/s-core-001/bin/bazel --batch --output_user_root=/tmp/s-core-001/bazel-process-output run @score_process_description//:docs_check --jobs=2 --verbose_failures
+OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target @@score_process_description+//:docs_check (1 packages loaded, 0 targets configured)
+Analyzing: target @@score_process_description+//:docs_check (1 packages loaded, 0 targets configured)
+
+Analyzing: target @@score_process_description+//:docs_check (216 packages loaded, 1360 targets configured)
+
+Analyzing: target @@score_process_description+//:docs_check (309 packages loaded, 13473 targets configured)
+
+INFO: Analyzed target @@score_process_description+//:docs_check (310 packages loaded, 23747 targets configured).
+[1 / 1] no actions running
+INFO: Found 1 target...
+Target @@score_process_description+//:docs_check up-to-date:
+  bazel-bin/external/score_process_description+/docs_check
+  bazel-bin/external/score_process_description+/docs_check.venv.pth
+INFO: Elapsed time: 7.404s, Critical Path: 0.16s
+INFO: 1 process: 102 action cache hit, 1 internal.
+INFO: Build completed successfully, 1 total action
+INFO: Running command line: bazel-bin/external/score_process_description+/docs_check
+Previous build had warnings or the hash changed. Removing _build to ensure a clean build.
+Running Sphinx v9.1.0
+loading translations [en]... done
+Cleared default Sphinx-Needs types: {'spec', 'need', 'test', 'impl', 'req'}
+score_mounts: added 0 data mount(s)
+score_mounts: registered 0 mount(s)
+myst v5.1.0: MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={'colon_fence'}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=('http', 'https', 'mailto', 'ftp'), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=4, heading_slug_func=<function make_id at 0x75efb967cfe0>, html_meta={}, footnote_sort=True, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes='tex2jax_process|mathjax_process|math|output_area', enable_checkboxes=False, strikethrough_single_tilde=False, colon_fence_exact_match=False, suppress_warnings=[], highlight_code_blocks=True)
+[trainings] Built portal: trainings_requirements_engineering
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [needs]: targets for 0 source files that are out of date
+updating environment: [new config] 313 added, 0 changed, 0 removed
+Needs configuration written to '/tmp/s-core-001/minimal_consumer/_build/ubproject.toml'
+reading sources... [  3%] folder_templates/index .. folder_templates/platform/docs/safety_mgt/platform_safety_plan
+reading sources... [  6%] folder_templates/platform/docs/safety_mgt/platform_safety_plan_fdr .. folder_templates/platform/docs/verification/platform_verification_report
+reading sources... [  9%] folder_templates/platform/features/feature_name/architecture/index .. folder_templates/tools/index
+reading sources... [ 11%] folder_templates/tools/tool_verification_report_template .. introduction/index
+reading sources... [ 14%] process_areas/architecture_design/architecture_concept .. process_areas/architecture_design/guidance/component_architecture_template
+reading sources... [ 17%] process_areas/architecture_design/guidance/feature_architecture_template .. process_areas/change_management/guidance/change_management_checklist
+reading sources... [ 20%] process_areas/change_management/guidance/change_management_component_template .. process_areas/configuration_management/configuration_concept
+reading sources... [ 23%] process_areas/configuration_management/configuration_getstrt .. process_areas/documentation_management/documentation_concept
+reading sources... [ 26%] process_areas/documentation_management/documentation_getstrt .. process_areas/documentation_management/guidance/index
+reading sources... [ 29%] process_areas/documentation_management/index .. process_areas/implementation/implementation_getstrt
+reading sources... [ 31%] process_areas/implementation/implementation_roles .. process_areas/platform_management/index
+reading sources... [ 34%] process_areas/platform_management/platform_management_concept .. process_areas/problem_resolution/guidance/problem_resolution_reqs
+reading sources... [ 37%] process_areas/problem_resolution/guidance/problem_resolution_template .. process_areas/process_management/guidance/process_management_guideline
+reading sources... [ 40%] process_areas/process_management/guidance/process_management_reqs .. process_areas/quality_management/guidance/index
+reading sources... [ 43%] process_areas/quality_management/guidance/quality_plan_guideline .. process_areas/quality_management/quality_getstrt
+reading sources... [ 46%] process_areas/quality_management/quality_roles .. process_areas/release_management/release_concept
+reading sources... [ 49%] process_areas/release_management/release_getstrt .. process_areas/requirements_engineering/guidance/requirements_templates
+reading sources... [ 51%] process_areas/requirements_engineering/index .. process_areas/safety_analysis/guidance/fault_models_guideline
+reading sources... [ 54%] process_areas/safety_analysis/guidance/fmea_templates .. process_areas/safety_analysis/safety_analysis_roles
+reading sources... [ 57%] process_areas/safety_analysis/safety_analysis_workflow .. process_areas/safety_management/guidance/template_component_classification
+reading sources... [ 60%] process_areas/safety_management/guidance/template_safety_manual .. process_areas/security_analysis/guidance/index
+reading sources... [ 63%] process_areas/security_analysis/guidance/security_analysis_checklist .. process_areas/security_analysis/security_analysis_concept
+reading sources... [ 66%] process_areas/security_analysis/security_analysis_getstrt .. process_areas/security_management/guidance/security_management_process_reqs
+reading sources... [ 69%] process_areas/security_management/guidance/security_manual_templates .. process_areas/tool_management/guidance/index
+reading sources... [ 71%] process_areas/tool_management/guidance/tool_management_checklist .. process_areas/tool_management/tool_management_workflow
+reading sources... [ 74%] process_areas/tool_management/tool_management_workproducts .. process_areas/verification/guidance/verification_templates
+reading sources... [ 77%] process_areas/verification/index .. release_notes/release_note_v_2_0_0
+reading sources... [ 80%] release_notes/release_note_v_2_0_1 .. standards/aspice_40/iic/iic-06
+reading sources... [ 83%] standards/aspice_40/iic/iic-07 .. standards/aspice_40/iic/iic-16
+reading sources... [ 86%] standards/aspice_40/iic/iic-17 .. standards/aspice_40/mle/index
+reading sources... [ 89%] standards/aspice_40/mle/mle.1 .. standards/aspice_40/spl/index
+reading sources... [ 91%] standards/aspice_40/spl/spl.2 .. standards/aspice_40/swe/swe.1
+reading sources... [ 94%] standards/aspice_40/swe/swe.2 .. standards/isosae21434/isosae21434
+reading sources... [ 97%] standards/process_reqs_list/index .. trainings/trainings_templates/content/index
+reading sources... [100%] trainings/trainings_templates/content/module-N .. workproducts/index
+
+tests-report folder not found. Defaulting to `bazel-testlogs`. Searching for test.xml files in there
+Found 0 test files in total. Parsing them now
+Did not find any test.xml files. If you expected xml files to be found, please ensure that you have ran your tests and put all testfiles either in tests-reports or bazel-testlogs.
+Saving 0 test case needs to the cache `score_testcaseneeds_cache.json` in _build/.
+Saving 0 parsed testcases to the cache `score_xml_parser_cache.json` in _build/.
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... done
+Schema validation completed with 0 warning(s) in 5.783 seconds. Validated 216 needs/s.
+Needs successfully exported
+Traceability metrics written to: /tmp/s-core-001/minimal_consumer/_build/metrics.json
+build succeeded.
+docs (check) finished in 10.5 seconds
+
+wrapper_exit_code: 0

@@ -1,0 +1,431 @@
+{
+  "$id": "https://score.example/schemas/assurance-trust-profile.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assurance_domain": {
+      "enum": [
+        "fixture_contract",
+        "production"
+      ]
+    },
+    "authority_source": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_ref": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "rationale",
+        "source_ref"
+      ],
+      "type": "object"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "id": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "identity_providers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "assurance": {
+            "enum": [
+              "fixture_only",
+              "protected"
+            ]
+          },
+          "authentication_method": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "issuer_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "assurance",
+          "authentication_method",
+          "id",
+          "issuer_id"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "import_rules": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "max_age_seconds": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "original_issuer_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "original_policy_digest": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "scope_ids": {
+            "items": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10000,
+            "minItems": 1,
+            "type": "array"
+          },
+          "transformation_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id",
+          "scope_ids",
+          "original_issuer_id",
+          "original_policy_digest",
+          "transformation_id",
+          "max_age_seconds"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "independence_rules": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "disallowed_actor_ids": {
+            "items": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "disallowed_actor_ids",
+          "id",
+          "required"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "issuer_keys": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "issuer_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "key_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "public_key_base64": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "receipt_kinds": {
+            "items": {
+              "enum": [
+                "assurance_evidence",
+                "assurance_decision",
+                "assurance_trust_profile",
+                "assurance_time"
+              ]
+            },
+            "maxItems": 4,
+            "minItems": 1,
+            "type": "array"
+          },
+          "scope_ids": {
+            "items": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10000,
+            "minItems": 1,
+            "type": "array"
+          },
+          "valid_from": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "valid_until": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "issuer_id",
+          "key_id",
+          "public_key_base64",
+          "receipt_kinds",
+          "scope_ids",
+          "valid_from",
+          "valid_until"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "kind": {
+      "const": "assurance_trust_profile"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "control_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "decisions": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "depth": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "evidence": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "findings": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "package_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "predicates": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "references": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "control_bytes",
+        "package_bytes",
+        "predicates",
+        "evidence",
+        "decisions",
+        "references",
+        "findings",
+        "depth"
+      ],
+      "type": "object"
+    },
+    "revocations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "effective_at": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "key_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "key_id",
+          "effective_at"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "role_assignments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actor_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "authority_ref": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "scope_ids": {
+            "items": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10000,
+            "minItems": 1,
+            "type": "array"
+          },
+          "valid_from": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "valid_until": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "actor_id",
+          "authority_ref",
+          "role",
+          "scope_ids",
+          "valid_from",
+          "valid_until"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "fixture_only",
+        "pending_production_review",
+        "reviewed"
+      ]
+    },
+    "time_authorities": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "issuer_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "key_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "scope_ids": {
+            "items": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10000,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "issuer_id",
+          "key_id",
+          "scope_ids"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "assurance_domain",
+    "authority_source",
+    "issuer_keys",
+    "identity_providers",
+    "role_assignments",
+    "independence_rules",
+    "import_rules",
+    "revocations",
+    "time_authorities",
+    "limits",
+    "status",
+    "digest"
+  ],
+  "title": "Assurance Trust Profile",
+  "type": "object"
+}

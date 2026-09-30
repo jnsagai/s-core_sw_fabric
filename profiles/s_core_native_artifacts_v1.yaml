@@ -1,0 +1,338 @@
+schema_version: 1
+id: s-core-native-artifacts-v1
+version: 1
+review:
+  state: pending
+  reference:
+    owner_review: required
+  fixture_override:
+    state: reviewed
+    reference: fixture-review-004
+source:
+  source_id: score
+  repository: https://github.com/eclipse-score/module_template
+  commit: c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d
+metamodel:
+  sha256: fe6a3b6af5ea69271e53c57e3a1694dc69d6ff3df16bd1505dc7242db9976290
+directives:
+  document:
+    id_option: id
+    statuses:
+    - draft
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      realizes:
+      - work_product
+  feat:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      belongs_to:
+      - mod
+      included_by:
+      - mod
+  feat_arc_sta:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      belongs_to:
+      - feat
+      fulfils:
+      - feat_req
+      includes:
+      - logic_arc_int
+  logic_arc_int:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      belongs_to:
+      - feat
+      fulfils:
+      - feat_req
+      included_by:
+      - feat_arc_sta
+      - feat
+  logic_arc_int_op:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      included_by:
+      - logic_arc_int
+  mod:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      includes:
+      - comp
+  mod_view_sta:
+    id_option: id
+    statuses:
+    - null
+    required_options:
+    - id
+    relations:
+      includes:
+      - comp
+  comp:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      belongs_to:
+      - mod
+      - feat
+      consists_of:
+      - comp
+      implements:
+      - logic_arc_int
+      uses:
+      - comp
+      - logic_arc_int
+  comp_arc_sta:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      belongs_to:
+      - comp
+      fulfils:
+      - comp_req
+  stkh_req:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations: {}
+  feat_req:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      derived_from:
+      - stkh_req
+      satisfied_by:
+      - feat
+  comp_req:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      derived_from:
+      - feat_req
+      satisfied_by:
+      - comp
+      fully_verifies:
+      - test_case
+      partially_verifies:
+      - test_case
+  aou_req:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations: {}
+  interface:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      belongs_to:
+      - comp_req
+  fmea:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      mitigated_by:
+      - comp_req
+  dfa:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      mitigated_by:
+      - comp_req
+  test_case:
+    id_option: id
+    statuses:
+    - valid
+    - invalid
+    required_options:
+    - id
+    - status
+    relations:
+      fully_verifies:
+      - feat_req
+      - comp_req
+      partially_verifies:
+      - feat_req
+      - comp_req
+templates:
+- id: feature-v1
+  path: tests/fixtures/artifacts/feature/template.rst
+  native_type: document
+  sha256: 839d7cbbbe18dd8d673d4c0a97e8b83f40557c4742df7dbc41cf0e3e86ac99e2
+- id: component-v1
+  path: tests/fixtures/artifacts/component/template.rst
+  native_type: document
+  sha256: 78e530e0316347446740c222357c07562c7c6e0f3cca55ab554c63c817956c53
+- id: analysis-v1
+  path: tests/fixtures/artifacts/analysis/template.rst
+  native_type: document
+  sha256: 2f63436200998af608cc07762a2fe15363d447982675a84d248b27b9816a5bff
+- id: native-feature-v1
+  path: tests/fixtures/artifacts/real-native/feature.rst
+  sha256: 176fd859be10e73a973db20cfc6d44a18c7ff67f7534955eebb695ffe821fdfc
+  native_type: document
+- id: native-component-v1
+  path: tests/fixtures/artifacts/real-native/component.rst
+  sha256: e2ea1e44f328666bcabd63fa97a0d8c650141f1e26e49b4796f8b8c21f6d6c46
+  native_type: document
+- id: native-analysis-v1
+  path: tests/fixtures/artifacts/real-native/analysis.rst
+  sha256: 89aea696fa660e08fed1e418283263fd74613ddf23440cb2c4d43a82853ee76c
+  native_type: document
+allowed_edits:
+  create_document:
+  - document
+  set_option:
+  - document
+  - feat_req
+  - comp_req
+  - interface
+  - aou_req
+  - fmea
+  - dfa
+  - test_case
+  set_content:
+  - document
+  - feat_req
+  - comp_req
+  - interface
+  - aou_req
+  - fmea
+  - dfa
+  - test_case
+  add_link:
+  - document
+  - feat_req
+  - comp_req
+  - interface
+  - aou_req
+  - fmea
+  - dfa
+  - test_case
+  remove_link:
+  - document
+  - feat_req
+  - comp_req
+  - interface
+  - aou_req
+  - fmea
+  - dfa
+  - test_case
+  insert_need:
+  - document
+  - feat_req
+  - comp_req
+  - interface
+  - aou_req
+  - fmea
+  - dfa
+  - test_case
+external_references:
+  default: forbid
+  fixture_imports: []
+native_validator:
+  profile: s-core-native-build-v1
+  export: needs.json
+  commands:
+  - needs_json
+  - docs_check
+  source_mounts:
+  - docname_prefix: components/component_example
+    source_prefix: score/component_example/docs
+  - docname_prefix: examples
+    source_prefix: examples/docs
+  - docname_prefix: ''
+    source_prefix: docs
+limits:
+  control_bytes: 67108864
+  package_bytes: 67108864
+  target_bytes: 67108864
+  files: 10000
+  text_file_bytes: 2097152
+  entities: 100000
+  obligations: 100000
+  relations: 500000
+  edits: 10000
+  findings: 20000
+  native_output_bytes: 8388608
+  native_timeout_seconds: 1800
+digest: 01384aaad3bcb3b5f43eb0c5fd72e8ed334271eae52b4da1596c9b8160964dba
+containment:
+  wrapper_optional_paths:
+  - examples/docs/architecture_modeling_example.rst

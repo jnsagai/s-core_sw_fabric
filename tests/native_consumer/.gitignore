@@ -1,0 +1,4 @@
+/process/
+/_build/
+/bazel-*
+/MODULE.bazel.lock.bak

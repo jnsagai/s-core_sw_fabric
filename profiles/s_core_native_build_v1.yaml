@@ -1,0 +1,34 @@
+schema_version: 1
+id: s-core-native-build-v1
+version: 1
+review:
+  state: pending
+  fixture_override: fixture-review-004
+bazel:
+  version: 8.7.0
+  bazelisk: 1.29.0
+  sha256: d7606e679b78067c811096fb3d6cf135225b528835ca396e3a4dddf957859544
+dependencies:
+  docs_as_code: 8.2.0
+  process_description: 2.1.2
+  python: '3.12'
+  sphinx_needs: 8.3.1
+commands:
+  needs_json:
+  - --batch
+  - build
+  - //:needs_json
+  docs_check:
+  - --batch
+  - run
+  - //:docs_check
+environment_allowlist:
+- PATH
+- SYSTEMROOT
+limits:
+  timeout_seconds: 1800
+  output_bytes: 8388608
+digest: 0afcefd3d9c60089c94e2bb41ba4f0a71c475fb65ef46f04e47d0574e5b6247c
+lock_file:
+  path: MODULE.bazel.lock
+  sha256: 2c3fb185150806e30ccd9d4e8ef6f8e1797f647f6c642308a5fcf07a708596ce

@@ -1,0 +1,261 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/workflow-package-v1.json",
+  "title": "Deterministic workflow package v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest",
+    "entrypoint",
+    "files",
+    "source_map",
+    "compile_report",
+    "semantic_validation",
+    "native_validation",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "package_identity",
+        "compiler",
+        "validator",
+        "inputs",
+        "ir",
+        "ir_digest",
+        "file_records",
+        "source_map_digest",
+        "compile_report_digest",
+        "limitations"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "package_identity": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "compiler": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "digest",
+            "limits"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "version": {
+              "const": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "limits": {
+              "type": "object"
+            }
+          }
+        },
+        "validator": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "digest",
+            "source_commit"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "version": {
+              "const": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "source_commit": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            }
+          }
+        },
+        "inputs": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "ir": {
+          "type": "object"
+        },
+        "ir_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "file_records": {
+          "type": "array",
+          "maxItems": 512,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "semantic_kind",
+              "referencing_elements"
+            ],
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 524288
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "semantic_kind": {
+                "type": "string"
+              },
+              "referencing_elements": {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "source_map_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "compile_report_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "entrypoint": {
+      "type": "string",
+      "minLength": 1
+    },
+    "files": {
+      "type": "object",
+      "maxProperties": 512,
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "source_map": {
+      "$ref": "workflow-source-map.schema.json"
+    },
+    "compile_report": {
+      "$ref": "compile-report.schema.json"
+    },
+    "semantic_validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ruleset",
+        "counts",
+        "findings",
+        "valid"
+      ],
+      "properties": {
+        "ruleset": {
+          "type": "string"
+        },
+        "counts": {
+          "type": "object"
+        },
+        "findings": {
+          "type": "array"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      }
+    },
+    "native_validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "validator",
+        "source_set_digest",
+        "workflow_name",
+        "nodes",
+        "edges",
+        "diagnostics",
+        "accepted"
+      ],
+      "properties": {
+        "validator": {
+          "type": "object"
+        },
+        "source_set_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "workflow_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nodes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "edges": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "diagnostics": {
+          "type": "array"
+        },
+        "accepted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

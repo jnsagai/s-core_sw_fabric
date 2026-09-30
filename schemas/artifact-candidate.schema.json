@@ -1,0 +1,110 @@
+{
+  "$id": "https://score.example/schemas/artifact-candidate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base_files": {
+      "type": "array"
+    },
+    "bindings": {
+      "type": "object"
+    },
+    "candidate_identity": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "capabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptance": {
+          "const": "not_evaluated"
+        },
+        "engineering_readiness": {
+          "const": "not_evaluated"
+        },
+        "evidence": {
+          "const": "not_evaluated"
+        },
+        "execution": {
+          "const": "not_evaluated"
+        },
+        "registration": {
+          "const": "not_evaluated"
+        },
+        "release": {
+          "const": "not_evaluated"
+        }
+      },
+      "required": [
+        "registration",
+        "execution",
+        "evidence",
+        "acceptance",
+        "engineering_readiness",
+        "release"
+      ],
+      "type": "object"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "edit_results": {
+      "type": "array"
+    },
+    "index": {
+      "type": "object"
+    },
+    "kind": {
+      "const": "artifact_candidate"
+    },
+    "limitations": {
+      "type": "array"
+    },
+    "native_receipt": {
+      "type": "object"
+    },
+    "overlay_files": {
+      "type": "array"
+    },
+    "report": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "source_map": {
+      "type": "array"
+    },
+    "trace_validation": {
+      "enum": [
+        "not_requested",
+        "passed",
+        "blocked"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "candidate_identity",
+    "bindings",
+    "base_files",
+    "overlay_files",
+    "edit_results",
+    "source_map",
+    "index",
+    "report",
+    "trace_validation",
+    "native_receipt",
+    "limitations",
+    "capabilities",
+    "digest"
+  ],
+  "title": "Artifact Candidate",
+  "type": "object"
+}

@@ -1,0 +1,46 @@
+schema_version: 1
+operation: candidate
+target_snapshot:
+  path: tests/fixtures/artifacts/component/snapshot.json
+  sha256: c13eb2f445d4a0f95718321f5e0b0080af5392c40ab87e910dd4a06b84d0efb5
+  semantic_digest: 08c6be17e75a78a222149f19673f3e4a29c77876d0fbe3ec86e0fbfb5dd41d0d
+artifact_profile:
+  path: profiles/s_core_native_artifacts_v1.yaml
+  sha256: 7cac85a69d47ef5ca34bb3e420c47c76d1be2bc7327279a57328318e026f1cf8
+  semantic_digest: 01384aaad3bcb3b5f43eb0c5fd72e8ed334271eae52b4da1596c9b8160964dba
+trace_profile: null
+plan:
+  path: tests/fixtures/compiler/linear/plan.json
+  sha256: e1d9fce7b0f0d73f4cd40a53eb770dba63975e288f99066a3ad14c6d82feca20
+  semantic_digest: c57c689d52cbb7adc37b265c1e6d29c378a9e3c998c3e67764399c5d9cb40dbd
+workflow_package:
+  path: tests/fixtures/compiler/linear/out/package.json
+  sha256: 9605abac81940cdde5e54e8b367ac47cff8a792a85a43e1fd2c361ccdf1ce95b
+  semantic_digest: 22b8ff2654ef362cdcfe29bf80939c540a3a076295107501ea8efe8c62938ab4
+operations:
+- id: edit-content-1
+  kind: set_content
+  depends_on: []
+  plan_instance: obligation-a
+  target_path: index.rst
+  target_native_id: COMP_REQ_001
+  anchor: null
+  expected_preimage: cd0bc298b2ab13234c65f1a33613b4df25e519d543a93c219c173e2a17353441
+  values:
+    content: Updated explicit content.
+  artifact_rule_id: fixture-artifact
+  trace_rule_id: null
+  origins:
+  - kind: reviewed_project_configuration
+    source_ref:
+      fixture: tests/artifact_support.py
+    pointer: /edits/0
+    decision_ref: fixture-review-004
+    rationale: Explicit fixture edit.
+  rationale: Exercise a bounded content edit.
+local_paths:
+  snapshot_root: tests/fixtures/artifacts/component/target
+  protected_roots:
+  - tests/fixtures/artifacts/component/target
+  fixture_native: true
+output_root: tests/fixtures/artifacts/out

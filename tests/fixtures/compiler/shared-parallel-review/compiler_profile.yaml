@@ -1,0 +1,55 @@
+schema_version: 1
+id: deterministic-compiler-v1
+version: 1
+canonicalization: canonical-json-v1
+semantic_rules: s-core-workflow-v1
+allowed_actions:
+- agent
+- prompt
+- command
+- deterministic_check
+- human
+- conditional
+- parallel
+- parallel_fan_in
+allowed_native_types:
+- start
+- exit
+- agent
+- prompt
+- command
+- human
+- conditional
+- parallel
+- parallel.fan_in
+model_capabilities:
+- id: none
+  model_allowed: false
+- id: bounded-agent-v1
+  model_allowed: true
+  required:
+  - reasoning
+  - structured_output
+  prohibited:
+  - approval
+  - trusted_evidence_collection
+limits:
+  input_bytes: 67108864
+  plan_instances: 10000
+  plan_dependencies: 100000
+  mapping_rules: 50000
+  ir_nodes: 50000
+  ir_edges: 200000
+  cyclic_components: 10000
+  package_bytes: 67108864
+  native_files: 512
+  native_file_bytes: 524288
+  native_total_bytes: 2097152
+  action_budget:
+    wall_time_seconds: 14400
+    attempts: 20
+    tool_calls: 1000
+    input_tokens: 1000000
+    output_tokens: 200000
+    cost_microunits: 100000000
+digest: 5480ba63ba3fe3fea996783d1a580743d14c0a9bfbc15e48c7cc12aab2bd6468

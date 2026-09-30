@@ -1,0 +1,390 @@
+{
+  "$id": "https://score.example/schemas/assurance-subject.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "bindings": {
+          "additionalProperties": false,
+          "properties": {
+            "artifact_profile": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "plan": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "request": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "snapshot": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "trace_profile": {
+              "anyOf": [
+                {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "workflow_package": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "artifact_profile",
+            "plan",
+            "request",
+            "snapshot",
+            "trace_profile",
+            "workflow_package"
+          ],
+          "type": "object"
+        },
+        "candidate_identity": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "index_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "native_receipt_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "digest",
+        "candidate_identity",
+        "bindings",
+        "index_digest",
+        "native_receipt_digest"
+      ],
+      "type": "object"
+    },
+    "artifact_report": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "expected_obligation_ids": {
+              "items": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 100000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "index_digest": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "status": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "digest",
+            "status",
+            "index_digest",
+            "expected_obligation_ids"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "assurance_domain": {
+      "enum": [
+        "fixture_contract",
+        "production"
+      ]
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "expected_obligation_ids": {
+      "items": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "file_closure": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "base",
+              "overlay"
+            ]
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "role"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "kind": {
+      "const": "assurance_subject"
+    },
+    "limitations": {
+      "items": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 20000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "plan": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "instances": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "disposition": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "disposition"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "semantic_inputs": {
+          "description": "Opaque sealed 002 semantic input identities.",
+          "type": "object"
+        },
+        "target_namespace": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "digest",
+        "target_namespace",
+        "instances",
+        "semantic_inputs"
+      ],
+      "type": "object"
+    },
+    "policy_bindings": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+    },
+    "process_baseline": {
+      "description": "Opaque sealed 002 process baseline.",
+      "type": "object"
+    },
+    "profiles": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "trace": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "artifact",
+        "trace"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "kind": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "purpose": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "purpose"
+      ],
+      "type": "object"
+    },
+    "source_baselines": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "commit": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "repository": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "revision_label": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "source_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "source_lock": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "repository",
+          "commit",
+          "revision_label",
+          "source_lock"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "toolchain": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "native_validator": {
+          "description": "Sealed 004 native validator identity.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "native_validator",
+        "commands"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "assurance_domain",
+    "scope",
+    "plan",
+    "artifact_candidate",
+    "artifact_report",
+    "source_baselines",
+    "process_baseline",
+    "toolchain",
+    "profiles",
+    "policy_bindings",
+    "expected_obligation_ids",
+    "file_closure",
+    "limitations",
+    "digest"
+  ],
+  "title": "Assurance Subject",
+  "type": "object"
+}

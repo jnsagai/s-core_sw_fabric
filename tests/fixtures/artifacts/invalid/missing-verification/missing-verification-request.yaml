@@ -1,0 +1,29 @@
+schema_version: 1
+operation: trace
+target_snapshot:
+  path: tests/fixtures/artifacts/invalid/missing-verification/snapshot.json
+  sha256: 056c9b9221e1e8f57f294b41cf470472f0b0dc8312cc743f49ab093d936360c1
+  semantic_digest: 34eca1b9d1f48989b0fdb5502fce80bb249ce2af2e5859dc23f8fcd2c2d083f2
+artifact_profile:
+  path: profiles/s_core_native_artifacts_v1.yaml
+  sha256: 7cac85a69d47ef5ca34bb3e420c47c76d1be2bc7327279a57328318e026f1cf8
+  semantic_digest: 01384aaad3bcb3b5f43eb0c5fd72e8ed334271eae52b4da1596c9b8160964dba
+trace_profile:
+  path: policies/s_core_trace_profile_v1.yaml
+  sha256: 9f41d55e1803c0d342e5c400c8287ffcd4c9366565ec5fe17301fcdaeec96936
+  semantic_digest: f7fe4eec7439e99d5dbc9c6ddfd01166fcb9409a39a8edef7534a222b58c137f
+plan:
+  path: tests/fixtures/compiler/linear/plan.json
+  sha256: e1d9fce7b0f0d73f4cd40a53eb770dba63975e288f99066a3ad14c6d82feca20
+  semantic_digest: c57c689d52cbb7adc37b265c1e6d29c378a9e3c998c3e67764399c5d9cb40dbd
+workflow_package:
+  path: tests/fixtures/compiler/linear/out/package.json
+  sha256: 9605abac81940cdde5e54e8b367ac47cff8a792a85a43e1fd2c361ccdf1ce95b
+  semantic_digest: 22b8ff2654ef362cdcfe29bf80939c540a3a076295107501ea8efe8c62938ab4
+operations: []
+local_paths:
+  snapshot_root: tests/fixtures/artifacts/invalid/missing-verification/target
+  protected_roots:
+  - tests/fixtures/artifacts/invalid/missing-verification/target
+  fixture_native: true
+output_root: tests/fixtures/artifacts/out

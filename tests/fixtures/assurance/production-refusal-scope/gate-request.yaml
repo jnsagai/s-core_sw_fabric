@@ -1,0 +1,70 @@
+as_of: '2026-09-29T10:00:00Z'
+assurance_domain: production
+gate_mode: normal
+inputs:
+  artifact_profile:
+    path: profiles/s_core_native_artifacts_v1.yaml
+    semantic_digest: 01384aaad3bcb3b5f43eb0c5fd72e8ed334271eae52b4da1596c9b8160964dba
+    sha256: 7cac85a69d47ef5ca34bb3e420c47c76d1be2bc7327279a57328318e026f1cf8
+  artifact_request:
+    path: tests/fixtures/artifacts/component/update-request.yaml
+    semantic_digest: dbcd516c7e58076e30b2b2bd0ff6a6e1ea0bcb79de9ff681ebdfa820cfe0e03e
+    sha256: 08d625d3b9cff6109956d6d738908db94556d9a085e5074798a895143e019cbe
+  candidate:
+    path: tests/fixtures/artifacts/out/component-candidate.json
+    semantic_digest: 0529d704dcfec227b78db28e509f8387141b03f93ce56414167189fce4175266
+    sha256: fc2b8d950f1077e3e76c6e2c10010768e0d970e8e3a247c0d211ffe60017b5aa
+  decision_receipts:
+  - path: tests/fixtures/assurance/passing-scope/decision-receipt.json
+    semantic_digest: dd99e1363beac3d0106e679ca4cf4b28c10d3a018e69f1a604873532bca77764
+    sha256: 256e70ac20a5e044686bf7e02965e300c16dd48fa99023a2f8828a32e7df0f22
+  decisions:
+  - path: tests/fixtures/assurance/passing-scope/decision.json
+    semantic_digest: 535415941a1566ba02ac14f8dff82e85daa5cecc0e5ec9414895be32c2927bd7
+    sha256: fa01f40de65bc632208b95bf3c630717e624c0ff731a887f7090b91fe3d32ead
+  evidence:
+  - path: tests/fixtures/assurance/passing-scope/evidence.json
+    semantic_digest: f63a42298b0ae14efd877c2d2540ab4e16a4b859cacb61efa170fee19c528012
+    sha256: cc882a6bea4285c8e04e2e16e25f4b78603b892e747db4e11d7f11408f7927d5
+  evidence_receipts:
+  - path: tests/fixtures/assurance/passing-scope/evidence-receipt.json
+    semantic_digest: a195ff5dbef93509dbe4237e5fa17429595d36c0a1f9940c6ab8e4e040f0a125
+    sha256: 2ef3b4ccc9c5d7695b790dc263423fc5ac9c90f2add3f07ea64cd76cc27229d1
+  plan:
+    path: tests/fixtures/compiler/linear/plan.json
+    semantic_digest: c57c689d52cbb7adc37b265c1e6d29c378a9e3c998c3e67764399c5d9cb40dbd
+    sha256: e1d9fce7b0f0d73f4cd40a53eb770dba63975e288f99066a3ad14c6d82feca20
+  policy:
+    path: tests/fixtures/assurance/passing-scope/policy.json
+    semantic_digest: 3e8081e917f0479a912509bbd5902a3400a9a276f611e58bd0d78b8a504c6a79
+    sha256: 932950427c0f18c41297bdae9d7c4cb498d800989552e835001f260a170846f2
+  prior_assessment: null
+  report: null
+  snapshot:
+    path: tests/fixtures/artifacts/component/snapshot.json
+    semantic_digest: 08c6be17e75a78a222149f19673f3e4a29c77876d0fbe3ec86e0fbfb5dd41d0d
+    sha256: c13eb2f445d4a0f95718321f5e0b0080af5392c40ab87e910dd4a06b84d0efb5
+  subject:
+    path: tests/fixtures/assurance/passing-scope/out/subject.json
+    semantic_digest: a906460d160762aad0bc603078ef3de7ee7a6f547813a573c7e04a7e8c383798
+    sha256: 624aa949ca0acaf9e172fb31c1290480e5cdeb38d24b16148389d7a85009bb22
+  trace_profile: null
+  trust_profile:
+    path: profiles/assurance-fixture-v1.yaml
+    semantic_digest: 0d970ef5c4b03c2b9097e2cd0cca7d3b943a52c1977f1dc178c5f28d52c36939
+    sha256: 1eb98ac63662b3202274931811112b635aeb79a514a4d2e203c9eaba48f0f08f
+  workflow_package:
+    path: tests/fixtures/compiler/linear/out/package.json
+    semantic_digest: 22b8ff2654ef362cdcfe29bf80939c540a3a076295107501ea8efe8c62938ab4
+    sha256: 9605abac81940cdde5e54e8b367ac47cff8a792a85a43e1fd2c361ccdf1ce95b
+local_paths:
+  protected_roots:
+  - tests/fixtures/artifacts/component/target
+  raw_root: tests/fixtures/assurance/passing-scope/raw
+operation: gate
+output_root: tests/fixtures/assurance/production-refusal-scope/out
+schema_version: 1
+scope:
+  id: component-005
+  kind: component
+  purpose: fixture verification
