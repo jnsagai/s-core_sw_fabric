@@ -1,0 +1,59 @@
+schema_version: 1
+kind: quality_packet_request
+profile:
+  path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
+  sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+coverage:
+  request:
+    path: /home/jefferson/s-core_sw_fabric/examples/quality/coverage-unknown.yaml
+    sha256: 3f06c7ae77a095aa9dc804f1cf45c01f0fce54db9cbe45289635bf6353ff1e69
+  report:
+    path: /home/jefferson/s-core_sw_fabric/specs/010-misra-quality-and-deviations/evidence/coverage-unknown.json
+    sha256: 9bf57e2334ad661080f5ccccb7d94cb9d5d1026ce8e05166bf2d2d31d1e426c6
+analyses: []
+dispositions: []
+source_snapshots:
+- baseline_digest: 0101d1916a7dfe4066a548d0086aba55072482ecc772c646d7fa01a259f7d9ce
+  root: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/source
+notices:
+- id: score-license
+  license: Apache-2.0
+  notice: Original source license/notice; eligibility and adoption remain unknown
+  ref:
+    path: /home/jefferson/score/LICENSE
+    sha256: 0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594
+  applies_to:
+  - native:cpp_guidelines
+  - native:cpp_analysis
+  - native:misra_mapping
+- id: policy-license
+  license: Apache-2.0
+  notice: Original source license/notice; eligibility and adoption remain unknown
+  ref:
+    path: /home/jefferson/s-core_sw_fabric/profiles/native-quality/LICENSE
+    sha256: cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30
+  applies_to: &id001
+  - native:clang_tidy
+  - native:sanitizer_features
+  - native:asan_runtime
+  - native:asan_suppressions
+  - native:ubsan_runtime
+  - native:ubsan_suppressions
+- id: policy-notice
+  license: Apache-2.0
+  notice: Original source license/notice; eligibility and adoption remain unknown
+  ref:
+    path: /home/jefferson/s-core_sw_fabric/profiles/native-quality/NOTICE
+    sha256: 99c950075feb3b5b1207aa6bb5184bf871e32452f1136d48430100cedfdb00ff
+  applies_to: *id001
+- id: fixture-codeql-origin
+  license: synthetic fixture
+  notice: Synthetic CodeQL identity and source fixture, no execution
+  ref:
+    path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/README.md
+    sha256: e7e3b5b55e534e23f849b2834db12cfa58f283948bc25ea63afaa627f8c8c64c
+  applies_to:
+  - tool:codeql
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/score

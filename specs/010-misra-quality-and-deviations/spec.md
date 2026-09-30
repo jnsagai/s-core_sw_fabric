@@ -8,7 +8,8 @@
 for local complementary use; native-output import/extraction validation is implemented for
 unverified/fixture inputs. Disposition drafts and fresh local correction/history checks
 are implemented; independent 005 fixture decision replay and the guideline coverage matrix
-are implemented. Packet/compliance evaluation, CodeQL execution, full 010
+are implemented. Portable review packets and offline structural replay are implemented.
+Compliance evaluation, CodeQL execution, full 010
 implementation and engineering acceptance remain pending. The 009 verification/toolchain profiles still await owner
 review (T018). Production authority remains unavailable (005 T009). No compliance acceptance
 or eligible CodeQL execution is recorded.

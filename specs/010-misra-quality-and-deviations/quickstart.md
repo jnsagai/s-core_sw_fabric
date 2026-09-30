@@ -3,7 +3,7 @@
 **Status:** Clang-Tidy, Cppcheck and separate GCC ASan/UBSan capability/run adapters implemented.
 Read-only native import/extraction validation and draft/correction checks are implemented.
 Independent fixture decision replay and guideline coverage are implemented; the remaining
-CodeQL execution and packet/compliance workflow remain planned in [tasks](tasks.md).
+CodeQL execution and compliance workflow remain planned in [tasks](tasks.md).
 
 ## Installed tools
 
@@ -103,6 +103,20 @@ Declared source-backed fixture IDs demonstrate structural coverage and pending m
 exclusion states only. Missing rows, required artifacts, filters, drift and suppressed findings
 remain unresolved. See [contract](contracts/coverage.md) and [validation](coverage-acceptance.md).
 No matrix grants compliance or changes the default profile's unknown mapping/authority state.
+
+## Emit a portable review packet
+
+This executed example retains the current unknown-denominator matrix, explicit fixture
+source bytes and original license/notice files. It invokes no analyzer.
+
+```bash
+uv run --frozen score-fabric quality packet --request examples/quality/packet-unknown.yaml --out /tmp/quality-010-packet.json --json
+```
+
+Exit 0 indicates portable closure. Mapping, manual reviews, CodeQL eligibility and protected
+authority remain gaps; every human question stays pending. See [contract](contracts/packet.md)
+and [verification](packet-acceptance.md). Selected earlier imports and full disposition history
+can be included, with exact current/prior source snapshots and notice associations.
 
 ## Remaining increment validation sequence
 

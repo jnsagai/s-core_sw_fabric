@@ -115,3 +115,10 @@ Assessment includes obligation outcomes/reasons, findings/dispositions, verified
 `assurance_domain: fixture_contract|production`, and `outcome: pass|fail|blocked|not_evaluated`.
 Production cannot pass without protected 005 authority and eligible evidence. Zero analyzer findings
 alone cannot yield a compliance pass. Fabric local output never changes authoritative native status.
+
+The implemented [packet contract](contracts/packet.md) retains an original-byte archive,
+explicit baseline-bound current/prior source snapshots, complete selected disposition
+history and fixture decision originals. Offline import/matrix/fixture decision replay
+needs no original host paths or analyzer execution. Notices explicitly associate with
+selected native source/tool IDs. Structural completeness never discharges compliance gaps
+or pending human questions. All packets have zero accepted claims.

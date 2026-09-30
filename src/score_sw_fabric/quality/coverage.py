@@ -360,8 +360,45 @@ def measure(
         protected.extend(analysis_protected)
     if out is not None:
         output_path(out, inputs, protected)
+    record = evaluate(profile, baseline, m, sources, previous, changes, analyses)
+    if control(request_path, yaml=True) != request:
+        raise InputError("INPUT_DRIFT", "Coverage request changed during evaluation")
+    for key in ("manifest", "previous_manifest"):
+        if request[key] is not None:
+            selected_control(base, request[key])
+    for source in m["source_refs"]:
+        selected_control(mp.parent, source["ref"])
+    for pair in selected_pairs:
+        ap, _ = selected_control(base, pair["request"], yaml=True)
+        _, expected_report = selected_control(base, pair["report"], max_bytes=dm.MAX_RECORD)
+        _, refreshed, _, _ = imports.import_outputs(ap)
+        if refreshed != expected_report:
+            raise InputError("INPUT_DRIFT", "Analysis originals changed during coverage evaluation")
+    _, repeated = input_file(base, request["profile"], "/profile")
+    if (
+        repeated != data
+        or freeze_baseline(base, request["baseline"], request["profile"])[0] != baseline
+    ):
+        raise InputError("INPUT_DRIFT", "Current coverage baseline changed")
+    if out is not None:
+        output_path(out, inputs, protected)
+    return 1 if record["gaps"] else 0, record, inputs, protected
+
+
+def evaluate(
+    profile: dict[str, Any],
+    baseline: dict[str, Any],
+    m: dict[str, Any],
+    sources: list[dict[str, Any]],
+    previous: dict[str, Any] | None,
+    changes: list[dict[str, Any]],
+    analyses: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Derive the matrix from frozen declarations and reproduced import observations."""
+    expected = {r["guideline_id"]: r for r in m["expected_guidelines"] or []}
+    mappings = {r["guideline_id"]: r for r in m["rows"]}
     rows = []
-    row_bytes = total
+    row_bytes = sum(len(canonical(a["report"])) for a in analyses)
     for name in sorted(expected.keys() | mappings.keys()):
         row = _cell(name, expected.get(name), mappings.get(name), analyses)
         row_bytes += len(canonical(row))
@@ -421,25 +458,4 @@ def measure(
     if len(canonical(record)) > dm.MAX_RECORD:
         raise InputError("LIMIT_EXCEEDED", "Guideline matrix exceeds 96 MiB")
     bounded_tree(record)
-    if control(request_path, yaml=True) != request:
-        raise InputError("INPUT_DRIFT", "Coverage request changed during evaluation")
-    for key in ("manifest", "previous_manifest"):
-        if request[key] is not None:
-            selected_control(base, request[key])
-    for source in m["source_refs"]:
-        selected_control(mp.parent, source["ref"])
-    for pair in selected_pairs:
-        ap, _ = selected_control(base, pair["request"], yaml=True)
-        _, expected_report = selected_control(base, pair["report"], max_bytes=dm.MAX_RECORD)
-        _, refreshed, _, _ = imports.import_outputs(ap)
-        if refreshed != expected_report:
-            raise InputError("INPUT_DRIFT", "Analysis originals changed during coverage evaluation")
-    _, repeated = input_file(base, request["profile"], "/profile")
-    if (
-        repeated != data
-        or freeze_baseline(base, request["baseline"], request["profile"])[0] != baseline
-    ):
-        raise InputError("INPUT_DRIFT", "Current coverage baseline changed")
-    if out is not None:
-        output_path(out, inputs, protected)
-    return 1 if gaps else 0, record, inputs, protected
+    return record

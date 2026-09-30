@@ -6,7 +6,7 @@ tools follow [their contract](complementary-tools.md), and read-only native impo
 [the import contract](native-import.md). Draft/correction observations follow
 [their implemented contract](dispositions.md), fixture decisions follow
 [independent replay](decisions.md), and coverage follows [its exact contract](coverage.md).
-Packet and assessment behavior below remain planned.
+Packets follow [their implemented contract](packet.md); assessment remains planned.
 
 ## Commands and outcomes
 
@@ -33,7 +33,7 @@ All selections use transport SHA-256 references and `protected_roots[]`.
 | `quality_capability_request` | profile, local tool selections, explicit probe selection, protected roots |
 | `quality_run_request` | profile, toolchain, frozen root/file manifest, optional 009run ref, explicit expected units, selected analyzers/sanitizers, configuration refs, isolated working/cache roots, timeout/output limits, eligibility refs, protected roots |
 | `quality_import_request` | profile, frozen baseline, raw artifacts with native format/tool/pack/suite identity, extraction/phase manifests, declared origin, protected roots |
-| `quality_packet_request` | profile, current/prior runs, applicability/matrix ref or null, disposition records, protected roots |
+| `quality_packet_request` | profile, coverage pair or null, current/prior import pairs, disposition selections, explicit source snapshots, notice associations, protected roots |
 | `quality_assessment_request` | profile, packet,005assessment/trust-context pairs, current validity inputs, protected roots |
 
 The implementation's schemas and exact field validators must be reconciled against this design

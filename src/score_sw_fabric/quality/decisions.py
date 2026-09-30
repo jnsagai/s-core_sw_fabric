@@ -248,23 +248,10 @@ def assess(
         models.DECISION_FIELDS,
         "/request",
     )
-    domain = choice(request["assurance_domain"], {"fixture_contract", "production"}, "/domain")
-    as_of = dm.timestamp(request["as_of"], "/as_of")
+    choice(request["assurance_domain"], {"fixture_contract", "production"}, "/domain")
+    dm.timestamp(request["as_of"], "/as_of")
     pairs = bounded_list(request["decisions"], 20, "/decisions")
     binding, inputs, protected = _binding(request_path, request)
-    p = binding["policy"]
-    reasons = list(binding["reasons"])
-    draft = binding["review"]["draft"]
-    if as_of < dm.timestamp(binding["review"]["observed_at"], "/review/observed_at"):
-        reasons.append("DECISION_TIME_REVERSED")
-    if draft["expires_at"] is not None and as_of >= dm.timestamp(
-        draft["expires_at"], "/expires_at"
-    ):
-        reasons.append("DISPOSITION_EXPIRED")
-    if domain == "production":
-        reasons.append("PRODUCTION_AUTHORITY_UNAVAILABLE")
-    if p is not None and p["assurance_domain"] != domain:
-        reasons.append("DOMAIN_MISMATCH")
     selected = []
     total = count = 0
     seen_pairs = set()
@@ -288,6 +275,44 @@ def assess(
         selected.append((pair, assessment, context))
     if out is not None:
         output_path(out, inputs, protected)
+    record = evaluate(request, binding, selected)
+    if control(request_path, yaml=True) != request:
+        raise InputError("INPUT_DRIFT", "Decision request changed during replay")
+    for pair, _, _ in selected:
+        selected_control(request_path.parent, pair["assessment"], max_bytes=dm.MAX_RECORD)
+        selected_control(request_path.parent, pair["trust_context"], max_bytes=dm.MAX_RECORD)
+    # Replay can take time. Refreeze current inputs before reporting acceptance.
+    repeated, final_inputs, final_protected = _binding(request_path, request)
+    if repeated != binding:
+        raise InputError("INPUT_DRIFT", "Quality subject changed during decision replay")
+    inputs.extend(final_inputs)
+    protected.extend(final_protected)
+    if out is not None:
+        output_path(out, inputs, protected)
+    return 0 if record["state"] == "accepted_fixture" else 1, record, inputs, protected
+
+
+def evaluate(
+    request: dict[str, Any],
+    binding: dict[str, Any],
+    selected: list[tuple[dict[str, Any], dict[str, Any], dict[str, Any]]],
+) -> dict[str, Any]:
+    """Replay a frozen binding and selected 005 originals, including current fixture validity."""
+    domain = choice(request["assurance_domain"], {"fixture_contract", "production"}, "/domain")
+    as_of = dm.timestamp(request["as_of"], "/as_of")
+    p = binding["policy"]
+    reasons = list(binding["reasons"])
+    draft = binding["review"]["draft"]
+    if as_of < dm.timestamp(binding["review"]["observed_at"], "/review/observed_at"):
+        reasons.append("DECISION_TIME_REVERSED")
+    if draft["expires_at"] is not None and as_of >= dm.timestamp(
+        draft["expires_at"], "/expires_at"
+    ):
+        reasons.append("DISPOSITION_EXPIRED")
+    if domain == "production":
+        reasons.append("PRODUCTION_AUTHORITY_UNAVAILABLE")
+    if p is not None and p["assurance_domain"] != domain:
+        reasons.append("DOMAIN_MISMATCH")
     entries = []
     classified: dict[str, dict[str, Any]] = {}
     sequences: dict[tuple[str, str, str], set[str]] = {}
@@ -412,7 +437,7 @@ def assess(
         )
     ):
         state = "stale"
-    elif binding["reasons"] or pairs:
+    elif binding["reasons"] or selected:
         state = "blocked"
     else:
         state = "pending_review"
@@ -443,17 +468,4 @@ def assess(
         }
     )
     _bounded(record)
-    if control(request_path, yaml=True) != request:
-        raise InputError("INPUT_DRIFT", "Decision request changed during replay")
-    for pair, _, _ in selected:
-        selected_control(request_path.parent, pair["assessment"], max_bytes=dm.MAX_RECORD)
-        selected_control(request_path.parent, pair["trust_context"], max_bytes=dm.MAX_RECORD)
-    # Replay can take time. Refreeze current inputs before reporting acceptance.
-    repeated, final_inputs, final_protected = _binding(request_path, request)
-    if repeated != binding:
-        raise InputError("INPUT_DRIFT", "Quality subject changed during decision replay")
-    inputs.extend(final_inputs)
-    protected.extend(final_protected)
-    if out is not None:
-        output_path(out, inputs, protected)
-    return 0 if state == "accepted_fixture" else 1, record, inputs, protected
+    return record

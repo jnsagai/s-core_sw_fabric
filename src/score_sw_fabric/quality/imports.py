@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -10,7 +11,7 @@ import yaml
 from score_sw_fabric.assurance.models import nonempty, seal
 from score_sw_fabric.process_source.reader import InputError
 from score_sw_fabric.quality import cppcheck, extraction, native_outputs, sanitizers, sarif
-from score_sw_fabric.quality.import_models import bounded_tree, load_import
+from score_sw_fabric.quality.import_models import ImportInputs, bounded_tree, load_import
 from score_sw_fabric.quality.models import MAX_ARTIFACT, raw_bytes
 from score_sw_fabric.runtime.models import output_path
 from score_sw_fabric.runtime.request import parse_yaml
@@ -20,6 +21,19 @@ def import_outputs(
     request_path: Path, out: Path | None = None
 ) -> tuple[int, dict[str, Any], list[Path], list[Path]]:
     selected = load_import(request_path, out)
+    record = evaluate(selected, request_path.absolute().parent)
+    if out is not None:
+        output_path(out, [request_path, *selected.inputs], selected.protected)
+    return 0 if record["outcome"] == "completed" else 1, record, selected.inputs, selected.protected
+
+
+def evaluate(
+    selected: ImportInputs,
+    base: Path,
+    *,
+    resolve: Callable[[Path, Any], tuple[Path, bytes]] | None = None,
+) -> dict[str, Any]:
+    """Derive observations from frozen bytes; portable replay supplies an archive resolver."""
     findings: list[dict[str, Any]] = []
     for artifact in selected.artifacts:
         if artifact["role"] != "diagnostics" or artifact["raw"]["truncated"]:
@@ -113,9 +127,7 @@ def import_outputs(
         text = data.decode("utf-8", "replace")
         if "NOLINT" in text or "cppcheck-suppress" in text:
             selected.gaps.append("UNAPPROVED_SUPPRESSION")
-    assessment = extraction.assess(selected, findings, request_path.absolute().parent)
-    if out is not None:
-        output_path(out, [request_path, *selected.inputs], selected.protected)
+    assessment = extraction.assess(selected, findings, base, resolve=resolve)
     normalized = native_outputs.normalize(
         findings, selected.baseline["full_digest"], selected.identities
     )
@@ -163,4 +175,4 @@ def import_outputs(
             ],
         }
     )
-    return 0 if outcome == "completed" else 1, record, selected.inputs, selected.protected
+    return record

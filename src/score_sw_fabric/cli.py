@@ -491,13 +491,16 @@ def _quality(args: argparse.Namespace) -> int:
         decisions,
         dispositions,
         imports,
+        packet,
         runner,
     )
     from score_sw_fabric.runtime.models import publish
 
     handlers = {"capabilities": capabilities.capabilities, "run": runner.run}
     try:
-        if args.quality_command == "coverage":
+        if args.quality_command == "packet":
+            status, record, inputs, protected = packet.packet(args.request, args.out)
+        elif args.quality_command == "coverage":
             status, record, inputs, protected = coverage.measure(args.request, args.out)
         elif args.quality_command in {"decision-subject", "decision"}:
             handler = (
@@ -763,7 +766,7 @@ def main(argv: list[str] | None = None) -> int:
     quality_disposition.add_argument("--request", type=Path, required=True)
     quality_disposition.add_argument("--out", type=Path, required=True)
     quality_disposition.add_argument("--json", action="store_true", dest="as_json")
-    for name in ("decision-subject", "decision", "coverage"):
+    for name in ("decision-subject", "decision", "coverage", "packet"):
         quality_decision = quality_commands.add_parser(
             name,
             help="measure declared guideline coverage"

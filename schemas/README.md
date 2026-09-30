@@ -99,3 +99,10 @@ exact original finding, frozen file, current tool/policy/scope and every linked 
 review. Explicit correction checks execute the bounded local adapter again; labels,
 native names/dates and stored reports cannot replace execution or authenticate a decision.
 No draft/review schema grants 005 decision eligibility or engineering readiness.
+
+Increment 010 portable `quality-packet-request` and `quality-review-packet` schemas
+retain strict selections, original byte hashes, scoped target source snapshots, full
+disposition history, native/fixture originals and source/tool notice associations.
+The runtime replays imports, extraction, coverage and current fixture decision validity
+from portable originals, retains incomplete closure and fixes all human answers at
+`pending_human`. Structural completeness is separate from engineering readiness.

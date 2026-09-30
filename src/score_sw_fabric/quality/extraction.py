@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -91,7 +92,11 @@ def native_integrity(
 
 
 def assess(
-    selected: ImportInputs, native_findings: list[dict[str, Any]], base: Path
+    selected: ImportInputs,
+    native_findings: list[dict[str, Any]],
+    base: Path,
+    *,
+    resolve: Callable[[Path, Any], tuple[Path, bytes]] | None = None,
 ) -> dict[str, Any]:
     m = version(selected.manifest, "quality_extraction_manifest", MANIFEST_FIELDS, "/extraction")
     verify_digest(m, "/extraction")
@@ -144,14 +149,19 @@ def assess(
             strings([exclusion["reason"]], "/exclusion/reason")
             if exclusion["justification"] is not None:
                 ref = exact(exclusion["justification"], {"path", "sha256"}, "/justification")
-                fp = _local(base, ref["path"], "/justification/path")
-                try:
-                    size = fp.stat().st_size
-                except OSError as exc:
-                    raise InputError("INPUT_INVALID", "Justification file unavailable") from exc
-                if size > 1024 * 1024:
+                if resolve is None:
+                    fp = _local(base, ref["path"], "/justification/path")
+                    try:
+                        size = fp.stat().st_size
+                    except OSError as exc:
+                        raise InputError("INPUT_INVALID", "Justification file unavailable") from exc
+                    if size > 1024 * 1024:
+                        raise InputError("LIMIT_EXCEEDED", "Justification exceeds 1 MiB")
+                    path, content = input_file(base, ref, "/justification")
+                else:
+                    path, content = resolve(base, ref)
+                if len(content) > 1024 * 1024:
                     raise InputError("LIMIT_EXCEEDED", "Justification exceeds 1 MiB")
-                path, _ = input_file(base, ref, "/justification")
                 selected.inputs.append(path)
             gaps.append("EXCLUSION_PENDING_REVIEW")
         reports = set(strings(o["required_reports"], "/required_reports", 500))

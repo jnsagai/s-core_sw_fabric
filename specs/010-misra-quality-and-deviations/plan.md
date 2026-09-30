@@ -15,9 +15,12 @@ The subsequent [draft/correction slice](disposition-acceptance.md) implements sc
 under [its exact contract](contracts/dispositions.md). The subsequent
 [005 decision bridge](decision-acceptance.md) implements T020/T022 and scoped T053–T056
 under [its exact contract](contracts/decisions.md). The remaining plan is outstanding for
-CodeQL execution, packet/compliance evaluation and engineering review authority. The
+CodeQL execution, compliance evaluation and engineering review authority. The
 [coverage slice](coverage-acceptance.md) implements T023/T025 and T057–T060 under
-[its exact contract](contracts/coverage.md), preserving unknown applicability.
+[its exact contract](contracts/coverage.md), preserving unknown applicability. The
+[portable packet slice](packet-acceptance.md) implements T026 and scoped T061–T064 under
+[its exact contract](contracts/packet.md). The user authorized remaining 010 work during
+[the seven-hour autonomous window](../../docs/handoff/010-overnight.md); human acceptance stays pending.
 
 ## Summary
 
