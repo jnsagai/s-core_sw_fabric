@@ -144,7 +144,7 @@ def _fresh_reasons(
 
 
 def review(
-    request_path: Path, out: Path | None = None
+    request_path: Path, out: Path | None = None, *, draft_only: bool = False
 ) -> tuple[int, dict[str, Any], list[Path], list[Path]]:
     """Publish a proposal/history observation, never authenticated engineering acceptance."""
     request_path = request_path.absolute()
@@ -156,6 +156,8 @@ def review(
     )
     base = request_path.parent
     action = choice(request["action"], {"draft", "check_correction"}, "/action")
+    if draft_only and action != "draft":
+        raise InputError("DISPOSITION_ACTION", "Decision preparation requires action draft")
     current_selection = exact(request["current"], {"adapter", "request"}, "/current")
     adapter = choice(
         current_selection["adapter"], {"clang-tidy", "cppcheck", "asan", "ubsan"}, "/adapter"

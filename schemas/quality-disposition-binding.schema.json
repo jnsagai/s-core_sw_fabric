@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-disposition-binding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "review",
+    "policy",
+    "current_baseline",
+    "current_context",
+    "required_files",
+    "reasons",
+    "outcome",
+    "origin",
+    "assurance_eligibility",
+    "engineering_readiness",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "quality_disposition_binding"
+    },
+    "review": {
+      "$ref": "quality-disposition-review.schema.json"
+    },
+    "policy": {
+      "anyOf": [
+        {
+          "$ref": "quality-disposition-policy.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "current_baseline": {
+      "type": "object"
+    },
+    "current_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "adapter",
+        "profile",
+        "toolchain",
+        "configuration_sha256",
+        "settings",
+        "assets"
+      ],
+      "properties": {
+        "adapter": {
+          "enum": [
+            "clang-tidy",
+            "cppcheck",
+            "asan",
+            "ubsan"
+          ]
+        },
+        "profile": {
+          "$ref": "quality-profile.schema.json"
+        },
+        "toolchain": {
+          "anyOf": [
+            {
+              "$ref": "quality-toolchain-profile.schema.json"
+            },
+            {
+              "$ref": "quality-cppcheck-toolchain-profile.schema.json"
+            },
+            {
+              "$ref": "quality-sanitizer-toolchain-profile.schema.json"
+            }
+          ]
+        },
+        "configuration_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "settings": {
+          "type": "object"
+        },
+        "assets": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "required_files": {
+      "type": "array",
+      "maxItems": 501,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "reasons": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      },
+      "uniqueItems": true
+    },
+    "outcome": {
+      "enum": [
+        "emitted",
+        "blocked"
+      ]
+    },
+    "origin": {
+      "const": "local_unprotected_execution"
+    },
+    "assurance_eligibility": {
+      "const": "not_eligible"
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

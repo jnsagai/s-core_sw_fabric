@@ -1,0 +1,19 @@
+schema_version: 1
+kind: quality_disposition_request
+origin:
+  path: /home/jefferson/s-core_sw_fabric/specs/010-misra-quality-and-deviations/evidence/disposition-clang-tidy-origin-run.json
+  sha256: 6b6ff225bf97ceba66f5f6ed0db36cd967ccc469a05ce6f5a14e06224a0da381
+draft:
+  path: /home/jefferson/s-core_sw_fabric/examples/quality/decision-draft.json
+  sha256: 97fc9e220c1ed2de09e0b306687bf568d024b6b4df0c725991192f5ae48cf3ab
+current:
+  adapter: clang-tidy
+  request:
+    path: /home/jefferson/s-core_sw_fabric/examples/quality/clang-tidy-run.yaml
+    sha256: 3c36c1a7a51d031c992acfbc4667aa2a055adb94220fcaa0fc8e50d1ab42b2d0
+previous: null
+action: draft
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/score
+- /tmp/s-core-foundation/references

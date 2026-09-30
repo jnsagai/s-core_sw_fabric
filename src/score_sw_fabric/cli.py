@@ -484,12 +484,26 @@ SAFETY_SUMMARY_FIELDS = ("outcome", "packet_state", "design_prerequisites")
 def _quality(args: argparse.Namespace) -> int:
     from score_sw_fabric.agents.models import bounded_diagnostic
     from score_sw_fabric.process_source.reader import InputError
-    from score_sw_fabric.quality import capabilities, complementary, dispositions, imports, runner
+    from score_sw_fabric.quality import (
+        capabilities,
+        complementary,
+        decisions,
+        dispositions,
+        imports,
+        runner,
+    )
     from score_sw_fabric.runtime.models import publish
 
     handlers = {"capabilities": capabilities.capabilities, "run": runner.run}
     try:
-        if args.quality_command == "disposition":
+        if args.quality_command in {"decision-subject", "decision"}:
+            handler = (
+                decisions.subject
+                if args.quality_command == "decision-subject"
+                else decisions.assess
+            )
+            status, record, inputs, protected = handler(args.request, args.out)
+        elif args.quality_command == "disposition":
             status, record, inputs, protected = dispositions.review(args.request, args.out)
         elif args.quality_command == "import":
             status, record, inputs, protected = imports.import_outputs(args.request, args.out)
@@ -746,6 +760,13 @@ def main(argv: list[str] | None = None) -> int:
     quality_disposition.add_argument("--request", type=Path, required=True)
     quality_disposition.add_argument("--out", type=Path, required=True)
     quality_disposition.add_argument("--json", action="store_true", dest="as_json")
+    for name in ("decision-subject", "decision"):
+        quality_decision = quality_commands.add_parser(
+            name, help="bind or replay a fixture decision"
+        )
+        quality_decision.add_argument("--request", type=Path, required=True)
+        quality_decision.add_argument("--out", type=Path, required=True)
+        quality_decision.add_argument("--json", action="store_true", dest="as_json")
     for name in ("capabilities", "run"):
         quality_request = quality_commands.add_parser(name)
         quality_request.add_argument(

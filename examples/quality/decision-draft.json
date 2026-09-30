@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "kind": "quality_disposition_draft",
+  "id": "local_clang_tidy_correction",
+  "requested_kind": "deviation",
+  "origin_digest": "bb8bd1270e3191aee8a0a5a4d9b62d7b55bd488f305030efe53b1f1d7c81e8a8",
+  "finding_index": 1,
+  "construct": {
+    "kind": "file",
+    "path": "check.cpp",
+    "sha256": "ac0dc48de1665741748f2f6473c00e9945534c03576b0d283f2c13c8e618451e"
+  },
+  "scope": {
+    "component": "seeded_quality_probe",
+    "translation_units": [
+      "check.cpp"
+    ]
+  },
+  "native_category": null,
+  "rationale": "Proposal only; adopted category policy and authorized review are missing.",
+  "impact": {
+    "safety": "Pending engineering review",
+    "security": "Pending engineering review"
+  },
+  "alternatives": [
+    "Remove unsafe construct"
+  ],
+  "compensating_evidence": [],
+  "expires_at": null,
+  "review_triggers": [
+    "Source, scope, tool or policy change"
+  ],
+  "native_metadata": {
+    "fixture_source": true
+  },
+  "decision_refs": [],
+  "digest": "10c527186690ee613f22eeec77d764022a3c727e965423d263834d3482352d71"
+}

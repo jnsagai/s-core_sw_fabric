@@ -122,7 +122,7 @@ def control(path: Path, *, yaml: bool = False) -> dict[str, Any]:
 
 
 def selected_control(
-    base: Path, value: Any, *, max_bytes: int = 1024 * 1024
+    base: Path, value: Any, *, max_bytes: int = 1024 * 1024, yaml: bool = False
 ) -> tuple[Path, dict[str, Any]]:
     ref = exact(value, {"path", "sha256"}, "/control")
     path = _local(base, ref["path"], "/control/path")
@@ -136,7 +136,7 @@ def selected_control(
             raise InputError("LIMIT_EXCEEDED", "Selected control grew beyond byte bounds")
         if hashlib.sha256(data).hexdigest() != sha(ref["sha256"], "/control/sha256"):
             raise InputError("INPUT_DRIFT", "Selected control bytes changed")
-        record = parse_json(data, "/control")
+        record = parse_yaml(data, "/control") if yaml else parse_json(data, "/control")
         bounded_tree(record)
     except (OSError, RecursionError, ValueError) as exc:
         raise InputError("INPUT_INVALID", "Cannot read selected control") from exc

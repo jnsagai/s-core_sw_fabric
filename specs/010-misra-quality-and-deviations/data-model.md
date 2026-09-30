@@ -90,6 +90,14 @@ its tracked construct. `accepted_fixture` requires reproduced005fixture decision
 record/source closure; production authority stays blocked while 005 T009 is unavailable. Source,
 rule policy, query/suite, construct/scope or validity drift reopens/stales the disposition.
 
+The implemented decision bridge uses separate version 1 records under
+[the exact decision contract](contracts/decisions.md), preserving existing draft/correction
+review records. A deterministic binding contains the full review, current frozen context,
+category policy and required 005 source/policy file hashes. Decision results retain complete
+selected assessments/trust contexts, independent historical replay, current gate evaluation
+and signed decision reconciliation. Only this result can be `accepted_fixture`; it grants
+no production or native status. Unknown category policy remains blocked.
+
 ## Review packet and compliance assessment
 
 Packet includes current/prior run refs, baseline, extraction, complete guideline expectation or

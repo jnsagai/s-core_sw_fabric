@@ -54,9 +54,9 @@ empty/partial/unknown extraction and failed report/query phases block adequacy (
 records; only independently replayed exact fixture decisions can yield accepted_fixture (AC010-09–12).
 
 - [ ] T019 [P] [US3] Add correction/staleness/history tests in tests/contract/test_quality_dispositions.py including old, filtered/incomplete and changed-policy results, tracked constructs and unverified names/dates (010-R06/R07/R08).
-- [ ] T020 [P] [US3] Add 005 replay/category/scope/validity tests in tests/contract/test_quality_decisions.py and tests/fixtures/quality/dispositions/; self-approval, cross-subject replay, unknown/prohibited categories and broad suppressions must remain unresolved; positive cases are fixture_contract only (SC010-05; 010-R07/R08/R10).
+- [x] T020 [P] [US3] Add 005 replay/category/scope/validity tests in tests/contract/test_quality_decisions.py and tests/fixtures/quality/dispositions/; self-approval, cross-subject replay, unknown/prohibited categories and broad suppressions must remain unresolved; positive cases are fixture_contract only (SC010-05; 010-R07/R08/R10).
 - [ ] T021 [US3] Implement draft disposition/history and fresh adequately analyzed correction in src/score_sw_fabric/quality/dispositions.py with open/pending_review/corrected/accepted_fixture/stale/blocked states; retain rationale, impact, alternatives, compensating evidence, scope, expiry and native provenance (010-R06/R07).
-- [ ] T022 [US3] Bridge independent 005 replay to exact disposition/finding/rule/construct/source/tool/policy closure in src/score_sw_fabric/quality/dispositions.py; enforce adopted category/scope/authority/validity policy and block production while 005 T009 remains unavailable (010-R07/R08/R09/R10).
+- [x] T022 [US3] Bridge independent 005 replay to exact disposition/finding/rule/construct/source/tool/policy closure in src/score_sw_fabric/quality/dispositions.py; enforce adopted category/scope/authority/validity policy and block production while 005 T009 remains unavailable (010-R07/R08/R09/R10).
 
 ## Phase 6: US4 — Coverage and compliance blockers (P1)
 
@@ -167,3 +167,19 @@ coverage and CodeQL execution remain pending. Human T032 remains unchecked.
 Current total: 52 tasks, 25 complete (20 scoped and 5 US2), 27 original tasks open.
 T019/T021 retain broader unbuilt scope; T020/T022 decision replay and human T032 are
 unchecked. Completion proposes the next step without authorizing broader 010 or 011 work.
+
+## Authorized 005 decision bridge (2026-09-30)
+
+The user's next `go` follows independent 005 replay for disposition drafts. This authorizes
+T020/T022 and shared prerequisites, without CodeQL execution, coverage or owner decisions.
+
+- [x] T053 Define exact subject/policy/decision requests, binding/result schemas and fixture/production boundaries in contracts/decisions.md and schemas/quality-disposition-*.schema.json before implementation.
+- [x] T054 Add independent 005 positive/adversarial fixture tests before implementation in tests/contract/test_quality_decisions.py and tests/quality_decision_support.py.
+- [x] T055 Implement deterministic binding preparation and independent current-use decision replay in quality/decisions.py with guarded quality decision-subject/decision CLI; preserve existing draft/correction version 1 records.
+- [x] T056 Retain portable labelled 005 fixtures, execute CLI/refusal/history journeys, run repository gates and document remaining prerequisites in decision-acceptance.md and docs/handoff/010-decisions.md.
+
+Current total: 56 tasks, 31 complete (24 scoped, 5 US2 and T020/T022), 25 original
+tasks open. Broader T019/T021, coverage, CodeQL execution and human T032 remain unchecked.
+Decision results use a separate module/record alongside unchanged version 1 reviews;
+[validation](decision-acceptance.md) and [handoff](../../docs/handoff/010-decisions.md)
+record fixture-only limits. No automatic continuation is authorized.

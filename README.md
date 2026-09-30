@@ -23,12 +23,22 @@ and [Cppcheck/ASan/UBSan adapters](specs/010-misra-quality-and-deviations/comple
 with `quality capabilities` and `quality run --adapter`, plus
 [native import/extraction](specs/010-misra-quality-and-deviations/native-import-acceptance.md)
 through `quality import` and [draft/correction history](specs/010-misra-quality-and-deviations/disposition-acceptance.md)
-through `quality disposition`. Its remaining CodeQL/decision/coverage
+through `quality disposition`, plus [independent fixture decision replay](specs/010-misra-quality-and-deviations/decision-acceptance.md)
+through `quality decision-subject` and `quality decision`. Its remaining CodeQL/coverage
 work is [planned](specs/010-misra-quality-and-deviations/tasks.md). Local `clang-tidy` 19.1.7
 and `codeql` 2.21.4 resolve through `~/.local/bin/`; MISRA pack 2.61.0 is installed separately.
 [Installation evidence](specs/010-misra-quality-and-deviations/evidence/tool-installation.json)
 records hashes and probes. CodeQL eligible use, source/build reconciliation, reporting prerequisites
 and human engineering acceptance remain open.
+
+Decision replay checks the exact draft/finding/source/tool/policy binding, signed fixture
+authority, category/scope and current validity. It reevaluates the complete 005 gate;
+historical passes and approval names cannot grant current acceptance. Production is blocked
+while protected authority and adopted policy are unavailable. The documented
+[subject](examples/quality/decision-subject.yaml) and
+[production request](examples/quality/decision-production.yaml) both exit 1 with explicit
+blockers; the [positive fixture](tests/fixtures/quality/dispositions/decision-replay/README.md)
+demonstrates the contract only.
 
 Spec Kit manages development of this fabric. S-CORE owns target engineering semantics
 and work products. Fabro owns workflow execution/run state. APM/MCP supplies supported

@@ -1,0 +1,13 @@
+schema_version: 1
+kind: quality_disposition_subject_request
+review:
+  path: /home/jefferson/s-core_sw_fabric/specs/010-misra-quality-and-deviations/evidence/decision-pending-review.json
+  sha256: 3b2d96e885e811c4d3acf20a31934b9fcca2ede44e8d1fa0d42e3b537a0bebe8
+disposition_request:
+  path: /home/jefferson/s-core_sw_fabric/examples/quality/decision-disposition.yaml
+  sha256: 4aec8cd8d8bed782b5f097f3ead367f68133c6fa72c1e349df62a183b3639923
+policy: null
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/score
+- /tmp/s-core-foundation/references

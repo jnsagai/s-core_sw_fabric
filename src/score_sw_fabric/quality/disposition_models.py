@@ -466,7 +466,9 @@ def draft(value: Any, record: dict[str, Any], findings: list[dict[str, Any]]) ->
     return d
 
 
-def previous(value: Any, selected_draft: dict[str, Any], subject: dict[str, Any]) -> dict[str, Any]:
+def previous(
+    value: Any, selected_draft: dict[str, Any], subject: dict[str, Any], *, max_revision: int = 999
+) -> dict[str, Any]:
     p = version(value, "quality_disposition_review", REVIEW_FIELDS, "/previous")
     verify_digest(p, "/previous")
     if p["draft"] != selected_draft or p["subject"] != subject:
@@ -482,7 +484,7 @@ def previous(value: Any, selected_draft: dict[str, Any], subject: dict[str, Any]
         ("engineering_readiness", {"not_evaluated"}),
     ):
         choice(p[key], allowed, "/previous/" + key)
-    if type(p["revision"]) is not int or not 1 <= p["revision"] < 1000:
+    if type(p["revision"]) is not int or not 1 <= p["revision"] <= max_revision:
         raise InputError("LIMIT_EXCEEDED", "Linked review revision limit exceeded")
     timestamp(p["observed_at"], "/previous/observed_at")
     baseline(p["current_baseline"])

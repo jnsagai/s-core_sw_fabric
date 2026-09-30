@@ -1,0 +1,372 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-disposition-decision-result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "binding",
+    "assurance_domain",
+    "as_of",
+    "time_basis",
+    "state",
+    "reasons",
+    "decisions",
+    "accepted_decision_digests",
+    "outcome",
+    "origin",
+    "assurance_eligibility",
+    "engineering_readiness",
+    "limitations",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "quality_disposition_decision_result"
+    },
+    "binding": {
+      "$ref": "quality-disposition-binding.schema.json"
+    },
+    "assurance_domain": {
+      "enum": [
+        "fixture_contract",
+        "production"
+      ]
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "time_basis": {
+      "const": "untrusted_fixture_request"
+    },
+    "state": {
+      "enum": [
+        "pending_review",
+        "accepted_fixture",
+        "stale",
+        "blocked"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      },
+      "uniqueItems": true
+    },
+    "decisions": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assessment_ref",
+          "trust_context_ref",
+          "assessment",
+          "trust_context",
+          "replay",
+          "binding",
+          "current",
+          "reasons",
+          "current_gate"
+        ],
+        "properties": {
+          "assessment_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          },
+          "trust_context_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          },
+          "assessment": {
+            "$ref": "assurance-assessment.schema.json"
+          },
+          "trust_context": {
+            "type": "object"
+          },
+          "replay": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reproduced",
+                  "outcome",
+                  "reason_codes"
+                ],
+                "properties": {
+                  "reproduced": {
+                    "const": false
+                  },
+                  "outcome": {},
+                  "reason_codes": {
+                    "type": "array",
+                    "maxItems": 10000,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reproduced",
+                  "outcome",
+                  "assurance_domain",
+                  "scope",
+                  "reason_codes"
+                ],
+                "properties": {
+                  "reproduced": {
+                    "const": true
+                  },
+                  "outcome": {
+                    "enum": [
+                      "pass",
+                      "fail",
+                      "blocked",
+                      "stale",
+                      "not_evaluated",
+                      "not_applicable"
+                    ]
+                  },
+                  "assurance_domain": {
+                    "enum": [
+                      "fixture_contract",
+                      "production"
+                    ]
+                  },
+                  "scope": {
+                    "$ref": "assurance-gate-result.schema.json#/properties/scope"
+                  },
+                  "reason_codes": {
+                    "type": "array",
+                    "maxItems": 10000,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  }
+                }
+              }
+            ]
+          },
+          "binding": {
+            "enum": [
+              "exact",
+              "other_subject",
+              "not_checked"
+            ]
+          },
+          "current": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "decision_id",
+                "decision_digest",
+                "assurance_domain",
+                "subject_digest",
+                "gate_ids",
+                "obligation_ids",
+                "scope",
+                "outcome",
+                "role",
+                "policy_digest",
+                "supersedes",
+                "eligible",
+                "approves",
+                "reason_codes"
+              ],
+              "properties": {
+                "decision_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "decision_digest": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "assurance_domain": {
+                  "enum": [
+                    "fixture_contract",
+                    "production"
+                  ]
+                },
+                "subject_digest": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "gate_ids": {
+                  "type": "array",
+                  "maxItems": 10000,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true
+                },
+                "obligation_ids": {
+                  "type": "array",
+                  "maxItems": 10000,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true
+                },
+                "scope": {
+                  "$ref": "assurance-gate-result.schema.json#/properties/scope"
+                },
+                "outcome": {
+                  "enum": [
+                    "approve",
+                    "reject",
+                    "conditional_approve",
+                    "request_changes",
+                    "withdraw",
+                    "no_impact"
+                  ]
+                },
+                "role": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "policy_digest": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "supersedes": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "eligible": {
+                  "type": "boolean"
+                },
+                "approves": {
+                  "type": "boolean"
+                },
+                "reason_codes": {
+                  "type": "array",
+                  "maxItems": 10000,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true
+                }
+              }
+            }
+          },
+          "reasons": {
+            "type": "array",
+            "maxItems": 1000,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
+            },
+            "uniqueItems": true
+          },
+          "current_gate": {
+            "anyOf": [
+              {
+                "$ref": "assurance-gate-result.schema.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "accepted_decision_digests": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "uniqueItems": true
+    },
+    "outcome": {
+      "enum": [
+        "completed",
+        "unresolved"
+      ]
+    },
+    "origin": {
+      "const": "fixture_contract_evaluation"
+    },
+    "assurance_eligibility": {
+      "const": "not_eligible"
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "limitations": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      },
+      "uniqueItems": true
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}
