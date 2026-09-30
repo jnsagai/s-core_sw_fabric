@@ -121,17 +121,19 @@ def control(path: Path, *, yaml: bool = False) -> dict[str, Any]:
     return record
 
 
-def selected_control(base: Path, value: Any) -> tuple[Path, dict[str, Any]]:
+def selected_control(
+    base: Path, value: Any, *, max_bytes: int = 1024 * 1024
+) -> tuple[Path, dict[str, Any]]:
     ref = exact(value, {"path", "sha256"}, "/control")
     path = _local(base, ref["path"], "/control/path")
     try:
         details = path.stat()
-        if not stat.S_ISREG(details.st_mode) or details.st_size > 1024 * 1024:
-            raise InputError("LIMIT_EXCEEDED", "Selected control exceeds regular-file/1 MiB bounds")
+        if not stat.S_ISREG(details.st_mode) or details.st_size > max_bytes:
+            raise InputError("LIMIT_EXCEEDED", "Selected control exceeds regular-file/byte bounds")
         with path.open("rb") as stream:
-            data = stream.read(1024 * 1024 + 1)
-        if len(data) > 1024 * 1024:
-            raise InputError("LIMIT_EXCEEDED", "Selected control grew beyond 1 MiB")
+            data = stream.read(max_bytes + 1)
+        if len(data) > max_bytes:
+            raise InputError("LIMIT_EXCEEDED", "Selected control grew beyond byte bounds")
         if hashlib.sha256(data).hexdigest() != sha(ref["sha256"], "/control/sha256"):
             raise InputError("INPUT_DRIFT", "Selected control bytes changed")
         record = parse_json(data, "/control")

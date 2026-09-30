@@ -3,7 +3,9 @@
 **Status:** Full design proposal, awaiting completion and owner review. The local Clang-Tidy
 capability/run slice follows [its exact implemented contract](clang-tidy.md), additional local
 tools follow [their contract](complementary-tools.md), and read-only native imports follow
-[the import contract](native-import.md). Disposition/packet/assessment behavior below remains planned.
+[the import contract](native-import.md). Draft/correction observations follow
+[their implemented contract](dispositions.md). Decision acceptance, packet and assessment
+behavior below remain planned.
 
 ## Commands and outcomes
 

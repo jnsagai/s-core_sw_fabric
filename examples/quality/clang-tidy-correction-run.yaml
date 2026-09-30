@@ -1,0 +1,29 @@
+# Local candidate and synthetic source. Rebind paths/hashes on another host.
+schema_version: 1
+kind: quality_run_request
+profile:
+  path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
+  sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+toolchain:
+  path: /home/jefferson/s-core_sw_fabric/profiles/cpp17-quality-local-v1.yaml
+  sha256: db130de6ac21b10752cd2ea6594cc5927d7a900ef6ffb3ce342eb5826dde444f
+config:
+  path: /home/jefferson/s-core_sw_fabric/profiles/native-quality/clang-tidy.yaml
+  sha256: fe06da767c62270a410d08bd07cdfc13cf2e1c01c0cd31fb15ac37c515f19901
+timeout_seconds: 30
+output_limit_bytes: 1048576
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/score
+- /tmp/s-core-foundation/references
+component: seeded_quality_probe
+root: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/corrected
+files:
+- path: check.cpp
+  sha256: 6809c2e60d40cd497b9fa5bfad79892ff6693fe798bfc641a8ef2c832dc4536f
+translation_units:
+- check.cpp
+expected_units:
+- check.cpp
+include_dirs: []
+defines: []

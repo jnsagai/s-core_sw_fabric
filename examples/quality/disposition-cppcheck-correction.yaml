@@ -1,0 +1,19 @@
+schema_version: 1
+kind: quality_disposition_request
+origin:
+  path: /home/jefferson/s-core_sw_fabric/specs/010-misra-quality-and-deviations/evidence/disposition-cppcheck-origin-run.json
+  sha256: 37474902d1b68869b6c853418a5a78e1ff29cb9910ae00b8d164c042bb45e046
+draft:
+  path: /home/jefferson/s-core_sw_fabric/examples/quality/disposition-cppcheck-draft.json
+  sha256: a1c6fea1a0d7a3553b4e11702b5085ef8a29f8bac9e23d7af664bd1b059fc04e
+current:
+  adapter: cppcheck
+  request:
+    path: /home/jefferson/s-core_sw_fabric/examples/quality/cppcheck-correction-run.yaml
+    sha256: e0bc5cc03207def877354a14ab77e9358a1a1473f38a5978369007789f7da49d
+previous: null
+action: check_correction
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/score
+- /tmp/s-core-foundation/references

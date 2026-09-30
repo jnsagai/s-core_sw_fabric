@@ -1,0 +1,19 @@
+schema_version: 1
+kind: quality_disposition_request
+origin:
+  path: /home/jefferson/s-core_sw_fabric/specs/010-misra-quality-and-deviations/evidence/disposition-asan-origin-run.json
+  sha256: 71051edb66fb39c5ab03990940ba6aa97b34dac421317cc38221de143f67aaef
+draft:
+  path: /home/jefferson/s-core_sw_fabric/examples/quality/disposition-asan-draft.json
+  sha256: af58cb57871a3fd37a7a380b0d52e2e8aa778846e12d6534b3400a43048e6de0
+current:
+  adapter: asan
+  request:
+    path: /home/jefferson/s-core_sw_fabric/examples/quality/asan-correction-run.yaml
+    sha256: ca277fed3335816802905f7c07d33471d317311bff4bea6e88766aa47b88bb15
+previous: null
+action: check_correction
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/score
+- /tmp/s-core-foundation/references

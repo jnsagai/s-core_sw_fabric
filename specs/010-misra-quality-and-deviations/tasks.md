@@ -152,3 +152,18 @@ authorizes US2 and its shared prerequisites, without CodeQL execution, dispositi
 Current total: 48 tasks; 16 scoped tasks and 5 original US2 tasks complete. The remaining
 27 original tasks, including human-owned T032, remain unchecked. No automatic disposition,
 coverage, CodeQL execution or 011 continuation is authorized.
+
+## Authorized draft/correction slice (2026-09-30)
+
+The user's next `go` follows the concrete disposition draft and correction freshness
+step. This slice implements scoped T019/T021 behavior; T020/T022 decision acceptance,
+coverage and CodeQL execution remain pending. Human T032 remains unchecked.
+
+- [x] T049 Define strict draft/review requests, source/construct closure and linked history in contracts/dispositions.md and schemas/quality-disposition-*.schema.json before implementation.
+- [x] T050 Write negative freshness/draft/history/publication tests in tests/contract/test_quality_dispositions.py before implementation, including policy/scope drift, names/dates and filtered/incomplete evidence.
+- [x] T051 Implement quality/disposition_models.py and dispositions.py and guarded quality disposition CLI; fresh correction uses adapter-owned execution after exact scope checks and never grants decision authority.
+- [x] T052 Verify genuine corrections with all four local adapters and preserve linked stale history in tests/integration/test_quality_dispositions.py; record gates, source preservation and remaining blockers in disposition-acceptance.md and docs/handoff/010-dispositions.md.
+
+Current total: 52 tasks, 25 complete (20 scoped and 5 US2), 27 original tasks open.
+T019/T021 retain broader unbuilt scope; T020/T022 decision replay and human T032 are
+unchecked. Completion proposes the next step without authorizing broader 010 or 011 work.

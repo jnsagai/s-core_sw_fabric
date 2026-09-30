@@ -92,3 +92,10 @@ Increment 009 adds `verification-profile`, `verification-toolchain-profile`,
 The readers additionally enforce selected file digests, local toolchain hashes/versions,
 native tags and metadata, exact run-history digests and guarded publication. A passing local
 run remains `local_unprotected_execution` and cannot satisfy 005 evidence or design acceptance.
+
+Increment 010 adds quality adapter/import schemas and `quality-disposition-draft`,
+`quality-disposition-request` and `quality-disposition-review`. Runtime checks bind the
+exact original finding, frozen file, current tool/policy/scope and every linked historical
+review. Explicit correction checks execute the bounded local adapter again; labels,
+native names/dates and stored reports cannot replace execution or authenticate a decision.
+No draft/review schema grants 005 decision eligibility or engineering readiness.

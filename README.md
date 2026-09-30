@@ -22,7 +22,8 @@ Increment 010 has local [Clang-Tidy](specs/010-misra-quality-and-deviations/acce
 and [Cppcheck/ASan/UBSan adapters](specs/010-misra-quality-and-deviations/complementary-acceptance.md)
 with `quality capabilities` and `quality run --adapter`, plus
 [native import/extraction](specs/010-misra-quality-and-deviations/native-import-acceptance.md)
-through `quality import`; its remaining CodeQL/deviation/coverage
+through `quality import` and [draft/correction history](specs/010-misra-quality-and-deviations/disposition-acceptance.md)
+through `quality disposition`. Its remaining CodeQL/decision/coverage
 work is [planned](specs/010-misra-quality-and-deviations/tasks.md). Local `clang-tidy` 19.1.7
 and `codeql` 2.21.4 resolve through `~/.local/bin/`; MISRA pack 2.61.0 is installed separately.
 [Installation evidence](specs/010-misra-quality-and-deviations/evidence/tool-installation.json)

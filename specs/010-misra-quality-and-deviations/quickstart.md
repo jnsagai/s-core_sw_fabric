@@ -1,7 +1,8 @@
 # Increment 010 validation guide
 
 **Status:** Clang-Tidy, Cppcheck and separate GCC ASan/UBSan capability/run adapters implemented.
-Read-only native import/extraction validation is also implemented. The remaining CodeQL execution, disposition
+Read-only native import/extraction validation and draft/correction checks are implemented.
+The remaining CodeQL execution, disposition decision replay
 and compliance workflow remains planned in [tasks](tasks.md).
 
 ## Installed tools
@@ -70,6 +71,24 @@ For actual local analyzer output, select the frozen source baseline, declared id
 original artifacts and independent phase/extraction manifest according to the
 [exact contract](contracts/native-import.md). See [genuine complementary-output imports](native-import-acceptance.md).
 Unknown/empty/partial extraction and inner failures remain incomplete. Imports invoke no tools.
+
+## Draft and check a correction
+
+These examples bind synthetic source files and genuine local analyzer output. Drafts
+invoke no analyzer; an explicit correction check runs the selected tool again and
+retains original native output. A prior clean report cannot substitute for that run.
+
+```bash
+uv run --frozen score-fabric quality disposition --request examples/quality/disposition-clang-tidy.yaml --out /tmp/quality-draft.json --json
+uv run --frozen score-fabric quality disposition --request examples/quality/disposition-clang-tidy-correction.yaml --out /tmp/quality-correction.json --json
+```
+
+The first exits 1 with an open draft. The second exits 0 only for a fresh local
+`corrected` observation, without engineering acceptance. Cppcheck, ASan and UBSan
+selections use `examples/quality/disposition-{cppcheck,asan,ubsan}-correction.yaml`.
+Scope/tool/policy drift, incomplete extraction, suppression and failed phases prevent
+correction. False-positive/deviation/suppression proposals stay pending. See the
+[exact contract](contracts/dispositions.md) and [retained observations](disposition-acceptance.md).
 
 ## Remaining increment validation sequence
 

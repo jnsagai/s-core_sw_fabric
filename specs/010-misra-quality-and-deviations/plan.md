@@ -11,11 +11,13 @@ The user authorized Clang-Tidy and then Cppcheck/ASan/UBSan adapters. See the
 [initial acceptance](acceptance.md) and [complementary validation](complementary-acceptance.md).
 Sixteen scoped tasks and US2 T014–T018 capture completed work, including
 [native import/extraction](native-import-acceptance.md) under [its exact contract](contracts/native-import.md).
-The remaining plan is outstanding for CodeQL execution, dispositions, coverage and review authority.
+The subsequent [draft/correction slice](disposition-acceptance.md) implements scoped T049–T052
+under [its exact contract](contracts/dispositions.md). The remaining plan is outstanding for
+CodeQL execution, 005 disposition decision replay, coverage and review authority.
 
 ## Summary
 
-Add `score-fabric quality capabilities|run|import|packet|assess`. Use strict version 1 selections,
+Add `score-fabric quality capabilities|run|import|disposition|packet|assess`. Use strict version 1 selections,
 existing guarded publication/digests and disposable copies. Import native policy provenance and
 measure local Clang-Tidy 19.1.7, optional Cppcheck 2.7 and GCC 11.4 ASan/UBSan. Preserve native YAML/XML,
 raw diagnostics and immutable run outputs. Ingest SARIF and supporting CodeQL reports with separate

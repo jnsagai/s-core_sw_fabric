@@ -1,0 +1,19 @@
+schema_version: 1
+kind: quality_disposition_request
+origin:
+  path: /home/jefferson/s-core_sw_fabric/specs/010-misra-quality-and-deviations/evidence/disposition-ubsan-origin-run.json
+  sha256: 800fe2b1adfa251f35a14f1c6134885b8d01cdff5dc2a76907243ad931f52202
+draft:
+  path: /home/jefferson/s-core_sw_fabric/examples/quality/disposition-ubsan-draft.json
+  sha256: a373b7a2dd52152cb6d0fb602c5cb944100516cd288411bfcc0ed44b5dcc6769
+current:
+  adapter: ubsan
+  request:
+    path: /home/jefferson/s-core_sw_fabric/examples/quality/ubsan-correction-run.yaml
+    sha256: 44c3aca44d6b609ec78a7931329bedb6d82dd661571c500a824b8d78d7f0ca26
+previous: null
+action: check_correction
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/score
+- /tmp/s-core-foundation/references
