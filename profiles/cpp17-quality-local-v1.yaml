@@ -1,0 +1,15 @@
+schema_version: 1
+kind: quality_toolchain_profile
+id: cpp17-quality-local-v1
+status: candidate_local_not_selected
+tool:
+  path: /home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/llvm-19/bin/clang-tidy
+  sha256: 5f733fae7fdb5ac7122ea1e8fcfb4723a7cbf68b5d779f2f8ead6eb276c03f0c
+  version: Ubuntu LLVM version 19.1.7
+dependencies:
+- path: /home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/x86_64-linux-gnu/libLLVM.so.19.1
+  sha256: 4d132e742bb0ed27c4424b6edcb7bbed62b4f28de90156fd4bcd3d9d9cdf44af
+- path: /home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/x86_64-linux-gnu/libclang-cpp.so.19.1
+  sha256: d215f541ddc2c10e1ef32f97badf7def93406d3a4c44a2ba9be130d2bf25e207
+library_dirs:
+- /home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/x86_64-linux-gnu

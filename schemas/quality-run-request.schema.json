@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-run-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "component",
+    "config",
+    "defines",
+    "expected_units",
+    "files",
+    "include_dirs",
+    "output_limit_bytes",
+    "profile",
+    "protected_roots",
+    "root",
+    "timeout_seconds",
+    "toolchain",
+    "translation_units"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "quality_run_request"
+    },
+    "component": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "defines": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z_][A-Za-z0-9_]*(=-?[0-9]+)?$"
+      }
+    },
+    "expected_units": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "maxItems": 500,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 500,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "include_dirs": {
+      "type": "array",
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "output_limit_bytes": {
+      "type": "integer",
+      "minimum": 1024,
+      "maximum": 16777216
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "protected_roots": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "string"
+      }
+    },
+    "root": {
+      "type": "string"
+    },
+    "timeout_seconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3600
+    },
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "translation_units": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 500,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

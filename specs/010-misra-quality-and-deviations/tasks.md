@@ -102,3 +102,22 @@ stop at human/external prerequisites for the affected acceptance. Planning does 
 publishing, merging, deployment or automatic continuation to 011.
 
 Counts: 32 tasks; US1 7, US2 5, US3 4, US4 6; setup/foundation 6, validation/handoff 4.
+
+## Authorized Clang-Tidy implementation slice (2026-09-30)
+
+The user's `go` followed the concrete next step “implement 010's Clang-Tidy adapter”.
+This authorizes this slice and its prerequisites. T001–T032 describe the larger increment;
+their remaining multi-tool/import/disposition/coverage work is not claimed complete.
+The six scoped tasks below record the implemented parts so follow-up work can reuse them.
+They do not replace T032 or check off owner review.
+
+- [x] T033 [US1] Define exact Clang-Tidy capability/run requests and output schemas in specs/010-misra-quality-and-deviations/contracts/clang-tidy.md and schemas/quality-*.schema.json (scoped parts of T002/T013).
+- [x] T034 [US1] Implement candidate native/tool profiles, strict frozen selections and bounded capture in profiles/s-core-quality-v1.yaml, profiles/cpp17-quality-local-v1.yaml, profiles/native-quality/ and src/score_sw_fabric/quality/models.py and profile.py (scoped parts of T001/T003–T006).
+- [x] T035 [US1] Measure Clang-Tidy version, configuration recognition, expanded checks and effective config in src/score_sw_fabric/quality/capabilities.py; report other capabilities as unimplemented and authority/mapping as unknown (scoped part of T009).
+- [x] T036 [US1] Execute selected translation units on disposable copies, retain native YAML/text/diagnostic locations and extraction scope, and wire quality capabilities/run with guarded 0/1/2 publication in src/score_sw_fabric/quality/runner.py, native_outputs.py and src/score_sw_fabric/cli.py (scoped parts of T010/T013/T016/T017).
+- [x] T037 [US1] Verify genuine defect/fix, selected header diagnostics, incomplete scope, compiler failure, suppression, tool/config drift, timeout/truncation and safe publication in tests/contract/test_quality_contracts.py, test_quality_execution.py and tests/integration/test_quality_tools.py (scoped parts of T003/T007/T008).
+- [x] T038 [US1] Record actual CLI outputs and repository validation in specs/010-misra-quality-and-deviations/evidence/, acceptance.md and docs/handoff/010-clang-tidy-slice.md; update README.md and backlog status truthfully (scoped parts of T030/T031).
+
+Current total: 38 tasks; 6 scoped slice tasks complete, all 32 full-increment tasks remain
+unchecked because they include broader work or authority. The original 32-task story counts
+above remain the plan for the complete increment. No automatic 011 work is authorized.

@@ -481,6 +481,38 @@ def _agent(args: argparse.Namespace) -> int:
 SAFETY_SUMMARY_FIELDS = ("outcome", "packet_state", "design_prerequisites")
 
 
+def _quality(args: argparse.Namespace) -> int:
+    from score_sw_fabric.agents.models import bounded_diagnostic
+    from score_sw_fabric.process_source.reader import InputError
+    from score_sw_fabric.quality import capabilities, runner
+    from score_sw_fabric.runtime.models import publish
+
+    handlers = {"capabilities": capabilities.capabilities, "run": runner.run}
+    try:
+        status, record, inputs, protected = handlers[args.quality_command](args.request, args.out)
+        publish(
+            args.out, record, inputs=[args.request.absolute(), *inputs], protected_roots=protected
+        )
+    except InputError as exc:
+        print(json.dumps(bounded_diagnostic(exc), sort_keys=True), file=sys.stderr)
+        return 2
+    print(
+        json.dumps(
+            {
+                "path": str(args.out),
+                "kind": record["kind"],
+                "digest": record["digest"],
+                "outcome": record["outcome"],
+                "engineering_readiness": "not_evaluated",
+            },
+            sort_keys=True,
+            indent=None if args.as_json else 2,
+        ),
+        file=sys.stdout if status == 0 else sys.stderr,
+    )
+    return status
+
+
 def _verify(args: argparse.Namespace) -> int:
     from score_sw_fabric.agents.models import bounded_diagnostic
     from score_sw_fabric.process_source.reader import InputError
@@ -683,7 +715,18 @@ def main(argv: list[str] | None = None) -> int:
         verify_request.add_argument("--request", type=Path, required=True)
         verify_request.add_argument("--out", type=Path, required=True)
         verify_request.add_argument("--json", action="store_true", dest="as_json")
+    quality = commands.add_parser(
+        "quality", help="probe/run local Clang-Tidy; readiness unevaluated"
+    )
+    quality_commands = quality.add_subparsers(dest="quality_command", required=True)
+    for name in ("capabilities", "run"):
+        quality_request = quality_commands.add_parser(name)
+        quality_request.add_argument("--request", type=Path, required=True)
+        quality_request.add_argument("--out", type=Path, required=True)
+        quality_request.add_argument("--json", action="store_true", dest="as_json")
     args = parser.parse_args(argv)
+    if args.command == "quality":
+        return _quality(args)
     if args.command == "verify":
         return _verify(args)
     if args.command == "safety":

@@ -4,7 +4,8 @@
 
 **Created**: 2026-09-30
 
-**Status**: Specified for planning. The 009 verification/toolchain profiles still await owner
+**Status**: Clang-Tidy capability/run slice implemented for local complementary use; full 010
+implementation and engineering acceptance remain pending. The 009 verification/toolchain profiles still await owner
 review (T018). Production authority remains unavailable (005 T009). No compliance acceptance
 or licensed analyzer execution is recorded.
 

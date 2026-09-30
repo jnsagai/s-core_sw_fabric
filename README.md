@@ -18,12 +18,13 @@ for disposable use only. Increment 008 (component safety feedback) and increment
 design and unit verification) have fixture demonstrations only; see the
 [009 acceptance record](specs/009-design-implementation-and-unit-verification/acceptance.md).
 
-Increment 010 has a [quality analysis plan](specs/010-misra-quality-and-deviations/plan.md)
-and [32 implementation tasks](specs/010-misra-quality-and-deviations/tasks.md). Local
-`clang-tidy` 19.1.7 and `codeql` 2.21.4 resolve through `~/.local/bin/`; compiled MISRA pack
-2.61.0 is installed separately. [Installation evidence](specs/010-misra-quality-and-deviations/evidence/tool-installation.json)
-records hashes and probes. Quality adapters are planned; CodeQL eligible use, source/build
-reconciliation, reporting prerequisites and human acceptance remain open.
+Increment 010 has a local [Clang-Tidy adapter](specs/010-misra-quality-and-deviations/acceptance.md)
+with `quality capabilities` and `quality run`; its remaining multi-tool/import/deviation/coverage
+work is [planned](specs/010-misra-quality-and-deviations/tasks.md). Local `clang-tidy` 19.1.7
+and `codeql` 2.21.4 resolve through `~/.local/bin/`; MISRA pack 2.61.0 is installed separately.
+[Installation evidence](specs/010-misra-quality-and-deviations/evidence/tool-installation.json)
+records hashes and probes. CodeQL eligible use, source/build reconciliation, reporting prerequisites
+and human engineering acceptance remain open.
 
 Spec Kit manages development of this fabric. S-CORE owns target engineering semantics
 and work products. Fabro owns workflow execution/run state. APM/MCP supplies supported

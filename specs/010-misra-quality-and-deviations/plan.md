@@ -4,6 +4,12 @@
 
 **Input**: [009 handoff](../../docs/handoff/009-to-010.md), FAB-039–042, [research](research.md).
 
+## Current implementation slice
+
+The user authorized the Clang-Tidy adapter next. See the [implemented contract](contracts/clang-tidy.md)
+and [slice acceptance](acceptance.md). Six scoped tasks capture completed work; the full plan
+below remains outstanding for other tools, imports, dispositions, coverage and review authority.
+
 ## Summary
 
 Add `score-fabric quality capabilities|run|import|packet|assess`. Use strict version 1 selections,

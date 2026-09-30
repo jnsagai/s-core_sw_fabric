@@ -1,7 +1,7 @@
 # Increment 010 validation guide
 
-**Status:** Planning guide. Fabric quality commands and implementation tests will be added by
-[tasks](tasks.md); installation probes below are available now.
+**Status:** Clang-Tidy capability/run slice implemented. The full multi-tool, import, disposition
+and compliance workflow remains planned in [tasks](tasks.md).
 
 ## Installed tools
 
@@ -18,6 +18,21 @@ explicitly; global CodeQL cache/configuration was not modified.
 The [Clang-Tidy installation smoke](evidence/clang-tidy-install-smoke.json) retains a genuine
 `clang-analyzer-core.NullDereference` finding with the pinned native config. It is an installation
 probe and cannot satisfy a guideline compliance claim.
+
+## Run the implemented Clang-Tidy slice
+
+These examples bind the current workstation's exact candidate paths/hashes. Output is outside
+all selected source/protected roots. On another host, rebind the reviewed tool/input refs.
+
+```bash
+uv run --frozen score-fabric quality capabilities --request examples/quality/clang-tidy-capabilities.yaml --out /tmp/quality-capabilities.json --json
+uv run --frozen score-fabric quality run --request examples/quality/clang-tidy-run.yaml --out /tmp/quality-run.json --json
+```
+
+The seeded run returns 1 with native diagnostics. It writes no source fixes. See the
+[exact contract](contracts/clang-tidy.md) and [actual seed/fix evidence](acceptance.md).
+The corrected synthetic source has a fresh adequate selected-unit run with zero native
+findings; mapping/authority/compliance gaps remain. Output 0 never means engineering acceptance.
 
 ## Implementation validation sequence
 

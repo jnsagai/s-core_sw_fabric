@@ -1,7 +1,8 @@
 # Proposed quality contract (010)
 
-**Status:** Design proposal, awaiting implementation and owner review. Clang-Tidy/CodeQL
-installation is measured; the commands below are planned fabric interfaces.
+**Status:** Full design proposal, awaiting completion and owner review. The local Clang-Tidy
+capability/run slice follows [its exact implemented contract](clang-tidy.md). Other interfaces
+and multi-tool behavior below remain planned.
 
 ## Commands and outcomes
 

@@ -1,0 +1,596 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-analysis-run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "artifacts",
+    "assurance_eligibility",
+    "baseline",
+    "capability",
+    "configuration",
+    "diagnostics",
+    "digest",
+    "engineering_readiness",
+    "extraction",
+    "gaps",
+    "origin",
+    "outcome",
+    "phases",
+    "processed_units",
+    "profile",
+    "source_integrity",
+    "toolchain"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "quality_analysis_run"
+    },
+    "artifacts": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "base64",
+          "bytes",
+          "format",
+          "retained_sha256",
+          "sha256",
+          "truncated",
+          "id",
+          "translation_unit"
+        ],
+        "properties": {
+          "format": {
+            "enum": [
+              "text",
+              "clang-tidy-yaml"
+            ]
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "retained_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "base64": {
+            "type": "string",
+            "maxLength": 22369624
+          },
+          "truncated": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "translation_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          }
+        }
+      }
+    },
+    "assurance_eligibility": {
+      "const": "not_eligible"
+    },
+    "baseline": {
+      "type": "object"
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checks",
+        "effective_config",
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "available",
+            "unavailable",
+            "unsupported",
+            "unknown"
+          ]
+        },
+        "checks": {
+          "type": "array",
+          "maxItems": 10000,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          }
+        },
+        "effective_config": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "header_filter_override",
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "header_filter_override": {
+          "const": "selected_tree"
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object"
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "extraction": {
+      "type": "object"
+    },
+    "gaps": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      }
+    },
+    "origin": {
+      "const": "local_unprotected_execution"
+    },
+    "outcome": {
+      "enum": [
+        "completed",
+        "findings",
+        "incomplete",
+        "unavailable",
+        "failed"
+      ]
+    },
+    "phases": {
+      "type": "array",
+      "maxItems": 504,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "argv",
+          "elapsed_seconds",
+          "error",
+          "exit_code",
+          "name",
+          "stderr",
+          "stdout",
+          "timed_out"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
+          "argv": {
+            "type": "array",
+            "maxItems": 2000,
+            "items": {
+              "type": "string"
+            }
+          },
+          "exit_code": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "timed_out": {
+            "type": "boolean"
+          },
+          "elapsed_seconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "error": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "stdout": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "base64",
+              "bytes",
+              "format",
+              "retained_sha256",
+              "sha256",
+              "truncated"
+            ],
+            "properties": {
+              "format": {
+                "enum": [
+                  "text",
+                  "clang-tidy-yaml"
+                ]
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "retained_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "base64": {
+                "type": "string",
+                "maxLength": 22369624
+              },
+              "truncated": {
+                "type": "boolean"
+              }
+            }
+          },
+          "stderr": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "base64",
+              "bytes",
+              "format",
+              "retained_sha256",
+              "sha256",
+              "truncated"
+            ],
+            "properties": {
+              "format": {
+                "enum": [
+                  "text",
+                  "clang-tidy-yaml"
+                ]
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "retained_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "base64": {
+                "type": "string",
+                "maxLength": 22369624
+              },
+              "truncated": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "processed_units": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "kind",
+        "analyzers",
+        "decision_policy_ref",
+        "guideline_edition",
+        "id",
+        "language",
+        "mapping_state",
+        "native_sources",
+        "required_obligations",
+        "sanitizers",
+        "status"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "kind": {
+          "const": "quality_profile"
+        },
+        "analyzers": {
+          "type": "array",
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "role",
+              "state"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "role": {
+                "enum": [
+                  "primary",
+                  "complementary"
+                ]
+              },
+              "state": {
+                "enum": [
+                  "candidate",
+                  "unimplemented",
+                  "unavailable",
+                  "unknown"
+                ]
+              }
+            }
+          }
+        },
+        "decision_policy_ref": {
+          "type": "null"
+        },
+        "guideline_edition": {
+          "const": "MISRA C++:2023"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "language": {
+          "const": "c++17"
+        },
+        "mapping_state": {
+          "const": "unknown"
+        },
+        "native_sources": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "commit",
+              "id",
+              "license",
+              "native_status",
+              "notice",
+              "path",
+              "repository",
+              "sha256"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "repository": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "native_status": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "license": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "notice": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              }
+            }
+          }
+        },
+        "required_obligations": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "sanitizers": {
+          "type": "array",
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "state"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "state": {
+                "enum": [
+                  "candidate",
+                  "unimplemented",
+                  "unavailable",
+                  "unknown"
+                ]
+              }
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      }
+    },
+    "source_integrity": {
+      "enum": [
+        "unchanged",
+        "changed"
+      ]
+    },
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "kind",
+        "dependencies",
+        "id",
+        "library_dirs",
+        "status",
+        "tool"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "kind": {
+          "const": "quality_toolchain_profile"
+        },
+        "dependencies": {
+          "type": "array",
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "library_dirs": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "tool": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256",
+            "version"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
