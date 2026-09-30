@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/agent-setup-record-v1.json",
+  "title": "Agent explicit setup record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "lock",
+    "source",
+    "copy_root",
+    "interpreter",
+    "workspace",
+    "engineering_readiness",
+    "limitations",
+    "digest",
+    "operation",
+    "findings",
+    "before_digest",
+    "after_digest",
+    "changes",
+    "undeclared",
+    "tool_result",
+    "outcome",
+    "idempotent"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "agent_setup_record"
+    },
+    "lock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sha256"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "source": {
+      "type": "object"
+    },
+    "copy_root": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "interpreter": {
+      "type": "object"
+    },
+    "workspace": {
+      "type": "object",
+      "required": [
+        "path",
+        "commit"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "limitations": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "operation": {
+      "type": "object"
+    },
+    "findings": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "detail"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 1024
+          }
+        }
+      }
+    },
+    "before_digest": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "after_digest": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "changes": {
+      "type": "array",
+      "maxItems": 20000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "change"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "change": {
+            "enum": [
+              "added",
+              "modified",
+              "removed"
+            ]
+          }
+        }
+      }
+    },
+    "undeclared": {
+      "type": "array",
+      "maxItems": 20000,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "tool_result": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "outcome": {
+      "enum": [
+        "changed",
+        "unchanged",
+        "blocked"
+      ]
+    },
+    "idempotent": {
+      "type": "boolean"
+    }
+  }
+}

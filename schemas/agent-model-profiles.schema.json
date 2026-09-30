@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/agent-model-profiles-v1.json",
+  "title": "Provider/model profiles v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "status",
+    "live_calls",
+    "catalogue",
+    "profiles"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "agent_model_profiles"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "live_calls": {
+      "const": "disabled"
+    },
+    "catalogue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runtime_commit",
+        "pages_sha256"
+      ],
+      "properties": {
+        "runtime_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "pages_sha256": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "provider",
+          "model",
+          "reasoning_effort",
+          "requires_tools",
+          "max_output_tokens",
+          "max_context_tokens",
+          "timeout_seconds",
+          "data_destination",
+          "fallbacks"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "provider": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "reasoning_effort": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4096
+          },
+          "requires_tools": {
+            "type": "boolean"
+          },
+          "max_output_tokens": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "max_context_tokens": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 86400
+          },
+          "data_destination": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "fallbacks": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "profile",
+                "allow_higher_price"
+              ],
+              "properties": {
+                "profile": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "allow_higher_price": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "minItems": 1
+    }
+  }
+}

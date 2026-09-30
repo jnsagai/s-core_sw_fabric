@@ -433,6 +433,51 @@ def _runtime(args: argparse.Namespace) -> int:
     return status
 
 
+AGENT_SUMMARY_FIELDS = ("outcome", "decision", "reasons", "idempotent", "structure", "violations")
+
+
+def _agent(args: argparse.Namespace) -> int:
+    from score_sw_fabric.agents import admission, context, discover, output
+    from score_sw_fabric.agents.models import bounded_diagnostic
+    from score_sw_fabric.process_source.reader import InputError
+    from score_sw_fabric.runtime.models import publish
+
+    handlers = {
+        "discover": discover.discover,
+        "setup": discover.setup,
+        "context": context.build_context,
+        "admit": admission.admit,
+        "check": output.check,
+    }
+    try:
+        status, record, inputs, protected = handlers[args.agent_command](args.request)
+        publish(
+            args.out, record, inputs=[args.request.absolute(), *inputs], protected_roots=protected
+        )
+    except InputError as exc:
+        print(json.dumps(bounded_diagnostic(exc), sort_keys=True), file=sys.stderr)
+        return 2
+    response = {name: record[name] for name in AGENT_SUMMARY_FIELDS if name in record}
+    if record["kind"] == "agent_capability_inventory":
+        response["servers"] = {item["id"]: item["status"] for item in record["servers"]}
+        response["findings"] = sorted(
+            {finding["code"] for item in record["servers"] for finding in item["findings"]}
+        )
+    response.update(
+        {
+            "path": str(args.out),
+            "kind": record["kind"],
+            "digest": record["digest"],
+            "engineering_readiness": "not_evaluated",
+        }
+    )
+    print(
+        json.dumps(response, sort_keys=True, indent=None if args.as_json else 2),
+        file=sys.stdout if status == 0 else sys.stderr,
+    )
+    return status
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", action="version", version=__version__)
@@ -538,7 +583,22 @@ def main(argv: list[str] | None = None) -> int:
     runtime_verify = runtime_commands.add_parser("verify", help="verify a run export offline")
     runtime_verify.add_argument("--export", type=Path, required=True)
     runtime_verify.add_argument("--json", action="store_true", dest="as_json")
+    agent = commands.add_parser("agent", help="bounded agent context, admission and checks")
+    agent_commands = agent.add_subparsers(dest="agent_command", required=True)
+    for name, help_text in (
+        ("discover", "observe pinned context servers from a disposable copy"),
+        ("setup", "run one explicit, idempotent context setup operation"),
+        ("context", "build a baseline-bound role context bundle"),
+        ("admit", "check model capability, fallback and budget before a call"),
+        ("check", "validate a role result against its write scope and real changes"),
+    ):
+        agent_request = agent_commands.add_parser(name, help=help_text)
+        agent_request.add_argument("--request", type=Path, required=True)
+        agent_request.add_argument("--out", type=Path, required=True)
+        agent_request.add_argument("--json", action="store_true", dest="as_json")
     args = parser.parse_args(argv)
+    if args.command == "agent":
+        return _agent(args)
     if args.command == "runtime":
         return _runtime(args)
     if args.command == "assurance":

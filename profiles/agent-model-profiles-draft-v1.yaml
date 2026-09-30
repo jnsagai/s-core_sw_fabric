@@ -1,0 +1,47 @@
+# Draft provider/model profiles for increment 007, reviewed against the raw catalogue captured
+# from the pinned disposable Fabro server (docs/evidence/007/fabro-catalogue/). Owner review
+# pending. Live calls are disabled: no credential, cost authority or smoke test exists.
+schema_version: 1
+kind: agent_model_profiles
+id: model-profiles-draft-v1
+status: draft_owner_review_pending
+live_calls: disabled
+catalogue:
+  runtime_commit: 1b4fb15281ebb724426f9e480dce48d0100ff79b
+  pages_sha256:
+    - d5fd82e4b8f000c0a0b3f477e6d67fa252e3cb23c40277f3fd120680e2b9ce86
+    - 5409cc1f898f32f989bac306bae423f608f31347fcbf451e721b6f9464756bae
+profiles:
+  - id: model.routine.deepseek-v4-flash
+    provider: deepseek
+    model: deepseek-v4-flash
+    reasoning_effort: medium
+    requires_tools: true
+    max_output_tokens: 32000
+    max_context_tokens: 262144
+    timeout_seconds: 900
+    data_destination: provider.deepseek
+    # Explicit, same-destination escalation; admission still applies the role budget.
+    fallbacks:
+      - {profile: model.review.deepseek-v4-pro, allow_higher_price: true}
+  - id: model.review.deepseek-v4-pro
+    provider: deepseek
+    model: deepseek-v4-pro
+    reasoning_effort: high
+    requires_tools: true
+    max_output_tokens: 32000
+    max_context_tokens: 262144
+    timeout_seconds: 1200
+    data_destination: provider.deepseek
+    fallbacks: []
+  # Supervision candidate; the catalogue exposes no named reasoning levels for this offering.
+  - id: model.supervision.gpt-5.6-sol
+    provider: openai
+    model: gpt-5.6-sol
+    reasoning_effort: null
+    requires_tools: true
+    max_output_tokens: 32000
+    max_context_tokens: 400000
+    timeout_seconds: 1800
+    data_destination: provider.openai
+    fallbacks: []

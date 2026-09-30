@@ -13,6 +13,8 @@ Registration, execution, production evidence acceptance, readiness, release, dep
 protected production decisions, and model calls remain unevaluated. See the
 [004 acceptance record](specs/004-native-artifact-traceability/acceptance.md),
 [004-to-005 handoff](docs/handoff/004-to-005.md), and [roadmap](docs/backlog/roadmap.md).
+Increment 006 (candidate runtime) and increment 007 (agent context and profiles) are implemented
+for disposable use only; see the [007-to-008 handoff](docs/handoff/007-to-008.md).
 
 Spec Kit manages development of this fabric. S-CORE owns target engineering semantics
 and work products. Fabro owns workflow execution/run state. APM/MCP supplies supported
@@ -142,6 +144,29 @@ but inert, so `resume` never admits continuation there. Fabro success, events an
 runtime observations; 005 production authority is still pending (005 T009). See the
 [006 contract](specs/006-fabro-runtime-integration/contracts/runtime.md) and
 [acceptance record](specs/006-fabro-runtime-integration/acceptance.md).
+
+### Agent context and profiles (007, disposable use)
+
+Increment 007 bounds engineering agents around the pinned S-CORE `mcp-servers` packages
+(`29aeaa8`) and the model catalogue captured from the pinned Fabro candidate. Each command reads
+one version-1 request and publishes one sealed record:
+
+```bash
+uv run --frozen score-fabric agent discover --request DISCOVER.yaml --out INVENTORY.json --json
+uv run --frozen score-fabric agent setup    --request SETUP.yaml    --out SETUP.json     --json
+uv run --frozen score-fabric agent context  --request CONTEXT.yaml  --out BUNDLE.json    --json
+uv run --frozen score-fabric agent admit    --request ADMIT.yaml    --out ADMISSION.json --json
+uv run --frozen score-fabric agent check    --request CHECK.yaml    --out CHECK.json     --json
+```
+
+Servers run only from a verified disposable copy, never through the unpinned upstream `uvx`
+references; drift or a failed handshake blocks. Setup is separate and idempotent. Context binds
+the workspace commit and native source digests and labels local observations as hints.
+Roles cannot hold approval, collector, answer, run-management, resume, setup or credential
+grants. Admission never authorizes a live call (`call_authorized: false`). Exits follow 006
+(0 exact result, 1 published stop, 2 malformed input). Role, model and budget profiles are
+drafts pending owner review. See the [007 contract](specs/007-apm-agent-context-and-profiles/contracts/agent.md)
+and [acceptance record](specs/007-apm-agent-context-and-profiles/acceptance.md).
 
 ## Spec Kit
 

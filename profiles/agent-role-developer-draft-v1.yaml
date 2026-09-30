@@ -1,0 +1,39 @@
+# Draft developer role for increment 007 disposable checks. Owner review pending; this is not
+# a production role assignment and grants no live model call.
+schema_version: 1
+kind: agent_role_profile
+id: role.developer.draft-v1
+status: draft_owner_review_pending
+role: developer
+purpose: >-
+  Draft detailed design and implementation changes for the assigned component within the
+  write scope, reporting every changed path, affected native ID and unresolved assumption.
+allowed_inputs: ['docs/**', 'src/**', 'tests/**', 'score-context/**']
+expected_output: {kind: agent_result, schema_version: 1}
+# context-discipline writes .score-local/ on start and score-context/ via add_overlay_node.
+write_scope: ['src/**', 'tests/**', '.score-local/**', 'score-context/**']
+builtin_tools: [read_file, read_many_files, grep, glob, list_dir, write_file, edit_file, apply_patch]
+mcp_servers: [context-discipline]
+data_destinations: [provider.deepseek]
+prohibited_decisions:
+  - Approve, accept or waive any engineering gate, review or deviation.
+  - Answer a human question or record a human decision.
+  - Declare verification results; tests are run by trusted command runners.
+  - Change requirements, safety analyses or process tailoring.
+completion_criteria:
+  - Every changed path is inside the write scope and listed in changed_paths.
+  - Every affected native ID and unresolved assumption is reported.
+uncertainties_to_report:
+  - Requirements or architecture that appear inconsistent with the task.
+  - Missing or stale context, including uncertain local observations.
+loopback: {max_correction_visits: 2}
+retry_limit: 1
+model_profile: model.routine.deepseek-v4-flash
+budget:
+  cost_microusd: 500000
+  input_tokens: 2000000
+  output_tokens: 200000
+  wall_seconds: 3600
+  calls: 6
+credentials: []
+runtime: {fabro_tools: false, human_gate: stop, permissions: read-write}

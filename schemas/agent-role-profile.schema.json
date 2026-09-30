@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/agent-role-profile-v1.json",
+  "title": "Bounded agent role profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "status",
+    "role",
+    "purpose",
+    "allowed_inputs",
+    "expected_output",
+    "write_scope",
+    "builtin_tools",
+    "mcp_servers",
+    "data_destinations",
+    "prohibited_decisions",
+    "completion_criteria",
+    "uncertainties_to_report",
+    "loopback",
+    "retry_limit",
+    "model_profile",
+    "budget",
+    "credentials",
+    "runtime"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "agent_role_profile"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "role": {
+      "enum": [
+        "process_coordinator",
+        "requirements_engineer",
+        "software_architect",
+        "fmea_analyst",
+        "dfa_analyst",
+        "security_analyst",
+        "developer",
+        "verification_engineer",
+        "compliance_analyst",
+        "independent_critic",
+        "delivery_reviewer"
+      ]
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "allowed_inputs": {
+      "type": "array",
+      "maxItems": 200,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "expected_output": {
+      "const": {
+        "kind": "agent_result",
+        "schema_version": 1
+      }
+    },
+    "write_scope": {
+      "type": "array",
+      "maxItems": 200,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "builtin_tools": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "enum": [
+          "read_file",
+          "read_many_files",
+          "grep",
+          "glob",
+          "list_dir",
+          "write_file",
+          "edit_file",
+          "apply_patch"
+        ]
+      }
+    },
+    "mcp_servers": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "data_destinations": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "prohibited_decisions": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      },
+      "minItems": 1
+    },
+    "completion_criteria": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "uncertainties_to_report": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "loopback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_correction_visits"
+      ],
+      "properties": {
+        "max_correction_visits": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20
+        }
+      }
+    },
+    "retry_limit": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "model_profile": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cost_microusd",
+        "input_tokens",
+        "output_tokens",
+        "wall_seconds",
+        "calls"
+      ],
+      "properties": {
+        "cost_microusd": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "wall_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "calls": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "credentials": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fabro_tools",
+        "human_gate",
+        "permissions"
+      ],
+      "properties": {
+        "fabro_tools": {
+          "const": false
+        },
+        "human_gate": {
+          "const": "stop"
+        },
+        "permissions": {
+          "enum": [
+            "read-only",
+            "read-write"
+          ]
+        }
+      }
+    }
+  }
+}

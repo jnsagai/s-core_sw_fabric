@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/agent-admission-v1.json",
+  "title": "Agent pre-call admission v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "role",
+    "model_profiles",
+    "catalogue",
+    "ledger_sha256",
+    "call",
+    "profile",
+    "offering",
+    "estimate",
+    "used",
+    "remaining",
+    "decision",
+    "reasons",
+    "call_authorized",
+    "provider_configured",
+    "engineering_readiness",
+    "limitations",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "agent_admission"
+    },
+    "role": {
+      "type": "object"
+    },
+    "model_profiles": {
+      "type": "object"
+    },
+    "catalogue": {
+      "type": "object"
+    },
+    "ledger_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "call": {
+      "type": "object"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "offering": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "estimate": {
+      "type": "object",
+      "properties": {
+        "input_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "cost_microusd": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "wall_seconds": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "calls": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "used": {
+      "type": "object",
+      "properties": {
+        "input_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "cost_microusd": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "wall_seconds": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "calls": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "remaining": {
+      "type": "object"
+    },
+    "decision": {
+      "enum": [
+        "admissible",
+        "refused"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "detail"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 1024
+          }
+        }
+      }
+    },
+    "call_authorized": {
+      "const": false
+    },
+    "provider_configured": {
+      "type": "boolean"
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "limitations": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

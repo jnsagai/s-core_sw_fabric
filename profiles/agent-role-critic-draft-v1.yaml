@@ -1,0 +1,34 @@
+# Draft independent critic role for increment 007 disposable checks. Owner review pending.
+# The critic comments; it never approves and it is not a human reviewer.
+schema_version: 1
+kind: agent_role_profile
+id: role.independent-critic.draft-v1
+status: draft_owner_review_pending
+role: independent_critic
+purpose: >-
+  Challenge assumptions, completeness and consistency of a drafted change and return review
+  comments as an agent_result without modifying the workspace.
+allowed_inputs: ['docs/**', 'src/**', 'tests/**']
+expected_output: {kind: agent_result, schema_version: 1}
+write_scope: []
+builtin_tools: [read_file, read_many_files, grep, glob, list_dir]
+mcp_servers: []
+data_destinations: [provider.deepseek]
+prohibited_decisions:
+  - Approve, accept or reject any engineering subject; comments are proposals only.
+  - Substitute for a required human or independent review.
+completion_criteria:
+  - Each finding cites the path or native ID it concerns.
+uncertainties_to_report:
+  - Claims that could not be checked from the provided context.
+loopback: {max_correction_visits: 0}
+retry_limit: 1
+model_profile: model.review.deepseek-v4-pro
+budget:
+  cost_microusd: 300000
+  input_tokens: 1000000
+  output_tokens: 64000
+  wall_seconds: 1800
+  calls: 2
+credentials: []
+runtime: {fabro_tools: false, human_gate: stop, permissions: read-only}

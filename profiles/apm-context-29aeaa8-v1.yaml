@@ -1,0 +1,162 @@
+# Reviewed-candidate lock for S-CORE APM/MCP context packages (increment 007).
+# Tool digests are SHA-256 of the canonical JSON tool objects observed from tools/list on a
+# disposable git-archive copy at the pinned commit on 2026-09-30. Owner review pending.
+schema_version: 1
+kind: apm_context_lock
+id: s-core-mcp-servers-29aeaa8-v1
+status: draft_owner_review_pending
+source:
+  repository: https://github.com/eclipse-score/mcp-servers
+  commit: 29aeaa8251bd006d7ed3b0ea64229ea8589ce826
+  license: Apache-2.0
+  license_path: LICENSE
+  notice_path: NOTICE
+files:
+  - path: apm.yml
+    sha256: f592bb53e5a90a0cca0c3218b46e924ecc5ee9f6703c0f1fe30d74595dc8af8e
+  - path: LICENSE
+    sha256: 640d0c3c703ac1835577eec5a82a314f9c723cd570dd0c0ff0e2294a335e80e5
+  - path: LICENSES/Apache-2.0.txt
+    sha256: 074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff
+  - path: NOTICE
+    sha256: 7cc9322b3fc1e0d5984c94fbaec9dd3ef34aa0987e59f357ff34526fa853d834
+  - path: packages/apm-setup/apm.yml
+    sha256: 12f57a0a80921369177e593c7d6bec94b81058776fb794c6d3ff5a80bbf40160
+  - path: packages/apm-setup/src/apm_setup/__init__.py
+    sha256: c8fde51a5e53d21f014c96a0f7b634f9e19b83038f7df3de95a82464b55e315d
+  - path: packages/apm-setup/src/apm_setup/serve.py
+    sha256: db4849762ab73d90839d3ef5db63d20068e69ff9a87474274c3d7c4a72e656e5
+  - path: packages/context-discipline/apm.yml
+    sha256: 16ac038f0597ff40c949f09fe08ac8258a5a821d1ee2990d4088815ed599c71e
+  - path: packages/context-discipline/src/__init__.py
+    sha256: a252a14ecda5acbe33d3d17543946a1dec15e2bb1e1fd06c7bfe42deccde88ba
+  - path: packages/context-discipline/src/context_attention.py
+    sha256: 7c37002fddcfa2475f7dd4bbf4f3d8b03ecbe126295952b5042f02845db3c127
+  - path: packages/context-discipline/src/context_discipline_mcp.py
+    sha256: 6b30d86f7140eb72bb24a978f15f06c9bb0d90232bb545edf88bc6bbdfcd5945
+  - path: packages/context-discipline/src/context_merge.py
+    sha256: 166d771d62744c69c9fe51a164fb70bb6e6e20c733bb7a72df0bd70526d873cc
+  - path: packages/context-discipline/src/context_overlay.py
+    sha256: 1398d0df1bf78e668fe2144737a09af80903aa460930b52140c625536ab6acab
+  - path: packages/context-discipline/src/context_policy.py
+    sha256: 787149278fab0e0303783bc20deec0f20e3541d294599d5c05292ba63e3efce6
+  - path: packages/context-discipline/src/context_sessions.py
+    sha256: 223137e1529072221dec84551400490e44fe03f34a2b2760e74999e82354d2ae
+  - path: packages/graphify-codegraph/apm.yml
+    sha256: bbd6abbe4024236525f8f6ce223978c75ec97efda8365daf066d2eb0dda544c0
+  - path: packages/graphify-codegraph/pyproject.toml
+    sha256: 9ec2b05d67537e1e1c2a4f225add015ea4f4e140476752bda9ac05e88ab059a9
+  - path: packages/graphify-codegraph/src/serve.py
+    sha256: 5232c0973e4357a8d97b0d104490e4f147d4a433a29df6f3b642bc4ecbe3993c
+servers:
+  - id: apm-setup
+    package: apm-setup
+    manifest: packages/apm-setup/apm.yml
+    status: supported
+    unsupported_reason: null
+    upstream_launch:
+      command: uvx
+      args:
+        - --from
+        - git+https://github.com/eclipse-score/mcp-servers#subdirectory=packages/apm-setup
+        - apm-setup
+    launch:
+      kind: python_module
+      python_path: [packages/apm-setup/src]
+      module: apm_setup.serve
+    expected:
+      server_name: apm-setup
+      server_version: 0.1.0
+      protocol_version: '2024-11-05'
+    startup_writes: []
+    tools:
+      - name: setup_graphify
+        classification: setup_privileged
+        schema_sha256: 25e52c8100cfa6baf08b6f155e89f77a7566739c5ed44fae5ab168b5d9899816
+      - name: setup_context_discipline
+        classification: setup_privileged
+        schema_sha256: 5f5e288745e3db9d8c70ce0b56dbb9581a67ac5ddf803da24bab20fd1812942f
+      - name: verify_setup
+        classification: context_read
+        schema_sha256: 0c482e9d56c2c087b704b35be4c62c7c29aad8d7bd5bbad36c2d6350fb4900c9
+  - id: context-discipline
+    package: context-discipline
+    manifest: packages/context-discipline/apm.yml
+    status: supported
+    unsupported_reason: null
+    upstream_launch:
+      command: uvx
+      args:
+        - --from
+        - git+https://github.com/eclipse-score/mcp-servers#subdirectory=packages/context-discipline
+        - context-discipline
+    launch:
+      kind: python_module
+      python_path: [packages/context-discipline/src]
+      module: context_discipline_mcp
+    expected:
+      server_name: context-discipline
+      server_version: 0.1.0
+      protocol_version: '2024-11-05'
+    # The server creates its local hint store before any tool call.
+    startup_writes: ['.score-local/**']
+    tools:
+      - name: initialize_session
+        classification: local_observation_write
+        schema_sha256: b7a2e13f4fa1abca7d16870cc6f2a83054561c737cf31bf5322844b250483e3c
+      - name: query_graph
+        classification: context_read
+        schema_sha256: 5c67d28748261783cf79a2117e93c5bfd62f47fafaa7e7b02f4d94584c25e2a5
+      - name: record_decision
+        classification: local_observation_write
+        schema_sha256: 97c1b28491e91ab0f99552e3775d32ab245209c8ebeb019a2d297a5137c52813
+      - name: record_outcome
+        classification: local_observation_write
+        schema_sha256: 3c3c6ad63e7b934b980557e3cf08f74928aeadc30fdc5c7ada4374bac72e1df4
+      - name: get_working_memory
+        classification: context_read
+        schema_sha256: fe361a9e5171974ded5f45efd5651fb5fde704ef79611a4050e97fffae3104fa
+      - name: get_unverified_assumptions
+        classification: context_read
+        schema_sha256: 9e72742aa9ef2a1b6440ff22aaa64f011c37a82cc4aef86ecab76fc7cf01448e
+      - name: get_prior_context
+        classification: context_read
+        schema_sha256: 1bd4e06b4b1e04e31d8e458663e9f8f7cf44dbd3693507ab6dc1a6818755dbf3
+      # Writes score-context/ overlay files in the workspace; they remain hints.
+      - name: add_overlay_node
+        classification: local_observation_write
+        schema_sha256: f087a4276ff81690d88735a6fd03984887591bcb85a4799d338353a8c067d7bd
+  - id: graphify-codegraph
+    package: graphify-codegraph
+    manifest: packages/graphify-codegraph/apm.yml
+    status: unsupported
+    unsupported_reason: >-
+      Wraps external graphify (graphifyy[mcp]==0.9.53), which is not installed; installing it
+      needs network access and a separate dependency decision. Its tools were not observed.
+    upstream_launch:
+      command: uvx
+      args:
+        - --from
+        - git+https://github.com/eclipse-score/mcp-servers#subdirectory=packages/graphify-codegraph
+        - graphify-codegraph
+    launch: null
+    expected:
+      server_name: null
+      server_version: null
+      protocol_version: null
+    startup_writes: []
+    tools: []
+setup_operations:
+  - id: context_discipline_store
+    server: apm-setup
+    tool: setup_context_discipline
+    declared_writes: ['.score-local/**', '.gitignore']
+runtime_client:
+  name: fabro-rmcp
+  protocol_version: '2025-03-26'
+  compatibility: not_verified
+limits:
+  handshake_seconds: 10
+  tool_seconds: 30
+  line_bytes: 1048576
+  result_bytes: 262144

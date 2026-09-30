@@ -65,3 +65,14 @@ assessment. A `production` assurance reference is refused while 005 T009 is pend
 decisions are `admit`, `refuse_terminal`, `block_unknown`, `block_drift`, or
 `reconciliation_required`. Runtime exits are 0 for the exact operation or faithful observation,
 1 for an explicit published non-success, and 2 for malformed, unsafe, or unavailable input.
+
+Increment 007 adds `apm-context-lock`, `agent-role-profile`, `agent-model-profiles`,
+`agent-budget-ledger` and `agent-result` input schemas, the five `agent-*-request` schemas, and
+the `agent-capability-inventory`, `agent-setup-record`, `agent-context-bundle`,
+`agent-admission` and `agent-output-check` output schemas. A contract test keeps every
+required-field set equal to the readers and to real outputs. Runtime validation additionally
+enforces request-file SHA-256 bindings, verified disposable copies, exact MCP tool-schema
+digests, workspace snapshots (including `.git/config`, hooks and info), whole-segment globs,
+catalogue pagination completeness, unknown-usage refusal and guarded atomic publication.
+`available`, `admissible` and `within_bounds` are deterministic check outcomes, never
+engineering acceptance.
