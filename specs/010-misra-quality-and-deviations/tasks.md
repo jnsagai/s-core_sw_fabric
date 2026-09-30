@@ -64,9 +64,9 @@ records; only independently replayed exact fixture decisions can yield accepted_
 **Independent test**: Clean complementary results plus missing mapping/primary capability/manual
 review/authority yield blocked or not_evaluated, with a portable pending-human packet (AC010-13–15).
 
-- [ ] T023 [P] [US4] Add coverage tests in tests/contract/test_quality_coverage.py: unknown denominator, missing declared rows, unsupported/audit/manual/excluded mechanisms and changed applicability remain visible; zero accepted claims with required gaps (SC010-04; 010-R05/R09).
+- [x] T023 [P] [US4] Add coverage tests in tests/contract/test_quality_coverage.py: unknown denominator, missing declared rows, unsupported/audit/manual/excluded mechanisms and changed applicability remain visible; zero accepted claims with required gaps (SC010-04; 010-R05/R09).
 - [ ] T024 [P] [US4] Add portable packet/assessment tests in tests/contract/test_quality_assessment.py for raw-byte/source/license closure, all origins, pending_human answers, fixture/protected separation and positive local findings never implying production readiness (010-R09/R10/R11).
-- [ ] T025 [US4] Implement coverage matrix in src/score_sw_fabric/quality/coverage.py with unknown/declared scope and covered/findings_open/pending_manual/unsupported/excluded_pending_review/unknown states; bind categories/applicability/mechanisms/limitations to supplied source refs (010-R05/R09).
+- [x] T025 [US4] Implement coverage matrix in src/score_sw_fabric/quality/coverage.py with unknown/declared scope and covered/findings_open/pending_manual/unsupported/excluded_pending_review/unknown states; bind categories/applicability/mechanisms/limitations to supplied source refs (010-R05/R09).
 - [ ] T026 [US4] Implement portable current/prior-run, baseline/output/extraction/matrix/disposition/license closure and pending_human review questions in src/score_sw_fabric/quality/packet.py; retain all unresolved history and import/local/fixture origins (010-R10/R11).
 - [ ] T027 [US4] Implement independent compliance evaluation in src/score_sw_fabric/quality/assessment.py with fixture_contract/production domains and pass/fail/blocked/not_evaluated outcomes; required missing capabilities/extraction/coverage/decisions block claims (010-R05/R07/R09/R10).
 - [ ] T028 [US4] Wire quality packet/assess into src/score_sw_fabric/cli.py with schema-checked atomic publication and deterministic 0/1/2 exits (010-R11).
@@ -183,3 +183,19 @@ tasks open. Broader T019/T021, coverage, CodeQL execution and human T032 remain 
 Decision results use a separate module/record alongside unchanged version 1 reviews;
 [validation](decision-acceptance.md) and [handoff](../../docs/handoff/010-decisions.md)
 record fixture-only limits. No automatic continuation is authorized.
+
+## Authorized guideline coverage slice (2026-09-30)
+
+The user's next `go` follows the guideline coverage matrix. This authorizes T023/T025
+and the necessary read-only CLI/schema/source binding; packet/assessment and CodeQL
+execution remain separate work. Human T032 remains unchecked.
+
+- [x] T057 Define coverage request/manifest/source/matrix contracts and schemas before implementation in contracts/coverage.md and schemas/quality-guideline-*.schema.json.
+- [x] T058 Add missing/unknown denominator, source/scope/drift, mechanism/manual/exclusion, native finding and unsafe-publication tests before implementation in tests/contract/test_quality_coverage.py.
+- [x] T059 Implement bounded source-backed coverage measurement and exact read-only import replay in quality/coverage.py and guarded quality coverage CLI; preserve all declared rows and zero accepted claims.
+- [x] T060 Run native complementary/import coverage and portable/current-prior CLI journeys, repository gates and source preservation checks; record limits in coverage-acceptance.md and docs/handoff/010-coverage.md.
+
+Current total: 60 tasks, 37 complete (28 scoped, 5 US2, 2 US3 and 2 US4),
+23 original tasks open. T024/T026–T028 packet/compliance work, broader T019/T021,
+CodeQL execution and human T032 remain unchecked. See [validation](coverage-acceptance.md)
+and [handoff](../../docs/handoff/010-coverage.md). No automatic continuation is authorized.

@@ -4,8 +4,9 @@
 capability/run slice follows [its exact implemented contract](clang-tidy.md), additional local
 tools follow [their contract](complementary-tools.md), and read-only native imports follow
 [the import contract](native-import.md). Draft/correction observations follow
-[their implemented contract](dispositions.md). Decision acceptance, packet and assessment
-behavior below remain planned.
+[their implemented contract](dispositions.md), fixture decisions follow
+[independent replay](decisions.md), and coverage follows [its exact contract](coverage.md).
+Packet and assessment behavior below remain planned.
 
 ## Commands and outcomes
 

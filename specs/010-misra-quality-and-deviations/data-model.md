@@ -77,6 +77,13 @@ state. States: `covered|findings_open|pending_manual|unsupported|excluded_pendin
 Missing rows from a declared expected set remain missing obligations. Native summaries cannot
 change the denominator, category or applicability.
 
+The implemented [coverage contract](contracts/coverage.md) uses a source-linked supplied
+manifest and separate measurement matrix. All declared IDs materialize, including missing
+rows; unknown denominator stays null. Reproduced imports and retained local check selection
+support structural observations only. Partial/manual/audit/excluded obligations stay unresolved,
+required raw artifacts cannot be omitted, and accepted claims stay zero. Prior manifest and
+changed applicability/mappings are retained. Full target source byte closure belongs to packets.
+
 ## Disposition/deviation record
 
 Stable ID, originating finding/rule/construct, source/baseline/tool/policy refs, native category,

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "kind": "quality_guideline_manifest",
+  "id": "unknown-native-guideline-scope",
+  "origin": "external_unverified",
+  "scope": {
+    "component": "fixture_component",
+    "files": [
+      "check.cpp"
+    ],
+    "translation_units": [
+      "check.cpp"
+    ]
+  },
+  "expected_guidelines": null,
+  "source_refs": [],
+  "rows": [],
+  "review_state": "pending_human",
+  "digest": "3b350e648e16995d2b4b9184cf236a299cd4a22a10c282a53356b26f2af30820"
+}

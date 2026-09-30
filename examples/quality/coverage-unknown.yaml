@@ -1,0 +1,15 @@
+schema_version: 1
+kind: quality_coverage_request
+profile:
+  path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
+  sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+baseline:
+  path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/baseline.json
+  sha256: 71c86e8d464f916137c87de9f4617997eb94dc0287221efab9cba6c989790a6d
+manifest:
+  path: /home/jefferson/s-core_sw_fabric/examples/quality/coverage-unknown-manifest.json
+  sha256: d8b6f4db533ce4caf45ee773f0e97c14794d86a53b851cbe1867644d54c2c291
+previous_manifest: null
+analyses: []
+protected_roots:
+- /home/jefferson/s-core_sw_fabric

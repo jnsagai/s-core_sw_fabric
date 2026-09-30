@@ -15,11 +15,13 @@ The subsequent [draft/correction slice](disposition-acceptance.md) implements sc
 under [its exact contract](contracts/dispositions.md). The subsequent
 [005 decision bridge](decision-acceptance.md) implements T020/T022 and scoped T053–T056
 under [its exact contract](contracts/decisions.md). The remaining plan is outstanding for
-CodeQL execution, coverage and engineering review authority.
+CodeQL execution, packet/compliance evaluation and engineering review authority. The
+[coverage slice](coverage-acceptance.md) implements T023/T025 and T057–T060 under
+[its exact contract](contracts/coverage.md), preserving unknown applicability.
 
 ## Summary
 
-Add `score-fabric quality capabilities|run|import|disposition|decision-subject|decision|packet|assess`.
+Add `score-fabric quality capabilities|run|import|disposition|decision-subject|decision|coverage|packet|assess`.
 Use strict version 1 selections,
 existing guarded publication/digests and disposable copies. Import native policy provenance and
 measure local Clang-Tidy 19.1.7, optional Cppcheck 2.7 and GCC 11.4 ASan/UBSan. Preserve native YAML/XML,

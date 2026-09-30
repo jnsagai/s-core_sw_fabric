@@ -2,8 +2,8 @@
 
 **Status:** Clang-Tidy, Cppcheck and separate GCC ASan/UBSan capability/run adapters implemented.
 Read-only native import/extraction validation and draft/correction checks are implemented.
-The remaining CodeQL execution, disposition decision replay
-and compliance workflow remains planned in [tasks](tasks.md).
+Independent fixture decision replay and guideline coverage are implemented; the remaining
+CodeQL execution and packet/compliance workflow remain planned in [tasks](tasks.md).
 
 ## Installed tools
 
@@ -89,6 +89,20 @@ selections use `examples/quality/disposition-{cppcheck,asan,ubsan}-correction.ya
 Scope/tool/policy drift, incomplete extraction, suppression and failed phases prevent
 correction. False-positive/deviation/suppression proposals stay pending. See the
 [exact contract](contracts/dispositions.md) and [retained observations](disposition-acceptance.md).
+
+## Measure guideline coverage
+
+The supplied native mapping is absent. This executed example preserves an unknown denominator
+and returns 1; it invents no guideline ID or applicability decision:
+
+```bash
+uv run --frozen score-fabric quality coverage --request examples/quality/coverage-unknown.yaml --out /tmp/quality-010-coverage.json --json
+```
+
+Declared source-backed fixture IDs demonstrate structural coverage and pending manual/audit/
+exclusion states only. Missing rows, required artifacts, filters, drift and suppressed findings
+remain unresolved. See [contract](contracts/coverage.md) and [validation](coverage-acceptance.md).
+No matrix grants compliance or changes the default profile's unknown mapping/authority state.
 
 ## Remaining increment validation sequence
 

@@ -189,23 +189,16 @@ class ImportInputs:
     gaps: list[str]
 
 
-def load_import(path: Path, out: Path | None = None) -> ImportInputs:
-    r = version(control(path, yaml=True), "quality_import_request", REQUEST_FIELDS, "/request")
-    base = path.absolute().parent
-    choice(r["origin"], {"fixture", "imported_unverified"}, "/origin")
-    protected = protected_roots(base, r["protected_roots"], "/protected_roots")
-    profile_ref = exact(r["profile"], {"path", "sha256"}, "/profile")
-    profile_path = _local(base, profile_ref["path"], "/profile/path")
-    control(profile_path, yaml=True)
-    _, profile_bytes = input_file(base, profile_ref, "/profile")
-    profile = load_profile(profile_bytes)
-    baseline_path, b = selected_control(base, r["baseline"])
+def freeze_baseline(
+    base: Path, baseline_ref: Any, profile_ref: dict[str, Any]
+) -> tuple[dict[str, Any], dict[str, bytes], dict[str, dict[str, Any]], list[Path], Path]:
+    """Shared source/identity reader; this validates declarations, never tool eligibility."""
+    baseline_path, b = selected_control(base, baseline_ref)
     version(b, "quality_import_baseline", BASELINE_FIELDS, "/baseline")
     verify_digest(b, "/baseline")
     stable_id(b["component"], "/component")
     root = local_dir(baseline_path.parent, b["root"], "/root")
-    protected.append(root)
-    inputs = [profile_path, baseline_path]
+    inputs = [baseline_path]
     files: dict[str, bytes] = {}
     total = 0
     raw_files = bounded_list(b["files"], 500, "/files")
@@ -237,13 +230,31 @@ def load_import(path: Path, out: Path | None = None) -> ImportInputs:
         **b,
         "root": str(root),
         "source_digest": digest(source),
-        "profile": r["profile"],
-        "full_digest": digest({**source, "profile": r["profile"], "identities": b["identities"]}),
+        "profile": profile_ref,
+        "full_digest": digest({**source, "profile": profile_ref, "identities": b["identities"]}),
     }
-    manifest_path, manifest = selected_control(base, r["extraction"])
     selected_baseline["kind"] = "quality_import_baseline_snapshot"
     selected_baseline["input_digest"] = selected_baseline.pop("digest")
     selected_baseline = seal(selected_baseline)
+    return selected_baseline, files, identities, inputs, root
+
+
+def load_import(path: Path, out: Path | None = None) -> ImportInputs:
+    r = version(control(path, yaml=True), "quality_import_request", REQUEST_FIELDS, "/request")
+    base = path.absolute().parent
+    choice(r["origin"], {"fixture", "imported_unverified"}, "/origin")
+    protected = protected_roots(base, r["protected_roots"], "/protected_roots")
+    profile_ref = exact(r["profile"], {"path", "sha256"}, "/profile")
+    profile_path = _local(base, profile_ref["path"], "/profile/path")
+    control(profile_path, yaml=True)
+    _, profile_bytes = input_file(base, profile_ref, "/profile")
+    profile = load_profile(profile_bytes)
+    selected_baseline, files, identities, inputs, root = freeze_baseline(
+        base, r["baseline"], r["profile"]
+    )
+    inputs.insert(0, profile_path)
+    protected.append(root)
+    manifest_path, manifest = selected_control(base, r["extraction"])
     inputs.append(manifest_path)
     raw_artifacts = bounded_list(r["artifacts"], 500, "/artifacts")
     if not raw_artifacts:

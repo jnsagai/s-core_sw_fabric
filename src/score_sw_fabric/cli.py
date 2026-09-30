@@ -487,6 +487,7 @@ def _quality(args: argparse.Namespace) -> int:
     from score_sw_fabric.quality import (
         capabilities,
         complementary,
+        coverage,
         decisions,
         dispositions,
         imports,
@@ -496,7 +497,9 @@ def _quality(args: argparse.Namespace) -> int:
 
     handlers = {"capabilities": capabilities.capabilities, "run": runner.run}
     try:
-        if args.quality_command in {"decision-subject", "decision"}:
+        if args.quality_command == "coverage":
+            status, record, inputs, protected = coverage.measure(args.request, args.out)
+        elif args.quality_command in {"decision-subject", "decision"}:
             handler = (
                 decisions.subject
                 if args.quality_command == "decision-subject"
@@ -760,9 +763,12 @@ def main(argv: list[str] | None = None) -> int:
     quality_disposition.add_argument("--request", type=Path, required=True)
     quality_disposition.add_argument("--out", type=Path, required=True)
     quality_disposition.add_argument("--json", action="store_true", dest="as_json")
-    for name in ("decision-subject", "decision"):
+    for name in ("decision-subject", "decision", "coverage"):
         quality_decision = quality_commands.add_parser(
-            name, help="bind or replay a fixture decision"
+            name,
+            help="measure declared guideline coverage"
+            if name == "coverage"
+            else "bind or replay a fixture decision",
         )
         quality_decision.add_argument("--request", type=Path, required=True)
         quality_decision.add_argument("--out", type=Path, required=True)

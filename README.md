@@ -24,7 +24,9 @@ with `quality capabilities` and `quality run --adapter`, plus
 [native import/extraction](specs/010-misra-quality-and-deviations/native-import-acceptance.md)
 through `quality import` and [draft/correction history](specs/010-misra-quality-and-deviations/disposition-acceptance.md)
 through `quality disposition`, plus [independent fixture decision replay](specs/010-misra-quality-and-deviations/decision-acceptance.md)
-through `quality decision-subject` and `quality decision`. Its remaining CodeQL/coverage
+through `quality decision-subject` and `quality decision`, and the
+[guideline coverage matrix](specs/010-misra-quality-and-deviations/coverage-acceptance.md)
+through `quality coverage`. Its remaining CodeQL/packet/compliance
 work is [planned](specs/010-misra-quality-and-deviations/tasks.md). Local `clang-tidy` 19.1.7
 and `codeql` 2.21.4 resolve through `~/.local/bin/`; MISRA pack 2.61.0 is installed separately.
 [Installation evidence](specs/010-misra-quality-and-deviations/evidence/tool-installation.json)

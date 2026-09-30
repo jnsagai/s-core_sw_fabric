@@ -7,10 +7,11 @@
 **Status**: Clang-Tidy, Cppcheck and separate GCC ASan/UBSan capability/run adapters implemented
 for local complementary use; native-output import/extraction validation is implemented for
 unverified/fixture inputs. Disposition drafts and fresh local correction/history checks
-are implemented; 005 decision replay remains pending. Full 010
+are implemented; independent 005 fixture decision replay and the guideline coverage matrix
+are implemented. Packet/compliance evaluation, CodeQL execution, full 010
 implementation and engineering acceptance remain pending. The 009 verification/toolchain profiles still await owner
 review (T018). Production authority remains unavailable (005 T009). No compliance acceptance
-or licensed analyzer execution is recorded.
+or eligible CodeQL execution is recorded.
 
 **Input**: The [009 handoff](../../docs/handoff/009-to-010.md), brief §§12.2–12.8 and §20.13,
 and FAB-039–FAB-042. Integrate selected native quality policies, actual complementary analysis,
