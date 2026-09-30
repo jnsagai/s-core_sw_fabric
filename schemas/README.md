@@ -76,3 +76,12 @@ digests, workspace snapshots (including `.git/config`, hooks and info), whole-se
 catalogue pagination completeness, unknown-usage refusal and guarded atomic publication.
 `available`, `admissible` and `within_bounds` are deterministic check outcomes, never
 engineering acceptance.
+
+Increment 008 adds `safety-analysis-profile`, the `safety-check-request`,
+`safety-packet-request` and `safety-gate-request` schemas, and the `safety-analysis-report`,
+`safety-review-packet` and `safety-gate-evaluation` outputs. A contract test keeps their required
+fields equal to the readers and real outputs, and an env-gated test re-derives the profile
+catalogues and field rules from the pinned native checkouts. Runtime checks additionally enforce
+native-file SHA-256 bindings, literal-block exclusion, list-table column resolution, native
+attribute rules, 005 assessment replay and exact file-closure binding. Checklist answers are
+always `pending_human`; no 008 record is a safety acceptance.

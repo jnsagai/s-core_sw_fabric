@@ -478,6 +478,46 @@ def _agent(args: argparse.Namespace) -> int:
     return status
 
 
+SAFETY_SUMMARY_FIELDS = ("outcome", "packet_state", "design_prerequisites")
+
+
+def _safety(args: argparse.Namespace) -> int:
+    from score_sw_fabric.agents.models import bounded_diagnostic
+    from score_sw_fabric.process_source.reader import InputError
+    from score_sw_fabric.runtime.models import publish
+    from score_sw_fabric.safety import analysis, gates, packet
+
+    handlers = {"check": analysis.check, "packet": packet.packet, "gate": gates.gate}
+    try:
+        status, record, inputs, protected = handlers[args.safety_command](args.request)
+        publish(
+            args.out,
+            record,
+            inputs=[args.request.absolute(), *inputs],
+            protected_roots=protected,
+        )
+    except InputError as exc:
+        print(json.dumps(bounded_diagnostic(exc), sort_keys=True), file=sys.stderr)
+        return 2
+    response = {name: record[name] for name in SAFETY_SUMMARY_FIELDS if name in record}
+    if record["kind"] == "safety_gate_evaluation":
+        response["design_acceptance"] = record["design_acceptance"]["state"]
+        response["closure"] = record["closure"]["state"]
+    response.update(
+        {
+            "path": str(args.out),
+            "kind": record["kind"],
+            "digest": record["digest"],
+            "engineering_readiness": "not_evaluated",
+        }
+    )
+    print(
+        json.dumps(response, sort_keys=True, indent=None if args.as_json else 2),
+        file=sys.stdout if status == 0 else sys.stderr,
+    )
+    return status
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", action="version", version=__version__)
@@ -596,7 +636,20 @@ def main(argv: list[str] | None = None) -> int:
         agent_request.add_argument("--request", type=Path, required=True)
         agent_request.add_argument("--out", type=Path, required=True)
         agent_request.add_argument("--json", action="store_true", dest="as_json")
+    safety = commands.add_parser("safety", help="component FMEA/DFA checks, packets and gates")
+    safety_commands = safety.add_subparsers(dest="safety_command", required=True)
+    for name, help_text in (
+        ("check", "check a native FMEA/DFA against the pinned safety profile"),
+        ("packet", "build a safety review packet from a check report"),
+        ("gate", "evaluate design acceptance and closure from verified decisions"),
+    ):
+        safety_request = safety_commands.add_parser(name, help=help_text)
+        safety_request.add_argument("--request", type=Path, required=True)
+        safety_request.add_argument("--out", type=Path, required=True)
+        safety_request.add_argument("--json", action="store_true", dest="as_json")
     args = parser.parse_args(argv)
+    if args.command == "safety":
+        return _safety(args)
     if args.command == "agent":
         return _agent(args)
     if args.command == "runtime":

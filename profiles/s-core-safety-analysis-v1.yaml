@@ -1,0 +1,330 @@
+# Pinned native safety-analysis profile for increment 008. Catalogues, field rules and the
+# checklist were extracted from the listed sources by score_sw_fabric.safety.profile and are
+# re-derived by tests/integration/test_safety_native.py. The platform-allocation rule is a fabric
+# policy; the whole profile is pending owner review.
+schema_version: 1
+kind: safety_analysis_profile
+id: s-core-safety-analysis-v1
+status: draft_owner_review_pending
+sources:
+- id: fault_models
+  repository: https://github.com/eclipse-score/process_description
+  commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+  path: process/process_areas/safety_analysis/guidance/fault_models_guideline.rst
+  sha256: c24713773b071ed0c46ad5074a0753522fbc71c3f79a4df9d80b584b109e6b18
+- id: dfa_failure_initiators
+  repository: https://github.com/eclipse-score/process_description
+  commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+  path: process/process_areas/safety_analysis/guidance/dfa_failure_initiators.rst
+  sha256: 74a39c6fdc66697c9c8508137ccd57dad5792da997bc3fe5cde3fda3cc47bfaa
+- id: safety_analysis_process_reqs
+  repository: https://github.com/eclipse-score/process_description
+  commit: 98d1d5f42dad412a09a888ea25e59c62fa6371ce
+  path: process/process_areas/safety_analysis/guidance/safety_analysis_process_reqs.rst
+  sha256: 6f7a7c050272cce7c416f2b5c00866b996568dcf93bfe72ab3d0aaac86ec1e87
+- id: component_fmea_template
+  repository: https://github.com/eclipse-score/module_template
+  commit: c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d
+  path: score/component_example/docs/safety_analysis/fmea.rst
+  sha256: 5cf246c79eb28b1bae5960df489856b2759a8d4ef190d7c83caa5c86de9689c2
+- id: component_dfa_template
+  repository: https://github.com/eclipse-score/module_template
+  commit: c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d
+  path: score/component_example/docs/safety_analysis/dfa.rst
+  sha256: 182aed5e2cbc7cdf421219f6e913894e271adc2ce854493a22d02278ea2864ad
+- id: safety_analysis_fdr_checklist
+  repository: https://github.com/eclipse-score/module_template
+  commit: c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d
+  path: docs/module/safety_mgt/module_safety_analysis_fdr.rst
+  sha256: 84789ff7f8d0cc301987dce64c9bfddf8a6811aa55cb0e9a238134689cb2c7b6
+- id: metamodel
+  repository: https://github.com/eclipse-score/docs-as-code
+  commit: d5f3de608cdfc034952c57d40979c78d8cd35957
+  path: src/extensions/score_metamodel/metamodel.yaml
+  sha256: fe6a3b6af5ea69271e53c57e3a1694dc69d6ff3df16bd1505dc7242db9976290
+analyses:
+  fmea:
+    directive: comp_saf_fmea
+    work_product: wp__sw_component_fmea
+    catalogue_field: fault_id
+    mandatory:
+      fault_id: ^.+$
+      failure_effect: ^.+$
+      sufficient: ^(yes|no)$
+      status: ^(valid|invalid)$
+      content: ^[\s\S]+$
+    violates:
+    - comp_arc_dyn
+    - comp_arc_sta
+    mitigated_by:
+    - comp_req
+    - aou_req
+    catalogue:
+    - id: MF_01_01
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: MF_01_02
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: MF_01_03
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: MF_01_04
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: MF_01_05
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: MF_01_06
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: MF_01_07
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: CO_01_01
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: CO_01_02
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: EX_01_01
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: EX_01_02
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: EX_01_03
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: EX_01_04
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: EX_01_05
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+    - id: EX_01_06
+      group: Fault Models for sequence diagrams
+      scope: component
+      source: fault_models
+  dfa:
+    directive: comp_saf_dfa
+    work_product: wp__sw_component_dfa
+    catalogue_field: failure_id
+    mandatory:
+      failure_id: ^.+$
+      failure_effect: ^.+$
+      sufficient: ^(yes|no)$
+      status: ^(valid|invalid)$
+      content: ^[\s\S]+$
+    violates:
+    - comp_arc_sta
+    mitigated_by:
+    - comp_req
+    - aou_req
+    catalogue:
+    - id: SR_01_01
+      group: DFA shared resources (used for Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SR_01_02
+      group: DFA shared resources (used for Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SR_01_04
+      group: DFA shared resources (used for Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SR_01_05
+      group: DFA shared resources (used for Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SR_01_06
+      group: DFA shared resources (used for Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SR_01_07
+      group: DFA shared resources (used for Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SR_01_09
+      group: DFA shared resources (used for Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SR_01_10
+      group: DFA shared resources (used for Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: CO_01_01
+      group: DFA communication between elements
+      scope: component
+      source: dfa_failure_initiators
+    - id: CO_01_02
+      group: DFA communication between elements
+      scope: component
+      source: dfa_failure_initiators
+    - id: CO_01_03
+      group: DFA communication between elements
+      scope: component
+      source: dfa_failure_initiators
+    - id: CO_01_04
+      group: DFA communication between elements
+      scope: component
+      source: dfa_failure_initiators
+    - id: CO_01_05
+      group: DFA communication between elements
+      scope: component
+      source: dfa_failure_initiators
+    - id: CO_01_06
+      group: DFA communication between elements
+      scope: component
+      source: dfa_failure_initiators
+    - id: CO_01_07
+      group: DFA communication between elements
+      scope: component
+      source: dfa_failure_initiators
+    - id: SI_01_02
+      group: DFA shared information inputs
+      scope: component
+      source: dfa_failure_initiators
+    - id: SI_01_03
+      group: DFA shared information inputs
+      scope: component
+      source: dfa_failure_initiators
+    - id: SI_01_04
+      group: DFA shared information inputs
+      scope: component
+      source: dfa_failure_initiators
+    - id: SI_01_05
+      group: DFA shared information inputs
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_01
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_02
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_03
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_04
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_05
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_06
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_07
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_08
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_09
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_10
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_11
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: UI_01_12
+      group: DFA unintended impact
+      scope: component
+      source: dfa_failure_initiators
+    - id: SC_01_02
+      group: DFA development failure initiators (Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SC_01_03
+      group: DFA development failure initiators (Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SC_01_04
+      group: DFA development failure initiators (Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+    - id: SC_01_05
+      group: DFA development failure initiators (Platform DFA)
+      scope: platform
+      source: dfa_failure_initiators
+requirement_directives:
+- comp_req
+- aou_req
+architecture_directives:
+- comp_arc_sta
+- comp_arc_dyn
+mitigation_issue_pattern: ^https://github\.com/[^/]+/[^/]+/issues/\d+$
+rules:
+- id: gd_req__saf_attr_sufficient
+  check: sufficient_requires_mitigation
+  source: safety_analysis_process_reqs
+- id: gd_req__saf_attr_mitigated_by
+  check: valid_requires_mitigation
+  source: safety_analysis_process_reqs
+- id: gd_req__saf_attr_mitigation_issue
+  check: open_mitigation_requires_issue
+  source: safety_analysis_process_reqs
+platform_allocation:
+  status: fabric_policy_pending_owner_review
+  accepted_directives:
+  - plat_saf_dfa
+  accepted_work_products:
+  - wp__platform_dfa
+internal_fault_prefixes:
+- EX_
+- UI_
+checklist:
+- id: Gen 1
+  question: Are the safety analysis performed according to the defined process and templates? See :need:`gd_req__saf_structure`
+    and also :need:`gd_temp__feat_saf_fmea` and :need:`gd_temp__feat_saf_dfa`
+  source: safety_analysis_fdr_checklist
+- id: Gen 2
+  question: Are the safety analysis performed in a systematic way to identify the potential dependent
+    failures / failure modes and their effects? Are the failure effect and the mitigation described?
+  source: safety_analysis_fdr_checklist
+- id: Gen 3
+  question: Is the result of the safety analysis indicate if the safety requirements are complied?
+  source: safety_analysis_fdr_checklist
+- id: Gen 4
+  question: Are the mitigations effective and implemented?
+  source: safety_analysis_fdr_checklist
+- id: Gen 5
+  question: Are all AoU's that are used as mitigation's created and covered in the safety manual?
+  source: safety_analysis_fdr_checklist
+- id: Gen 6
+  question: Are additional safety-related test cases determined by potential results of the safety analyses?
+  source: safety_analysis_fdr_checklist
+gates:
+  design: safety_design_acceptance
+  closure: safety_closure
+loop:
+  max_iterations: 3

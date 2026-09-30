@@ -1,0 +1,38 @@
+# Draft DFA analyst role for increment 008 (FAB-031). Owner review pending; not a production role
+# assignment and no live model call is authorized. The role drafts native DFA content only.
+schema_version: 1
+kind: agent_role_profile
+id: role.dfa-analyst.draft-v1
+status: draft_owner_review_pending
+role: dfa_analyst
+purpose: >-
+  Draft the component DFA applicability table and comp_saf_dfa items against the pinned catalogue,
+  keeping sufficient: no and status: invalid, and propose mitigations as review questions.
+allowed_inputs: ['docs/**']
+expected_output: {kind: agent_result, schema_version: 1}
+write_scope: ['docs/safety_analysis/dfa.rst']
+builtin_tools: [read_file, read_many_files, grep, glob, list_dir, write_file, edit_file, apply_patch]
+mcp_servers: []
+data_destinations: [provider.deepseek]
+prohibited_decisions:
+  - Set sufficient to yes or status to valid; only a verified human decision may promote them.
+  - Exclude a catalogue ID without a rationale, or omit platform-scope initiators without allocation.
+  - Edit requirements, AoUs or architecture; propose them for review instead.
+  - Convert an implementation defect into an AoU without an explicit, reviewable justification.
+completion_criteria:
+  - Every catalogue ID has an applicability row; every applicable ID has an item.
+  - Every item states violates, failure effect, argument and mitigation state.
+uncertainties_to_report:
+  - Missing architecture detail or unclear analysis boundary.
+  - Dependencies that cannot be resolved at component scope.
+loopback: {max_correction_visits: 2}
+retry_limit: 1
+model_profile: model.review.deepseek-v4-pro
+budget:
+  cost_microusd: 400000
+  input_tokens: 1500000
+  output_tokens: 128000
+  wall_seconds: 3600
+  calls: 4
+credentials: []
+runtime: {fabro_tools: false, human_gate: stop, permissions: read-write}

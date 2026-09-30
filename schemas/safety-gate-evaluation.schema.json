@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://score.dev/schemas/safety-gate-evaluation-v1.json",
+  "title": "Safety design-acceptance and closure evaluation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "packet_digest",
+    "profile",
+    "component",
+    "analysis",
+    "decisions",
+    "design_acceptance",
+    "closure",
+    "decision_notes",
+    "engineering_readiness",
+    "limitations",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "safety_gate_evaluation"
+    },
+    "packet_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "component": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "analysis": {
+      "enum": [
+        "fmea",
+        "dfa"
+      ]
+    },
+    "decisions": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assessment_digest",
+          "gate_id",
+          "assurance_domain",
+          "outcome",
+          "reproduced",
+          "binding",
+          "design_basis_binding"
+        ],
+        "properties": {
+          "assessment_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "gate_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4096
+          },
+          "assurance_domain": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4096
+          },
+          "outcome": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4096
+          },
+          "reproduced": {
+            "type": "boolean"
+          },
+          "binding": {
+            "enum": [
+              "exact",
+              "other_subject"
+            ]
+          },
+          "design_basis_binding": {
+            "enum": [
+              "exact",
+              "other_subject"
+            ]
+          }
+        }
+      }
+    },
+    "design_acceptance": {
+      "type": "object",
+      "required": [
+        "state",
+        "reasons",
+        "decision",
+        "domain"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "blocked",
+            "awaiting_decision",
+            "stale",
+            "accepted"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "decision": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "domain": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 4096
+        }
+      }
+    },
+    "closure": {
+      "type": "object",
+      "required": [
+        "state",
+        "reasons",
+        "decision",
+        "domain"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "blocked",
+            "awaiting_decision",
+            "stale",
+            "accepted"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "decision": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "domain": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 4096
+        }
+      }
+    },
+    "decision_notes": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "limitations": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

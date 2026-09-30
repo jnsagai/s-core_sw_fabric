@@ -14,7 +14,8 @@ protected production decisions, and model calls remain unevaluated. See the
 [004 acceptance record](specs/004-native-artifact-traceability/acceptance.md),
 [004-to-005 handoff](docs/handoff/004-to-005.md), and [roadmap](docs/backlog/roadmap.md).
 Increment 006 (candidate runtime) and increment 007 (agent context and profiles) are implemented
-for disposable use only; see the [007-to-008 handoff](docs/handoff/007-to-008.md).
+for disposable use only, and increment 008 (component safety feedback) for fixture
+demonstrations only; see the [008-to-009 handoff](docs/handoff/008-to-009.md).
 
 Spec Kit manages development of this fabric. S-CORE owns target engineering semantics
 and work products. Fabro owns workflow execution/run state. APM/MCP supplies supported
@@ -167,6 +168,25 @@ grants. Admission never authorizes a live call (`call_authorized: false`). Exits
 (0 exact result, 1 published stop, 2 malformed input). Role, model and budget profiles are
 drafts pending owner review. See the [007 contract](specs/007-apm-agent-context-and-profiles/contracts/agent.md)
 and [acceptance record](specs/007-apm-agent-context-and-profiles/acceptance.md).
+
+### Component safety feedback (008, fixture demonstrations)
+
+Increment 008 checks native component FMEA/DFA documents against a profile pinned to the S-CORE
+process, templates and metamodel, loops unresolved mitigations back to requirement/AoU and
+architecture review, and keeps design acceptance separate from closure:
+
+```bash
+uv run --frozen score-fabric safety check  --request CHECK.yaml  --out REPORT.json --json
+uv run --frozen score-fabric safety packet --request PACKET.yaml --out PACKET.json --json
+uv run --frozen score-fabric safety gate   --request GATE.yaml   --out GATES.json  --json
+```
+
+Every fault model and DFA initiator must be analysed, excluded with rationale, or (platform-scope
+initiators) allocated to a resolvable platform DFA. `sufficient: yes`/`status: valid` promotions by
+agents are refused; decisions count only from reproduced 005 assessments bound to the exact file
+digests, so the fixture demos stop at `awaiting_decision`. Checklist answers stay with the human
+reviewer. See the [008 contract](specs/008-component-safety-feedback/contracts/safety.md) and
+[acceptance record](specs/008-component-safety-feedback/acceptance.md).
 
 ## Spec Kit
 
