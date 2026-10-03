@@ -1,0 +1,19 @@
+{
+  "run_id": "01M40Y7RJF9NZJTE2N9Z3BAAXA",
+  "native_status": {
+    "kind": "running"
+  },
+  "worker_alive": true,
+  "fresh_checks": [
+    "native_performance"
+  ],
+  "reused_checks": [
+    "compiler_diagnostics",
+    "format_precommit",
+    "native_integration",
+    "native_tests"
+  ],
+  "external_human_validation": "required_for_task_closure",
+  "model_calls": 0,
+  "human_interviews": 0
+}

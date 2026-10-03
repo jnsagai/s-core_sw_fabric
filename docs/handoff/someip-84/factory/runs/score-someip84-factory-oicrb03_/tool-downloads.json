@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://releases.bazel.build/8.6.0/release/bazel-8.6.0-linux-x86_64",
+    "filename": "bazel-8.6.0-linux-x86_64",
+    "sha256": "9860da9c9386bbc023feed8f43af3105d338727d77b644fa6aeca45a4a11957c",
+    "checksum_verified": true
+  },
+  {
+    "url": "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz",
+    "filename": "gitleaks_8.30.1_linux_x64.tar.gz",
+    "sha256": "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb",
+    "checksum_verified": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/bazelbuild/bazel/8.6.0/LICENSE",
+    "filename": "bazel-LICENSE",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "checksum_verified": false
+  },
+  {
+    "filename": "valgrind_1%3a3.18.1-1ubuntu2_amd64.deb",
+    "sha256": "8376c1524d187246eb09b15531c83d83567bdbc609880622a05bc8126558a221",
+    "checksum_verified": true,
+    "apt_metadata": "Package: valgrind\nArchitecture: amd64\nVersion: 1:3.18.1-1ubuntu2\nPriority: optional\nSection: devel\nOrigin: Ubuntu\nMaintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>\nOriginal-Maintainer: Alessandro Ghedini <ghedo@debian.org>\nBugs: https://bugs.launchpad.net/ubuntu/+filebug\nInstalled-Size: 77484\nDepends: libc6 (>= 2.34), libc6-i386 (>= 2.34), libc6-dbg\nRecommends: gdb\nSuggests: valgrind-dbg, valgrind-mpi, kcachegrind, alleyoop, valkyrie (>> 1.3.0)\nBreaks: valgrind-dev\nReplaces: valgrind-dev\nFilename: pool/main/v/valgrind/valgrind_3.18.1-1ubuntu2_amd64.deb\nSize: 14094056\nMD5sum: 252683f1efc0a9148e0260581be2c76f\nSHA1: 86994769bd1c69b3e3b1e1e34d05717e9db1864e\nSHA256: 8376c1524d187246eb09b15531c83d83567bdbc609880622a05bc8126558a221\nSHA512: d6eb841649e6508b486e9b31e16677c70b62d297f75e61b7cb135f52c1bb051d48899750d89c50a922145c826f5b7442ab2011756a749f9ce4ac7b5efca3fe38\nHomepage: http://www.valgrind.org/\nDescription-en: instrumentation framework for building dynamic analysis tools\n Valgrind is a system for debugging and profiling Linux programs. With its tool\n suite you can automatically detect many memory management and threading bugs,\n avoiding hours of frustrating bug-hunting and making your programs more stable.\n You can also perform detailed profiling to help speed up your programs and use\n Valgrind to build new tools.\n .\n The Valgrind distribution currently includes six production-quality tools:\n  * a memory error detector (Memcheck)\n  * two thread error detectors (Helgrind and DRD)\n  * a cache and branch-prediction profiler (Cachegrind)\n  * a call-graph generating cache and branch-prediction profiler (Callgrind)\n  * a heap profiler (Massif)\n It also includes three experimental tools:\n  * a stack/global array overrun detector (SGCheck)\n  * a second heap profiler that examines how heap blocks are used (DHAT)\n  * a SimPoint basic block vector generator (BBV)\nDescription-md5: 0cb016d4f438ed8069cda723e3bb7786\n\n"
+  }
+]

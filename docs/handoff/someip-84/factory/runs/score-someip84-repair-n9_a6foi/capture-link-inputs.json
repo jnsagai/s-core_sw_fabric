@@ -1,0 +1,8 @@
+{
+  "libpcap_archive_sha256": "7e84f29a0a8263f796bd6c06bb76f578589301d4b2919d09cde900871036d443",
+  "pcap_config_sha256": "c6b73b0060656c21d3dbf13a6b1a749cc45ae625c3e7a25eae98a6fac9762169",
+  "dbus_path": "/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13",
+  "dbus_sha256": "a3d53f7215af9860f3466b94cd8fe3e95c253c46df164dea62af9b9def93dcea",
+  "system_installation_changed": false,
+  "configuration": "Original package script relocated to private development prefix"
+}

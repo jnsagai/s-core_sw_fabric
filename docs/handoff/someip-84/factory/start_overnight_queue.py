@@ -7,10 +7,12 @@ import json
 import os
 import socket
 import subprocess
+import sys
 import time
 from pathlib import Path
 
 from prepare import BINARY, sha, write
+from queue_tools import validate_tools
 from storage import validate_run_root
 from supervise_overnight import SERVER, ensure_supervised
 
@@ -52,6 +54,8 @@ def main() -> None:
     for filename, expected in overlay["dependencies"].items():
         if sha(root / filename) != expected:
             raise ValueError("Prepared dependency changed: " + filename)
+    if queue["all_obligations"]:
+        validate_tools(root / "queue-tools.json")
     try:
         with socket.create_connection(("127.0.0.1", 43916), timeout=2):
             pass
@@ -90,31 +94,25 @@ def main() -> None:
                 )
         return (root / (label + ".stdout")).read_text()
 
-    print("Checking DeepSeek Flash tools before submission.", flush=True)
-    smoke = json.loads(
-        cli(
-            "flash-smoke",
-            [
-                "model",
-                "test",
-                "--provider",
-                "deepseek",
-                "--model",
-                "deepseek-flash",
-                "--reasoning-effort",
-                "high",
-                "--tools",
-            ],
-        )
-    )
-    if not (
-        smoke["total"] == 1
-        and smoke["failures"] == 0
-        and smoke["skipped"] == 0
-        and smoke["results"][0]["provider"] == "deepseek"
-        and smoke["results"][0]["result"] == "pass"
-    ):
-        raise RuntimeError("Flash tool probe did not pass; no queue submitted")
+    if queue.get("measurement_only"):
+        package = json.loads((root / "out/package.json").read_bytes())
+        if any(node["action_type"] == "agent" for node in package["manifest"]["ir"]["nodes"]):
+            raise ValueError("Measurement-only queue contains an agent node")
+        write(root / "model-smoke.json", {"status": "not_needed_no_agent_nodes"})
+        if queue.get("in_run_repair"):
+            # Resolve every frozen host hook dependency before native create/start.
+            with (root / "hook-import-smoke.stdout").open("w") as out:
+                with (root / "hook-import-smoke.stderr").open("w") as err:
+                    subprocess.run(
+                        [sys.executable, "-c", "import repair_hooks, repair_workflow, perf_bridge"],
+                        cwd=root,
+                        stdout=out,
+                        stderr=err,
+                        check=True,
+                        timeout=30,
+                    )
+    else:
+        check_model_tools(cli)
     cli(
         "overnight-preflight",
         [
@@ -164,6 +162,34 @@ def main() -> None:
     queue["blocked_by"] = None
     write(root / "overnight-queue.json", queue)
     print(json.dumps({"run_id": native_run["run_id"], "deadline": queue["deadline"]}), flush=True)
+
+
+def check_model_tools(cli) -> None:
+    print("Checking DeepSeek Flash tools before submission.", flush=True)
+    smoke = json.loads(
+        cli(
+            "flash-smoke",
+            [
+                "model",
+                "test",
+                "--provider",
+                "deepseek",
+                "--model",
+                "deepseek-flash",
+                "--reasoning-effort",
+                "high",
+                "--tools",
+            ],
+        )
+    )
+    if not (
+        smoke["total"] == 1
+        and smoke["failures"] == 0
+        and smoke["skipped"] == 0
+        and smoke["results"][0]["provider"] == "deepseek"
+        and smoke["results"][0]["result"] == "pass"
+    ):
+        raise RuntimeError("Flash tool probe did not pass; no queue submitted")
 
 
 if __name__ == "__main__":

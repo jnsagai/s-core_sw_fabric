@@ -145,7 +145,7 @@ def kernel_image_mount(image: Path, *, create: bool = False) -> Path:
 
     def mounts() -> list[dict[str, Any]]:
         result = subprocess.run(
-            ["findmnt", "-J", "--source", device, "-o", "TARGET,SOURCE,FSTYPE"],
+            ["findmnt", "-J", "--source", device, "-o", "TARGET,SOURCE,FSTYPE,FSROOT"],
             text=True,
             capture_output=True,
             timeout=5,
@@ -153,7 +153,13 @@ def kernel_image_mount(image: Path, *, create: bool = False) -> Path:
         if result.returncode == 1:
             return []
         result.check_returncode()
-        return list(json.loads(result.stdout)["filesystems"])
+        # Native sandboxes add writable binds of subdirectories on the same
+        # device. They do not create another mount of the filesystem root.
+        return [
+            item
+            for item in json.loads(result.stdout)["filesystems"]
+            if item.get("fsroot", "/") == "/"
+        ]
 
     mounted = mounts()
     if not mounted and create:
@@ -313,7 +319,7 @@ def temporary_directory(*, prefix: str = "score-fabric-") -> tempfile.TemporaryD
     return directory
 
 
-def validate_run_root(root: Path) -> None:
+def validate_run_root(root: Path, *, account_home: Path | None = None) -> None:
     """Reject detached or substituted managed volumes; never relocate existing work."""
     root = root.absolute()
     if not root.is_dir() or any(p.is_symlink() for p in (root, *root.parents)):
@@ -334,12 +340,16 @@ def validate_run_root(root: Path) -> None:
         if ssd.filesystem in NATIVE_FILESYSTEMS:
             mount = ssd.mount
         else:
-            settings = json.loads(CONFIG.read_text())["volumes"][ssd.uuid]
+            owner_config = account_home / ".config/s-core/storage.json" if account_home else CONFIG
+            owner_volumes = (
+                account_home / ".local/share/s-core/build-volumes" if account_home else VOLUMES
+            )
+            settings = json.loads(owner_config.read_text())["volumes"][ssd.uuid]
             image = ssd.mount / settings["image_relative"]
             if settings.get("mount_backend", "fuse2fs") == "udisks":
                 mount = kernel_image_mount(image)
             else:
-                mount = VOLUMES / ssd.uuid
+                mount = owner_volumes / ssd.uuid
                 if mounted_source(mount) != str(image):
                     raise OSError("Bound Linux build image is not mounted")
         if (

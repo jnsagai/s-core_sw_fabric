@@ -1,0 +1,110 @@
+{
+  "run_id": "01M40XMJ9K182CG0SWBNVPY7AB",
+  "stages": [
+    {
+      "ref": "start",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:00:48.975Z",
+      "provider_used": null
+    },
+    {
+      "ref": "orchestrate_scope",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:00:50.334Z",
+      "provider_used": null
+    },
+    {
+      "ref": "check_format_precommit",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:00:53.526Z",
+      "provider_used": null
+    },
+    {
+      "ref": "affected_regressions",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:00:59.008Z",
+      "provider_used": null
+    },
+    {
+      "ref": "check_native_integration",
+      "visit": 1,
+      "outcome": "failed",
+      "timestamp": "2026-10-03T13:01:01.018Z",
+      "provider_used": null
+    },
+    {
+      "ref": "orchestrate_native_integration",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:01:02.440Z",
+      "provider_used": null
+    },
+    {
+      "ref": "repair_native_integration",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:01:16.088Z",
+      "provider_used": null
+    },
+    {
+      "ref": "check_native_integration",
+      "visit": 2,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:02:45.309Z",
+      "provider_used": null
+    },
+    {
+      "ref": "check_native_performance",
+      "visit": 1,
+      "outcome": "failed",
+      "timestamp": "2026-10-03T13:02:47.165Z",
+      "provider_used": null
+    },
+    {
+      "ref": "orchestrate_native_performance",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:02:48.516Z",
+      "provider_used": null
+    },
+    {
+      "ref": "repair_native_performance",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:02:49.921Z",
+      "provider_used": null
+    },
+    {
+      "ref": "check_native_performance",
+      "visit": 2,
+      "outcome": "failed",
+      "timestamp": "2026-10-03T13:05:42.790Z",
+      "provider_used": null
+    },
+    {
+      "ref": "orchestrate_native_performance",
+      "visit": 2,
+      "outcome": "failed",
+      "timestamp": "2026-10-03T13:05:44.119Z",
+      "provider_used": null
+    },
+    {
+      "ref": "unresolved_packet",
+      "visit": 1,
+      "outcome": "failed",
+      "timestamp": "2026-10-03T13:05:48.901Z",
+      "provider_used": null
+    },
+    {
+      "ref": "exit",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:05:50.043Z",
+      "provider_used": null
+    }
+  ]
+}

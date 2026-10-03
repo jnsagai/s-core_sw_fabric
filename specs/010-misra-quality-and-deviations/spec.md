@@ -245,3 +245,22 @@ technical execution budgets still apply. Live implementation requires explicit p
 configuration, model/tool/path binding and admission, and remains distinct from validating
 the pre-existing external candidate. This continuation neither authorizes 011 nor accepts
 the target engineering change.
+
+## SOME/IP orchestration correction (2026-10-03)
+
+The user's later instruction supersedes the operational in-workflow human stop:
+human validation MUST happen outside Fabro and MUST remain mandatory for task
+closure. New SOME/IP workflows MUST orchestrate measured failure → diagnosis →
+repair → fresh check within the same run with explicit bounded native loopbacks.
+Mandatory integration tests MUST actually execute and pass before technical
+completion. Collection success cannot substitute for test success, and automatic
+successor runs cannot substitute for in-run repair. Apply the scoped
+[repair contract](contracts/someip-in-run-repair.md); retain prior evidence and
+human authority without claiming global constitution ratification.
+
+The user's subsequent repair request covers the three independently reproduced
+agent-review findings R1–R3. Crashed profiler workloads MUST remain failures;
+measured raw logs/artifacts MUST be checksum-bound before reuse or packet creation;
+mandatory integration MUST validate exact case-level outcomes and source-supported
+platform exclusions. Only affected checks may rerun. Historical failed/successful
+runs remain preserved; agent review does not satisfy external human validation.

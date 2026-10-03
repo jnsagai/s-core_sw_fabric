@@ -1,0 +1,45 @@
+{
+  "observed_at": "2026-10-03T06:08:26.799405+00:00",
+  "run_id": "01M405PNQN7DWH4H7VNNZSDC8G",
+  "lifecycle": {
+    "status": {
+      "kind": "running"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "worker_alive": true,
+  "supervisor_pid": 2105876,
+  "supervisor_unit": "score-fabric-supervisor-01m405pnqn7dwh4h7vnnzsdc8g",
+  "container_id": "dbb724e5109b39fb9fea8bf48d5c17de58c31c752f4468a7a494469dfe9b32a3",
+  "container_image": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+  "container_networks": {},
+  "selected_commands": {
+    "format_precommit": {
+      "format": 1800
+    },
+    "native_docs": {
+      "docs": 1800
+    },
+    "native_integration": {
+      "qemu": 3600
+    },
+    "native_lint": {
+      "clang-tidy": 1800
+    },
+    "native_performance": {
+      "benchmarks": 1800,
+      "profiling": 1800
+    },
+    "native_traceability": {
+      "traceability": 300
+    }
+  },
+  "agent_nodes": 0,
+  "prepared_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g",
+  "engineering_acceptance": "pending"
+}

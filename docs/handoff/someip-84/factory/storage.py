@@ -1,6 +1,7 @@
 """Compatibility imports for prepared factory scripts; policy is fabric-wide."""
 
 from score_sw_fabric.storage import (  # noqa: F401
+    ACCOUNT_HOME,
     CONFIG,
     NATIVE_FILESYSTEMS,
     bridge_mount,

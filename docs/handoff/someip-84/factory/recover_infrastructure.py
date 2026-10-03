@@ -382,15 +382,22 @@ def recover(policy_path: Path, incident: Path) -> None:
             raise ValueError("Authorized deadline expired; no automatic extension")
         args = [
             str(REPO / ".venv/bin/python"),
-            str(HERE / "prepare_overnight_queue.py"),
+            str(
+                HERE
+                / (
+                    "prepare_recheck_queue.py"
+                    if policy["runtime_policy"].get("measurement_only")
+                    else "prepare_overnight_queue.py"
+                )
+            ),
             "--image-id",
             policy["runtime_policy"]["image_id"],
             "--preserve-from",
             state["preserved_source"],
         ]
-        if policy["single_pass"]:
+        if policy["single_pass"] and not policy["runtime_policy"].get("measurement_only"):
             args.append("--single-pass")
-        if policy["all_obligations"]:
+        if policy["all_obligations"] and not policy["runtime_policy"].get("measurement_only"):
             args.append("--all-obligations")
         env = dict(os.environ, SCORE_FABRO_BIN=str(BINARY))
         output = command(evidence, "prepare-successor", args, env=env, seconds=300)
@@ -451,6 +458,20 @@ def recover(policy_path: Path, incident: Path) -> None:
 
 def main() -> int:
     policy_path, incident = Path(sys.argv[1]), Path(sys.argv[2])
+    policy = s.read(policy_path)
+    if policy.get("runtime_policy", {}).get("in_run_repair"):
+        if s.read(incident)["run_id"] != policy["run_id"]:
+            raise ValueError("Incident belongs to another native run")
+        s.atomic(
+            incident.parent / "result.json",
+            {
+                "status": "blocked",
+                "reason": "same_run_repair_required",
+                "detail": "This workflow forbids external replacement runs and model repairs",
+                "engineering_acceptance": "pending_external_human_validation",
+            },
+        )
+        return 1
     with (incident.parent / "adapter.lock").open("a") as lock:
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)

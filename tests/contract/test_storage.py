@@ -299,3 +299,71 @@ def test_kernel_binding_rejects_substituted_or_missing_image(
     monkeypatch.setattr(storage, "mounted_source", lambda path: "/dev/loop10")
     with pytest.raises(OSError):
         storage.kernel_image_mount(image)
+
+
+@pytest.mark.parametrize("second_filesystem_root", [False, True])
+def test_kernel_image_distinguishes_subdirectory_binds_from_duplicate_root_mounts(
+    second_filesystem_root: bool, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    image = tmp_path / "registered.ext4"
+    image.touch()
+    monkeypatch.setattr(
+        storage.subprocess,
+        "check_output",
+        lambda *_a, **_k: json.dumps(
+            {"loopdevices": [{"name": "/dev/loop9", "back-file": str(image)}]}
+        ),
+    )
+    rows = [
+        {"target": str(tmp_path), "source": "/dev/loop9", "fstype": "ext4", "fsroot": "/"},
+        {
+            "target": str(tmp_path / "workspace"),
+            "source": "/dev/loop9[/workspace]",
+            "fstype": "ext4",
+            "fsroot": "/" if second_filesystem_root else "/workspace",
+        },
+    ]
+    monkeypatch.setattr(
+        storage.subprocess,
+        "run",
+        lambda argv, **_k: subprocess.CompletedProcess(
+            argv, 0, json.dumps({"filesystems": rows}), ""
+        ),
+    )
+    monkeypatch.setattr(storage, "mounted_source", lambda _p: "/dev/loop9")
+    if second_filesystem_root:
+        with pytest.raises(OSError):
+            storage.kernel_image_mount(image)
+    else:
+        assert storage.kernel_image_mount(image) == tmp_path
+
+
+def test_namespace_validation_uses_explicit_owner_without_relocating(
+    disk: storage.SSD, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root = storage.new_run_root()
+    owner = tmp_path / "owner"
+    config = owner / ".config/s-core/storage.json"
+    config.parent.mkdir(parents=True)
+    config.write_text(
+        json.dumps(
+            {
+                "volumes": {
+                    disk.uuid: {"image_relative": "registered.ext4", "mount_backend": "udisks"}
+                }
+            }
+        )
+    )
+    monkeypatch.setattr(
+        storage, "discover_ssds", lambda: [storage.SSD(disk.uuid, disk.device, disk.mount, "exfat")]
+    )
+    images = []
+    monkeypatch.setattr(storage, "kernel_image_mount", lambda p: images.append(p) or disk.mount)
+    try:
+        storage.validate_run_root(root, account_home=owner)
+        assert images == [disk.mount / "registered.ext4"]
+        monkeypatch.setattr(storage, "discover_ssds", lambda: [])
+        with pytest.raises(OSError, match="disconnected"):
+            storage.validate_run_root(root, account_home=owner)
+    finally:
+        shutil.rmtree(root)

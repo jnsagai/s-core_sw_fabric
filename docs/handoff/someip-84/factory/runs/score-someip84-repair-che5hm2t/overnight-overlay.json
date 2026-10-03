@@ -1,0 +1,32 @@
+{
+  "compiled_package_sha256": "be5e89d2368722f561dfee15612bdbe20d37e8d0f3b685714e91feb7029ef46d",
+  "dependencies": {
+    "collect_obligations.py": "a75b8efbb26adeddc5d9bda8dd28af5886bc01f789356f833a2119f3d297aaf6",
+    "guard_agent_tools.py": "55cefeb2f105a9bb43154f331e5940c5ea799a66be43473a7380a88cefd4691f",
+    "isolate_docker.py": "0e0ee6f9ce2d2e0303ec53eea3c9c2880d024c6167fad83b1a802a8be17535e4",
+    "measure.py": "6c1e0a4270e55f4a8c3bdee660e36901f6d2f675d008b9ba84022bc95c83da0f",
+    "measurement-inputs.json": "18a2978150842689120ea4679ff0c1285d449bf69c8b37203d996e2dfee2eb91",
+    "native-git-baseline.bundle": "5f7c35d78f929f54d206fbf4ad96e092dfad700d7fe45d26aed232a892e1407d",
+    "native-git-baseline.json": "ecec3297b0930580d276f00cfba7b25511f53fb23c654153e4bcda7352fc9ee2",
+    "native_git.py": "d6655f935fcb6eb131adec744ef453e369c980be8a63122c45c006c37137c883",
+    "obligations.py": "252a8521fdd5b7225daf37597933bd868fc4d69ec2a80755e619d3272577e467",
+    "perf_bridge.py": "ce3d295d5b54bc2d1390b7faa42c226195ff6b8468bd8c3ce3da5ab53c983d6c",
+    "queue-tools.json": "be40ab78b291857a401d76a58fbeeccece3ea4874057875a23f4e11532d739a5",
+    "queue_tools.py": "d08e974565c6cc7dc9693d6f208f2caefc9c49fbd65e53bb76b5148eda11994e",
+    "repair_hooks.py": "85a4cd738268beb70515ca2ea892a606de1ef1f5621dbc9cc7c1f650d0d3f34b",
+    "repair_workflow.py": "24f1ab31c9208f403d75cdcdf7286cfb5aab9bb94616b009ede16060f0e1a86e",
+    "storage-selection.json": "5ace6f3010ff53c7b11b7f652f8b06557127e3be57096fd71bd396033f719bbf",
+    "storage.py": "87cec0494fac266a12527ec4799e5b8caec3d8ac65e4b7da49636292f42bb851",
+    "supervision.py": "7f027d19cac9354fc7a5956f4ca30b483fe98f9e593cd753c6adbf434f1d8e38",
+    "task-authority.json": "574bf2d2f5622155bbb5cff2c0147345b45b07825ae79800e812ef7ec1550b6e",
+    "workspace_transfer.py": "b1e9577072d7ec5027461a1f335f38300d0bba05daefa736d21a86bb4c557ca1"
+  },
+  "entrypoint_sha256": "0a16bdcf6b2b4103203b65d78bad1d3179926e555dd8f17bfc5b27b70dd1efc4",
+  "hook_sha256": "506e395d833b2ae517bb75edd3347d94240bd609285fce399b45ed7c1c64bea3",
+  "native_attribute_overrides": {
+    "all_command_max_retries": 0,
+    "terminal_failure_policy": "exit"
+  },
+  "policy_sha256": "c5711926a944d1e07f7e25103cd928359f3bcc8f2c3fe9b40848b41fbeadee0d",
+  "workflow_sha256": "3a0f72be5bffd9b109382966294d7cfe17ce5f7823121f2942710c19e05335b6"
+}

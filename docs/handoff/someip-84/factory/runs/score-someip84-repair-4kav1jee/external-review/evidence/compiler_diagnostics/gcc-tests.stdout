@@ -1,0 +1,191 @@
+Running main() from /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/source/.llm_tmp/googletest/googletest/src/gtest_main.cc
+[==========] Running 91 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 91 tests from ServiceInstanceIdentifierTest
+[ RUN      ] ServiceInstanceIdentifierTest.SameIdentifierIsNotLessThanItself
+[       OK ] ServiceInstanceIdentifierTest.SameIdentifierIsNotLessThanItself (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingOnlyInMinorVersionAreDuplicates
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingOnlyInMinorVersionAreDuplicates (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorVersionBoundariesAreDuplicates
+[       OK ] ServiceInstanceIdentifierTest.MinorVersionBoundariesAreDuplicates (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.AllMinorVersionsCollapseToSingleKey
+[       OK ] ServiceInstanceIdentifierTest.AllMinorVersionsCollapseToSingleKey (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorHighBitVariantsAreEquivalent
+[       OK ] ServiceInstanceIdentifierTest.MinorHighBitVariantsAreEquivalent (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInMajorVersionAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInMajorVersionAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionBoundariesAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionBoundariesAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionSweepProducesDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionSweepProducesDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.AdjacentMajorVersionBoundariesAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.AdjacentMajorVersionBoundariesAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInServiceIdAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInServiceIdAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DistinctServiceIdsProduceDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.DistinctServiceIdsProduceDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EqualServiceIdTextProducesEquivalentKeys
+[       OK ] ServiceInstanceIdentifierTest.EqualServiceIdTextProducesEquivalentKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceIdOrderingIsLexicographic
+[       OK ] ServiceInstanceIdentifierTest.ServiceIdOrderingIsLexicographic (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInInstanceAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInInstanceAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DistinctInstancesProduceDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.DistinctInstancesProduceDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EqualInstanceTextProducesEquivalentKeys
+[       OK ] ServiceInstanceIdentifierTest.EqualInstanceTextProducesEquivalentKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceOrderingIsLexicographic
+[       OK ] ServiceInstanceIdentifierTest.InstanceOrderingIsLexicographic (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceInstanceMajorMatrixProducesDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.ServiceInstanceMajorMatrixProducesDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceInstanceMajorMatrixCollapsesMinorVersions
+[       OK ] ServiceInstanceIdentifierTest.ServiceInstanceMajorMatrixCollapsesMinorVersions (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ThreeByThreeByThreeMatrixProducesDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.ThreeByThreeByThreeMatrixProducesDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ThreeByThreeByThreeMatrixCollapsesMinorVersions
+[       OK ] ServiceInstanceIdentifierTest.ThreeByThreeByThreeMatrixCollapsesMinorVersions (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeyEquivalenceDependsOnInstanceServiceIdAndMajor
+[       OK ] ServiceInstanceIdentifierTest.KeyEquivalenceDependsOnInstanceServiceIdAndMajor (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorVersionNeverAffectsOrdering
+[       OK ] ServiceInstanceIdentifierTest.MinorVersionNeverAffectsOrdering (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.OrderingOrderIsInstanceThenServiceIdThenMajor
+[       OK ] ServiceInstanceIdentifierTest.OrderingOrderIsInstanceThenServiceIdThenMajor (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.OrderingIsTransitive
+[       OK ] ServiceInstanceIdentifierTest.OrderingIsTransitive (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EquivalenceIsTransitive
+[       OK ] ServiceInstanceIdentifierTest.EquivalenceIsTransitive (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorDifferenceOutweighsMinorDifference
+[       OK ] ServiceInstanceIdentifierTest.MajorDifferenceOutweighsMinorDifference (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceIsThePrimaryOrderingComponent
+[       OK ] ServiceInstanceIdentifierTest.InstanceIsThePrimaryOrderingComponent (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorIsTheTertiaryOrderingComponent
+[       OK ] ServiceInstanceIdentifierTest.MajorIsTheTertiaryOrderingComponent (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DistinctKeysAreOrderedInExactlyOneDirection
+[       OK ] ServiceInstanceIdentifierTest.DistinctKeysAreOrderedInExactlyOneDirection (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.StrictWeakOrderingHoldsAcrossMinorVariants
+[       OK ] ServiceInstanceIdentifierTest.StrictWeakOrderingHoldsAcrossMinorVariants (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SortingAgreesWithIndependentTupleOrder
+[       OK ] ServiceInstanceIdentifierTest.SortingAgreesWithIndependentTupleOrder (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SetUniquenessMatchesDistinctIdentityTupleCount
+[       OK ] ServiceInstanceIdentifierTest.SetUniquenessMatchesDistinctIdentityTupleCount (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SetIterationFollowsInstanceThenServiceIdThenMajor
+[       OK ] ServiceInstanceIdentifierTest.SetIterationFollowsInstanceThenServiceIdThenMajor (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingAxiomsHoldOnDeterministicDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingAxiomsHoldOnDeterministicDomain (3 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyEquivalenceMatchesIdentityTupleOnDeterministicDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyEquivalenceMatchesIdentityTupleOnDeterministicDomain (1 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyOrderingIsDeterministicTotalAndTupleConsistent
+[       OK ] ServiceInstanceIdentifierTest.PropertyOrderingIsDeterministicTotalAndTupleConsistent (1 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyEquivalenceClassesMatchDistinctIdentityTupleCount
+[       OK ] ServiceInstanceIdentifierTest.PropertyEquivalenceClassesMatchDistinctIdentityTupleCount (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertySetUniquenessIsIndependentOfInsertionOrder
+[       OK ] ServiceInstanceIdentifierTest.PropertySetUniquenessIsIndependentOfInsertionOrder (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PublicIdentifierIdentityDistinguishesMajorAndMinorBoundaries
+[       OK ] ServiceInstanceIdentifierTest.PublicIdentifierIdentityDistinguishesMajorAndMinorBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyRetainsInstanceServiceIdMajorAndStoresMinor
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyRetainsInstanceServiceIdMajorAndStoresMinor (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyMinorBoundariesCollapseToSingleIdentity
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyMinorBoundariesCollapseToSingleIdentity (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyMajorBoundariesStayDistinct
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyMajorBoundariesStayDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyTextAndRegistryConstructionAgreeAtBoundaries
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyTextAndRegistryConstructionAgreeAtBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyCollapsesConfigMinorsThatNarrowAlike
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyCollapsesConfigMinorsThatNarrowAlike (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyIsDeterministicAcrossRepeatedConversions
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyIsDeterministicAcrossRepeatedConversions (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EmptyServiceIdIsDistinctAndOrdersFirst
+[       OK ] ServiceInstanceIdentifierTest.EmptyServiceIdIsDistinctAndOrdersFirst (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EmptyInstanceIdIsDistinctAndOrdersFirst
+[       OK ] ServiceInstanceIdentifierTest.EmptyInstanceIdIsDistinctAndOrdersFirst (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EmptyIdKeysCollapseAcrossMinorVersions
+[       OK ] ServiceInstanceIdentifierTest.EmptyIdKeysCollapseAcrossMinorVersions (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceIdPrefixOrderingIsLexicographic
+[       OK ] ServiceInstanceIdentifierTest.ServiceIdPrefixOrderingIsLexicographic (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceIdPrefixOrderingIsLexicographic
+[       OK ] ServiceInstanceIdentifierTest.InstanceIdPrefixOrderingIsLexicographic (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorHighBitAdjacencyIsOrdered
+[       OK ] ServiceInstanceIdentifierTest.MajorHighBitAdjacencyIsOrdered (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInInstanceAndMinorAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInInstanceAndMinorAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInMajorAndMinorAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInMajorAndMinorAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SetFindLocatesMinorVariantAndCountsItOnce
+[       OK ] ServiceInstanceIdentifierTest.SetFindLocatesMinorVariantAndCountsItOnce (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertySortedDomainMatchesSortedIdentityTuples
+[       OK ] ServiceInstanceIdentifierTest.PropertySortedDomainMatchesSortedIdentityTuples (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingAxiomsOnVersionBoundaryDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingAxiomsOnVersionBoundaryDomain (18 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyIdentityEqualityClassesOnVersionBoundaryDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyIdentityEqualityClassesOnVersionBoundaryDomain (1 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedInstanceTextPathsAgreeAtBoundaries
+[       OK ] ServiceInstanceIdentifierTest.ConvertedInstanceTextPathsAgreeAtBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedPublicIdentityDistinguishesMinorBoundariesWhileKeyCollapses
+[       OK ] ServiceInstanceIdentifierTest.ConvertedPublicIdentityDistinguishesMinorBoundariesWhileKeyCollapses (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceIdLadderOrdersLexicographicallyAndDistinctly
+[       OK ] ServiceInstanceIdentifierTest.ServiceIdLadderOrdersLexicographicallyAndDistinctly (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceIdLadderOrdersLexicographicallyAndDistinctly
+[       OK ] ServiceInstanceIdentifierTest.InstanceIdLadderOrdersLexicographicallyAndDistinctly (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionLadderOrdersNumericallyAndDistinctly
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionLadderOrdersNumericallyAndDistinctly (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorVariantsCompareIdenticallyAgainstWholeDomain
+[       OK ] ServiceInstanceIdentifierTest.MinorVariantsCompareIdenticallyAgainstWholeDomain (1 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.StdSetCollapsesFiveMinorVariantsOfEveryIdentity
+[       OK ] ServiceInstanceIdentifierTest.StdSetCollapsesFiveMinorVariantsOfEveryIdentity (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EquivalenceIsCompatibleWithStrictOrder
+[       OK ] ServiceInstanceIdentifierTest.EquivalenceIsCompatibleWithStrictOrder (2 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.OrderingAgreesWithTupleOrderOnMixedBoundaryDomain
+[       OK ] ServiceInstanceIdentifierTest.OrderingAgreesWithTupleOrderOnMixedBoundaryDomain (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SingleComponentChangesBreakEquivalenceAcrossAllBases
+[       OK ] ServiceInstanceIdentifierTest.SingleComponentChangesBreakEquivalenceAcrossAllBases (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingOnCombinedRegistrationKeyDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingOnCombinedRegistrationKeyDomain (80 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyIdentifierEqualityOnCombinedRegistrationKeyDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyIdentifierEqualityOnCombinedRegistrationKeyDomain (6 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedInterfaceConstructionPathsAgreeAtEveryVersionBoundary
+[       OK ] ServiceInstanceIdentifierTest.ConvertedInterfaceConstructionPathsAgreeAtEveryVersionBoundary (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedInstanceRegistryIdPathAgreesWithTextPaths
+[       OK ] ServiceInstanceIdentifierTest.ConvertedInstanceRegistryIdPathAgreesWithTextPaths (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyRetainsConfigWidthMajorBoundaries
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyRetainsConfigWidthMajorBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceIdOrderingIsLexicographicNotNumeric
+[       OK ] ServiceInstanceIdentifierTest.ServiceIdOrderingIsLexicographicNotNumeric (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceIdOrderingIsLexicographicNotNumeric
+[       OK ] ServiceInstanceIdentifierTest.InstanceIdOrderingIsLexicographicNotNumeric (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionByteBoundariesAreDistinctAndOrdered
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionByteBoundariesAreDistinctAndOrdered (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionOrderMatchesUnsignedNumericOrder
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionOrderMatchesUnsignedNumericOrder (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorVariantsBoundDistinctIdentitiesWithoutBreakingOrder
+[       OK ] ServiceInstanceIdentifierTest.MinorVariantsBoundDistinctIdentitiesWithoutBreakingOrder (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorSweepCollapsesPerIdentityAtEveryMajorBoundary
+[       OK ] ServiceInstanceIdentifierTest.MinorSweepCollapsesPerIdentityAtEveryMajorBoundary (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SetInsertionResultMatchesEquivalenceAcrossMinorVariants
+[       OK ] ServiceInstanceIdentifierTest.SetInsertionResultMatchesEquivalenceAcrossMinorVariants (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EquivalenceCoincidesWithIdentityOverFixtureCrossProduct
+[       OK ] ServiceInstanceIdentifierTest.EquivalenceCoincidesWithIdentityOverFixtureCrossProduct (5 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.OrderingIsAntiSymmetricOverFixtureCrossProduct
+[       OK ] ServiceInstanceIdentifierTest.OrderingIsAntiSymmetricOverFixtureCrossProduct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeyIdentityIsStableUnderRepeatedMinorRewritesOfTheSameIdentity
+[       OK ] ServiceInstanceIdentifierTest.KeyIdentityIsStableUnderRepeatedMinorRewritesOfTheSameIdentity (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedEmptyTextInterfacePathsAgreeAtVersionBoundaries
+[       OK ] ServiceInstanceIdentifierTest.ConvertedEmptyTextInterfacePathsAgreeAtVersionBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedEmptyTextInstancePathsAgreeWithRegistryPath
+[       OK ] ServiceInstanceIdentifierTest.ConvertedEmptyTextInstancePathsAgreeWithRegistryPath (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.FreshDynamicServiceIdStringViewRegistersAndCollapses
+[       OK ] ServiceInstanceIdentifierTest.FreshDynamicServiceIdStringViewRegistersAndCollapses (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.FreshDynamicServiceIdRvalueRegistersAndCollapses
+[       OK ] ServiceInstanceIdentifierTest.FreshDynamicServiceIdRvalueRegistersAndCollapses (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedInterfaceAndInstanceConstructionPathsAgreeAcrossFullCrossProduct
+[       OK ] ServiceInstanceIdentifierTest.ConvertedInterfaceAndInstanceConstructionPathsAgreeAcrossFullCrossProduct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedConfigMinorNarrowingBoundariesCollapseAndDistinguish
+[       OK ] ServiceInstanceIdentifierTest.ConvertedConfigMinorNarrowingBoundariesCollapseAndDistinguish (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.FreshDynamicInstanceIdStringViewRegistersAndCollapses
+[       OK ] ServiceInstanceIdentifierTest.FreshDynamicInstanceIdStringViewRegistersAndCollapses (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.FreshDynamicInstanceIdRvalueRegistersAndCollapses
+[       OK ] ServiceInstanceIdentifierTest.FreshDynamicInstanceIdRvalueRegistersAndCollapses (0 ms)
+[----------] 91 tests from ServiceInstanceIdentifierTest (124 ms total)
+
+[----------] Global test environment tear-down
+[==========] 91 tests from 1 test suite ran. (124 ms total)
+[  PASSED  ] 91 tests.

@@ -1,0 +1,1 @@
+fix(socom): reject duplicate servers across minor versions

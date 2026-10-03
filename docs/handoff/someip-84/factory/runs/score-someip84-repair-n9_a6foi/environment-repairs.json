@@ -1,0 +1,5 @@
+{
+  "integration_path": true,
+  "capture_identity": true,
+  "profiling_bridge": true
+}

@@ -1,0 +1,194 @@
+{
+  "deadline": null,
+  "deadline_epoch": null,
+  "external_human_validation_required": true,
+  "image_id": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+  "in_run_repair": true,
+  "measurement_only": true,
+  "nodes": {
+    "exit": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": null,
+      "ref": "exit",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_62eefc28ba85c95da384dd5c": {
+      "collection_timeout_seconds": 4800,
+      "command_timeouts": {},
+      "mode": "regressions",
+      "ref": "affected_regressions",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 4980,
+      "write_paths": []
+    },
+    "node_6e1d8d885576ada137a0be79": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "orchestrate:format_precommit",
+      "ref": "orchestrate_format_precommit",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_7b2dbc191ff59f8699805904": {
+      "collection_timeout_seconds": 2040,
+      "command_timeouts": {
+        "format": 1800
+      },
+      "mode": "check:format_precommit",
+      "ref": "check_format_precommit",
+      "repair_for": null,
+      "selected_commands": [
+        "format"
+      ],
+      "timeout_seconds": 2220,
+      "write_paths": []
+    },
+    "node_7b3412ea6a5712ae6c0afd69": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "repair:native_integration",
+      "ref": "repair_native_integration",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_901dde61cbd7e4a9cc0cb1be": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "scope",
+      "ref": "orchestrate_scope",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_9557af955196e0cc042a2fef": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "unresolved",
+      "ref": "unresolved_packet",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_9817af3d40a902afd163d8f9": {
+      "collection_timeout_seconds": 2040,
+      "command_timeouts": {
+        "profiling": 1800
+      },
+      "mode": "check:native_performance",
+      "ref": "check_native_performance",
+      "repair_for": null,
+      "selected_commands": [
+        "profiling"
+      ],
+      "timeout_seconds": 2220,
+      "write_paths": []
+    },
+    "node_a6eb6ba95591ec4d265b402e": {
+      "collection_timeout_seconds": 3840,
+      "command_timeouts": {
+        "qemu": 3600
+      },
+      "mode": "check:native_integration",
+      "ref": "check_native_integration",
+      "repair_for": null,
+      "selected_commands": [
+        "qemu"
+      ],
+      "timeout_seconds": 4020,
+      "write_paths": []
+    },
+    "node_b18a8a431966381e13894c85": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "packet",
+      "ref": "external_review_packet",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_bfbab8963ecc2dcbdae27d32": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "repair:format_precommit",
+      "ref": "repair_format_precommit",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_de720236956540005e9574be": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "orchestrate:native_integration",
+      "ref": "orchestrate_native_integration",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_e86affc2d030957449c14213": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "repair:native_performance",
+      "ref": "repair_native_performance",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_f534f7d42b87d83d141ef47e": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "orchestrate:native_performance",
+      "ref": "orchestrate_native_performance",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "start": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": null,
+      "ref": "start",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    }
+  },
+  "predecessor_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-blfnwq7c",
+  "recheck_selection": {
+    "format_precommit": {
+      "format": 1800
+    },
+    "native_integration": {
+      "qemu": 3600
+    },
+    "native_performance": {
+      "profiling": 1800
+    }
+  },
+  "single_pass": true,
+  "source_write_paths": [
+    "/workspace/score/socom/BUILD",
+    "/workspace/score/socom/impl/service_identifier.cpp",
+    "/workspace/score/socom/impl/service_identifier.hpp",
+    "/workspace/score/socom/test/unit/BUILD",
+    "/workspace/score/socom/test/unit/runtime_tests.cpp",
+    "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+  ],
+  "supervision_required": true
+}

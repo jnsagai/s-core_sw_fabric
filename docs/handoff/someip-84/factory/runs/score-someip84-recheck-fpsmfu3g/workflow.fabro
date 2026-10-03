@@ -1,0 +1,30 @@
+digraph SCoreWorkflow {
+  graph [goal="Execute reviewed S-CORE obligations", max_node_visits=20, on_failure="route"];
+  rankdir=LR;
+  exit [label="Exit", type="exit"];
+  node_257cb96a04a07439dcdd7f37 [allow_partial=false, label="collect_native_performance", max_retries=0, max_visits=1, on_failure="route", script="cat /workspace/.llm_tmp/overnight/obligations/native_performance/result.json\ngrep -qx 0 /workspace/.llm_tmp/overnight/obligations/native_performance/collection-result\n", selection="deterministic", timeout="120s", type="command"];
+  node_328caa2c529c1456e86de387 [allow_partial=false, label="collect_verification_report", max_retries=0, max_visits=1, on_failure="route", script="cat /workspace/.llm_tmp/overnight/obligations/verification_report/result.json\ngrep -qx 0 /workspace/.llm_tmp/overnight/obligations/verification_report/collection-result\n", selection="deterministic", timeout="120s", type="command"];
+  node_79a0d0e85eb3346ae2184186 [allow_partial=false, label="collect_native_docs", max_retries=0, max_visits=1, on_failure="route", script="cat /workspace/.llm_tmp/overnight/obligations/native_docs/result.json\ngrep -qx 0 /workspace/.llm_tmp/overnight/obligations/native_docs/collection-result\n", selection="deterministic", timeout="120s", type="command"];
+  node_7c62381fdd2c3c9a709c5c87 [allow_partial=false, label="collect_format_precommit", max_retries=0, max_visits=1, on_failure="route", script="cat /workspace/.llm_tmp/overnight/obligations/format_precommit/result.json\ngrep -qx 0 /workspace/.llm_tmp/overnight/obligations/format_precommit/collection-result\n", selection="deterministic", timeout="120s", type="command"];
+  node_ad686a79a07a6c8f44f5c833 [allow_partial=false, label="Selected rechecks collected; human review pending", max_retries=0, max_visits=1, on_failure="route", question_type="yes_no", selection="deterministic", timeout="420s", type="human"];
+  node_ba750c837e65b1de4948257d [allow_partial=false, label="collect_native_integration", max_retries=0, max_visits=1, on_failure="route", script="cat /workspace/.llm_tmp/overnight/obligations/native_integration/result.json\ngrep -qx 0 /workspace/.llm_tmp/overnight/obligations/native_integration/collection-result\n", selection="deterministic", timeout="120s", type="command"];
+  node_e3166e249300f25887037226 [allow_partial=false, label="collect_native_lint", max_retries=0, max_visits=1, on_failure="route", script="cat /workspace/.llm_tmp/overnight/obligations/native_lint/result.json\ngrep -qx 0 /workspace/.llm_tmp/overnight/obligations/native_lint/collection-result\n", selection="deterministic", timeout="120s", type="command"];
+  node_ee8276eab636d6da445351bd [allow_partial=false, label="collect_native_traceability", max_retries=0, max_visits=1, on_failure="route", script="cat /workspace/.llm_tmp/overnight/obligations/native_traceability/result.json\ngrep -qx 0 /workspace/.llm_tmp/overnight/obligations/native_traceability/collection-result\n", selection="deterministic", timeout="120s", type="command"];
+  start [label="Start", type="start"];
+  node_257cb96a04a07439dcdd7f37 -> node_ba750c837e65b1de4948257d [condition="outcome=failed"];
+  node_ee8276eab636d6da445351bd -> node_7c62381fdd2c3c9a709c5c87;
+  node_7c62381fdd2c3c9a709c5c87 -> node_e3166e249300f25887037226 [condition="outcome=failed"];
+  node_e3166e249300f25887037226 -> node_257cb96a04a07439dcdd7f37;
+  start -> node_79a0d0e85eb3346ae2184186;
+  node_79a0d0e85eb3346ae2184186 -> node_ee8276eab636d6da445351bd;
+  node_ba750c837e65b1de4948257d -> node_328caa2c529c1456e86de387 [condition="outcome=failed"];
+  node_ba750c837e65b1de4948257d -> node_328caa2c529c1456e86de387;
+  node_ee8276eab636d6da445351bd -> node_7c62381fdd2c3c9a709c5c87 [condition="outcome=failed"];
+  node_ad686a79a07a6c8f44f5c833 -> exit;
+  node_328caa2c529c1456e86de387 -> node_ad686a79a07a6c8f44f5c833 [condition="outcome=failed"];
+  node_7c62381fdd2c3c9a709c5c87 -> node_e3166e249300f25887037226;
+  node_257cb96a04a07439dcdd7f37 -> node_ba750c837e65b1de4948257d;
+  node_e3166e249300f25887037226 -> node_257cb96a04a07439dcdd7f37 [condition="outcome=failed"];
+  node_328caa2c529c1456e86de387 -> node_ad686a79a07a6c8f44f5c833;
+  node_79a0d0e85eb3346ae2184186 -> node_ee8276eab636d6da445351bd [condition="outcome=failed"];
+}

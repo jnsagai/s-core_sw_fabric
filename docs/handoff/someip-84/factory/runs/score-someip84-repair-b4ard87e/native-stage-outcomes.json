@@ -1,0 +1,82 @@
+{
+  "run_id": "01M40Y7RJF9NZJTE2N9Z3BAAXA",
+  "stages": [
+    {
+      "ref": "start",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:11:17.903Z",
+      "provider_used": null
+    },
+    {
+      "ref": "orchestrate_scope",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:11:19.302Z",
+      "provider_used": null
+    },
+    {
+      "ref": "check_format_precommit",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:11:22.193Z",
+      "provider_used": null
+    },
+    {
+      "ref": "affected_regressions",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:11:27.654Z",
+      "provider_used": null
+    },
+    {
+      "ref": "check_native_integration",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:11:29.683Z",
+      "provider_used": null
+    },
+    {
+      "ref": "check_native_performance",
+      "visit": 1,
+      "outcome": "failed",
+      "timestamp": "2026-10-03T13:11:31.613Z",
+      "provider_used": null
+    },
+    {
+      "ref": "orchestrate_native_performance",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:11:32.774Z",
+      "provider_used": null
+    },
+    {
+      "ref": "repair_native_performance",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:11:34.190Z",
+      "provider_used": null
+    },
+    {
+      "ref": "check_native_performance",
+      "visit": 2,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:14:50.309Z",
+      "provider_used": null
+    },
+    {
+      "ref": "external_review_packet",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:14:55.993Z",
+      "provider_used": null
+    },
+    {
+      "ref": "exit",
+      "visit": 1,
+      "outcome": "succeeded",
+      "timestamp": "2026-10-03T13:14:57.139Z",
+      "provider_used": null
+    }
+  ]
+}

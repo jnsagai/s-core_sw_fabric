@@ -1,0 +1,19 @@
+{
+  "observed_at": "2026-10-03T05:49:23.526731+00:00",
+  "run_id": "01M3ZRSDK2XQAF1H48VWTPKQNZ",
+  "lifecycle": {
+    "status": {
+      "kind": "failed",
+      "reason": "workflow_error"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "worker_alive": false,
+  "engineering_acceptance": "pending",
+  "human_review": "unanswered"
+}

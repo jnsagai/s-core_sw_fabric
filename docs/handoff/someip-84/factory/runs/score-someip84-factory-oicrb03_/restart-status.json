@@ -1,0 +1,43 @@
+{
+  "observed_at": "2026-10-03T02:22:41.256191+00:00",
+  "run_id": "01M3ZRSDK2XQAF1H48VWTPKQNZ",
+  "prepared_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_",
+  "native_lifecycle": {
+    "status": {
+      "kind": "running"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "native_timestamps": {
+    "created_at": "2026-10-03T02:16:46.946Z",
+    "started_at": "2026-10-03T02:16:48.531Z",
+    "last_event_at": "2026-10-03T02:22:40.388Z",
+    "completed_at": null
+  },
+  "native_worker_alive": true,
+  "supervisor_receipt": {
+    "run_id": "01M3ZRSDK2XQAF1H48VWTPKQNZ",
+    "policy_sha256": "939edd911f69d5b32981b14b716089873fb9b088b41605264a344654c5dff261",
+    "pid": 244874,
+    "process_identity": "afea70e0-5cf8-4b0f-a845-5fe250756152:4487324",
+    "observed_at": 1790994156.268704,
+    "phase": "observing",
+    "dependencies_verified": true,
+    "unit": "score-fabric-supervisor-01m3zrsdk2xqaf1h48vwtpkqnz"
+  },
+  "containers": [
+    {
+      "id": "3cf06325c6eb0c91f9bdb0d5cd158f0b918603ed822f4bfb5d09186adbab78df",
+      "image": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+      "running": true,
+      "networks": {}
+    }
+  ],
+  "engineering_acceptance": "pending",
+  "tool_installation": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/queue-tools.json"
+}

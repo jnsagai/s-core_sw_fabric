@@ -1,0 +1,34 @@
+{
+  "all_obligations": true,
+  "blocked_by": null,
+  "deadline": null,
+  "draft_tasks": 0,
+  "engineering_acceptance": "pending",
+  "measurement_only": true,
+  "measurement_tasks": 7,
+  "predecessor_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_",
+  "run_id": "01M405PNQN7DWH4H7VNNZSDC8G",
+  "selected_commands": {
+    "format_precommit": {
+      "format": 1800
+    },
+    "native_docs": {
+      "docs": 1800
+    },
+    "native_integration": {
+      "qemu": 3600
+    },
+    "native_lint": {
+      "clang-tidy": 1800
+    },
+    "native_performance": {
+      "benchmarks": 1800,
+      "profiling": 1800
+    },
+    "native_traceability": {
+      "traceability": 300
+    }
+  },
+  "single_pass": true,
+  "status": "native_start_requested"
+}

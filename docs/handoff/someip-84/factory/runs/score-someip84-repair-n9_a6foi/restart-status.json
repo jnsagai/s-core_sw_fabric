@@ -1,0 +1,24 @@
+{
+  "run_id": "01M40NRH62RND9E3HA8KQXM1AJ",
+  "native_status": {
+    "kind": "running"
+  },
+  "worker_alive": true,
+  "models": [],
+  "human_validation": {
+    "location": "outside_fabro",
+    "required": true,
+    "status": "pending"
+  },
+  "executed_groups": [
+    "native_integration",
+    "native_performance"
+  ],
+  "reused_checks": [
+    "format_precommit",
+    "compiler_diagnostics",
+    "native_tests"
+  ],
+  "original_failure_reused_for_repair_only": true,
+  "no_queue_migration": true
+}

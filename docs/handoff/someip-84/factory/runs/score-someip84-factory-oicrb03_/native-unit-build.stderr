@@ -1,0 +1,47 @@
+Extracting Bazel installation...
+OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Loading: 
+Loading: 2 packages loaded
+WARNING: Target pattern parsing failed.
+ERROR: Skipping '//score/socom/test/unit:service_identifier_tests': no such target '//score/socom/test/unit:service_identifier_tests': target 'service_identifier_tests' not declared in package 'score/socom/test/unit' defined by /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/native-workspace/score/socom/test/unit/BUILD (did you mean service_identifier_tests.cpp?)
+ERROR: no such target '//score/socom/test/unit:service_identifier_tests': target 'service_identifier_tests' not declared in package 'score/socom/test/unit' defined by /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/native-workspace/score/socom/test/unit/BUILD (did you mean service_identifier_tests.cpp?)
+INFO: Elapsed time: 42.067s
+INFO: 0 processes.
+ERROR: Build did NOT complete successfully

@@ -396,3 +396,113 @@ DeepSeek Flash/spending selection is recorded; credential availability, enforcea
 model/tool/path binding and runtime usage/admission remain required for T093. Selection and
 measurement do not complete live implementation. Current total: **94 tasks, 82 complete,
 12 open**, including all eleven previously open tasks. Human review markers remain unchanged.
+
+
+## Authorized SOME/IP missing-tool recovery (2026-10-03)
+
+The user requested installation of all missing tools from the failed SOME/IP queue
+and a fresh queue run to address verification issues. Preserve predecessor evidence,
+source locks, draft reports and unanswered human decisions. Use the shared storage
+selector, bind tool storage and fresh queues to their measured volume, retain exact
+tool versions/hashes, and freeze tool paths with each successor. Global tool storage
+and reference repositories remain unchanged. Licensed Coverity/QNX capability and
+engineering acceptance cannot be inferred from installation.
+
+- [x] T095 Install and smoke-test missing Bazel 8.6.0, Valgrind, pre-commit, REUSE, clang-format and Gitleaks on selected storage; retain downloads, licenses and tool identities.
+- [x] T096 Replace vanished temporary collector paths with frozen, storage-bound tool identities; verify tool drift/disconnection rejection and existing collector contracts.
+- [x] T097 Preserve the latest failed run's candidate source/reports, prepare and start one supervised all-obligations successor with the existing Flash/high/no-fallback selection; retain measured startup and verification results without answering human reviews.
+
+
+T095–T097 bounded installation, collector repair and fresh supervised startup are
+verified in [tool recovery](../../docs/handoff/someip-84/factory/tool-recovery.md).
+That full successor subsequently reached human review and timed out unanswered; these task completions do not assert all
+verification checks passed or complete any human review.
+
+
+## Authorized failed-check rerun (2026-10-03)
+
+User "do it" authorizes the proposed cloud-localds installation, disposable Git
+metadata repair and fresh failed-check execution. Preserve the earlier queue's
+results and human stop. Collect fresh evidence through Fabro on the preserved
+source with explicit longer bounds for previously timed-out measurements; never
+turn installation or successful collection into engineering acceptance.
+
+The user's correction, "be sure to not run everything again, just want is missing",
+narrows the successor to docs, traceability, formatting, native Clang-Tidy,
+benchmarks/profiling and QEMU integration. Previously passed checks and measured
+findings are preserved without re-execution. There are no implementation-agent stages.
+
+- [x] T098 Install cloud-image-utils and genisoimage with package checksums/licenses and real seed-image smoke; freeze additional storage bindings without changing older tool installations.
+- [x] T099 Restore genuine pinned public Git metadata in collector-owned copies, with hooks disabled; verify remote and baseline identity and keep candidate source dirty against the real baseline.
+- [x] T100 Prepare and execute a deterministic failed-check Fabro successor, retain original/new results and identify remaining findings, runtime/platform failures and required human decisions.
+
+T098/T099 are verified in [selected-check recovery](../../docs/handoff/someip-84/factory/missing-check-recovery.md).
+T100's earlier bounded collection is complete. That slice's final run `01M4082KVKZ7DE1D4KSBEEJE0C`
+stopped at the unanswered human gate. Formatting violations, perf permissions and
+Bazel cloud-localds visibility remain unresolved; this completion is not issue closure
+or engineering acceptance. The observer repeated the selected set once, then refused
+another human-gate timeout repair.
+
+## User-authorized same-run orchestration and external validation
+
+- [x] T101 Define same-run repair, mandatory executed integration and external mandatory human validation in contracts/someip-in-run-repair.md and spec/plan; preserve historical evidence and prior human authority.
+- [x] T102 Add negative-first contracts for real failure routing, bounded loopbacks, orchestrators, mandatory integration execution, external human closure and refusal of automatic successor creation.
+- [x] T103 Implement scoped deterministic orchestration and repair stages inside Fabro, including Bazel tool visibility, source formatting and affected regressions; remove operational human interviews from new SOME/IP workflows.
+- [x] T104 Repair run-scoped perf/integration execution prerequisites and measure actual selected checks; keep global tool/kernel settings and reference repositories unchanged.
+- [x] T105 Compile, validate and execute the corrected native workflow with same-run repair evidence, mandatory real integration and preserved failures; task remains open if any mandatory check fails.
+- [x] T106 Reconcile portable review packet, workflow diagram and handoff with exact tests/tool/native results and explicit pending external human validation.
+- [ ] T107 Obtain the required external human validation of the exact candidate/evidence to close this task (HUMAN-OWNED; agents must not check off).
+
+The [current repair run](../../docs/handoff/someip-84/factory/repair-orchestration.md)
+demonstrated real formatting, integration and profiling repair loopbacks. Final run
+`01M40R4FYAZR2PGCH5AQF4DRMC` succeeded after its profiling failure → orchestrator
+→ repair → passing check loop. All six native integration tests previously executed
+and passed; the final run reused that checksum-bound evidence with identical fresh
+candidate hashes and executed only the two outstanding profiling targets, both
+passing. T104–T106 are technically complete; task closure still requires T107
+outside Fabro. The portable review archive retains candidate, raw logs, 12 datasets,
+12 flamegraphs, capture source/binary/patch/licenses and exact evidence hashes.
+Validation after the final helper changes: 121 tests passed, one native CLI test
+skipped; Ruff, mypy, foundation checks and package build passed. No engineering
+acceptance, merge, publication or deployment is claimed.
+
+## Subsequent agent review findings (2026-10-03)
+
+The successful scoped native run and T104–T106 measurement/packet history remain
+preserved. [The agent review](../../docs/handoff/someip-84/factory/runs/score-someip84-repair-bi5z3qb7/agent-review.json)
+found defects that block current merge/closure readiness; no human review occurred.
+
+- [x] T108 Propagate unexpected workload signal exits through the scoped profiler bridge; distinguish intentional daemon termination and add negative regression coverage (R1, P1).
+- [x] T109 Bind original passing raw log/artifact identities and reject changed evidence before reuse or packet creation (R2, P2).
+- [x] T110 Verify integration case-level outcomes and explicit native platform applicability; reject skipped applicable cases while retaining the QNX-only Linux exclusion (R3, P2).
+
+T107 remains mandatory and human-owned. Upstream #84's broader identifier/discovery
+scope must be implemented or explicitly narrowed by its maintainers before closure.
+
+T108–T110 are verified by the [targeted repair evidence](../../docs/handoff/someip-84/factory/review-repair-run.md).
+Run `01M40XMJ9K182CG0SWBNVPY7AB` passed fresh six-target integration (13 applicable
+cases passed; one pinned QNX-only exclusion), then failed profiling because the
+new cleanup guard omitted the native echo server. That failed run remains preserved.
+The manually prepared profiling-only correction `01M40Y7RJF9NZJTE2N9Z3BAAXA`
+succeeded through its own measured failure → orchestrator → repair → passing check
+loop; the earlier fresh integration and unchanged formatting/compiler/unit checks
+were reused after identity verification. The actual SIGSEGV regression returns 139
+and rejects decoding; both native profiling targets pass. Validation: 147 local
+tests passed, zero skipped; Ruff, mypy, foundation and package build passed. Offline
+replay verified 1,046 portable files, 269 candidate hashes, integration XML, 12
+datasets and 12 flamegraphs. T107 remains unchecked and mandatory outside Fabro;
+no full upstream #84 implementation, acceptance, publication or issue closure is claimed.
+
+
+## External user approval and local PR preparation (2026-10-03)
+
+The user explicitly stated: “I agree and approve, prepare the PR closure scope but
+dont create the PR now”. [The approval record](../../docs/handoff/someip-84/factory/runs/score-someip84-repair-b4ard87e/external-user-approval.json)
+binds this external conversation decision to the final run and original evidence
+archive. [The prepared closure scope](../../docs/handoff/someip-84/pr-preparation/closure-scope.md)
+contains a native six-file patch matching the final tested candidate, a PR body,
+and a Related-to-#84 reference that retains its broader design work. Clean patch
+application and all six file hashes were verified in a disposable baseline copy;
+no native queue reran and no PR was created. T107's checkbox stays human-owned;
+this approval is recorded separately from signed assurance/maintainer decisions
+and does not authorize publication, merge or upstream issue closure.

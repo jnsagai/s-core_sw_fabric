@@ -1,0 +1,20 @@
+{
+  "run_id": "01M40GYYV7HDR10616TGNC3C3H",
+  "native_status": {
+    "kind": "succeeded",
+    "reason": "completed"
+  },
+  "worker_alive": false,
+  "technical_completion": "blocked",
+  "task_closure": "pending_external_human_validation",
+  "mandatory_results": {
+    "format_precommit": true,
+    "native_integration": false,
+    "native_performance": false,
+    "compiler_diagnostics": true,
+    "native_tests": true
+  },
+  "issue": "Explicit terminal failure edge routed to exit despite on_failure=exit; corrected blocking hook added for future runs",
+  "integration": "Executed six real tests, three passed and three failed; tcpdump identity change blocked by sandbox",
+  "replacement_automatic": false
+}

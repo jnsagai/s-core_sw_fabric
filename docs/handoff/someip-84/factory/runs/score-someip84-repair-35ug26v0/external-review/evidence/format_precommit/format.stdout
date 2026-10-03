@@ -1,0 +1,7 @@
+//:format.check_C++_with_clang-format                                    PASSED in 0.5s
+//:format.check_Python_with_ruff                                         PASSED in 0.1s
+//:format.check_Starlark_with_buildifier                                 PASSED in 0.1s
+//:format.check_YAML_with_yamlfmt                                        PASSED in 0.1s
+
+Executed 4 out of 4 tests: 4 tests pass.
+There were tests whose specified size is too big. Use the --test_verbose_timeout_warnings command line option to see which ones these are.

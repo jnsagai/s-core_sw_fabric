@@ -1,0 +1,27 @@
+{
+  "engineering_acceptance": "pending",
+  "predecessor_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-fabric-infrastructure-repair-snxnbjla",
+  "preserved_source": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-fabric-infrastructure-repair-snxnbjla/preserved-workspace",
+  "selected_commands": {
+    "format_precommit": {
+      "format": 1800
+    },
+    "native_docs": {
+      "docs": 1800
+    },
+    "native_integration": {
+      "qemu": 3600
+    },
+    "native_lint": {
+      "clang-tidy": 1800
+    },
+    "native_performance": {
+      "benchmarks": 1800,
+      "profiling": 1800
+    },
+    "native_traceability": {
+      "traceability": 300
+    }
+  },
+  "source_write_authority": "none"
+}

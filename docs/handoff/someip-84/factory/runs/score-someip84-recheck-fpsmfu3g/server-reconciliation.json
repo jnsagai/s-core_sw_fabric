@@ -1,0 +1,10 @@
+{
+  "retired_owned_pid": 2096196,
+  "prior_worker_alive": false,
+  "run_id": "01M405PNQN7DWH4H7VNNZSDC8G",
+  "persistent_server_pid": 2105743,
+  "native_status": {
+    "kind": "submitted"
+  },
+  "same_native_run_preserved": true
+}

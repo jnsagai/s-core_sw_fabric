@@ -1,0 +1,20 @@
+{
+  "run_id": "01M40GPKEGS92QBFM0E039N6ZE",
+  "lifecycle": {
+    "status": {
+      "kind": "failed",
+      "reason": "workflow_error"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "worker_alive": false,
+  "reason": "Missing frozen prepare.py helper import; failed before measurements",
+  "correction": "Remove builder dependency and require frozen hook import smoke before create",
+  "no_measurements_executed": true,
+  "original_prepared_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-8hesizb7"
+}

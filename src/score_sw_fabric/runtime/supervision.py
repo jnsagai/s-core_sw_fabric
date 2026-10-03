@@ -254,6 +254,16 @@ def watch(policy_path: Path) -> None:
                 measured = read(path) if path.exists() else {}
                 fault = classify(record, runtime_state, alive, misses, measured, age)
                 terminal = record["lifecycle"]["status"]["kind"]
+                if policy.get("runtime_policy", {}).get("in_run_repair") and terminal == "failed":
+                    atomic(
+                        state_path,
+                        {
+                            "phase": "finished",
+                            "native_status": terminal,
+                            "reason": "Same-run repair stopped; no successor authorized",
+                        },
+                    )
+                    return
                 if (
                     terminal in {"succeeded", "completed", "cancelled", "canceled"}
                     or record["lifecycle"]["status"].get("reason") == "cancelled"

@@ -1,0 +1,158 @@
+{
+  "deadline": null,
+  "deadline_epoch": null,
+  "image_id": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+  "measurement_only": true,
+  "nodes": {
+    "exit": {
+      "collection_timeout_seconds": 5,
+      "command_timeouts": {},
+      "mode": null,
+      "ref": "exit",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 66,
+      "write_paths": []
+    },
+    "node_257cb96a04a07439dcdd7f37": {
+      "collection_timeout_seconds": 3840,
+      "command_timeouts": {
+        "benchmarks": 1800,
+        "profiling": 1800
+      },
+      "mode": "obligation:native_performance",
+      "ref": "collect_native_performance",
+      "repair_for": null,
+      "selected_commands": [
+        "benchmarks",
+        "profiling"
+      ],
+      "timeout_seconds": 4020,
+      "write_paths": []
+    },
+    "node_328caa2c529c1456e86de387": {
+      "collection_timeout_seconds": 120,
+      "command_timeouts": {},
+      "mode": "obligation:verification_report",
+      "ref": "collect_verification_report",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 300,
+      "write_paths": []
+    },
+    "node_79a0d0e85eb3346ae2184186": {
+      "collection_timeout_seconds": 2040,
+      "command_timeouts": {
+        "docs": 1800
+      },
+      "mode": "obligation:native_docs",
+      "ref": "collect_native_docs",
+      "repair_for": null,
+      "selected_commands": [
+        "docs"
+      ],
+      "timeout_seconds": 2220,
+      "write_paths": []
+    },
+    "node_7c62381fdd2c3c9a709c5c87": {
+      "collection_timeout_seconds": 2040,
+      "command_timeouts": {
+        "format": 1800
+      },
+      "mode": "obligation:format_precommit",
+      "ref": "collect_format_precommit",
+      "repair_for": null,
+      "selected_commands": [
+        "format"
+      ],
+      "timeout_seconds": 2220,
+      "write_paths": []
+    },
+    "node_ad686a79a07a6c8f44f5c833": {
+      "collection_timeout_seconds": 5,
+      "command_timeouts": {},
+      "mode": null,
+      "ref": "review_stop",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 485,
+      "write_paths": []
+    },
+    "node_ba750c837e65b1de4948257d": {
+      "collection_timeout_seconds": 3840,
+      "command_timeouts": {
+        "qemu": 3600
+      },
+      "mode": "obligation:native_integration",
+      "ref": "collect_native_integration",
+      "repair_for": null,
+      "selected_commands": [
+        "qemu"
+      ],
+      "timeout_seconds": 4020,
+      "write_paths": []
+    },
+    "node_e3166e249300f25887037226": {
+      "collection_timeout_seconds": 2040,
+      "command_timeouts": {
+        "clang-tidy": 1800
+      },
+      "mode": "obligation:native_lint",
+      "ref": "collect_native_lint",
+      "repair_for": null,
+      "selected_commands": [
+        "clang-tidy"
+      ],
+      "timeout_seconds": 2220,
+      "write_paths": []
+    },
+    "node_ee8276eab636d6da445351bd": {
+      "collection_timeout_seconds": 540,
+      "command_timeouts": {
+        "traceability": 300
+      },
+      "mode": "obligation:native_traceability",
+      "ref": "collect_native_traceability",
+      "repair_for": null,
+      "selected_commands": [
+        "traceability"
+      ],
+      "timeout_seconds": 720,
+      "write_paths": []
+    },
+    "start": {
+      "collection_timeout_seconds": 5,
+      "command_timeouts": {},
+      "mode": null,
+      "ref": "start",
+      "repair_for": null,
+      "selected_commands": null,
+      "timeout_seconds": 66,
+      "write_paths": []
+    }
+  },
+  "recheck_selection": {
+    "format_precommit": {
+      "format": 1800
+    },
+    "native_docs": {
+      "docs": 1800
+    },
+    "native_integration": {
+      "qemu": 3600
+    },
+    "native_lint": {
+      "clang-tidy": 1800
+    },
+    "native_performance": {
+      "benchmarks": 1800,
+      "profiling": 1800
+    },
+    "native_traceability": {
+      "traceability": 300
+    }
+  },
+  "single_pass": true,
+  "source_write_paths": [],
+  "supervision_required": true
+}

@@ -1,0 +1,49 @@
+_version = 1
+
+[workflow]
+graph = "workflow.fabro"
+
+[run.clone]
+enabled = false
+[run.run_branch]
+enabled = false
+push = false
+[run.environment.image]
+docker = "score-someip84-agent:20261001"
+[run.environment.lifecycle]
+preserve = true
+stop_on_terminal = true
+[run.agent]
+fabro_tools = false
+
+[[run.hooks]]
+id = "someip84-docker-isolation"
+event = "sandbox_ready"
+blocking = true
+sandbox = false
+timeout = "30s"
+command = ["/home/jefferson/s-core_sw_fabric/.venv/bin/python", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g/isolate_docker.py", "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g/target", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g/native-run-id"]
+
+[[run.hooks]]
+id = "recheck-guard-pre_tool_use"
+event = "pre_tool_use"
+blocking = true
+sandbox = false
+timeout = "5s"
+command = ["/home/jefferson/s-core_sw_fabric/.venv/bin/python", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g/overnight_hooks.py", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g", "guard"]
+
+[[run.hooks]]
+id = "recheck-guard-stage_start"
+event = "stage_start"
+blocking = true
+sandbox = false
+timeout = "5s"
+command = ["/home/jefferson/s-core_sw_fabric/.venv/bin/python", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g/overnight_hooks.py", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g", "guard"]
+
+[[run.hooks]]
+id = "recheck-measure-stage_start"
+event = "stage_start"
+blocking = true
+sandbox = false
+timeout = "4200s"
+command = ["/home/jefferson/s-core_sw_fabric/.venv/bin/python", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g/overnight_hooks.py", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-fpsmfu3g", "measure"]

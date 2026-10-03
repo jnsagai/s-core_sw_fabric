@@ -1,9 +1,93 @@
-# SOME/IP queue: stopped at human review
+# SOME/IP queue: same-run repairs, external validation required
+
+Latest repair: **`01M40Y7RJF9NZJTE2N9Z3BAAXA` succeeded**; R1–R3 corrected.
+Fresh integration verified 13 applicable passing cases and one source-supported
+QNX-only exclusion on Linux. Final execution reran only profiling: both targets
+passed. Unchanged formatting, compiler, native unit and fresh integration evidence
+were checksum-verified and reused. The user has approved this scoped work outside Fabro.
+[PR preparation and closure scope](../pr-preparation/closure-scope.md) record the
+approval and the exact verified patch; no PR was created.
+See [targeted repair evidence](review-repair-run.md),
+[terminal status](runs/score-someip84-repair-b4ard87e/terminal-status.json) and
+[portable archive](runs/score-someip84-repair-b4ard87e/review-packet.tar.gz).
+
+## Earlier review and run history
+
+Earlier agent review: **request changes; draft PR only**. A focused negative check
+confirmed that the profiler wrapper can hide a workload crash; passing-log reuse
+and integration case-level skip checks also need correction.
+[Review findings](runs/score-someip84-repair-bi5z3qb7/agent-review.json)
+supersede the readiness assessment below. Historical successful run/evidence remain preserved.
+
+Previously reviewed run: **`01M40R4FYAZR2PGCH5AQF4DRMC`**, succeeded on 2026-10-03; worker exited.
+Four deterministic orchestrators and three bounded loops repair failures inside
+Fabro. Human validation is outside the workflow and mandatory before task closure.
+All six real integration tests passed in `01M40NRH62RND9E3HA8KQXM1AJ`.
+This follow-up reuses formatting, GCC/Clang, native unit and integration results
+against identical candidate hashes; only the two outstanding profiling tests executed
+and both passed. The scope is technically complete; task closure awaits external
+human validation.
+See [repair orchestration](repair-orchestration.md), [the current graph](current-workflow.svg)
+and [the terminal observation](runs/score-someip84-repair-bi5z3qb7/terminal-status.json).
+The [portable review packet](runs/score-someip84-repair-bi5z3qb7/review-packet.json)
+and [complete evidence archive](runs/score-someip84-repair-bi5z3qb7/review-packet.tar.gz)
+include 12 real datasets, 12 flamegraphs, raw checks, candidate and tool/license provenance.
+
+Previous repair run `01M40GYYV7HDR10616TGNC3C3H` is terminal. It fixed formatting
+and tool visibility, then integration executed six tests with three capture failures.
+Its native status incorrectly says succeeded while its verification packet is blocked;
+[the preserved terminal observation](runs/score-someip84-repair-che5hm2t/terminal-status.json)
+records this discrepancy. The corrected terminal hook rejects blocked verification.
+
+## Preceding selected-check run (historical)
+
+Latest run **`01M4082KVKZ7DE1D4KSBEEJE0C`** finished its selected collectors and
+timed out at the unanswered human gate at 08:25 Lisbon on 2026-10-03. No worker
+is running. The infrastructure observer repeated the selected set once after the
+preceding run failed, then refused another repair because the native events showed
+a human-gate timeout. Docs, traceability, native Clang-Tidy and benchmarks pass.
+C++ formatting violations, denied perf events (`perf_event_paranoid=4`) and
+cloud-localds visibility inside Bazel still block verification. Zero integration
+tests executed. [Latest terminal observation](runs/score-someip84-recheck-blfnwq7c/terminal-status.json)
+and [outcomes](runs/score-someip84-recheck-blfnwq7c/verification-outcomes.json) preserve the results.
+
+## Initial selected-check startup (historical)
+
+Run **`01M405PNQN7DWH4H7VNNZSDC8G`** was observed running on 2026-10-03
+at 07:05 Lisbon with a live worker, ready supervisor and pinned network-disconnected
+container. It runs only docs, traceability, formatting, native Clang-Tidy,
+benchmarks/profiling and QEMU integration, followed by a measurement report and
+an unanswered human stop. There are no implementation-agent stages.
+
+Cloud-localds and genisoimage are installed on bound SSD storage; a real seed-image
+smoke passed. The collector uses genuine pinned public Git history with hooks disabled
+and preserves the candidate's working-tree changes. Passed checks and checks that
+already produced findings are omitted. See [selected-check recovery](missing-check-recovery.md)
+and [startup evidence](runs/score-someip84-recheck-fpsmfu3g/restart-status.json).
+Verification results and engineering acceptance remain pending.
+
+## Completed full tool-recovery run
+
+Run `01M3ZRSDK2XQAF1H48VWTPKQNZ` reached its human gate, which timed out unanswered.
+Its native status is `failed/workflow_error` and its worker has exited. The final
+focused GCC/Clang runs passed 91 tests each. Full native build/tests, native
+sanitizers/TSan and supported cross-compilation commands completed. Docs lacked a
+Git remote; integration lacked cloud-localds; formatting, native Clang-Tidy and
+performance commands timed out. Other checks retained substantive findings or
+scope/platform/human blockers, which are preserved without rerunning them.
+
+[Original tool recovery](tool-recovery.md),
+[terminal observation](runs/score-someip84-factory-oicrb03_/terminal-status.json),
+[measured report](runs/score-someip84-factory-oicrb03_/verification-report-result.json) and
+[check outcomes](runs/score-someip84-factory-oicrb03_/verification-outcomes.json)
+retain that history. Collection success does not imply passing verification.
+
+## Earlier run: stopped at human review
 
 Run `01M3YRJEGXNY6CB81T7TKW774B` completed 93 workflow stages, including the review
 packet and verification report. The human gate timed out without an answer at
 **19:56 Lisbon, 2026-10-02**. Native status is `failed/workflow_error`; the worker
-has exited and no successor is running. Engineering acceptance remains pending.
+has exited. Later successors are recorded above. Engineering acceptance remains pending.
 
 **Verification did not all pass.** Final focused GCC/UBSan measurement passed
 87 tests with no failures. Focused ASan/LSan passed. Focused production coverage

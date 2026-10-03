@@ -1,0 +1,11 @@
+{
+  "native_integration": {
+    "logs_sha256": {
+      "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/obligation-results/native_integration-1791021843192557629/qemu.stderr": "a703800131e122bd4437b5db2e796aa7ac44c86e58a6e83129818dc03c0d6554",
+      "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/obligation-results/native_integration-1791021843192557629/qemu.stdout": "2b79e019d51424fcdd22827c0aff36d8957881941066d231115eccd92675d0d0"
+    },
+    "path": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/obligation-results/native_integration-1791021843192557629/result.json",
+    "purpose": "Prior measured failure triggers repair; never counts as fresh readiness",
+    "sha256": "1bb2956e88db43ad14e687fb228283d9c3871414075376c70a6516875a0d196a"
+  }
+}

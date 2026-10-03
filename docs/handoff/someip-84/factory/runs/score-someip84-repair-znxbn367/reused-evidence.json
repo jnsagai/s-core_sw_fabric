@@ -1,0 +1,14 @@
+{
+  "compiler_diagnostics": {
+    "path": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/result.json",
+    "sha256": "7985710013036edd035644c7735cc9d12efc7045b660bde2c726452d59069264"
+  },
+  "format_precommit": {
+    "path": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/format_precommit-1791019359255416952/result.json",
+    "sha256": "2a129e94a34372d7f21a423da3aaa0a7d9cb4b5cdcf185c33a095fbf15d0bf49"
+  },
+  "native_tests": {
+    "path": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/native_tests-1791019561815665497/result.json",
+    "sha256": "e0f2f00fd7659c0c604a27be76b01f7c03023e38521366fe959aa47dcc56d883"
+  }
+}

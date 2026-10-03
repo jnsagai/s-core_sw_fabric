@@ -1,0 +1,64 @@
+{
+  "review_type": "agent_technical_review",
+  "verdict": "request_changes",
+  "human_validation_performed": false,
+  "task_closure": "pending_external_human_validation",
+  "reviewed_run_id": "01M40R4FYAZR2PGCH5AQF4DRMC",
+  "reviewed_archive_sha256": "0ca374da71f04130ba5abf7e8937cdf8600b1056bd2eddf2c4e6e6ce4610aabd",
+  "reviewed_code_sha256": {
+    "perf_bridge.py": "4b0c56255f3cbff3bd7ff2738c6540f40d67e83d49d3c1b90e59093b83378de2",
+    "repair_workflow.py": "b5fae2b0d8e0bc302dfe3c0c0867166d3aa26fd669ec5cb8c2df5d5168658c17",
+    "prepare_repair_queue.py": "b0d6a004691608934581a374da1fc1b37ccc104406d4f6dafcedd3af5d866dd8",
+    "repair_hooks.py": "786b36f7e9e2adf33882a72c02c2a02b7a1a97982de13559f17c5033e6cf9810"
+  },
+  "pr_readiness": "draft_only",
+  "issue_closure_readiness": false,
+  "findings": [
+    {
+      "id": "R1",
+      "priority": "P1",
+      "file": "perf_bridge.py",
+      "line": 258,
+      "finding": "Negative workload return codes from signals are ignored when perf exits zero. A real SIGSEGV workload returned -11 directly, but its scoped perf wrapper returned zero and wrote a success recording receipt.",
+      "required_fix": "Propagate unexpected workload signal termination; distinguish native intentional daemon shutdown; add negative regression coverage."
+    },
+    {
+      "id": "R2",
+      "priority": "P2",
+      "file": "prepare_repair_queue.py",
+      "line": 35,
+      "finding": "Passing reused evidence stores only result.json hash. Raw stdout/stderr have no bound checksums in the original result; latest() verifies logs only when optional logs_sha256 exists. A synthetic changed integration log was still accepted.",
+      "required_fix": "Bind original passing log/artifact checksums at measurement and verify them before reuse and packet creation."
+    },
+    {
+      "id": "R3",
+      "priority": "P2",
+      "file": "repair_workflow.py",
+      "line": 66,
+      "finding": "Integration guard checks only six passing Bazel targets; it accepts skipped applicable Python test cases. Actual retained evidence has 13 passed cases and one QNX-only case skipped on Linux.",
+      "required_fix": "Verify applicable case-level outcomes and explicitly retain source-supported platform exclusions; reject missing-capability skips."
+    }
+  ],
+  "positive_evidence": {
+    "archive_integrity": "verified",
+    "native_repair_loop": "failed check -> orchestrator -> repair -> passing check within one run",
+    "integration_bazel_targets_passed": 6,
+    "integration_python_cases_passed": 13,
+    "integration_qnx_only_cases_skipped_on_linux": 1,
+    "profiling_targets_passed": 2,
+    "profiling_datasets": 12,
+    "profiling_flamegraphs": 12,
+    "benchmark_json_entries": [
+      43,
+      1
+    ],
+    "benchmark_reported_errors": 0
+  },
+  "upstream_issue_scope": {
+    "url": "https://github.com/eclipse-score/inc_someip_gateway/issues/84",
+    "implementation": "Duplicate registration key fix; public identifier representation and discovery redesign remain outside implemented scope",
+    "closure": "Requires maintainer agreement on accepted scope; this scoped pass is not full issue implementation"
+  },
+  "native_history_modified": false,
+  "queue_rerun": false
+}

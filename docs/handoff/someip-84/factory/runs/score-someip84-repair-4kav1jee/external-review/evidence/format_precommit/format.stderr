@@ -1,0 +1,27 @@
+OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Computing main repo mapping: 
+Loading: 
+Loading: 2 packages loaded
+Analyzing: 4 targets (3 packages loaded, 0 targets configured)
+Analyzing: 4 targets (3 packages loaded, 0 targets configured)
+
+Analyzing: 4 targets (165 packages loaded, 6340 targets configured)
+[1 / 1] no actions running
+Analyzing: 4 targets (166 packages loaded, 6345 targets configured)
+[19 / 19] 3 / 3 tests; no actions running
+Analyzing: 4 targets (166 packages loaded, 6345 targets configured)
+[19 / 19] 3 / 3 tests; no actions running
+Analyzing: 4 targets (166 packages loaded, 6345 targets configured)
+[19 / 19] 3 / 3 tests; no actions running
+INFO: Analyzed 4 targets (167 packages loaded, 6348 targets configured).
+INFO: Found 4 test targets...
+INFO: Elapsed time: 184.298s, Critical Path: 0.56s
+INFO: 25 processes: 17 internal, 8 local.
+INFO: Build completed successfully, 25 total actions

@@ -1,0 +1,506 @@
+==================== Test output for //tests/benchmarks:e2e_benchmarks_profiling:
+============================= test session starts ==============================
+platform linux -- Python 3.12.12, pytest-9.1.1, pluggy-1.6.0 -- /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/rules_python++python+python_3_12_x86_64-unknown-linux-gnu/bin/python3
+cachedir: .pytest_cache
+benchmark: 4.0.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/score_bazel_tools_python+/quality/private/python/support
+configfile: pyproject.toml
+plugins: benchmark-4.0.0, bdd-7.1.1, mock-3.12.0, rerunfailures-14.0, timeout-2.3.1
+collecting ... collected 1 item
+
+../score_bazel_tools_python+/quality/private/python/support::test_e2e_benchmarks_profiling <- ../../../../../_main/tests/benchmarks/test_e2e_benchmarks_profiling.py FAILED [100%]
+
+=================================== FAILURES ===================================
+________________________ test_e2e_benchmarks_profiling _________________________
+
+    def test_e2e_benchmarks_profiling() -> None:
+        """Benchmark only LatencyEcho for focused profiling."""
+>       run_e2e_benchmarks(
+            artifact_subdir="e2e_benchmarks_profiling",
+            benchmark_filter="^IpcBenchmark/Throughput/3/.*",
+        )
+
+tests/benchmarks/test_e2e_benchmarks_profiling.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/benchmarks/e2e_benchmark_runner.py:124: in run_e2e_benchmarks
+    _ = subprocess.run(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = False, timeout = 180, check = True
+popenargs = (['/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-4kav1jee/perf-bin/pe...tlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/ipc_benchmarks.perf.data', ...],)
+kwargs = {}
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-4kav1jee/perf-bin/perf', 'record', '--call-graph', 'fp', '-o', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/ipc_benchmarks.perf.data', '--', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/ipc_benchmarks', '--service_instance_manifest', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/config/bench/mw_com_config.json', '--benchmark_out=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/benchmarks.json', '--benchmark_out_format=json', '--benchmark_filter=^IpcBenchmark/Throughput/3/.*']' returned non-zero exit status 254.
+
+../../../../../../../../../../../../execroot/_main/external/rules_python++python+python_3_12_x86_64-unknown-linux-gnu/lib/python3.12/subprocess.py:571: CalledProcessError
+----------------------------- Captured stdout call -----------------------------
+Starting IPC Performance Benchmarks...
+Waiting for the echo server to become available...
+Initializing benchmark infrastructure...
+Looking for echo_response service...
+Creating and offering echo_request service...
+Benchmark infrastructure initialized successfully - ready to start benchmarks
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+2026/10/03 11:14:41.6081421 771470044 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:14:41.6081421 771470044 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:14:41.6081421 771470044 000 ECU1 NONE lola log warn verbose 5 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Benchmark                                                Time             CPU   Iterations batch_size bytes_per_sec drop_ratio dropped_messages payload_bytes received_messages sent_messages
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+IpcBenchmark/Throughput/3/min_warmup_time:1.000       1082 us         1082 us          792         15    7.26694M/s  0.0328283               26        8.192k               760           792 Large_8KB
+MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:14:41.6081421 771470044 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:14:41.6081421 771470044 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:14:41.6081421 771470045 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:14:41.6081421 771470045 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:14:41.6081421 771470045 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:14:41.6081421 771470045 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Benchmark infrastructure cleaned up
+----------------------------- Captured stderr call -----------------------------
+2026-10-03T11:14:32+00:00
+Running /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/ipc_benchmarks
+Run on (32 X 5600 MHz CPU s)
+CPU Caches:
+  L1 Data 48 KiB (x16)
+  L1 Instruction 32 KiB (x16)
+  L2 Unified 2048 KiB (x16)
+  L3 Unified 36864 KiB (x1)
+Load Average: 2.20, 1.14, 1.06
+architecture: x86_64
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+***WARNING*** ASLR is enabled, the results may have unreproducible noise in them.
+mw::log initialization error: Error No logging configuration files could be found. occurred with context information: Failed to load configuration files. Fallback to console logging.
+score perf: namespace PID 150 bound to host PID 80252
+WARNING: Kernel address maps (/proc/{kallsyms,modules}) are restricted,
+check /proc/sys/kernel/kptr_restrict and /proc/sys/kernel/perf_event_paranoid.
+
+Samples in kernel functions may not be resolved if a suitable vmlinux
+file is not found in the buildid cache or in the vmlinux path.
+
+Samples in kernel modules won't be resolved at all.
+
+If some relocation was applied (e.g. kexec) symbols may be misresolved
+even with a suitable vmlinux or kallsyms file.
+
+Couldn't record kernel reference relocation symbol
+Symbol resolution may be skewed if relocation was used (e.g. kexec).
+Check /proc/kallsyms permission or run as root.
+[ perf record: Woken up 754 times to write data ]
+[ perf record: Captured and wrote 0.738 MB /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/ipc_benchmarks.perf.data (3906 samples) ]
+=========================== short test summary info ============================
+FAILED ../score_bazel_tools_python+/quality/private/python/support::test_e2e_benchmarks_profiling - subprocess.CalledProcessError: Command '['/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-4kav1jee/perf-bin/perf', 'record', '--call-graph', 'fp', '-o', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/ipc_benchmarks.perf.data', '--', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/ipc_benchmarks', '--service_instance_manifest', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/config/bench/mw_com_config.json', '--benchmark_out=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/benchmarks.json', '--benchmark_out_format=json', '--benchmark_filter=^IpcBenchmark/Throughput/3/.*']' returned non-zero exit status 254.
+============================== 1 failed in 11.87s ==============================
+================================================================================
+==================== Test output for //tests/benchmarks:e2e_benchmarks:
+============================= test session starts ==============================
+platform linux -- Python 3.12.12, pytest-9.1.1, pluggy-1.6.0 -- /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks.runfiles/rules_python++python+python_3_12_x86_64-unknown-linux-gnu/bin/python3
+cachedir: .pytest_cache
+benchmark: 4.0.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks.runfiles/score_bazel_tools_python+/quality/private/python/support
+configfile: pyproject.toml
+plugins: benchmark-4.0.0, bdd-7.1.1, mock-3.12.0, rerunfailures-14.0, timeout-2.3.1
+collecting ... collected 1 item
+
+../score_bazel_tools_python+/quality/private/python/support::test_e2e_benchmarks <- ../../../../../_main/tests/benchmarks/test_e2e_benchmarks.py FAILED [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_e2e_benchmarks ______________________________
+
+    def test_e2e_benchmarks() -> None:
+        """Benchmark a request/response pair that must traverse the SOME/IP link."""
+>       run_e2e_benchmarks(artifact_subdir="e2e_benchmarks")
+
+tests/benchmarks/test_e2e_benchmarks.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/benchmarks/e2e_benchmark_runner.py:124: in run_e2e_benchmarks
+    _ = subprocess.run(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = False, timeout = 180, check = True
+popenargs = (['/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-4kav1jee/perf-bin/pe...bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks/test.outputs/e2e_benchmarks/ipc_benchmarks.perf.data', ...],)
+kwargs = {}
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-4kav1jee/perf-bin/perf', 'record', '--call-graph', 'fp', '-o', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks/test.outputs/e2e_benchmarks/ipc_benchmarks.perf.data', '--', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks.runfiles/_main/tests/benchmarks/ipc_benchmarks', '--service_instance_manifest', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks.runfiles/_main/tests/benchmarks/config/bench/mw_com_config.json', '--benchmark_out=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks/test.outputs/e2e_benchmarks/benchmarks.json', '--benchmark_out_format=json']' returned non-zero exit status 254.
+
+../../../../../../../../../../../../execroot/_main/external/rules_python++python+python_3_12_x86_64-unknown-linux-gnu/lib/python3.12/subprocess.py:571: CalledProcessError
+----------------------------- Captured stdout call -----------------------------
+Starting IPC Performance Benchmarks...
+Waiting for the echo server to become available...
+Initializing benchmark infrastructure...
+Looking for echo_response service...
+Creating and offering echo_request service...
+Benchmark infrastructure initialized successfully - ready to start benchmarks
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+-----------------------------------------------------------------------------------------------------------------
+Benchmark                                                         Time             CPU   Iterations payload_bytes
+-----------------------------------------------------------------------------------------------------------------
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             10891 us        10890 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             10822 us        10818 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11286 us        11286 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             10948 us        10947 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11079 us        11078 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11179 us        11179 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11193 us        11193 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11185 us        11185 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11121 us        11120 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11150 us        11148 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11168 us        11167 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11461 us        11461 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11057 us        11057 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11270 us        11267 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             10982 us        10981 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             10989 us        10988 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11144 us        11144 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11267 us        11267 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11475 us        11475 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11433 us        11433 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11133 us        11133 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11250 us        11249 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11037 us        11037 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11031 us        11030 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11144 us        11144 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11256 us        11256 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11266 us        11265 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             11234 us        11233 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             10905 us        10904 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time             10972 us        10971 us           74           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time_mean        11144 us        11144 us           30           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time_median      11147 us        11146 us           30           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time_stddev        164 us          164 us           30             0 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time_cv           1.47 %          1.47 %            30         0.00% Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time_p50         11147 us        11146 us           30           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time_p90         11301 us        11301 us           30           592 Tiny_8B
+IpcBenchmark/LatencyEcho/0/repeats:30/manual_time_p99         11471 us        11471 us           30           592 Tiny_8B
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8...
+2026/10/03 11:16:07.6167465 772330485 000 ECU1 NONE lola log warn verbose 5 Waiting for echo server to connect...
+MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:0, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:10.6170218 772358017 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:0, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:10.6170218 772358017 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:0, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:10.6170218 772358017 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:0, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Benchmark                                                         Time             CPU   Iterations batch_size bytes_per_sec drop_ratio dropped_messages payload_bytes received_messages sent_messages
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+IpcBenchmark/Throughput/0/min_warmup_time:1.000                1116 us         1115 us          675         13    6.82407k/s  0.0296296               20             8               642           675 Tiny_8B
+2026/10/03 11:16:10.6170218 772358017 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:0, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Subscribing to echo_response service event64...
+2026/10/03 11:16:10.6170218 772358018 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:0, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Waiting for echo server to connect...
+2026/10/03 11:16:10.6170218 772358018 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:0, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Subscribing to echo_response service event64...
+Waiting for echo server to connect...
+Subscribing to echo_response service event64...
+Waiting for echo server to connect...
+Subscribing to echo_response service event64...
+2026/10/03 11:16:16.6176320 772419040 000 ECU1 NONE lola log warn verbose 5 Waiting for echo server to connect...
+MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:1, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:18.6178399 772439829 000 ECU1 NONE lola log error verbose 4 SkeletonEvent::Allocate failed:  Local failure has been detected by the binding. :  
+2026/10/03 11:16:19.6179082 772446661 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:1, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:19.6179082 772446661 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:1, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:19.6179082 772446661 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:1, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:19.6179082 772446661 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:1, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+IpcBenchmark/Throughput/1/min_warmup_time:1.000                1104 us         1104 us          690         14    55.0432k/s  0.0304348               21            64               655           690 Small_64B
+Subscribing to echo_response service event1024...
+Waiting for echo server to connect...
+Subscribing to echo_response service event1024...
+Waiting for echo server to connect...
+Subscribing to echo_response service event1024...
+Waiting for echo server to connect...
+Subscribing to echo_response service event1024...
+2026/10/03 11:16:25.6185187 772507707 000 ECU1 NONE lola log warn verbose 5 Waiting for echo server to connect...
+MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:2, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:27.6187941 772535247 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:2, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+IpcBenchmark/Throughput/2/min_warmup_time:1.000                1115 us         1115 us          676         11    880.721k/s  0.0310651               21        1.024k               648           676 Medium_1KB
+2026/10/03 11:16:27.6187941 772535247 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:2, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+2026/10/03 11:16:27.6187941 772535247 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:2, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:27.6187941 772535247 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:2, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:27.6187941 772535247 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:2, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:27.6187941 772535248 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:2, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:27.6187941 772535248 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:2, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:27.6187941 772535248 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:2, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8192...
+2026/10/03 11:16:34.6194042 772596258 000 ECU1 NONE lola log warn verbose 5 Waiting for echo server to connect...
+MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:16:36.6196759 772623431 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+IpcBenchmark/Throughput/3/min_warmup_time:1.000                1024 us         1024 us          700         15    7.54465M/s  0.0357143               25        8.192k               660           700 Large_8KB
+2026/10/03 11:16:36.6196759 772623432 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Subscribing to echo_response service event65536...
+2026/10/03 11:16:36.6196759 772623432 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Waiting for echo server to connect...
+2026/10/03 11:16:36.6196759 772623432 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Subscribing to echo_response service event65536...
+Waiting for echo server to connect...
+Subscribing to echo_response service event65536...
+Waiting for echo server to connect...
+Subscribing to echo_response service event65536...
+Waiting for echo server to connect...
+Subscribing to echo_response service event65536...
+2026/10/03 11:16:45.6205267 772708512 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:4, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Waiting for echo server to connect...
+IpcBenchmark/Throughput/4/min_warmup_time:1.000                 471 us          471 us         1294         54    132.319M/s   7.72798m               10       65.536k             1.23k        1.294k XLarge_64KB
+Subscribing to echo_response service event1048576...
+Waiting for echo server to connect...
+Subscribing to echo_response service event1048576...
+Waiting for echo server to connect...
+Subscribing to echo_response service event1048576...
+Waiting for echo server to connect...
+Subscribing to echo_response service event1048576...
+Waiting for echo server to connect...
+IpcBenchmark/Throughput/5/min_warmup_time:1.000                 992 us          990 us          573         34      976.1M/s  0.0191972               11      1.04858M               528           573 XXLarge_1MB
+2026/10/03 11:16:56.6216571 772821552 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:5, I:1, T:1}  from node  41  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Benchmark infrastructure cleaned up
+----------------------------- Captured stderr call -----------------------------
+2026-10-03T11:14:32+00:00
+Running /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks.runfiles/_main/tests/benchmarks/ipc_benchmarks
+Run on (32 X 5600 MHz CPU s)
+CPU Caches:
+  L1 Data 48 KiB (x16)
+  L1 Instruction 32 KiB (x16)
+  L2 Unified 2048 KiB (x16)
+  L3 Unified 36864 KiB (x1)
+Load Average: 2.20, 1.14, 1.06
+architecture: x86_64
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+***WARNING*** ASLR is enabled, the results may have unreproducible noise in them.
+mw::log initialization error: Error No logging configuration files could be found. occurred with context information: Failed to load configuration files. Fallback to console logging.
+score perf: namespace PID 151 bound to host PID 80293
+WARNING: Kernel address maps (/proc/{kallsyms,modules}) are restricted,
+check /proc/sys/kernel/kptr_restrict and /proc/sys/kernel/perf_event_paranoid.
+
+Samples in kernel functions may not be resolved if a suitable vmlinux
+file is not found in the buildid cache or in the vmlinux path.
+
+Samples in kernel modules won't be resolved at all.
+
+If some relocation was applied (e.g. kexec) symbols may be misresolved
+even with a suitable vmlinux or kallsyms file.
+
+Couldn't record kernel reference relocation symbol
+Symbol resolution may be skewed if relocation was used (e.g. kexec).
+Check /proc/kallsyms permission or run as root.
+[ perf record: Woken up 917 times to write data ]
+[ perf record: Captured and wrote 22.768 MB /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks/test.outputs/e2e_benchmarks/ipc_benchmarks.perf.data (120720 samples) ]
+=========================== short test summary info ============================
+FAILED ../score_bazel_tools_python+/quality/private/python/support::test_e2e_benchmarks - subprocess.CalledProcessError: Command '['/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-4kav1jee/perf-bin/perf', 'record', '--call-graph', 'fp', '-o', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks/test.outputs/e2e_benchmarks/ipc_benchmarks.perf.data', '--', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks.runfiles/_main/tests/benchmarks/ipc_benchmarks', '--service_instance_manifest', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks.runfiles/_main/tests/benchmarks/config/bench/mw_com_config.json', '--benchmark_out=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks/test.outputs/e2e_benchmarks/benchmarks.json', '--benchmark_out_format=json']' returned non-zero exit status 254.
+======================== 1 failed in 147.08s (0:02:27) =========================
+================================================================================
+//tests/benchmarks:e2e_benchmarks                                        FAILED in 147.9s
+  /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks/test.log
+//tests/benchmarks:e2e_benchmarks_profiling                              FAILED in 12.7s
+  /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.log
+
+Executed 2 out of 2 tests: 2 fail locally.

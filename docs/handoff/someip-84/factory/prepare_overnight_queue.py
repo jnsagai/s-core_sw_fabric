@@ -18,6 +18,8 @@ from obligations import CHECKS as OBLIGATION_CHECKS
 from obligations import SOURCES as OBLIGATION_SOURCES
 from obligations import TASKS as OBLIGATION_TASKS
 from prepare import HERE, semantic_seal, sha, write
+from queue_tools import freeze_tools
+from repair_workflow import external_handoff_action
 
 from score_sw_fabric.compiler.ir import build_ir
 from score_sw_fabric.compiler.mapping import project_mapping
@@ -559,6 +561,8 @@ def main() -> None:
             "label": "Overnight draft and measurements; human review pending",
         }
     )
+    gate, handoff = external_handoff_action(gate, origin)
+    support.append(handoff)
     actions.append(gate)
     refs.append(gate["ref"])
     gate["instance_ids"].append("overnight-" + gate["ref"])
@@ -624,6 +628,7 @@ def main() -> None:
             ]
         )
     mapping["edges"].append(edge(gate["ref"], "exit", "success"))
+    mapping["edges"].append(edge(gate["ref"], "exit", "failure"))
     graph = build_ir(project_mapping(plan, mapping, profile), mapping, profile)
     gate_id = next(n["id"] for n in graph["nodes"] if n["ref"] == gate["ref"])
     mapping["loop_policies"] = [
@@ -673,7 +678,15 @@ def main() -> None:
     shutil.copyfile(HERE / "overnight_hooks.py", root / "overnight_hooks.py")
     shutil.copyfile(HERE / "measure.py", root / "measure.py")
     if args.all_obligations:
-        for filename in ("collect_obligations.py", "obligations.py"):
+        freeze_tools(root)
+        for filename in (
+            "collect_obligations.py",
+            "evidence.py",
+            "integration_evidence.py",
+            "obligations.py",
+            "queue_tools.py",
+            "native_git.py",
+        ):
             shutil.copyfile(HERE / filename, root / filename)
     shutil.copyfile(Path(supervision.__file__), root / "supervision.py")
     for event in ("stage_start", "pre_tool_use"):
@@ -792,7 +805,19 @@ def main() -> None:
                     if (root / "storage-selection.json").exists()
                     else ()
                 )
-                + (("collect_obligations.py", "obligations.py") if args.all_obligations else ())
+                + (
+                    (
+                        "collect_obligations.py",
+                        "evidence.py",
+                        "integration_evidence.py",
+                        "obligations.py",
+                        "queue_tools.py",
+                        "queue-tools.json",
+                        "native_git.py",
+                    )
+                    if args.all_obligations
+                    else ()
+                )
             },
         },
     )

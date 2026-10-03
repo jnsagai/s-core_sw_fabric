@@ -1,0 +1,26 @@
+{
+  "score/socom/BUILD": {
+    "sha256": "68f4645a21e495fac43929fb125f7ba0b9e29fc84c0401fdb95238ffb7fd2cc8",
+    "baseline_sha256": "386afdc44a2ee443089ebd2e8f86a5ddcafb96b8a8c69944febcf745ad7b9fa8"
+  },
+  "score/socom/impl/service_identifier.cpp": {
+    "sha256": "41d5f54fdc972589df540e180ef7a8711b08e353b75958307de334a703de06ea",
+    "baseline_sha256": "153e9a5aebd8e13f934a8984c1f64edd318745123e6868a8a8d0b44222b673a7"
+  },
+  "score/socom/impl/service_identifier.hpp": {
+    "sha256": "fdc2aafad97d11f20b238ea4c01c96c983b7ead11be106b5e623ad0f9ab33838",
+    "baseline_sha256": "5e4c88cc898f3f74ed2a8d1df3f442d928af05b5915347287b203cdc5a499175"
+  },
+  "score/socom/test/unit/BUILD": {
+    "sha256": "e909151e822370bebe8d59b86369bddeb4d6cacfa02f10061bf6e134671ff9d4",
+    "baseline_sha256": "c6d813c06df18018522905f33d47bece606eb77b9fa3f6cd110e9cb78d684ce0"
+  },
+  "score/socom/test/unit/runtime_tests.cpp": {
+    "sha256": "00d52cf99364f17c511b1be81579dd9fcc3ef5b82f77b4458419ae28cc3e4999",
+    "baseline_sha256": "dc81f6e14651c702faba59f86905253dc9a98ac2f3271c776b66a541a8acfbb0"
+  },
+  "score/socom/test/unit/service_identifier_tests.cpp": {
+    "sha256": "4f9305ad460a562a92138f5b842e5799e5855a5b3becec09aac8fd8e46ceca56",
+    "baseline_sha256": null
+  }
+}

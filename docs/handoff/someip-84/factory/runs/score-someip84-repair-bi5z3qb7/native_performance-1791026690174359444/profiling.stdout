@@ -1,0 +1,33 @@
+==================== Test output for //tests/benchmarks:e2e_benchmarks_profiling:
+============================= test session starts ==============================
+platform linux -- Python 3.12.12, pytest-9.1.1, pluggy-1.6.0 -- /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/rules_python++python+python_3_12_x86_64-unknown-linux-gnu/bin/python3
+cachedir: .pytest_cache
+benchmark: 4.0.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/score_bazel_tools_python+/quality/private/python/support
+configfile: pyproject.toml
+plugins: benchmark-4.0.0, bdd-7.1.1, mock-3.12.0, rerunfailures-14.0, timeout-2.3.1
+collecting ... collected 1 item
+
+../score_bazel_tools_python+/quality/private/python/support::test_e2e_benchmarks_profiling <- ../../../../../_main/tests/benchmarks/test_e2e_benchmarks_profiling.py PASSED [100%]
+
+============================== 1 passed in 16.78s ==============================
+================================================================================
+==================== Test output for //tests/benchmarks:e2e_benchmarks:
+============================= test session starts ==============================
+platform linux -- Python 3.12.12, pytest-9.1.1, pluggy-1.6.0 -- /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks.runfiles/rules_python++python+python_3_12_x86_64-unknown-linux-gnu/bin/python3
+cachedir: .pytest_cache
+benchmark: 4.0.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/2/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks.runfiles/score_bazel_tools_python+/quality/private/python/support
+configfile: pyproject.toml
+plugins: benchmark-4.0.0, bdd-7.1.1, mock-3.12.0, rerunfailures-14.0, timeout-2.3.1
+collecting ... collected 1 item
+
+../score_bazel_tools_python+/quality/private/python/support::test_e2e_benchmarks <- ../../../../../_main/tests/benchmarks/test_e2e_benchmarks.py PASSED [100%]
+
+======================== 1 passed in 165.21s (0:02:45) =========================
+================================================================================
+//tests/benchmarks:e2e_benchmarks                                        PASSED in 166.2s
+//tests/benchmarks:e2e_benchmarks_profiling                              PASSED in 17.7s
+
+Executed 2 out of 2 tests: 2 tests pass.
+There were tests whose specified size is too big. Use the --test_verbose_timeout_warnings command line option to see which ones these are.

@@ -1,0 +1,7 @@
+{
+  "engineering_review": "pending",
+  "instruction": "Install cloud-localds, repair disposable Git metadata and rerun missing checks",
+  "paid_calls": "none: no agent nodes",
+  "scope": "Deterministic selected missing/timed-out commands only; preserved source",
+  "scope_correction": "be sure to not run everything again, just want is missing"
+}

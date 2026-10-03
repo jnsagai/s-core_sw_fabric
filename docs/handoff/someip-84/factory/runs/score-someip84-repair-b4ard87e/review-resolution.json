@@ -1,0 +1,32 @@
+{
+  "review_type": "agent_technical_review_followup",
+  "reviewed_findings": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "verdict": "reported_findings_resolved_for_scoped_candidate",
+  "human_validation_performed": false,
+  "task_closure": "pending_external_human_validation",
+  "pr_readiness": "scoped_draft_for_external_review",
+  "issue_closure_readiness": false,
+  "upstream_issue_scope": "Identifier/discovery redesign requires implementation or explicit maintainer scope agreement",
+  "validation": {
+    "local_tests_passed": 147,
+    "local_tests_skipped": 0,
+    "ruff": "passed",
+    "mypy": "passed (122 source files)",
+    "foundation": "passed",
+    "package_build": "passed"
+  },
+  "frozen_code_sha256": {
+    "perf_bridge.py": "d26e20b68f8e474e09a72b1e52bf200f23b77621590e6d846c3a09b2b8451794",
+    "repair_workflow.py": "4846327bda51bd0ec040f458dd27f0d308eb6ec76423ebd3740368570780663e",
+    "repair_hooks.py": "c4e4ee861b79440a5a2d191049989798be81b489ad0ab4e1e0015c22482071b4",
+    "collect_obligations.py": "5e26eb5a9ffd70e9818aa589ac1575cfee7a34c4346704d27fa768c68bc9e53d",
+    "evidence.py": "e56007ceb0b1d7b251a73515ed6b923ca8b4dca342fe33d97446dba17e3f5de6",
+    "integration_evidence.py": "8bc8e63e71926c8a4967117afe0cfec89d579a0fb3b4656ef161ee6ef139a002",
+    "qualify_perf.py": "310184306c0eb5681c98b15f01fb0a0581c5d3c271523b1fb41ead0607964dc5"
+  },
+  "diagnostic_scope": "Synthetic profiler regressions qualify the tool; real native integration and performance supply candidate measurements"
+}

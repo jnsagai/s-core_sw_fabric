@@ -1,0 +1,12 @@
+{
+  "status": "verified_offline",
+  "archive_sha256": "0ca374da71f04130ba5abf7e8937cdf8600b1056bd2eddf2c4e6e6ce4610aabd",
+  "source_files_verified": 269,
+  "portable_evidence_files_verified": 112,
+  "datasets_verified": 12,
+  "flamegraphs_verified": 12,
+  "technical_completion": "complete",
+  "task_closure": "pending_external_human_validation",
+  "human_validation_performed": false,
+  "replay_directory": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-offline-review-tx7v9l33"
+}

@@ -1,0 +1,8 @@
+{
+  "archive": "review-packet.tar.gz",
+  "bytes": 36969655,
+  "sha256": "2b8f5c40ae194ba06f8e6c95933c05727ec8f4bec563ef7c4fc10ef3e33fa6da",
+  "file_manifest_sha256": "3352f4be82931e2598fac02597093c4f23f0cfbdd75f607a583601a742942c22",
+  "technical_completion": "complete",
+  "task_closure": "pending_external_human_validation"
+}

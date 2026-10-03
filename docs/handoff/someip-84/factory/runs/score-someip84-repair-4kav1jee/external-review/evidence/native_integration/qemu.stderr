@@ -1,0 +1,43 @@
+OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+Computing main repo mapping: 
+Computing main repo mapping: 
+Loading: 
+Loading: 3 packages loaded
+Analyzing: 31 targets (8 packages loaded, 0 targets configured)
+Analyzing: 31 targets (8 packages loaded, 0 targets configured)
+
+Analyzing: 31 targets (289 packages loaded, 10510 targets configured)
+[1 / 1] no actions running
+WARNING: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/external/score_baselibs+/score/mw/log/detail/wait_free_stack/BUILD:23:11: in cc_library rule @@score_baselibs+//score/mw/log/detail/wait_free_stack:wait_free_stack: target '@@score_baselibs+//score/mw/log/detail/wait_free_stack:wait_free_stack' depends on deprecated target '@@score_baselibs+//score/memory/shared:atomic_indirector': This target is deprecated. Use @score_baselibs//score/concurrency:atomic_indirector instead.
+WARNING: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/external/score_baselibs+/score/json/internal/model/BUILD:17:11: in cc_library rule @@score_baselibs+//score/json/internal/model:model: target '@@score_baselibs+//score/json/internal/model:model' depends on deprecated target '@@score_baselibs+//score/memory:string_comparison_adaptor': This target is deprecated. Use @score_baselibs//score/string_manipulation:string_comparison_adaptor instead.
+WARNING: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/external/score_baselibs+/score/mw/log/detail/text_recorder/BUILD:23:11: in cc_library rule @@score_baselibs+//score/mw/log/detail/text_recorder:text_recorder: target '@@score_baselibs+//score/mw/log/detail/text_recorder:text_recorder' depends on deprecated target '@@score_baselibs+//score/os/utils:high_resolution_steady_clock': Deprecated, please use //platform/aas/mw/time/HighPrecisionLocalSteadyClock instead
+WARNING: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/external/score_baselibs+/score/mw/log/configuration/BUILD:63:11: in cc_library rule @@score_baselibs+//score/mw/log/configuration:configuration_parser: target '@@score_baselibs+//score/mw/log/configuration:configuration_parser' depends on deprecated target '@@score_baselibs+//score/memory:split_string_view': This target is deprecated. Use @score_baselibs//score/string_manipulation:split_string_view instead.
+Analyzing: 31 targets (325 packages loaded, 31321 targets configured)
+[1 / 1] no actions running
+Analyzing: 31 targets (381 packages loaded, 72011 targets configured)
+[180 / 539] checking cached actions
+INFO: Analyzed 31 targets (382 packages loaded, 72023 targets configured).
+[553 / 1,410] checking cached actions
+[1,506 / 1,512] [Prepa] Testing //tests/integration_test:test_someipd_started_by_test ... (2 actions, 0 running)
+[1,506 / 1,512] Testing //tests/integration_test:test_someipd_startup; 1s linux-sandbox ... (2 actions running)
+[1,506 / 1,512] Testing //tests/integration_test:test_someipd_startup; 10s linux-sandbox ... (2 actions running)
+[1,506 / 1,512] 1 / 6 tests; Testing //tests/integration_test:test_someipd_startup; 19s linux-sandbox ... (2 actions running)
+INFO: From Testing //tests/integration_test:test_someipd_started_by_test:
+INFO: From Testing //tests/integration_test:test_someipd_startup:
+[1,508 / 1,512] 2 / 6 tests; Testing //tests/integration_test:test_someipd_sends_someip-sd_message; 1s linux-sandbox ... (2 actions running)
+[1,508 / 1,512] 2 / 6 tests; Testing //tests/integration_test:test_someipd_sends_someip-sd_message; 11s linux-sandbox ... (2 actions running)
+[1,508 / 1,512] 3 / 6 tests; Testing //tests/integration_test:test_someipd_sends_someip-sd_message; 19s linux-sandbox ... (2 actions running)
+INFO: From Testing //tests/integration_test:test_someipd_sends_someip-sd_message:
+[1,509 / 1,512] 3 / 6 tests; Testing //tests/integration_test:test_score_test_applications; 21s linux-sandbox ... (2 actions running)
+[1,509 / 1,512] 4 / 6 tests; Testing //tests/integration_test:test_score_test_applications; 23s linux-sandbox ... (2 actions running)
+INFO: From Testing //tests/integration_test:test_score_test_applications:
+[1,510 / 1,512] 4 / 6 tests; Testing //tests/integration_test:test_gateway_startup; 5s linux-sandbox ... (2 actions running)
+[1,510 / 1,512] 5 / 6 tests; Testing //tests/integration_test:test_gateway_startup; 14s linux-sandbox ... (2 actions running)
+INFO: From Testing //tests/integration_test:test_gateway_startup:
+[1,511 / 1,512] 5 / 6 tests; Testing //tests/integration_test:test_tcpdump; 11s linux-sandbox
+[1,511 / 1,512] 6 / 6 tests; Testing //tests/integration_test:test_tcpdump; 18s linux-sandbox
+INFO: From Testing //tests/integration_test:test_tcpdump:
+INFO: Found 25 targets and 6 test targets...
+INFO: Elapsed time: 84.867s, Critical Path: 26.63s
+INFO: 7 processes: 1513 action cache hit, 1 internal, 6 linux-sandbox.
+INFO: Build completed successfully, 7 total actions

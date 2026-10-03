@@ -1,0 +1,167 @@
+==================== Test output for //tests/benchmarks:e2e_benchmarks_profiling:
+============================= test session starts ==============================
+platform linux -- Python 3.12.12, pytest-9.1.1, pluggy-1.6.0 -- /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/rules_python++python+python_3_12_x86_64-unknown-linux-gnu/bin/python3
+cachedir: .pytest_cache
+benchmark: 4.0.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/score_bazel_tools_python+/quality/private/python/support
+configfile: pyproject.toml
+plugins: benchmark-4.0.0, bdd-7.1.1, mock-3.12.0, rerunfailures-14.0, timeout-2.3.1
+collecting ... collected 1 item
+
+../score_bazel_tools_python+/quality/private/python/support::test_e2e_benchmarks_profiling <- ../../../../../_main/tests/benchmarks/test_e2e_benchmarks_profiling.py FAILED [100%]
+
+=================================== FAILURES ===================================
+________________________ test_e2e_benchmarks_profiling _________________________
+
+    def test_e2e_benchmarks_profiling() -> None:
+        """Benchmark only LatencyEcho for focused profiling."""
+>       run_e2e_benchmarks(
+            artifact_subdir="e2e_benchmarks_profiling",
+            benchmark_filter="^IpcBenchmark/Throughput/3/.*",
+        )
+
+tests/benchmarks/test_e2e_benchmarks_profiling.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/benchmarks/e2e_benchmark_runner.py:124: in run_e2e_benchmarks
+    _ = subprocess.run(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = False, timeout = 180, check = True
+popenargs = (['/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-35ug26v0/perf-bin/pe...tlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/ipc_benchmarks.perf.data', ...],)
+kwargs = {}
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-35ug26v0/perf-bin/perf', 'record', '--call-graph', 'fp', '-o', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/ipc_benchmarks.perf.data', '--', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/ipc_benchmarks', '--service_instance_manifest', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/config/bench/mw_com_config.json', '--benchmark_out=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/benchmarks.json', '--benchmark_out_format=json', '--benchmark_filter=^IpcBenchmark/Throughput/3/.*']' returned non-zero exit status 255.
+
+../../../../../../../../../../../../execroot/_main/external/rules_python++python+python_3_12_x86_64-unknown-linux-gnu/lib/python3.12/subprocess.py:571: CalledProcessError
+----------------------------- Captured stdout call -----------------------------
+Starting IPC Performance Benchmarks...
+Waiting for the echo server to become available...
+Initializing benchmark infrastructure...
+Looking for echo_response service...
+Creating and offering echo_request service...
+Benchmark infrastructure initialized successfully - ready to start benchmarks
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+Subscribing to echo_response service event8192...
+Waiting for echo server to connect...
+2026/10/03 11:03:01.5381628 764472117 000 ECU1 NONE lola log warn verbose 5 Subscribing to echo_response service event8192...
+MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  53  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Waiting for echo server to connect...
+2026/10/03 11:03:01.5381628 764472118 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  53  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:03:04.5384384 764499676 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  53  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+2026/10/03 11:03:04.5384384 764499676 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  53  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Benchmark                                                Time             CPU   Iterations batch_size bytes_per_sec drop_ratio dropped_messages payload_bytes received_messages sent_messages
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+IpcBenchmark/Throughput/3/min_warmup_time:1.000       1090 us         1090 us          693         14    7.13727M/s   0.034632               24        8.192k               658           693 Large_8KB
+2026/10/03 11:03:04.5384384 764499676 000 ECU1 NONE lola log warn verbose 5 MessagePassingService: Received NotifyEventUpdateMessage for event:  ElementFqId{S:7203, E:3, I:1, T:1}  from node  53  although we don't have currently any registered handlers. Might be an acceptable race, if it happens seldom! 
+Benchmark infrastructure cleaned up
+----------------------------- Captured stderr call -----------------------------
+2026-10-03T11:02:55+00:00
+Running /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/ipc_benchmarks
+Run on (32 X 5600 MHz CPU s)
+CPU Caches:
+  L1 Data 48 KiB (x16)
+  L1 Instruction 32 KiB (x16)
+  L2 Unified 2048 KiB (x16)
+  L3 Unified 36864 KiB (x1)
+Load Average: 2.75, 1.24, 1.28
+architecture: x86_64
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+***WARNING*** ASLR is enabled, the results may have unreproducible noise in them.
+mw::log initialization error: Error No logging configuration files could be found. occurred with context information: Failed to load configuration files. Fallback to console logging.
+WARNING: Error loading config file: open /root/.docker/config.json: permission denied
+score perf: namespace PID 148 bound to host PID 59239
+WARNING: Kernel address maps (/proc/{kallsyms,modules}) are restricted,
+check /proc/sys/kernel/kptr_restrict and /proc/sys/kernel/perf_event_paranoid.
+
+Samples in kernel functions may not be resolved if a suitable vmlinux
+file is not found in the buildid cache or in the vmlinux path.
+
+Samples in kernel modules won't be resolved at all.
+
+If some relocation was applied (e.g. kexec) symbols may be misresolved
+even with a suitable vmlinux or kallsyms file.
+
+Permission error mapping pages.
+Consider increasing /proc/sys/kernel/perf_event_mlock_kb,
+or try again with a smaller value of -m/--mmap_pages.
+(current value: 4294967295,0)
+=========================== short test summary info ============================
+FAILED ../score_bazel_tools_python+/quality/private/python/support::test_e2e_benchmarks_profiling - subprocess.CalledProcessError: Command '['/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-35ug26v0/perf-bin/perf', 'record', '--call-graph', 'fp', '-o', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/ipc_benchmarks.perf.data', '--', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/ipc_benchmarks', '--service_instance_manifest', '/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/bin/tests/benchmarks/e2e_benchmarks_profiling.runfiles/_main/tests/benchmarks/config/bench/mw_com_config.json', '--benchmark_out=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/sandbox/linux-sandbox/1/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/benchmarks.json', '--benchmark_out_format=json', '--benchmark_filter=^IpcBenchmark/Throughput/3/.*']' returned non-zero exit status 255.
+============================== 1 failed in 10.61s ==============================
+================================================================================
+//tests/benchmarks:e2e_benchmarks                                     NO STATUS
+//tests/benchmarks:e2e_benchmarks_profiling                              FAILED in 11.5s
+  /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.log
+
+Executed 1 out of 2 tests: 1 fails locally and 1 was skipped.

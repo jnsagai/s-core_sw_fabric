@@ -1,0 +1,26 @@
+{
+  "label": "native-unit-build",
+  "argv": [
+    "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_/bin/bazel",
+    "--batch",
+    "--output_user_root=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/bazel-cache",
+    "build",
+    "--jobs=2",
+    "//score/socom/test/unit:service_identifier_tests"
+  ],
+  "cwd": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/native-workspace",
+  "environment": {
+    "PATH": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_/bin:/usr/local/bin:/usr/bin:/bin",
+    "HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/tool-home",
+    "TMPDIR": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/tool-tmp",
+    "BAZELISK_HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/bazelisk",
+    "USE_BAZEL_VERSION": "8.6.0",
+    "PRE_COMMIT_HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/precommit-cache",
+    "XDG_CACHE_HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/tool-cache",
+    "LANG": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/x86_64-linux-gnu",
+    "VALGRIND_LIB": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_/valgrind/usr/libexec/valgrind"
+  },
+  "timeout_seconds": 780,
+  "exit_code": 1
+}

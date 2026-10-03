@@ -1,0 +1,34 @@
+{
+  "label": "profiling",
+  "argv": [
+    "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_/bin/bazel",
+    "--batch",
+    "--output_user_root=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache",
+    "test",
+    "--jobs=2",
+    "--test_env=E2E_PERF_PERF_BIN=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-bi5z3qb7/perf-bin/perf",
+    "--test_env=PATH=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_/bin:/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-tools-v5sgmcwb/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+    "--nocache_test_results",
+    "--test_output=all",
+    "--sandbox_writable_path=/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-bi5z3qb7/perf-invocations",
+    "--config=perf-tests-flamegraphs",
+    "//tests/benchmarks:e2e_benchmarks",
+    "//tests/benchmarks:e2e_benchmarks_profiling",
+    "--build_tests_only"
+  ],
+  "cwd": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/native-workspace",
+  "environment": {
+    "PATH": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_/bin:/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-tools-v5sgmcwb/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+    "HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-bi5z3qb7/tool-home",
+    "TMPDIR": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-bi5z3qb7/tool-tmp",
+    "BAZELISK_HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-bi5z3qb7/bazelisk",
+    "USE_BAZEL_VERSION": "8.6.0",
+    "PRE_COMMIT_HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-bi5z3qb7/precommit-cache",
+    "XDG_CACHE_HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-bi5z3qb7/tool-cache",
+    "LANG": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/x86_64-linux-gnu",
+    "VALGRIND_LIB": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_/valgrind/usr/libexec/valgrind"
+  },
+  "timeout_seconds": 1800,
+  "exit_code": 0
+}

@@ -1,0 +1,36 @@
+{
+  "label": "gcc-compile",
+  "argv": [
+    "/usr/bin/x86_64-linux-gnu-g++-12",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pthread",
+    "-I.",
+    "-I/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/source/.llm_tmp/googletest/googletest/include",
+    "-I/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/source/.llm_tmp/googletest/googletest",
+    "score/socom/impl/service_identifier.cpp",
+    "score/socom/impl/string_registry.cpp",
+    "score/socom/test/unit/service_identifier_tests.cpp",
+    "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/gcc-gtest-0.o",
+    "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/gcc-gtest-1.o",
+    "-o",
+    "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/gcc"
+  ],
+  "cwd": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/source",
+  "environment": {
+    "PATH": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_/bin:/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-tools-v5sgmcwb/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+    "HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/tool-home",
+    "TMPDIR": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/tool-tmp",
+    "BAZELISK_HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/bazelisk",
+    "USE_BAZEL_VERSION": "8.6.0",
+    "PRE_COMMIT_HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/precommit-cache",
+    "XDG_CACHE_HOME": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/tool-cache",
+    "LANG": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/x86_64-linux-gnu",
+    "VALGRIND_LIB": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_/valgrind/usr/libexec/valgrind"
+  },
+  "timeout_seconds": 240,
+  "exit_code": 0
+}

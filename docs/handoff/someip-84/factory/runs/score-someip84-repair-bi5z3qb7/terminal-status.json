@@ -1,0 +1,43 @@
+{
+  "run_id": "01M40R4FYAZR2PGCH5AQF4DRMC",
+  "native_status": {
+    "kind": "succeeded",
+    "reason": "completed"
+  },
+  "worker_alive": false,
+  "technical_completion": "complete",
+  "task_closure": "pending_external_human_validation",
+  "human_validation": {
+    "required": true,
+    "location": "outside_fabro",
+    "status": "pending"
+  },
+  "mandatory_results": {
+    "format_precommit": true,
+    "native_integration": true,
+    "native_performance": true,
+    "compiler_diagnostics": true,
+    "native_tests": true
+  },
+  "executed_groups": [
+    "native_performance"
+  ],
+  "reused_checks": [
+    "compiler_diagnostics",
+    "format_precommit",
+    "native_integration",
+    "native_tests"
+  ],
+  "original_diagnostic_reuse_only": true,
+  "same_run_profile_loop": [
+    "check_failed",
+    "orchestrate",
+    "repair",
+    "check_passed"
+  ],
+  "human_interviews": 0,
+  "model_calls": 0,
+  "automatic_replacement": false,
+  "profiling_datasets": 12,
+  "flamegraphs": 12
+}

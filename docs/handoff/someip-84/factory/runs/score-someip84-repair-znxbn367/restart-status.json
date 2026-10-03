@@ -1,0 +1,23 @@
+{
+  "run_id": "01M40KGN6QPZZ9RJ5QBS0T44SZ",
+  "native_status": {
+    "kind": "running"
+  },
+  "worker_alive": true,
+  "models": [],
+  "source_directory": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/target",
+  "reused_checks": [
+    "format_precommit",
+    "compiler_diagnostics",
+    "native_tests"
+  ],
+  "executed_check_groups": [
+    "native_integration",
+    "native_performance"
+  ],
+  "human_validation": {
+    "required": true,
+    "location": "outside_fabro",
+    "status": "pending"
+  }
+}

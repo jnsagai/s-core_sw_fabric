@@ -1,0 +1,33 @@
+{
+  "kind": "local_pr_preparation",
+  "target_repository": "eclipse-score/inc_someip_gateway",
+  "baseline_commit": "f8a196c3b16d5172d898394ab99b0ed81346d63d",
+  "verified_native_run_id": "01M40Y7RJF9NZJTE2N9Z3BAAXA",
+  "evidence_archive_sha256": "2b8f5c40ae194ba06f8e6c95933c05727ec8f4bec563ef7c4fc10ef3e33fa6da",
+  "patch_sha256": "c581f6319e5301d751b0a1caf2e51fbc8eda374d172199b121c1962158479732",
+  "changed_files": [
+    "score/socom/BUILD",
+    "score/socom/impl/service_identifier.cpp",
+    "score/socom/impl/service_identifier.hpp",
+    "score/socom/test/unit/BUILD",
+    "score/socom/test/unit/runtime_tests.cpp",
+    "score/socom/test/unit/service_identifier_tests.cpp"
+  ],
+  "patch_application": "passed with --whitespace=error in disposable baseline copy",
+  "applied_candidate_hashes_match_verified_packet": true,
+  "candidate_source_files_verified": 269,
+  "old_patch_preserved": true,
+  "native_checks_rerun": false,
+  "pr_created": false,
+  "publishing_authorized": false,
+  "scratch_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-pr-prepare-je6j2jfv",
+  "documentation_foundation_check": "passed",
+  "git_diff_whitespace_check": "passed",
+  "prepared_document_hashes": {
+    "pr-title.txt": "f8aa8ce776261f9856231dc83e3ba4d87fdf9294bcffe7258f4a44fedf1444b3",
+    "pr-description.md": "6c04311723c9f4b1431cb3bcfd35de61dcd2f8f49418347f118ee814e58ee940",
+    "closure-scope.md": "19c30d014780755b7743a196d4e0cfa5109a471e2a7316caf1b475632fdf0b00",
+    "candidate-files.json": "1c48fc5e7aee88e7cf04e750fcf898abd2fdd4a7ccfd1e5be7a33444ab79c69b"
+  },
+  "external_approval_record_sha256": "f3c7a37a4472df8b29fbcf91096ba67544f82f2fe204a767740c444532a84cb5"
+}

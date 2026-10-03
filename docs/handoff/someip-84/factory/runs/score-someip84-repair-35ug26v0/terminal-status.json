@@ -1,0 +1,12 @@
+{
+  "run_id": "01M40PVFZ8AG2W3B1XJ5AB93Y8",
+  "native_status": {
+    "kind": "failed",
+    "reason": "workflow_error"
+  },
+  "worker_alive": false,
+  "technical_completion": "blocked",
+  "task_closure": "pending_external_human_validation",
+  "remaining_failure": "Concurrent perf mmap locked-memory limit and root-owned profiling outputs",
+  "automatic_replacement": false
+}

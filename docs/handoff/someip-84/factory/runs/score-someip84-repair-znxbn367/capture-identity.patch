@@ -1,0 +1,49 @@
+--- upstream/tcpdump.c
++++ variant/tcpdump.c
+@@ -767,6 +767,37 @@
+ #endif
+ 
+ #ifndef _WIN32
++
++/* S-CORE disposable tool variant: preserve an already selected identity in
++ * Bazel's single-user namespace. No host-root mapping qualifies. */
++static int
++score_same_identity_namespace(const struct passwd *pw)
++{
++    FILE *f;
++    unsigned int inner, outer, count;
++    char mode[16];
++    int end;
++    if (pw->pw_uid != 0 || pw->pw_gid != 0 ||
++        geteuid() != pw->pw_uid || getegid() != pw->pw_gid)
++        return 0;
++    f = fopen("/proc/self/uid_map", "r");
++    if (!f) return 0;
++    if (fscanf(f, "%u %u %u", &inner, &outer, &count) != 3) {
++        fclose(f); return 0;
++    }
++    do { end = fgetc(f); } while (end == ' ' || end == '\n' || end == '\t');
++    fclose(f);
++    if (inner != 0 || outer == 0 || count != 1 || end != EOF) return 0;
++    f = fopen("/proc/self/setgroups", "r");
++    if (!f) return 0;
++    mode[0] = 0;
++    if (fscanf(f, "%15s", mode) != 1) { fclose(f); return 0; }
++    fclose(f);
++    if (strcmp(mode, "deny") != 0) return 0;
++    fprintf(stderr, "score capture: preserving matching identity in restricted user namespace\n");
++    return 1;
++}
++
+ /* Drop root privileges and chroot if necessary */
+ static void
+ droproot(const char *username, const char *chroot_dir)
+@@ -792,7 +823,7 @@
+ 				fprintf(stderr, "dropped privs to %s\n", username);
+ 		}
+ #else
+-		if (initgroups(pw->pw_name, pw->pw_gid) != 0 ||
++		if ((!score_same_identity_namespace(pw) && initgroups(pw->pw_name, pw->pw_gid) != 0) ||
+ 		    setgid(pw->pw_gid) != 0 || setuid(pw->pw_uid) != 0)
+ 			error("Couldn't change to '%.32s' uid=%lu gid=%lu: %s",
+ 				username,

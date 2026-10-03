@@ -1,0 +1,24 @@
+{
+  "engineering_acceptance": "pending_external_human_validation",
+  "predecessor_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-blfnwq7c",
+  "preserved_source": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-blfnwq7c/same-run-repair-preserved-workspace",
+  "selected_commands": {
+    "format_precommit": {
+      "format": 1800
+    },
+    "native_integration": {
+      "qemu": 3600
+    },
+    "native_performance": {
+      "profiling": 1800
+    }
+  },
+  "source_write_authority": [
+    "/workspace/score/socom/BUILD",
+    "/workspace/score/socom/impl/service_identifier.cpp",
+    "/workspace/score/socom/impl/service_identifier.hpp",
+    "/workspace/score/socom/test/unit/BUILD",
+    "/workspace/score/socom/test/unit/runtime_tests.cpp",
+    "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+  ]
+}

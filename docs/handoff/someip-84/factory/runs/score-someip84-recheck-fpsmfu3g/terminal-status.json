@@ -1,0 +1,35 @@
+{
+  "observed_at": "2026-10-03T08:18:00.333515+00:00",
+  "run_id": "01M405PNQN7DWH4H7VNNZSDC8G",
+  "lifecycle": {
+    "status": {
+      "kind": "failed",
+      "reason": "workflow_error"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "timestamps": {
+    "created_at": "2026-10-03T06:02:28.469Z",
+    "started_at": "2026-10-03T06:04:41.151Z",
+    "last_event_at": "2026-10-03T06:40:57.604Z",
+    "completed_at": "2026-10-03T06:40:57.119Z"
+  },
+  "worker_alive": false,
+  "observer_state": {
+    "phase": "replaced",
+    "incident": "/home/jefferson/.local/state/s-core/fabro/score-someip84-recheck-fpsmfu3g/supervision/incidents/9e5254a5671814a7e181b0bbd0efb4298cc29eb315cdf5344ace3d25d2002006/incident.json",
+    "result": {
+      "status": "replaced",
+      "successor_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-recheck-blfnwq7c",
+      "successor_run_id": "01M4082KVKZ7DE1D4KSBEEJE0C",
+      "changes": [],
+      "engineering_acceptance": "pending"
+    }
+  },
+  "engineering_acceptance": "pending"
+}

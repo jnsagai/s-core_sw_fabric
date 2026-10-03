@@ -1,5 +1,12 @@
 # SOME/IP #84: duplicate-server version handling
 
+Current handoff: verified native run `01M40Y7RJF9NZJTE2N9Z3BAAXA` succeeded,
+and the user approved the scoped work and local PR preparation outside Fabro.
+[Prepared PR and closure scope](pr-preparation/closure-scope.md) contain the final
+verified patch and evidence references. No PR or upstream issue closure was created.
+The sections below retain the original direct-trial history; current verification
+is documented in [targeted repair evidence](factory/review-repair-run.md).
+
 Status: draft native contribution; full native validation and engineering review pending.
 
 ## Factory execution status

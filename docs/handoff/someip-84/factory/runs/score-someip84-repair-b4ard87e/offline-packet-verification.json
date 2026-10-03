@@ -1,0 +1,17 @@
+{
+  "status": "verified_offline",
+  "archive_sha256": "2b8f5c40ae194ba06f8e6c95933c05727ec8f4bec563ef7c4fc10ef3e33fa6da",
+  "source_files_verified": 269,
+  "all_portable_files_verified": 1046,
+  "mandatory_portable_evidence_files_verified": 127,
+  "integration_cases_passed": 13,
+  "source_bound_qnx_only_exclusions": 1,
+  "datasets_verified": 12,
+  "flamegraphs_verified": 12,
+  "profiler_crash_wrapper_exit": 139,
+  "crash_decoding_rejected": true,
+  "legacy_archive_anchor_verified": true,
+  "human_validation_performed": false,
+  "task_closure": "pending_external_human_validation",
+  "replay_directory": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-offline-fixed-btfmuj4a"
+}

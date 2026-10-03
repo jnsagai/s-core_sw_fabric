@@ -1,0 +1,23 @@
+{
+  "run_id": "01M40KGN6QPZZ9RJ5QBS0T44SZ",
+  "native_status": {
+    "kind": "failed",
+    "reason": "workflow_error"
+  },
+  "worker_alive": false,
+  "technical_completion": "blocked",
+  "task_closure": "pending_external_human_validation",
+  "mandatory_results": {
+    "format_precommit": true,
+    "native_integration": false,
+    "native_performance": false,
+    "compiler_diagnostics": true,
+    "native_tests": true
+  },
+  "blockers": [
+    "Nested ITF namespace rejects same-identity guard",
+    "Native stale-process assertion matches the individual mount argv"
+  ],
+  "profiling_executed": false,
+  "automatic_replacement": false
+}

@@ -1,0 +1,1525 @@
+exec ${PAGER:-/usr/bin/less} "$0" || exit 1
+Executing tests from //score/socom/test/unit:socom_test
+-----------------------------------------------------------------------------
+Running main() from gmock_main.cc
+[==========] Running 685 tests from 48 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from ClientConnectorStartingConnectionDeathTest
+[ RUN      ] ClientConnectorStartingConnectionDeathTest.ClientDeletionByOnStateChangeResultsInLoggingAndTermination
+[       OK ] ClientConnectorStartingConnectionDeathTest.ClientDeletionByOnStateChangeResultsInLoggingAndTermination (97 ms)
+[----------] 1 test from ClientConnectorStartingConnectionDeathTest (97 ms total)
+
+[----------] 4 tests from ClientConnectorDeathTest
+[ RUN      ] ClientConnectorDeathTest.ClientDeletionByOnStateChangeResultsInLoggingAndTermination
+[       OK ] ClientConnectorDeathTest.ClientDeletionByOnStateChangeResultsInLoggingAndTermination (62 ms)
+[ RUN      ] ClientConnectorDeathTest.ClientDeletionByOnEventUpdateResultsInLoggingAndTermination
+[       OK ] ClientConnectorDeathTest.ClientDeletionByOnEventUpdateResultsInLoggingAndTermination (64 ms)
+[ RUN      ] ClientConnectorDeathTest.ClientDeletionByOnRequestedEventUpdateResultsInLoggingAndTermination
+[       OK ] ClientConnectorDeathTest.ClientDeletionByOnRequestedEventUpdateResultsInLoggingAndTermination (61 ms)
+[ RUN      ] ClientConnectorDeathTest.ClientDeletionByOnMethodReplyResultsInLoggingAndTermination
+[       OK ] ClientConnectorDeathTest.ClientDeletionByOnMethodReplyResultsInLoggingAndTermination (61 ms)
+[----------] 4 tests from ClientConnectorDeathTest (249 ms total)
+
+[----------] 6 tests from ServerConnectorDeathTest
+[ RUN      ] ServerConnectorDeathTest.ServerDeletionByOnEventSubscriptionChangeResultsInLoggingAndTermination
+[       OK ] ServerConnectorDeathTest.ServerDeletionByOnEventSubscriptionChangeResultsInLoggingAndTermination (61 ms)
+[ RUN      ] ServerConnectorDeathTest.ServerDeletionByOnEventSubscriptionChangeAtUnsubscriptionResultsInLoggingAndTermination
+[       OK ] ServerConnectorDeathTest.ServerDeletionByOnEventSubscriptionChangeAtUnsubscriptionResultsInLoggingAndTermination (60 ms)
+[ RUN      ] ServerConnectorDeathTest.ServerDeletionByOnEventSubscriptionChangeWithInitialDataResultsInLoggingAndTermination
+[       OK ] ServerConnectorDeathTest.ServerDeletionByOnEventSubscriptionChangeWithInitialDataResultsInLoggingAndTermination (60 ms)
+[ RUN      ] ServerConnectorDeathTest.ServerDeletionByOnEventUpdateRequestResultsInLoggingAndTermination
+[       OK ] ServerConnectorDeathTest.ServerDeletionByOnEventUpdateRequestResultsInLoggingAndTermination (61 ms)
+[ RUN      ] ServerConnectorDeathTest.ServerDeletionByOnMethodCallResultsInLoggingAndTermination
+[       OK ] ServerConnectorDeathTest.ServerDeletionByOnMethodCallResultsInLoggingAndTermination (60 ms)
+[ RUN      ] ServerConnectorDeathTest.ServerDeletionByOnMethodCallReplyResultsInLoggingAndTermination
+[       OK ] ServerConnectorDeathTest.ServerDeletionByOnMethodCallReplyResultsInLoggingAndTermination (61 ms)
+[----------] 6 tests from ServerConnectorDeathTest (366 ms total)
+
+[----------] 2 tests from ServiceInterfaceConfigurationDeathTest
+[ RUN      ] ServiceInterfaceConfigurationDeathTest.SameInterfaceDifferentNumMethodsAsserts
+[       OK ] ServiceInterfaceConfigurationDeathTest.SameInterfaceDifferentNumMethodsAsserts (67 ms)
+[ RUN      ] ServiceInterfaceConfigurationDeathTest.SameInterfaceDifferentNumEventsAsserts
+[       OK ] ServiceInterfaceConfigurationDeathTest.SameInterfaceDifferentNumEventsAsserts (64 ms)
+[----------] 2 tests from ServiceInterfaceConfigurationDeathTest (132 ms total)
+
+[----------] 6 tests from Offset/VectorPayloadDeathTest
+[ RUN      ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithHeaderSizeBiggerThanBufferAsserts/0
+[       OK ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithHeaderSizeBiggerThanBufferAsserts/0 (61 ms)
+[ RUN      ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithHeaderSizeBiggerThanBufferAsserts/1
+[       OK ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithHeaderSizeBiggerThanBufferAsserts/1 (61 ms)
+[ RUN      ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithHeaderSizeBiggerThanBufferAsserts/2
+[       OK ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithHeaderSizeBiggerThanBufferAsserts/2 (62 ms)
+[ RUN      ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithLeadOffsetBiggerThanBufferAsserts/0
+[       OK ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithLeadOffsetBiggerThanBufferAsserts/0 (66 ms)
+[ RUN      ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithLeadOffsetBiggerThanBufferAsserts/1
+[       OK ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithLeadOffsetBiggerThanBufferAsserts/1 (66 ms)
+[ RUN      ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithLeadOffsetBiggerThanBufferAsserts/2
+[       OK ] Offset/VectorPayloadDeathTest.MakeVectorPayloadWithLeadOffsetBiggerThanBufferAsserts/2 (65 ms)
+[----------] 6 tests from Offset/VectorPayloadDeathTest (385 ms total)
+
+[----------] 11 tests from ClientConnectorTest
+[ RUN      ] ClientConnectorTest.ConfigurationAndInstanceIsAsExpected
+[       OK ] ClientConnectorTest.ConfigurationAndInstanceIsAsExpected (0 ms)
+[ RUN      ] ClientConnectorTest.ServiceStateIsRetrievable
+[       OK ] ClientConnectorTest.ServiceStateIsRetrievable (0 ms)
+[ RUN      ] ClientConnectorTest.RetrieveServerConnectorConfig
+[       OK ] ClientConnectorTest.RetrieveServerConnectorConfig (0 ms)
+[ RUN      ] ClientConnectorTest.DifferentServiceInterfaceId
+[       OK ] ClientConnectorTest.DifferentServiceInterfaceId (0 ms)
+[ RUN      ] ClientConnectorTest.DifferentServiceInstanceId
+[       OK ] ClientConnectorTest.DifferentServiceInstanceId (0 ms)
+[ RUN      ] ClientConnectorTest.DifferentServiceInterfaceMajorVersion
+[       OK ] ClientConnectorTest.DifferentServiceInterfaceMajorVersion (0 ms)
+[ RUN      ] ClientConnectorTest.BiggerServiceInterfaceMinorVersion
+mw::log initialization error: Error No logging configuration files could be found. occurred with context information: Failed to load configuration files. Fallback to console logging.
+2026/10/03 02:21:30.4090391 451559750 000 ECU1 NONE DFLT log error verbose 7 SOCom error: Bind client to server - minor version incompatible:  client= TestInterface1 , server= TestInterface1 , instance= TestInterface1 
+[       OK ] ClientConnectorTest.BiggerServiceInterfaceMinorVersion (0 ms)
+[ RUN      ] ClientConnectorTest.SmallerServiceInterfaceMinorVersion
+[       OK ] ClientConnectorTest.SmallerServiceInterfaceMinorVersion (0 ms)
+[ RUN      ] ClientConnectorTest.OnStateChangeDoMethodCall
+[       OK ] ClientConnectorTest.OnStateChangeDoMethodCall (0 ms)
+[ RUN      ] ClientConnectorTest.OnStateChangeRequestEventUpdate
+[       OK ] ClientConnectorTest.OnStateChangeRequestEventUpdate (0 ms)
+[ RUN      ] ClientConnectorTest.GetPeerCredentialsWithoutServerReturnsServiceNotAvailable
+[       OK ] ClientConnectorTest.GetPeerCredentialsWithoutServerReturnsServiceNotAvailable (0 ms)
+[----------] 11 tests from ClientConnectorTest (0 ms total)
+
+[----------] 6 tests from ClientConnectorOutOfBoundsTest
+[ RUN      ] ClientConnectorOutOfBoundsTest.SubscribeEventWithOutOfBoundsIndexReturnsOutOfRange
+[       OK ] ClientConnectorOutOfBoundsTest.SubscribeEventWithOutOfBoundsIndexReturnsOutOfRange (0 ms)
+[ RUN      ] ClientConnectorOutOfBoundsTest.UnsubscribeEventWithOutOfBoundsIndexReturnsOutOfRange
+[       OK ] ClientConnectorOutOfBoundsTest.UnsubscribeEventWithOutOfBoundsIndexReturnsOutOfRange (0 ms)
+[ RUN      ] ClientConnectorOutOfBoundsTest.RequestEventUpdateWithOutOfBoundsIndexReturnsOutOfRange
+[       OK ] ClientConnectorOutOfBoundsTest.RequestEventUpdateWithOutOfBoundsIndexReturnsOutOfRange (0 ms)
+[ RUN      ] ClientConnectorOutOfBoundsTest.CallMethodWithOutOfBoundsIndexReturnsOutOfRange
+[       OK ] ClientConnectorOutOfBoundsTest.CallMethodWithOutOfBoundsIndexReturnsOutOfRange (0 ms)
+[ RUN      ] ClientConnectorOutOfBoundsTest.ResultCompareOperator
+[       OK ] ClientConnectorOutOfBoundsTest.ResultCompareOperator (0 ms)
+[ RUN      ] ClientConnectorOutOfBoundsTest.ResultCompareOperatorWithVoid
+[       OK ] ClientConnectorOutOfBoundsTest.ResultCompareOperatorWithVoid (0 ms)
+[----------] 6 tests from ClientConnectorOutOfBoundsTest (0 ms total)
+
+[----------] 10 tests from SingleConnectionTest
+[ RUN      ] SingleConnectionTest.SCOffered
+[       OK ] SingleConnectionTest.SCOffered (0 ms)
+[ RUN      ] SingleConnectionTest.OfferSC
+[       OK ] SingleConnectionTest.OfferSC (0 ms)
+[ RUN      ] SingleConnectionTest.StopOfferSC
+[       OK ] SingleConnectionTest.StopOfferSC (0 ms)
+[ RUN      ] SingleConnectionTest.ReOfferSC
+[       OK ] SingleConnectionTest.ReOfferSC (0 ms)
+[ RUN      ] SingleConnectionTest.DestroyingConnectedClientConnectorWorks
+[       OK ] SingleConnectionTest.DestroyingConnectedClientConnectorWorks (0 ms)
+[ RUN      ] SingleConnectionTest.ServerIsDestroyedBeforeClient
+[       OK ] SingleConnectionTest.ServerIsDestroyedBeforeClient (0 ms)
+[ RUN      ] SingleConnectionTest.ServerIsDestroyedBeforeClientAndEventSubsciption
+[       OK ] SingleConnectionTest.ServerIsDestroyedBeforeClientAndEventSubsciption (0 ms)
+[ RUN      ] SingleConnectionTest.DisablingServerMakesClientLoseEventSubscription
+[       OK ] SingleConnectionTest.DisablingServerMakesClientLoseEventSubscription (0 ms)
+[ RUN      ] SingleConnectionTest.ClientRetrievesCustomCredentialsFromServer
+[       OK ] SingleConnectionTest.ClientRetrievesCustomCredentialsFromServer (0 ms)
+[ RUN      ] SingleConnectionTest.ClientRetrievesDefaultCredentialsFromServer
+[       OK ] SingleConnectionTest.ClientRetrievesDefaultCredentialsFromServer (0 ms)
+[----------] 10 tests from SingleConnectionTest (0 ms total)
+
+[----------] 7 tests from Error
+[ RUN      ] Error.MakeErrorMapsServiceNotAvailable
+[       OK ] Error.MakeErrorMapsServiceNotAvailable (0 ms)
+[ RUN      ] Error.MakeErrorMapsRequestRejected
+[       OK ] Error.MakeErrorMapsRequestRejected (0 ms)
+[ RUN      ] Error.MakeErrorMapsIdOutOfRange
+[       OK ] Error.MakeErrorMapsIdOutOfRange (0 ms)
+[ RUN      ] Error.MakeErrorMapsMalformedPayload
+[       OK ] Error.MakeErrorMapsMalformedPayload (0 ms)
+[ RUN      ] Error.MakeErrorMapsPermissionNotAllowed
+[       OK ] Error.MakeErrorMapsPermissionNotAllowed (0 ms)
+[ RUN      ] Error.MakeErrorFallsBackToUnknownMessage
+[       OK ] Error.MakeErrorFallsBackToUnknownMessage (0 ms)
+[ RUN      ] Error.MakeErrorPreservesUserMessage
+[       OK ] Error.MakeErrorPreservesUserMessage (0 ms)
+[----------] 7 tests from Error (0 ms total)
+
+[----------] 4 tests from ServerConnectorError
+[ RUN      ] ServerConnectorError.MakeErrorMapsIdOutOfRange
+[       OK ] ServerConnectorError.MakeErrorMapsIdOutOfRange (0 ms)
+[ RUN      ] ServerConnectorError.MakeErrorMapsNoClientSubscribedForEvent
+[       OK ] ServerConnectorError.MakeErrorMapsNoClientSubscribedForEvent (0 ms)
+[ RUN      ] ServerConnectorError.MakeErrorFallsBackToUnknownMessage
+[       OK ] ServerConnectorError.MakeErrorFallsBackToUnknownMessage (0 ms)
+[ RUN      ] ServerConnectorError.MakeErrorPreservesUserMessage
+[       OK ] ServerConnectorError.MakeErrorPreservesUserMessage (0 ms)
+[----------] 4 tests from ServerConnectorError (0 ms total)
+
+[----------] 5 tests from ConstructionError
+[ RUN      ] ConstructionError.MakeErrorMapsDuplicateService
+[       OK ] ConstructionError.MakeErrorMapsDuplicateService (0 ms)
+[ RUN      ] ConstructionError.MakeErrorMapsDuplicateClient
+[       OK ] ConstructionError.MakeErrorMapsDuplicateClient (0 ms)
+[ RUN      ] ConstructionError.MakeErrorMapsCallbackMissing
+[       OK ] ConstructionError.MakeErrorMapsCallbackMissing (0 ms)
+[ RUN      ] ConstructionError.MakeErrorFallsBackToUnknownMessage
+[       OK ] ConstructionError.MakeErrorFallsBackToUnknownMessage (0 ms)
+[ RUN      ] ConstructionError.MakeErrorPreservesUserMessage
+[       OK ] ConstructionError.MakeErrorPreservesUserMessage (0 ms)
+[----------] 5 tests from ConstructionError (0 ms total)
+
+[----------] 1 test from Event_test
+[ RUN      ] Event_test.data_types
+[       OK ] Event_test.data_types (0 ms)
+[----------] 1 test from Event_test (0 ms total)
+
+[----------] 15 tests from EventTest
+[ RUN      ] EventTest.FirstEventSubscriptionCallsOnEventSubscriptionChange
+[       OK ] EventTest.FirstEventSubscriptionCallsOnEventSubscriptionChange (0 ms)
+[ RUN      ] EventTest.ServerSendsEventWhichIsReceivedBySubscribedClient
+[       OK ] EventTest.ServerSendsEventWhichIsReceivedBySubscribedClient (0 ms)
+[ RUN      ] EventTest.ClientRequestsEventUpdateAndReceivesEventUpdate
+[       OK ] EventTest.ClientRequestsEventUpdateAndReceivesEventUpdate (0 ms)
+[ RUN      ] EventTest.ClientRequestsEventUpdateAndServerRespondsWithUpdateRequestedEvent
+[       OK ] EventTest.ClientRequestsEventUpdateAndServerRespondsWithUpdateRequestedEvent (0 ms)
+[ RUN      ] EventTest.ClientRequestsEventUpdateAndServerConnectorRespondsWithUpdateEvent
+[       OK ] EventTest.ClientRequestsEventUpdateAndServerConnectorRespondsWithUpdateEvent (0 ms)
+[ RUN      ] EventTest.ClientRequestsEventUpdateWithDataAndReceivesEventUpdate
+[       OK ] EventTest.ClientRequestsEventUpdateWithDataAndReceivesEventUpdate (0 ms)
+[ RUN      ] EventTest.ServerUpdatesRequestedEventWithoutRequestAndClientReceivesNoUpdate
+[       OK ] EventTest.ServerUpdatesRequestedEventWithoutRequestAndClientReceivesNoUpdate (0 ms)
+[ RUN      ] EventTest.ClientRequestsManyEventUpdatesAndReceivesEventUpdates
+[       OK ] EventTest.ClientRequestsManyEventUpdatesAndReceivesEventUpdates (1 ms)
+[ RUN      ] EventTest.ClientRequestsManyEventUpdatesWhichAreCachedByTheMiddlewareAndClientReceivesOneEventUpdate
+[       OK ] EventTest.ClientRequestsManyEventUpdatesWhichAreCachedByTheMiddlewareAndClientReceivesOneEventUpdate (0 ms)
+[ RUN      ] EventTest.ClientSubscribesEventWithUpdateAndInitialValue
+[       OK ] EventTest.ClientSubscribesEventWithUpdateAndInitialValue (0 ms)
+[ RUN      ] EventTest.ClientSubscribesEventWithUpdateAndInitialValueFollowedByRequestEventUpdate
+[       OK ] EventTest.ClientSubscribesEventWithUpdateAndInitialValueFollowedByRequestEventUpdate (0 ms)
+[ RUN      ] EventTest.MiddlewareCachesEventUpdateRequestsUntilServerAnswers
+[       OK ] EventTest.MiddlewareCachesEventUpdateRequestsUntilServerAnswers (0 ms)
+[ RUN      ] EventTest.AllocateEventPayloadWithOutOfBoundsEventIdReturnsLogicErrorIdOutOfRange
+[       OK ] EventTest.AllocateEventPayloadWithOutOfBoundsEventIdReturnsLogicErrorIdOutOfRange (0 ms)
+[ RUN      ] EventTest.AllocateEventPayloadWithoutSubscribedClientReturnsNoClientSubscribedForEventError
+[       OK ] EventTest.AllocateEventPayloadWithoutSubscribedClientReturnsNoClientSubscribedForEventError (0 ms)
+[ RUN      ] EventTest.AllocateEventPayloadWithSubscribedClientReturnsPayload
+[       OK ] EventTest.AllocateEventPayloadWithSubscribedClientReturnsPayload (0 ms)
+[----------] 15 tests from EventTest (2 ms total)
+
+[----------] 4 tests from final_action_test
+[ RUN      ] final_action_test.destructor_executes_functor_once
+[       OK ] final_action_test.destructor_executes_functor_once (0 ms)
+[ RUN      ] final_action_test.execute_runs_functor_and_disarms
+[       OK ] final_action_test.execute_runs_functor_and_disarms (0 ms)
+[ RUN      ] final_action_test.move_constructor_transfers_execution_and_disarms_source
+[       OK ] final_action_test.move_constructor_transfers_execution_and_disarms_source (0 ms)
+[ RUN      ] final_action_test.thrown_exception_is_swallowed_and_disarms
+[       OK ] final_action_test.thrown_exception_is_swallowed_and_disarms (0 ms)
+[----------] 4 tests from final_action_test (0 ms total)
+
+[----------] 1 test from IdentityPlain
+[ RUN      ] IdentityPlain.Construct
+[       OK ] IdentityPlain.Construct (0 ms)
+[----------] 1 test from IdentityPlain (0 ms total)
+
+[----------] 2 tests from IdentityTest
+[ RUN      ] IdentityTest.CompareEqual
+[       OK ] IdentityTest.CompareEqual (0 ms)
+[ RUN      ] IdentityTest.CompareNotEqual
+[       OK ] IdentityTest.CompareNotEqual (0 ms)
+[----------] 2 tests from IdentityTest (0 ms total)
+
+[----------] 1 test from Method_type_test
+[ RUN      ] Method_type_test.method_result_equality_and_inequality_operators
+[       OK ] Method_type_test.method_result_equality_and_inequality_operators (0 ms)
+[----------] 1 test from Method_type_test (0 ms total)
+
+[----------] 2 tests from MethodCallCredentialsTest
+[ RUN      ] MethodCallCredentialsTest.ClientCallsMethodServerReceivesCustomClientCredentials
+[       OK ] MethodCallCredentialsTest.ClientCallsMethodServerReceivesCustomClientCredentials (0 ms)
+[ RUN      ] MethodCallCredentialsTest.ClientCallsMethodServerReceivesDefaultClientCredentials
+[       OK ] MethodCallCredentialsTest.ClientCallsMethodServerReceivesDefaultClientCredentials (0 ms)
+[----------] 2 tests from MethodCallCredentialsTest (0 ms total)
+
+[----------] 4 tests from AllocateMethodPayloadTest
+[ RUN      ] AllocateMethodPayloadTest.AllocateMethodPayloadWithOutOfBoundsMethodIdReturnsLogicError
+[       OK ] AllocateMethodPayloadTest.AllocateMethodPayloadWithOutOfBoundsMethodIdReturnsLogicError (0 ms)
+[ RUN      ] AllocateMethodPayloadTest.AllocateMethodPayloadWithoutConnectedServerReturnsServiceNotAvailableError
+[       OK ] AllocateMethodPayloadTest.AllocateMethodPayloadWithoutConnectedServerReturnsServiceNotAvailableError (0 ms)
+[ RUN      ] AllocateMethodPayloadTest.AllocateMethodPayloadWithConnectedServerReturnsPayload
+[       OK ] AllocateMethodPayloadTest.AllocateMethodPayloadWithConnectedServerReturnsPayload (0 ms)
+[ RUN      ] AllocateMethodPayloadTest.ServerReceivesReplyPayloadAndRespondsToMethodCall
+[       OK ] AllocateMethodPayloadTest.ServerReceivesReplyPayloadAndRespondsToMethodCall (0 ms)
+[----------] 4 tests from AllocateMethodPayloadTest (0 ms total)
+
+[----------] 3 tests from mock_test
+[ RUN      ] mock_test.runtime_mock
+[       OK ] mock_test.runtime_mock (0 ms)
+[ RUN      ] mock_test.client_connector_mock
+[       OK ] mock_test.client_connector_mock (0 ms)
+[ RUN      ] mock_test.server_connector_mock
+[       OK ] mock_test.server_connector_mock (0 ms)
+[----------] 3 tests from mock_test (0 ms total)
+
+[----------] 7 tests from move_only_function_mock_test
+[ RUN      ] move_only_function_mock_test.void_return_works
+[       OK ] move_only_function_mock_test.void_return_works (0 ms)
+[ RUN      ] move_only_function_mock_test.value_return_works
+[       OK ] move_only_function_mock_test.value_return_works (0 ms)
+[ RUN      ] move_only_function_mock_test.passed_into_function
+[       OK ] move_only_function_mock_test.passed_into_function (0 ms)
+[ RUN      ] move_only_function_mock_test.no_arguments_no_return_value_works
+[       OK ] move_only_function_mock_test.no_arguments_no_return_value_works (0 ms)
+[ RUN      ] move_only_function_mock_test.no_arguments_with_return_value_works
+[       OK ] move_only_function_mock_test.no_arguments_with_return_value_works (0 ms)
+[ RUN      ] move_only_function_mock_test.construction_from_signature_works
+[       OK ] move_only_function_mock_test.construction_from_signature_works (0 ms)
+[ RUN      ] move_only_function_mock_test.construction_from_std_function_works
+[       OK ] move_only_function_mock_test.construction_from_std_function_works (0 ms)
+[----------] 7 tests from move_only_function_mock_test (0 ms total)
+
+[----------] 2 tests from MultiConnectionTest
+[ RUN      ] MultiConnectionTest.ClientAndServerInDifferentThreadsCommunicateRaceFree
+[       OK ] MultiConnectionTest.ClientAndServerInDifferentThreadsCommunicateRaceFree (7 ms)
+[ RUN      ] MultiConnectionTest.ClientAndServerCreatedInDifferentThreadsCommunicateRaceFree
+[       OK ] MultiConnectionTest.ClientAndServerCreatedInDifferentThreadsCommunicateRaceFree (9 ms)
+[----------] 2 tests from MultiConnectionTest (17 ms total)
+
+[----------] 10 tests from MultipleRuntimesTest
+[ RUN      ] MultipleRuntimesTest.StartingTwoServers
+[       OK ] MultipleRuntimesTest.StartingTwoServers (0 ms)
+[ RUN      ] MultipleRuntimesTest.StartingTwoClients
+[       OK ] MultipleRuntimesTest.StartingTwoClients (0 ms)
+[ RUN      ] MultipleRuntimesTest.ConnectingTwoTimesServerAndClient
+[       OK ] MultipleRuntimesTest.ConnectingTwoTimesServerAndClient (0 ms)
+[ RUN      ] MultipleRuntimesTest.MultipleServerAndClientsAreCreatedAndLastPairExchangesAnEvent
+[       OK ] MultipleRuntimesTest.MultipleServerAndClientsAreCreatedAndLastPairExchangesAnEvent (0 ms)
+[ RUN      ] MultipleRuntimesTest.MultipleServerAndClientsAreCreatedAndFirstPairExchangesAnEvent
+[       OK ] MultipleRuntimesTest.MultipleServerAndClientsAreCreatedAndFirstPairExchangesAnEvent (0 ms)
+[ RUN      ] MultipleRuntimesTest.MultipleServerAndClientsAreSendingEvents
+[       OK ] MultipleRuntimesTest.MultipleServerAndClientsAreSendingEvents (0 ms)
+[ RUN      ] MultipleRuntimesTest.MultipleServerAndClientsAreCreatedAndFirstPairHasAMethodCall
+[       OK ] MultipleRuntimesTest.MultipleServerAndClientsAreCreatedAndFirstPairHasAMethodCall (0 ms)
+[ RUN      ] MultipleRuntimesTest.MultipleServerAndClientsAreCreatedAndSecondPairHasAMethodCall
+[       OK ] MultipleRuntimesTest.MultipleServerAndClientsAreCreatedAndSecondPairHasAMethodCall (0 ms)
+[ RUN      ] MultipleRuntimesTest.MultipleServerAndClientsAndBothHaveMethodCalls
+[       OK ] MultipleRuntimesTest.MultipleServerAndClientsAndBothHaveMethodCalls (0 ms)
+[ RUN      ] MultipleRuntimesTest.BothRuntimesHaveSameInstanceIdAndConfigurationButAreStillSeparated
+[       OK ] MultipleRuntimesTest.BothRuntimesHaveSameInstanceIdAndConfigurationButAreStillSeparated (0 ms)
+[----------] 10 tests from MultipleRuntimesTest (1 ms total)
+
+[----------] 16 tests from Payload
+[ RUN      ] Payload.NoPayloadConstruct
+[       OK ] Payload.NoPayloadConstruct (0 ms)
+[ RUN      ] Payload.NoPayloadMoveConstruct
+[       OK ] Payload.NoPayloadMoveConstruct (0 ms)
+[ RUN      ] Payload.EmptyPayloadGetSlotHandleReturnsNoSlotHandle
+[       OK ] Payload.EmptyPayloadGetSlotHandleReturnsNoSlotHandle (0 ms)
+[ RUN      ] Payload.VectorPayloadConstructInitializerList
+[       OK ] Payload.VectorPayloadConstructInitializerList (0 ms)
+[ RUN      ] Payload.VectorPayloadConstructVectorLVR
+[       OK ] Payload.VectorPayloadConstructVectorLVR (0 ms)
+[ RUN      ] Payload.OperatorEqual
+[       OK ] Payload.OperatorEqual (0 ms)
+[ RUN      ] Payload.VectorPayloadGetSlotHandleReturnsNoSlotHandle
+[       OK ] Payload.VectorPayloadGetSlotHandleReturnsNoSlotHandle (0 ms)
+[ RUN      ] Payload.DestructorCallsOnPayloadDestroyed
+[       OK ] Payload.DestructorCallsOnPayloadDestroyed (0 ms)
+[ RUN      ] Payload.DestructorCallsOnPayloadDestroyedForMoveAssignedAndAssignee
+[       OK ] Payload.DestructorCallsOnPayloadDestroyedForMoveAssignedAndAssignee (0 ms)
+[ RUN      ] Payload.DestructorDoesNotCallOnPayloadDestroyedForMoveConstructed
+[       OK ] Payload.DestructorDoesNotCallOnPayloadDestroyedForMoveConstructed (0 ms)
+[ RUN      ] Payload.WritablePayloadSetSizeReducesDataSize
+[       OK ] Payload.WritablePayloadSetSizeReducesDataSize (0 ms)
+[ RUN      ] Payload.WritablePayloadSetSizeReturnsFalseWhenIncreasingSize
+[       OK ] Payload.WritablePayloadSetSizeReturnsFalseWhenIncreasingSize (0 ms)
+[ RUN      ] Payload.WritablePayloadSetSizeWithZero
+[       OK ] Payload.WritablePayloadSetSizeWithZero (0 ms)
+[ RUN      ] Payload.WritablePayloadSetSizeToSameSizeSucceeds
+[       OK ] Payload.WritablePayloadSetSizeToSameSizeSucceeds (0 ms)
+[ RUN      ] Payload.WritablePayloadSetSizeMultipleTimes
+[       OK ] Payload.WritablePayloadSetSizeMultipleTimes (0 ms)
+[ RUN      ] Payload.WritablePayloadSetSizeWithHeaderDoesNotAffectHeader
+[       OK ] Payload.WritablePayloadSetSizeWithHeaderDoesNotAffectHeader (0 ms)
+[----------] 16 tests from Payload (0 ms total)
+
+[----------] 12 tests from RegistryStringViewTest
+[ RUN      ] RegistryStringViewTest.Iterator
+[       OK ] RegistryStringViewTest.Iterator (0 ms)
+[ RUN      ] RegistryStringViewTest.ConsistentHash
+[       OK ] RegistryStringViewTest.ConsistentHash (0 ms)
+[ RUN      ] RegistryStringViewTest.DifferentRegistryStringViewDifferentHashes
+[       OK ] RegistryStringViewTest.DifferentRegistryStringViewDifferentHashes (0 ms)
+[ RUN      ] RegistryStringViewTest.StreamOutput
+[       OK ] RegistryStringViewTest.StreamOutput (0 ms)
+[ RUN      ] RegistryStringViewTest.GlobalCompareOperator
+[       OK ] RegistryStringViewTest.GlobalCompareOperator (0 ms)
+[ RUN      ] RegistryStringViewTest.StringLength
+[       OK ] RegistryStringViewTest.StringLength (0 ms)
+[ RUN      ] RegistryStringViewTest.StringEmpty
+[       OK ] RegistryStringViewTest.StringEmpty (0 ms)
+[ RUN      ] RegistryStringViewTest.Data
+[       OK ] RegistryStringViewTest.Data (0 ms)
+[ RUN      ] RegistryStringViewTest.MoveConstructor
+[       OK ] RegistryStringViewTest.MoveConstructor (0 ms)
+[ RUN      ] RegistryStringViewTest.MoveAssignmentOperator
+[       OK ] RegistryStringViewTest.MoveAssignmentOperator (0 ms)
+[ RUN      ] RegistryStringViewTest.CopyConstructor
+[       OK ] RegistryStringViewTest.CopyConstructor (0 ms)
+[ RUN      ] RegistryStringViewTest.CopyAssignmentOperator
+[       OK ] RegistryStringViewTest.CopyAssignmentOperator (0 ms)
+[----------] 12 tests from RegistryStringViewTest (0 ms total)
+
+[----------] 1 test from RuntimeFactoryTest
+[ RUN      ] RuntimeFactoryTest.DefaultConstructorWorks
+[       OK ] RuntimeFactoryTest.DefaultConstructorWorks (0 ms)
+[----------] 1 test from RuntimeFactoryTest (0 ms total)
+
+[----------] 31 tests from RuntimeTest
+[ RUN      ] RuntimeTest.RegisterServiceBridgeWithIncompleteCallbacksReturnsCallbacksMissing
+[       OK ] RuntimeTest.RegisterServiceBridgeWithIncompleteCallbacksReturnsCallbacksMissing (0 ms)
+[ RUN      ] RuntimeTest.RegisterServiceBridgeWitCallbacksReturnsRegistration
+[       OK ] RuntimeTest.RegisterServiceBridgeWitCallbacksReturnsRegistration (0 ms)
+[ RUN      ] RuntimeTest.BridgeReceivesRequestServiceFunctionCallForUnknownService
+[       OK ] RuntimeTest.BridgeReceivesRequestServiceFunctionCallForUnknownService (0 ms)
+[ RUN      ] RuntimeTest.BridgeDoesNotReceiveRequestServiceFunctionCallForKnownService
+[       OK ] RuntimeTest.BridgeDoesNotReceiveRequestServiceFunctionCallForKnownService (0 ms)
+[ RUN      ] RuntimeTest.BridgeCreatesServerConnectorInRequestServiceFunctionCallbackAtClientConnectorCreation
+[       OK ] RuntimeTest.BridgeCreatesServerConnectorInRequestServiceFunctionCallbackAtClientConnectorCreation (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateMultipleTimesReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateMultipleTimesReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.CreatingServerConnectorDeletingItAndRecreatingReturnsValidServerConnector
+[       OK ] RuntimeTest.CreatingServerConnectorDeletingItAndRecreatingReturnsValidServerConnector (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateDifferingOnlyInMinorVersionReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateDifferingOnlyInMinorVersionReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateSameConfigurationWhileBothConnectorsDisabledReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateSameConfigurationWhileBothConnectorsDisabledReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.ConstructDifferentMajorWhileBothConnectorsDisabledReturnsDistinctServerConnectors
+[       OK ] RuntimeTest.ConstructDifferentMajorWhileBothConnectorsDisabledReturnsDistinctServerConnectors (0 ms)
+[ RUN      ] RuntimeTest.ConstructDifferentInstanceWhileBothConnectorsDisabledReturnsDistinctServerConnectors
+[       OK ] RuntimeTest.ConstructDifferentInstanceWhileBothConnectorsDisabledReturnsDistinctServerConnectors (0 ms)
+[ RUN      ] RuntimeTest.ConstructDifferentServiceIdWhileBothConnectorsDisabledReturnsDistinctServerConnectors
+[       OK ] RuntimeTest.ConstructDifferentServiceIdWhileBothConnectorsDisabledReturnsDistinctServerConnectors (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateMinorBoundariesWhileBothConnectorsDisabledReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateMinorBoundariesWhileBothConnectorsDisabledReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateWithSmallerMinorWhileBothConnectorsDisabledReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateWithSmallerMinorWhileBothConnectorsDisabledReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateRepeatedlyWhileBothConnectorsDisabledKeepsSlotHeld
+[       OK ] RuntimeTest.ConstructDuplicateRepeatedlyWhileBothConnectorsDisabledKeepsSlotHeld (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateWhileFirstConnectorEnabledReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateWhileFirstConnectorEnabledReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateDifferingOnlyInMinorVersionWhileFirstConnectorEnabledReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateDifferingOnlyInMinorVersionWhileFirstConnectorEnabledReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.ConstructDifferentInstanceWhileFirstConnectorEnabledReturnsDistinctServerConnectors
+[       OK ] RuntimeTest.ConstructDifferentInstanceWhileFirstConnectorEnabledReturnsDistinctServerConnectors (0 ms)
+[ RUN      ] RuntimeTest.ConstructDifferentServiceIdWhileFirstConnectorEnabledReturnsDistinctServerConnectors
+[       OK ] RuntimeTest.ConstructDifferentServiceIdWhileFirstConnectorEnabledReturnsDistinctServerConnectors (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateMinorBoundariesWhileFirstConnectorEnabledReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateMinorBoundariesWhileFirstConnectorEnabledReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateWithSmallerMinorWhileFirstConnectorEnabledReturnsDuplicateServiceError
+[       OK ] RuntimeTest.ConstructDuplicateWithSmallerMinorWhileFirstConnectorEnabledReturnsDuplicateServiceError (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateRepeatedlyWhileFirstConnectorEnabledKeepsSlotHeld
+[       OK ] RuntimeTest.ConstructDuplicateRepeatedlyWhileFirstConnectorEnabledKeepsSlotHeld (0 ms)
+[ RUN      ] RuntimeTest.ConstructDifferentMajorWhileFirstConnectorEnabledReturnsDistinctServerConnectors
+[       OK ] RuntimeTest.ConstructDifferentMajorWhileFirstConnectorEnabledReturnsDistinctServerConnectors (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateAfterEnabledConnectorDestroyedReturnsValidServerConnector
+[       OK ] RuntimeTest.ConstructDuplicateAfterEnabledConnectorDestroyedReturnsValidServerConnector (0 ms)
+[ RUN      ] RuntimeTest.ConnectorDestroyedAfterRuntimeDoesNotCrash
+[       OK ] RuntimeTest.ConnectorDestroyedAfterRuntimeDoesNotCrash (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateAfterDisabledConnectorDestroyedWithChangedMinorVersionReturnsValidServerConnector
+[       OK ] RuntimeTest.ConstructDuplicateAfterDisabledConnectorDestroyedWithChangedMinorVersionReturnsValidServerConnector (0 ms)
+[ RUN      ] RuntimeTest.ConstructDuplicateAfterEnabledConnectorDestroyedWithChangedMinorVersionReturnsValidServerConnector
+[       OK ] RuntimeTest.ConstructDuplicateAfterEnabledConnectorDestroyedWithChangedMinorVersionReturnsValidServerConnector (0 ms)
+[ RUN      ] RuntimeTest.DestroyingOneMajorSlotKeepsOtherMajorSlotOccupied
+[       OK ] RuntimeTest.DestroyingOneMajorSlotKeepsOtherMajorSlotOccupied (0 ms)
+[ RUN      ] RuntimeTest.DestroyingOneInstanceSlotKeepsOtherInstanceSlotOccupied
+[       OK ] RuntimeTest.DestroyingOneInstanceSlotKeepsOtherInstanceSlotOccupied (0 ms)
+[ RUN      ] RuntimeTest.DestroyingOneServiceIdSlotKeepsOtherServiceIdSlotOccupied
+[       OK ] RuntimeTest.DestroyingOneServiceIdSlotKeepsOtherServiceIdSlotOccupied (0 ms)
+[----------] 31 tests from RuntimeTest (1 ms total)
+
+[----------] 8 tests from ServerConnectorTest
+[ RUN      ] ServerConnectorTest.ConstructDestruct
+[       OK ] ServerConnectorTest.ConstructDestruct (0 ms)
+[ RUN      ] ServerConnectorTest.ConfigurationAndInstanceIsAsExpected
+[       OK ] ServerConnectorTest.ConfigurationAndInstanceIsAsExpected (0 ms)
+[ RUN      ] ServerConnectorTest.DisabledServerConnectorMoveConstructorWorks
+[       OK ] ServerConnectorTest.DisabledServerConnectorMoveConstructorWorks (0 ms)
+[ RUN      ] ServerConnectorTest.DisabledServerConnectorMoveAssignmentWorks
+[       OK ] ServerConnectorTest.DisabledServerConnectorMoveAssignmentWorks (0 ms)
+[ RUN      ] ServerConnectorTest.Enable
+[       OK ] ServerConnectorTest.Enable (0 ms)
+[ RUN      ] ServerConnectorTest.ConstructDestructNoCallbacksReturnsCallbackMissing
+[       OK ] ServerConnectorTest.ConstructDestructNoCallbacksReturnsCallbackMissing (0 ms)
+[ RUN      ] ServerConnectorTest.WhenCallbackMissingCreationReturnsCallbackMissing
+[       OK ] ServerConnectorTest.WhenCallbackMissingCreationReturnsCallbackMissing (0 ms)
+[ RUN      ] ServerConnectorTest.NoSubscribedClientReturnsUpdate
+[       OK ] ServerConnectorTest.NoSubscribedClientReturnsUpdate (0 ms)
+[----------] 8 tests from ServerConnectorTest (0 ms total)
+
+[----------] 2 tests from ServerConnectorGetEventModeTest
+[ RUN      ] ServerConnectorGetEventModeTest.SubscribedClientReturnsUpdate
+[       OK ] ServerConnectorGetEventModeTest.SubscribedClientReturnsUpdate (0 ms)
+[ RUN      ] ServerConnectorGetEventModeTest.SubscribedClientReturnsUpdateAndInitialValue
+[       OK ] ServerConnectorGetEventModeTest.SubscribedClientReturnsUpdateAndInitialValue (0 ms)
+[----------] 2 tests from ServerConnectorGetEventModeTest (0 ms total)
+
+[----------] 3 tests from ServerConnectorOutOfBoundsTest
+[ RUN      ] ServerConnectorOutOfBoundsTest.UpdateEventWithOutOfBoundsIndexReturnsOutOfRange
+[       OK ] ServerConnectorOutOfBoundsTest.UpdateEventWithOutOfBoundsIndexReturnsOutOfRange (0 ms)
+[ RUN      ] ServerConnectorOutOfBoundsTest.UpdateRequestedEventWithOutOfBoundsIndexReturnsOutOfRange
+[       OK ] ServerConnectorOutOfBoundsTest.UpdateRequestedEventWithOutOfBoundsIndexReturnsOutOfRange (0 ms)
+[ RUN      ] ServerConnectorOutOfBoundsTest.OutOfBoundsIndexReturnsOutOfRange
+[       OK ] ServerConnectorOutOfBoundsTest.OutOfBoundsIndexReturnsOutOfRange (0 ms)
+[----------] 3 tests from ServerConnectorOutOfBoundsTest (0 ms total)
+
+[----------] 87 tests from ServiceInstanceIdentifierTest
+[ RUN      ] ServiceInstanceIdentifierTest.SameIdentifierIsNotLessThanItself
+[       OK ] ServiceInstanceIdentifierTest.SameIdentifierIsNotLessThanItself (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingOnlyInMinorVersionAreDuplicates
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingOnlyInMinorVersionAreDuplicates (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorVersionBoundariesAreDuplicates
+[       OK ] ServiceInstanceIdentifierTest.MinorVersionBoundariesAreDuplicates (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.AllMinorVersionsCollapseToSingleKey
+[       OK ] ServiceInstanceIdentifierTest.AllMinorVersionsCollapseToSingleKey (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorHighBitVariantsAreEquivalent
+[       OK ] ServiceInstanceIdentifierTest.MinorHighBitVariantsAreEquivalent (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInMajorVersionAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInMajorVersionAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionBoundariesAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionBoundariesAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionSweepProducesDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionSweepProducesDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.AdjacentMajorVersionBoundariesAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.AdjacentMajorVersionBoundariesAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInServiceIdAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInServiceIdAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DistinctServiceIdsProduceDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.DistinctServiceIdsProduceDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EqualServiceIdTextProducesEquivalentKeys
+[       OK ] ServiceInstanceIdentifierTest.EqualServiceIdTextProducesEquivalentKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceIdOrderingIsLexicographic
+[       OK ] ServiceInstanceIdentifierTest.ServiceIdOrderingIsLexicographic (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInInstanceAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInInstanceAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DistinctInstancesProduceDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.DistinctInstancesProduceDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EqualInstanceTextProducesEquivalentKeys
+[       OK ] ServiceInstanceIdentifierTest.EqualInstanceTextProducesEquivalentKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceOrderingIsLexicographic
+[       OK ] ServiceInstanceIdentifierTest.InstanceOrderingIsLexicographic (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceInstanceMajorMatrixProducesDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.ServiceInstanceMajorMatrixProducesDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceInstanceMajorMatrixCollapsesMinorVersions
+[       OK ] ServiceInstanceIdentifierTest.ServiceInstanceMajorMatrixCollapsesMinorVersions (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ThreeByThreeByThreeMatrixProducesDistinctKeys
+[       OK ] ServiceInstanceIdentifierTest.ThreeByThreeByThreeMatrixProducesDistinctKeys (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ThreeByThreeByThreeMatrixCollapsesMinorVersions
+[       OK ] ServiceInstanceIdentifierTest.ThreeByThreeByThreeMatrixCollapsesMinorVersions (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeyEquivalenceDependsOnInstanceServiceIdAndMajor
+[       OK ] ServiceInstanceIdentifierTest.KeyEquivalenceDependsOnInstanceServiceIdAndMajor (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorVersionNeverAffectsOrdering
+[       OK ] ServiceInstanceIdentifierTest.MinorVersionNeverAffectsOrdering (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.OrderingOrderIsInstanceThenServiceIdThenMajor
+[       OK ] ServiceInstanceIdentifierTest.OrderingOrderIsInstanceThenServiceIdThenMajor (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.OrderingIsTransitive
+[       OK ] ServiceInstanceIdentifierTest.OrderingIsTransitive (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EquivalenceIsTransitive
+[       OK ] ServiceInstanceIdentifierTest.EquivalenceIsTransitive (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorDifferenceOutweighsMinorDifference
+[       OK ] ServiceInstanceIdentifierTest.MajorDifferenceOutweighsMinorDifference (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceIsThePrimaryOrderingComponent
+[       OK ] ServiceInstanceIdentifierTest.InstanceIsThePrimaryOrderingComponent (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorIsTheTertiaryOrderingComponent
+[       OK ] ServiceInstanceIdentifierTest.MajorIsTheTertiaryOrderingComponent (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DistinctKeysAreOrderedInExactlyOneDirection
+[       OK ] ServiceInstanceIdentifierTest.DistinctKeysAreOrderedInExactlyOneDirection (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.StrictWeakOrderingHoldsAcrossMinorVariants
+[       OK ] ServiceInstanceIdentifierTest.StrictWeakOrderingHoldsAcrossMinorVariants (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SortingAgreesWithIndependentTupleOrder
+[       OK ] ServiceInstanceIdentifierTest.SortingAgreesWithIndependentTupleOrder (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SetUniquenessMatchesDistinctIdentityTupleCount
+[       OK ] ServiceInstanceIdentifierTest.SetUniquenessMatchesDistinctIdentityTupleCount (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SetIterationFollowsInstanceThenServiceIdThenMajor
+[       OK ] ServiceInstanceIdentifierTest.SetIterationFollowsInstanceThenServiceIdThenMajor (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingAxiomsHoldOnDeterministicDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingAxiomsHoldOnDeterministicDomain (4 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyEquivalenceMatchesIdentityTupleOnDeterministicDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyEquivalenceMatchesIdentityTupleOnDeterministicDomain (2 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyOrderingIsDeterministicTotalAndTupleConsistent
+[       OK ] ServiceInstanceIdentifierTest.PropertyOrderingIsDeterministicTotalAndTupleConsistent (1 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyEquivalenceClassesMatchDistinctIdentityTupleCount
+[       OK ] ServiceInstanceIdentifierTest.PropertyEquivalenceClassesMatchDistinctIdentityTupleCount (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertySetUniquenessIsIndependentOfInsertionOrder
+[       OK ] ServiceInstanceIdentifierTest.PropertySetUniquenessIsIndependentOfInsertionOrder (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PublicIdentifierIdentityDistinguishesMajorAndMinorBoundaries
+[       OK ] ServiceInstanceIdentifierTest.PublicIdentifierIdentityDistinguishesMajorAndMinorBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyRetainsInstanceServiceIdMajorAndStoresMinor
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyRetainsInstanceServiceIdMajorAndStoresMinor (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyMinorBoundariesCollapseToSingleIdentity
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyMinorBoundariesCollapseToSingleIdentity (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyMajorBoundariesStayDistinct
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyMajorBoundariesStayDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyTextAndRegistryConstructionAgreeAtBoundaries
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyTextAndRegistryConstructionAgreeAtBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyCollapsesConfigMinorsThatNarrowAlike
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyCollapsesConfigMinorsThatNarrowAlike (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyIsDeterministicAcrossRepeatedConversions
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyIsDeterministicAcrossRepeatedConversions (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EmptyServiceIdIsDistinctAndOrdersFirst
+[       OK ] ServiceInstanceIdentifierTest.EmptyServiceIdIsDistinctAndOrdersFirst (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EmptyInstanceIdIsDistinctAndOrdersFirst
+[       OK ] ServiceInstanceIdentifierTest.EmptyInstanceIdIsDistinctAndOrdersFirst (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EmptyIdKeysCollapseAcrossMinorVersions
+[       OK ] ServiceInstanceIdentifierTest.EmptyIdKeysCollapseAcrossMinorVersions (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceIdPrefixOrderingIsLexicographic
+[       OK ] ServiceInstanceIdentifierTest.ServiceIdPrefixOrderingIsLexicographic (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceIdPrefixOrderingIsLexicographic
+[       OK ] ServiceInstanceIdentifierTest.InstanceIdPrefixOrderingIsLexicographic (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorHighBitAdjacencyIsOrdered
+[       OK ] ServiceInstanceIdentifierTest.MajorHighBitAdjacencyIsOrdered (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInInstanceAndMinorAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInInstanceAndMinorAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeysDifferingInMajorAndMinorAreDistinct
+[       OK ] ServiceInstanceIdentifierTest.KeysDifferingInMajorAndMinorAreDistinct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SetFindLocatesMinorVariantAndCountsItOnce
+[       OK ] ServiceInstanceIdentifierTest.SetFindLocatesMinorVariantAndCountsItOnce (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertySortedDomainMatchesSortedIdentityTuples
+[       OK ] ServiceInstanceIdentifierTest.PropertySortedDomainMatchesSortedIdentityTuples (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingAxiomsOnVersionBoundaryDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingAxiomsOnVersionBoundaryDomain (14 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyIdentityEqualityClassesOnVersionBoundaryDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyIdentityEqualityClassesOnVersionBoundaryDomain (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedInstanceTextPathsAgreeAtBoundaries
+[       OK ] ServiceInstanceIdentifierTest.ConvertedInstanceTextPathsAgreeAtBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedPublicIdentityDistinguishesMinorBoundariesWhileKeyCollapses
+[       OK ] ServiceInstanceIdentifierTest.ConvertedPublicIdentityDistinguishesMinorBoundariesWhileKeyCollapses (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceIdLadderOrdersLexicographicallyAndDistinctly
+[       OK ] ServiceInstanceIdentifierTest.ServiceIdLadderOrdersLexicographicallyAndDistinctly (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceIdLadderOrdersLexicographicallyAndDistinctly
+[       OK ] ServiceInstanceIdentifierTest.InstanceIdLadderOrdersLexicographicallyAndDistinctly (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionLadderOrdersNumericallyAndDistinctly
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionLadderOrdersNumericallyAndDistinctly (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorVariantsCompareIdenticallyAgainstWholeDomain
+[       OK ] ServiceInstanceIdentifierTest.MinorVariantsCompareIdenticallyAgainstWholeDomain (1 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.StdSetCollapsesFiveMinorVariantsOfEveryIdentity
+[       OK ] ServiceInstanceIdentifierTest.StdSetCollapsesFiveMinorVariantsOfEveryIdentity (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EquivalenceIsCompatibleWithStrictOrder
+[       OK ] ServiceInstanceIdentifierTest.EquivalenceIsCompatibleWithStrictOrder (1 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.OrderingAgreesWithTupleOrderOnMixedBoundaryDomain
+[       OK ] ServiceInstanceIdentifierTest.OrderingAgreesWithTupleOrderOnMixedBoundaryDomain (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SingleComponentChangesBreakEquivalenceAcrossAllBases
+[       OK ] ServiceInstanceIdentifierTest.SingleComponentChangesBreakEquivalenceAcrossAllBases (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingOnCombinedRegistrationKeyDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyStrictWeakOrderingOnCombinedRegistrationKeyDomain (60 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.PropertyIdentifierEqualityOnCombinedRegistrationKeyDomain
+[       OK ] ServiceInstanceIdentifierTest.PropertyIdentifierEqualityOnCombinedRegistrationKeyDomain (4 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedInterfaceConstructionPathsAgreeAtEveryVersionBoundary
+[       OK ] ServiceInstanceIdentifierTest.ConvertedInterfaceConstructionPathsAgreeAtEveryVersionBoundary (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedInstanceRegistryIdPathAgreesWithTextPaths
+[       OK ] ServiceInstanceIdentifierTest.ConvertedInstanceRegistryIdPathAgreesWithTextPaths (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedKeyRetainsConfigWidthMajorBoundaries
+[       OK ] ServiceInstanceIdentifierTest.ConvertedKeyRetainsConfigWidthMajorBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ServiceIdOrderingIsLexicographicNotNumeric
+[       OK ] ServiceInstanceIdentifierTest.ServiceIdOrderingIsLexicographicNotNumeric (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.InstanceIdOrderingIsLexicographicNotNumeric
+[       OK ] ServiceInstanceIdentifierTest.InstanceIdOrderingIsLexicographicNotNumeric (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionByteBoundariesAreDistinctAndOrdered
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionByteBoundariesAreDistinctAndOrdered (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MajorVersionOrderMatchesUnsignedNumericOrder
+[       OK ] ServiceInstanceIdentifierTest.MajorVersionOrderMatchesUnsignedNumericOrder (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorVariantsBoundDistinctIdentitiesWithoutBreakingOrder
+[       OK ] ServiceInstanceIdentifierTest.MinorVariantsBoundDistinctIdentitiesWithoutBreakingOrder (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.MinorSweepCollapsesPerIdentityAtEveryMajorBoundary
+[       OK ] ServiceInstanceIdentifierTest.MinorSweepCollapsesPerIdentityAtEveryMajorBoundary (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SetInsertionResultMatchesEquivalenceAcrossMinorVariants
+[       OK ] ServiceInstanceIdentifierTest.SetInsertionResultMatchesEquivalenceAcrossMinorVariants (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.EquivalenceCoincidesWithIdentityOverFixtureCrossProduct
+[       OK ] ServiceInstanceIdentifierTest.EquivalenceCoincidesWithIdentityOverFixtureCrossProduct (3 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.OrderingIsAntiSymmetricOverFixtureCrossProduct
+[       OK ] ServiceInstanceIdentifierTest.OrderingIsAntiSymmetricOverFixtureCrossProduct (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.KeyIdentityIsStableUnderRepeatedMinorRewritesOfTheSameIdentity
+[       OK ] ServiceInstanceIdentifierTest.KeyIdentityIsStableUnderRepeatedMinorRewritesOfTheSameIdentity (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedEmptyTextInterfacePathsAgreeAtVersionBoundaries
+[       OK ] ServiceInstanceIdentifierTest.ConvertedEmptyTextInterfacePathsAgreeAtVersionBoundaries (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.ConvertedEmptyTextInstancePathsAgreeWithRegistryPath
+[       OK ] ServiceInstanceIdentifierTest.ConvertedEmptyTextInstancePathsAgreeWithRegistryPath (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.FreshDynamicServiceIdStringViewRegistersAndCollapses
+[       OK ] ServiceInstanceIdentifierTest.FreshDynamicServiceIdStringViewRegistersAndCollapses (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.FreshDynamicServiceIdRvalueRegistersAndCollapses
+[       OK ] ServiceInstanceIdentifierTest.FreshDynamicServiceIdRvalueRegistersAndCollapses (0 ms)
+[----------] 87 tests from ServiceInstanceIdentifierTest (99 ms total)
+
+[----------] 5 tests from ServiceInterfaceIdentifierTest
+[ RUN      ] ServiceInterfaceIdentifierTest.ConfigurationEqual
+[       OK ] ServiceInterfaceIdentifierTest.ConfigurationEqual (0 ms)
+[ RUN      ] ServiceInterfaceIdentifierTest.LiteratorConstructorUsesStringView
+[       OK ] ServiceInterfaceIdentifierTest.LiteratorConstructorUsesStringView (0 ms)
+[ RUN      ] ServiceInterfaceIdentifierTest.StringConstructorUsesStringView
+[       OK ] ServiceInterfaceIdentifierTest.StringConstructorUsesStringView (0 ms)
+[ RUN      ] ServiceInterfaceIdentifierTest.StringViewConstructorUsesStringView
+[       OK ] ServiceInterfaceIdentifierTest.StringViewConstructorUsesStringView (0 ms)
+[ RUN      ] ServiceInterfaceIdentifierTest.StringViewLiteralConstructorUsesStringView
+[       OK ] ServiceInterfaceIdentifierTest.StringViewLiteralConstructorUsesStringView (0 ms)
+[----------] 5 tests from ServiceInterfaceIdentifierTest (0 ms total)
+
+[----------] 4 tests from ServiceInstanceTest
+[ RUN      ] ServiceInstanceTest.LiteratorConstructorUsesStringView
+[       OK ] ServiceInstanceTest.LiteratorConstructorUsesStringView (0 ms)
+[ RUN      ] ServiceInstanceTest.StringConstructorAddsStringToRegistry
+[       OK ] ServiceInstanceTest.StringConstructorAddsStringToRegistry (0 ms)
+[ RUN      ] ServiceInstanceTest.StringViewConstructorAddsStringToRegistry
+[       OK ] ServiceInstanceTest.StringViewConstructorAddsStringToRegistry (0 ms)
+[ RUN      ] ServiceInstanceTest.StringViewLiteralConstructorAddsStringToRegistry
+[       OK ] ServiceInstanceTest.StringViewLiteralConstructorAddsStringToRegistry (0 ms)
+[----------] 4 tests from ServiceInstanceTest (0 ms total)
+
+[----------] 3 tests from Runtime_test
+[ RUN      ] Runtime_test.client_connector_construction_works
+[       OK ] Runtime_test.client_connector_construction_works (0 ms)
+[ RUN      ] Runtime_test.server_connector_construction_works
+[       OK ] Runtime_test.server_connector_construction_works (0 ms)
+[ RUN      ] Runtime_test.connection_setup_works
+[       OK ] Runtime_test.connection_setup_works (0 ms)
+[----------] 3 tests from Runtime_test (0 ms total)
+
+[----------] 2 tests from Connection_test
+[ RUN      ] Connection_test.server_sends_event_which_is_received_by_the_client
+[       OK ] Connection_test.server_sends_event_which_is_received_by_the_client (0 ms)
+[ RUN      ] Connection_test.client_calls_method_and_gets_response
+[       OK ] Connection_test.client_calls_method_and_gets_response (0 ms)
+[----------] 2 tests from Connection_test (0 ms total)
+
+[----------] 5 tests from StringRegistryTest
+[ RUN      ] StringRegistryTest.InsertMultipleStrings
+[       OK ] StringRegistryTest.InsertMultipleStrings (0 ms)
+[ RUN      ] StringRegistryTest.InsertMultipleStringViews
+[       OK ] StringRegistryTest.InsertMultipleStringViews (0 ms)
+[ RUN      ] StringRegistryTest.InsertMultipleStringViewLiterals
+[       OK ] StringRegistryTest.InsertMultipleStringViewLiterals (0 ms)
+[ RUN      ] StringRegistryTest.ServiceIDRegistry
+[       OK ] StringRegistryTest.ServiceIDRegistry (0 ms)
+[ RUN      ] StringRegistryTest.InstanceIDRegistry
+[       OK ] StringRegistryTest.InstanceIDRegistry (0 ms)
+[----------] 5 tests from StringRegistryTest (0 ms total)
+
+[----------] 6 tests from ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest
+[ RUN      ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/0
+[       OK ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/0 (0 ms)
+[ RUN      ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/1
+[       OK ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/1 (0 ms)
+[ RUN      ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/2
+[       OK ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/2 (0 ms)
+[ RUN      ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/3
+[       OK ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/3 (0 ms)
+[ RUN      ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/4
+[       OK ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/4 (0 ms)
+[ RUN      ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/5
+[       OK ] ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest.ConstructCallbackMissing/5 (0 ms)
+[----------] 6 tests from ConstructionClientConnectorTestInstance/ConstructionClientConnectorTest (0 ms total)
+
+[----------] 36 tests from UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/0
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/0 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/1
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/1 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/2
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/2 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/3
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/3 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/4
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/4 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/5
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CreationOfSecondClientConnectorReturnsDuplicateError/5 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/0
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/1
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/2
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/3
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/4
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/5
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/5 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/0
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/1
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/2
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/3
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/4
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/5
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/5 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/0
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/1
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/2
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/3
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/4
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/5
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/5 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/0
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/1
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/2
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/3
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/4
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/5
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/5 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/0
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/1
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/2
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/3
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/4
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/5
+[       OK ] UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest.CallMethodReturnsServiceNotAvailable/5 (0 ms)
+[----------] 36 tests from UnconnectedClientConnectorTestInstance/UnconnectedClientConnectorTest (0 ms total)
+
+[----------] 30 tests from UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/0
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/1
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/2
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/3
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/4
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/5
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.SubscribeEventReturnsServiceNotAvailable/5 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/0
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/1
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/2
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/3
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/4
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/5
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventReturnsServiceNotAvailable/5 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/0
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/1
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/2
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/3
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/4
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/5
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.UnsubscribeEventIgnoreSubscribedEventReturnsServiceNotAvailable/5 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/0
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/1
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/2
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/3
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/4
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/5
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.RequestEventUpdateIgnoreSubscribedEventReturnsServiceNotAvailable/5 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/0
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/0 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/1
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/1 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/2
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/2 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/3
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/3 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/4
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/4 (0 ms)
+[ RUN      ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/5
+[       OK ] UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest.CallMethodReturnsServiceNotAvailable/5 (0 ms)
+[----------] 30 tests from UnavailableServerConnectorClientConnectorTestInstance/UnavailableServerConnectorClientConnectorTest (0 ms total)
+
+[----------] 54 tests from ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/0
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/0 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/1
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/1 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/2
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/2 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/3
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/3 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/4
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/4 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/5
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithoutReply/5 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/0
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/0 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/1
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/1 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/2
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/2 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/3
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/3 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/4
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/4 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/5
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.CallMethodWithReply/5 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/0
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/0 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/1
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/1 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/2
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/2 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/3
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/3 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/4
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/4 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/5
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.DestroyClientConnectorPendingMethod/5 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/0
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/0 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/1
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/1 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/2
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/2 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/3
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/3 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/4
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/4 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/5
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.SubscribeEvent/5 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/0
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/0 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/1
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/1 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/2
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/2 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/3
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/3 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/4
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/4 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/5
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.ClientWithEventSubscriptionUnsubscribes/5 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/0
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/0 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/1
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/1 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/2
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/2 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/3
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/3 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/4
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/4 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/5
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.UnsubscribeEvent/5 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/0
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/0 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/1
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/1 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/2
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/2 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/3
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/3 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/4
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/4 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/5
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.RequestEventUpdate/5 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/0
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/0 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/1
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/1 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/2
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/2 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/3
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/3 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/4
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/4 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/5
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnEventUpdate/5 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/0
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/0 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/1
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/1 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/2
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/2 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/3
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/3 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/4
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/4 (0 ms)
+[ RUN      ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/5
+[       OK ] ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest.OnRequestedEventUpdate/5 (0 ms)
+[----------] 54 tests from ConnectedClientConnectorTestInstance/ConnectedClientConnectorTest (4 ms total)
+
+[----------] 8 tests from Identifier/InterfaceCompatibilityTest
+[ RUN      ] Identifier/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_0
+[       OK ] Identifier/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_0 (0 ms)
+[ RUN      ] Identifier/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_mismatch_and_version_match_expect_no_connect_1
+[       OK ] Identifier/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_mismatch_and_version_match_expect_no_connect_1 (0 ms)
+[ RUN      ] Identifier/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_2
+[       OK ] Identifier/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_2 (0 ms)
+[ RUN      ] Identifier/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_3
+[       OK ] Identifier/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_3 (0 ms)
+[ RUN      ] Identifier/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_0
+[       OK ] Identifier/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_0 (0 ms)
+[ RUN      ] Identifier/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_mismatch_and_version_match_expect_no_connect_1
+[       OK ] Identifier/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_mismatch_and_version_match_expect_no_connect_1 (0 ms)
+[ RUN      ] Identifier/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_2
+[       OK ] Identifier/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_2 (0 ms)
+[ RUN      ] Identifier/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_3
+[       OK ] Identifier/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_3 (0 ms)
+[----------] 8 tests from Identifier/InterfaceCompatibilityTest (0 ms total)
+
+[----------] 20 tests from Version/InterfaceCompatibilityTest
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_0
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_0 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_1
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_1 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_2
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_2 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_match_and_client_minor_version_is_greater_expect_no_connect_3
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_match_and_client_minor_version_is_greater_expect_no_connect_3 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_match_and_client_minor_version_is_lower_equal_expect_connect_4
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_match_and_client_minor_version_is_lower_equal_expect_connect_4 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_5
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_5 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_6
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_6 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_match_and_client_minor_version_is_greater_expect_no_connect_7
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_match_and_client_minor_version_is_greater_expect_no_connect_7 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_match_and_client_minor_version_is_lower_equal_expect_connect_8
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_major_version_match_and_client_minor_version_is_lower_equal_expect_connect_8 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_9
+[       OK ] Version/InterfaceCompatibilityTest.ServerCreatedBeforeClient/id_match_and_version_match_expect_connect_9 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_0
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_0 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_1
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_1 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_2
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_2 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_match_and_client_minor_version_is_greater_expect_no_connect_3
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_match_and_client_minor_version_is_greater_expect_no_connect_3 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_match_and_client_minor_version_is_lower_equal_expect_connect_4
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_match_and_client_minor_version_is_lower_equal_expect_connect_4 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_5
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_5 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_6
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_mismatch_and_client_minor_version_is_lower_equal_expect_no_connect_6 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_match_and_client_minor_version_is_greater_expect_no_connect_7
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_match_and_client_minor_version_is_greater_expect_no_connect_7 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_match_and_client_minor_version_is_lower_equal_expect_connect_8
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_major_version_match_and_client_minor_version_is_lower_equal_expect_connect_8 (0 ms)
+[ RUN      ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_9
+[       OK ] Version/InterfaceCompatibilityTest.ClientCreatedBeforeServer/id_match_and_version_match_expect_connect_9 (0 ms)
+[----------] 20 tests from Version/InterfaceCompatibilityTest (0 ms total)
+
+[----------] 10 tests from MethodCallTestInstance/MethodCallTest
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/0
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/0 (0 ms)
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/1
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/1 (0 ms)
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/2
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/2 (0 ms)
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/3
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/3 (0 ms)
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/4
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientSendsFireAndForgetMethodCallToServer/4 (0 ms)
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/0
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/0 (0 ms)
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/1
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/1 (0 ms)
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/2
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/2 (0 ms)
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/3
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/3 (0 ms)
+[ RUN      ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/4
+[       OK ] MethodCallTestInstance/MethodCallTest.ClientCallsMethodAndReceivesResponseFromServer/4 (0 ms)
+[----------] 10 tests from MethodCallTestInstance/MethodCallTest (0 ms total)
+
+[----------] 81 tests from OperatorEqual/PayloadOperatorEqualTest
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/0
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/0 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/1
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/1 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/2
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/2 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/3
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/3 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/4
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/4 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/5
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/5 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/6
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/6 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/7
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/7 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/8
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/8 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/9
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/9 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/10
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/10 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/11
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/11 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/12
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/12 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/13
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/13 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/14
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/14 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/15
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/15 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/16
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/16 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/17
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/17 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/18
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/18 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/19
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/19 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/20
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/20 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/21
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/21 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/22
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/22 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/23
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/23 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/24
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/24 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/25
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/25 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/26
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/26 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/27
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/27 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/28
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/28 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/29
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/29 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/30
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/30 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/31
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/31 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/32
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/32 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/33
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/33 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/34
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/34 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/35
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/35 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/36
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/36 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/37
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/37 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/38
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/38 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/39
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/39 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/40
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/40 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/41
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/41 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/42
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/42 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/43
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/43 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/44
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/44 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/45
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/45 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/46
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/46 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/47
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/47 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/48
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/48 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/49
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/49 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/50
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/50 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/51
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/51 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/52
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/52 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/53
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/53 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/54
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/54 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/55
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/55 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/56
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/56 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/57
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/57 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/58
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/58 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/59
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/59 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/60
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/60 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/61
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/61 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/62
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/62 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/63
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/63 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/64
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/64 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/65
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/65 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/66
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/66 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/67
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/67 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/68
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/68 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/69
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/69 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/70
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/70 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/71
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/71 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/72
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/72 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/73
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/73 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/74
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/74 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/75
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/75 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/76
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/76 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/77
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/77 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/78
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/78 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/79
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/79 (0 ms)
+[ RUN      ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/80
+[       OK ] OperatorEqual/PayloadOperatorEqualTest.OperatorEqualComparesPayloads/80 (0 ms)
+[----------] 81 tests from OperatorEqual/PayloadOperatorEqualTest (0 ms total)
+
+[----------] 28 tests from Offsets/VectorPayloadtest
+[ RUN      ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/0
+[       OK ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/0 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/1
+[       OK ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/1 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/2
+[       OK ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/2 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/3
+[       OK ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/3 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/4
+[       OK ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/4 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/5
+[       OK ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/5 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/6
+[       OK ] Offsets/VectorPayloadtest.SpanReturnsDataAfterTheHeader/6 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/0
+[       OK ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/0 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/1
+[       OK ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/1 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/2
+[       OK ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/2 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/3
+[       OK ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/3 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/4
+[       OK ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/4 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/5
+[       OK ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/5 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/6
+[       OK ] Offsets/VectorPayloadtest.HeaderReturnsDataBeforeSpan/6 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/0
+[       OK ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/0 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/1
+[       OK ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/1 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/2
+[       OK ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/2 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/3
+[       OK ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/3 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/4
+[       OK ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/4 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/5
+[       OK ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/5 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/6
+[       OK ] Offsets/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/6 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/0
+[       OK ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/0 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/1
+[       OK ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/1 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/2
+[       OK ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/2 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/3
+[       OK ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/3 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/4
+[       OK ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/4 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/5
+[       OK ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/5 (0 ms)
+[ RUN      ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/6
+[       OK ] Offsets/VectorPayloadtest.HeaderSizeEqualsStartOffset/6 (0 ms)
+[----------] 28 tests from Offsets/VectorPayloadtest (0 ms total)
+
+[----------] 12 tests from Size/VectorPayloadtest
+[ RUN      ] Size/VectorPayloadtest.SpanReturnsDataAfterTheHeader/0
+[       OK ] Size/VectorPayloadtest.SpanReturnsDataAfterTheHeader/0 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.SpanReturnsDataAfterTheHeader/1
+[       OK ] Size/VectorPayloadtest.SpanReturnsDataAfterTheHeader/1 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.SpanReturnsDataAfterTheHeader/2
+[       OK ] Size/VectorPayloadtest.SpanReturnsDataAfterTheHeader/2 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.HeaderReturnsDataBeforeSpan/0
+[       OK ] Size/VectorPayloadtest.HeaderReturnsDataBeforeSpan/0 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.HeaderReturnsDataBeforeSpan/1
+[       OK ] Size/VectorPayloadtest.HeaderReturnsDataBeforeSpan/1 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.HeaderReturnsDataBeforeSpan/2
+[       OK ] Size/VectorPayloadtest.HeaderReturnsDataBeforeSpan/2 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/0
+[       OK ] Size/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/0 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/1
+[       OK ] Size/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/1 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/2
+[       OK ] Size/VectorPayloadtest.HeaderAndSpanAreNextToEachOther/2 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.HeaderSizeEqualsStartOffset/0
+[       OK ] Size/VectorPayloadtest.HeaderSizeEqualsStartOffset/0 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.HeaderSizeEqualsStartOffset/1
+[       OK ] Size/VectorPayloadtest.HeaderSizeEqualsStartOffset/1 (0 ms)
+[ RUN      ] Size/VectorPayloadtest.HeaderSizeEqualsStartOffset/2
+[       OK ] Size/VectorPayloadtest.HeaderSizeEqualsStartOffset/2 (0 ms)
+[----------] 12 tests from Size/VectorPayloadtest (0 ms total)
+
+[----------] 75 tests from Offsets/VectorPayloadLeadOffsetTest
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/0
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/0 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/1
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/1 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/2
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/2 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/3
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/3 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/4
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/4 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/5
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/5 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/6
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/6 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/7
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/7 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/8
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/8 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/9
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/9 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/10
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/10 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/11
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/11 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/12
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/12 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/13
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/13 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/14
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/14 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/15
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/15 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/16
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/16 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/17
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/17 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/18
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/18 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/19
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/19 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/20
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/20 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/21
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/21 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/22
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/22 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/23
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/23 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/24
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.SpanReturnsDataAfterTheHeader/24 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/0
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/0 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/1
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/1 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/2
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/2 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/3
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/3 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/4
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/4 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/5
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/5 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/6
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/6 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/7
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/7 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/8
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/8 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/9
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/9 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/10
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/10 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/11
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/11 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/12
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/12 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/13
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/13 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/14
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/14 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/15
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/15 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/16
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/16 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/17
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/17 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/18
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/18 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/19
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/19 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/20
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/20 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/21
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/21 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/22
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/22 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/23
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/23 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/24
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderReturnsDataBeforeSpan/24 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/0
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/0 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/1
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/1 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/2
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/2 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/3
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/3 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/4
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/4 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/5
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/5 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/6
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/6 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/7
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/7 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/8
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/8 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/9
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/9 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/10
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/10 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/11
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/11 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/12
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/12 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/13
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/13 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/14
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/14 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/15
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/15 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/16
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/16 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/17
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/17 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/18
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/18 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/19
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/19 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/20
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/20 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/21
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/21 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/22
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/22 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/23
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/23 (0 ms)
+[ RUN      ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/24
+[       OK ] Offsets/VectorPayloadLeadOffsetTest.HeaderAndSpanAreNextToEachOther/24 (0 ms)
+[----------] 75 tests from Offsets/VectorPayloadLeadOffsetTest (0 ms total)
+
+[----------] 32 tests from RequestsAfterBridgeCreation/RuntimeBridgeTest
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_requests_and_then_bridges_destroyed
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_requests_and_then_bridges_destroyed (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_bridges_and_then_requests_destroyed
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_bridges_and_then_requests_destroyed (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_requests_and_then_bridges_destroyed
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_requests_and_then_bridges_destroyed (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_bridges_and_then_requests_destroyed
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_bridges_and_then_requests_destroyed (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_1_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_requests_and_then_bridges_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_requests (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges (0 ms)
+[ RUN      ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests
+[       OK ] RequestsAfterBridgeCreation/RuntimeBridgeTest.CreationOfClientsWillCallRequestServiceFunction/with_10_bridges__and_1_requests_after_bridge__and_bridges_and_then_requests_destroyed__and_deleting_and_recreating_bridges__and_deleting_and_recreating_requests (0 ms)
+[----------] 32 tests from RequestsAfterBridgeCreation/RuntimeBridgeTest (3 ms total)
+
+[----------] Global test environment tear-down
+[==========] 685 tests from 48 test suites ran. (1369 ms total)
+[  PASSED  ] 685 tests.

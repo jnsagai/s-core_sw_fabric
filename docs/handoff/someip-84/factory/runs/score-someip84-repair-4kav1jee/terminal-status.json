@@ -1,0 +1,12 @@
+{
+  "run_id": "01M40QGQP0PTD6GRRA4PPWB56Y",
+  "native_status": {
+    "kind": "failed",
+    "reason": "workflow_error"
+  },
+  "worker_alive": false,
+  "technical_completion": "blocked",
+  "task_closure": "pending_external_human_validation",
+  "remaining_failure": "Attached perf interrupted during normal recording finalization; both workloads executed but wrapper exit254",
+  "automatic_replacement": false
+}

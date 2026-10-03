@@ -21,7 +21,7 @@ def handoff(monkeypatch: pytest.MonkeyPatch) -> Any:
 
 
 def test_native_cli_reads_private_disposable_auth(tmp_path: Path, handoff: Any) -> None:
-    binary = Path("/tmp/score-fabro-build-kDgEvg/target/debug/fabro")
+    binary = Path(os.environ.get("SCORE_FABRO_BIN", str(handoff.BINARY)))
     if not binary.exists():
         pytest.skip("Pinned rebuilt Fabro is unavailable")
     token = "fabro_dev_" + "b" * 64

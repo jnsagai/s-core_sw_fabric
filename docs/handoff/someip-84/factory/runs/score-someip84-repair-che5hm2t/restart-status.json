@@ -1,0 +1,31 @@
+{
+  "observed_at": "2026-10-03T09:24:00.051308+00:00",
+  "run_id": "01M40GYYV7HDR10616TGNC3C3H",
+  "lifecycle": {
+    "status": {
+      "kind": "running"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "worker_alive": true,
+  "supervisor_pid": 3522788,
+  "container_id": "799ed15e81d4568ac90534bb526bf9afb9707d3129a5af84b5057fa2fbe880e0",
+  "container_image": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+  "container_networks": {},
+  "human_nodes": 0,
+  "orchestrators": [
+    "orchestrate_format_precommit",
+    "orchestrate_scope",
+    "orchestrate_native_integration",
+    "orchestrate_native_performance"
+  ],
+  "loop_count": 3,
+  "integration_mandatory": true,
+  "task_closure": "pending_external_human_validation",
+  "prepared_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t"
+}

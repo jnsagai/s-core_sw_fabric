@@ -1,0 +1,19 @@
+{
+  "run_id": "01M40NRH62RND9E3HA8KQXM1AJ",
+  "native_status": {
+    "kind": "failed",
+    "reason": "workflow_error"
+  },
+  "worker_alive": false,
+  "technical_completion": "blocked",
+  "task_closure": "pending_external_human_validation",
+  "mandatory_results": {
+    "format_precommit": true,
+    "native_integration": true,
+    "native_performance": false,
+    "compiler_diagnostics": true,
+    "native_tests": true
+  },
+  "remaining_failure": "Native profiling wrapper cannot create perf-invocations on read-only sandbox filesystem",
+  "automatic_replacement": false
+}

@@ -1,0 +1,11 @@
+{
+  "native_performance": {
+    "logs_sha256": {
+      "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-4kav1jee/obligation-results/native_performance-1791026043993266646/profiling.stderr": "d635a0cb3ed2df05e4d2d147d7daca1241f3e28a57504f6db15b5b51f3205668",
+      "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-4kav1jee/obligation-results/native_performance-1791026043993266646/profiling.stdout": "a6a86f2c8d9454a427ecb7334c80c4f6515e27a49cc1896f347eca06e4e80bb3"
+    },
+    "path": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-4kav1jee/obligation-results/native_performance-1791026043993266646/result.json",
+    "purpose": "Prior measured profiling failure triggers same-run repair",
+    "sha256": "dbe8154e6e5394c45f28575932e1cfe9157e802f18cd7f57546043dccf06568e"
+  }
+}

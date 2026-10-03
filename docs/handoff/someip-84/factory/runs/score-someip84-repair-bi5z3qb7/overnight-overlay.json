@@ -1,0 +1,38 @@
+{
+  "compiled_package_sha256": "56c9b9b6793b8b4edacf947f83e3073f0b544f4b7fb3e63b585c151b60e73b94",
+  "dependencies": {
+    "build-workspace-binding.json": "65a1ba47f0a0736142c090f22a4e25d8cdf68315d4c1cd4f6f7000e53037a718",
+    "capture-inputs.json": "d7bd9ee5f8ddb91f741467ebabfc0d5d02252dd64d29afde5e7d416c3217e547",
+    "capture-link-inputs.json": "77700193b02fa18a4983e3b77ccc69478aa34acfcdda19e3dc855c7a9623349c",
+    "capture_tool.py": "41c84a2fb1cff65b23301b4be6347e9703adcffd0725d66a6484badea6e0fa84",
+    "collect_obligations.py": "b9b78c907c74cffa08490deb0fb35dab38c85da7abc9c87374c4f4927faf3730",
+    "guard_agent_tools.py": "55cefeb2f105a9bb43154f331e5940c5ea799a66be43473a7380a88cefd4691f",
+    "initial-failure-evidence.json": "1c515a9d258f4ad34c7fbb009ec649f4a2126e12578766a32c880d935148f89d",
+    "isolate_docker.py": "0e0ee6f9ce2d2e0303ec53eea3c9c2880d024c6167fad83b1a802a8be17535e4",
+    "measure.py": "6c1e0a4270e55f4a8c3bdee660e36901f6d2f675d008b9ba84022bc95c83da0f",
+    "measurement-inputs.json": "2e4fc3b1af104349cf5cfd962e770bcca824d260000d741b329a540ea5ed61bb",
+    "native-git-baseline.bundle": "5b8e2c7d95799d248185a9b315b7549d4de1c97d4f9d1ad0b92ae87b07c082aa",
+    "native-git-baseline.json": "4d596f7a1feba80d1995f21f84cce36865fa21c2d88f217fe1e833fe0c8417d1",
+    "native_git.py": "d6655f935fcb6eb131adec744ef453e369c980be8a63122c45c006c37137c883",
+    "obligations.py": "252a8521fdd5b7225daf37597933bd868fc4d69ec2a80755e619d3272577e467",
+    "perf_bridge.py": "4b0c56255f3cbff3bd7ff2738c6540f40d67e83d49d3c1b90e59093b83378de2",
+    "queue-tools.json": "be40ab78b291857a401d76a58fbeeccece3ea4874057875a23f4e11532d739a5",
+    "queue_tools.py": "d08e974565c6cc7dc9693d6f208f2caefc9c49fbd65e53bb76b5148eda11994e",
+    "repair_hooks.py": "786b36f7e9e2adf33882a72c02c2a02b7a1a97982de13559f17c5033e6cf9810",
+    "repair_workflow.py": "b5fae2b0d8e0bc302dfe3c0c0867166d3aa26fd669ec5cb8c2df5d5168658c17",
+    "reused-evidence.json": "9f9a23de3bb284a3c2f8788ccb70a61e0c6fd313c79dc8cb95ff04bd2b608834",
+    "storage-selection.json": "1c0a09fa203c061313119a66092bdc566b8df98948f32b1f3c109321d5e5be00",
+    "storage.py": "dfbd76c2b98ade5e6e32c059d6bf2fc83fe1719045d2a75610ff50fe482b6446",
+    "supervision.py": "7f027d19cac9354fc7a5956f4ca30b483fe98f9e593cd753c6adbf434f1d8e38",
+    "task-authority.json": "574bf2d2f5622155bbb5cff2c0147345b45b07825ae79800e812ef7ec1550b6e",
+    "workspace_transfer.py": "b1e9577072d7ec5027461a1f335f38300d0bba05daefa736d21a86bb4c557ca1"
+  },
+  "entrypoint_sha256": "9983fe08d5f36e0b5e04ee5d56bde566cf0e22457169e059e7c5a70ca03b210d",
+  "hook_sha256": "506e395d833b2ae517bb75edd3347d94240bd609285fce399b45ed7c1c64bea3",
+  "native_attribute_overrides": {
+    "all_command_max_retries": 0,
+    "terminal_failure_policy": "exit"
+  },
+  "policy_sha256": "17772c6cdf922f62c9467f8fadf768d685a78b9e076949de15c0c70a4c155348",
+  "workflow_sha256": "3a0f72be5bffd9b109382966294d7cfe17ce5f7823121f2942710c19e05335b6"
+}

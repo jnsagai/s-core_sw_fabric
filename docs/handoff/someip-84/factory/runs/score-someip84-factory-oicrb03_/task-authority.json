@@ -1,0 +1,19 @@
+{
+  "all_obligations": true,
+  "deadline": null,
+  "engineering_review": "pending",
+  "fallbacks": [],
+  "live_agent_admission": "requires runtime smoke, Docker boundary and host tool-hook checks",
+  "model": "deepseek-flash",
+  "model_selection": "docs/handoff/someip-84/factory/deepseek-selection.yaml",
+  "native_ceiling_reason": "Pinned Petri attractor frontend MAX_FIRINGS; no lower rework cap added",
+  "native_rework_ceiling": 500,
+  "paid_calls": "authorized without a user spending cap",
+  "provider": "deepseek",
+  "queue_rework_cap": null,
+  "reasoning_effort": "high",
+  "restart_authority": "Owner explicitly requested abort, expansion and unattended restart",
+  "scope": "Draft implementation, regression tests, measured focused validation and review drafts for SOME/IP #84 only",
+  "single_pass": true,
+  "user_direction": "Restart the failed SOME/IP #84 queue for one complete pass; preserve prior work"
+}

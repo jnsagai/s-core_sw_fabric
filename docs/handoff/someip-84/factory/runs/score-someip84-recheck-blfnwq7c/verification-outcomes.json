@@ -1,0 +1,119 @@
+{
+  "run_id": "01M4082KVKZ7DE1D4KSBEEJE0C",
+  "measurements": [
+    {
+      "check": "format_precommit",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "git-init",
+          "exit_code": 0
+        },
+        {
+          "label": "git-add",
+          "exit_code": 0
+        },
+        {
+          "label": "format",
+          "exit_code": 3
+        }
+      ]
+    },
+    {
+      "check": "native_docs",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "native-git-init",
+          "exit_code": 0
+        },
+        {
+          "label": "native-git-hooks",
+          "exit_code": 0
+        },
+        {
+          "label": "native-git-fetch",
+          "exit_code": 0
+        },
+        {
+          "label": "native-git-index",
+          "exit_code": 0
+        },
+        {
+          "label": "native-git-origin",
+          "exit_code": 0
+        },
+        {
+          "label": "native-git-identity",
+          "exit_code": 0
+        },
+        {
+          "label": "native-git-remote",
+          "exit_code": 0
+        },
+        {
+          "label": "docs",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "check": "native_integration",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "qemu",
+          "exit_code": 1
+        }
+      ]
+    },
+    {
+      "check": "native_lint",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "clang-tidy",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "check": "native_performance",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "benchmarks",
+          "exit_code": 0
+        },
+        {
+          "label": "profiling",
+          "exit_code": 3
+        }
+      ]
+    },
+    {
+      "check": "native_traceability",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "native-git-identity",
+          "exit_code": 0
+        },
+        {
+          "label": "native-git-remote",
+          "exit_code": 0
+        },
+        {
+          "label": "traceability",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "check": "verification_report",
+      "status": "completed_with_blockers",
+      "commands": []
+    }
+  ],
+  "engineering_acceptance": "pending"
+}

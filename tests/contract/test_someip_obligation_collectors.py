@@ -227,7 +227,11 @@ def test_recollection_reuses_only_identical_source_and_collector(collector, tmp_
 
     def execute(check, commands, _root, result):
         executions.append(check)
-        commands.records.append({"exit_code": 2, "label": "native-tool", "argv": ["fixed"]})
+        record = {"exit_code": 2, "label": "native-tool", "argv": ["fixed"]}
+        commands.records.append(record)
+        (commands.out / "native-tool.stdout").write_text("fixture diagnostic")
+        (commands.out / "native-tool.stderr").write_text("")
+        (commands.out / "native-tool.command.json").write_text(json.dumps(record))
         result["blockers"].append("native execution failed")
 
     monkeypatch.setattr(collector, "execute", execute)

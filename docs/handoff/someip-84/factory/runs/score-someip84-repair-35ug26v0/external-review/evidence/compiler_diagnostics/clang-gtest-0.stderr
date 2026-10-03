@@ -1,0 +1,22 @@
+In file included from /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/source/.llm_tmp/googletest/googletest/src/gtest-all.cc:38:
+In file included from /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/source/.llm_tmp/googletest/googletest/include/gtest/gtest.h:55:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/memory:66:
+/usr/lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/bits/stl_tempbuf.h:263:8: warning: 'get_temporary_buffer<testing::TestInfo *>' is deprecated [-Wdeprecated-declarations]
+  263 |                 std::get_temporary_buffer<value_type>(_M_original_len));
+      |                      ^
+/usr/lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/bits/stl_algo.h:4996:15: note: in instantiation of member function 'std::_Temporary_buffer<__gnu_cxx::__normal_iterator<testing::TestInfo **, std::vector<testing::TestInfo *>>, testing::TestInfo *>::_Temporary_buffer' requested here
+ 4996 |       _TmpBuf __buf(__first, (__last - __first + 1) / 2);
+      |               ^
+/usr/lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/bits/stl_algo.h:5070:23: note: in instantiation of function template specialization 'std::__stable_sort<__gnu_cxx::__normal_iterator<testing::TestInfo **, std::vector<testing::TestInfo *>>, __gnu_cxx::__ops::_Iter_comp_iter<(lambda at /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/source/.llm_tmp/googletest/googletest/src/gtest.cc:3069:20)>>' requested here
+ 5070 |       _GLIBCXX_STD_A::__stable_sort(__first, __last,
+      |                       ^
+/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/source/.llm_tmp/googletest/googletest/src/gtest.cc:3068:8: note: in instantiation of function template specialization 'std::stable_sort<__gnu_cxx::__normal_iterator<testing::TestInfo **, std::vector<testing::TestInfo *>>, (lambda at /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-che5hm2t/obligation-results/compiler_diagnostics-1791019548000491204/source/.llm_tmp/googletest/googletest/src/gtest.cc:3069:20)>' requested here
+ 3068 |   std::stable_sort(test_info_list_.begin(), test_info_list_.end(),
+      |        ^
+/usr/lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/bits/stl_tempbuf.h:99:5: note: 'get_temporary_buffer<testing::TestInfo *>' has been explicitly marked deprecated here
+   99 |     _GLIBCXX17_DEPRECATED
+      |     ^
+/usr/lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12/bits/c++config.h:119:34: note: expanded from macro '_GLIBCXX17_DEPRECATED'
+  119 | # define _GLIBCXX17_DEPRECATED [[__deprecated__]]
+      |                                  ^
+1 warning generated.

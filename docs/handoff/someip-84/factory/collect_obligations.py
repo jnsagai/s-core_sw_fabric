@@ -9,12 +9,16 @@ import shlex
 import shutil
 import signal
 import subprocess
+import sys
 import time
 from pathlib import Path
 
+from evidence import seal_result, verify_result
 from isolate_docker import docker
 from measure import digest, verify_tree
+from native_git import restore_native_git
 from obligations import CHECKS
+from queue_tools import installed_tools, validate_tools
 from storage import validate_run_root
 from workspace_transfer import snapshot_workspace
 
@@ -22,10 +26,14 @@ GCC = "/usr/bin/x86_64-linux-gnu-g++-12"
 LLVM = Path("/home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/llvm-19/bin")
 CODEQL = "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/codeql"
 PACK = "/home/jefferson/.local/share/s-core-tools/codeql-coding-standards-2.61.0"
-BAZEL = "/tmp/s-core-001/bin/bazel"
-REUSE = "/tmp/score-someip84-obligation-tools/bin/reuse"
-PRECOMMIT = "/tmp/score-someip84-obligation-tools/bin/pre-commit"
-FORMAT = "/tmp/score-someip84-obligation-tools/bin/clang-format"
+TOOLS = installed_tools()
+TOOL_PATHS = TOOLS.get("tools", {})
+BAZEL = TOOL_PATHS.get("bazel", "/tmp/s-core-001/bin/bazel")
+REUSE = TOOL_PATHS.get("reuse", "/tmp/score-someip84-obligation-tools/bin/reuse")
+PRECOMMIT = TOOL_PATHS.get("pre-commit", "/tmp/score-someip84-obligation-tools/bin/pre-commit")
+FORMAT = TOOL_PATHS.get("clang-format", "/tmp/score-someip84-obligation-tools/bin/clang-format")
+VALGRIND = TOOL_PATHS.get("valgrind", "/tmp/score-someip84-obligation-tools/usr/bin/valgrind")
+GITLEAKS = TOOL_PATHS.get("gitleaks", "/tmp/score-someip84-obligation-tools/bin/gitleaks")
 
 
 def collector_identity() -> dict[str, str | None]:
@@ -34,6 +42,8 @@ def collector_identity() -> dict[str, str | None]:
         str(Path(__file__).with_name("obligations.py")),
         str(Path(__file__).with_name("storage.py")),
         str(Path(__file__).with_name("workspace_transfer.py")),
+        str(Path(__file__).with_name("evidence.py")),
+        str(Path(__file__).with_name("integration_evidence.py")),
         GCC,
         str(LLVM / "clang++"),
         str(LLVM / "clang-tidy"),
@@ -47,16 +57,19 @@ def collector_identity() -> dict[str, str | None]:
         "/usr/bin/gcov-12",
         "/usr/bin/gcovr",
         "/usr/bin/cppcheck",
-        "/tmp/score-someip84-obligation-tools/usr/bin/valgrind",
-        "/tmp/score-someip84-obligation-tools/bin/gitleaks",
+        VALGRIND,
+        GITLEAKS,
     ]
-    return {p: digest(Path(p)) if Path(p).is_file() else None for p in paths}
+    identities = {p: digest(Path(p)) if Path(p).is_file() else None for p in paths}
+    identities.update(TOOLS.get("identities", {}))
+    return identities
 
 
 def source_identity(source: Path) -> dict[str, str]:
     return {
         str(p.relative_to(source)): digest(p)
-        for p in sorted((source / "score").rglob("*"))
+        for directory in ("score", "tests")
+        for p in sorted((source / directory).rglob("*"))
         if p.is_file() and not p.is_symlink()
     }
 
@@ -111,15 +124,23 @@ def snapshot(root: Path, policy: dict, out: Path) -> tuple[Path, str]:
 
 
 class Commands:
-    def __init__(self, root: Path, out: Path, source: Path, deadline: float):
+    def __init__(
+        self, root: Path, out: Path, source: Path, deadline: float, timeouts=None, selected=None
+    ):
         if (root / "storage-selection.json").exists():
             validate_run_root(root)
+        if TOOLS:
+            validate_tools(Path(__file__).with_name("queue-tools.json"))
         self.out, self.source, self.deadline = out, source, deadline
+        self.timeouts = timeouts or {}
+        self.selected = selected
         self.records: list[dict] = []
         self.env = {
-            "PATH": (
-                "/tmp/score-someip84-obligation-tools/bin:/tmp/s-core-001/bin:/usr/loca"
-                "l/bin:/usr/bin:/bin"
+            "PATH": ":".join(
+                dict.fromkeys(
+                    [str(Path(p).parent) for p in TOOL_PATHS.values()]
+                    + ["/usr/local/bin", "/usr/bin", "/bin", "/usr/sbin", "/sbin"]
+                )
             ),
             "HOME": str(root / "tool-home"),
             "TMPDIR": str(root / "tool-tmp"),
@@ -131,12 +152,22 @@ class Commands:
             "LD_LIBRARY_PATH": (
                 "/home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/x86_64-linux-gnu"
             ),
-            "VALGRIND_LIB": "/tmp/score-someip84-obligation-tools/usr/libexec/valgrind",
+            "VALGRIND_LIB": TOOLS.get(
+                "valgrind_lib", "/tmp/score-someip84-obligation-tools/usr/libexec/valgrind"
+            ),
         }
         for key in ("HOME", "TMPDIR", "BAZELISK_HOME", "XDG_CACHE_HOME"):
             Path(self.env[key]).mkdir(parents=True, exist_ok=True)
 
+    def wants(self, label: str) -> bool:
+        return self.selected is None or label in self.selected
+
     def run(self, label: str, argv: list[str], seconds: int = 240) -> int:
+        if TOOLS:
+            validate_tools(Path(__file__).with_name("queue-tools.json"))
+        seconds = self.timeouts.get(label, seconds)
+        if not isinstance(seconds, int) or not 1 <= seconds <= 7200:
+            raise ValueError("Command timeout must be between 1 and 7200 seconds")
         allowed = max(0, min(seconds, int(self.deadline - time.time() - 10)))
         rec = {
             "label": label,
@@ -174,6 +205,8 @@ class Commands:
                 code = 127
                 rec["reason"] = str(error)
         rec["exit_code"] = code
+        stdout.touch(exist_ok=True)
+        stderr.touch(exist_ok=True)
         self.records.append(rec)
         (self.out / (label + ".command.json")).write_text(json.dumps(rec, indent=2) + "\n")
         return code
@@ -204,14 +237,57 @@ def compile_args(source: Path, exe: Path, compiler: str = GCC) -> list[str]:
 
 def bazel(c: Commands, root: Path, label: str, operation: str, args: list[str], seconds=780):
     (c.source / ".bazel_config").write_text("host\n")
+    extra = []
+    policy_path = root / "overnight-policy.json"
+    policy = json.loads(policy_path.read_text()) if policy_path.exists() else {}
+    if policy.get("in_run_repair"):
+        state_path = root / "environment-repairs.json"
+        state = json.loads(state_path.read_text()) if state_path.exists() else {}
+        if set(state) - {"integration_path", "profiling_bridge", "capture_identity"} or any(
+            type(v) is not bool for v in state.values()
+        ):
+            raise ValueError("Invalid trusted environment repair state")
+        if label == "qemu":
+            extra += ["--nocache_test_results", "--test_output=all"]
+            if state.get("integration_path"):
+                extra += ["--action_env=PATH=" + c.env["PATH"], "--test_env=PATH=" + c.env["PATH"]]
+            if state.get("capture_identity"):
+                from capture_tool import sandbox_mounts
+
+                if os.geteuid() == 0:
+                    raise ValueError("Private capture variant requires a non-root host launcher")
+                extra += sandbox_mounts(root)
+        if label == "profiling" and state.get("profiling_bridge"):
+            extra += [
+                "--test_env=E2E_PERF_PERF_BIN=" + str(root / "perf-bin/perf"),
+                "--test_env=PATH=" + c.env["PATH"],
+                "--nocache_test_results",
+                "--test_output=all",
+                "--sandbox_writable_path=" + str(root / "perf-invocations"),
+            ]
+        if label == "profiling":
+            args = [
+                "--config=perf-tests-flamegraphs",
+                "//tests/benchmarks:e2e_benchmarks",
+                "//tests/benchmarks:e2e_benchmarks_profiling",
+                "--build_tests_only",
+            ]
+        if label == "tests" and operation == "test":
+            args = ["//score/socom/test/unit:socom_test", "--nocache_test_results"]
+    build_root = root
+    binding = root / "build-workspace-binding.json"
+    if binding.exists():
+        build_root = Path(json.loads(binding.read_text())["root"])
+        validate_run_root(build_root)
     return c.run(
         label,
         [
             BAZEL,
             "--batch",
-            "--output_user_root=" + str(root / "bazel-cache"),
+            "--output_user_root=" + str(build_root / "bazel-cache"),
             operation,
             *([] if operation == "mod" else ["--jobs=2"]),
+            *extra,
             *args,
         ],
         seconds,
@@ -223,13 +299,31 @@ def execute(check: str, c: Commands, root: Path, result: dict) -> None:
     if check == "compiler_diagnostics":
         for name, compiler in (("gcc", GCC), ("clang", str(LLVM / "clang++"))):
             exe = out / name
-            if c.run(name + "-compile", compile_args(source, exe, compiler)) == 0:
+            argv = compile_args(source, exe, compiler)
+            # Keep strict diagnostics on our source/tests, while retaining dependency
+            # warnings in separate logs. Clang rejects GoogleTest's libstdc++ usage
+            # under -Werror; it is not a warning in the target translation units.
+            dependencies = argv[-4:-2]
+            objects = []
+            for index, unit in enumerate(dependencies):
+                obj = out / (name + "-gtest-" + str(index) + ".o")
+                if c.run(
+                    name + "-gtest-" + str(index),
+                    [arg for arg in argv[:9] if arg != "-Werror"] + ["-c", unit, "-o", str(obj)],
+                ):
+                    break
+                objects.append(str(obj))
+            if (
+                len(objects) == len(dependencies)
+                and c.run(name + "-compile", argv[:-4] + objects + argv[-2:]) == 0
+            ):
                 c.run(
                     name + "-tests",
                     [str(exe), "--gtest_output=json:" + str(out / (name + "-tests.json"))],
                 )
         result["limits"] = [
-            "Focused executable only; GCC 12.3 / Clang 19 differ from native toolchain pins"
+            "Focused executable only; GCC 12.3 / Clang 19 differ from native toolchain pins",
+            "GoogleTest compiled separately with warnings retained; -Werror on target and tests",
         ]
     elif check in {"focused_coverage", "focused_asan_lsan", "focused_tsan"}:
         exe = out / "focused"
@@ -335,7 +429,7 @@ def execute(check: str, c: Commands, root: Path, result: dict) -> None:
             c.run(
                 "memcheck",
                 [
-                    "/tmp/score-someip84-obligation-tools/usr/bin/valgrind",
+                    VALGRIND,
                     "--tool=memcheck",
                     "--leak-check=full",
                     "--error-exitcode=42",
@@ -349,7 +443,7 @@ def execute(check: str, c: Commands, root: Path, result: dict) -> None:
         c.run(
             "gitleaks",
             [
-                "/tmp/score-someip84-obligation-tools/bin/gitleaks",
+                GITLEAKS,
                 "dir",
                 str(source),
                 "--redact=100",
@@ -372,7 +466,10 @@ def execute(check: str, c: Commands, root: Path, result: dict) -> None:
     elif check.startswith("native_") or check == "cross_compilation":
         # Keep one collector-owned workspace so Bazel can reuse its outputs.
         # Each native suite is still bound to the freshly captured source hashes.
-        native_source = root / "native-workspace"
+        binding = root / "build-workspace-binding.json"
+        build_root = Path(json.loads(binding.read_text())["root"]) if binding.exists() else root
+        validate_run_root(build_root)
+        native_source = build_root / "native-workspace"
         if not native_source.exists():
             shutil.copytree(source, native_source, symlinks=True)
         else:
@@ -389,6 +486,8 @@ def execute(check: str, c: Commands, root: Path, result: dict) -> None:
         result["native_workspace"] = str(native_source)
         c.source = native_source
         source = native_source
+        if check in {"native_docs", "native_traceability"}:
+            restore_native_git(c, root, result)
         suites = {
             "native_build": [("build", "build", ["//..."], 780)],
             "native_tests": [("tests", "test", ["//...", "--build_tests_only"], 780)],
@@ -491,22 +590,81 @@ def execute(check: str, c: Commands, root: Path, result: dict) -> None:
                 "kvm_exists": Path("/dev/kvm").exists(),
                 "qemu": shutil.which("qemu-system-x86_64"),
             }
+        if check == "native_performance" and (root / "review-repairs.json").exists():
+            if (
+                c.run(
+                    "profiler-signal-regression",
+                    [sys.executable, str(root / "qualify_perf.py"), str(root)],
+                    120,
+                )
+                != 0
+            ):
+                raise ValueError("Scoped profiler crash regression failed")
         if check == "cross_compilation":
             result["blockers"].append(
                 "QNX SDK entitlement and target execution not configured; no credential acquired"
             )
         for label, operation, args, timeout in suites[check]:
-            bazel(c, root, label, operation, args, timeout)
+            if c.wants(label):
+                code = bazel(c, root, label, operation, args, timeout)
+                if check == "native_integration" and label == "qemu":
+                    from integration_evidence import CASES, case_outcomes
+
+                    result["integration_platform"] = "linux_qemu"
+                    artifacts = out / "native-artifacts"
+                    for target in CASES:
+                        logs = source / "bazel-testlogs/tests/integration_test" / target
+                        destination = artifacts / target
+                        destination.mkdir(parents=True)
+                        for name in ("test.log", "test.xml"):
+                            original = logs / name
+                            if original.is_file():
+                                shutil.copyfile(original, destination / name)
+                    result["native_artifacts"] = {
+                        str(path.relative_to(out)): digest(path)
+                        for path in artifacts.rglob("*")
+                        if path.is_file()
+                    }
+                    result["integration_case_outcomes"] = case_outcomes(
+                        out, result, (out / "qemu.stdout").read_text(errors="replace")
+                    )
+                if check == "native_performance" and label == "profiling" and code == 0:
+                    artifacts = out / "native-artifacts"
+                    for target in ("e2e_benchmarks", "e2e_benchmarks_profiling"):
+                        logs = source / "bazel-testlogs/tests/benchmarks" / target
+                        destination = artifacts / target
+                        destination.mkdir(parents=True)
+                        for name in (
+                            "test.log",
+                            "test.xml",
+                            "test.outputs",
+                            "test.outputs_manifest",
+                        ):
+                            original = logs / name
+                            if original.is_dir():
+                                shutil.copytree(original, destination / name, symlinks=False)
+                            elif original.is_file():
+                                shutil.copyfile(original, destination / name)
+                    result["native_artifacts"] = {
+                        str(path.relative_to(out)): digest(path)
+                        for path in artifacts.rglob("*")
+                        if path.is_file()
+                    }
     elif check == "format_precommit":
         # Recreate collector-owned Git metadata; never run checkpoint hooks.
         shutil.rmtree(source / ".git", ignore_errors=True)
         c.run("git-init", ["/usr/bin/git", "-c", "core.hooksPath=/dev/null", "init"])
         c.run("git-add", ["/usr/bin/git", "-c", "core.hooksPath=/dev/null", "add", "--all"])
-        bazel(c, root, "format", "test", ["//:format.check"], 180)
-        c.run("precommit", [PRECOMMIT, "run", "--all-files"], 180)
-        c.run("reuse", [REUSE, "lint"], 90)
-        bazel(c, root, "module-tidy", "mod", ["tidy"], 40)
-        bazel(c, root, "lockfile", "mod", ["deps", "--lockfile_mode=error"], 40)
+        if c.wants("format"):
+            bazel(c, root, "format", "test", ["//:format.check"], 180)
+        if c.wants("precommit"):
+            c.run("precommit", [PRECOMMIT, "run", "--all-files"], 180)
+        if c.wants("reuse"):
+            c.run("reuse", [REUSE, "lint"], 90)
+        if c.wants("module-tidy"):
+            bazel(c, root, "module-tidy", "mod", ["tidy"], 40)
+        if c.wants("lockfile"):
+            bazel(c, root, "lockfile", "mod", ["deps", "--lockfile_mode=error"], 40)
         result["limits"] = [
             "Formatting/pre-commit mutations occur only in this disposable collector copy"
         ]
@@ -621,9 +779,8 @@ def execute(check: str, c: Commands, root: Path, result: dict) -> None:
             REUSE,
             "/usr/bin/qemu-system-x86_64",
             "/usr/bin/perf",
-            "/usr/bin/valgrind",
-            "/tmp/score-someip84-obligation-tools/usr/bin/valgrind",
-            "/tmp/score-someip84-obligation-tools/bin/gitleaks",
+            VALGRIND,
+            GITLEAKS,
         ]
         result["tool_inventory"] = [
             {
@@ -678,9 +835,15 @@ def execute(check: str, c: Commands, root: Path, result: dict) -> None:
             }
             for key, value in latest.items()
         ]
+        policy_path = root / "overnight-policy.json"
+        policy = json.loads(policy_path.read_text()) if policy_path.exists() else {}
+        expected = set(policy.get("recheck_selection", CHECKS))
         result["missing_checks"] = sorted(
-            set(CHECKS) - {"verification_report", "rework_progress"} - set(latest)
+            expected - {"verification_report", "rework_progress"} - set(latest)
         )
+        if policy.get("measurement_only"):
+            result["not_requested_checks"] = sorted(set(CHECKS) - expected)
+            result["scope"] = "Selected missing/timed-out commands only; no fresh full assessment"
         result["blockers"] += [
             "Independent PR approval pending",
             "Safety/security/quality decisions, MISRA manual review and deviations pending",
@@ -719,10 +882,23 @@ def collect(root: Path, policy: dict, node: dict) -> None:
         "status": "unavailable",
         "started_at_epoch": time.time(),
     }
-    command_deadline = time.time() + CHECKS[check]
+    allowance = node.get("collection_timeout_seconds", CHECKS[check])
+    if not isinstance(allowance, int) or not 1 <= allowance <= 14400:
+        raise ValueError("Collection allowance must be between 1 and 14400 seconds")
+    command_deadline = time.time() + allowance
     if policy["deadline_epoch"] is not None:
         command_deadline = min(policy["deadline_epoch"] - 60, command_deadline)
-    commands = Commands(root, out, source, command_deadline)
+    commands = Commands(
+        root,
+        out,
+        source,
+        command_deadline,
+        node.get("command_timeouts"),
+        node.get("selected_commands"),
+    )
+    if commands.selected is not None:
+        result["selected_commands"] = commands.selected
+        result["scope"] = "Explicit subset of this check; omitted commands were not rerun"
     state = root / "rework-source-hashes.json"
     if not state.exists():
         state.write_text(json.dumps(result["source_hashes"], indent=2) + "\n")
@@ -735,9 +911,15 @@ def collect(root: Path, policy: dict, node: dict) -> None:
                 and candidate.get("collector_identity") == result["collector_identity"]
                 and candidate["status"] != "unavailable"
             ):
+                verify_result(previous, candidate)
                 reusable = candidate
     try:
         if reusable:
+            original = Path(reusable["result_path"]).parent
+            for name in reusable["evidence_files"]:
+                destination = out / name
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(original / name, destination)
             # Reuse is explicit evidence provenance, never presented as a new tool run.
             result.update(
                 {
@@ -766,6 +948,9 @@ def collect(root: Path, policy: dict, node: dict) -> None:
         result["commands"] = commands.records
         result["blockers"].append(type(error).__name__ + ": " + str(error))
     result["completed_at_epoch"] = time.time()
+    seal_result(out, result)
+    if reusable:
+        result["evidence_binding_origin"] = "copied_verified_measurement_not_fresh_execution"
     (out / "result.json").write_text(json.dumps(result, indent=2) + "\n")
     feedback = out / "feedback"
     feedback.mkdir()

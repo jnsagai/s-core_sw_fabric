@@ -1,0 +1,856 @@
+{
+  "run_id": "01M3ZRSDK2XQAF1H48VWTPKQNZ",
+  "measurements": [
+    {
+      "check": "codeql_misra",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "database-create",
+          "exit_code": 0
+        },
+        {
+          "label": "analyze",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "codeql_misra",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "database-create",
+          "exit_code": 0
+        },
+        {
+          "label": "analyze",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "codeql_security",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "database-create",
+          "exit_code": 0
+        },
+        {
+          "label": "analyze",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "codeql_security",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "database-create",
+          "exit_code": 0
+        },
+        {
+          "label": "analyze",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "compiler_diagnostics",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "gcc-gtest-0",
+          "exit_code": 0
+        },
+        {
+          "label": "gcc-gtest-1",
+          "exit_code": 0
+        },
+        {
+          "label": "gcc-compile",
+          "exit_code": 0
+        },
+        {
+          "label": "gcc-tests",
+          "exit_code": 0
+        },
+        {
+          "label": "clang-gtest-0",
+          "exit_code": 0
+        },
+        {
+          "label": "clang-gtest-1",
+          "exit_code": 0
+        },
+        {
+          "label": "clang-compile",
+          "exit_code": 0
+        },
+        {
+          "label": "clang-tests",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "compiler_diagnostics",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "gcc-gtest-0",
+          "exit_code": 0
+        },
+        {
+          "label": "gcc-gtest-1",
+          "exit_code": 0
+        },
+        {
+          "label": "gcc-compile",
+          "exit_code": 0
+        },
+        {
+          "label": "gcc-tests",
+          "exit_code": 0
+        },
+        {
+          "label": "clang-gtest-0",
+          "exit_code": 0
+        },
+        {
+          "label": "clang-gtest-1",
+          "exit_code": 0
+        },
+        {
+          "label": "clang-compile",
+          "exit_code": 0
+        },
+        {
+          "label": "clang-tests",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "cross_compilation",
+      "status": "completed_with_blockers",
+      "commands": [
+        {
+          "label": "x86",
+          "exit_code": 0
+        },
+        {
+          "label": "arm",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "cross_compilation",
+      "status": "completed_with_blockers",
+      "commands": [
+        {
+          "label": "x86",
+          "exit_code": 0
+        },
+        {
+          "label": "arm",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_asan_lsan",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0
+        },
+        {
+          "label": "tests",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_asan_lsan",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0
+        },
+        {
+          "label": "tests",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_clang_tidy",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "native-config",
+          "exit_code": 1
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_clang_tidy",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "native-config",
+          "exit_code": 1
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_coverage",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0
+        },
+        {
+          "label": "tests",
+          "exit_code": 0
+        },
+        {
+          "label": "gcovr",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_coverage",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0
+        },
+        {
+          "label": "tests",
+          "exit_code": 0
+        },
+        {
+          "label": "gcovr",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_cppcheck",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "cppcheck",
+          "exit_code": 2
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_cppcheck",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "cppcheck",
+          "exit_code": 2
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_memcheck",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0
+        },
+        {
+          "label": "memcheck",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_memcheck",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0
+        },
+        {
+          "label": "memcheck",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_tsan",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0
+        },
+        {
+          "label": "tests",
+          "exit_code": 66
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "focused_tsan",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0
+        },
+        {
+          "label": "tests",
+          "exit_code": 66
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "format_precommit",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "git-init",
+          "exit_code": 0
+        },
+        {
+          "label": "git-add",
+          "exit_code": 0
+        },
+        {
+          "label": "format",
+          "exit_code": 124
+        },
+        {
+          "label": "precommit",
+          "exit_code": 0
+        },
+        {
+          "label": "reuse",
+          "exit_code": 1
+        },
+        {
+          "label": "module-tidy",
+          "exit_code": 0
+        },
+        {
+          "label": "lockfile",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "format_precommit",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "git-init",
+          "exit_code": 0
+        },
+        {
+          "label": "git-add",
+          "exit_code": 0
+        },
+        {
+          "label": "format",
+          "exit_code": 124
+        },
+        {
+          "label": "precommit",
+          "exit_code": 0
+        },
+        {
+          "label": "reuse",
+          "exit_code": 1
+        },
+        {
+          "label": "module-tidy",
+          "exit_code": 0
+        },
+        {
+          "label": "lockfile",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_build",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "build",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_build",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "build",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_coverage",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "coverage",
+          "exit_code": 0
+        },
+        {
+          "label": "report",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_coverage",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "coverage",
+          "exit_code": 0
+        },
+        {
+          "label": "report",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_docs",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "docs",
+          "exit_code": 2
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_docs",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "docs",
+          "exit_code": 2
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_integration",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "qemu",
+          "exit_code": 1
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_integration",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "qemu",
+          "exit_code": 1
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_lint",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "clang-tidy",
+          "exit_code": 124
+        },
+        {
+          "label": "ruff",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_lint",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "clang-tidy",
+          "exit_code": 124
+        },
+        {
+          "label": "ruff",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_performance",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "benchmarks",
+          "exit_code": 124
+        },
+        {
+          "label": "profiling",
+          "exit_code": 124
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_performance",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "benchmarks",
+          "exit_code": 124
+        },
+        {
+          "label": "profiling",
+          "exit_code": 124
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_sanitizers",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "sanitizers",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_sanitizers",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "sanitizers",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_tests",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "tests",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_tests",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "tests",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_traceability",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "unit-component-tests",
+          "exit_code": 0
+        },
+        {
+          "label": "docs",
+          "exit_code": 2
+        },
+        {
+          "label": "traceability",
+          "exit_code": 1
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_traceability",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "unit-component-tests",
+          "exit_code": 0
+        },
+        {
+          "label": "docs",
+          "exit_code": 2
+        },
+        {
+          "label": "traceability",
+          "exit_code": 1
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_tsan",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "tsan",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "native_tsan",
+      "status": "completed",
+      "commands": [
+        {
+          "label": "tsan",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "process_checks",
+      "status": "completed_with_blockers",
+      "commands": [],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "process_checks",
+      "status": "completed_with_blockers",
+      "commands": [],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "rework_progress",
+      "status": "completed",
+      "commands": [],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "secret_dependency_checks",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "gitleaks",
+          "exit_code": 1
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "secret_dependency_checks",
+      "status": "findings_or_execution_failure",
+      "commands": [
+        {
+          "label": "gitleaks",
+          "exit_code": 1
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "tool_assurance",
+      "status": "completed_with_blockers",
+      "commands": [
+        {
+          "label": "version-0",
+          "exit_code": 0
+        },
+        {
+          "label": "version-1",
+          "exit_code": 0
+        },
+        {
+          "label": "version-2",
+          "exit_code": 0
+        },
+        {
+          "label": "version-3",
+          "exit_code": 0
+        },
+        {
+          "label": "version-4",
+          "exit_code": 0
+        },
+        {
+          "label": "version-5",
+          "exit_code": 0
+        },
+        {
+          "label": "version-6",
+          "exit_code": 0
+        },
+        {
+          "label": "version-7",
+          "exit_code": 0
+        },
+        {
+          "label": "version-8",
+          "exit_code": 0
+        },
+        {
+          "label": "version-9",
+          "exit_code": 0
+        },
+        {
+          "label": "version-10",
+          "exit_code": 0
+        },
+        {
+          "label": "version-11",
+          "exit_code": 0
+        },
+        {
+          "label": "version-12",
+          "exit_code": 0
+        },
+        {
+          "label": "version-13",
+          "exit_code": 0
+        },
+        {
+          "label": "version-14",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "tool_assurance",
+      "status": "completed_with_blockers",
+      "commands": [
+        {
+          "label": "version-0",
+          "exit_code": 0
+        },
+        {
+          "label": "version-1",
+          "exit_code": 0
+        },
+        {
+          "label": "version-2",
+          "exit_code": 0
+        },
+        {
+          "label": "version-3",
+          "exit_code": 0
+        },
+        {
+          "label": "version-4",
+          "exit_code": 0
+        },
+        {
+          "label": "version-5",
+          "exit_code": 0
+        },
+        {
+          "label": "version-6",
+          "exit_code": 0
+        },
+        {
+          "label": "version-7",
+          "exit_code": 0
+        },
+        {
+          "label": "version-8",
+          "exit_code": 0
+        },
+        {
+          "label": "version-9",
+          "exit_code": 0
+        },
+        {
+          "label": "version-10",
+          "exit_code": 0
+        },
+        {
+          "label": "version-11",
+          "exit_code": 0
+        },
+        {
+          "label": "version-12",
+          "exit_code": 0
+        },
+        {
+          "label": "version-13",
+          "exit_code": 0
+        },
+        {
+          "label": "version-14",
+          "exit_code": 0
+        }
+      ],
+      "engineering_acceptance": "pending"
+    },
+    {
+      "check": "verification_report",
+      "status": "completed_with_blockers",
+      "commands": [],
+      "engineering_acceptance": "pending"
+    }
+  ],
+  "engineering_acceptance": "pending"
+}

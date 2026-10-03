@@ -1,0 +1,18 @@
+{
+  "predecessor_run_id": "01M3YRJEGXNY6CB81T7TKW774B",
+  "predecessor_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-2fekt_ew",
+  "preservation_record": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-2fekt_ew/tool-recovery-preservation.json",
+  "instruction": "install all the missing tools that failed for SOMEIP queue, then run the queue again to solve the verification issues",
+  "installed_tools": {
+    "bazel": "8.6.0",
+    "valgrind": "3.18.1",
+    "pre-commit": "4.6.2",
+    "reuse": "6.2.0",
+    "clang-format": "19.1.7",
+    "gitleaks": "8.30.1"
+  },
+  "tool_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-tools-0ptca_j_",
+  "focused_preflight": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/focused-tool-preflight/results.json",
+  "memcheck_preflight": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-oicrb03_/memcheck-preflight/results.json",
+  "engineering_acceptance": "pending"
+}

@@ -1,0 +1,31 @@
+OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+Computing main repo mapping: 
+Loading: 
+Loading: 2 packages loaded
+Analyzing: 2 targets (3 packages loaded, 0 targets configured)
+Analyzing: 2 targets (3 packages loaded, 0 targets configured)
+
+DEBUG: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/external/score_bazel_tools_python+/quality/private/python/python_tool_aspect.bzl:32:18: Python tools integration does not offer the feature "external_include_paths", but it will still be considered in the build.
+Analyzing: 2 targets (292 packages loaded, 8342 targets configured)
+
+Analyzing: 2 targets (363 packages loaded, 31190 targets configured)
+
+WARNING: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/external/score_baselibs+/score/mw/log/detail/wait_free_stack/BUILD:23:11: in cc_library rule @@score_baselibs+//score/mw/log/detail/wait_free_stack:wait_free_stack: target '@@score_baselibs+//score/mw/log/detail/wait_free_stack:wait_free_stack' depends on deprecated target '@@score_baselibs+//score/memory/shared:atomic_indirector': This target is deprecated. Use @score_baselibs//score/concurrency:atomic_indirector instead.
+WARNING: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/external/score_baselibs+/score/json/internal/model/BUILD:17:11: in cc_library rule @@score_baselibs+//score/json/internal/model:model: target '@@score_baselibs+//score/json/internal/model:model' depends on deprecated target '@@score_baselibs+//score/memory:string_comparison_adaptor': This target is deprecated. Use @score_baselibs//score/string_manipulation:string_comparison_adaptor instead.
+WARNING: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/external/score_baselibs+/score/mw/log/detail/text_recorder/BUILD:23:11: in cc_library rule @@score_baselibs+//score/mw/log/detail/text_recorder:text_recorder: target '@@score_baselibs+//score/mw/log/detail/text_recorder:text_recorder' depends on deprecated target '@@score_baselibs+//score/os/utils:high_resolution_steady_clock': Deprecated, please use //platform/aas/mw/time/HighPrecisionLocalSteadyClock instead
+WARNING: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/external/score_baselibs+/score/mw/log/configuration/BUILD:63:11: in cc_library rule @@score_baselibs+//score/mw/log/configuration:configuration_parser: target '@@score_baselibs+//score/mw/log/configuration:configuration_parser' depends on deprecated target '@@score_baselibs+//score/memory:split_string_view': This target is deprecated. Use @score_baselibs//score/string_manipulation:split_string_view instead.
+Analyzing: 2 targets (364 packages loaded, 71217 targets configured)
+
+INFO: Analyzed 2 targets (365 packages loaded, 71229 targets configured).
+[14 / 37] checking cached actions
+[1,530 / 1,532] [Prepa] Testing //tests/benchmarks:e2e_benchmarks_profiling
+[1,530 / 1,532] Testing //tests/benchmarks:e2e_benchmarks; 1s linux-sandbox ... (2 actions running)
+[1,530 / 1,532] Testing //tests/benchmarks:e2e_benchmarks; 11s linux-sandbox ... (2 actions running)
+FAIL: //tests/benchmarks:e2e_benchmarks_profiling (Exit 1) (see /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.log)
+INFO: From Testing //tests/benchmarks:e2e_benchmarks_profiling:
+ERROR: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/native-workspace/tests/benchmarks/BUILD.bazel:134:10: error while validating output tree artifact tests/benchmarks/e2e_benchmarks_profiling/test.outputs: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/bazel-cache/93d4189f24ec00ccfdb213d6429b4a32/execroot/_main/bazel-out/k8-opt/testlogs/tests/benchmarks/e2e_benchmarks_profiling/test.outputs/e2e_benchmarks_profiling/echo_someipd.perf.data (Operation not permitted)
+ERROR: /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/native-workspace/tests/benchmarks/BUILD.bazel:134:10: Testing //tests/benchmarks:e2e_benchmarks_profiling failed: not all outputs were created or valid
+[1,531 / 1,532] 1 / 2 tests, 1 failed; Testing //tests/benchmarks:e2e_benchmarks; 12s linux-sandbox
+INFO: Elapsed time: 36.685s, Critical Path: 14.51s
+INFO: 3 processes: 1532 action cache hit, 1 internal, 2 linux-sandbox.
+ERROR: Build did NOT complete successfully

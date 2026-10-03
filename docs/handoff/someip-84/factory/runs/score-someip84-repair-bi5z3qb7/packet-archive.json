@@ -1,0 +1,7 @@
+{
+  "archive": "review-packet.tar.gz",
+  "sha256": "0ca374da71f04130ba5abf7e8937cdf8600b1056bd2eddf2c4e6e6ce4610aabd",
+  "bytes": 15205211,
+  "restoration": "Extract into an empty directory; preserves original review-packet.json paths",
+  "record": "Unmodified original candidate, logs, profiles, flamegraphs, tool provenance and licenses; external validation pending"
+}

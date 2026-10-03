@@ -1,0 +1,30 @@
+{
+  "kind": "external_user_approval_record",
+  "origin": "explicit_user_message_in_this_conversation_outside_fabro",
+  "recorded_by": "Codex transcription of user decision",
+  "recorded_at_utc": "2026-10-03T13:47:08.256197+00:00",
+  "user_statement": "I agree and approve, prepare the PR closure scope but dont create the PR now",
+  "decision": "approve_scoped_work_and_prepare_pr_locally",
+  "subject_binding": "Final run and evidence presented immediately before this approval",
+  "subject": {
+    "run_id": "01M40Y7RJF9NZJTE2N9Z3BAAXA",
+    "archive": "review-packet.tar.gz",
+    "archive_sha256": "2b8f5c40ae194ba06f8e6c95933c05727ec8f4bec563ef7c4fc10ef3e33fa6da",
+    "candidate_source_files": 269,
+    "candidate_source_manifest_sha256": "23968d6fd161529027cead3389f5bb727e0ce9e80531329604ea2f52d2140af2",
+    "verified_patch_sha256": "c581f6319e5301d751b0a1caf2e51fbc8eda374d172199b121c1962158479732"
+  },
+  "human_validation_location": "outside_fabro",
+  "local_user_approval": "recorded",
+  "authenticated_assurance_receipt": false,
+  "upstream_maintainer_approval": "not_claimed",
+  "actions_authorized": [
+    "local_pr_description",
+    "closure_scope",
+    "verified_patch_preparation"
+  ],
+  "pr_creation_authorized": false,
+  "publishing_merging_or_issue_closure_authorized": false,
+  "human_owned_task_markers": "retained unchanged per repository instructions",
+  "historical_native_records": "unchanged; their pending status describes measurement time"
+}

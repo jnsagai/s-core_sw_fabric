@@ -1,0 +1,8 @@
+[
+  {
+    "archive": "capture-1791025390224386976.tar.gz",
+    "sha256": "0f23748bc5fbfc83dd83a2c303bc17364e9a964fe8c285117ee085a685b91a80",
+    "restores": "capture-1791025390224386976",
+    "source": "Original byte-preserving candidate snapshot; extract in this directory"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "origin": "local_unprotected_measurement",
+  "source": "preserved predecessor candidate before successor agents",
+  "target": "//score/socom/test/unit:socom_test",
+  "native_build_exit": 0,
+  "native_test_exit": 0,
+  "test_cases": 685,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "full_repository_verification": "pending",
+  "engineering_acceptance": "pending"
+}

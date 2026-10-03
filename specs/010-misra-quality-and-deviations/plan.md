@@ -152,3 +152,23 @@ No new scheduler or increment is introduced.
 No constitutional violations. Multiple native output formats are required by the selected tools;
 one normalized finding representation keeps source-result provenance without pretending each
 original format is SARIF. Missing capabilities are data in assessments, not alternate hidden policy.
+
+## Same-run SOME/IP repair (2026-10-03)
+
+Implement the user-authorized [repair contract](contracts/someip-in-run-repair.md)
+in the factory workflow builders and trusted host handlers. Reuse compiler native
+loop policies and explicit command bindings; add deterministic orchestration stages
+and measured-result predicates. Expose installed tools through Bazel's strict action
+environment; preserve source bounds and collect actual mandatory integration results.
+Disable native-failure successor creation for these runs. Produce an external review
+packet rather than an interview. Limit repairs to three attempts per affected check,
+with native failure on exhaustion. No new scheduler, authority store or automatic
+human approval is introduced.
+
+The targeted R1–R3 repair binds new raw evidence at collection completion and
+imports legacy passing checks from their already checksum-pinned portable archive.
+It exports native integration XML for exact case identities and the source-bound
+Linux/QNX exclusion. The scoped profiler records separate workload/profiler exits,
+propagates crashes, and qualifies normal/crashing workloads before native profiling.
+Its cleanup policy follows the pinned harness for gatewayd, someipd and echo_server.
+Only affected native checks execute; changed or unbound evidence blocks reuse.

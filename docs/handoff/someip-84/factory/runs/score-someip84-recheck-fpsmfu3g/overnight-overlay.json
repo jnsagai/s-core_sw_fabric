@@ -1,0 +1,24 @@
+{
+  "compiled_package_sha256": "84258d4248a60db33124a6b70e4e6a7d3e86415f6c1865c96e289d2895ac3edf",
+  "dependencies": {
+    "collect_obligations.py": "0c0c1d8119766147346c20147fa292759ae326bc9432f8d769d27b1355f39021",
+    "guard_agent_tools.py": "55cefeb2f105a9bb43154f331e5940c5ea799a66be43473a7380a88cefd4691f",
+    "isolate_docker.py": "0e0ee6f9ce2d2e0303ec53eea3c9c2880d024c6167fad83b1a802a8be17535e4",
+    "measure.py": "6c1e0a4270e55f4a8c3bdee660e36901f6d2f675d008b9ba84022bc95c83da0f",
+    "measurement-inputs.json": "eaed2780bf264f80a1b5d371ed1165fee4bd80608f009254b1eabe3668a1015d",
+    "native-git-baseline.bundle": "5f7c35d78f929f54d206fbf4ad96e092dfad700d7fe45d26aed232a892e1407d",
+    "native-git-baseline.json": "ecec3297b0930580d276f00cfba7b25511f53fb23c654153e4bcda7352fc9ee2",
+    "native_git.py": "d6655f935fcb6eb131adec744ef453e369c980be8a63122c45c006c37137c883",
+    "obligations.py": "252a8521fdd5b7225daf37597933bd868fc4d69ec2a80755e619d3272577e467",
+    "queue-tools.json": "be40ab78b291857a401d76a58fbeeccece3ea4874057875a23f4e11532d739a5",
+    "queue_tools.py": "d08e974565c6cc7dc9693d6f208f2caefc9c49fbd65e53bb76b5148eda11994e",
+    "storage-selection.json": "eb2af0edd6d6f5e9104c6886037733178215bb7b1a7f8a86973b3f1c01327bf6",
+    "storage.py": "87cec0494fac266a12527ec4799e5b8caec3d8ac65e4b7da49636292f42bb851",
+    "supervision.py": "dad205f6db0cce7969a56f9f1272e77e0dc256a91c9337ac701ed6a8f8cf997c",
+    "workspace_transfer.py": "b1e9577072d7ec5027461a1f335f38300d0bba05daefa736d21a86bb4c557ca1"
+  },
+  "entrypoint_sha256": "fbbb0a2a62eeed81b4c7ab371355be04a548553768a061ee52517eb812f000b8",
+  "hook_sha256": "506e395d833b2ae517bb75edd3347d94240bd609285fce399b45ed7c1c64bea3",
+  "policy_sha256": "5e62beab23b10a06daf31345570aa84fc35cf8770aa8a91944252ef56f0523f8",
+  "workflow_sha256": "193900d64d253691ed3d4224c700a13969e0963b49c2f6e7ad4777b4ae68e349"
+}

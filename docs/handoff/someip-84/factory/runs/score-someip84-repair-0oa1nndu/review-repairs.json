@@ -1,0 +1,20 @@
+{
+  "archive_sha256": "0ca374da71f04130ba5abf7e8937cdf8600b1056bd2eddf2c4e6e6ce4610aabd",
+  "findings": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "fresh_native_checks": [
+    "native_integration",
+    "native_performance"
+  ],
+  "reproducer_sha256": "00dfc91674a3dd52ffdceb39f47a39f339f8a8fc2d91c3a64dbb7f4f2fe782e7",
+  "reused_checks": [
+    "format_precommit",
+    "compiler_diagnostics",
+    "native_tests"
+  ],
+  "review_sha256": "6c15963178c16e694f01690530fe8db08d99e8f86039900ddc3bc5b8f9a88009",
+  "tool_regression_is_native_readiness": false
+}

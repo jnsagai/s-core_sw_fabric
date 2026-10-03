@@ -1,0 +1,94 @@
+{
+  "image": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+  "mounts": [
+    {
+      "source": "/usr/lib/linux-hwe-6.8-tools-6.8.0-138/perf",
+      "destination": "/opt/score-perf",
+      "sha256": "eb79f28e0b50e10fff97128c4a94b1730a26e732da9b9e207b462d57c3e0fe99"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libz.so.1.2.11",
+      "destination": "/usr/lib/x86_64-linux-gnu/libz.so.1",
+      "sha256": "64c206f0146cc58bbddc4f22054436f4ff278f5a554aa3ce6921ddf7e9133370"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libelf-0.186.so",
+      "destination": "/usr/lib/x86_64-linux-gnu/libelf.so.1",
+      "sha256": "89a10cfe5c07353235f80dbff50f4602b89811bed7b19621c3a4023157eb1c85"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libdw-0.186.so",
+      "destination": "/usr/lib/x86_64-linux-gnu/libdw.so.1",
+      "sha256": "5672258f6357d1f66ca9a1344677fbdd69ff155cf162c8e5b94068086a909df7"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libunwind-x86_64.so.8.0.1",
+      "destination": "/usr/lib/x86_64-linux-gnu/libunwind-x86_64.so.8",
+      "sha256": "1077e265bdd76ed4f2d628ea29150eb98f5c7c8f5a30004a561e6e93a2a6f097"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libunwind.so.8.0.1",
+      "destination": "/usr/lib/x86_64-linux-gnu/libunwind.so.8",
+      "sha256": "5d1f6f104f79698e137c9f17c4b0317dfd96816c0eb6a87c50619a41472ca382"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/liblzma.so.5.2.5",
+      "destination": "/usr/lib/x86_64-linux-gnu/liblzma.so.5",
+      "sha256": "7fa51c1500cb9fcc4c7d69b7fe0a6d7203cfe6af64373f6c411c5445ef1b402c"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+      "destination": "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+      "sha256": "7cc817ff1841b59516d684f357bc0c3fc2cc52c3fa9b4ffb8ce8bdc215f02915"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libslang.so.2.3.2",
+      "destination": "/usr/lib/x86_64-linux-gnu/libslang.so.2",
+      "sha256": "0ff07817ba60356e709ef0062c071489c1fc1b6617880d969de18753b8d674f6"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0",
+      "destination": "/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0",
+      "sha256": "d7bc028c6a98ac8c17edeada13609ea36db324d7f49c26b6ca93994e8c830453"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libcap.so.2.44",
+      "destination": "/usr/lib/x86_64-linux-gnu/libcap.so.2",
+      "sha256": "00e8d9ef4e9c081a3c8d8164cfd06165937c9bcb6d4f9b47c6dcfa53d9e52046"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libnuma.so.1.0.0",
+      "destination": "/usr/lib/x86_64-linux-gnu/libnuma.so.1",
+      "sha256": "3582bce922d99959ee3eb6b7d686c0b99e14c2135616ad4d9d608b2118a7e78c"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libtraceevent.so.1.3.3",
+      "destination": "/usr/lib/x86_64-linux-gnu/libtraceevent.so.1",
+      "sha256": "aad4e56b392a6e285554612e21ca83b485add6867179f151f673dd21a4caef6a"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4",
+      "destination": "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0",
+      "sha256": "54d16979912ab62282350dd2dc5dceb5b73b13e27bb02792087aff752d16f6e9"
+    },
+    {
+      "source": "/usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7",
+      "destination": "/usr/lib/x86_64-linux-gnu/libexpat.so.1",
+      "sha256": "683e2e41db14581194bf1f6616e95a8f02cd4ab599f0fba807e46325ec01d21f"
+    }
+  ],
+  "kernel": "6.8.0-138-generic",
+  "sysctl_changed": false,
+  "capabilities": [
+    "PERFMON",
+    "DAC_OVERRIDE",
+    "SYS_PTRACE"
+  ],
+  "security_options": [
+    "seccomp=unconfined",
+    "apparmor=unconfined"
+  ],
+  "scope": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-35ug26v0",
+  "storage_owner_home": "/home/jefferson",
+  "build_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367"
+}

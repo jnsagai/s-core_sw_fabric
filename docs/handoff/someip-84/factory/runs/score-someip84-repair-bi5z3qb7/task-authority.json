@@ -1,0 +1,7 @@
+{
+  "engineering_review": "pending_external_human_validation",
+  "instruction": "Human validation outside workflow, mandatory for closure; same-run repair loops and orchestrators; integration mandatory",
+  "paid_calls": "none: deterministic orchestration",
+  "scope": "Repair only remaining format, profiling and integration failures; recheck affected regressions",
+  "source_write_authority": "Existing six candidate source paths only"
+}

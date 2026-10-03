@@ -1,0 +1,9 @@
+{
+  "scope": "capability smoke only; native profiling measured separately",
+  "exit_code": 0,
+  "samples": 9192,
+  "bytes": 764372,
+  "sha256": "5ee28dc0fdf3af9560275d2e25246621a5952d0e56a7b46b6e478445c67f2ac1",
+  "data_path": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-namespace-smoke-v_iu8bts/perf-namespace-v2.data",
+  "fixture_readiness": false
+}

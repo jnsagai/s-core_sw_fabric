@@ -1,0 +1,13 @@
+{
+  "scope": "Synthetic failure reproducer; not readiness evidence",
+  "expected": "Nonzero wrapper exit after workload SIGSEGV",
+  "actual_wrapper_exit": 0,
+  "profiler_receipt": {
+    "sha256": "46a015dd2de8a5f4f45739db5dbca023d7abc5c311377d61569a00cc70cf9343",
+    "perf_exit_code": 0,
+    "host_uid": 1000
+  },
+  "diagnostic_tail": "vmlinux\nfile is not found in the buildid cache or in the vmlinux path.\n\nSamples in kernel modules won't be resolved at all.\n\nIf some relocation was applied (e.g. kexec) symbols may be misresolved\neven with a suitable vmlinux or kallsyms file.\n\nCouldn't record kernel reference relocation symbol\nSymbol resolution may be skewed if relocation was used (e.g. kexec).\nCheck /proc/kallsyms permission or run as root.\n[ perf record: Woken up 4 times to write data ]\n[ perf record: Captured and wrote 0.780 MB /media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-review-s8pvqwhg/signal-workload.perf.data (5801 samples) ]\n",
+  "root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-review-s8pvqwhg",
+  "direct_workload_exit": -11
+}

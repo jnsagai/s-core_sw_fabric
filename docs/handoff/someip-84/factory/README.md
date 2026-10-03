@@ -1,20 +1,60 @@
 # SOME/IP factory execution correction
 
+Latest repair: **`01M40Y7RJF9NZJTE2N9Z3BAAXA` succeeded**; R1–R3 corrected.
+Fresh integration verified 13 applicable passing cases and one source-supported
+QNX-only exclusion on Linux. Final execution reran only profiling: both targets
+passed. Unchanged formatting, compiler, native unit and fresh integration evidence
+were checksum-verified and reused. The user has approved this scoped work outside Fabro.
+[PR preparation and closure scope](../pr-preparation/closure-scope.md) record the
+approval and the exact verified patch; no PR was created.
+See [targeted repair evidence](review-repair-run.md),
+[terminal status](runs/score-someip84-repair-b4ard87e/terminal-status.json) and
+[portable archive](runs/score-someip84-repair-b4ard87e/review-packet.tar.gz).
+
+## Earlier review and run history
+
+Earlier agent review: **request changes; draft PR only**. A focused negative check
+confirmed that the profiler wrapper can hide a workload crash; passing-log reuse
+and integration case-level skip checks also need correction.
+[Review findings](runs/score-someip84-repair-bi5z3qb7/agent-review.json)
+supersede the readiness assessment below. Historical successful run/evidence remain preserved.
+
+Previously reviewed run: **`01M40R4FYAZR2PGCH5AQF4DRMC`**, succeeded on 2026-10-03; worker exited.
+Four deterministic orchestrators and three bounded loops repair failures inside
+Fabro. Human validation is outside the workflow and mandatory before task closure.
+All six real integration tests passed in `01M40NRH62RND9E3HA8KQXM1AJ`.
+This follow-up reuses formatting, GCC/Clang, native unit and integration results
+against identical candidate hashes; only the two outstanding profiling tests executed
+and both passed. The scope is technically complete; task closure awaits external
+human validation.
+See [repair orchestration](repair-orchestration.md), [the current graph](current-workflow.svg)
+and [the terminal observation](runs/score-someip84-repair-bi5z3qb7/terminal-status.json).
+The [portable review packet](runs/score-someip84-repair-bi5z3qb7/review-packet.json)
+and [complete evidence archive](runs/score-someip84-repair-bi5z3qb7/review-packet.tar.gz)
+include 12 real datasets, 12 flamegraphs, raw checks, candidate and tool/license provenance.
+
+Previous repair run `01M40GYYV7HDR10616TGNC3C3H` is terminal. It fixed formatting
+and tool visibility, then integration executed six tests with three capture failures.
+Its native status incorrectly says succeeded while its verification packet is blocked;
+[the preserved terminal observation](runs/score-someip84-repair-che5hm2t/terminal-status.json)
+records this discrepancy. The corrected terminal hook rejects blocked verification.
+
+
 This directory connects the earlier external candidate to the existing fabric
 compiler and Fabro runtime. It does not reattribute the patch to Fabro or an agent.
 
 ## Current queue and diagram
 
-Run `01M3YRJEGXNY6CB81T7TKW774B` reached human review after 93 completed workflow
+Historical run `01M3YRJEGXNY6CB81T7TKW774B` reached human review after 93 completed workflow
 stages, then timed out without an answer at 19:56 Lisbon on 2026-10-02. It is stopped;
-no successor is running. Latest candidate source and reports are preserved.
+its source and reports remain preserved. The current targeted successor is recorded above.
 Verification has failed/unavailable checks and unresolved findings. Engineering
 acceptance remains pending. See the [terminal observation](runs/score-someip84-factory-2fekt_ew/terminal-status.json)
 and [measured verification report](runs/score-someip84-factory-2fekt_ew/verification-report-result.json).
 
-[Current workflow SVG](current-workflow.svg) shows all 99 nodes and their
-transitions. [Expanded SVG](current-workflow-expanded.svg) preserves the Graphviz
-layout. See [current status and run path](overnight-queue.md) and
+[Current workflow SVG](current-workflow.svg) shows the repair graph, its
+loopbacks and the external human validation. [Expanded SVG](current-workflow-expanded.svg)
+retains the same native topology. See [current status and run path](overnight-queue.md) and
 [verified restart evidence](runs/score-someip84-factory-2fekt_ew/restart-status.json).
 
 ## Actual workflow

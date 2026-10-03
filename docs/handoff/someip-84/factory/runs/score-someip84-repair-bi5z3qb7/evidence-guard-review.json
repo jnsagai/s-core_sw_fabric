@@ -1,0 +1,7 @@
+{
+  "scope": "Synthetic negative review reproducer; no historical evidence modified",
+  "original_pass": true,
+  "changed_log_still_accepted": true,
+  "raw_log_changed": true,
+  "skipped_integration_accepted": true
+}

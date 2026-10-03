@@ -1,0 +1,17 @@
+{
+  "run_id": "01M40XMJ9K182CG0SWBNVPY7AB",
+  "native_status": {
+    "kind": "failed",
+    "reason": "workflow_error"
+  },
+  "worker_alive": false,
+  "technical_completion": "blocked",
+  "task_closure": "pending_external_human_validation",
+  "failure": "Native echo_server intentional SIGKILL cleanup rejected by repaired profiler guard; unknown repeated repair blocked correctly",
+  "integration_cases_passed": 13,
+  "integration_native_qnx_only_exclusions": 1,
+  "profiling_targets_failed": 2,
+  "automatic_replacement": false,
+  "human_validation_performed": false,
+  "model_calls": 0
+}

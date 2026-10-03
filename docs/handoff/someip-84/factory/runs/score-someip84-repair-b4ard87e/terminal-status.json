@@ -1,0 +1,53 @@
+{
+  "run_id": "01M40Y7RJF9NZJTE2N9Z3BAAXA",
+  "native_status": {
+    "kind": "succeeded",
+    "reason": "completed"
+  },
+  "worker_alive": false,
+  "technical_completion": "complete",
+  "task_closure": "pending_external_human_validation",
+  "human_validation": {
+    "required": true,
+    "location": "outside_fabro",
+    "status": "pending"
+  },
+  "mandatory_results": {
+    "format_precommit": true,
+    "native_integration": true,
+    "native_performance": true,
+    "compiler_diagnostics": true,
+    "native_tests": true
+  },
+  "executed_groups": [
+    "native_performance"
+  ],
+  "reused_checks": [
+    "compiler_diagnostics",
+    "format_precommit",
+    "native_integration",
+    "native_tests"
+  ],
+  "fresh_integration_run_id": "01M40XMJ9K182CG0SWBNVPY7AB",
+  "integration_cases_passed": 13,
+  "integration_qnx_only_exclusions_on_linux": 1,
+  "profiling_targets_passed": 2,
+  "profiling_datasets": 12,
+  "flamegraphs": 12,
+  "benchmark_entries": [
+    43,
+    1
+  ],
+  "profiler_crash_wrapper_exit": 139,
+  "profiler_crash_decoding_rejected": true,
+  "same_run_profile_loop": [
+    "check_failed",
+    "orchestrate_native_echo_server_cleanup",
+    "repair",
+    "check_passed"
+  ],
+  "model_calls": 0,
+  "human_interviews": 0,
+  "automatic_replacement": false,
+  "preceding_run_failed_and_preserved": true
+}

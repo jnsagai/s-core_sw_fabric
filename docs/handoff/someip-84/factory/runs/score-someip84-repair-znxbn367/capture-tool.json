@@ -1,0 +1,11 @@
+{
+  "path": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-repair-znxbn367/capture-build/tcpdump",
+  "sha256": "6ec266906805b4ba591cde9095d5c41468164889b0c8b125eb3dde90be7a1900",
+  "upstream_commit": "5f552b5e6e9fe05f7ad9681d51d0303233daba6a",
+  "patch_sha256": "7c52fbdf0bcb6f377690d3441f3aa0d8d3f59db0007b2e0c889ab87a1760ab87",
+  "native_source_unchanged": true,
+  "system_installation_changed": false,
+  "qualification": "pending_external_human_validation",
+  "libpcap_path": "/usr/lib/x86_64-linux-gnu/libpcap.so.1.10.1",
+  "libpcap_sha256": "2ad04a3ce2b5a350ab7e6592624de8f0971e86c6fd1e2427ad44b51caf8e275c"
+}
