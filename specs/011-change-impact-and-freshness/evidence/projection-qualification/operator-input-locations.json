@@ -1,0 +1,246 @@
+{
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/live-meter/instruction.json": {
+    "snapshot": "operator-inputs/live-meter/instruction.json",
+    "sha256": "264a8fa7501946649dc60d030f913ae144b4b32e478f557eecdb9df42dea37ff"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-baseline/run.json": {
+    "snapshot": "operator-inputs/projection-B1-baseline/run.json",
+    "sha256": "d1d9d965d460b6dce7e226f7fcd5ae9f8fd12e40ea5fa8ac719caee0ac33f08a"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-baseline/instruction.json": {
+    "snapshot": "operator-inputs/projection-B1-baseline/instruction.json",
+    "sha256": "634af2555fee95ef713c6f7e32051934cb48c29eda0ff0351ffd13c0edb4d04d"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-baseline/governor.json": {
+    "snapshot": "operator-inputs/projection-B1-baseline/governor.json",
+    "sha256": "7e8e9c9f38d66db3f3d2a607618184a65c09347895c0c5aa9e527626fd552d12"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-baseline/skills.json": {
+    "snapshot": "operator-inputs/projection-B1-baseline/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-baseline/role.json": {
+    "snapshot": "operator-inputs/projection-B1-baseline/role.json",
+    "sha256": "fcf6135778341abc07669076e3ddb68ea0ee68d6e4b7050976533d378ce5b4b9"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-baseline/context.json": {
+    "snapshot": "operator-inputs/projection-B1-baseline/context.json",
+    "sha256": "eb93f88ceaa74ca756e1e70f7e2e216981d9fb3db1b68641f3855361e2d80e29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-optimized/run.json": {
+    "snapshot": "operator-inputs/projection-B1-optimized/run.json",
+    "sha256": "31d4ec135fdac9662fb7b606da31de00510b47fbfb359db4f5b3c90176decf67"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-optimized/instruction.json": {
+    "snapshot": "operator-inputs/projection-B1-optimized/instruction.json",
+    "sha256": "97b2756f29e9cff59c49374b3cb667820bae51e22825cd1731debff84754fa2d"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-optimized/governor.json": {
+    "snapshot": "operator-inputs/projection-B1-optimized/governor.json",
+    "sha256": "fd7f51f750687b3959487e8a97f482c40ec12df29a331c9a6038ecaa8c764e0d"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-optimized/skills.json": {
+    "snapshot": "operator-inputs/projection-B1-optimized/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-optimized/role.json": {
+    "snapshot": "operator-inputs/projection-B1-optimized/role.json",
+    "sha256": "723bf8a14e416a101f29ec35561f7aeab0d6449adac70616489d89c3cad77ec6"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-optimized/context.json": {
+    "snapshot": "operator-inputs/projection-B1-optimized/context.json",
+    "sha256": "73564261244440196d0e202e6ef626c100a5842fefc6669ae8931b38efe35803"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-baseline/run.json": {
+    "snapshot": "operator-inputs/projection-B2-baseline/run.json",
+    "sha256": "3e197ff057832b0a3929841c7d92288d9a41243753e7c416ea1efeb36074e770"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-baseline/instruction.json": {
+    "snapshot": "operator-inputs/projection-B2-baseline/instruction.json",
+    "sha256": "509ecf9ac9b85bde9d9816aa8c8f79ca53cc02121d97fec14f1f9cead3b9d23c"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-baseline/governor.json": {
+    "snapshot": "operator-inputs/projection-B2-baseline/governor.json",
+    "sha256": "1e1ef6424c2a4fa9b5bebc4bf3360b16a50e563572c16c3e0e97663d760bc96f"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-baseline/skills.json": {
+    "snapshot": "operator-inputs/projection-B2-baseline/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-baseline/role.json": {
+    "snapshot": "operator-inputs/projection-B2-baseline/role.json",
+    "sha256": "22046baeed3b87e357352e36e256e6130eb17b2612902d560213dc126972ec1d"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-baseline/context.json": {
+    "snapshot": "operator-inputs/projection-B2-baseline/context.json",
+    "sha256": "d63de486ddf7a734b57eadbb9c99b2f5d60c3fea117edfa026ab163ac45247e7"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-optimized/run.json": {
+    "snapshot": "operator-inputs/projection-B2-optimized/run.json",
+    "sha256": "212848042c45c8c8aa678effcbbef7ebd22b7630bfe6b8b3bdae5ac5fc9baf2d"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-optimized/instruction.json": {
+    "snapshot": "operator-inputs/projection-B2-optimized/instruction.json",
+    "sha256": "a313aaf5177ba4583a11363b7621ff7bb0b784f71bd4bd88894a0ccaa515db99"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-optimized/governor.json": {
+    "snapshot": "operator-inputs/projection-B2-optimized/governor.json",
+    "sha256": "e9354857e11be4b25b764198e0931aac245d19dad7cd836f99286624e9f81dba"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-optimized/skills.json": {
+    "snapshot": "operator-inputs/projection-B2-optimized/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-optimized/role.json": {
+    "snapshot": "operator-inputs/projection-B2-optimized/role.json",
+    "sha256": "85713519b41a32c258b052c8d3355f0def7f420a2b1649b9609a88035333f67d"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-optimized/context.json": {
+    "snapshot": "operator-inputs/projection-B2-optimized/context.json",
+    "sha256": "a368928b57f7a43e156ef230e17d5afd2c25b8acd1711a6ddefb894cfe605be2"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-baseline/run.json": {
+    "snapshot": "operator-inputs/projection-B3-baseline/run.json",
+    "sha256": "e4aad76cedc754dd87d2a8cadc8931ddef576d576fa5a47e9114ba2c12c931df"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-baseline/instruction.json": {
+    "snapshot": "operator-inputs/projection-B3-baseline/instruction.json",
+    "sha256": "f4627267f9493bee57bc570f3275572f5f02b4d63ac76b9a7a35f88d7633a206"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-baseline/governor.json": {
+    "snapshot": "operator-inputs/projection-B3-baseline/governor.json",
+    "sha256": "0b552bbf6ee0fba107cbf6659ec411dd8ba82267036dc21c21e9a16ea0ea206b"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-baseline/skills.json": {
+    "snapshot": "operator-inputs/projection-B3-baseline/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-baseline/role.json": {
+    "snapshot": "operator-inputs/projection-B3-baseline/role.json",
+    "sha256": "c890c0e0a4ce6991ab936bbea4d596ea2e5d7e583525574c56509f71ab45f235"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-baseline/context.json": {
+    "snapshot": "operator-inputs/projection-B3-baseline/context.json",
+    "sha256": "3afb13d8464dee99242f7ed1c67ebd0bdb2d21f549169b437419bc582f91fdaa"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-optimized/run.json": {
+    "snapshot": "operator-inputs/projection-B3-optimized/run.json",
+    "sha256": "142c284bedf3080f80b90d31800648fe3bc792026472e1545b84846b65b865ad"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-optimized/instruction.json": {
+    "snapshot": "operator-inputs/projection-B3-optimized/instruction.json",
+    "sha256": "0f8d967daf9b64dd8963bfb2675f2563bdd95b56f075883b36fa9ffa56fa2b23"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-optimized/governor.json": {
+    "snapshot": "operator-inputs/projection-B3-optimized/governor.json",
+    "sha256": "1f04468673450ac1eec721a6680f95c0df1d36b9ffa757e1cf9f28b40d4fa5e2"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-optimized/skills.json": {
+    "snapshot": "operator-inputs/projection-B3-optimized/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-optimized/role.json": {
+    "snapshot": "operator-inputs/projection-B3-optimized/role.json",
+    "sha256": "ef78e0fbc181f2fc63abeabaf3074a054666c7f36c11441cf1585cde49dfcd2b"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-optimized/context.json": {
+    "snapshot": "operator-inputs/projection-B3-optimized/context.json",
+    "sha256": "80397284763e230d9cbef4510ed581e04925395223b09688c7548bba08f00a76"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-baseline/run.json": {
+    "snapshot": "operator-inputs/projection-B4-baseline/run.json",
+    "sha256": "b3ae254cffa4e30dadb24eb2c4d33eae0ff2ebab23d63e85a631c3ad19f0a0c4"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-baseline/instruction.json": {
+    "snapshot": "operator-inputs/projection-B4-baseline/instruction.json",
+    "sha256": "e996de0d808e959618777263e5ff9fec05dd63e19ea5644719c97626ca88964d"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-baseline/governor.json": {
+    "snapshot": "operator-inputs/projection-B4-baseline/governor.json",
+    "sha256": "a1e38d794fd8c3f52c473962b143ba37a0a0243cd3474559b5453edc1129cec0"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-baseline/skills.json": {
+    "snapshot": "operator-inputs/projection-B4-baseline/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-baseline/role.json": {
+    "snapshot": "operator-inputs/projection-B4-baseline/role.json",
+    "sha256": "a14f6f318544aea98a6f979ac7a2e2eee47c925fdaeb032560ed167c46f0f44b"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-baseline/context.json": {
+    "snapshot": "operator-inputs/projection-B4-baseline/context.json",
+    "sha256": "11ca5e0e9f703eddfb23f6dae2334bf84e321b03dfe1d6d82884a7feb573d556"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-optimized/run.json": {
+    "snapshot": "operator-inputs/projection-B4-optimized/run.json",
+    "sha256": "9d0efb778b0985d079daaaa96ea8971ebadbaaa289ccc4c298b640cdba469f05"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-optimized/instruction.json": {
+    "snapshot": "operator-inputs/projection-B4-optimized/instruction.json",
+    "sha256": "be0fb0f65481ad6f74e0a69941bd4a1ba079342762440ca07b73827e73253326"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-optimized/governor.json": {
+    "snapshot": "operator-inputs/projection-B4-optimized/governor.json",
+    "sha256": "66d1adb810bc96d23c44791dbb502d9fcdbb5866a104f56803bae59be0527555"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-optimized/skills.json": {
+    "snapshot": "operator-inputs/projection-B4-optimized/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-optimized/role.json": {
+    "snapshot": "operator-inputs/projection-B4-optimized/role.json",
+    "sha256": "7b71380c9cca7e4beac6fd6293dfcabdb0573db4dabbcb3f6fe350d194fc9083"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-optimized/context.json": {
+    "snapshot": "operator-inputs/projection-B4-optimized/context.json",
+    "sha256": "f290145ea98fe81d340c66d71140edcd77bd51f38f4681328562d7252ab65fca"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-baseline/run.json": {
+    "snapshot": "operator-inputs/projection-B5-baseline/run.json",
+    "sha256": "c1c11e832e3eb11a4b94778437b133fc66e271a9e4fee788e8e5feb838dd3d7c"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-baseline/instruction.json": {
+    "snapshot": "operator-inputs/projection-B5-baseline/instruction.json",
+    "sha256": "6ac56b0ccdcc79d97ab72843f4a0868dbe74fdb35536e770b7ec0d3b6193f238"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-baseline/governor.json": {
+    "snapshot": "operator-inputs/projection-B5-baseline/governor.json",
+    "sha256": "ae072578563f1cc1afa229d352827f9cfdace2994d87983b894441d57782d084"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-baseline/skills.json": {
+    "snapshot": "operator-inputs/projection-B5-baseline/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-baseline/role.json": {
+    "snapshot": "operator-inputs/projection-B5-baseline/role.json",
+    "sha256": "7f37c5558256f86b7869d117fd3fc065b5f537ea98a7ec8d7d25a1f16f38d12e"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-baseline/context.json": {
+    "snapshot": "operator-inputs/projection-B5-baseline/context.json",
+    "sha256": "8203cdaf96ae686aa7fde12a4cbf03b2d6ae6515be4865d16821b4e9a66e4f4b"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-optimized/run.json": {
+    "snapshot": "operator-inputs/projection-B5-optimized/run.json",
+    "sha256": "7d0ae3004df1697563abb1a1259877991ad102838e2645f107a834a19a29b918"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-optimized/instruction.json": {
+    "snapshot": "operator-inputs/projection-B5-optimized/instruction.json",
+    "sha256": "174c61b0a613baf342c962a7fa1fe75a42beab2e13d162083251750a0506b3d6"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-optimized/governor.json": {
+    "snapshot": "operator-inputs/projection-B5-optimized/governor.json",
+    "sha256": "9912d5da9018131cce0eda299bba8e8c32ffa68f5d8e171bd18367d19cd2d92f"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-optimized/skills.json": {
+    "snapshot": "operator-inputs/projection-B5-optimized/skills.json",
+    "sha256": "48ab735981dbd101d2e7490c307fdd1d4dcd11b6240babf3400c734da6010b29"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-optimized/role.json": {
+    "snapshot": "operator-inputs/projection-B5-optimized/role.json",
+    "sha256": "6fa935408937e302853844528ba37397e307d62f5f94d6dfa12375f05e696e3b"
+  },
+  "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-optimized/context.json": {
+    "snapshot": "operator-inputs/projection-B5-optimized/context.json",
+    "sha256": "5e1dfeab37989edf01fe77c5591016e7c78179281b0aa9b13131861bd0a1941e"
+  }
+}

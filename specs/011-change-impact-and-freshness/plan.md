@@ -92,3 +92,10 @@ operator-pinned tool projection removes only denied/unselected declarations, wit
 messages or selected schemas. The guard enforces the same selected bounded tool set. Preserve
 original and transmitted request hashes and apply ceilings before and after projection. The
 initial ten-call experiment remains immutable; qualification of this new path stays T033.
+
+The subsequent owner `go` permits one additional ten-request Flash comparison capped at
+$0.10. Allocate a fresh volume-bound workspace, private server and stopped-on-exhaustion
+ledger. Apply the same empty tool selection to both unchanged original prompt variants;
+retain original/transmitted bytes and compare total/cache-miss tokens independently.
+Inspect each native agent stage and exact expected output before proceeding. Store new
+evidence under `evidence/projection-qualification/`; preserve the original experiment.

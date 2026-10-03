@@ -1,0 +1,59 @@
+import hashlib, json, sqlite3
+from native_probe import ROOT, PRIVATE, api
+from prepare_stage import prepare
+from score_sw_fabric.optimization.activation import verify_instruction
+from score_sw_fabric.storage import validate_run_root
+
+validate_run_root(ROOT)
+# Transfer only the selected credential in memory to the private native secret API.
+with sqlite3.connect(
+    "file:/home/jefferson/.fabro/storage/db/fabro.sqlite3?mode=ro", uri=True
+) as db:
+    key = db.execute("SELECT value FROM secrets WHERE name=?", ("DEEPSEEK_API_KEY",)).fetchone()[0]
+api("POST", "/secrets", {"name": "DEEPSEEK_API_KEY", "value": key, "type": "token"})
+del key
+rows = json.loads((ROOT / "live-inputs.json").read_text())
+prepared = []
+files = {}
+for row in rows:
+    label = row["label"].replace("live-", "projection-")
+    id, path, pin = prepare(label, row["prompt"])
+    instr = verify_instruction(path, pin)
+    files.update(instr["files"])
+    prepared.append(
+        {"label": label, "run_id": id, "instruction_sha256": pin, "instruction_path": str(path)}
+    )
+p = PRIVATE / "live-meter"
+p.mkdir(mode=0o700)
+first = json.loads((PRIVATE / prepared[0]["label"] / "instruction.json").read_text())
+first["tasks"] = [
+    {"marker": r["prompt"].splitlines()[0], "prompt": r["prompt"], "max_requests": 1} for r in rows
+]
+first["files"] = files
+path = p / "instruction.json"
+path.write_text(json.dumps(first))
+path.chmod(0o600)
+pin = hashlib.sha256(path.read_bytes()).hexdigest()
+verify_instruction(path, pin)
+(ROOT / "prepared-runs.json").write_text(json.dumps(prepared, indent=2))
+(ROOT / "authorization.json").write_text(
+    json.dumps(
+        {
+            "owner_reply": "go",
+            "scope": "additional ten-request Flash comparison capped at $0.10",
+            "tool_projection": {"allowed_tools": []},
+            "instruction_sha256": pin,
+            "limits": first["limits"],
+            "price_bounds": first["price_bounds"],
+            "price_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+            "price_checked": "2026-10-03",
+            "original_inputs_sha256": hashlib.sha256(
+                (ROOT / "live-inputs.json").read_bytes()
+            ).hexdigest(),
+            "feature_commit": "04567a874dc48bcd8ee8c9eb6d447a02d28d29c5",
+            "stage_instructions": prepared,
+        },
+        indent=2,
+    )
+)
+print(json.dumps({"prepared": len(prepared), "paid_calls": 0, "meter_instruction_sha256": pin}))

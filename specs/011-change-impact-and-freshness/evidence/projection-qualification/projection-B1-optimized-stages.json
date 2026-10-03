@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "graph_visit": 1,
+      "handler": "start",
+      "id": "start@1",
+      "name": "start",
+      "node_id": "start",
+      "started_at": "2026-10-03T22:20:27.335Z",
+      "status": "succeeded",
+      "usage": {
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cache_read": 0,
+          "cache_write": 0
+        }
+      },
+      "visit": 1,
+      "wall_time_ms": 2
+    },
+    {
+      "graph_visit": 1,
+      "handler": "agent",
+      "id": "draft@1",
+      "name": "draft",
+      "node_id": "draft",
+      "provider_used": {
+        "mode": "agent",
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash"
+      },
+      "started_at": "2026-10-03T22:20:27.430Z",
+      "status": "succeeded",
+      "usage": {
+        "tokens": {
+          "input": 1081,
+          "output": 83,
+          "reasoning": 22,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        "cost": {
+          "usd_micros": 180,
+          "source": "catalog"
+        }
+      },
+      "visit": 1,
+      "wall_time_ms": 1857
+    },
+    {
+      "graph_visit": 1,
+      "handler": "exit",
+      "id": "exit@1",
+      "name": "exit",
+      "node_id": "exit",
+      "started_at": "2026-10-03T22:20:29.468Z",
+      "status": "succeeded",
+      "usage": {
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cache_read": 0,
+          "cache_write": 0
+        }
+      },
+      "visit": 1,
+      "wall_time_ms": 0
+    }
+  ],
+  "meta": {
+    "has_more": false
+  }
+}

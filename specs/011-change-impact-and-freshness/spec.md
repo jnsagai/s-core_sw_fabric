@@ -171,3 +171,13 @@ change existing global profiles, migrate queues or authorize other providers/fal
   and retains both original and transmitted request hashes. Request admission also enforces
   accumulated per-task limits from the exact pinned governor. Native input remains subject to
   the full ceiling before projection. Replay does not assert new live savings.
+
+### Second bounded comparison authorization
+
+The owner's subsequent `go` approves the proposed additional ten-request Flash comparison,
+with a separate $0.10 ceiling. Preserve the closed initial experiment and its request cap.
+Use the exact original five paired prompts/expected outputs, selecting no provider tools
+for both variants because these fixtures explicitly require no tools. Check projected
+payloads, native stages, output equivalence and usage before each successor request.
+Retain cache hits and total input separately from uncached input. This extension remains
+qualification only; T032/T033 and real engineering acceptance remain open.

@@ -83,4 +83,9 @@ transport removes only already-denied/unselected function declarations. It prese
 messages and selected declarations, rejects missing selected tools or unavailable explicit
 tool choices and records original/transmitted hashes and sizes. The native guard uses
 the same selection. Absence of projection preserves the request byte-for-byte.
-Current live measurements predate projection; its measured replay is offline only.
+The original live measurements predate projection and remain immutable. A separately
+authorized second comparison qualifies projection over the same controlled fixture prompts
+with equal tool selection; it does not establish real S-CORE engineering acceptance.
+The self-audit retains the first result in `development_fixture_live_savings` and the
+second in `development_fixture_projection_live_savings`; `live_savings` still denotes
+the unmeasured real engineering target, and human acceptance remains pending.

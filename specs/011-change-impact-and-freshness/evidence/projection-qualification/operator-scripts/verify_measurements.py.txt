@@ -1,0 +1,119 @@
+"""Independently check captured fixture measurements; never grant engineering acceptance."""
+
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1])
+
+
+def read(name):
+    return json.loads((root / name).read_bytes())
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+rows = read("live-inputs.json")
+original = root.parent / "qualification"
+assert (root / "live-inputs.json").read_bytes() == (original / "live-inputs.json").read_bytes()
+summary, ledger, observations = (
+    read("summary.json"),
+    read("meter-final.json"),
+    read("observations.json"),
+)
+assert ledger["requests"] == len(observations) == 10
+assert ledger["stopped"] == "QUALIFICATION_COMPLETE_REQUEST_CAP"
+assert ledger["reserved_microusd"] == sum(x["reserved_microusd"] for x in observations) <= 100000
+assert summary["actual_cost_usd"] is None and summary["engineering_acceptance"] == "pending"
+assert summary["real_engineering_live_target"] == "unmeasured"
+locations = read("operator-input-locations.json")
+for filename, location in locations.items():
+    assert sha(root / location["snapshot"]) == location["sha256"], filename
+for instruction in (root / "operator-inputs").glob("*/instruction.json"):
+    value = json.loads(instruction.read_bytes())
+    assert value["tool_projection"] == {"allowed_tools": []}
+    assert value["authorization_extension"]["owner_reply"] == "go"
+    assert value["owner_instructions"] == ["go", "deepseek flash only"]
+    for filename, digest in value["files"].items():
+        assert locations[filename]["sha256"] == digest
+for number, (row, observation) in enumerate(zip(rows, observations, strict=True)):
+    native_path, wire_path = (
+        root / f"native-request-{number:02d}.json",
+        root / f"request-{number:02d}.json",
+    )
+    native, wire = json.loads(native_path.read_bytes()), json.loads(wire_path.read_bytes())
+    assert sha(native_path) == observation["native_request_sha256"]
+    assert sha(wire_path) == observation["request_sha256"]
+    assert len(native_path.read_bytes()) == observation["native_request_bytes"] <= 24000
+    assert len(wire_path.read_bytes()) == observation["request_bytes"] <= 20000
+    assert {k: v for k, v in native.items() if k not in ("tools", "tool_choice")} == wire
+    assert row["prompt"] in json.dumps(wire["messages"], ensure_ascii=False).replace(
+        "\\n", "\n"
+    ).replace('\\"', '"')
+    assert len(native["tools"]) == 23 and "tools" not in wire
+    content, usage, models, calls = "", None, set(), []
+    for line in (root / f"response-{number:02d}.raw").read_bytes().splitlines():
+        if not line.startswith(b"data: ") or line == b"data: [DONE]":
+            continue
+        chunk = json.loads(line[6:])
+        models.add(chunk["model"])
+        usage = chunk.get("usage") or usage
+        for choice in chunk.get("choices", []):
+            delta = choice.get("delta", {})
+            content += delta.get("content") or ""
+            calls.extend(delta.get("tool_calls") or [])
+    assert json.loads(content) == row["expected"] and not calls
+    assert models == {"deepseek-flash"}
+    assert usage == observation["provider_usage_complete"]
+    assert (
+        usage["prompt_cache_hit_tokens"] + usage["prompt_cache_miss_tokens"]
+        == usage["prompt_tokens"]
+    )
+    assert usage["completion_tokens"] <= 2000
+    stages = read(row["label"].replace("live-", "projection-") + "-stages.json")
+    (stage,) = [s for s in stages["data"] if s["handler"] == "agent"]
+    assert stage["status"] == "succeeded"
+    assert stage["usage"]["tokens"]["input"] == usage["prompt_tokens"]
+    assert (
+        stage["usage"]["tokens"]["output"] + stage["usage"]["tokens"]["reasoning"]
+        == usage["completion_tokens"]
+    )
+    assert stage["usage"]["tokens"]["cache_read"] == usage["prompt_cache_hit_tokens"]
+    events = read(row["label"].replace("live-", "projection-") + "-events.json")
+    assert not events.get("meta", {}).get("has_more"), "Truncated native events"
+    assert observation["status"] == "observed" and observation["fixture_output_equal"]
+for pair in summary["pairs"]:
+    baseline, optimized = [o for o in observations if o["fixture_task"] == pair["id"]]
+    reduction = round(
+        100 * (1 - optimized["usage"]["prompt_tokens"] / baseline["usage"]["prompt_tokens"]), 4
+    )
+    assert pair["input_reduction_percent"] == reduction
+    assert 60 <= reduction <= 80
+assert summary["observed_cost_upper_bound_microusd"] == sum(
+    x["cost_upper_bound_microusd"] for x in observations
+)
+assert (
+    summary["cache_hit_tokens"]
+    == sum(x["usage"]["prompt_cache_hit_tokens"] for x in observations)
+    == 0
+)
+for filename, digest in read("original-evidence-hashes.json").items():
+    relative = Path(filename).relative_to(
+        "specs/011-change-impact-and-freshness/evidence/qualification"
+    )
+    assert sha(original / relative) == digest, "Original evidence changed"
+print(
+    json.dumps(
+        {
+            "requests_verified": 10,
+            "pairs_verified": 5,
+            "exact_output_matches": 10,
+            "native_usage_reconciled": 10,
+            "original_evidence_unchanged": True,
+            "engineering_acceptance": "pending",
+        }
+    )
+)

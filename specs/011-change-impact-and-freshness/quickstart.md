@@ -38,4 +38,6 @@ exact native run/cwd binding and the bounded transport in
 [the contract](contracts/optimization.md). These inputs are execution instructions for a
 disposable experiment, not engineering acceptance or production authority. See the retained
 [qualification](evidence/qualification/README.md) for source-derived configuration and results.
+[Projection qualification](evidence/projection-qualification/README.md) records the separately
+authorized second comparison; neither closed ledger may be reset or reused for more calls.
 The ten-request experiment is closed; replay/projection creates no further provider calls.

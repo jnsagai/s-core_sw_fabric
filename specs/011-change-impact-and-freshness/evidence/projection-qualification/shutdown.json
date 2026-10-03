@@ -1,0 +1,11 @@
+{
+  "native_server_exit": 0,
+  "transport_exit": 130,
+  "meter_stopped": "QUALIFICATION_COMPLETE_REQUEST_CAP",
+  "requests": 10,
+  "stage_bindings_stopped_after_capture": true,
+  "ports": [
+    18794,
+    18795
+  ]
+}

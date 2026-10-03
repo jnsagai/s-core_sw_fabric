@@ -1,0 +1,29 @@
+from pathlib import Path
+import json, sys, urllib.request, urllib.error, hashlib
+from score_sw_fabric.storage import validate_run_root
+from score_sw_fabric.optimization.common import record
+from score_sw_fabric.optimization.runtime_boundary import runtime_config
+
+ROOT = Path(__file__).parent
+PRIVATE = Path(
+    "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification"
+)
+URL = "http://127.0.0.1:18794"
+
+
+def api(method, path, value=None):
+    data = json.dumps(value).encode() if value is not None else None
+    req = urllib.request.Request(
+        URL + "/api/v1" + path,
+        data,
+        {
+            "Authorization": "Bearer " + (PRIVATE / "dev-token").read_text(),
+            "Content-Type": "application/json",
+        },
+        method=method,
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as reply:
+            return json.loads(reply.read() or b"{}")
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(str(e.code) + ": " + e.read().decode()[:800]) from None

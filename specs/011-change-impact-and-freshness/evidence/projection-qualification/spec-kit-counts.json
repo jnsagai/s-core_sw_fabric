@@ -1,0 +1,20 @@
+{
+  "requirements": 18,
+  "acceptance_scenarios": 17,
+  "success_criteria": 4,
+  "tasks": 44,
+  "local_tasks_complete": 42,
+  "checklists": {
+    "optimization.md": {
+      "checked": 0,
+      "pending": 7
+    },
+    "requirements.md": {
+      "checked": 6,
+      "pending": 0
+    }
+  },
+  "constitution_principles": 15,
+  "convergence": "partial: human/external T032/T033 only",
+  "critical_high_findings": 0
+}

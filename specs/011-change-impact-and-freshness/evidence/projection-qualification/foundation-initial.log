@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/jefferson/s-core_sw_fabric/scripts/check_foundation.py", line 79, in <module>
+    main()
+  File "/home/jefferson/s-core_sw_fabric/scripts/check_foundation.py", line 68, in main
+    assert not broken, "Broken documentation links: " + "; ".join(broken)
+           ^^^^^^^^^^
+AssertionError: Broken documentation links: specs/011-change-impact-and-freshness/evidence/projection-qualification/README.md -> manifest.json

@@ -47,5 +47,9 @@ date, rationale and precise scope. No disposition has been recorded.
 Measured continuation: [qualification](evidence/qualification/README.md). Native scoped
 guard/service evidence and ten Flash observations are available. The measured 30.5%
 fixture reduction does not accept the live routine target. Bounded tool projection and
-pinned per-task budget enforcement are locally verified; live requalification remains
-pending a new explicit cap. No owner checkbox or disposition has been changed.
+pinned per-task budget enforcement were locally verified before the second authorization.
+The subsequent `go` approved an additional ten-request Flash comparison capped at $0.10.
+[Projection qualification](evidence/projection-qualification/README.md) now measures
+66.32–66.60% on unchanged rendering fixtures with equal tool selection and matching outputs.
+Both experiments are closed. Real engineering qualification remains pending. The review
+artifact hashes above remain unchanged; no owner checkbox or disposition has been changed.

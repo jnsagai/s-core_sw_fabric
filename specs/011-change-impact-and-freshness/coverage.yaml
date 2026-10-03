@@ -159,6 +159,7 @@ FR-014:
   - T012
   - T026
   - T033
+  - T043
   tests:
   - tests/contract/test_optimization_governor.py
   symbols:
@@ -173,6 +174,7 @@ FR-015:
   - T030
   - T031
   - T036
+  - T044
   tests:
   - tests/contract/test_optimization_governor.py
   symbols:
@@ -189,6 +191,7 @@ FR-016:
   - T033
   - T034
   - T035
+  - T043
   tests:
   - tests/integration/test_optimization_service.py
   symbols:
@@ -223,7 +226,7 @@ FR-018:
   code:
   - src/score_sw_fabric/optimization/activation.py
   - src/score_sw_fabric/optimization/provider_boundary.py
-  tasks: [T037, T038, T039, T040, T041, T042]
+  tasks: [T037, T038, T039, T040, T041, T042, T043, T044]
   tests:
   - tests/contract/test_optimization_activation.py
   symbols:

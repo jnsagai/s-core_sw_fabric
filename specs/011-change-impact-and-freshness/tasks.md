@@ -132,3 +132,8 @@ block local implementation or imply authority; default live execution remains di
 ## Phase 19: Measured overhead convergence
 
 - [x] T042 Remove declarations for already-denied native tools before experimental provider transmission using a checksum-pinned bounded-tool selection; retain every message, allowed declaration and original/request digest, and enforce the pinned governor per task in src/score_sw_fabric/optimization/provider_boundary.py, activation.py and tests/contract/test_optimization_activation.py (FR-016/018). Replay real native requests without further paid calls; live requalification remains T033.
+
+## Phase 20: Authorized projection measurement
+
+- [x] T043 Execute the separately authorized second ten-request Flash comparison within $0.10, retaining unchanged original fixture prompts and equal tool selection, per-request stage/output/usage checks and fresh native/provider evidence in specs/011-change-impact-and-freshness/evidence/projection-qualification/ (FR-014/016/018).
+- [x] T044 Reconcile the second comparison, cache observations, conservative price bounds, source pins and current acceptance/audit without rewriting the first experiment or checking human tasks; verify and commit/push the bounded result (FR-015/018).

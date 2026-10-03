@@ -1,0 +1,11 @@
+{
+  "command": "python verify_measurements.py specs/011-change-impact-and-freshness/evidence/projection-qualification",
+  "script_snapshot": "operator-scripts/verify_measurements.py.txt",
+  "exit": 0,
+  "requests_verified": 10,
+  "pairs_verified": 5,
+  "exact_output_matches": 10,
+  "native_usage_reconciled": 10,
+  "original_evidence_unchanged": true,
+  "engineering_acceptance": "pending"
+}

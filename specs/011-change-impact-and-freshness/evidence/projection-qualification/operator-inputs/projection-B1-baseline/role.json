@@ -1,0 +1,1 @@
+{"schema_version": 1, "kind": "qualification_role", "role": "draft", "output_limit": 2000, "task": "projection-B1-baseline", "provider": "deepseek", "model": "deepseek-flash", "digest": "72d81f73feb1722ef70f22f6ec38327745ab6e3a03865cb60f2ee6e369d23db1"}

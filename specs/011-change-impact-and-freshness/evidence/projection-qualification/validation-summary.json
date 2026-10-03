@@ -1,0 +1,33 @@
+{
+  "affected_suite": {
+    "passed": 166,
+    "failed": 0,
+    "skipped": 0,
+    "log": "regression.log"
+  },
+  "static_checks": {
+    "regression": 0,
+    "format": 0,
+    "ruff": 0,
+    "mypy": 0,
+    "foundation": 0,
+    "build": 0
+  },
+  "sync_exit": 0,
+  "measurement_check": {
+    "requests": 10,
+    "pairs": 5,
+    "exact_output_matches": 10,
+    "native_usage_reconciled": 10,
+    "original_evidence_unchanged": true
+  },
+  "tasks_complete": 42,
+  "tasks_pending": [
+    "T032",
+    "T033"
+  ],
+  "full_suite": "not repeated; last full 2083 passed/22 skipped predates final per-task hardening",
+  "initial_foundation_check": "manifest link was unresolved before manifest generation; retained foundation-initial.log; final foundation passed",
+  "measurement_source": "source-hashes.json pins executed code at 04567a8; later audit-only reconciliation adds separate fixture status; final-source-bindings.json pins final code",
+  "engineering_acceptance": "pending"
+}

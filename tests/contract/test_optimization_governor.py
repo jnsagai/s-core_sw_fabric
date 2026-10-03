@@ -241,6 +241,7 @@ def test_original_role_ledger_cannot_be_reset_by_empty_optimization_usage() -> N
 
 
 def test_self_audit_detects_policy_and_symbol_drift(tmp_path) -> None:
+    import json
     import shutil
     from pathlib import Path
 
@@ -278,6 +279,16 @@ def test_self_audit_detects_policy_and_symbol_drift(tmp_path) -> None:
     for skill in (root / ".agents/skills").glob("score-*"):
         shutil.copytree(skill, tmp_path / ".agents/skills" / skill.name)
     assert audit(tmp_path)["failures"] == []
+    # Measured fixture savings never upgrade engineering acceptance or real live readiness.
+    projection = tmp_path / feature / "evidence/projection-qualification/summary.json"
+    projection.parent.mkdir(parents=True)
+    projection.write_text(
+        json.dumps({"development_fixture_live_savings_target": "met_on_development_fixture"})
+    )
+    measured = audit(tmp_path)
+    assert measured["development_fixture_projection_live_savings"] == "met_on_development_fixture"
+    assert measured["human_acceptance"] == "pending"
+    assert measured["live_savings"] == "unmeasured"
     policy_path = tmp_path / "policies/optimization-v1.yaml"
     policy = yaml.safe_load(policy_path.read_text())
     policy["operational"]["S1"]["input_tokens"] += 1

@@ -1,0 +1,84 @@
+{
+  "owner_reply": "go",
+  "scope": "additional ten-request Flash comparison capped at $0.10",
+  "tool_projection": {
+    "allowed_tools": []
+  },
+  "instruction_sha256": "264a8fa7501946649dc60d030f913ae144b4b32e478f557eecdb9df42dea37ff",
+  "limits": {
+    "requests": 10,
+    "request_bytes": 24000,
+    "output_tokens": 2000,
+    "cost_microusd": 100000
+  },
+  "price_bounds": {
+    "input_microusd_per_token": 0.3,
+    "output_microusd_per_token": 1.2
+  },
+  "price_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "price_checked": "2026-10-03",
+  "original_inputs_sha256": "b1f6ac945e47ee4f0cf07b139f01a2418ca313e6e39ad4b7183d362c7651863c",
+  "feature_commit": "04567a874dc48bcd8ee8c9eb6d447a02d28d29c5",
+  "stage_instructions": [
+    {
+      "label": "projection-B1-baseline",
+      "run_id": "01M41XKBSGDGXYXK0KAHGBE2FN",
+      "instruction_sha256": "634af2555fee95ef713c6f7e32051934cb48c29eda0ff0351ffd13c0edb4d04d",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-baseline/instruction.json"
+    },
+    {
+      "label": "projection-B1-optimized",
+      "run_id": "01M41XKBVWSSZ866AVQYDNWKPS",
+      "instruction_sha256": "97b2756f29e9cff59c49374b3cb667820bae51e22825cd1731debff84754fa2d",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B1-optimized/instruction.json"
+    },
+    {
+      "label": "projection-B2-baseline",
+      "run_id": "01M41XKBYG83P1DDDM73PTZD8R",
+      "instruction_sha256": "509ecf9ac9b85bde9d9816aa8c8f79ca53cc02121d97fec14f1f9cead3b9d23c",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-baseline/instruction.json"
+    },
+    {
+      "label": "projection-B2-optimized",
+      "run_id": "01M41XKC0WCYBR5G94YYB1860G",
+      "instruction_sha256": "a313aaf5177ba4583a11363b7621ff7bb0b784f71bd4bd88894a0ccaa515db99",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B2-optimized/instruction.json"
+    },
+    {
+      "label": "projection-B3-baseline",
+      "run_id": "01M41XKC359ZB018ZHDYXSQJWD",
+      "instruction_sha256": "f4627267f9493bee57bc570f3275572f5f02b4d63ac76b9a7a35f88d7633a206",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-baseline/instruction.json"
+    },
+    {
+      "label": "projection-B3-optimized",
+      "run_id": "01M41XKC5NC6MZZ1XWTDSFFYN7",
+      "instruction_sha256": "0f8d967daf9b64dd8963bfb2675f2563bdd95b56f075883b36fa9ffa56fa2b23",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B3-optimized/instruction.json"
+    },
+    {
+      "label": "projection-B4-baseline",
+      "run_id": "01M41XKC81AKY7CYSTDN4X3Z9E",
+      "instruction_sha256": "e996de0d808e959618777263e5ff9fec05dd63e19ea5644719c97626ca88964d",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-baseline/instruction.json"
+    },
+    {
+      "label": "projection-B4-optimized",
+      "run_id": "01M41XKCAKNP86QR7KNC06QRZH",
+      "instruction_sha256": "be0fb0f65481ad6f74e0a69941bd4a1ba079342762440ca07b73827e73253326",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B4-optimized/instruction.json"
+    },
+    {
+      "label": "projection-B5-baseline",
+      "run_id": "01M41XKCD1A337JQN3NF7W19PE",
+      "instruction_sha256": "6ac56b0ccdcc79d97ab72843f4a0868dbe74fdb35536e770b7ec0d3b6193f238",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-baseline/instruction.json"
+    },
+    {
+      "label": "projection-B5-optimized",
+      "run_id": "01M41XKCFMS72QQQRWWFAQ4BF1",
+      "instruction_sha256": "174c61b0a613baf342c962a7fa1fe75a42beab2e13d162083251750a0506b3d6",
+      "instruction_path": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/projection-B5-optimized/instruction.json"
+    }
+  ]
+}

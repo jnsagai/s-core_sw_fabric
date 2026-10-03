@@ -1,0 +1,10 @@
+import hashlib
+from native_probe import ROOT, PRIVATE
+from score_sw_fabric.optimization.provider_boundary import RequestMeter, boundary_server
+
+p = PRIVATE / "live-meter"
+instruction = p / "instruction.json"
+meter = RequestMeter(
+    instruction, hashlib.sha256(instruction.read_bytes()).hexdigest(), p / "meter.json"
+)
+boundary_server(meter, 18795, (PRIVATE / "nonce").read_text(), ROOT).serve_forever()

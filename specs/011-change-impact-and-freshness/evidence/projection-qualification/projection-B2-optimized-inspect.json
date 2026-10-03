@@ -1,0 +1,109 @@
+{
+  "id": "01M41XKC0WCYBR5G94YYB1860G",
+  "children_count": 0,
+  "title": "011 projection-B2-optimized qualification",
+  "goal": "",
+  "workflow": {
+    "slug": "workflow",
+    "name": null,
+    "graph_name": "Qualification",
+    "node_count": 3,
+    "edge_count": 2
+  },
+  "automation": null,
+  "repository": {
+    "name": "projection-B2-optimized-target",
+    "origin_url": null,
+    "provider": "unknown"
+  },
+  "created_by": {
+    "kind": "user",
+    "identity": {
+      "issuer": "fabro:dev",
+      "subject": "dev"
+    },
+    "login": "dev",
+    "auth_method": "dev_token"
+  },
+  "origin": {
+    "kind": "api"
+  },
+  "labels": {},
+  "lifecycle": {
+    "status": {
+      "kind": "succeeded",
+      "reason": "completed"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "sandbox": {
+    "kind": "ready",
+    "plan": {
+      "provider": "local"
+    },
+    "instance": {
+      "provider": "local",
+      "runtime": {
+        "id": "host-g18db2511ec90eba0-1138566-0",
+        "working_directory": "/home/jefferson/.local/state/s-core/fabro/score-011-projection-w7f01c4l/qualification/storage/scratch/20261003-01M41XKC0WCYBR5G94YYB1860G/petri/scopes/invocation-0-scope-0/work"
+      },
+      "ready_duration_ms": 24,
+      "retained": true
+    }
+  },
+  "models": [
+    {
+      "provider": "deepseek",
+      "name": "deepseek-v4-flash"
+    }
+  ],
+  "source_directory": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-011-projection-w7f01c4l/projection-B2-optimized-target",
+  "timestamps": {
+    "created_at": "2026-10-03T22:19:20.476Z",
+    "started_at": "2026-10-03T22:20:35.706Z",
+    "last_event_at": "2026-10-03T22:20:38.196Z",
+    "completed_at": "2026-10-03T22:20:38.159Z"
+  },
+  "timing": {
+    "wall_time_ms": 2453,
+    "inference_time_ms": 1388,
+    "tool_time_ms": 0,
+    "active_time_ms": 1388
+  },
+  "usage": {
+    "tokens": {
+      "input": 1090,
+      "output": 87,
+      "reasoning": 22,
+      "cache_read": 0,
+      "cache_write": 0
+    },
+    "cost": {
+      "usd_micros": 182,
+      "source": "catalog"
+    }
+  },
+  "size": "XS",
+  "ask_fabro": {
+    "available": true,
+    "unavailable_reason": null,
+    "default_model": "deepseek-v4-flash"
+  },
+  "diff": {
+    "files_changed": 0,
+    "additions": 0,
+    "deletions": 0
+  },
+  "pull_request": null,
+  "current_question": null,
+  "superseded_by": null,
+  "retried_from": null,
+  "links": {
+    "web": null
+  }
+}

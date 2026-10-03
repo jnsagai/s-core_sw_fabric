@@ -72,6 +72,12 @@ def audit(root: Path) -> dict[str, Any]:
         if qualification.is_file()
         else None
     )
+    projection = feature / "evidence/projection-qualification/summary.json"
+    measured_projection = (
+        json_object(projection.read_bytes()).get("development_fixture_live_savings_target")
+        if projection.is_file()
+        else None
+    )
     return record(
         "optimization_self_audit",
         state="blocked" if failures else "complete",
@@ -83,4 +89,5 @@ def audit(root: Path) -> dict[str, Any]:
         human_acceptance="pending",
         live_savings="unmeasured",
         development_fixture_live_savings=measured_fixture,
+        development_fixture_projection_live_savings=measured_projection,
     )

@@ -1,0 +1,26 @@
+from pathlib import Path
+import sys, json, subprocess, os
+
+raw = sys.stdin.buffer.read(65537)
+root = Path(__file__).parent
+(root / "native-hook-context.json").write_bytes(raw)
+with (root / "native-hook-history.jsonl").open("ab") as out:
+    out.write(raw + b"\n")
+(root / "native-hook-process-cwd.txt").write_text(os.getcwd())
+(root / "native-hook-binding-env.json").write_text(
+    json.dumps(
+        {
+            k: v
+            for k, v in os.environ.items()
+            if k in ("FABRO_RUN_ID", "FABRO_NODE_ID", "FABRO_STAGE_ID", "FABRO_EVENT")
+        }
+    )
+)
+p = subprocess.run(
+    [sys.executable, "-m", "score_sw_fabric.optimization.cli", "guard", *sys.argv[1:]],
+    input=raw,
+    capture_output=True,
+)
+sys.stdout.buffer.write(p.stdout)
+sys.stderr.buffer.write(p.stderr)
+sys.exit(p.returncode)

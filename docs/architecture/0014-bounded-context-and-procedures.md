@@ -39,5 +39,9 @@ An explicitly authorized disposable Flash experiment qualifies pinned native gua
 wiring and records ten real calls over development fixtures. It measured 30.46–30.63% uncached
 input reduction, below the 60–80% target. Optional transport projection now removes tool
 declarations already denied by the guard, preserving messages and selected schemas; its replay
-is offline, with new live qualification pending. Default live policy and owner ratification
-remain pending; these observations cannot accept real S-CORE engineering artifacts.
+is retained offline. A separately authorized ten-call comparison of unchanged fixture prompts
+with equal tool selection measures 66.32–66.60% uncached reduction and equivalent outputs;
+[projection evidence](../../specs/011-change-impact-and-freshness/evidence/projection-qualification/README.md)
+retains both payloads and reconciled native/provider usage. Real engineering qualification
+and owner ratification remain pending; default live policy remains disabled. These
+observations cannot accept real S-CORE engineering artifacts.

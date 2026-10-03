@@ -92,8 +92,8 @@ owner/external tasks below; no duplicate task or empty convergence section is ap
   reviewer-owned requirements checklist items. No review has been accepted by an agent.
 - T033 remains unchecked: owner engineering review, actual S-CORE engineering qualification
   and the 60–80% live routine target remain open. Scoped development guard/service wiring and
-  ten Flash calls are measured below. The subsequent bounded-tool declaration projection has
-  offline replay only; it requires separate live requalification within a newly authorized cap.
+  two separately authorized ten-call Flash comparisons are measured below. Tool projection
+  reaches 66.32–66.60% on controlled rendering fixtures, without proving engineering adequacy.
   Default native guard use still refuses execution without a private operator instruction.
 
 
@@ -142,3 +142,34 @@ build pass. [validation-summary](evidence/qualification/validation-summary.json)
 retained logs. Final self-audit maps 18 functional requirements and 42 tasks with no missing
 artifact/symbol links, 40 local tasks complete and T032/T033 still unchecked. No engineering
 decision or checklist item has been accepted by an agent.
+
+## Authorized second comparison
+
+The subsequent owner `go` approved ten additional Flash requests capped at $0.10. A fresh
+volume-bound workspace/private server/ledger retained the original fixture prompts and expected
+outputs, with the same empty tool selection in both variants. The original evidence and closed
+ledger remain byte-identical. [New evidence](evidence/projection-qualification/README.md) reports
+66.32–66.60% uncached input reduction: B1 3,237→1,081, B2 3,238→1,090, B3 3,230→1,088,
+B4 3,245→1,088 and B5 3,250→1,091. All ten JSON outputs, required fixture IDs/checks/evidence
+references and pending review remain equal. Cache hits are zero, so total-input and uncached
+reductions agree. Each native agent stage succeeded and its usage reconciles before continuation.
+
+Original native messages are preserved; 23 unused tool declarations are removed before
+transmission. Both full native payload and transmitted payload pass current ceilings, including
+the exact pinned governor's per-task limits. Conservative peak-price observed cost totals
+$0.008103; worst-case pre-request reservations total $0.047131 against the $0.10 cap. Actual
+billing remains null. The meter stops at ten requests and both native/transport servers stop.
+
+The fixture target is measured and met; real S-CORE engineering performance and human
+acceptance remain pending T032/T033. The audit retains the initial experiment result separately
+from `development_fixture_projection_live_savings`, while `live_savings` remains unmeasured.
+T043/T044 track measurement and reconciliation; no subsequent increment is authorized.
+
+Second-comparison verification: **166 affected tests passed**; frozen sync, repository
+format/Ruff, mypy (148 modules), foundation consistency and package build passed. The
+independent capture verifier checks ten requests, five pairs, exact outputs and native
+usage, plus byte identity of all original evidence. [Validation summary](evidence/projection-qualification/validation-summary.json)
+distinguishes these checks from prior full regressions. The current audit maps 18 requirements
+and 44 tasks, with 42 local tasks closed and T032/T033 pending; the owner review subjects'
+hashes are unchanged. No full-suite rerun or human acceptance is claimed for this small
+audit/evidence reconciliation change.

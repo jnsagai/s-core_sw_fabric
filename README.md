@@ -322,7 +322,8 @@ uv run --frozen score-fabric optimization audit --root .
 
 See [quickstart](specs/011-change-impact-and-freshness/quickstart.md) and
 [acceptance](specs/011-change-impact-and-freshness/acceptance.md). The owner-authorized, closed
-Flash-only development experiment measured 30.46–30.63% uncached input reduction; the 60–80%
-target and real engineering qualification remain open. A subsequent tool-declaration projection
-is tested by offline native-request replay and has no live savings claim. Default live execution
+initial Flash-only development experiment measured 30.46–30.63% uncached input reduction.
+The separately authorized [projection comparison](specs/011-change-impact-and-freshness/evidence/projection-qualification/README.md)
+measured 66.32–66.60% on the same fixture prompts with equal tool selection; all ten outputs
+match expectations. Real engineering qualification and its live target remain open. Default live execution
 remains disabled; human approval and queue migration are separate authority.

@@ -1,0 +1,48 @@
+import json
+import os
+import subprocess
+from pathlib import Path
+
+from score_sw_fabric.storage import build_environment
+
+root = Path(__file__).parent
+repository = Path("/home/jefferson/s-core_sw_fabric")
+environment = os.environ | build_environment(root)
+environment["SCORE_FABRO_BIN"] = (
+    "/home/jefferson/.local/share/s-core-tools/fabro-1b4fb152-agent32768/fabro"
+)
+files = sorted(repository.glob("tests/contract/test_optimization_*.py"))
+files += sorted(repository.glob("tests/contract/test_someip_*.py"))
+files += [
+    repository / "tests/integration/test_optimization_service.py",
+    repository / "tests/integration/test_workflow_compiler_native.py",
+]
+commands = {
+    "regression": ["uv", "run", "--frozen", "pytest", "-q", *map(str, files)],
+    "format": ["uv", "run", "--frozen", "ruff", "format", "--check", "."],
+    "ruff": ["uv", "run", "--frozen", "ruff", "check", "."],
+    "mypy": ["uv", "run", "--frozen", "mypy"],
+    "foundation": ["uv", "run", "--frozen", "python", "scripts/check_foundation.py"],
+    "build": ["uv", "build", "--out-dir", str(root / "dist")],
+}
+results = {}
+for name, command in commands.items():
+    result = subprocess.run(
+        command, cwd=repository, env=environment, capture_output=True, text=True
+    )
+    (root / (name + ".log")).write_text(result.stdout + result.stderr)
+    results[name] = result.returncode
+    print(
+        json.dumps(
+            {
+                "check": name,
+                "exit": result.returncode,
+                "result": (result.stdout + result.stderr)[-400:],
+            }
+        ),
+        flush=True,
+    )
+    if result.returncode:
+        break
+(root / "static-checks.json").write_text(json.dumps(results, indent=2))
+raise SystemExit(any(results.values()))

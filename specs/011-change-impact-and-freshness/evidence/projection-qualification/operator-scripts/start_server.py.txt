@@ -1,0 +1,31 @@
+import os
+from native_probe import ROOT, PRIVATE
+from score_sw_fabric.storage import build_environment
+
+binary = "/home/jefferson/.local/share/s-core-tools/fabro-1b4fb152-agent32768/fabro"
+env = {
+    k: v for k, v in os.environ.items() if not any(t in k for t in ("TOKEN", "API_KEY", "FABRO_"))
+}
+env.update(build_environment(ROOT))
+env["FABRO_DEV_TOKEN"] = (PRIVATE / "dev-token").read_text()
+env["SESSION_SECRET"] = (PRIVATE / "session-secret").read_text()
+os.execve(
+    binary,
+    [
+        binary,
+        "server",
+        "start",
+        "--foreground",
+        "--bind",
+        "127.0.0.1:18794",
+        "--storage-dir",
+        str(PRIVATE / "storage"),
+        "--config",
+        str(PRIVATE / "settings.toml"),
+        "--no-web",
+        "--no-upgrade-check",
+        "--max-concurrent-runs",
+        "1",
+    ],
+    env,
+)

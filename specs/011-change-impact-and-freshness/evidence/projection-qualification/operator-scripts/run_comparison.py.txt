@@ -1,0 +1,130 @@
+"""Finite operator comparison; native Fabro alone executes and owns run state."""
+
+import hashlib
+import json
+import time
+from pathlib import Path
+
+from native_probe import PRIVATE, ROOT, api
+from score_sw_fabric.optimization.provider_boundary import RequestMeter, reported_usage
+from score_sw_fabric.storage import validate_run_root
+
+instruction = PRIVATE / "live-meter/instruction.json"
+meter = RequestMeter(
+    instruction,
+    hashlib.sha256(instruction.read_bytes()).hexdigest(),
+    PRIVATE / "live-meter/meter.json",
+)
+rows = json.loads((ROOT / "live-inputs.json").read_text())
+prepared = json.loads((ROOT / "prepared-runs.json").read_text())
+observations = []
+current_id = None
+try:
+    for number, (row, run) in enumerate(zip(rows, prepared, strict=True)):
+        validate_run_root(ROOT)
+        for filename, digest in json.loads((ROOT / "source-hashes.json").read_text()).items():
+            assert hashlib.sha256(Path(filename).read_bytes()).hexdigest() == digest, "SOURCE_DRIFT"
+        with meter.transaction() as state:
+            assert not state["stopped"] and state["requests"] == number, "METER_NOT_READY"
+        current_id = run["run_id"]
+        api("POST", "/runs/" + current_id + "/start", {})
+        started = time.monotonic()
+        print(json.dumps({"started": run["label"], "run_id": current_id}), flush=True)
+        while time.monotonic() - started < 240:
+            value = api("GET", "/runs/" + current_id)
+            if value["lifecycle"]["status"]["kind"] in ("succeeded", "failed", "canceled"):
+                break
+            time.sleep(2)
+        else:
+            api("POST", "/runs/" + current_id + "/cancel", {})
+            raise RuntimeError("NATIVE_TIMEOUT")
+        captures = {}
+        for name, suffix in [
+            ("inspect", ""),
+            ("events", "/events?limit=1000"),
+            ("stages", "/stages"),
+        ]:
+            capture = api("GET", "/runs/" + current_id + suffix)
+            captures[name] = capture
+            (ROOT / (run["label"] + "-" + name + ".json")).write_text(json.dumps(capture, indent=2))
+        assert value["lifecycle"]["status"]["kind"] == "succeeded", "NATIVE_RUN_FAILED"
+        with meter.transaction() as state:
+            assert not state["stopped"] and state["requests"] == number + 1, "REQUEST_COUNT"
+            entry = dict(state["records"][number])
+        assert entry["status"] == "observed", "USAGE_UNOBSERVED"
+        native_raw = (ROOT / f"native-request-{number:02d}.json").read_bytes()
+        wire_raw = (ROOT / f"request-{number:02d}.json").read_bytes()
+        native, wire = json.loads(native_raw), json.loads(wire_raw)
+        assert native["messages"] == wire["messages"], "MESSAGE_CHANGED"
+        assert "tools" not in wire and "tool_choice" not in wire, "UNSELECTED_TOOL_SENT"
+        stripped = {k: v for k, v in native.items() if k not in ("tools", "tool_choice")}
+        assert stripped == wire, "NON_TOOL_PAYLOAD_CHANGED"
+        assert hashlib.sha256(native_raw).hexdigest() == entry["native_request_sha256"]
+        assert hashlib.sha256(wire_raw).hexdigest() == entry["request_sha256"]
+        response = (ROOT / f"response-{number:02d}.raw").read_bytes()
+        usage = reported_usage(response, stream=True)
+        text, models, tool_calls = "", set(), []
+        for line in response.splitlines():
+            if not line.startswith(b"data: ") or line == b"data: [DONE]":
+                continue
+            chunk = json.loads(line[6:])
+            if chunk.get("model"):
+                models.add(chunk["model"])
+            for choice in chunk.get("choices", []):
+                delta = choice.get("delta", {})
+                text += delta.get("content") or ""
+                tool_calls.extend(delta.get("tool_calls") or [])
+        assert models == {"deepseek-flash"}, "MODEL_CHANGED"
+        assert not tool_calls, "TOOL_CALL_UNEXPECTED"
+        assert json.loads(text) == row["expected"], "FIXTURE_OUTPUT_CHANGED"
+        stages = [s for s in captures["stages"]["data"] if s["handler"] == "agent"]
+        assert len(stages) == 1 and stages[0]["status"] == "succeeded", "NATIVE_AGENT_FAILED"
+        tokens = stages[0]["usage"]["tokens"]
+        assert tokens["input"] == usage["prompt_tokens"], "INPUT_USAGE_MISMATCH"
+        assert tokens["output"] + tokens["reasoning"] == usage["completion_tokens"], (
+            "OUTPUT_USAGE_MISMATCH"
+        )
+        assert tokens["cache_read"] == usage["prompt_cache_hit_tokens"], "CACHE_USAGE_MISMATCH"
+        observation = entry | {
+            "fixture_task": row["id"],
+            "variant": row["variant"],
+            "run_id": current_id,
+            "fixture_output_equal": True,
+            "native_usage_equal": True,
+            "provider_usage_complete": usage,
+            "reply_models": sorted(models),
+            "native_tokens": tokens,
+            "native_cost": stages[0]["usage"].get("cost"),
+            "native_cost_warning": "stale catalogue estimate; not provider bill",
+            "native_tool_count": len(native.get("tools", [])),
+            "wire_tool_count": 0,
+            "messages_preserved": True,
+            "native_stage_wall_time_ms": stages[0].get("wall_time_ms"),
+            "operator_elapsed_ms": round((time.monotonic() - started) * 1000),
+        }
+        observations.append(observation)
+        (ROOT / "observations.json").write_text(json.dumps(observations, indent=2))
+        print(
+            json.dumps(
+                {
+                    "verified": run["label"],
+                    "input": usage["prompt_tokens"],
+                    "cache_miss": usage["prompt_cache_miss_tokens"],
+                    "wire_bytes": len(wire_raw),
+                    "reserved_microusd": entry["reserved_microusd"],
+                }
+            ),
+            flush=True,
+        )
+        current_id = None
+    meter.stop("QUALIFICATION_COMPLETE_REQUEST_CAP")
+except BaseException:
+    meter.stop("OPERATOR_COMPARISON_FAILED")
+    if current_id:
+        try:
+            api("POST", "/runs/" + current_id + "/cancel", {})
+        except Exception:
+            pass
+    raise
+finally:
+    (ROOT / "meter-final.json").write_bytes((PRIVATE / "live-meter/meter.json").read_bytes())
