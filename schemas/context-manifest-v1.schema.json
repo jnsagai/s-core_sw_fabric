@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "context-manifest-v1",
+  "title": "context-manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "task",
+    "baseline",
+    "excluded_reason",
+    "index_digest",
+    "impact_digest",
+    "mapping_digest",
+    "digest",
+    "native_ids",
+    "primary",
+    "related",
+    "removed_ids",
+    "evidence_refs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "context_manifest"
+    },
+    "task": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "baseline": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "excluded_reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "index_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "impact_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "mapping_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "native_ids": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "primary": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "related": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "removed_ids": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "evidence_refs": {
+      "type": "array",
+      "maxItems": 10000
+    }
+  }
+}

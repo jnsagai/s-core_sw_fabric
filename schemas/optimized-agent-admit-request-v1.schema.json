@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "optimized-agent-admit-request-v1",
+  "title": "optimized-agent-admit-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "legacy_request",
+    "classification",
+    "context",
+    "usage",
+    "corrections",
+    "human_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "optimized_agent_admit_request"
+    },
+    "legacy_request": {
+      "type": "object"
+    },
+    "classification": {
+      "type": "object"
+    },
+    "context": {
+      "type": "object"
+    },
+    "usage": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "corrections": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "human_gate": {
+      "type": "boolean"
+    }
+  }
+}

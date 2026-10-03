@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "skill-selection-v1",
+  "title": "skill-selection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "activity",
+    "baseline",
+    "registry_digest",
+    "mapping_digest",
+    "required",
+    "available_on_demand",
+    "forbidden",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "skill_selection"
+    },
+    "activity": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "baseline": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "registry_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "mapping_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "required": {
+      "type": "array",
+      "maxItems": 4
+    },
+    "available_on_demand": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "forbidden": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+schema_version: 1
+kind: optimization_policy
+status: candidate_owner_review_pending
+live_calls: disabled
+estimate_method: utf8_bytes_upper_bound
+classification:
+  broad_modules: 3
+  broad_paths: 30
+  broad_requirements: 20
+  component_requirements: 3
+  precedence: [unknown, S4, S3, S2, S0, S1]
+tool_results:
+  max_result_bytes: 12000
+  max_result_tokens: 5000
+  max_stage_tokens: 12000
+  max_results: 30
+context:
+  max_tokens: 24000
+  observations_include_text: false
+  max_observation_records: 20
+operational:
+  S0: {input_tokens: 20000, output_tokens: 2000, calls: 1}
+  S1: {input_tokens: 80000, output_tokens: 10000, calls: 2}
+  S2: {input_tokens: 150000, output_tokens: 12000, calls: 3}
+  S3: {input_tokens: 300000, output_tokens: 20000, calls: 3}
+  S4: explicit_scope_authorization_required
+correction_visits: 1
+retry_limit: 1
+critic_triggers: [S2, S3, S4, safety, reviewer_required, unresolved_after_correction]
+escalation_triggers: [deterministic_failure_after_correction, ambiguity_unresolved, safety_conflict]
+premium_trigger: explicit_owner_supervision
+runtime_boundary: mandatory_command_guard_and_bounded_service

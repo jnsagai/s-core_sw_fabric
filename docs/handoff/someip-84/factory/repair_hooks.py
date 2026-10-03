@@ -34,9 +34,16 @@ def feedback(root: Path, policy: dict, ref: str, record: dict, success: bool) ->
     write(out / "result.json", record)
     (out / "pass-result").write_text("0\n" if success else "1\n")
     destination = "/workspace/.llm_tmp/overnight/repair/" + ref
+    from score_sw_fabric.optimization.collector_summary import collector_summary
+    from score_sw_fabric.optimization.common import canonical
+
+    agent_feedback = out / "agent-feedback"
+    agent_feedback.mkdir()
+    (agent_feedback / "summary.json").write_bytes(canonical(collector_summary(record, out)) + b"\n")
+    shutil.copyfile(out / "pass-result", agent_feedback / "pass-result")
     container = owned(root, policy)
     docker("exec", container, "mkdir", "-p", destination)
-    docker("cp", str(out) + "/.", container + ":" + destination + "/")
+    docker("cp", str(agent_feedback) + "/.", container + ":" + destination + "/")
 
 
 def repair(root: Path, policy: dict, check: str) -> dict:

@@ -266,13 +266,14 @@ def role_prompt(
     def section(title: str, items: list[str]) -> list[str]:
         return [f"## {title}", *(f"- {item}" for item in items or ["none"]), ""]
 
+    from score_sw_fabric.optimization.prompts import SILENT_EXECUTION
+
     lines = [
+        SILENT_EXECUTION,
         f"# Role: {role['role']} ({role['id']})",
         "",
         role["purpose"],
         "",
-        f"Task {task['id']}: {task['statement']}",
-        f"Repository baseline: {baseline}",
         "",
         *section(
             "Native sources",
@@ -295,5 +296,7 @@ def role_prompt(
         "self_reported_checks. Self-reported checks are assertions, not verification evidence.",
         "Local working-memory observations are hints, not evidence or decisions. Stop at every",
         "required human gate; you cannot approve, answer, resume or collect evidence.",
+        f"Task {task['id']}: {task['statement']}",
+        f"Repository baseline: {baseline}",
     ]
     return "\n".join(lines) + "\n"

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "optimized-context-bundle-v1",
+  "title": "optimized-context-bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "manifest_digest",
+    "l0",
+    "l1",
+    "l2",
+    "skills",
+    "observations",
+    "omissions",
+    "context_accounting",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "optimized_context_bundle"
+    },
+    "manifest_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "l0": {
+      "type": "object"
+    },
+    "l1": {
+      "type": "object"
+    },
+    "l2": {
+      "type": "object"
+    },
+    "skills": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "observations": {
+      "type": "array",
+      "maxItems": 20
+    },
+    "omissions": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "context_accounting": {
+      "type": "object"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

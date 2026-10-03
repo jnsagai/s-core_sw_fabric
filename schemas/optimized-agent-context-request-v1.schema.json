@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "optimized-agent-context-request-v1",
+  "title": "optimized-agent-context-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "legacy_request",
+    "manifest",
+    "constraints",
+    "max_tokens"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "optimized_agent_context_request"
+    },
+    "legacy_request": {
+      "type": "object"
+    },
+    "manifest": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "array",
+      "minItems": 1
+    },
+    "max_tokens": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 24000
+    }
+  }
+}

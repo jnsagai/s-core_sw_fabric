@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "optimization-mode-request-v1.schema.json",
+  "title": "optimization_mode_request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "mode",
+    "mandatory_checks",
+    "human_gates"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "optimization_mode_request"
+    },
+    "mode": {
+      "enum": [
+        "full",
+        "delta",
+        "correction",
+        "verification-only",
+        "evidence-refresh"
+      ]
+    },
+    "mandatory_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "human_gates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

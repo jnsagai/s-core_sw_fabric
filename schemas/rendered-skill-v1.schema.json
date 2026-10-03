@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rendered-skill-v1",
+  "title": "rendered-skill",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "text",
+    "sha256",
+    "baseline",
+    "selection_digest",
+    "bindings",
+    "runtime_delivery",
+    "authority",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "rendered_skill"
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 24000
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "baseline": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "selection_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "bindings": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "runtime_delivery": {
+      "const": "explicit_rendering"
+    },
+    "authority": {
+      "const": "procedure_only"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

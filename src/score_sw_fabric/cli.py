@@ -447,6 +447,8 @@ def _agent(args: argparse.Namespace) -> int:
         "setup": discover.setup,
         "context": context.build_context,
         "admit": admission.admit,
+        "admit-optimized": admission.admit_optimized,
+        "context-optimized": context.build_optimized_context,
         "check": output.check,
     }
     try:
@@ -658,9 +660,15 @@ def _storage(args: argparse.Namespace) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    optimization_argv = sys.argv[1:] if argv is None else argv
+    if optimization_argv and optimization_argv[0] == "optimization":
+        from score_sw_fabric.optimization.cli import main as optimization_main
+
+        return optimization_main(optimization_argv[1:])
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", action="version", version=__version__)
     commands = parser.add_subparsers(dest="command", required=True)
+    commands.add_parser("optimization", help="bounded evidence, context and operational admission")
     storage = commands.add_parser("storage", help="shared external SSD storage preference")
     storage_commands = storage.add_subparsers(dest="storage_command", required=True)
     storage_commands.add_parser("status", help="measure the selected workspace storage")
@@ -782,6 +790,8 @@ def main(argv: list[str] | None = None) -> int:
         ("setup", "run one explicit, idempotent context setup operation"),
         ("context", "build a baseline-bound role context bundle"),
         ("admit", "check model capability, fallback and budget before a call"),
+        ("admit-optimized", "narrow admission with context operational limits"),
+        ("context-optimized", "build manifest-scoped lazy context"),
         ("check", "validate a role result against its write scope and real changes"),
     ):
         agent_request = agent_commands.add_parser(name, help=help_text)

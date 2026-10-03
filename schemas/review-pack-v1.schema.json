@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "review-pack-v1",
+  "title": "review-pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "context_digest",
+    "intent",
+    "changed_paths",
+    "diff_ref",
+    "verification",
+    "unresolved",
+    "human_review",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "review_pack"
+    },
+    "context_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "intent": {
+      "type": "object"
+    },
+    "changed_paths": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "diff_ref": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "unresolved": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "human_review": {
+      "const": "pending"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

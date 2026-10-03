@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "token-governor-decision-v1",
+  "title": "token-governor-decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "task_class",
+    "admission_digest",
+    "manifest_digest",
+    "ledger_digests",
+    "limits",
+    "model_profile",
+    "decision",
+    "reasons",
+    "call_authorized",
+    "digest",
+    "routing"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "token_governor_decision"
+    },
+    "task_class": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "admission_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "manifest_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ledger_digests": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "limits": {
+      "type": "object"
+    },
+    "model_profile": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "decision": {
+      "enum": [
+        "admissible",
+        "refused"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "call_authorized": {
+      "const": false
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "routing": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  }
+}

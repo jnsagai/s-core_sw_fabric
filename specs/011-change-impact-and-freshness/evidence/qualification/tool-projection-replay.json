@@ -1,0 +1,387 @@
+{
+  "origin": "offline replay of captured real native inputs",
+  "provider_calls": 0,
+  "live_reduction": "unmeasured for projection",
+  "records": [
+    {
+      "source": "request-00.json",
+      "original_bytes": 23245,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 16196,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 11043,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 10383,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    },
+    {
+      "source": "request-01.json",
+      "original_bytes": 17835,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 10786,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 5633,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 4973,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    },
+    {
+      "source": "request-02.json",
+      "original_bytes": 23254,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 16205,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 11052,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 10392,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    },
+    {
+      "source": "request-03.json",
+      "original_bytes": 17844,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 10795,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 5642,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 4982,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    },
+    {
+      "source": "request-04.json",
+      "original_bytes": 23245,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 16196,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 11043,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 10383,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    },
+    {
+      "source": "request-05.json",
+      "original_bytes": 17835,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 10786,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 5633,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 4973,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    },
+    {
+      "source": "request-06.json",
+      "original_bytes": 23290,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 16241,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 11088,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 10428,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    },
+    {
+      "source": "request-07.json",
+      "original_bytes": 17880,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 10831,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 5678,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 5018,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    },
+    {
+      "source": "request-08.json",
+      "original_bytes": 23364,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 16315,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 11162,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 10502,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    },
+    {
+      "source": "request-09.json",
+      "original_bytes": 17954,
+      "original_tools": 23,
+      "projections": [
+        {
+          "allowed_tools": [
+            "evidence_summary",
+            "finding_get",
+            "finding_list",
+            "get_observation",
+            "get_source_excerpt",
+            "sarif_count_by_path",
+            "sarif_count_by_rule",
+            "sarif_find_file",
+            "sarif_find_location",
+            "sarif_find_rule"
+          ],
+          "serialized_bytes": 10905,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [
+            "evidence_summary"
+          ],
+          "serialized_bytes": 5752,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        },
+        {
+          "allowed_tools": [],
+          "serialized_bytes": 5092,
+          "measurement": "serialized UTF-8 bytes only",
+          "messages_unchanged": true
+        }
+      ]
+    }
+  ]
+}

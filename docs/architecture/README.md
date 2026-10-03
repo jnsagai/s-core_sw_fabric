@@ -19,3 +19,5 @@ or validated runtime implementation. See [contracts](../../specs/001-native-proc
 | [0011](0011-providers-budgets-and-unattended-operation.md) | Providers, budgets and unattended operation | Proposed; implement in 007/016 |
 | [0012](0012-baseline-hashes-impact-and-invalidation.md) | Baseline hashes, impact and invalidation | Proposed; implement in 005/011/016 |
 | [0013](0013-scoped-readiness-portable-evidence-and-upstream-boundary.md) | Scoped readiness, portable evidence and upstream boundary | Proposed; implement in 014–018 |
+
+| [0014](0014-bounded-context-and-procedures.md) | Bounded context and lazy procedural Skills | Proposed; local 011 implementation, operational qualification pending |

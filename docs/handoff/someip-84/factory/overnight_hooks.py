@@ -216,9 +216,18 @@ def measure(
     for path in out.iterdir():
         if path.is_file() and path.suffix in {".json", ".stdout", ".stderr"}:
             shutil.copyfile(path, feedback / path.name)
+    from score_sw_fabric.optimization.collector_summary import collector_summary
+    from score_sw_fabric.optimization.common import canonical
+
+    agent_feedback = out / "agent-feedback"
+    agent_feedback.mkdir()
+    shutil.copyfile(feedback / "check-result", agent_feedback / "check-result")
+    (agent_feedback / "summary.json").write_bytes(canonical(collector_summary(record, out)) + b"\n")
     # Host-measured feedback is read-only to all draft agents.
     docker("exec", container, "mkdir", "-p", "/workspace/.llm_tmp/overnight/validation")
-    docker("cp", str(feedback) + "/.", container + ":/workspace/.llm_tmp/overnight/validation/")
+    docker(
+        "cp", str(agent_feedback) + "/.", container + ":/workspace/.llm_tmp/overnight/validation/"
+    )
     shutil.copyfile(out / "measurement.json", root / "latest-measurement.json")
 
 

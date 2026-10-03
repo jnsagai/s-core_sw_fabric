@@ -343,19 +343,25 @@ def main() -> None:
     extra_drafts = 0
     source_paths = prototype["write_scope"]
     prefix = "/workspace/.llm_tmp/overnight/reports/"
+    from score_sw_fabric.optimization.prompts import SILENT_EXECUTION
+
     base_prompt = (
-        "Work on the bounded duplicate-server registration-key slice of SOME/IP #84. "
-        "Read .llm_tmp/context/issue-snapshot.json and relevant source. "
-        "Use only read_file, grep, glob and write_file; no shell, delegation, web, "
-        "approval, publishing or engineering acceptance. Preserve notices. "
-        "Read earlier .llm_tmp/overnight/reports and the latest host feedback under "
-        ".llm_tmp/overnight/validation when relevant. Measurements are local, unprotected "
-        "and scoped; full native runtime tests and human reviews remain pending. "
+        SILENT_EXECUTION
+        + "\n"
+        + (
+            "Work on the bounded duplicate-server registration-key slice of SOME/IP #84. "
+            "Read .llm_tmp/context/issue-snapshot.json and relevant source. "
+            "Use only bounded source read_file, glob and write_file; no shell, delegation, web, "
+            "approval, publishing or engineering acceptance. Preserve notices. "
+            "Read earlier .llm_tmp/overnight/reports and the latest host feedback under "
+            ".llm_tmp/overnight/validation when relevant. Measurements are local, unprotected "
+            "and scoped; full native runtime tests and human reviews remain pending. "
+        )
     )
     if args.all_obligations:
         base_prompt += (
             "Read the pinned process/platform sources in .llm_tmp/context/obligations, "
-            "prior-reports, and .llm_tmp/overnight/obligations/*/result.json. "
+            "prior-reports, and .llm_tmp/overnight/obligations/*/summary.json. "
             "A successful collection node means results were retained, not that checks passed. "
             "Do not treat missing tools, unknown applicability, incomplete extraction or "
             "unanswered human reviews as satisfied obligations. "
@@ -424,7 +430,7 @@ def main() -> None:
                 "path": script_path,
                 "content": "cat "
                 + destination
-                + "/result.json\ngrep -qx 0 "
+                + "/summary.json\ngrep -qx 0 "
                 + destination
                 + "/collection-result\n",
                 "origin": origin,
@@ -445,7 +451,7 @@ def main() -> None:
                 "origin": origin,
                 "command_file": script_path,
                 "support_files": [script_path],
-                "expected_outputs": [destination + "/result.json"],
+                "expected_outputs": [destination + "/summary.json"],
                 "write_scope": [],
                 "tool_profile": "fixed-sourced-obligation-collector-v1",
                 "data_destinations": ["local:disposable-target"],

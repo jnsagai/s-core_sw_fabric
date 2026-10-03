@@ -277,7 +277,7 @@ def prepare_repair(previous: Path, image: str, review_archive: Path | None = Non
                     "origin": origin,
                     "content": "cat /workspace/.llm_tmp/overnight/repair/"
                     + action["ref"]
-                    + "/result.json\n"
+                    + "/summary.json\n"
                     + "grep -qx 0 /workspace/.llm_tmp/overnight/repair/"
                     + action["ref"]
                     + "/pass-result\n",

@@ -1,0 +1,29 @@
+{
+  "full_suite": {
+    "passed": 2083,
+    "skipped": 22,
+    "failed": 0,
+    "log": "regression.log"
+  },
+  "final_affected_scope": {
+    "passed": 166,
+    "skipped": 0,
+    "failed": 0,
+    "log": "final-scope.log"
+  },
+  "static_checks": {
+    "sync": 0,
+    "format": 0,
+    "ruff": 0,
+    "mypy": 0,
+    "foundation": 0,
+    "build": 0
+  },
+  "human_acceptance": "pending",
+  "tasks_completed": 40,
+  "tasks_pending": [
+    "T032",
+    "T033"
+  ],
+  "note": "Full regression preceded final per-task budget hardening; final affected scope covers the current code."
+}

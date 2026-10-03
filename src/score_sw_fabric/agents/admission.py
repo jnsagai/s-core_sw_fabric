@@ -436,3 +436,39 @@ def admit(request_path: Path) -> tuple[int, dict[str, Any], list[Path], list[Pat
         [lock_path, role_path, profiles_path, ledger_path, *(path for path, _ in pages)],
         protected,
     )
+
+
+def admit_optimized(request_path: Path) -> tuple[int, dict[str, Any], list[Path], list[Path]]:
+    """Run existing catalogue/role admission before narrowing with a context-bound governor."""
+    from score_sw_fabric.agents.models import json_file
+    from score_sw_fabric.optimization.common import checked
+    from score_sw_fabric.optimization.token_governor import govern
+
+    request, base = load_request(
+        request_path,
+        "optimized_agent_admit_request",
+        {"legacy_request", "classification", "context", "usage", "corrections", "human_gate"},
+    )
+    legacy_path, _ = input_file(base, request["legacy_request"], "/legacy_request")
+    _, original, inputs, protected = admit(legacy_path)
+    class_path, _, classification = json_file(base, request["classification"], "/classification")
+    context_path, _, context = json_file(base, request["context"], "/context")
+    checked(classification, "task_classification")
+    checked(context, "optimized_context_bundle")
+    if classification["task"] != context["l0"]["task"]:
+        raise InputError("TASK_MISMATCH", "Classification belongs to another task")
+    decision = govern(
+        classification["class"],
+        original,
+        context["context_accounting"]["estimated_tokens"]["total"],
+        request["usage"],
+        corrections=request["corrections"],
+        human_gate=request["human_gate"],
+        manifest_digest=context["manifest_digest"],
+    )
+    return (
+        1 if decision["decision"] == "refused" else 0,
+        decision,
+        [*inputs, legacy_path, class_path, context_path],
+        protected,
+    )

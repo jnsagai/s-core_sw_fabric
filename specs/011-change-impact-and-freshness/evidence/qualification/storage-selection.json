@@ -1,0 +1,13 @@
+{
+  "kind": "external_ssd",
+  "run_parent": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs",
+  "mount": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0",
+  "backing_uuid": "002B-CE31",
+  "backing_mount": "/media/jefferson/Lexar",
+  "filesystem": "exfat",
+  "free_bytes": 178308657152,
+  "rejected": [],
+  "policy": "mounted_external_ssd_first",
+  "schema_version": 1,
+  "mount_device": 1818
+}

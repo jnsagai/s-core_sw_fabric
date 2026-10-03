@@ -966,9 +966,18 @@ def collect(root: Path, policy: dict, node: dict) -> None:
         for p in original_feedback.iterdir():
             if p.is_file() and p.name not in {"result.json", "collection-result"}:
                 shutil.copyfile(p, feedback / p.name)
+    # Complete feedback remains on the host; agents receive normalized summaries only.
+    from score_sw_fabric.optimization.collector_summary import collector_summary
+    from score_sw_fabric.optimization.common import canonical
+
+    agent_feedback = out / "agent-feedback"
+    agent_feedback.mkdir()
+    shutil.copyfile(feedback / "collection-result", agent_feedback / "collection-result")
+    summary = collector_summary(result, out)
+    (agent_feedback / "summary.json").write_bytes(canonical(summary) + b"\n")
     destination = "/workspace/.llm_tmp/overnight/obligations/" + check
     docker("exec", container, "mkdir", "-p", destination)
-    docker("cp", str(feedback) + "/.", container + ":" + destination + "/")
+    docker("cp", str(agent_feedback) + "/.", container + ":" + destination + "/")
     # The host archive is portable and preserves every original attempt.
     archive = root / "portable-obligation-evidence"
     archive.mkdir(exist_ok=True)

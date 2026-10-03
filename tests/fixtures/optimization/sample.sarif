@@ -1,0 +1,1 @@
+{"version":"2.1.0","runs":[{"tool":{"driver":{"name":"development-fixture"}},"results":[{"ruleId":"fixture-rule","locations":[{"physicalLocation":{"artifactLocation":{"uri":"fixture.cpp"},"region":{"startLine":23}}}]}]}]}

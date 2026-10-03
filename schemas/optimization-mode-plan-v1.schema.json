@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "optimization-mode-plan-v1",
+  "title": "optimization-mode-plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "mode",
+    "stages",
+    "mandatory_checks",
+    "human_gates",
+    "agent_required",
+    "runtime_owner",
+    "execution_authorized",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "optimization_mode_plan"
+    },
+    "mode": {
+      "enum": [
+        "full",
+        "delta",
+        "correction",
+        "verification-only",
+        "evidence-refresh"
+      ]
+    },
+    "stages": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "mandatory_checks": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "human_gates": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "agent_required": {
+      "type": "boolean"
+    },
+    "runtime_owner": {
+      "const": "Fabro"
+    },
+    "execution_authorized": {
+      "const": false
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

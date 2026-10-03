@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "optimization-progress-v1",
+  "title": "optimization-progress",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "made_progress",
+    "stop_reason",
+    "continue_allowed",
+    "mode",
+    "before",
+    "after",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "optimization_progress"
+    },
+    "made_progress": {
+      "type": "boolean"
+    },
+    "stop_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "continue_allowed": {
+      "type": "boolean"
+    },
+    "mode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "before": {
+      "type": "object"
+    },
+    "after": {
+      "type": "object"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

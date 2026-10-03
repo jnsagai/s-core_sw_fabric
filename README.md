@@ -306,3 +306,23 @@ and [acceptance record](specs/004-native-artifact-traceability/acceptance.md).
 New fabric build and analysis workspaces prefer a suitable mounted external SSD,
 with internal fallback. This applies across features. See [storage setup and
 commands](docs/storage.md).
+
+## Bounded evidence and context optimization (011)
+
+The [v3 optimization workstream](specs/011-change-impact-and-freshness/spec.md) adds
+bounded SARIF/JSON queries, summary-only collector feedback, persistent stage context budgets,
+old/new transitive impact, lazy manifest context and procedural Skills, operational admission,
+conditional escalation and five derived workflow modes. Existing profiles and frozen runs remain
+replayable. Procedures and optimization records cannot establish engineering acceptance.
+
+```sh
+uv run --frozen score-fabric optimization evidence --root tests/fixtures --path optimization/sample.sarif --operation findings --limit 5
+uv run --frozen score-fabric optimization audit --root .
+```
+
+See [quickstart](specs/011-change-impact-and-freshness/quickstart.md) and
+[acceptance](specs/011-change-impact-and-freshness/acceptance.md). The owner-authorized, closed
+Flash-only development experiment measured 30.46–30.63% uncached input reduction; the 60–80%
+target and real engineering qualification remain open. A subsequent tool-declaration projection
+is tested by offline native-request replay and has no live savings claim. Default live execution
+remains disabled; human approval and queue migration are separate authority.

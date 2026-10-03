@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "optimization-skills-request-v1.schema.json",
+  "title": "optimization_skills_request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "root",
+    "definitions",
+    "activity",
+    "baseline",
+    "reference"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "optimization_skills_request"
+    },
+    "root": {
+      "type": "string"
+    },
+    "definitions": {
+      "type": "object"
+    },
+    "activity": {
+      "type": "string"
+    },
+    "baseline": {
+      "type": "string"
+    },
+    "reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

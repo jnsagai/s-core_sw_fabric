@@ -48,9 +48,9 @@ Evidence here is fabric development evidence and never target engineering accept
 | FAB-040 | Analyzer adequacy shall include extraction integrity and applicable rule/manual coverage. | 010 | [010 import/extraction](../../specs/010-misra-quality-and-deviations/native-import-acceptance.md) and [guideline coverage](../../specs/010-misra-quality-and-deviations/coverage-acceptance.md); declared rows/missing mappings, manual/audit/exclusion and unknown denominator remain explicit; [portable packets](../../specs/010-misra-quality-and-deviations/packet-acceptance.md) retain original bytes, source/history/notices and pending-human questions; [independent assessment](../../specs/010-misra-quality-and-deviations/assessment-acceptance.md) preserves primary/mapping/manual/authority blockers; engineering acceptance pending |
 | FAB-041 | Findings, deviations, false-positive dispositions, and suppressions shall be traceable and scoped. | 010 | [010 draft/correction slice](../../specs/010-misra-quality-and-deviations/disposition-acceptance.md); source/finding-bound proposals, fresh local correction observations and immutable stale history; [CodeQL imported context](../../specs/010-misra-quality-and-deviations/codeql-dispositions-acceptance.md) preserves original unavailable inspection, native identities, history and blocked corrections; [independent 005 fixture decision replay](../../specs/010-misra-quality-and-deviations/decision-acceptance.md) checks exact policy/source scope and current validity; protected authority and engineering acceptance pending |
 | FAB-042 | Missing MISRA capability shall remain a blocker for the corresponding compliance claim. | 010 | [CodeQL prerequisite inspection](../../specs/010-misra-quality-and-deviations/codeql-prerequisites-acceptance.md) names eligibility, execution, provenance, reporting and suite gaps; no analysis or accepted claim; [independent assessment](../../specs/010-misra-quality-and-deviations/assessment-acceptance.md) remains blocked; engineering acceptance pending |
-| FAB-043 | Relevant changes shall invalidate downstream evidence and decisions for the new baseline. | 011 | Backlog; evidence not yet produced |
-| FAB-044 | Impact analysis shall include transitive and newly introduced dependencies. | 011 | Backlog; evidence not yet produced |
-| FAB-045 | Accepted historical artifacts shall not be rewritten to conceal changed applicability. | 011 | Backlog; evidence not yet produced |
+| FAB-043 | Relevant changes shall invalidate downstream evidence and decisions for the new baseline. | 011 | [011 tasks](../../specs/011-change-impact-and-freshness/tasks.md); [acceptance](../../specs/011-change-impact-and-freshness/acceptance.md); deterministic impact/context work in progress, human acceptance pending |
+| FAB-044 | Impact analysis shall include transitive and newly introduced dependencies. | 011 | [011 tasks](../../specs/011-change-impact-and-freshness/tasks.md); [acceptance](../../specs/011-change-impact-and-freshness/acceptance.md); deterministic impact/context work in progress, human acceptance pending |
+| FAB-045 | Accepted historical artifacts shall not be rewritten to conceal changed applicability. | 011 | [011 tasks](../../specs/011-change-impact-and-freshness/tasks.md); [acceptance](../../specs/011-change-impact-and-freshness/acceptance.md); deterministic impact/context work in progress, human acceptance pending |
 | FAB-046 | Feature-level and component-level analysis/allocation shall remain distinct. | 012 | Backlog; evidence not yet produced |
 | FAB-047 | Multi-component fan-in shall require each expected child result for the correct baseline. | 012 | Backlog; evidence not yet produced |
 | FAB-048 | Component/feature integration evidence shall verify allocated interaction requirements. | 012 | Backlog; evidence not yet produced |
@@ -76,3 +76,11 @@ Evidence here is fabric development evidence and never target engineering accept
 002 bounded draft-planner evidence: [acceptance](../../specs/002-applicability-and-work-product-plan/acceptance.md).
 003 deterministic compiler and pinned native-validation evidence: [acceptance](../../specs/003-deterministic-workflow-compiler/acceptance.md).
 Owner review, the security-FDR source conflict, and full score/module_template documentation builds remain open.
+
+## Owner v3 optimization extension
+
+The [v3 brief](../../S_CORE_SW_FABRIC_TOKEN_OPTIMIZATION_SPEC_KIT_CODEX_BRIEF_v3_NO_JEV.md)
+extends 011 bounded re-analysis without renumbering native FAB requirements or 012–018.
+[FR-001–FR-017 coverage](../../specs/011-change-impact-and-freshness/coverage.yaml) links the
+new derived context mechanisms to tasks/code/tests. Supporting mechanisms do not redefine
+FAB-043–045 or claim 012 integration completion.

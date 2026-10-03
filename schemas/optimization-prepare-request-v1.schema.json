@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "optimization-prepare-request-v1",
+  "title": "optimization-prepare-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "task",
+    "baseline",
+    "before",
+    "after",
+    "mapping",
+    "facts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "optimization_prepare_request"
+    },
+    "task": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "baseline": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "before": {
+      "type": "object"
+    },
+    "after": {
+      "type": "object"
+    },
+    "mapping": {
+      "type": "object"
+    },
+    "facts": {
+      "type": "object"
+    }
+  }
+}

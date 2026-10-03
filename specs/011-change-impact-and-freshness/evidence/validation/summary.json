@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "optimization_development_validation",
+  "full_suite": {
+    "passed": 2056,
+    "skipped": 22,
+    "failed": 0,
+    "log": "pytest.log"
+  },
+  "final_affected_scope": {
+    "passed": 139,
+    "failed": 0,
+    "log": "final-scope-regression.log"
+  },
+  "optimization_cases": 67,
+  "static_checks": {
+    "format.log": true,
+    "ruff.log": true,
+    "mypy.log": true,
+    "foundation.log": true,
+    "build.log": true
+  },
+  "local_tasks_completed": 34,
+  "human_tasks_pending": [
+    "T032",
+    "T033"
+  ],
+  "live_provider_usage": "unmeasured",
+  "engineering_acceptance": "pending",
+  "digest": "1e8892282219ec5306be74368e9abb48da4f30a7e64e09184593769e72aebc9c"
+}

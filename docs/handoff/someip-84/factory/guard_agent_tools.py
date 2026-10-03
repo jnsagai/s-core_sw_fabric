@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import posixpath
 import sys
+from pathlib import PurePosixPath
 
 ROOT = "/workspace"
 WRITABLE = {
@@ -37,10 +38,32 @@ def allowed(context: object) -> bool:
         return safe_path(args.get("file_path"), exact_write=True) and isinstance(
             args.get("content"), str
         )
+    if context.get("bounded_context_required"):
+        # Optimized execution permits only the separately configured bounded service.
+        return isinstance(name, str) and name.startswith("mcp__score_bounded__")
     if name == "read_file":
-        return safe_path(args.get("file_path"))
-    if name in {"grep", "glob"}:
+        path = args.get("file_path")
+        if not safe_path(path):
+            return False
+        normalized = posixpath.normpath(path if path.startswith("/") else ROOT + "/" + path)
+        if normalized == ROOT + "/.llm_tmp/context/issue-snapshot.json":
+            # Fixed owner context written before agent admission, outside agent write scope.
+            return True
+        if normalized.endswith("/summary.json"):
+            return normalized.startswith(ROOT + "/.llm_tmp/overnight/")
+        # Generic raw machine-evidence reads are denied even when size is unknown.
+        return PurePosixPath(normalized).suffix in {
+            ".cpp",
+            ".hpp",
+            ".h",
+            ".rst",
+            ".md",
+        } or normalized.endswith("/BUILD")
+    if name == "glob":
         return isinstance(args.get("pattern"), str) and safe_path(args.get("path", ROOT))
+    if name == "grep":
+        # Whole-line grep can expose megabytes from one minified artifact.
+        return False
     return False
 
 

@@ -1,0 +1,61 @@
+definitions:
+  score-architecture:
+    files:
+    - SKILL.md
+    - references/output.md
+    version: 1.0.0
+  score-change-impact:
+    files:
+    - SKILL.md
+    - references/output.md
+    version: 1.0.0
+  score-component-fmea:
+    files:
+    - SKILL.md
+    - references/output.md
+    version: 1.0.0
+  score-dfa:
+    files:
+    - SKILL.md
+    - references/output.md
+    version: 1.0.0
+  score-implementation:
+    files:
+    - SKILL.md
+    - references/output.md
+    version: 1.0.0
+  score-quality-review:
+    files:
+    - SKILL.md
+    - references/output.md
+    version: 1.0.0
+  score-requirements:
+    files:
+    - SKILL.md
+    - references/output.md
+    version: 1.0.0
+  score-verification:
+    files:
+    - SKILL.md
+    - references/output.md
+    version: 1.0.0
+kind: procedural_skill_definitions
+mapping:
+  architecture:
+  - score-architecture
+  change-impact:
+  - score-change-impact
+  component-fmea:
+  - score-component-fmea
+  dfa:
+  - score-dfa
+  implementation:
+  - score-implementation
+  quality-review:
+  - score-quality-review
+  requirements:
+  - score-requirements
+  verification:
+  - score-verification
+schema_version: 1
+status: candidate_owner_review_pending

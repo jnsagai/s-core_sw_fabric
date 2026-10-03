@@ -313,3 +313,58 @@ def build_context(request_path: Path) -> tuple[int, dict[str, Any], list[Path], 
         [lock_path, inventory_path, role_path, profiles_path],
         [*protected, workspace],
     )
+
+
+def build_optimized_context(
+    request_path: Path,
+) -> tuple[int, dict[str, Any], list[Path], list[Path]]:
+    """Opt-in baseline-bound context; preserve the legacy v1 request and portable bundle."""
+    from score_sw_fabric.optimization.common import OptimizationError, checked, raw_file
+    from score_sw_fabric.optimization.context_budget import build_bundle
+
+    selected, base = load_request(
+        request_path,
+        "optimized_agent_context_request",
+        {"legacy_request", "manifest", "constraints", "max_tokens"},
+    )
+    legacy_path, _ = input_file(base, selected["legacy_request"], "/legacy_request")
+    status, original, inputs, protected = build_context(legacy_path)
+    scope_path, _, scope = json_file(base, selected["manifest"], "/manifest")
+    checked(scope, "context_manifest")
+    if scope["task"] != original["task"]["id"]:
+        raise OptimizationError("TASK_MISMATCH")
+    current = original["workspace"]["commit"]
+    if scope["baseline"] != current:
+        raise OptimizationError("BASELINE_DRIFT")
+    workspace = Path(original["workspace"]["path"])
+    required = {}
+    # Only exact native-source digest bindings may supply mandatory L1 body text.
+    sources = {i["path"]: i["sha256"] for i in original["native_sources"]}
+    for path in scope["primary"]:
+        from score_sw_fabric.agents.models import matches_any
+
+        if not matches_any(original["allowed_inputs"], path):
+            raise OptimizationError("CONTEXT_SOURCE_OUT_OF_SCOPE")
+        if path not in sources:
+            raise OptimizationError("CONTEXT_SOURCE_UNBOUND")
+        if Path(path).suffix.lower() in {".sarif", ".json", ".jsonl", ".log", ".xml"}:
+            raise OptimizationError("RAW_STRUCTURED_EVIDENCE_FORBIDDEN")
+        data, _ = raw_file(workspace, path, sources[path])
+        text = data.decode("utf-8")
+        if credential_like(text):
+            raise OptimizationError("CREDENTIAL_IN_CONTEXT")
+        required[path] = text
+    bundle = build_bundle(
+        scope,
+        current,
+        {
+            "role": original["role"]["id"],
+            "constraints": selected["constraints"],
+            "output_contract": original["expected_output"],
+            "prohibited_decisions": original["prohibited_decisions"],
+        },
+        required,
+        observations=original["observations"],
+        max_tokens=selected["max_tokens"],
+    )
+    return status, bundle, [*inputs, legacy_path, scope_path], protected

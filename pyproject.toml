@@ -26,8 +26,12 @@ packages = ["src/score_sw_fabric"]
 [tool.ruff]
 target-version = "py312"
 line-length = 100
-# Frozen execution evidence retains original script bytes and recorded hashes.
-extend-exclude = ["docs/handoff/someip-84/factory/runs"]
+# Frozen evidence and the verbatim owner brief retain their original bytes.
+extend-exclude = [
+    "docs/handoff/someip-84/factory/runs",
+    "specs/011-change-impact-and-freshness/evidence/qualification/operator-scripts",
+    "S_CORE_SW_FABRIC_TOKEN_OPTIMIZATION_SPEC_KIT_CODEX_BRIEF_v3_NO_JEV.md",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]

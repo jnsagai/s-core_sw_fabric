@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "kind": "optimization_validation_provenance",
+  "date": "2026-10-03",
+  "checkpoint": "b2aa9a7a49a054621f38e59f3aef6d6e5daf3cce",
+  "spec_kit": {
+    "version": "1.0.12",
+    "commit": "e77daa9021d20db26b878f7dfa5640fe5a42d04e",
+    "bound_workspace": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-fabric-xxefvd8p"
+  },
+  "fabro_source_commit": "1b4fb15281ebb724426f9e480dce48d0100ff79b",
+  "references": [
+    {
+      "path": "S_CORE_SW_FABRIC_TOKEN_OPTIMIZATION_SPEC_KIT_CODEX_BRIEF_v3_NO_JEV.md",
+      "sha256": "17d9d8d27d378204acec371a984e4b06865a9e033d97f6707a41e489a567ad44",
+      "bytes": 66962
+    },
+    {
+      "path": "/home/jefferson/fabro/docs/public/agents/hooks.mdx",
+      "sha256": "2945f9758028e39d83d0c83959c7bb16786e0028852f72ca578c9091292118b3",
+      "bytes": 14314
+    },
+    {
+      "path": "/home/jefferson/.local/share/s-core-tools/fabro-1b4fb152-agent32768/fabro",
+      "sha256": "8d7ef1e66f19a4da4b806ea64944d58ee33652e959f46c142645c4feb7468fbe",
+      "bytes": 257212544
+    },
+    {
+      "path": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-fabric-xxefvd8p/storage-selection.json",
+      "sha256": "dc8848a508fd686e2bfc48afcae8df46261cc86f4ce08f8819c0d79a43b8d5a4",
+      "bytes": 427
+    }
+  ],
+  "provider_calls": 0,
+  "human_acceptance": "pending",
+  "guarded_native_activation": "unqualified",
+  "digest": "887929261d2be0a6adc77d63868caa9c7c5d7658a05cba2f019526a942c75b10"
+}

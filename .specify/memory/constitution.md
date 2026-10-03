@@ -1,6 +1,6 @@
-<!-- Sync impact: scaffold -> 1.0.0. Adds twelve principles, execution boundaries,
-development workflow and governance. No templates changed. Owner review pending;
-remove this scratch comment before committing the reviewed constitution. -->
+<!-- Sync impact: 1.0.0 -> 1.1.0 proposal. Adds principles XIII-XV for deterministic
+context minimization, lazy procedures and operational limits. Existing principles
+unchanged. No template changes. Owner ratification remains pending. -->
 # s-core_sw_fabric Constitution
 
 ## Core Principles
@@ -55,6 +55,25 @@ and agent assertions MUST remain distinguishable. Agents MUST NOT self-attest re
 Compatible source/tool pins, license notices and reproducible commands MUST accompany
 evidence. Reference repositories MUST remain read-only; generated builds use disposable copies.
 
+### XIII. Deterministic context minimization
+Deterministic tools MUST narrow impact, classify tasks and select baseline-bound context
+before model invocation. Complete evidence MUST remain outside conversational context;
+agent tools MUST return bounded summaries and exact artifact references. Every stage MUST
+have per-result and aggregate limits. Missing dependencies MUST widen scope or block it.
+
+### XIV. Lazy procedural guidance
+Skills MUST describe one activity, load only when selected and bind their version and
+content digest to context. Skills MUST NOT establish engineering authority, applicability,
+freshness, trust or acceptance. Runtime Skill availability MUST be explicitly rendered
+or retrieved; a Codex Skill installation MUST NOT imply Fabro runtime support.
+
+### XV. Measured operational limits
+Operational budgets MUST narrow absolute role/model ceilings. Escalation and critique
+MUST follow explicit deterministic triggers. Unknown provider usage MUST remain unknown
+and block uncontrolled continuation. Repeated failures or absent progress MUST stop bounded
+loops. Optimization claims MUST identify measurements, estimates and unmeasured limits;
+required verification and human gates MUST NOT be reduced for token savings.
+
 ## Execution Boundaries
 
 AI drafts and implements within explicit permissions. APM/MCP supplies supported
@@ -78,4 +97,4 @@ impact on specifications/contracts/gates and reviewer decision. Use major versio
 incompatible principle changes, minor for new obligations, patch for clarifications.
 Implementation reviews MUST check these boundaries and record justified exceptions.
 
-**Version**: 1.0.0 | **Ratification**: pending owner review | **Last Amended**: 2026-09-27
+**Version**: 1.1.0 | **Ratification**: pending owner review | **Last Amended**: 2026-10-03

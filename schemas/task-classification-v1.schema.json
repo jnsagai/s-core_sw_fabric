@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "task-classification-v1",
+  "title": "task-classification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "task",
+    "class",
+    "facts",
+    "reasons",
+    "confidence",
+    "policy",
+    "digest",
+    "policy_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "task_classification"
+    },
+    "task": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "class": {
+      "enum": [
+        "S0",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "unknown"
+      ]
+    },
+    "facts": {
+      "type": "object"
+    },
+    "reasons": {
+      "type": "array",
+      "maxItems": 10000
+    },
+    "confidence": {
+      "const": "deterministic"
+    },
+    "policy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "policy_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}
