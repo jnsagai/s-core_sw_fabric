@@ -1,0 +1,23 @@
+{
+  "observed_at": "2026-10-02T16:48:13.104574+00:00",
+  "predecessor_run_id": "01M3YGTGYFEN406VDEVVTJTRWV",
+  "container": "ecc83520d57b",
+  "native_status": {
+    "kind": "failed",
+    "reason": "cancelled"
+  },
+  "worker_absent": true,
+  "container_stopped": true,
+  "workspace": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-supervisor-preservation-970lph74/workspace",
+  "source_hashes": {
+    "score/socom/BUILD": "68f4645a21e495fac43929fb125f7ba0b9e29fc84c0401fdb95238ffb7fd2cc8",
+    "score/socom/impl/service_identifier.cpp": "3c12b3f1dd3f1fa66cdf43766f374d7d067637bf8f11aba604c4e2688351f11a",
+    "score/socom/impl/service_identifier.hpp": "bdce3fcbc3cd78a8ecaece1ea36107d464011ab81c9bc39932d0be617befaea9",
+    "score/socom/test/unit/BUILD": "e909151e822370bebe8d59b86369bddeb4d6cacfa02f10061bf6e134671ff9d4",
+    "score/socom/test/unit/runtime_tests.cpp": "9a2d6a154683a2b7ff9d51b7241e4fb74c1a8ef483895830cb409a8f5a1d3127",
+    "score/socom/test/unit/service_identifier_tests.cpp": "7b4ce75daf19f50404c8e870aaf414684ed4a93a35156b8722253f33f1e763ea"
+  },
+  "reports": 12,
+  "prior_reports": 13,
+  "engineering_acceptance": "pending"
+}

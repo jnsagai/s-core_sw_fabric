@@ -389,6 +389,20 @@ def validate_package(package: dict[str, Any], profile: dict[str, Any]) -> dict[s
         raise InputError(
             "UNDECLARED_SUPPORT_FILE", f"Actions reference undeclared files: {missing_support}"
         )
+    if any("command_file" in node for node in graph["nodes"]):
+        support = [
+            {"path": path, "content": content, "origin": {}}
+            for path, content in package["files"].items()
+            if path not in {"workflow.fabro", "workflow.toml"}
+        ]
+        try:
+            rendered = render_native(graph, support)
+        except CompilerSemanticError as exc:
+            raise InputError("COMMAND_BINDING", f"Invalid packaged command binding: {exc}") from exc
+        if rendered != package["files"]:
+            raise InputError(
+                "COMMAND_BINDING", "Packaged command binding differs from native source"
+            )
     expected_subjects = {
         (kind, str(value.get("id") or value.get("node_id")))
         for kind, values in (

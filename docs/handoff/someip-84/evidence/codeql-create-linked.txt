@@ -1,0 +1,52 @@
+Initializing database at /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/codeql-db-linked.
+Running build command: [bash, .llm_tmp/compile-native.sh]
+Running command in /home/jefferson/s-core_sw_fabric/.tools/someip-84/work: [bash, .llm_tmp/compile-native.sh]
+[2026-10-01 13:47:37] [build-stdout] Running main() from .llm_tmp/googletest/googletest/src/gtest_main.cc
+[2026-10-01 13:47:37] [build-stdout] [==========] Running 13 tests from 2 test suites.
+[2026-10-01 13:47:37] [build-stdout] [----------] Global test environment set-up.
+[2026-10-01 13:47:37] [build-stdout] [----------] 4 tests from ServiceInstanceIdentifierTest
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] ServiceInstanceIdentifierTest.DifferentServiceIdsUseDistinctRegistrationSlots
+[2026-10-01 13:47:37] [build-stdout] [       OK ] ServiceInstanceIdentifierTest.DifferentServiceIdsUseDistinctRegistrationSlots (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] ServiceInstanceIdentifierTest.DifferentMajorVersionsUseDistinctRegistrationSlots
+[2026-10-01 13:47:37] [build-stdout] [       OK ] ServiceInstanceIdentifierTest.DifferentMajorVersionsUseDistinctRegistrationSlots (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] ServiceInstanceIdentifierTest.DifferentInstancesUseDistinctRegistrationSlots
+[2026-10-01 13:47:37] [build-stdout] [       OK ] ServiceInstanceIdentifierTest.DifferentInstancesUseDistinctRegistrationSlots (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] ServiceInstanceIdentifierTest.SlotCanBeReusedWithNewMinorVersionAfterRemoval
+[2026-10-01 13:47:37] [build-stdout] [       OK ] ServiceInstanceIdentifierTest.SlotCanBeReusedWithNewMinorVersionAfterRemoval (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [----------] 4 tests from ServiceInstanceIdentifierTest (0 ms total)
+[2026-10-01 13:47:37] [build-stdout] [----------] 9 tests from MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/0
+[2026-10-01 13:47:37] [build-stdout] [       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/0 (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/1
+[2026-10-01 13:47:37] [build-stdout] [       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/1 (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/2
+[2026-10-01 13:47:37] [build-stdout] [       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/2 (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/3
+[2026-10-01 13:47:37] [build-stdout] [       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/3 (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/4
+[2026-10-01 13:47:37] [build-stdout] [       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/4 (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/5
+[2026-10-01 13:47:37] [build-stdout] [       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/5 (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/6
+[2026-10-01 13:47:37] [build-stdout] [       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/6 (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/7
+[2026-10-01 13:47:37] [build-stdout] [       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/7 (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/8
+[2026-10-01 13:47:37] [build-stdout] [       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/8 (0 ms)
+[2026-10-01 13:47:37] [build-stdout] [----------] 9 tests from MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest (0 ms total)
+[2026-10-01 13:47:37] [build-stdout] [----------] Global test environment tear-down
+[2026-10-01 13:47:37] [build-stdout] [==========] 13 tests from 2 test suites ran. (0 ms total)
+[2026-10-01 13:47:37] [build-stdout] [  PASSED  ] 13 tests.
+Finalizing database at /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/codeql-db-linked.
+Running pre-finalize script /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/cpp/tools/pre-finalize.sh in /home/jefferson/s-core_sw_fabric/.tools/someip-84/work.
+Running command in /home/jefferson/s-core_sw_fabric/.tools/someip-84/work: [/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/cpp/tools/pre-finalize.sh]
+Running TRAP import for CodeQL database at /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/codeql-db-linked...
+Grouping TRAP files by link target
+Grouping unlinked TRAP files together
+Scanning TRAP files
+Importing TRAP files
+Merging relations
+Finished writing database (relations: 6.61 MiB; string pool: 9.53 MiB).
+TRAP import complete (7.7s).
+Finished zipping source archive (1.43 MiB).
+Successfully created database at /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/codeql-db-linked.

@@ -1,0 +1,12 @@
+schema_version: 1
+kind: quality_codeql_toolchain_profile
+id: codeql2214-local-v1
+status: candidate_local_inspection_only
+tool:
+  path: /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/codeql
+  sha256: d38df35e9275fce177e76cc6d4b5fc031ba7e9be4e7d224d0be7d6b7d0a21cc1
+  version: 2.21.4
+dependencies:
+- path: /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/LICENSE.md
+  sha256: d0d6cfdc857c1e0153bbd2b6f0d4ab42dfc38acec9b97b2f7f55c1f51ffe9fbf
+library_dirs: []

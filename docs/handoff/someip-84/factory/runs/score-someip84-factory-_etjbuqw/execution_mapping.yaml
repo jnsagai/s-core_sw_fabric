@@ -1,0 +1,1989 @@
+compiler_profile: deterministic-compiler-v1
+digest: 3e12164fcd7a0dd0ab24272b826fd4dc33b2938483d66c7bf27f3b82dbe4fff6
+edges:
+- condition: null
+  loop_id: null
+  origin: &id001
+    decision_ref: user-overnight-someip84-20261001
+    kind: authorized_human_decision
+    pointer: /scope
+    rationale: User authorized operational execution; native engineering review is
+      pending.
+    source_ref:
+      path: task-authority.json
+      sha256: d24648d025bdc71d8ce3b1ae85377ecd49b6790db5bb4478108de45b77db7f3a
+  outcome: null
+  source: start
+  target: scope
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: scope
+  target: callsites
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: scope
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: callsites
+  target: invariants
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: callsites
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: invariants
+  target: reproducer
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: invariants
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: reproducer
+  target: key_fix
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: reproducer
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: key_fix
+  target: unit_matrix
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: key_fix
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: unit_matrix
+  target: check_unit_matrix
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: unit_matrix
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: check_unit_matrix
+  target: runtime_disabled
+  type: success
+- condition: null
+  loop_id: check_unit_matrix
+  origin: *id001
+  outcome: failure
+  source: check_unit_matrix
+  target: repair_unit_matrix
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: runtime_disabled
+  target: runtime_enabled
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: runtime_disabled
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: runtime_enabled
+  target: lifetime_tests
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: runtime_enabled
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: lifetime_tests
+  target: check_lifetime_tests
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: lifetime_tests
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: check_lifetime_tests
+  target: ordering_tests
+  type: success
+- condition: null
+  loop_id: check_lifetime_tests
+  origin: *id001
+  outcome: failure
+  source: check_lifetime_tests
+  target: repair_lifetime_tests
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: ordering_tests
+  target: conversion_tests
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: ordering_tests
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: conversion_tests
+  target: check_conversion_tests
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: conversion_tests
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: check_conversion_tests
+  target: compatibility
+  type: success
+- condition: null
+  loop_id: check_conversion_tests
+  origin: *id001
+  outcome: failure
+  source: check_conversion_tests
+  target: repair_conversion_tests
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: compatibility
+  target: lifetime_review
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: compatibility
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: lifetime_review
+  target: concurrency_review
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: lifetime_review
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: concurrency_review
+  target: api_review
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: concurrency_review
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: api_review
+  target: test_metadata
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: api_review
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: test_metadata
+  target: bazel_plan
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: test_metadata
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: bazel_plan
+  target: analyzer_plan
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: bazel_plan
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: analyzer_plan
+  target: evidence_inventory
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: analyzer_plan
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: evidence_inventory
+  target: review_packet
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: evidence_inventory
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: review_packet
+  target: check_review_packet
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: review_packet
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: check_review_packet
+  target: review_stop
+  type: success
+- condition: null
+  loop_id: check_review_packet
+  origin: *id001
+  outcome: failure
+  source: check_review_packet
+  target: repair_review_packet
+  type: failure
+- condition: null
+  loop_id: check_unit_matrix
+  origin: *id001
+  outcome: success
+  source: repair_unit_matrix
+  target: check_unit_matrix
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: repair_unit_matrix
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: check_lifetime_tests
+  origin: *id001
+  outcome: success
+  source: repair_lifetime_tests
+  target: check_lifetime_tests
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: repair_lifetime_tests
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: check_conversion_tests
+  origin: *id001
+  outcome: success
+  source: repair_conversion_tests
+  target: check_conversion_tests
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: repair_conversion_tests
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: check_review_packet
+  origin: *id001
+  outcome: success
+  source: repair_review_packet
+  target: check_review_packet
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: repair_review_packet
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: review_stop
+  target: exit
+  type: success
+fan_groups: []
+id: someip84-overnight-operational-queue
+loop_policies:
+- exhausted_destination: node_afb4caaa6aabf23b9d9d3c4e
+  id: check_unit_matrix
+  max_visits: 500
+  origin: *id001
+  retry_target: check_unit_matrix
+- exhausted_destination: node_afb4caaa6aabf23b9d9d3c4e
+  id: check_lifetime_tests
+  max_visits: 500
+  origin: *id001
+  retry_target: check_lifetime_tests
+- exhausted_destination: node_afb4caaa6aabf23b9d9d3c4e
+  id: check_conversion_tests
+  max_visits: 500
+  origin: *id001
+  retry_target: check_conversion_tests
+- exhausted_destination: node_afb4caaa6aabf23b9d9d3c4e
+  id: check_review_packet
+  max_visits: 500
+  origin: *id001
+  retry_target: check_review_packet
+plan_version: 1
+review:
+  reference:
+    path: task-authority.json
+    scope: User-authorized overnight operational queue; engineering review pending
+    sha256: d24648d025bdc71d8ce3b1ae85377ecd49b6790db5bb4478108de45b77db7f3a
+  state: reviewed
+rules:
+- actions:
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/scope.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-scope
+    label: scope
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Bind issue #84 to the verified baseline and list
+      the accepted draft scope and open design questions. Write your report to /workspace/.llm_tmp/overnight/reports/scope.md.
+      This is a review draft: only that report may be written.'
+    ref: scope
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/scope.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/callsites.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-callsites
+    label: callsites
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Map identifier construction, conversion, comparison
+      and service-database call sites; cite real paths and lines. Write your report
+      to /workspace/.llm_tmp/overnight/reports/callsites.md. This is a review draft:
+      only that report may be written.'
+    ref: callsites
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/callsites.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/invariants.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-invariants
+    label: invariants
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Derive the existing registration-key invariants
+      from source; distinguish them from unaccepted public-interface proposals. Write
+      your report to /workspace/.llm_tmp/overnight/reports/invariants.md. This is
+      a review draft: only that report may be written.'
+    ref: invariants
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/invariants.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/reproducer.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-reproducer
+    label: reproducer
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Create a focused failing regression for duplicate
+      registration keys differing only in minor version. Write your report to /workspace/.llm_tmp/overnight/reports/reproducer.md.
+      Only the six named candidate source paths and that report may be changed.'
+    ref: reproducer
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/reproducer.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/key_fix.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-key_fix
+    label: key fix
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Implement the smallest registration-key correction
+      preserving interface representation and exact-major/minimum-minor rules. Write
+      your report to /workspace/.llm_tmp/overnight/reports/key_fix.md. Only the six
+      named candidate source paths and that report may be changed.'
+    ref: key_fix
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/key_fix.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/unit_matrix.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-unit_matrix
+    label: unit matrix
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Expand agent-authored tests over service IDs,
+      instance IDs, major versions, minor boundaries and equality/ordering consistency.
+      Write your report to /workspace/.llm_tmp/overnight/reports/unit_matrix.md. Only
+      the six named candidate source paths and that report may be changed.'
+    ref: unit_matrix
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/unit_matrix.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 500
+      cost_microunits: 0
+      input_tokens: 0
+      output_tokens: 0
+      tool_calls: 0
+      wall_time_seconds: 120
+    command_file: commands/check_unit_matrix.sh
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - local:disposable-target
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - original command outputs, source hashes and focused test results
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-check_unit_matrix
+    label: check_unit_matrix
+    model_capability: none
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: Read fresh host-measured focused baseline/candidate GCC/GTest results;
+      never engineering acceptance
+    ref: check_unit_matrix
+    role: measurement_runner
+    support_files:
+    - commands/check_unit_matrix.sh
+    tool_profile: fixed-host-gcc12-gtest-measurement
+    type: deterministic_check
+    write_scope: []
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 500
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/repair_unit_matrix.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-repair_unit_matrix
+    label: repair unit matrix
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Correct the concrete compile/test findings in
+      the latest host feedback. Keep the correction within scope; explain any infrastructure
+      blocker instead of fabricating a pass. Write your report to /workspace/.llm_tmp/overnight/reports/repair_unit_matrix.md.
+      Only the six named candidate source paths and that report may be changed.'
+    ref: repair_unit_matrix
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/repair_unit_matrix.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/runtime_disabled.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-runtime_disabled
+    label: runtime disabled
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Draft runtime tests for duplicate construction
+      while both server instances are disabled. Write your report to /workspace/.llm_tmp/overnight/reports/runtime_disabled.md.
+      Only the six named candidate source paths and that report may be changed.'
+    ref: runtime_disabled
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/runtime_disabled.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/runtime_enabled.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-runtime_enabled
+    label: runtime enabled
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Draft runtime tests for duplicates involving enabled
+      servers; preserve genuine error results rather than assertions. Write your report
+      to /workspace/.llm_tmp/overnight/reports/runtime_enabled.md. Only the six named
+      candidate source paths and that report may be changed.'
+    ref: runtime_enabled
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/runtime_enabled.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/lifetime_tests.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-lifetime_tests
+    label: lifetime tests
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Draft slot reuse and connector destruction tests,
+      including changed minor versions and different major/instance slots. Write your
+      report to /workspace/.llm_tmp/overnight/reports/lifetime_tests.md. Only the
+      six named candidate source paths and that report may be changed.'
+    ref: lifetime_tests
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/lifetime_tests.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 500
+      cost_microunits: 0
+      input_tokens: 0
+      output_tokens: 0
+      tool_calls: 0
+      wall_time_seconds: 120
+    command_file: commands/check_lifetime_tests.sh
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - local:disposable-target
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - original command outputs, source hashes and focused test results
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-check_lifetime_tests
+    label: check_lifetime_tests
+    model_capability: none
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: Read fresh host-measured focused baseline/candidate GCC/GTest results;
+      never engineering acceptance
+    ref: check_lifetime_tests
+    role: measurement_runner
+    support_files:
+    - commands/check_lifetime_tests.sh
+    tool_profile: fixed-host-gcc12-gtest-measurement
+    type: deterministic_check
+    write_scope: []
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 500
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/repair_lifetime_tests.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-repair_lifetime_tests
+    label: repair lifetime tests
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Correct the concrete compile/test findings in
+      the latest host feedback. Keep the correction within scope; explain any infrastructure
+      blocker instead of fabricating a pass. Write your report to /workspace/.llm_tmp/overnight/reports/repair_lifetime_tests.md.
+      Only the six named candidate source paths and that report may be changed.'
+    ref: repair_lifetime_tests
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/repair_lifetime_tests.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/ordering_tests.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-ordering_tests
+    label: ordering tests
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Add property-style deterministic cases for strict
+      weak ordering and equality of registration identifiers. Write your report to
+      /workspace/.llm_tmp/overnight/reports/ordering_tests.md. Only the six named
+      candidate source paths and that report may be changed.'
+    ref: ordering_tests
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/ordering_tests.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/conversion_tests.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-conversion_tests
+    label: conversion tests
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Add boundary coverage for identifier conversions
+      while preserving existing public interface identity. Write your report to /workspace/.llm_tmp/overnight/reports/conversion_tests.md.
+      Only the six named candidate source paths and that report may be changed.'
+    ref: conversion_tests
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/conversion_tests.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 500
+      cost_microunits: 0
+      input_tokens: 0
+      output_tokens: 0
+      tool_calls: 0
+      wall_time_seconds: 120
+    command_file: commands/check_conversion_tests.sh
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - local:disposable-target
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - original command outputs, source hashes and focused test results
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-check_conversion_tests
+    label: check_conversion_tests
+    model_capability: none
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: Read fresh host-measured focused baseline/candidate GCC/GTest results;
+      never engineering acceptance
+    ref: check_conversion_tests
+    role: measurement_runner
+    support_files:
+    - commands/check_conversion_tests.sh
+    tool_profile: fixed-host-gcc12-gtest-measurement
+    type: deterministic_check
+    write_scope: []
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 500
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/repair_conversion_tests.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-repair_conversion_tests
+    label: repair conversion tests
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Correct the concrete compile/test findings in
+      the latest host feedback. Keep the correction within scope; explain any infrastructure
+      blocker instead of fabricating a pass. Write your report to /workspace/.llm_tmp/overnight/reports/repair_conversion_tests.md.
+      Only the six named candidate source paths and that report may be changed.'
+    ref: repair_conversion_tests
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/repair_conversion_tests.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/compatibility.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-compatibility
+    label: compatibility
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Review exact-major and minimum-minor compatibility
+      against the changed key; identify untested paths and avoid changing discovery
+      semantics. Write your report to /workspace/.llm_tmp/overnight/reports/compatibility.md.
+      This is a review draft: only that report may be written.'
+    ref: compatibility
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/compatibility.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/lifetime_review.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-lifetime_review
+    label: lifetime review
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Review source and drafted runtime cases for invalidation,
+      connector lifetime and slot reuse; report concrete counterexamples. Write your
+      report to /workspace/.llm_tmp/overnight/reports/lifetime_review.md. This is
+      a review draft: only that report may be written.'
+    ref: lifetime_review
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/lifetime_review.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/concurrency_review.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-concurrency_review
+    label: concurrency review
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Review registration and teardown ordering for
+      concurrency assumptions, locking and assertions; propose tests without claiming
+      safety acceptance. Write your report to /workspace/.llm_tmp/overnight/reports/concurrency_review.md.
+      This is a review draft: only that report may be written.'
+    ref: concurrency_review
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/concurrency_review.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/api_review.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-api_review
+    label: api review
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Review ABI/API effects and minor-version representation;
+      retain future public identifier redesign as a human design question. Write your
+      report to /workspace/.llm_tmp/overnight/reports/api_review.md. This is a review
+      draft: only that report may be written.'
+    ref: api_review
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/api_review.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/test_metadata.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-test_metadata
+    label: test metadata
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Review native test conventions, metadata and verified
+      requirement links; never invent native requirement identifiers. Write your report
+      to /workspace/.llm_tmp/overnight/reports/test_metadata.md. This is a review
+      draft: only that report may be written.'
+    ref: test_metadata
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/test_metadata.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/bazel_plan.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-bazel_plan
+    label: bazel plan
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Check BUILD changes and prepare the exact native
+      Bazel validation plan from pinned repository configuration; mark unavailable
+      execution pending. Write your report to /workspace/.llm_tmp/overnight/reports/bazel_plan.md.
+      This is a review draft: only that report may be written.'
+    ref: bazel_plan
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/bazel_plan.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/analyzer_plan.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-analyzer_plan
+    label: analyzer plan
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Review native analyzer configuration and the changed
+      units; document tool/version/applicability gaps without claiming MISRA compliance.
+      Write your report to /workspace/.llm_tmp/overnight/reports/analyzer_plan.md.
+      This is a review draft: only that report may be written.'
+    ref: analyzer_plan
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/analyzer_plan.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/evidence_inventory.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-evidence_inventory
+    label: evidence inventory
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Reconcile all host measurements, changed source
+      hashes, remaining full-runtime checks and unresolved findings; agent statements
+      stay assertions. Write your report to /workspace/.llm_tmp/overnight/reports/evidence_inventory.md.
+      This is a review draft: only that report may be written.'
+    ref: evidence_inventory
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/evidence_inventory.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/review_packet.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-review_packet
+    label: review packet
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Write the final review packet with changed paths,
+      test outcomes, known limits and unanswered engineering decisions; never accept
+      or publish. Write your report to /workspace/.llm_tmp/overnight/reports/review_packet.md.
+      This is a review draft: only that report may be written.'
+    ref: review_packet
+    role: review_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/review_packet.md
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 500
+      cost_microunits: 0
+      input_tokens: 0
+      output_tokens: 0
+      tool_calls: 0
+      wall_time_seconds: 120
+    command_file: commands/check_review_packet.sh
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - local:disposable-target
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - original command outputs, source hashes and focused test results
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-check_review_packet
+    label: check_review_packet
+    model_capability: none
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: Read fresh host-measured focused baseline/candidate GCC/GTest results;
+      never engineering acceptance
+    ref: check_review_packet
+    role: measurement_runner
+    support_files:
+    - commands/check_review_packet.sh
+    tool_profile: fixed-host-gcc12-gtest-measurement
+    type: deterministic_check
+    write_scope: []
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 500
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 900
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - /workspace/.llm_tmp/overnight/reports/repair_review_packet.md
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - overnight-repair_review_packet
+    label: repair review packet
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Work on the bounded duplicate-server registration-key slice of SOME/IP
+      #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only
+      read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing
+      or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports
+      and the latest host feedback under .llm_tmp/overnight/validation when relevant.
+      Measurements are local, unprotected and scoped; full native runtime tests and
+      human reviews remain pending. Correct the concrete compile/test findings in
+      the latest host feedback. Keep the correction within scope; explain any infrastructure
+      blocker instead of fabricating a pass. Write your report to /workspace/.llm_tmp/overnight/reports/repair_review_packet.md.
+      Only the six named candidate source paths and that report may be changed.'
+    ref: repair_review_packet
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-overnight-stage-path-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/.llm_tmp/overnight/reports/repair_review_packet.md
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - measurement-inputs.json
+    - task-authority.json
+    allowed_paths:
+    - /tmp/score-someip84-factory-_etjbuqw/target
+    - /home/jefferson/s-core_sw_fabric/.tools/someip-84/baseline
+    - /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest
+    budget:
+      attempts: 1
+      cost_microunits: 0
+      input_tokens: 0
+      output_tokens: 0
+      tool_calls: 4
+      wall_time_seconds: 420
+    completion_predicate: External review remains pending
+    data_destinations:
+    - local:disposable-target
+    evidence_expectation: No agent or engineering decision is admitted by this demonstration
+    expected_outputs: []
+    fallible_outcomes:
+    - success
+    instance_ids:
+    - overnight-scope
+    - overnight-callsites
+    - overnight-invariants
+    - overnight-reproducer
+    - overnight-key_fix
+    - overnight-unit_matrix
+    - overnight-check_unit_matrix
+    - overnight-repair_unit_matrix
+    - overnight-runtime_disabled
+    - overnight-runtime_enabled
+    - overnight-lifetime_tests
+    - overnight-check_lifetime_tests
+    - overnight-repair_lifetime_tests
+    - overnight-ordering_tests
+    - overnight-conversion_tests
+    - overnight-check_conversion_tests
+    - overnight-repair_conversion_tests
+    - overnight-compatibility
+    - overnight-lifetime_review
+    - overnight-concurrency_review
+    - overnight-api_review
+    - overnight-test_metadata
+    - overnight-bazel_plan
+    - overnight-analyzer_plan
+    - overnight-evidence_inventory
+    - overnight-review_packet
+    - overnight-check_review_packet
+    - overnight-repair_review_packet
+    - overnight-review_stop
+    label: Overnight draft and measurements; human review pending
+    model_capability: none
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: Stop for external review; no engineering decision is collected here
+    ref: review_stop
+    role: configuration_owner
+    support_files: []
+    tool_profile: none
+    type: human
+    write_scope: []
+  id: authorized-operational-demonstration
+  instance_ids:
+  - overnight-scope
+  - overnight-callsites
+  - overnight-invariants
+  - overnight-reproducer
+  - overnight-key_fix
+  - overnight-unit_matrix
+  - overnight-check_unit_matrix
+  - overnight-repair_unit_matrix
+  - overnight-runtime_disabled
+  - overnight-runtime_enabled
+  - overnight-lifetime_tests
+  - overnight-check_lifetime_tests
+  - overnight-repair_lifetime_tests
+  - overnight-ordering_tests
+  - overnight-conversion_tests
+  - overnight-check_conversion_tests
+  - overnight-repair_conversion_tests
+  - overnight-compatibility
+  - overnight-lifetime_review
+  - overnight-concurrency_review
+  - overnight-api_review
+  - overnight-test_metadata
+  - overnight-bazel_plan
+  - overnight-analyzer_plan
+  - overnight-evidence_inventory
+  - overnight-review_packet
+  - overnight-check_review_packet
+  - overnight-repair_review_packet
+  - overnight-review_stop
+schema_version: 1
+support_files:
+- content: 'cat /workspace/.llm_tmp/overnight/validation/measurement.json
+
+    grep -qx 0 /workspace/.llm_tmp/overnight/validation/check-result
+
+    '
+  origin: *id001
+  path: commands/check_unit_matrix.sh
+- content: 'cat /workspace/.llm_tmp/overnight/validation/measurement.json
+
+    grep -qx 0 /workspace/.llm_tmp/overnight/validation/check-result
+
+    '
+  origin: *id001
+  path: commands/check_lifetime_tests.sh
+- content: 'cat /workspace/.llm_tmp/overnight/validation/measurement.json
+
+    grep -qx 0 /workspace/.llm_tmp/overnight/validation/check-result
+
+    '
+  origin: *id001
+  path: commands/check_conversion_tests.sh
+- content: 'cat /workspace/.llm_tmp/overnight/validation/measurement.json
+
+    grep -qx 0 /workspace/.llm_tmp/overnight/validation/check-result
+
+    '
+  origin: *id001
+  path: commands/check_review_packet.sh
+version: 1

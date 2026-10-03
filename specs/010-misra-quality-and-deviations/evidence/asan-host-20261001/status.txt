@@ -1,0 +1,7 @@
+sync: exit 0 (expected 0)
+capabilities: exit 0 (expected 0)
+seeded: exit 1 (expected 1)
+corrected: exit 0 (expected 0)
+records: exit 0 (expected 0)
+integration: exit 0 (expected 0)
+ruff: exit 1 (expected 0)

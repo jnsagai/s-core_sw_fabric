@@ -469,7 +469,13 @@ def draft(value: Any, record: dict[str, Any], findings: list[dict[str, Any]]) ->
 def previous(
     value: Any, selected_draft: dict[str, Any], subject: dict[str, Any], *, max_revision: int = 999
 ) -> dict[str, Any]:
-    p = version(value, "quality_disposition_review", REVIEW_FIELDS, "/previous")
+    is_codeql = isinstance(value, dict) and value.get("kind") == "quality_codeql_disposition_review"
+    p = version(
+        value,
+        "quality_codeql_disposition_review" if is_codeql else "quality_disposition_review",
+        REVIEW_FIELDS | {"inspection"} if is_codeql else REVIEW_FIELDS,
+        "/previous",
+    )
     verify_digest(p, "/previous")
     if p["draft"] != selected_draft or p["subject"] != subject:
         raise InputError(
@@ -477,8 +483,22 @@ def previous(
         )
     choice(p["state"], STATES, "/previous/state")
     choice(p["outcome"], {"completed", "unresolved"}, "/previous/outcome")
+    if is_codeql:
+        from score_sw_fabric.quality.codeql_dispositions import validate_inspection
+
+        inspected = validate_inspection(p["inspection"])
+        if (
+            p["state"] == "corrected"
+            or p["fresh_run"] is not None
+            or p["outcome"] != "unresolved"
+            or inspected["baseline"] != p["current_baseline"]
+        ):
+            raise InputError("CODEQL_INSPECTION", "Inspection cannot establish a correction")
     for key, allowed in (
-        ("origin", {"local_unprotected_execution"}),
+        (
+            "origin",
+            {"local_unprotected_inspection"} if is_codeql else {"local_unprotected_execution"},
+        ),
         ("time_basis", {"local_untrusted"}),
         ("assurance_eligibility", {"not_eligible"}),
         ("engineering_readiness", {"not_evaluated"}),

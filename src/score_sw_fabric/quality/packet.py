@@ -363,11 +363,21 @@ class Closure:
         pair = exact(pair, {"request", "review", "decision"}, "/disposition")
         ap, request = self.archive.control(base, pair["request"], yaml=True)
         rp, review = self.archive.control(base, pair["review"], max_bytes=dm.MAX_RECORD)
-        version(request, "quality_disposition_request", dm.REQUEST_FIELDS, "/disposition_request")
+        codeql_context = request.get("kind") == "quality_codeql_disposition_request"
+        version(
+            request,
+            "quality_codeql_disposition_request"
+            if codeql_context
+            else "quality_disposition_request",
+            dm.REQUEST_FIELDS,
+            "/disposition_request",
+        )
         im.choice(request["action"], {"draft", "check_correction"}, "/action")
         current_selection = exact(request["current"], {"adapter", "request"}, "/current")
         adapter = im.choice(
-            current_selection["adapter"], {"clang-tidy", "cppcheck", "asan", "ubsan"}, "/adapter"
+            current_selection["adapter"],
+            {"codeql"} if codeql_context else {"clang-tidy", "cppcheck", "asan", "ubsan"},
+            "/adapter",
         )
         op, original = self.archive.control(ap.parent, request["origin"], max_bytes=dm.MAX_RECORD)
         original, findings, _ = dm.origin(original)
@@ -403,6 +413,17 @@ class Closure:
             config_path = pm.label(current_path.parent, current["config"]["path"])
             for key in ("native_features", "native_runtime", "native_suppressions"):
                 self.archive.selected(config_path.parent, config[key])
+        if codeql_context:
+            config_path = pm.label(current_path.parent, current["config"]["path"])
+            for key in (
+                "source_lock",
+                "scan_config",
+                "report_patch",
+                "reporting_toolchain",
+                "eligibility",
+            ):
+                if config[key] is not None:
+                    self.archive.selected(config_path.parent, config[key])
         current_source = {
             k: current[k]
             for k in ("files", "translation_units", "expected_units", "include_dirs", "defines")
@@ -454,9 +475,153 @@ class Closure:
             for control_key in ("profile", "toolchain", "configuration"):
                 # Baseline transport references keep their original path labels. Relative
                 # paths belong to the explicitly retained current run selection's directory.
-                self.archive.selected(current_path.parent, r["current_baseline"][control_key])
+                if not codeql_context:
+                    self.archive.selected(current_path.parent, r["current_baseline"][control_key])
             if r["fresh_run"] is not None:
                 self.origin(r["fresh_run"], current_path.parent)
+            if codeql_context:
+                from score_sw_fabric.quality.codeql_dispositions import validate_inspection
+
+                if r["kind"] != "quality_codeql_disposition_review":
+                    raise InputError("DISPOSITION_HISTORY", "CodeQL history kind differs")
+                inspected = validate_inspection(r["inspection"])
+                self.origins.add(inspected["origin"])
+                self.gaps.update(inspected["gaps"])
+                self.gaps.add("CODEQL_INSPECTION_UNAUTHENTICATED")
+                if inspected["baseline"] != r["current_baseline"]:
+                    raise InputError("BASELINE_DRIFT", "CodeQL inspection scope differs")
+                if r is review:
+                    from score_sw_fabric.quality.codeql_dispositions import classify
+
+                    state, reasons = classify(
+                        original,
+                        draft,
+                        inspected,
+                        request["action"],
+                        dm.timestamp(review["observed_at"], "/observed_at"),
+                    )
+                    if state != review["state"] or reasons != review["reasons"]:
+                        raise InputError(
+                            "DISPOSITION_NOT_REPRODUCED", "CodeQL context state differs"
+                        )
+                controls_by_id = {}
+                originals_by_id = {raw["id"]: raw for raw in inspected["artifacts"]}
+                for raw in inspected["artifacts"]:
+                    # These originals already belong to the sealed retained review transport.
+                    # A historical native path can now contain another version of its bytes.
+                    raw_control = raw_bytes(raw)
+                    control_base = current_path.parent
+                    if raw["id"] in {
+                        "source_lock",
+                        "scan_config",
+                        "report_patch",
+                        "reporting_toolchain",
+                        "eligibility",
+                    }:
+                        control_base = pm.label(
+                            current_path.parent, current["config"]["path"]
+                        ).parent
+                    original_path = pm.label(control_base, raw["path"])
+                    legacy = self.archive.entries.get(str(original_path))
+                    if (
+                        self.archive.offline
+                        and legacy is not None
+                        and legacy["raw"]["sha256"] == raw["sha256"]
+                    ):
+                        # Earlier packets copied these same selected originals separately.
+                        self.archive.selected(
+                            control_base, {"path": raw["path"], "sha256": raw["sha256"]}
+                        )
+                    if not raw["truncated"] and (
+                        raw["id"]
+                        in {"profile", "toolchain", "configuration", "source_lock", "scan_config"}
+                        or raw["id"].startswith("pack-control-")
+                    ):
+                        controls_by_id[raw["id"]] = parse_yaml(raw_control, "/inspection/original")
+                    if raw["truncated"]:
+                        self.closure_gaps.add("ORIGINAL_OUTPUT_TRUNCATED")
+                pack = inspected["pack_inspection"]
+                for control_key in ("profile", "toolchain", "configuration"):
+                    original_control = originals_by_id.get(control_key)
+                    selection = r["current_baseline"][control_key]
+                    if original_control is None or any(
+                        original_control[key] != selection[key] for key in ("path", "sha256")
+                    ):
+                        raise InputError("CODEQL_INSPECTION", "Original baseline transport differs")
+                from score_sw_fabric.quality.profile import load_profile, load_toolchain
+
+                if (
+                    load_profile(canonical(controls_by_id.get("profile"))) != inspected["profile"]
+                    or load_toolchain(
+                        canonical(controls_by_id.get("toolchain")),
+                        "quality_codeql_toolchain_profile",
+                        check_paths=False,
+                    )
+                    != inspected["toolchain"]
+                    or controls_by_id.get("configuration")
+                    != inspected["configuration"]["effective"]
+                    or controls_by_id.get("scan_config")
+                    != inspected["capability"]["effective_config"]
+                ):
+                    raise InputError(
+                        "CODEQL_INSPECTION", "Original selected controls differ from context"
+                    )
+                from score_sw_fabric.quality.codeql_models import _locked
+
+                locked_source = _locked(
+                    controls_by_id.get("source_lock"), "codeql-coding-standards"
+                )
+                if any(
+                    inspected["source_inspection"][key] != locked_source[key]
+                    for key in ("repository", "commit")
+                ):
+                    raise InputError(
+                        "CODEQL_INSPECTION", "Original source lock differs from context"
+                    )
+                if pack is not None:
+                    if (
+                        controls_by_id.get("pack-control-0") != pack["identity"]
+                        or controls_by_id.get("pack-control-1") != pack["lock"]
+                    ):
+                        raise InputError(
+                            "CODEQL_INSPECTION", "Original pack controls differ from context"
+                        )
+                    for index, library in enumerate(pack["libraries"]):
+                        retained = originals_by_id.get("pack-library-" + str(index))
+                        if retained is None:
+                            # Older inspection records did not retain library metadata bytes.
+                            _, library_bytes = self.archive.selected(
+                                pm.label(current_path.parent, pack["root"]),
+                                {"path": library["path"], "sha256": library["sha256"]},
+                            )
+                        else:
+                            if (
+                                retained["path"] != str(Path(pack["root"]) / library["path"])
+                                or retained["sha256"] != library["sha256"]
+                                or retained["truncated"]
+                            ):
+                                raise InputError(
+                                    "CODEQL_INSPECTION", "Original library transport differs"
+                                )
+                            library_bytes = raw_bytes(retained)
+                        if parse_yaml(library_bytes, "/library/original") != library["metadata"]:
+                            raise InputError(
+                                "CODEQL_INSPECTION", "Original library metadata differs"
+                            )
+                    suite = pack["suite"]
+                    definitions = [suite, *suite["imports"]]
+                    for index, definition in enumerate(definitions, start=2):
+                        if (
+                            controls_by_id.get("pack-control-" + str(index))
+                            != definition["definition"]
+                        ):
+                            raise InputError(
+                                "CODEQL_INSPECTION", "Original suite definition differs"
+                            )
+                if any(
+                    p[key]["truncated"] for p in inspected["phases"] for key in ("stdout", "stderr")
+                ):
+                    self.closure_gaps.add("ORIGINAL_OUTPUT_TRUNCATED")
         decision = None
         if pair["decision"] is not None:
             selection = exact(pair["decision"], {"request", "result"}, "/decision")
@@ -602,6 +767,14 @@ def _assemble(path: Path, request: dict[str, Any], archive: pm.Archive) -> dict[
         "tool:" + i["id"] for b in closure.baselines.values() for i in b.get("identities", [])
     )
     for review in reviews:
+        if review["review"]["kind"] == "quality_codeql_disposition_review":
+            required_notices.add("source:codeql-coding-standards")
+            required_notices.update(
+                "native:" + s["id"]
+                for s in review["review"]["inspection"]["configuration"]["effective"][
+                    "native_sources"
+                ]
+            )
         origins = [review["origin"]]
         if review["review"]["fresh_run"] is not None:
             origins.append(review["review"]["fresh_run"])

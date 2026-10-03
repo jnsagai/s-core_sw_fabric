@@ -1,0 +1,886 @@
+{
+  "capability": {
+    "artifacts": [
+      {
+        "base64": "PT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfcHJpbnRmJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfc3ByaW50ZicKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3NucHJpbnRmJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfZnByaW50ZicKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZwcmludGYnCic9PTEzPT1BZGRyZXNzU2FuaXRpemVyOiBmYWlsZWQgdG8gaW50ZXJjZXB0ICdfX2lzb2M5OV92c3ByaW50ZicKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZzbnByaW50ZicKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZmcHJpbnRmJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAncHRocmVhZF9tdXRleGF0dHJfZ2V0cm9idXN0X25wJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAneGRyX3F1YWRfdCcKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ3hkcl91X3F1YWRfdCcKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ3hkcl9kZXN0cm95JwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnY3J5cHQnCic9PTEzPT1BZGRyZXNzU2FuaXRpemVyOiBmYWlsZWQgdG8gaW50ZXJjZXB0ICdjcnlwdF9yJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogbGliYyBpbnRlcmNlcHRvcnMgaW5pdGlhbGl6ZWQKfHwgYFsweDEwMDA3ZmZmODAwMCwgMHg3ZmZmZmZmZmZmZmZdYCB8fCBIaWdoTWVtICAgIHx8Cnx8IGBbMHgwMjAwOGZmZjcwMDAsIDB4MTAwMDdmZmY3ZmZmXWAgfHwgSGlnaFNoYWRvdyB8fAp8fCBgWzB4MDAwMDhmZmY3MDAwLCAweDAyMDA4ZmZmNmZmZl1gIHx8IFNoYWRvd0dhcCAgfHwKfHwgYFsweDAwMDA3ZmZmODAwMCwgMHgwMDAwOGZmZjZmZmZdYCB8fCBMb3dTaGFkb3cgIHx8Cnx8IGBbMHgwMDAwMDAwMDAwMDAsIDB4MDAwMDdmZmY3ZmZmXWAgfHwgTG93TWVtICAgICB8fApNZW1Ub1NoYWRvdyhzaGFkb3cpOiAweDAwMDA4ZmZmNzAwMCAweDAwMDA5MWZmNmRmZiAweDAwNDA5MWZmNmUwMCAweDAyMDA4ZmZmNmZmZgpyZWR6b25lPTE2Cm1heF9yZWR6b25lPTIwNDgKcXVhcmFudGluZV9zaXplX21iPTI1Nk0KdGhyZWFkX2xvY2FsX3F1YXJhbnRpbmVfc2l6ZV9rYj0xMDI0SwptYWxsb2NfY29udGV4dF9zaXplPTMwClNIQURPV19TQ0FMRTogMwpTSEFET1dfR1JBTlVMQVJJVFk6IDgKU0hBRE9XX09GRlNFVDogMHg3ZmZmODAwMAo9PTEzPT1JbnN0YWxsZWQgdGhlIHNpZ2FjdGlvbiBmb3Igc2lnbmFsIDExCj09MTM9PUluc3RhbGxlZCB0aGUgc2lnYWN0aW9uIGZvciBzaWduYWwgNwo9PTEzPT1JbnN0YWxsZWQgdGhlIHNpZ2FjdGlvbiBmb3Igc2lnbmFsIDgKPT0xMz09VDA6IEZha2VTdGFjayBjcmVhdGVkOiAweDcyNWQ4YTRmNzAwMCAtLSAweDcyNWQ4YjAwMDAwMCBzdGFja19zaXplX2xvZzogMjA7IG1tYXBwZWQgMTEzMDBLLCBub3Jlc2VydmU9MCAKPT0xMz09VDA6IHN0YWNrIFsweDdmZmY4MjYwNzAwMCwweDdmZmY4MmUwNzAwMCkgc2l6ZSAweDgwMDAwMDsgbG9jYWw9MHg3ZmZmODJlMDRjNTQKQWRkcmVzc1Nhbml0aXplcjogcmVhZGluZyBzdXBwcmVzc2lvbnMgZmlsZSBhdCAvdG1wL3Njb3JlLXF1YWxpdHktN2I2cm0xZDIvc2FuaXRpemVycy9zdXBwcmVzc2lvbnMvYXNhbi5zdXBwCj09MTM9PUFkZHJlc3NTYW5pdGl6ZXIgSW5pdCBkb25lCj09MTQ9PUNvdWxkIG5vdCBhdHRhY2ggdG8gdGhyZWFkIDEzIChlcnJubyAxKS4KPT0xND09RmFpbGVkIHN1c3BlbmRpbmcgdGhyZWFkcy4KPT0xMz09TGVha1Nhbml0aXplciBoYXMgZW5jb3VudGVyZWQgYSBmYXRhbCBlcnJvci4KPT0xMz09SElOVDogRm9yIGRlYnVnZ2luZywgdHJ5IHNldHRpbmcgZW52aXJvbm1lbnQgdmFyaWFibGUgTFNBTl9PUFRJT05TPXZlcmJvc2l0eT0xOmxvZ190aHJlYWRzPTEKPT0xMz09SElOVDogTGVha1Nhbml0aXplciBkb2VzIG5vdCB3b3JrIHVuZGVyIHB0cmFjZSAoc3RyYWNlLCBnZGIsIGV0YykK",
+        "bytes": 2235,
+        "format": "asan-text",
+        "id": "runtime-stderr",
+        "retained_sha256": "843099d5f9aff682ffbbf93c65c09cda2fafb388e23167f73ec9bd796873daf6",
+        "sha256": "843099d5f9aff682ffbbf93c65c09cda2fafb388e23167f73ec9bd796873daf6",
+        "translation_unit": null,
+        "truncated": false
+      }
+    ],
+    "assurance_eligibility": "not_eligible",
+    "capability": {
+      "checks": [
+        "asan"
+      ],
+      "effective_config": {
+        "compile_flags": [
+          "-g1",
+          "-fsanitize=address"
+        ],
+        "feature": "asan",
+        "generated_binary": {
+          "bytes": 21472,
+          "sha256": "a262c8525d9728688461bb199c9b400b6492ed26e977792a7ab62ac37fb54c59"
+        },
+        "id": "asan-gcc11-local-v1",
+        "kind": "quality_sanitizer_configuration",
+        "link_flags": [
+          "-fsanitize=address"
+        ],
+        "mode": "asan",
+        "native_features": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/sanitizer-features.bazel",
+          "sha256": "3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c"
+        },
+        "native_runtime": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.env.template",
+          "sha256": "9e65b0d94fed741c18df299b0e4bbedbbd39f5f384b94d39721ebfcb239ff5ab"
+        },
+        "native_suppressions": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.supp",
+          "sha256": "27c9e9ea1f925be8a0021ec78343e7fc057979d2f4f0c9da69e455ac1165c258"
+        },
+        "rendered_runtime": {
+          "ASAN_OPTIONS": "allocator_may_return_null=1 allow_addr2line=1 check_initialization_order=1 detect_stack_use_after_return=1 exitcode=55 halt_on_error=1 print_stats=1 strict_string_checks=1 verbosity=1 suppressions=/tmp/score-quality-7b6rm1d2/sanitizers/suppressions/asan.supp"
+        },
+        "runtime_name": "ASAN_OPTIONS",
+        "runtime_template": "allocator_may_return_null=1 allow_addr2line=1 check_initialization_order=1 detect_stack_use_after_return=1 exitcode=55 halt_on_error=1 print_stats=1 strict_string_checks=1 verbosity=1 suppressions=%ROOT%sanitizers/suppressions/asan.supp",
+        "schema_version": 1,
+        "status": "proposed_local_candidate",
+        "suppression_rules": []
+      },
+      "state": "unsupported"
+    },
+    "configuration": {
+      "adapter": "asan",
+      "effective": {
+        "compile_flags": [
+          "-g1",
+          "-fsanitize=address"
+        ],
+        "feature": "asan",
+        "generated_binary": {
+          "bytes": 21472,
+          "sha256": "a262c8525d9728688461bb199c9b400b6492ed26e977792a7ab62ac37fb54c59"
+        },
+        "id": "asan-gcc11-local-v1",
+        "kind": "quality_sanitizer_configuration",
+        "link_flags": [
+          "-fsanitize=address"
+        ],
+        "mode": "asan",
+        "native_features": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/sanitizer-features.bazel",
+          "sha256": "3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c"
+        },
+        "native_runtime": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.env.template",
+          "sha256": "9e65b0d94fed741c18df299b0e4bbedbbd39f5f384b94d39721ebfcb239ff5ab"
+        },
+        "native_suppressions": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.supp",
+          "sha256": "27c9e9ea1f925be8a0021ec78343e7fc057979d2f4f0c9da69e455ac1165c258"
+        },
+        "rendered_runtime": {
+          "ASAN_OPTIONS": "allocator_may_return_null=1 allow_addr2line=1 check_initialization_order=1 detect_stack_use_after_return=1 exitcode=55 halt_on_error=1 print_stats=1 strict_string_checks=1 verbosity=1 suppressions=/tmp/score-quality-7b6rm1d2/sanitizers/suppressions/asan.supp"
+        },
+        "runtime_name": "ASAN_OPTIONS",
+        "runtime_template": "allocator_may_return_null=1 allow_addr2line=1 check_initialization_order=1 detect_stack_use_after_return=1 exitcode=55 halt_on_error=1 print_stats=1 strict_string_checks=1 verbosity=1 suppressions=%ROOT%sanitizers/suppressions/asan.supp",
+        "schema_version": 1,
+        "status": "proposed_local_candidate",
+        "suppression_rules": []
+      },
+      "path": "/home/jefferson/s-core_sw_fabric/profiles/asan-gcc11-local-v1.yaml",
+      "sha256": "9d1d4ddb322878b0fe3f530f6817e084829573dfe89167a8be400dffbeafb279"
+    },
+    "digest": "262a4b93fe8674c9685fc7854ff2fca4124520c1bebc53c8f90ee24bbe7a6586",
+    "engineering_readiness": "not_evaluated",
+    "gaps": [
+      "ADAPTER_UNIMPLEMENTED:codeql-misra",
+      "CAPABILITY_NOT_SELECTED:clang-tidy",
+      "CAPABILITY_NOT_SELECTED:cppcheck",
+      "CAPABILITY_NOT_SELECTED:ubsan",
+      "CAPABILITY_PROBE_FAILED",
+      "CODEQL_ELIGIBILITY_UNKNOWN",
+      "LEAK_SANITIZER_PTRACE_UNSUPPORTED",
+      "LEAK_SANITIZER_RUNTIME_FAILED",
+      "MANUAL_REVIEW_PENDING",
+      "PRODUCTION_AUTHORITY_UNAVAILABLE",
+      "RULE_MAPPING_UNKNOWN",
+      "SANITIZER_RUNTIME_INCOMPLETE",
+      "TOOL_CONFIDENCE_UNKNOWN"
+    ],
+    "kind": "quality_asan_capability_inventory",
+    "origin": "local_unprotected_execution",
+    "outcome": "incomplete",
+    "phases": [
+      {
+        "argv": [
+          "/usr/bin/x86_64-linux-gnu-g++-11",
+          "--version"
+        ],
+        "elapsed_seconds": 0.001175,
+        "error": null,
+        "exit_code": 0,
+        "name": "version",
+        "stderr": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "stdout": {
+          "base64": "eDg2XzY0LWxpbnV4LWdudS1nKystMTEgKFVidW50dSAxMS40LjAtMXVidW50dTF+MjIuMDQuMykgMTEuNC4wCkNvcHlyaWdodCAoQykgMjAyMSBGcmVlIFNvZnR3YXJlIEZvdW5kYXRpb24sIEluYy4KVGhpcyBpcyBmcmVlIHNvZnR3YXJlOyBzZWUgdGhlIHNvdXJjZSBmb3IgY29weWluZyBjb25kaXRpb25zLiAgVGhlcmUgaXMgTk8Kd2FycmFudHk7IG5vdCBldmVuIGZvciBNRVJDSEFOVEFCSUxJVFkgb3IgRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UuCgo=",
+          "bytes": 266,
+          "format": "text",
+          "retained_sha256": "b2673d1dc6f7deed98e0160d91438be4fd16932a4e13799fbda76847c9a5cf60",
+          "sha256": "b2673d1dc6f7deed98e0160d91438be4fd16932a4e13799fbda76847c9a5cf60",
+          "truncated": false
+        },
+        "timed_out": false
+      },
+      {
+        "argv": [
+          "/usr/bin/x86_64-linux-gnu-g++-11",
+          "-std=c++17",
+          "-g1",
+          "-fsanitize=address",
+          "-c",
+          "/tmp/score-quality-7b6rm1d2/source/capability.cpp",
+          "-o",
+          "/tmp/score-quality-7b6rm1d2/object-0.o"
+        ],
+        "elapsed_seconds": 0.011682,
+        "error": null,
+        "exit_code": 0,
+        "name": "compile:capability.cpp",
+        "stderr": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "stdout": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "timed_out": false
+      },
+      {
+        "argv": [
+          "/usr/bin/x86_64-linux-gnu-g++-11",
+          "/tmp/score-quality-7b6rm1d2/object-0.o",
+          "-fsanitize=address",
+          "-o",
+          "/tmp/score-quality-7b6rm1d2/instrumented-program"
+        ],
+        "elapsed_seconds": 0.037153,
+        "error": null,
+        "exit_code": 0,
+        "name": "link",
+        "stderr": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "stdout": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "timed_out": false
+      },
+      {
+        "argv": [
+          "/tmp/score-quality-7b6rm1d2/instrumented-program"
+        ],
+        "elapsed_seconds": 0.004394,
+        "error": null,
+        "exit_code": 55,
+        "name": "runtime",
+        "stderr": {
+          "base64": "PT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfcHJpbnRmJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfc3ByaW50ZicKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3NucHJpbnRmJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfZnByaW50ZicKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZwcmludGYnCic9PTEzPT1BZGRyZXNzU2FuaXRpemVyOiBmYWlsZWQgdG8gaW50ZXJjZXB0ICdfX2lzb2M5OV92c3ByaW50ZicKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZzbnByaW50ZicKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZmcHJpbnRmJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAncHRocmVhZF9tdXRleGF0dHJfZ2V0cm9idXN0X25wJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAneGRyX3F1YWRfdCcKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ3hkcl91X3F1YWRfdCcKJz09MTM9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ3hkcl9kZXN0cm95JwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnY3J5cHQnCic9PTEzPT1BZGRyZXNzU2FuaXRpemVyOiBmYWlsZWQgdG8gaW50ZXJjZXB0ICdjcnlwdF9yJwonPT0xMz09QWRkcmVzc1Nhbml0aXplcjogbGliYyBpbnRlcmNlcHRvcnMgaW5pdGlhbGl6ZWQKfHwgYFsweDEwMDA3ZmZmODAwMCwgMHg3ZmZmZmZmZmZmZmZdYCB8fCBIaWdoTWVtICAgIHx8Cnx8IGBbMHgwMjAwOGZmZjcwMDAsIDB4MTAwMDdmZmY3ZmZmXWAgfHwgSGlnaFNoYWRvdyB8fAp8fCBgWzB4MDAwMDhmZmY3MDAwLCAweDAyMDA4ZmZmNmZmZl1gIHx8IFNoYWRvd0dhcCAgfHwKfHwgYFsweDAwMDA3ZmZmODAwMCwgMHgwMDAwOGZmZjZmZmZdYCB8fCBMb3dTaGFkb3cgIHx8Cnx8IGBbMHgwMDAwMDAwMDAwMDAsIDB4MDAwMDdmZmY3ZmZmXWAgfHwgTG93TWVtICAgICB8fApNZW1Ub1NoYWRvdyhzaGFkb3cpOiAweDAwMDA4ZmZmNzAwMCAweDAwMDA5MWZmNmRmZiAweDAwNDA5MWZmNmUwMCAweDAyMDA4ZmZmNmZmZgpyZWR6b25lPTE2Cm1heF9yZWR6b25lPTIwNDgKcXVhcmFudGluZV9zaXplX21iPTI1Nk0KdGhyZWFkX2xvY2FsX3F1YXJhbnRpbmVfc2l6ZV9rYj0xMDI0SwptYWxsb2NfY29udGV4dF9zaXplPTMwClNIQURPV19TQ0FMRTogMwpTSEFET1dfR1JBTlVMQVJJVFk6IDgKU0hBRE9XX09GRlNFVDogMHg3ZmZmODAwMAo9PTEzPT1JbnN0YWxsZWQgdGhlIHNpZ2FjdGlvbiBmb3Igc2lnbmFsIDExCj09MTM9PUluc3RhbGxlZCB0aGUgc2lnYWN0aW9uIGZvciBzaWduYWwgNwo9PTEzPT1JbnN0YWxsZWQgdGhlIHNpZ2FjdGlvbiBmb3Igc2lnbmFsIDgKPT0xMz09VDA6IEZha2VTdGFjayBjcmVhdGVkOiAweDcyNWQ4YTRmNzAwMCAtLSAweDcyNWQ4YjAwMDAwMCBzdGFja19zaXplX2xvZzogMjA7IG1tYXBwZWQgMTEzMDBLLCBub3Jlc2VydmU9MCAKPT0xMz09VDA6IHN0YWNrIFsweDdmZmY4MjYwNzAwMCwweDdmZmY4MmUwNzAwMCkgc2l6ZSAweDgwMDAwMDsgbG9jYWw9MHg3ZmZmODJlMDRjNTQKQWRkcmVzc1Nhbml0aXplcjogcmVhZGluZyBzdXBwcmVzc2lvbnMgZmlsZSBhdCAvdG1wL3Njb3JlLXF1YWxpdHktN2I2cm0xZDIvc2FuaXRpemVycy9zdXBwcmVzc2lvbnMvYXNhbi5zdXBwCj09MTM9PUFkZHJlc3NTYW5pdGl6ZXIgSW5pdCBkb25lCj09MTQ9PUNvdWxkIG5vdCBhdHRhY2ggdG8gdGhyZWFkIDEzIChlcnJubyAxKS4KPT0xND09RmFpbGVkIHN1c3BlbmRpbmcgdGhyZWFkcy4KPT0xMz09TGVha1Nhbml0aXplciBoYXMgZW5jb3VudGVyZWQgYSBmYXRhbCBlcnJvci4KPT0xMz09SElOVDogRm9yIGRlYnVnZ2luZywgdHJ5IHNldHRpbmcgZW52aXJvbm1lbnQgdmFyaWFibGUgTFNBTl9PUFRJT05TPXZlcmJvc2l0eT0xOmxvZ190aHJlYWRzPTEKPT0xMz09SElOVDogTGVha1Nhbml0aXplciBkb2VzIG5vdCB3b3JrIHVuZGVyIHB0cmFjZSAoc3RyYWNlLCBnZGIsIGV0YykK",
+          "bytes": 2235,
+          "format": "text",
+          "retained_sha256": "843099d5f9aff682ffbbf93c65c09cda2fafb388e23167f73ec9bd796873daf6",
+          "sha256": "843099d5f9aff682ffbbf93c65c09cda2fafb388e23167f73ec9bd796873daf6",
+          "truncated": false
+        },
+        "stdout": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "timed_out": false
+      }
+    ],
+    "profile": {
+      "analyzers": [
+        {
+          "id": "clang-tidy",
+          "role": "complementary",
+          "state": "candidate"
+        },
+        {
+          "id": "codeql-misra",
+          "role": "primary",
+          "state": "unimplemented"
+        },
+        {
+          "id": "cppcheck",
+          "role": "complementary",
+          "state": "candidate"
+        }
+      ],
+      "decision_policy_ref": null,
+      "guideline_edition": "MISRA C++:2023",
+      "id": "s-core-quality-v1",
+      "kind": "quality_profile",
+      "language": "c++17",
+      "mapping_state": "unknown",
+      "native_sources": [
+        {
+          "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+          "id": "cpp_guidelines",
+          "license": "Apache-2.0",
+          "native_status": "doc__cpp_coding_guidelines: valid/version 1",
+          "notice": "Preserve upstream copyright and NOTICE; no MISRA rule text included",
+          "path": "docs/contribute/development/cpp/coding_guidelines.rst",
+          "repository": "https://github.com/eclipse-score/score",
+          "sha256": "472572e9adf89fae175193f82bbb8aff6dc55bf1aa29b65357cb22d4e6b36333"
+        },
+        {
+          "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+          "id": "cpp_analysis",
+          "license": "Apache-2.0",
+          "native_status": "doc__cpp_code_analysis: valid/version 1",
+          "notice": "Preserve upstream copyright and NOTICE; no MISRA rule text included",
+          "path": "docs/contribute/development/cpp/code_analysis.rst",
+          "repository": "https://github.com/eclipse-score/score",
+          "sha256": "b959cdaea697ad8b46b7e179fedeb5d57fc0017544393666d1bdcf79714fd367"
+        },
+        {
+          "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+          "id": "misra_mapping",
+          "license": "Apache-2.0",
+          "native_status": "doc__cpp_misra2023_rule_mapping: draft/version 1; CSV absent",
+          "notice": "Preserve upstream copyright and NOTICE; no MISRA rule text included",
+          "path": "docs/contribute/development/cpp/misra_2023_rule_mapping.rst",
+          "repository": "https://github.com/eclipse-score/score",
+          "sha256": "09f6d917db2001c4dd0bec60913089ed8f4533326320b3cd4cbc66e1bdf09600"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "clang_tidy",
+          "license": "Apache-2.0",
+          "native_status": "source policy; tailoring pending",
+          "notice": "Preserve upstream copyright and NOTICE; no MISRA rule text included",
+          "path": "clang_tidy/.clang-tidy",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "fe06da767c62270a410d08bd07cdfc13cf2e1c01c0cd31fb15ac37c515f19901"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "sanitizer_features",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/features/BUILD.bazel",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "asan_runtime",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/templates/asan.env.template",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "9e65b0d94fed741c18df299b0e4bbedbbd39f5f384b94d39721ebfcb239ff5ab"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "asan_suppressions",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/suppressions/asan.supp",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "27c9e9ea1f925be8a0021ec78343e7fc057979d2f4f0c9da69e455ac1165c258"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "ubsan_runtime",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/templates/ubsan.env.template",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "2f7f6ed76d89be308e0f9f9c3ecc3ea1e0eee8b003cc2fa2f5d7ae47c0a5c170"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "ubsan_suppressions",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/suppressions/ubsan.supp",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "771127140a9a674ae93d0f04d06f744841c249597c0e4d976d41bd53459fa694"
+        }
+      ],
+      "required_obligations": [
+        "RULE_MAPPING_UNKNOWN",
+        "MANUAL_REVIEW_PENDING",
+        "CODEQL_ELIGIBILITY_UNKNOWN",
+        "PRODUCTION_AUTHORITY_UNAVAILABLE",
+        "TOOL_CONFIDENCE_UNKNOWN"
+      ],
+      "sanitizers": [
+        {
+          "id": "asan",
+          "state": "candidate"
+        },
+        {
+          "id": "ubsan",
+          "state": "candidate"
+        }
+      ],
+      "schema_version": 1,
+      "status": "proposed_owner_review_pending"
+    },
+    "schema_version": 1,
+    "toolchain": {
+      "dependencies": [
+        {
+          "path": "/usr/lib/gcc/x86_64-linux-gnu/11/cc1plus",
+          "sha256": "283421000e15a9152de4affe89ac2e528f3e0bcf2038b245171a17d8a912ace9"
+        },
+        {
+          "path": "/usr/lib/gcc/x86_64-linux-gnu/11/collect2",
+          "sha256": "74da9a263cce4582f98c7995d04fa52110c8366d65cba1c5bc976a00f1b3f14b"
+        },
+        {
+          "path": "/usr/bin/x86_64-linux-gnu-as",
+          "sha256": "4e6b50c3faaa834150db32be778fd7d9440a4e1f5fa8beb8a72277b12159d689"
+        },
+        {
+          "path": "/usr/bin/x86_64-linux-gnu-ld.bfd",
+          "sha256": "58937fc20c21e147883b4fdaa0fc7438a8e8f2bb886cfcaa4896100ca91139e7"
+        },
+        {
+          "path": "/usr/lib/x86_64-linux-gnu/libasan.so.6.0.0",
+          "sha256": "66dd4c48dabb1f0a722b164786c1432447d017e562e6beb68ca96bbf0cfe178b"
+        },
+        {
+          "path": "/usr/lib/x86_64-linux-gnu/libubsan.so.1.0.0",
+          "sha256": "b2ff12501a22d25610067af24ec7c9dcc29a44fa7ec94916a0e193e12daff5f5"
+        },
+        {
+          "path": "/usr/share/doc/gcc-11-base/copyright",
+          "sha256": "c2ff6bea4ff8eb81e93a10878e3a03db5015051b32272b363a6f23d3b86b11a2"
+        }
+      ],
+      "id": "gcc11-sanitizers-local-v1",
+      "kind": "quality_sanitizer_toolchain_profile",
+      "library_dirs": [
+        "/usr/lib/x86_64-linux-gnu"
+      ],
+      "schema_version": 1,
+      "status": "candidate_local_not_selected",
+      "tool": {
+        "path": "/usr/bin/x86_64-linux-gnu-g++-11",
+        "sha256": "2360901d864cf10bfd6296e261cb2c14053552a80377761ab07146ec9ec9a2c0",
+        "version": "x86_64-linux-gnu-g++-11 (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0"
+      }
+    }
+  },
+  "run": {
+    "artifacts": [
+      {
+        "base64": "PT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfcHJpbnRmJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfc3ByaW50ZicKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3NucHJpbnRmJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfZnByaW50ZicKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZwcmludGYnCic9PTIyPT1BZGRyZXNzU2FuaXRpemVyOiBmYWlsZWQgdG8gaW50ZXJjZXB0ICdfX2lzb2M5OV92c3ByaW50ZicKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZzbnByaW50ZicKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZmcHJpbnRmJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAncHRocmVhZF9tdXRleGF0dHJfZ2V0cm9idXN0X25wJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAneGRyX3F1YWRfdCcKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ3hkcl91X3F1YWRfdCcKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ3hkcl9kZXN0cm95JwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnY3J5cHQnCic9PTIyPT1BZGRyZXNzU2FuaXRpemVyOiBmYWlsZWQgdG8gaW50ZXJjZXB0ICdjcnlwdF9yJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogbGliYyBpbnRlcmNlcHRvcnMgaW5pdGlhbGl6ZWQKfHwgYFsweDEwMDA3ZmZmODAwMCwgMHg3ZmZmZmZmZmZmZmZdYCB8fCBIaWdoTWVtICAgIHx8Cnx8IGBbMHgwMjAwOGZmZjcwMDAsIDB4MTAwMDdmZmY3ZmZmXWAgfHwgSGlnaFNoYWRvdyB8fAp8fCBgWzB4MDAwMDhmZmY3MDAwLCAweDAyMDA4ZmZmNmZmZl1gIHx8IFNoYWRvd0dhcCAgfHwKfHwgYFsweDAwMDA3ZmZmODAwMCwgMHgwMDAwOGZmZjZmZmZdYCB8fCBMb3dTaGFkb3cgIHx8Cnx8IGBbMHgwMDAwMDAwMDAwMDAsIDB4MDAwMDdmZmY3ZmZmXWAgfHwgTG93TWVtICAgICB8fApNZW1Ub1NoYWRvdyhzaGFkb3cpOiAweDAwMDA4ZmZmNzAwMCAweDAwMDA5MWZmNmRmZiAweDAwNDA5MWZmNmUwMCAweDAyMDA4ZmZmNmZmZgpyZWR6b25lPTE2Cm1heF9yZWR6b25lPTIwNDgKcXVhcmFudGluZV9zaXplX21iPTI1Nk0KdGhyZWFkX2xvY2FsX3F1YXJhbnRpbmVfc2l6ZV9rYj0xMDI0SwptYWxsb2NfY29udGV4dF9zaXplPTMwClNIQURPV19TQ0FMRTogMwpTSEFET1dfR1JBTlVMQVJJVFk6IDgKU0hBRE9XX09GRlNFVDogMHg3ZmZmODAwMAo9PTIyPT1JbnN0YWxsZWQgdGhlIHNpZ2FjdGlvbiBmb3Igc2lnbmFsIDExCj09MjI9PUluc3RhbGxlZCB0aGUgc2lnYWN0aW9uIGZvciBzaWduYWwgNwo9PTIyPT1JbnN0YWxsZWQgdGhlIHNpZ2FjdGlvbiBmb3Igc2lnbmFsIDgKPT0yMj09VDA6IEZha2VTdGFjayBjcmVhdGVkOiAweDdiNmU4YjBmNzAwMCAtLSAweDdiNmU4YmMwMDAwMCBzdGFja19zaXplX2xvZzogMjA7IG1tYXBwZWQgMTEzMDBLLCBub3Jlc2VydmU9MCAKPT0yMj09VDA6IHN0YWNrIFsweDdmZmMyYzdkYjAwMCwweDdmZmMyY2ZkYjAwMCkgc2l6ZSAweDgwMDAwMDsgbG9jYWw9MHg3ZmZjMmNmZDkxYTQKQWRkcmVzc1Nhbml0aXplcjogcmVhZGluZyBzdXBwcmVzc2lvbnMgZmlsZSBhdCAvdG1wL3Njb3JlLXF1YWxpdHktdmFvaWcxbXkvcHJvYmUvc2FuaXRpemVycy9zdXBwcmVzc2lvbnMvYXNhbi5zdXBwCj09MjI9PUFkZHJlc3NTYW5pdGl6ZXIgSW5pdCBkb25lCj09MjM9PUNvdWxkIG5vdCBhdHRhY2ggdG8gdGhyZWFkIDIyIChlcnJubyAxKS4KPT0yMz09RmFpbGVkIHN1c3BlbmRpbmcgdGhyZWFkcy4KPT0yMj09TGVha1Nhbml0aXplciBoYXMgZW5jb3VudGVyZWQgYSBmYXRhbCBlcnJvci4KPT0yMj09SElOVDogRm9yIGRlYnVnZ2luZywgdHJ5IHNldHRpbmcgZW52aXJvbm1lbnQgdmFyaWFibGUgTFNBTl9PUFRJT05TPXZlcmJvc2l0eT0xOmxvZ190aHJlYWRzPTEKPT0yMj09SElOVDogTGVha1Nhbml0aXplciBkb2VzIG5vdCB3b3JrIHVuZGVyIHB0cmFjZSAoc3RyYWNlLCBnZGIsIGV0YykK",
+        "bytes": 2241,
+        "format": "asan-text",
+        "id": "probe-runtime-stderr",
+        "retained_sha256": "99d38bbb13f18d927cf212bc54867b72c5b72c1f95d0daaf38aa9101ae42b635",
+        "sha256": "99d38bbb13f18d927cf212bc54867b72c5b72c1f95d0daaf38aa9101ae42b635",
+        "translation_unit": null,
+        "truncated": false
+      }
+    ],
+    "assurance_eligibility": "not_eligible",
+    "baseline": {
+      "component": "seeded_quality_probe",
+      "configuration": {
+        "path": "/home/jefferson/s-core_sw_fabric/profiles/asan-gcc11-local-v1.yaml",
+        "sha256": "9d1d4ddb322878b0fe3f530f6817e084829573dfe89167a8be400dffbeafb279"
+      },
+      "defines": [],
+      "expected_units": [
+        "check.cpp"
+      ],
+      "files": [
+        {
+          "path": "check.cpp",
+          "sha256": "5c9e924f380f8472a1a757a32e990c3457a442486e54ab252ec63754001cafe1"
+        }
+      ],
+      "full_digest": "4a89aa494dd76a7b686bb05fe0450b107a24bc151674436b13d045a4d56d9f34",
+      "include_dirs": [],
+      "language": "c++17",
+      "profile": {
+        "path": "/home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml",
+        "sha256": "720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9"
+      },
+      "source_digest": "1e977b34fef38187c03d65218db5e1be78b7c5b5ba9ea0b4bee37f8807b7ff41",
+      "toolchain": {
+        "path": "/home/jefferson/s-core_sw_fabric/profiles/gcc11-sanitizers-local-v1.yaml",
+        "sha256": "c19f6e1886a08b1f74a66ed4ca0c673acfdd4134af827bd1649e81a162299033"
+      },
+      "translation_units": [
+        "check.cpp"
+      ]
+    },
+    "capability": {
+      "checks": [
+        "asan"
+      ],
+      "effective_config": {
+        "compile_flags": [
+          "-g1",
+          "-fsanitize=address"
+        ],
+        "feature": "asan",
+        "generated_binary": {
+          "bytes": 21488,
+          "sha256": "067b642ce73617a0dfc5bb83a9f225ef7e4d5ffbbd4a62248af4367a5e305858"
+        },
+        "id": "asan-gcc11-local-v1",
+        "kind": "quality_sanitizer_configuration",
+        "link_flags": [
+          "-fsanitize=address"
+        ],
+        "mode": "asan",
+        "native_features": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/sanitizer-features.bazel",
+          "sha256": "3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c"
+        },
+        "native_runtime": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.env.template",
+          "sha256": "9e65b0d94fed741c18df299b0e4bbedbbd39f5f384b94d39721ebfcb239ff5ab"
+        },
+        "native_suppressions": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.supp",
+          "sha256": "27c9e9ea1f925be8a0021ec78343e7fc057979d2f4f0c9da69e455ac1165c258"
+        },
+        "rendered_runtime": {
+          "ASAN_OPTIONS": "allocator_may_return_null=1 allow_addr2line=1 check_initialization_order=1 detect_stack_use_after_return=1 exitcode=55 halt_on_error=1 print_stats=1 strict_string_checks=1 verbosity=1 suppressions=/tmp/score-quality-vaoig1my/probe/sanitizers/suppressions/asan.supp"
+        },
+        "runtime_name": "ASAN_OPTIONS",
+        "runtime_template": "allocator_may_return_null=1 allow_addr2line=1 check_initialization_order=1 detect_stack_use_after_return=1 exitcode=55 halt_on_error=1 print_stats=1 strict_string_checks=1 verbosity=1 suppressions=%ROOT%sanitizers/suppressions/asan.supp",
+        "schema_version": 1,
+        "status": "proposed_local_candidate",
+        "suppression_rules": []
+      },
+      "state": "unsupported"
+    },
+    "configuration": {
+      "adapter": "asan",
+      "effective": {
+        "compile_flags": [
+          "-g1",
+          "-fsanitize=address"
+        ],
+        "feature": "asan",
+        "id": "asan-gcc11-local-v1",
+        "kind": "quality_sanitizer_configuration",
+        "link_flags": [
+          "-fsanitize=address"
+        ],
+        "mode": "asan",
+        "native_features": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/sanitizer-features.bazel",
+          "sha256": "3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c"
+        },
+        "native_runtime": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.env.template",
+          "sha256": "9e65b0d94fed741c18df299b0e4bbedbbd39f5f384b94d39721ebfcb239ff5ab"
+        },
+        "native_suppressions": {
+          "path": "/home/jefferson/s-core_sw_fabric/profiles/native-quality/asan.supp",
+          "sha256": "27c9e9ea1f925be8a0021ec78343e7fc057979d2f4f0c9da69e455ac1165c258"
+        },
+        "runtime_name": "ASAN_OPTIONS",
+        "runtime_template": "allocator_may_return_null=1 allow_addr2line=1 check_initialization_order=1 detect_stack_use_after_return=1 exitcode=55 halt_on_error=1 print_stats=1 strict_string_checks=1 verbosity=1 suppressions=%ROOT%sanitizers/suppressions/asan.supp",
+        "schema_version": 1,
+        "status": "proposed_local_candidate",
+        "suppression_rules": []
+      },
+      "path": "/home/jefferson/s-core_sw_fabric/profiles/asan-gcc11-local-v1.yaml",
+      "sha256": "9d1d4ddb322878b0fe3f530f6817e084829573dfe89167a8be400dffbeafb279"
+    },
+    "diagnostics": [],
+    "digest": "8584fb3def34e42920979fd058dadb7d38c252d0fd2e3cf13f91e4ac574a1667",
+    "engineering_readiness": "not_evaluated",
+    "extraction": {
+      "adequacy": "incomplete",
+      "expected_state": "declared",
+      "expected_units": [
+        "check.cpp"
+      ],
+      "limitations": [
+        "Local selected-unit execution; no MISRA/CodeQL/qualified system-header closure"
+      ],
+      "missing_units": [
+        "check.cpp"
+      ],
+      "processed_units": [],
+      "unexpected_units": []
+    },
+    "gaps": [
+      "ADAPTER_UNIMPLEMENTED:codeql-misra",
+      "CAPABILITY_NOT_SELECTED:clang-tidy",
+      "CAPABILITY_NOT_SELECTED:cppcheck",
+      "CAPABILITY_NOT_SELECTED:ubsan",
+      "CAPABILITY_PROBE_FAILED",
+      "CAPABILITY_UNAVAILABLE",
+      "CODEQL_ELIGIBILITY_UNKNOWN",
+      "EXTRACTION_EMPTY",
+      "EXTRACTION_PARTIAL",
+      "LEAK_SANITIZER_PTRACE_UNSUPPORTED",
+      "LEAK_SANITIZER_RUNTIME_FAILED",
+      "MANUAL_REVIEW_PENDING",
+      "PRODUCTION_AUTHORITY_UNAVAILABLE",
+      "RULE_MAPPING_UNKNOWN",
+      "SANITIZER_RUNTIME_INCOMPLETE",
+      "TOOL_CONFIDENCE_UNKNOWN"
+    ],
+    "kind": "quality_asan_analysis_run",
+    "origin": "local_unprotected_execution",
+    "outcome": "incomplete",
+    "phases": [
+      {
+        "argv": [
+          "/usr/bin/x86_64-linux-gnu-g++-11",
+          "--version"
+        ],
+        "elapsed_seconds": 0.00149,
+        "error": null,
+        "exit_code": 0,
+        "name": "probe:version",
+        "stderr": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "stdout": {
+          "base64": "eDg2XzY0LWxpbnV4LWdudS1nKystMTEgKFVidW50dSAxMS40LjAtMXVidW50dTF+MjIuMDQuMykgMTEuNC4wCkNvcHlyaWdodCAoQykgMjAyMSBGcmVlIFNvZnR3YXJlIEZvdW5kYXRpb24sIEluYy4KVGhpcyBpcyBmcmVlIHNvZnR3YXJlOyBzZWUgdGhlIHNvdXJjZSBmb3IgY29weWluZyBjb25kaXRpb25zLiAgVGhlcmUgaXMgTk8Kd2FycmFudHk7IG5vdCBldmVuIGZvciBNRVJDSEFOVEFCSUxJVFkgb3IgRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UuCgo=",
+          "bytes": 266,
+          "format": "text",
+          "retained_sha256": "b2673d1dc6f7deed98e0160d91438be4fd16932a4e13799fbda76847c9a5cf60",
+          "sha256": "b2673d1dc6f7deed98e0160d91438be4fd16932a4e13799fbda76847c9a5cf60",
+          "truncated": false
+        },
+        "timed_out": false
+      },
+      {
+        "argv": [
+          "/usr/bin/x86_64-linux-gnu-g++-11",
+          "-std=c++17",
+          "-g1",
+          "-fsanitize=address",
+          "-c",
+          "/tmp/score-quality-vaoig1my/probe/source/capability.cpp",
+          "-o",
+          "/tmp/score-quality-vaoig1my/probe/object-0.o"
+        ],
+        "elapsed_seconds": 0.014627,
+        "error": null,
+        "exit_code": 0,
+        "name": "probe:compile:capability.cpp",
+        "stderr": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "stdout": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "timed_out": false
+      },
+      {
+        "argv": [
+          "/usr/bin/x86_64-linux-gnu-g++-11",
+          "/tmp/score-quality-vaoig1my/probe/object-0.o",
+          "-fsanitize=address",
+          "-o",
+          "/tmp/score-quality-vaoig1my/probe/instrumented-program"
+        ],
+        "elapsed_seconds": 0.046911,
+        "error": null,
+        "exit_code": 0,
+        "name": "probe:link",
+        "stderr": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "stdout": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "timed_out": false
+      },
+      {
+        "argv": [
+          "/tmp/score-quality-vaoig1my/probe/instrumented-program"
+        ],
+        "elapsed_seconds": 0.00415,
+        "error": null,
+        "exit_code": 55,
+        "name": "probe:runtime",
+        "stderr": {
+          "base64": "PT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfcHJpbnRmJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfc3ByaW50ZicKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3NucHJpbnRmJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnX19pc29jOTlfZnByaW50ZicKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZwcmludGYnCic9PTIyPT1BZGRyZXNzU2FuaXRpemVyOiBmYWlsZWQgdG8gaW50ZXJjZXB0ICdfX2lzb2M5OV92c3ByaW50ZicKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZzbnByaW50ZicKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ19faXNvYzk5X3ZmcHJpbnRmJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAncHRocmVhZF9tdXRleGF0dHJfZ2V0cm9idXN0X25wJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAneGRyX3F1YWRfdCcKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ3hkcl91X3F1YWRfdCcKJz09MjI9PUFkZHJlc3NTYW5pdGl6ZXI6IGZhaWxlZCB0byBpbnRlcmNlcHQgJ3hkcl9kZXN0cm95JwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogZmFpbGVkIHRvIGludGVyY2VwdCAnY3J5cHQnCic9PTIyPT1BZGRyZXNzU2FuaXRpemVyOiBmYWlsZWQgdG8gaW50ZXJjZXB0ICdjcnlwdF9yJwonPT0yMj09QWRkcmVzc1Nhbml0aXplcjogbGliYyBpbnRlcmNlcHRvcnMgaW5pdGlhbGl6ZWQKfHwgYFsweDEwMDA3ZmZmODAwMCwgMHg3ZmZmZmZmZmZmZmZdYCB8fCBIaWdoTWVtICAgIHx8Cnx8IGBbMHgwMjAwOGZmZjcwMDAsIDB4MTAwMDdmZmY3ZmZmXWAgfHwgSGlnaFNoYWRvdyB8fAp8fCBgWzB4MDAwMDhmZmY3MDAwLCAweDAyMDA4ZmZmNmZmZl1gIHx8IFNoYWRvd0dhcCAgfHwKfHwgYFsweDAwMDA3ZmZmODAwMCwgMHgwMDAwOGZmZjZmZmZdYCB8fCBMb3dTaGFkb3cgIHx8Cnx8IGBbMHgwMDAwMDAwMDAwMDAsIDB4MDAwMDdmZmY3ZmZmXWAgfHwgTG93TWVtICAgICB8fApNZW1Ub1NoYWRvdyhzaGFkb3cpOiAweDAwMDA4ZmZmNzAwMCAweDAwMDA5MWZmNmRmZiAweDAwNDA5MWZmNmUwMCAweDAyMDA4ZmZmNmZmZgpyZWR6b25lPTE2Cm1heF9yZWR6b25lPTIwNDgKcXVhcmFudGluZV9zaXplX21iPTI1Nk0KdGhyZWFkX2xvY2FsX3F1YXJhbnRpbmVfc2l6ZV9rYj0xMDI0SwptYWxsb2NfY29udGV4dF9zaXplPTMwClNIQURPV19TQ0FMRTogMwpTSEFET1dfR1JBTlVMQVJJVFk6IDgKU0hBRE9XX09GRlNFVDogMHg3ZmZmODAwMAo9PTIyPT1JbnN0YWxsZWQgdGhlIHNpZ2FjdGlvbiBmb3Igc2lnbmFsIDExCj09MjI9PUluc3RhbGxlZCB0aGUgc2lnYWN0aW9uIGZvciBzaWduYWwgNwo9PTIyPT1JbnN0YWxsZWQgdGhlIHNpZ2FjdGlvbiBmb3Igc2lnbmFsIDgKPT0yMj09VDA6IEZha2VTdGFjayBjcmVhdGVkOiAweDdiNmU4YjBmNzAwMCAtLSAweDdiNmU4YmMwMDAwMCBzdGFja19zaXplX2xvZzogMjA7IG1tYXBwZWQgMTEzMDBLLCBub3Jlc2VydmU9MCAKPT0yMj09VDA6IHN0YWNrIFsweDdmZmMyYzdkYjAwMCwweDdmZmMyY2ZkYjAwMCkgc2l6ZSAweDgwMDAwMDsgbG9jYWw9MHg3ZmZjMmNmZDkxYTQKQWRkcmVzc1Nhbml0aXplcjogcmVhZGluZyBzdXBwcmVzc2lvbnMgZmlsZSBhdCAvdG1wL3Njb3JlLXF1YWxpdHktdmFvaWcxbXkvcHJvYmUvc2FuaXRpemVycy9zdXBwcmVzc2lvbnMvYXNhbi5zdXBwCj09MjI9PUFkZHJlc3NTYW5pdGl6ZXIgSW5pdCBkb25lCj09MjM9PUNvdWxkIG5vdCBhdHRhY2ggdG8gdGhyZWFkIDIyIChlcnJubyAxKS4KPT0yMz09RmFpbGVkIHN1c3BlbmRpbmcgdGhyZWFkcy4KPT0yMj09TGVha1Nhbml0aXplciBoYXMgZW5jb3VudGVyZWQgYSBmYXRhbCBlcnJvci4KPT0yMj09SElOVDogRm9yIGRlYnVnZ2luZywgdHJ5IHNldHRpbmcgZW52aXJvbm1lbnQgdmFyaWFibGUgTFNBTl9PUFRJT05TPXZlcmJvc2l0eT0xOmxvZ190aHJlYWRzPTEKPT0yMj09SElOVDogTGVha1Nhbml0aXplciBkb2VzIG5vdCB3b3JrIHVuZGVyIHB0cmFjZSAoc3RyYWNlLCBnZGIsIGV0YykK",
+          "bytes": 2241,
+          "format": "text",
+          "retained_sha256": "99d38bbb13f18d927cf212bc54867b72c5b72c1f95d0daaf38aa9101ae42b635",
+          "sha256": "99d38bbb13f18d927cf212bc54867b72c5b72c1f95d0daaf38aa9101ae42b635",
+          "truncated": false
+        },
+        "stdout": {
+          "base64": "",
+          "bytes": 0,
+          "format": "text",
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        },
+        "timed_out": false
+      }
+    ],
+    "processed_units": [],
+    "profile": {
+      "analyzers": [
+        {
+          "id": "clang-tidy",
+          "role": "complementary",
+          "state": "candidate"
+        },
+        {
+          "id": "codeql-misra",
+          "role": "primary",
+          "state": "unimplemented"
+        },
+        {
+          "id": "cppcheck",
+          "role": "complementary",
+          "state": "candidate"
+        }
+      ],
+      "decision_policy_ref": null,
+      "guideline_edition": "MISRA C++:2023",
+      "id": "s-core-quality-v1",
+      "kind": "quality_profile",
+      "language": "c++17",
+      "mapping_state": "unknown",
+      "native_sources": [
+        {
+          "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+          "id": "cpp_guidelines",
+          "license": "Apache-2.0",
+          "native_status": "doc__cpp_coding_guidelines: valid/version 1",
+          "notice": "Preserve upstream copyright and NOTICE; no MISRA rule text included",
+          "path": "docs/contribute/development/cpp/coding_guidelines.rst",
+          "repository": "https://github.com/eclipse-score/score",
+          "sha256": "472572e9adf89fae175193f82bbb8aff6dc55bf1aa29b65357cb22d4e6b36333"
+        },
+        {
+          "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+          "id": "cpp_analysis",
+          "license": "Apache-2.0",
+          "native_status": "doc__cpp_code_analysis: valid/version 1",
+          "notice": "Preserve upstream copyright and NOTICE; no MISRA rule text included",
+          "path": "docs/contribute/development/cpp/code_analysis.rst",
+          "repository": "https://github.com/eclipse-score/score",
+          "sha256": "b959cdaea697ad8b46b7e179fedeb5d57fc0017544393666d1bdcf79714fd367"
+        },
+        {
+          "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+          "id": "misra_mapping",
+          "license": "Apache-2.0",
+          "native_status": "doc__cpp_misra2023_rule_mapping: draft/version 1; CSV absent",
+          "notice": "Preserve upstream copyright and NOTICE; no MISRA rule text included",
+          "path": "docs/contribute/development/cpp/misra_2023_rule_mapping.rst",
+          "repository": "https://github.com/eclipse-score/score",
+          "sha256": "09f6d917db2001c4dd0bec60913089ed8f4533326320b3cd4cbc66e1bdf09600"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "clang_tidy",
+          "license": "Apache-2.0",
+          "native_status": "source policy; tailoring pending",
+          "notice": "Preserve upstream copyright and NOTICE; no MISRA rule text included",
+          "path": "clang_tidy/.clang-tidy",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "fe06da767c62270a410d08bd07cdfc13cf2e1c01c0cd31fb15ac37c515f19901"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "sanitizer_features",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/features/BUILD.bazel",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "asan_runtime",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/templates/asan.env.template",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "9e65b0d94fed741c18df299b0e4bbedbbd39f5f384b94d39721ebfcb239ff5ab"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "asan_suppressions",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/suppressions/asan.supp",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "27c9e9ea1f925be8a0021ec78343e7fc057979d2f4f0c9da69e455ac1165c258"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "ubsan_runtime",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/templates/ubsan.env.template",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "2f7f6ed76d89be308e0f9f9c3ecc3ea1e0eee8b003cc2fa2f5d7ae47c0a5c170"
+        },
+        {
+          "commit": "9bcfe8296038569a0ff7627fb8ce7a189018a7b3",
+          "id": "ubsan_suppressions",
+          "license": "Apache-2.0",
+          "native_status": "native source policy; local candidate execution; owner tailoring pending",
+          "notice": "Original upstream license/NOTICE/copyright preserved in profiles/native-quality",
+          "path": "sanitizers/suppressions/ubsan.supp",
+          "repository": "https://github.com/eclipse-score/score_cpp_policies",
+          "sha256": "771127140a9a674ae93d0f04d06f744841c249597c0e4d976d41bd53459fa694"
+        }
+      ],
+      "required_obligations": [
+        "RULE_MAPPING_UNKNOWN",
+        "MANUAL_REVIEW_PENDING",
+        "CODEQL_ELIGIBILITY_UNKNOWN",
+        "PRODUCTION_AUTHORITY_UNAVAILABLE",
+        "TOOL_CONFIDENCE_UNKNOWN"
+      ],
+      "sanitizers": [
+        {
+          "id": "asan",
+          "state": "candidate"
+        },
+        {
+          "id": "ubsan",
+          "state": "candidate"
+        }
+      ],
+      "schema_version": 1,
+      "status": "proposed_owner_review_pending"
+    },
+    "schema_version": 1,
+    "source_integrity": "unchanged",
+    "toolchain": {
+      "dependencies": [
+        {
+          "path": "/usr/lib/gcc/x86_64-linux-gnu/11/cc1plus",
+          "sha256": "283421000e15a9152de4affe89ac2e528f3e0bcf2038b245171a17d8a912ace9"
+        },
+        {
+          "path": "/usr/lib/gcc/x86_64-linux-gnu/11/collect2",
+          "sha256": "74da9a263cce4582f98c7995d04fa52110c8366d65cba1c5bc976a00f1b3f14b"
+        },
+        {
+          "path": "/usr/bin/x86_64-linux-gnu-as",
+          "sha256": "4e6b50c3faaa834150db32be778fd7d9440a4e1f5fa8beb8a72277b12159d689"
+        },
+        {
+          "path": "/usr/bin/x86_64-linux-gnu-ld.bfd",
+          "sha256": "58937fc20c21e147883b4fdaa0fc7438a8e8f2bb886cfcaa4896100ca91139e7"
+        },
+        {
+          "path": "/usr/lib/x86_64-linux-gnu/libasan.so.6.0.0",
+          "sha256": "66dd4c48dabb1f0a722b164786c1432447d017e562e6beb68ca96bbf0cfe178b"
+        },
+        {
+          "path": "/usr/lib/x86_64-linux-gnu/libubsan.so.1.0.0",
+          "sha256": "b2ff12501a22d25610067af24ec7c9dcc29a44fa7ec94916a0e193e12daff5f5"
+        },
+        {
+          "path": "/usr/share/doc/gcc-11-base/copyright",
+          "sha256": "c2ff6bea4ff8eb81e93a10878e3a03db5015051b32272b363a6f23d3b86b11a2"
+        }
+      ],
+      "id": "gcc11-sanitizers-local-v1",
+      "kind": "quality_sanitizer_toolchain_profile",
+      "library_dirs": [
+        "/usr/lib/x86_64-linux-gnu"
+      ],
+      "schema_version": 1,
+      "status": "candidate_local_not_selected",
+      "tool": {
+        "path": "/usr/bin/x86_64-linux-gnu-g++-11",
+        "sha256": "2360901d864cf10bfd6296e261cb2c14053552a80377761ab07146ec9ec9a2c0",
+        "version": "x86_64-linux-gnu-g++-11 (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "engineering_review": "pending",
+  "fallbacks": [],
+  "live_agent_admission": "requires runtime smoke, Docker boundary and host tool-hook checks",
+  "model": "deepseek-flash",
+  "model_selection": "docs/handoff/someip-84/factory/deepseek-selection.yaml",
+  "paid_calls": "authorized without a user spending cap",
+  "provider": "deepseek",
+  "reasoning_effort": "high",
+  "scope": "Draft SOME/IP #84 registration-key implementation in a disposable copy",
+  "user_direction": "Queue DeepSeek for SOME/IP; no budget limit, go"
+}

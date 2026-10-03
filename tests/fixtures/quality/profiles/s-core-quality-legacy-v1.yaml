@@ -1,0 +1,107 @@
+schema_version: 1
+kind: quality_profile
+id: s-core-quality-v1
+status: proposed_owner_review_pending
+native_sources:
+- id: cpp_guidelines
+  repository: https://github.com/eclipse-score/score
+  commit: e2373d822fc2f6e9a3f8a0538904f3faa39309ea
+  path: docs/contribute/development/cpp/coding_guidelines.rst
+  sha256: 472572e9adf89fae175193f82bbb8aff6dc55bf1aa29b65357cb22d4e6b36333
+  native_status: 'doc__cpp_coding_guidelines: valid/version 1'
+  license: Apache-2.0
+  notice: Preserve upstream copyright and NOTICE; no MISRA rule text included
+- id: cpp_analysis
+  repository: https://github.com/eclipse-score/score
+  commit: e2373d822fc2f6e9a3f8a0538904f3faa39309ea
+  path: docs/contribute/development/cpp/code_analysis.rst
+  sha256: b959cdaea697ad8b46b7e179fedeb5d57fc0017544393666d1bdcf79714fd367
+  native_status: 'doc__cpp_code_analysis: valid/version 1'
+  license: Apache-2.0
+  notice: Preserve upstream copyright and NOTICE; no MISRA rule text included
+- id: misra_mapping
+  repository: https://github.com/eclipse-score/score
+  commit: e2373d822fc2f6e9a3f8a0538904f3faa39309ea
+  path: docs/contribute/development/cpp/misra_2023_rule_mapping.rst
+  sha256: 09f6d917db2001c4dd0bec60913089ed8f4533326320b3cd4cbc66e1bdf09600
+  native_status: 'doc__cpp_misra2023_rule_mapping: draft/version 1; CSV absent'
+  license: Apache-2.0
+  notice: Preserve upstream copyright and NOTICE; no MISRA rule text included
+- id: clang_tidy
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: clang_tidy/.clang-tidy
+  sha256: fe06da767c62270a410d08bd07cdfc13cf2e1c01c0cd31fb15ac37c515f19901
+  native_status: source policy; tailoring pending
+  license: Apache-2.0
+  notice: Preserve upstream copyright and NOTICE; no MISRA rule text included
+- id: sanitizer_features
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/features/BUILD.bazel
+  sha256: 3b3ec4f0ef6ac8c421e1961e60a9d19e60827b3c061361c04e1e6d45b9c4f10c
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
+- id: asan_runtime
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/templates/asan.env.template
+  sha256: 9e65b0d94fed741c18df299b0e4bbedbbd39f5f384b94d39721ebfcb239ff5ab
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
+- id: asan_suppressions
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/suppressions/asan.supp
+  sha256: 27c9e9ea1f925be8a0021ec78343e7fc057979d2f4f0c9da69e455ac1165c258
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
+- id: ubsan_runtime
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/templates/ubsan.env.template
+  sha256: 2f7f6ed76d89be308e0f9f9c3ecc3ea1e0eee8b003cc2fa2f5d7ae47c0a5c170
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
+- id: ubsan_suppressions
+  repository: https://github.com/eclipse-score/score_cpp_policies
+  commit: 9bcfe8296038569a0ff7627fb8ce7a189018a7b3
+  path: sanitizers/suppressions/ubsan.supp
+  sha256: 771127140a9a674ae93d0f04d06f744841c249597c0e4d976d41bd53459fa694
+  native_status: native source policy; local candidate execution; owner tailoring
+    pending
+  license: Apache-2.0
+  notice: Original upstream license/NOTICE/copyright preserved in profiles/native-quality
+language: c++17
+guideline_edition: MISRA C++:2023
+mapping_state: unknown
+decision_policy_ref: null
+required_obligations:
+- RULE_MAPPING_UNKNOWN
+- MANUAL_REVIEW_PENDING
+- CODEQL_ELIGIBILITY_UNKNOWN
+- PRODUCTION_AUTHORITY_UNAVAILABLE
+- TOOL_CONFIDENCE_UNKNOWN
+analyzers:
+- id: clang-tidy
+  role: complementary
+  state: candidate
+- id: codeql-misra
+  role: primary
+  state: unimplemented
+- id: cppcheck
+  role: complementary
+  state: candidate
+sanitizers:
+- id: asan
+  state: candidate
+- id: ubsan
+  state: candidate

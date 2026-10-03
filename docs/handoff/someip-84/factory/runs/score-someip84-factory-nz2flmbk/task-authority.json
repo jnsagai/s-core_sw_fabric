@@ -1,0 +1,12 @@
+{
+  "engineering_review": "pending",
+  "fallbacks": [],
+  "live_agent_admission": "requires runtime smoke, Docker boundary and host tool-hook checks",
+  "model": "gpt-6.1-sol",
+  "model_selection": "docs/handoff/someip-84/factory/codex-selection.yaml",
+  "paid_calls": "ChatGPT account usage authorized; platform API billing and Pro are not selected",
+  "provider": "openai-codex",
+  "reasoning_effort": "medium",
+  "scope": "Draft SOME/IP #84 registration-key implementation in a disposable copy",
+  "user_direction": "Use my Codex non API account with Sol 6.1 Medium as an alternative to Flash; continue"
+}

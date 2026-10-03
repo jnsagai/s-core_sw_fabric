@@ -20,6 +20,17 @@ extra arguments, parent-config inheritance, analyzer plugin or shell command is 
 Only selected bytes are copied. Absolute includes in source and undeclared local headers
 fail clean adequacy; system headers remain host-dependent and tool confidence stays unknown.
 
+Literal-include inspection merges continued lines (LF, CRLF or CR, including GNU whitespace
+before the newline), replaces comments with spaces, recognizes `#` and `%:` directives, and
+ignores directive text inside comments or string/raw-string literals. Quoted and angle header
+names keep their original contents. Literal absolute/traversal paths are rejected before
+native execution, including literal operands with trailing tokens. A missing quoted selection
+retains `UNDECLARED_LOCAL_INCLUDE`; macro or malformed operands retain `DYNAMIC_INCLUDE_UNKNOWN`.
+`include_next` retains `INCLUDE_NEXT_UNSUPPORTED`; native `import` extensions retain
+`IMPORT_UNSUPPORTED`. These fabric gaps prevent adequate clean evidence. Conditional branches
+are inspected conservatively; no macro evaluation or complete compiler dependency graph is
+claimed. This check applies to all local run adapters and target CodeQL prerequisite requests.
+
 Profile exact fields: `id`, `status`, `native_sources`, `language`, `guideline_edition`,
 `mapping_state`, `decision_policy_ref`, `required_obligations`, `analyzers`, `sanitizers`.
 Envelope: `schema_version: 1`, `kind: quality_profile`. Native sources have exact fields

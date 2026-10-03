@@ -1,0 +1,16 @@
+{
+  "deadline": "2026-10-02T07:00:00+01:00",
+  "engineering_review": "pending",
+  "fallbacks": [],
+  "live_agent_admission": "requires runtime smoke, Docker boundary and host tool-hook checks",
+  "model": "deepseek-flash",
+  "model_selection": "docs/handoff/someip-84/factory/deepseek-selection.yaml",
+  "native_ceiling_reason": "Pinned Petri attractor frontend MAX_FIRINGS; no lower rework cap added",
+  "native_rework_ceiling": 500,
+  "paid_calls": "authorized without a user spending cap",
+  "provider": "deepseek",
+  "queue_rework_cap": null,
+  "reasoning_effort": "high",
+  "scope": "Draft implementation, regression tests, measured focused validation and review drafts for SOME/IP #84 only",
+  "user_direction": "Big SOME/IP #84 queue through 7 AM Lisbon; no limits for rework if needed"
+}

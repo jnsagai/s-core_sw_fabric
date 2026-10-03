@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Literal, TypedDict
+from typing import Any, Literal, NotRequired, TypedDict
 
 ActionType = Literal[
     "agent",
@@ -60,6 +60,7 @@ class ExecutionNode(TypedDict):
     fallible_outcomes: list[str]
     prohibited_authority: list[str]
     support_files: list[str]
+    command_file: NotRequired[str]
     origins: list[Origin]
 
 

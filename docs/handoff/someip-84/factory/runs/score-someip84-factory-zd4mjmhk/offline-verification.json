@@ -1,0 +1,17 @@
+{
+  "assurance_decisions": 0,
+  "assurance_references": [],
+  "blob_count": 9,
+  "completeness": "complete",
+  "engineering_readiness": "not_evaluated",
+  "event_count": 63,
+  "export_digest": "816e0982aef19c7161bc08bdce3f5daa35cce2e6d577769a8992788d7b5b5fdf",
+  "native_answers_observed": 0,
+  "native_reason": null,
+  "native_status": "blocked",
+  "native_terminal": false,
+  "reason_codes": [],
+  "reproduced": true,
+  "run_id": "01M3VZNAAQ1QXK5530X7E8HZ26",
+  "version_id": "8b029e1cdf2aa83328db20c6fea8afd9050218aec985a4e01c369c675c517272"
+}

@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-codeql-disposition-review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "draft",
+    "subject",
+    "current_baseline",
+    "fresh_run",
+    "previous",
+    "revision",
+    "observed_at",
+    "time_basis",
+    "state",
+    "reasons",
+    "outcome",
+    "origin",
+    "assurance_eligibility",
+    "engineering_readiness",
+    "limitations",
+    "digest",
+    "inspection"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "quality_codeql_disposition_review"
+    },
+    "draft": {
+      "$ref": "quality-disposition-draft.schema.json"
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "origin_ref",
+        "origin_digest",
+        "origin_class",
+        "finding_index",
+        "finding",
+        "baseline",
+        "digest"
+      ],
+      "properties": {
+        "origin_ref": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "origin_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "origin_class": {
+          "enum": [
+            "local_unprotected_execution",
+            "imported_unverified",
+            "fixture"
+          ]
+        },
+        "finding_index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9999
+        },
+        "finding": {
+          "type": "object"
+        },
+        "baseline": {
+          "type": "object"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "current_baseline": {
+      "type": "object"
+    },
+    "fresh_run": {
+      "type": "null"
+    },
+    "previous": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ref",
+            "digest",
+            "state"
+          ],
+          "properties": {
+            "ref": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1024
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "state": {
+              "enum": [
+                "open",
+                "pending_review",
+                "corrected",
+                "stale",
+                "blocked"
+              ]
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "time_basis": {
+      "const": "local_untrusted"
+    },
+    "state": {
+      "enum": [
+        "open",
+        "pending_review",
+        "stale",
+        "blocked"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      },
+      "uniqueItems": true
+    },
+    "outcome": {
+      "const": "unresolved"
+    },
+    "origin": {
+      "const": "local_unprotected_inspection"
+    },
+    "assurance_eligibility": {
+      "const": "not_eligible"
+    },
+    "engineering_readiness": {
+      "const": "not_evaluated"
+    },
+    "limitations": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "inspection": {
+      "$ref": "quality-codeql-analysis-run.schema.json"
+    }
+  }
+}

@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from score_sw_fabric.catalog.export import canonical
+from score_sw_fabric.compiler.commands import command_binding
 from score_sw_fabric.compiler.models import CompilerSemanticError
 from score_sw_fabric.process_source.reader import InputError
 
@@ -125,7 +126,7 @@ def project_mapping(
         rule_covered: set[str] = set()
         for action_index, raw in enumerate(raw_actions):
             action_pointer = f"{pointer}/actions/{action_index}"
-            if not isinstance(raw, dict) or set(raw) != ACTION_FIELDS:
+            if not isinstance(raw, dict) or set(raw) - {"command_file"} != ACTION_FIELDS:
                 raise InputError("MAPPING_ACTION", f"Invalid action fields at {action_pointer}")
             action_type = raw["type"]
             if action_type not in allowed_actions:
@@ -185,6 +186,7 @@ def project_mapping(
                 raw["budget"], ceilings, action_pointer + "/budget", model=model
             )
             action["origin"] = _origin(raw["origin"], action_pointer + "/origin")
+            command_binding(action, action_type)
             action["rule_id"] = rule_id
             ref = raw["ref"]
             signature = canonical(

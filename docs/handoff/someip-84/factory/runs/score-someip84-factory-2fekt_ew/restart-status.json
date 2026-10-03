@@ -1,0 +1,52 @@
+{
+  "observed_at": "2026-10-02T16:54:40.717042+00:00",
+  "run_id": "01M3YRJEGXNY6CB81T7TKW774B",
+  "prepared_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-2fekt_ew",
+  "native_lifecycle": {
+    "status": {
+      "kind": "running"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "native_timestamps": {
+    "created_at": "2026-10-02T16:53:44.093Z",
+    "started_at": "2026-10-02T16:53:45.343Z",
+    "last_event_at": "2026-10-02T16:54:40.619Z",
+    "completed_at": null
+  },
+  "native_worker_alive": true,
+  "pending_questions": 0,
+  "supervisor_receipt": {
+    "run_id": "01M3YRJEGXNY6CB81T7TKW774B",
+    "policy_sha256": "097aab504db98a562d48f1cb2f085b922c89b53909e6c840b6b6f48039f39852",
+    "pid": 131380,
+    "process_identity": "afea70e0-5cf8-4b0f-a845-5fe250756152:1109034",
+    "observed_at": 1790960080.3830638,
+    "phase": "observing",
+    "dependencies_verified": true,
+    "unit": "score-fabric-supervisor-01m3yrjegxny6cb81t7tkw774b"
+  },
+  "services": {
+    "score-fabric-someip84-server.service": {
+      "enabled": "enabled",
+      "active": "active"
+    },
+    "score-fabric-supervisor-01m3yrjegxny6cb81t7tkw774b.service": {
+      "enabled": "enabled",
+      "active": "active"
+    }
+  },
+  "container": {
+    "id": "48d772d33d09a8f907a5afd6f080c2d6259e6b26fe2d3da3e57ca6b57d735cdf",
+    "image": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+    "running": true,
+    "networks": {}
+  },
+  "engineering_acceptance": "pending",
+  "continuation": "fresh_supervised_successor_from_latest_preserved_source"
+}

@@ -1,0 +1,8 @@
+Building source distribution...
+error: Failed to build `/home/jefferson/s-core_sw_fabric`
+  cause: Failed to resolve requirements from `build-system.requires`
+  cause: No solution found when resolving: `hatchling==1.32.4`
+  cause: Because tomlkit was not found in the cache and hatchling>=1.32.4 depends on tomlkit>=0.11.1, we can conclude that hatchling>=1.32.4 cannot be used.
+         And because you require hatchling==1.32.4, we can conclude that your requirements are unsatisfiable.
+
+hint: Packages were unavailable because the network was disabled. When the network is disabled, registry packages may only be read from the cache.

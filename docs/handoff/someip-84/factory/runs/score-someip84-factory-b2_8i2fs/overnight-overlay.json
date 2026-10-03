@@ -1,0 +1,18 @@
+{
+  "compiled_package_sha256": "87ec84416a0749da45ff34361c0698b26d962a8bb4cd8594245106073de71b76",
+  "dependencies": {
+    "collect_obligations.py": "cef00d1425b9dbc167d0f1b394e31028eec1697d5c826508d71945ea410f9c34",
+    "guard_agent_tools.py": "55cefeb2f105a9bb43154f331e5940c5ea799a66be43473a7380a88cefd4691f",
+    "isolate_docker.py": "0e0ee6f9ce2d2e0303ec53eea3c9c2880d024c6167fad83b1a802a8be17535e4",
+    "measure.py": "6c1e0a4270e55f4a8c3bdee660e36901f6d2f675d008b9ba84022bc95c83da0f",
+    "measurement-inputs.json": "26ac8c0366de2a1e97f9bf556050452bf2a61140f5917fef958be27a27d9617a",
+    "obligations.py": "252a8521fdd5b7225daf37597933bd868fc4d69ec2a80755e619d3272577e467",
+    "storage-selection.json": "803f9d8e7c9d716e5e9e4e54d3c1030f4a6bc7457f566ebe34b48ff8c3a4b9ef",
+    "storage.py": "87cec0494fac266a12527ec4799e5b8caec3d8ac65e4b7da49636292f42bb851",
+    "workspace_transfer.py": "b1e9577072d7ec5027461a1f335f38300d0bba05daefa736d21a86bb4c557ca1"
+  },
+  "entrypoint_sha256": "208a456e977f4e31bc68f6567e10508430a1ecd1b6cc8cfd68c8c62f5e1b5de4",
+  "hook_sha256": "5e16d7fc724e7cae3f20cf2242c7f976a45821f3eef881c92e2d0b151a69bb96",
+  "policy_sha256": "bddc6880b2f71522ba079b14df56b3686239f62be02518af65e6385d9e850645",
+  "workflow_sha256": "7174cb644cd1f852efa33a9a5bb2ce6d6fa98f4c52b7356e947cae77ecb5d0a7"
+}

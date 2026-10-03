@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import re
-import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -19,9 +18,11 @@ from score_sw_fabric.quality.models import (
     identity_state,
     load_inputs,
     raw_bytes,
+    recheck_controls,
 )
 from score_sw_fabric.quality.native_outputs import diagnostics
 from score_sw_fabric.runtime.models import output_path
+from score_sw_fabric.storage import temporary_directory
 
 
 def run(
@@ -32,7 +33,7 @@ def run(
         output_path(out, [request_path, *selected.inputs], selected.protected)
     r = selected.request
     budget = Budget(r["output_limit_bytes"])
-    with tempfile.TemporaryDirectory(prefix="score-quality-") as temporary:
+    with temporary_directory(prefix="score-quality-") as temporary:
         work = Path(temporary)
         record = probe(selected, work, budget)
         record["kind"] = "quality_analysis_run"
@@ -166,6 +167,7 @@ def run(
             )
         else:
             record["outcome"] = "findings" if record["diagnostics"] else "completed"
+    recheck_controls(selected)
     return (
         0 if record["outcome"] == "completed" else 1,
         seal(record),

@@ -1,0 +1,4 @@
+{
+  "exit_code": 4,
+  "expected_stop": "Unanswered live-agent configuration gate; wait may time out"
+}

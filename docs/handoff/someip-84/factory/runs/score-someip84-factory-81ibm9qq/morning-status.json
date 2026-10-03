@@ -1,0 +1,47 @@
+{
+  "observed_at": "2026-10-02T07:52:16.042312+01:00",
+  "run_id": "01M3WX09X84XFM5X08QY2944DF",
+  "assessment": "stalled_native_running_state; owned_container_now_stopped",
+  "native_status": {
+    "kind": "running"
+  },
+  "last_event_at": "2026-10-02T01:07:33.720Z",
+  "launch_worker_pid": 4036339,
+  "launch_worker_present": false,
+  "native_cancel": {
+    "run_id": "01M3WX09X84XFM5X08QY2944DF",
+    "at": "2026-10-02T06:47:44.241686+00:00",
+    "status_code": 409,
+    "response": "{\"errors\":[{\"status\":\"409\",\"title\":\"Conflict\",\"detail\":\"Run is not cancellable.\",\"request_id\":\"cf9e3eac-0217-4e32-a66b-90dbae8a4de7\"}],\"request_id\":\"cf9e3eac-0217-4e32-a66b-90dbae8a4de7\"}",
+    "reason": "Enforce authorized overnight cutoff"
+  },
+  "container_stop": {
+    "run_id": "01M3WX09X84XFM5X08QY2944DF",
+    "stopped_at": "2026-10-02T06:50:18.748902+00:00",
+    "container": "2f8b6f9b5d0d",
+    "state": "exited",
+    "native_cancel_response": 409,
+    "reason": "Only owned container stopped after cutoff; native cancellation rejected; preserve native state without editing database",
+    "workspace": "/tmp/score-someip84-factory-81ibm9qq/cutoff-workspace"
+  },
+  "focused_results": {
+    "GCC_tests": "passed",
+    "ASan_LSan_UBSan": "passed",
+    "Memcheck": "passed",
+    "latest_coverage": {
+      "line_percent": 77.8,
+      "branch_percent": 64.3,
+      "scope": "focused production code; not full target acceptance"
+    },
+    "TSan": "runtime startup failure: unexpected memory mapping"
+  },
+  "native_validation": "not_passed; LLVM extraction failed with No space left on device",
+  "raw_codeql_results": {
+    "security": 32,
+    "MISRA": 4713,
+    "scope": "untriaged focused extraction including dependencies; not counts of accepted target violations"
+  },
+  "final_review_and_report": "not_reached",
+  "engineering_acceptance": "pending",
+  "workspace": "/tmp/score-someip84-factory-81ibm9qq/cutoff-workspace"
+}

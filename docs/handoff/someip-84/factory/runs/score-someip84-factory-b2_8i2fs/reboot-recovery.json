@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-10-02T14:42:39.232655+00:00",
+  "predecessor_run_id": "01M3XZAQ65TTE35XSGXC4JAMAH",
+  "status": "supervised_successor_running",
+  "native_checkpoint_state": "unavailable_after_reboot_cleared_tmp",
+  "preserved_workspace": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-crash-preservation-56atg_mt/workspace",
+  "preserved_reports": 13,
+  "old_storage_binding_unchanged": true,
+  "rebuild_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-fabro-reboot-build-y6fx0nz6",
+  "private_server_root": "/home/jefferson/.local/state/s-core/fabro/someip84-server",
+  "engineering_acceptance": "pending",
+  "successor_run_id": "01M3YGTGYFEN406VDEVVTJTRWV",
+  "successor_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-mfwqxi3a",
+  "restart_evidence": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/factory/runs/score-someip84-factory-mfwqxi3a/restart-status.json"
+}

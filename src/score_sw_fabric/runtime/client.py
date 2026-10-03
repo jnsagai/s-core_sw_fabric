@@ -8,7 +8,6 @@ import json
 import os
 import re
 import stat
-import tempfile
 import time
 import urllib.error
 import urllib.parse
@@ -29,6 +28,7 @@ from score_sw_fabric.catalog.export import canonical
 from score_sw_fabric.process_source.reader import InputError
 from score_sw_fabric.runtime.ledger import IntentLedger
 from score_sw_fabric.runtime.projection import project_version
+from score_sw_fabric.storage import disposable_root_allowed
 
 PROFILE_FIELDS = {
     "id",
@@ -311,12 +311,10 @@ class FabroClient:
         """Send native create once after durable intent marking."""
         selected_target = target.absolute()
         selected_root = disposable_root.absolute()
-        temporary_root = Path(tempfile.gettempdir()).resolve()
         if (
             ".." in target.parts
             or ".." in disposable_root.parts
-            or not selected_root.is_relative_to(temporary_root)
-            or selected_root == temporary_root
+            or not disposable_root_allowed(selected_root)
             or not selected_target.is_relative_to(selected_root)
             or not selected_target.resolve().is_relative_to(selected_root.resolve())
             or not selected_target.is_dir()

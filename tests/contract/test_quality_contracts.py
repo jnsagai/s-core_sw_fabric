@@ -145,3 +145,29 @@ def test_profile_fields_types_and_gap_defaults(tmp_path: Path) -> None:
     chain["dependencies"] *= 2
     with pytest.raises(InputError):
         load_toolchain(yaml.safe_dump(chain).encode())
+
+
+@pytest.mark.parametrize("analyzers,sanitizers", [(17, 16), (16, 16)])
+def test_profile_tool_limit_is_shared_across_modes(analyzers: int, sanitizers: int) -> None:
+    import yaml
+
+    from score_sw_fabric.quality.profile import load_profile
+    from tests.quality_support import PROFILE
+
+    p = yaml.safe_load(PROFILE.read_bytes())
+    p["analyzers"] = [
+        {
+            "id": "clang-tidy" if n == 0 else f"fixture-analyzer-{n}",
+            "role": "complementary",
+            "state": "unknown",
+        }
+        for n in range(analyzers)
+    ]
+    p["sanitizers"] = [
+        {"id": f"fixture-sanitizer-{n}", "state": "unknown"} for n in range(sanitizers)
+    ]
+    if analyzers + sanitizers > 32:
+        with pytest.raises(InputError, match="tools"):
+            load_profile(yaml.safe_dump(p).encode())
+    else:
+        assert len(load_profile(yaml.safe_dump(p).encode())["analyzers"]) == analyzers

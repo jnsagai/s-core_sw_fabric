@@ -16,6 +16,16 @@ from score_sw_fabric.quality.models import (
 )
 
 
+def leak_runtime_gaps(stderr: bytes, adapter: str) -> list[str]:
+    """Native fatal errors invalidate scope even alongside an AddressSanitizer finding."""
+    if adapter != "asan" or b"LeakSanitizer has encountered a fatal error" not in stderr:
+        return []
+    gaps = ["LEAK_SANITIZER_RUNTIME_FAILED", "SANITIZER_RUNTIME_INCOMPLETE"]
+    if b"LeakSanitizer does not work under ptrace" in stderr:
+        gaps.append("LEAK_SANITIZER_PTRACE_UNSUPPORTED")
+    return gaps
+
+
 def prepare(selected: Inputs, work: Path) -> dict[str, str]:
     config = selected.settings
     directory = work / "sanitizers/suppressions"
@@ -144,6 +154,7 @@ def build_and_execute(
         }
     )
     findings = diagnostic_records(phase, selected.adapter, source, data)
+    gaps.extend(leak_runtime_gaps(raw_bytes(phase["stderr"]), selected.adapter))
     if any(phase[k]["truncated"] for k in ("stdout", "stderr")):
         gaps.append("OUTPUT_TRUNCATED")
     if phase["timed_out"] or phase["error"]:

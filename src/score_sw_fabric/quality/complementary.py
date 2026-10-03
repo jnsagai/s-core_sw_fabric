@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import tempfile
 from copy import deepcopy
 from pathlib import Path
 from typing import Any
@@ -20,8 +19,10 @@ from score_sw_fabric.quality.models import (
     identity_state,
     load_inputs,
     raw_bytes,
+    recheck_controls,
 )
 from score_sw_fabric.runtime.models import output_path
+from score_sw_fabric.storage import temporary_directory
 
 
 def initial(selected: Inputs, kind: str) -> dict[str, Any]:
@@ -95,11 +96,14 @@ def probe(selected: Inputs, work: Path, budget: Budget) -> dict[str, Any]:
 def capabilities(
     request_path: Path, adapter: str, out: Path | None = None
 ) -> tuple[int, dict[str, Any], list[Path], list[Path]]:
+    if adapter not in {"cppcheck", "asan", "ubsan"}:
+        raise InputError("ADAPTER_UNSUPPORTED", "Select a supported complementary adapter")
     selected = load_inputs(request_path, "capabilities", adapter)
     if out is not None:
         output_path(out, [request_path, *selected.inputs], selected.protected)
-    with tempfile.TemporaryDirectory(prefix="score-quality-") as temporary:
+    with temporary_directory(prefix="score-quality-") as temporary:
         record = probe(selected, Path(temporary), Budget(selected.request["output_limit_bytes"]))
+    recheck_controls(selected)
     record["gaps"] = sorted(set(record["gaps"]))
     return (
         0 if record["outcome"] == "completed" else 1,
@@ -112,11 +116,13 @@ def capabilities(
 def run(
     request_path: Path, adapter: str, out: Path | None = None
 ) -> tuple[int, dict[str, Any], list[Path], list[Path]]:
+    if adapter not in {"cppcheck", "asan", "ubsan"}:
+        raise InputError("ADAPTER_UNSUPPORTED", "Select a supported complementary adapter")
     selected = load_inputs(request_path, "run", adapter)
     if out is not None:
         output_path(out, [request_path, *selected.inputs], selected.protected)
     budget = Budget(selected.request["output_limit_bytes"])
-    with tempfile.TemporaryDirectory(prefix="score-quality-") as temporary:
+    with temporary_directory(prefix="score-quality-") as temporary:
         work = Path(temporary)
         # Capability probe outputs remain separate from the requested component run.
         probe_work = work / "probe"
@@ -199,6 +205,7 @@ def run(
         )
         if capability["outcome"] == "unavailable":
             record["outcome"] = "unavailable"
+    recheck_controls(selected)
     return (
         0 if record["outcome"] == "completed" else 1,
         seal(record),

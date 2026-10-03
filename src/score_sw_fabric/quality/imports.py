@@ -96,6 +96,7 @@ def evaluate(
             if any(r["native_id"] in cppcheck.INCOMPLETE_IDS for r in results):
                 selected.gaps.append("CPPCHECK_ANALYSIS_INCOMPLETE")
         else:
+            selected.gaps.extend(sanitizers.leak_runtime_gaps(data, tool))
             results = sanitizers.diagnostic_records(
                 {"stderr": artifact["raw"]}, tool, root, selected.files
             )

@@ -1,0 +1,31 @@
+baseline_now: null
+candidate:
+  executable: /tmp/score-fabro-build-kDgEvg/target/debug/fabro
+  source_api: /home/jefferson/fabro/docs/public/api-reference/fabro-api.yaml
+compiler_profile:
+  path: compiler_profile.yaml
+  sha256: 38115540aa01334b7c8a3507179546cf63784ad62045281270c77fe886a9be6e
+credential_file: token
+effects: []
+evidence: []
+intent:
+  path: intent.json
+  sha256: d3d1f6cac3bab8279f52801f6dc61ddc3af986afbac5066423384ae9e4e31afb
+kind: runtime_request
+ledger_root: ledger
+package:
+  path: out/package.json
+  sha256: 9b21bd8ccf838099018688a9b40462e9b60b762701a0aea1f72c6c08018265f9
+protected_roots:
+- /home/jefferson/s-core_sw_fabric
+- /home/jefferson/fabro
+runtime_commit: 1b4fb15281ebb724426f9e480dce48d0100ff79b
+runtime_profile:
+  path: runtime-profile.json
+  sha256: fc3ce9ac648915b38ec92118dd7bdc821b79d0d3145223ca8d033328814276c9
+schema_version: 1
+subject: null
+target:
+  disposable_root: /tmp/score-someip84-factory-zd4mjmhk
+  environment_id: local
+  path: /tmp/score-someip84-factory-zd4mjmhk/target

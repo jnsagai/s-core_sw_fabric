@@ -1,0 +1,14 @@
+_version = 1
+
+[workflow]
+graph = "workflow.fabro"
+
+[run.model.controls]
+reasoning_effort = "high"
+
+[run.clone]
+enabled = false
+
+[run.run_branch]
+enabled = false
+push = false

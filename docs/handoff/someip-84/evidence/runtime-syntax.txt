@@ -1,0 +1,27 @@
+In file included from score/socom/test/framework/inc/score/socom/connector_factory.hpp:23,
+                 from score/socom/test/framework/inc/score/socom/bridge_t.hpp:20,
+                 from score/socom/test/unit/runtime_tests.cpp:23:
+score/socom/test/framework/inc/score/socom/utilities.hpp: In function ‘auto score::socom::create_check_update_count(std::atomic<unsigned int>&, const std::size_t&, std::promise<void>)’:
+score/socom/test/framework/inc/score/socom/utilities.hpp:197:40: warning: ‘std::decay_t<_Tp> testing::InvokeWithoutArgs(FunctionImpl&&) [with FunctionImpl = score::socom::create_check_update_count(std::atomic<unsigned int>&, const std::size_t&, std::promise<void>)::<lambda()>; std::decay_t<_Tp> = std::decay<score::socom::create_check_update_count(std::atomic<unsigned int>&, const std::size_t&, std::promise<void>)::<lambda()> >::type]’ is deprecated: Actions can now be implicitly constructed from zero-argument callables. No need to create wrapper objects using InvokeWithoutArgs(). [-Wdeprecated-declarations]
+  197 |     return ::testing::InvokeWithoutArgs(
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+  198 |         [&num_callback_called, count,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+  199 |          event_received = std::make_shared<std::promise<void>>(std::move(event_received))]() {
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  200 |             num_callback_called++;
+      |             ~~~~~~~~~~~~~~~~~~~~~~      
+  201 |             if (count == num_callback_called) {
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  202 |                 event_received->set_value();
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  203 |             }
+      |             ~                           
+  204 |         });
+      |         ~~                              
+In file included from .llm_tmp/googletest/googlemock/include/gmock/gmock.h:56,
+                 from score/socom/test/framework/inc/score/socom/socom_mocks.hpp:17,
+                 from score/socom/test/framework/inc/score/socom/connector_factory.hpp:22:
+.llm_tmp/googletest/googlemock/include/gmock/gmock-actions.h:2059:28: note: declared here
+ 2059 | std::decay_t<FunctionImpl> InvokeWithoutArgs(FunctionImpl&& function_impl) {
+      |                            ^~~~~~~~~~~~~~~~~

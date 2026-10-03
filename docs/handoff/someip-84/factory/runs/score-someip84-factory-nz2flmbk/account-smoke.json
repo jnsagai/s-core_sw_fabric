@@ -1,0 +1,16 @@
+{
+  "runtime": "Codex CLI 0.159.3",
+  "authentication": "ChatGPT login",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "api_key_environment_removed": true,
+  "reply": "OK",
+  "exit_code": 0,
+  "usage": {
+    "input_tokens": 14121,
+    "cached_input_tokens": 12288,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5,
+    "reasoning_output_tokens": 0
+  }
+}

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import math
 import stat
 from dataclasses import dataclass
 from pathlib import Path
@@ -22,6 +21,7 @@ from score_sw_fabric.assurance.models import (
     version,
 )
 from score_sw_fabric.process_source.reader import InputError
+from score_sw_fabric.quality.controls import bounded_tree as bounded_tree
 from score_sw_fabric.quality.models import MAX_ARTIFACT, MAX_TOTAL, Accumulator, Budget
 from score_sw_fabric.quality.profile import load_profile
 from score_sw_fabric.runtime.models import output_path
@@ -79,27 +79,6 @@ def native_root(value: Any) -> Path:
     ):
         raise InputError("INPUT_PATH", "Native source root must be an absolute POSIX path")
     return Path(text)
-
-
-def bounded_tree(value: Any) -> None:
-    """Bound native nesting/nodes and refuse cycles or non-JSON YAML values."""
-    pending = [(value, 0)]
-    count = 0
-    while pending:
-        node, depth = pending.pop()
-        count += 1
-        if depth > 64 or count > 200_000:
-            raise InputError("LIMIT_EXCEEDED", "Native nesting/node limit exceeded")
-        if isinstance(node, dict):
-            if any(not isinstance(k, str) for k in node):
-                raise InputError("NATIVE_OUTPUT_INVALID", "Native object keys must be strings")
-            pending.extend((v, depth + 1) for v in node.values())
-        elif isinstance(node, list):
-            pending.extend((v, depth + 1) for v in node)
-        elif type(node) is float and not math.isfinite(node):
-            raise InputError("NATIVE_OUTPUT_INVALID", "Nonfinite native number")
-        elif node is not None and type(node) not in {str, int, float, bool}:
-            raise InputError("NATIVE_OUTPUT_INVALID", "Non-JSON native value")
 
 
 def control(path: Path, *, yaml: bool = False) -> dict[str, Any]:

@@ -151,7 +151,8 @@ def _session(
     findings: list[dict[str, str]] = []
     observed: dict[str, Any] | None = None
     results: list[dict[str, Any]] = []
-    with tempfile.TemporaryDirectory(prefix="score-agent-home-") as home:
+    # Auth-capable homes remain internal even when command scratch uses external TMPDIR.
+    with tempfile.TemporaryDirectory(prefix="score-agent-home-", dir="/tmp") as home:
         session = McpSession(
             launch_argv(server),
             cwd=target.workspace,

@@ -1,0 +1,46 @@
+........................................................................ [  4%]
+........................................................................ [  9%]
+........................................................................ [ 14%]
+........................................................................ [ 18%]
+........................................................................ [ 23%]
+........................................................................ [ 28%]
+........................................................................ [ 33%]
+........................................................................ [ 37%]
+........................................................................ [ 42%]
+........................................................................ [ 47%]
+........................................................................ [ 52%]
+........................................................................ [ 56%]
+........................................................................ [ 61%]
+........................................................................ [ 66%]
+........................................................................ [ 70%]
+........................................................................ [ 75%]
+........................................................................ [ 80%]
+........................................................................ [ 85%]
+........................................................................ [ 89%]
+................................s......s................................ [ 94%]
+............s....F........................F....F................ssssssss [ 99%]
+...........                                                              [100%]
+=================================== FAILURES ===================================
+_____ test_genuine_available_seed_and_fresh_fix[asan-heap-buffer-overflow] _____
+tests/integration/test_quality_complementary.py:29: in test_genuine_available_seed_and_fresh_fix
+    assert code == 0 and capability["capability"]["state"] == "available"
+E   assert (1 == 0)
+____________ test_real_correction_and_immutable_stale_history[asan] ____________
+tests/integration/test_quality_dispositions.py:25: in test_real_correction_and_immutable_stale_history
+    assert original["outcome"] == "findings"
+E   AssertionError: assert 'incomplete' == 'findings'
+E     
+E     - findings
+E     + incomplete
+___________ test_genuine_outputs_seed_fix_and_portable_import[asan] ____________
+tests/integration/test_quality_import.py:29: in test_genuine_outputs_seed_fix_and_portable_import
+    assert result[0] == 1 and result[1]["outcome"] == "findings"
+E   AssertionError: assert (1 == 1 and 'incomplete' == 'findings'
+E     
+E     - findings
+E     + incomplete)
+=========================== short test summary info ============================
+FAILED tests/integration/test_quality_complementary.py::test_genuine_available_seed_and_fresh_fix[asan-heap-buffer-overflow]
+FAILED tests/integration/test_quality_dispositions.py::test_real_correction_and_immutable_stale_history[asan]
+FAILED tests/integration/test_quality_import.py::test_genuine_outputs_seed_fix_and_portable_import[asan]
+3 failed, 1509 passed, 11 skipped in 252.06s (0:04:12)

@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import re
-import tempfile
 from pathlib import Path
 from typing import Any
 
 from score_sw_fabric.assurance.models import seal
 from score_sw_fabric.process_source.reader import InputError
+from score_sw_fabric.quality.controls import yaml_tree
 from score_sw_fabric.quality.models import (
+    MAX_ARTIFACT,
     Budget,
     Inputs,
     environment,
@@ -17,9 +18,10 @@ from score_sw_fabric.quality.models import (
     identity_state,
     load_inputs,
     raw_bytes,
+    recheck_controls,
 )
 from score_sw_fabric.runtime.models import output_path
-from score_sw_fabric.runtime.request import parse_yaml
+from score_sw_fabric.storage import temporary_directory
 
 
 def base_record(selected: Inputs, kind: str) -> dict[str, Any]:
@@ -105,8 +107,8 @@ def probe(selected: Inputs, work: Path, budget: Budget) -> dict[str, Any]:
                 if line.startswith("    ") and line.strip()
             ]
         if name == "dump-config":
-            record["capability"]["effective_config"] = parse_yaml(
-                raw_bytes(phase["stdout"]), "/effective_config"
+            record["capability"]["effective_config"] = yaml_tree(
+                raw_bytes(phase["stdout"]), "/effective_config", max_bytes=MAX_ARTIFACT
             )
     if not record["capability"]["checks"] or not isinstance(
         record["capability"]["effective_config"], dict
@@ -128,8 +130,9 @@ def capabilities(
     selected = load_inputs(request_path, "capabilities")
     if out is not None:
         output_path(out, [request_path, *selected.inputs], selected.protected)
-    with tempfile.TemporaryDirectory(prefix="score-quality-") as temporary:
+    with temporary_directory(prefix="score-quality-") as temporary:
         record = probe(selected, Path(temporary), Budget(selected.request["output_limit_bytes"]))
+    recheck_controls(selected)
     record["gaps"] = sorted(set(record["gaps"]))
     return (
         0 if record["outcome"] == "completed" else 1,

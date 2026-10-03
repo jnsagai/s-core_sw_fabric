@@ -1,0 +1,596 @@
+[
+  {
+    "run_id": "01M3WSTF1DAJA248NQ5QQGQG52",
+    "parent_id": null,
+    "status": {
+      "kind": "running"
+    },
+    "run_spec": {
+      "run_id": "01M3WSTF1DAJA248NQ5QQGQG52",
+      "settings": {
+        "project": {
+          "name": null,
+          "description": null,
+          "metadata": {}
+        },
+        "workflow": {
+          "name": null,
+          "description": null,
+          "graph": "workflow.fabro",
+          "metadata": {}
+        },
+        "run": {
+          "goal": {
+            "type": "inline",
+            "value": "Execute reviewed S-CORE obligations"
+          },
+          "working_dir": null,
+          "metadata": {
+            "scope": "someip84-overnight"
+          },
+          "inputs": {},
+          "model": {
+            "provider": "deepseek",
+            "name": "deepseek-flash",
+            "fallbacks": {
+              "deepseek-flash": []
+            },
+            "controls": {
+              "reasoning_effort": "high",
+              "speed": null
+            }
+          },
+          "git": {
+            "author": null
+          },
+          "prepare": {
+            "steps": [],
+            "timeout_ms": 300000
+          },
+          "execution": {
+            "mode": "normal",
+            "approval": "prompt"
+          },
+          "checkpoint": {
+            "exclude_globs": [],
+            "skip_git_hooks": false,
+            "commit_timeout_ms": 30000
+          },
+          "clone": {
+            "enabled": false,
+            "depth": 100
+          },
+          "run_branch": {
+            "enabled": false,
+            "push": false
+          },
+          "environment": {
+            "id": "someip84",
+            "provider": "docker",
+            "image": {
+              "docker": "python:3.11-slim-bookworm",
+              "dockerfile": null
+            },
+            "resources": {
+              "cpu": null,
+              "memory": null,
+              "disk": null
+            },
+            "network": {
+              "mode": "block",
+              "allow": []
+            },
+            "lifecycle": {
+              "preserve": true,
+              "stop_on_terminal": true,
+              "auto_stop": null
+            },
+            "labels": {},
+            "env": {}
+          },
+          "notifications": {},
+          "interviews": {
+            "provider": null,
+            "slack": null
+          },
+          "agent": {
+            "fabro_tools": false,
+            "mcps": {}
+          },
+          "hooks": [
+            {
+              "name": "someip84-docker-isolation",
+              "event": "sandbox_ready",
+              "command": "/usr/bin/python3 /tmp/score-someip84-factory-_etjbuqw/isolate_docker.py sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4 /tmp/score-someip84-factory-_etjbuqw/target /tmp/score-someip84-factory-_etjbuqw/native-run-id",
+              "matcher": null,
+              "blocking": true,
+              "timeout_ms": 15000,
+              "sandbox": false
+            },
+            {
+              "name": "overnight-stage_start",
+              "event": "stage_start",
+              "command": "/home/jefferson/s-core_sw_fabric/.venv/bin/python /tmp/score-someip84-factory-_etjbuqw/overnight_hooks.py /tmp/score-someip84-factory-_etjbuqw guard",
+              "matcher": null,
+              "blocking": true,
+              "timeout_ms": 5000,
+              "sandbox": false
+            },
+            {
+              "name": "overnight-pre_tool_use",
+              "event": "pre_tool_use",
+              "command": "/home/jefferson/s-core_sw_fabric/.venv/bin/python /tmp/score-someip84-factory-_etjbuqw/overnight_hooks.py /tmp/score-someip84-factory-_etjbuqw guard",
+              "matcher": null,
+              "blocking": true,
+              "timeout_ms": 5000,
+              "sandbox": false
+            },
+            {
+              "name": "overnight-host-measurement",
+              "event": "stage_start",
+              "command": "/home/jefferson/s-core_sw_fabric/.venv/bin/python /tmp/score-someip84-factory-_etjbuqw/overnight_hooks.py /tmp/score-someip84-factory-_etjbuqw measure",
+              "matcher": "^(node_4950ecb53dec3bcb35ccbd4a|node_70e211e8a2ae7ce96f7a36a2|node_752868eb24b56f82737549dd|node_c56852d541a0b6bf71cacf06)$",
+              "blocking": true,
+              "timeout_ms": 600000,
+              "sandbox": false
+            }
+          ],
+          "scm": {
+            "provider": null,
+            "owner": null,
+            "repository": null,
+            "github": null
+          },
+          "pull_request": null,
+          "artifacts": {
+            "include": []
+          },
+          "integrations": {
+            "github": {
+              "permissions": {}
+            }
+          }
+        }
+      },
+      "graph": {
+        "name": "SCoreWorkflow",
+        "goal": "Execute reviewed S-CORE obligations",
+        "nodes": {
+          "exit": {
+            "label": "Exit",
+            "kind": "exit"
+          },
+          "node_08aafdf5761a2d334a1b32e9": {
+            "label": "repair conversion tests",
+            "kind": "agent"
+          },
+          "node_104da2e8b1d8b42e0b6bd061": {
+            "label": "conversion tests",
+            "kind": "agent"
+          },
+          "node_16318d4870001bd2347c7746": {
+            "label": "ordering tests",
+            "kind": "agent"
+          },
+          "node_19c9ab235f32fc915b5fb1a3": {
+            "label": "bazel plan",
+            "kind": "agent"
+          },
+          "node_2efd6180fdadc928184b207d": {
+            "label": "concurrency review",
+            "kind": "agent"
+          },
+          "node_405fdce155b344263dd74580": {
+            "label": "callsites",
+            "kind": "agent"
+          },
+          "node_42ab57f3331a47d9f25dbf97": {
+            "label": "repair review packet",
+            "kind": "agent"
+          },
+          "node_45b44c64602a4976e174a22e": {
+            "label": "key fix",
+            "kind": "agent"
+          },
+          "node_4950ecb53dec3bcb35ccbd4a": {
+            "label": "check_unit_matrix",
+            "kind": "command"
+          },
+          "node_53e4d71026616ad83debc1dd": {
+            "label": "scope",
+            "kind": "agent"
+          },
+          "node_6f243f840d3db3dda88b7bba": {
+            "label": "runtime enabled",
+            "kind": "agent"
+          },
+          "node_70e211e8a2ae7ce96f7a36a2": {
+            "label": "check_review_packet",
+            "kind": "command"
+          },
+          "node_752868eb24b56f82737549dd": {
+            "label": "check_conversion_tests",
+            "kind": "command"
+          },
+          "node_788e4ddcbaeaae302be60914": {
+            "label": "repair lifetime tests",
+            "kind": "agent"
+          },
+          "node_7eab7da56b3a32542c071f40": {
+            "label": "analyzer plan",
+            "kind": "agent"
+          },
+          "node_81dacd9fb5df6a7888667599": {
+            "label": "repair unit matrix",
+            "kind": "agent"
+          },
+          "node_8211df9626f0b30598b6bc48": {
+            "label": "test metadata",
+            "kind": "agent"
+          },
+          "node_8b4c04760cba5632fdeb6be7": {
+            "label": "lifetime review",
+            "kind": "agent"
+          },
+          "node_97797544422c1665f6c845da": {
+            "label": "runtime disabled",
+            "kind": "agent"
+          },
+          "node_99f3dbae466ac83ff948c419": {
+            "label": "compatibility",
+            "kind": "agent"
+          },
+          "node_9c81fbb0055f1124c924c8f3": {
+            "label": "api review",
+            "kind": "agent"
+          },
+          "node_afb4caaa6aabf23b9d9d3c4e": {
+            "label": "Overnight draft and measurements; human review pending",
+            "kind": "human"
+          },
+          "node_b2f377f045f481fe73bcb8de": {
+            "label": "invariants",
+            "kind": "agent"
+          },
+          "node_c12fc02444d581d657581ef6": {
+            "label": "review packet",
+            "kind": "agent"
+          },
+          "node_c56852d541a0b6bf71cacf06": {
+            "label": "check_lifetime_tests",
+            "kind": "command"
+          },
+          "node_ca2414ca3661a39f1cdb5cd3": {
+            "label": "reproducer",
+            "kind": "agent"
+          },
+          "node_dcb594a61a1461b96eafd8cb": {
+            "label": "evidence inventory",
+            "kind": "agent"
+          },
+          "node_efc6fd23c8aae1c9d3956b7a": {
+            "label": "unit matrix",
+            "kind": "agent"
+          },
+          "node_f2bc2f76fcf43dca1b71de10": {
+            "label": "lifetime tests",
+            "kind": "agent"
+          },
+          "start": {
+            "label": "Start",
+            "kind": "start"
+          }
+        },
+        "edges": [
+          {
+            "from": "node_08aafdf5761a2d334a1b32e9",
+            "to": "node_752868eb24b56f82737549dd"
+          },
+          {
+            "from": "node_08aafdf5761a2d334a1b32e9",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_104da2e8b1d8b42e0b6bd061",
+            "to": "node_752868eb24b56f82737549dd"
+          },
+          {
+            "from": "node_104da2e8b1d8b42e0b6bd061",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_16318d4870001bd2347c7746",
+            "to": "node_104da2e8b1d8b42e0b6bd061"
+          },
+          {
+            "from": "node_16318d4870001bd2347c7746",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_19c9ab235f32fc915b5fb1a3",
+            "to": "node_7eab7da56b3a32542c071f40"
+          },
+          {
+            "from": "node_19c9ab235f32fc915b5fb1a3",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_2efd6180fdadc928184b207d",
+            "to": "node_9c81fbb0055f1124c924c8f3"
+          },
+          {
+            "from": "node_2efd6180fdadc928184b207d",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_405fdce155b344263dd74580",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_405fdce155b344263dd74580",
+            "to": "node_b2f377f045f481fe73bcb8de"
+          },
+          {
+            "from": "node_42ab57f3331a47d9f25dbf97",
+            "to": "node_70e211e8a2ae7ce96f7a36a2"
+          },
+          {
+            "from": "node_42ab57f3331a47d9f25dbf97",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_45b44c64602a4976e174a22e",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_45b44c64602a4976e174a22e",
+            "to": "node_efc6fd23c8aae1c9d3956b7a"
+          },
+          {
+            "from": "node_4950ecb53dec3bcb35ccbd4a",
+            "to": "node_81dacd9fb5df6a7888667599"
+          },
+          {
+            "from": "node_4950ecb53dec3bcb35ccbd4a",
+            "to": "node_97797544422c1665f6c845da"
+          },
+          {
+            "from": "node_53e4d71026616ad83debc1dd",
+            "to": "node_405fdce155b344263dd74580"
+          },
+          {
+            "from": "node_53e4d71026616ad83debc1dd",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_6f243f840d3db3dda88b7bba",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_6f243f840d3db3dda88b7bba",
+            "to": "node_f2bc2f76fcf43dca1b71de10"
+          },
+          {
+            "from": "node_70e211e8a2ae7ce96f7a36a2",
+            "to": "node_42ab57f3331a47d9f25dbf97"
+          },
+          {
+            "from": "node_70e211e8a2ae7ce96f7a36a2",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_752868eb24b56f82737549dd",
+            "to": "node_08aafdf5761a2d334a1b32e9"
+          },
+          {
+            "from": "node_752868eb24b56f82737549dd",
+            "to": "node_99f3dbae466ac83ff948c419"
+          },
+          {
+            "from": "node_788e4ddcbaeaae302be60914",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_788e4ddcbaeaae302be60914",
+            "to": "node_c56852d541a0b6bf71cacf06"
+          },
+          {
+            "from": "node_7eab7da56b3a32542c071f40",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_7eab7da56b3a32542c071f40",
+            "to": "node_dcb594a61a1461b96eafd8cb"
+          },
+          {
+            "from": "node_81dacd9fb5df6a7888667599",
+            "to": "node_4950ecb53dec3bcb35ccbd4a"
+          },
+          {
+            "from": "node_81dacd9fb5df6a7888667599",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_8211df9626f0b30598b6bc48",
+            "to": "node_19c9ab235f32fc915b5fb1a3"
+          },
+          {
+            "from": "node_8211df9626f0b30598b6bc48",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_8b4c04760cba5632fdeb6be7",
+            "to": "node_2efd6180fdadc928184b207d"
+          },
+          {
+            "from": "node_8b4c04760cba5632fdeb6be7",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_97797544422c1665f6c845da",
+            "to": "node_6f243f840d3db3dda88b7bba"
+          },
+          {
+            "from": "node_97797544422c1665f6c845da",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_99f3dbae466ac83ff948c419",
+            "to": "node_8b4c04760cba5632fdeb6be7"
+          },
+          {
+            "from": "node_99f3dbae466ac83ff948c419",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_9c81fbb0055f1124c924c8f3",
+            "to": "node_8211df9626f0b30598b6bc48"
+          },
+          {
+            "from": "node_9c81fbb0055f1124c924c8f3",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_afb4caaa6aabf23b9d9d3c4e",
+            "to": "exit"
+          },
+          {
+            "from": "node_b2f377f045f481fe73bcb8de",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_b2f377f045f481fe73bcb8de",
+            "to": "node_ca2414ca3661a39f1cdb5cd3"
+          },
+          {
+            "from": "node_c12fc02444d581d657581ef6",
+            "to": "node_70e211e8a2ae7ce96f7a36a2"
+          },
+          {
+            "from": "node_c12fc02444d581d657581ef6",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_c56852d541a0b6bf71cacf06",
+            "to": "node_16318d4870001bd2347c7746"
+          },
+          {
+            "from": "node_c56852d541a0b6bf71cacf06",
+            "to": "node_788e4ddcbaeaae302be60914"
+          },
+          {
+            "from": "node_ca2414ca3661a39f1cdb5cd3",
+            "to": "node_45b44c64602a4976e174a22e"
+          },
+          {
+            "from": "node_ca2414ca3661a39f1cdb5cd3",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_dcb594a61a1461b96eafd8cb",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_dcb594a61a1461b96eafd8cb",
+            "to": "node_c12fc02444d581d657581ef6"
+          },
+          {
+            "from": "node_efc6fd23c8aae1c9d3956b7a",
+            "to": "node_4950ecb53dec3bcb35ccbd4a"
+          },
+          {
+            "from": "node_efc6fd23c8aae1c9d3956b7a",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_f2bc2f76fcf43dca1b71de10",
+            "to": "node_afb4caaa6aabf23b9d9d3c4e"
+          },
+          {
+            "from": "node_f2bc2f76fcf43dca1b71de10",
+            "to": "node_c56852d541a0b6bf71cacf06"
+          },
+          {
+            "from": "start",
+            "to": "node_53e4d71026616ad83debc1dd"
+          }
+        ]
+      },
+      "graph_source": "digraph SCoreWorkflow {\n  graph [goal=\"Execute reviewed S-CORE obligations\", max_node_visits=500, on_failure=\"route\"];\n  rankdir=LR;\n  exit [label=\"Exit\", type=\"exit\"];\n  node_08aafdf5761a2d334a1b32e9 [allow_partial=false, label=\"repair conversion tests\", max_retries=0, max_tokens=32000, max_visits=500, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Correct the concrete compile/test findings in the latest host feedback. Keep the correction within scope; explain any infrastructure blocker instead of fabricating a pass. Write your report to /workspace/.llm_tmp/overnight/reports/repair_conversion_tests.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_104da2e8b1d8b42e0b6bd061 [allow_partial=false, label=\"conversion tests\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Add boundary coverage for identifier conversions while preserving existing public interface identity. Write your report to /workspace/.llm_tmp/overnight/reports/conversion_tests.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_16318d4870001bd2347c7746 [allow_partial=false, label=\"ordering tests\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Add property-style deterministic cases for strict weak ordering and equality of registration identifiers. Write your report to /workspace/.llm_tmp/overnight/reports/ordering_tests.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_19c9ab235f32fc915b5fb1a3 [allow_partial=false, label=\"bazel plan\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Check BUILD changes and prepare the exact native Bazel validation plan from pinned repository configuration; mark unavailable execution pending. Write your report to /workspace/.llm_tmp/overnight/reports/bazel_plan.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_2efd6180fdadc928184b207d [allow_partial=false, label=\"concurrency review\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Review registration and teardown ordering for concurrency assumptions, locking and assertions; propose tests without claiming safety acceptance. Write your report to /workspace/.llm_tmp/overnight/reports/concurrency_review.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_405fdce155b344263dd74580 [allow_partial=false, label=\"callsites\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Map identifier construction, conversion, comparison and service-database call sites; cite real paths and lines. Write your report to /workspace/.llm_tmp/overnight/reports/callsites.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_42ab57f3331a47d9f25dbf97 [allow_partial=false, label=\"repair review packet\", max_retries=0, max_tokens=32000, max_visits=500, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Correct the concrete compile/test findings in the latest host feedback. Keep the correction within scope; explain any infrastructure blocker instead of fabricating a pass. Write your report to /workspace/.llm_tmp/overnight/reports/repair_review_packet.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_45b44c64602a4976e174a22e [allow_partial=false, label=\"key fix\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Implement the smallest registration-key correction preserving interface representation and exact-major/minimum-minor rules. Write your report to /workspace/.llm_tmp/overnight/reports/key_fix.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_4950ecb53dec3bcb35ccbd4a [allow_partial=false, label=\"check_unit_matrix\", max_retries=0, max_visits=500, on_failure=\"route\", script=\"cat /workspace/.llm_tmp/overnight/validation/measurement.json\\ngrep -qx 0 /workspace/.llm_tmp/overnight/validation/check-result\\n\", selection=\"deterministic\", timeout=\"120s\", type=\"command\"];\n  node_53e4d71026616ad83debc1dd [allow_partial=false, label=\"scope\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Bind issue #84 to the verified baseline and list the accepted draft scope and open design questions. Write your report to /workspace/.llm_tmp/overnight/reports/scope.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_6f243f840d3db3dda88b7bba [allow_partial=false, label=\"runtime enabled\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Draft runtime tests for duplicates involving enabled servers; preserve genuine error results rather than assertions. Write your report to /workspace/.llm_tmp/overnight/reports/runtime_enabled.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_70e211e8a2ae7ce96f7a36a2 [allow_partial=false, label=\"check_review_packet\", max_retries=0, max_visits=500, on_failure=\"route\", script=\"cat /workspace/.llm_tmp/overnight/validation/measurement.json\\ngrep -qx 0 /workspace/.llm_tmp/overnight/validation/check-result\\n\", selection=\"deterministic\", timeout=\"120s\", type=\"command\"];\n  node_752868eb24b56f82737549dd [allow_partial=false, label=\"check_conversion_tests\", max_retries=0, max_visits=500, on_failure=\"route\", script=\"cat /workspace/.llm_tmp/overnight/validation/measurement.json\\ngrep -qx 0 /workspace/.llm_tmp/overnight/validation/check-result\\n\", selection=\"deterministic\", timeout=\"120s\", type=\"command\"];\n  node_788e4ddcbaeaae302be60914 [allow_partial=false, label=\"repair lifetime tests\", max_retries=0, max_tokens=32000, max_visits=500, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Correct the concrete compile/test findings in the latest host feedback. Keep the correction within scope; explain any infrastructure blocker instead of fabricating a pass. Write your report to /workspace/.llm_tmp/overnight/reports/repair_lifetime_tests.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_7eab7da56b3a32542c071f40 [allow_partial=false, label=\"analyzer plan\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Review native analyzer configuration and the changed units; document tool/version/applicability gaps without claiming MISRA compliance. Write your report to /workspace/.llm_tmp/overnight/reports/analyzer_plan.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_81dacd9fb5df6a7888667599 [allow_partial=false, label=\"repair unit matrix\", max_retries=0, max_tokens=32000, max_visits=500, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Correct the concrete compile/test findings in the latest host feedback. Keep the correction within scope; explain any infrastructure blocker instead of fabricating a pass. Write your report to /workspace/.llm_tmp/overnight/reports/repair_unit_matrix.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_8211df9626f0b30598b6bc48 [allow_partial=false, label=\"test metadata\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Review native test conventions, metadata and verified requirement links; never invent native requirement identifiers. Write your report to /workspace/.llm_tmp/overnight/reports/test_metadata.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_8b4c04760cba5632fdeb6be7 [allow_partial=false, label=\"lifetime review\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Review source and drafted runtime cases for invalidation, connector lifetime and slot reuse; report concrete counterexamples. Write your report to /workspace/.llm_tmp/overnight/reports/lifetime_review.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_97797544422c1665f6c845da [allow_partial=false, label=\"runtime disabled\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Draft runtime tests for duplicate construction while both server instances are disabled. Write your report to /workspace/.llm_tmp/overnight/reports/runtime_disabled.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_99f3dbae466ac83ff948c419 [allow_partial=false, label=\"compatibility\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Review exact-major and minimum-minor compatibility against the changed key; identify untested paths and avoid changing discovery semantics. Write your report to /workspace/.llm_tmp/overnight/reports/compatibility.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_9c81fbb0055f1124c924c8f3 [allow_partial=false, label=\"api review\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Review ABI/API effects and minor-version representation; retain future public identifier redesign as a human design question. Write your report to /workspace/.llm_tmp/overnight/reports/api_review.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_afb4caaa6aabf23b9d9d3c4e [allow_partial=false, label=\"Overnight draft and measurements; human review pending\", max_retries=0, max_visits=1, on_failure=\"route\", question_type=\"yes_no\", selection=\"deterministic\", timeout=\"420s\", type=\"human\"];\n  node_b2f377f045f481fe73bcb8de [allow_partial=false, label=\"invariants\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Derive the existing registration-key invariants from source; distinguish them from unaccepted public-interface proposals. Write your report to /workspace/.llm_tmp/overnight/reports/invariants.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_c12fc02444d581d657581ef6 [allow_partial=false, label=\"review packet\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Write the final review packet with changed paths, test outcomes, known limits and unanswered engineering decisions; never accept or publish. Write your report to /workspace/.llm_tmp/overnight/reports/review_packet.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_c56852d541a0b6bf71cacf06 [allow_partial=false, label=\"check_lifetime_tests\", max_retries=0, max_visits=500, on_failure=\"route\", script=\"cat /workspace/.llm_tmp/overnight/validation/measurement.json\\ngrep -qx 0 /workspace/.llm_tmp/overnight/validation/check-result\\n\", selection=\"deterministic\", timeout=\"120s\", type=\"command\"];\n  node_ca2414ca3661a39f1cdb5cd3 [allow_partial=false, label=\"reproducer\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Create a focused failing regression for duplicate registration keys differing only in minor version. Write your report to /workspace/.llm_tmp/overnight/reports/reproducer.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_dcb594a61a1461b96eafd8cb [allow_partial=false, label=\"evidence inventory\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Reconcile all host measurements, changed source hashes, remaining full-runtime checks and unresolved findings; agent statements stay assertions. Write your report to /workspace/.llm_tmp/overnight/reports/evidence_inventory.md. This is a review draft: only that report may be written.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_efc6fd23c8aae1c9d3956b7a [allow_partial=false, label=\"unit matrix\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Expand agent-authored tests over service IDs, instance IDs, major versions, minor boundaries and equality/ordering consistency. Write your report to /workspace/.llm_tmp/overnight/reports/unit_matrix.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  node_f2bc2f76fcf43dca1b71de10 [allow_partial=false, label=\"lifetime tests\", max_retries=0, max_tokens=32000, max_visits=1, on_failure=\"route\", project_memory=false, prompt=\"Work on the bounded duplicate-server registration-key slice of SOME/IP #84. Read .llm_tmp/context/issue-snapshot.json and relevant source. Use only read_file, grep, glob and write_file; no shell, delegation, web, approval, publishing or engineering acceptance. Preserve notices. Read earlier .llm_tmp/overnight/reports and the latest host feedback under .llm_tmp/overnight/validation when relevant. Measurements are local, unprotected and scoped; full native runtime tests and human reviews remain pending. Draft slot reuse and connector destruction tests, including changed minor versions and different major/instance slots. Write your report to /workspace/.llm_tmp/overnight/reports/lifetime_tests.md. Only the six named candidate source paths and that report may be changed.\", selection=\"deterministic\", timeout=\"900s\", type=\"agent\"];\n  start [label=\"Start\", type=\"start\"];\n  node_ca2414ca3661a39f1cdb5cd3 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_c12fc02444d581d657581ef6 -> node_70e211e8a2ae7ce96f7a36a2;\n  node_7eab7da56b3a32542c071f40 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_70e211e8a2ae7ce96f7a36a2 -> node_42ab57f3331a47d9f25dbf97 [condition=\"outcome=failed\"];\n  node_f2bc2f76fcf43dca1b71de10 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_9c81fbb0055f1124c924c8f3 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_752868eb24b56f82737549dd -> node_99f3dbae466ac83ff948c419;\n  node_81dacd9fb5df6a7888667599 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_53e4d71026616ad83debc1dd -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_97797544422c1665f6c845da -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_70e211e8a2ae7ce96f7a36a2 -> node_afb4caaa6aabf23b9d9d3c4e;\n  node_6f243f840d3db3dda88b7bba -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_99f3dbae466ac83ff948c419 -> node_8b4c04760cba5632fdeb6be7;\n  node_42ab57f3331a47d9f25dbf97 -> node_70e211e8a2ae7ce96f7a36a2;\n  node_dcb594a61a1461b96eafd8cb -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_4950ecb53dec3bcb35ccbd4a -> node_81dacd9fb5df6a7888667599 [condition=\"outcome=failed\"];\n  node_efc6fd23c8aae1c9d3956b7a -> node_4950ecb53dec3bcb35ccbd4a;\n  node_8b4c04760cba5632fdeb6be7 -> node_2efd6180fdadc928184b207d;\n  node_752868eb24b56f82737549dd -> node_08aafdf5761a2d334a1b32e9 [condition=\"outcome=failed\"];\n  node_c56852d541a0b6bf71cacf06 -> node_788e4ddcbaeaae302be60914 [condition=\"outcome=failed\"];\n  node_53e4d71026616ad83debc1dd -> node_405fdce155b344263dd74580;\n  start -> node_53e4d71026616ad83debc1dd;\n  node_104da2e8b1d8b42e0b6bd061 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_99f3dbae466ac83ff948c419 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_c56852d541a0b6bf71cacf06 -> node_16318d4870001bd2347c7746;\n  node_c12fc02444d581d657581ef6 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_2efd6180fdadc928184b207d -> node_9c81fbb0055f1124c924c8f3;\n  node_2efd6180fdadc928184b207d -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_16318d4870001bd2347c7746 -> node_104da2e8b1d8b42e0b6bd061;\n  node_9c81fbb0055f1124c924c8f3 -> node_8211df9626f0b30598b6bc48;\n  node_8b4c04760cba5632fdeb6be7 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_08aafdf5761a2d334a1b32e9 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_42ab57f3331a47d9f25dbf97 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_08aafdf5761a2d334a1b32e9 -> node_752868eb24b56f82737549dd;\n  node_efc6fd23c8aae1c9d3956b7a -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_4950ecb53dec3bcb35ccbd4a -> node_97797544422c1665f6c845da;\n  node_7eab7da56b3a32542c071f40 -> node_dcb594a61a1461b96eafd8cb;\n  node_405fdce155b344263dd74580 -> node_b2f377f045f481fe73bcb8de;\n  node_81dacd9fb5df6a7888667599 -> node_4950ecb53dec3bcb35ccbd4a;\n  node_8211df9626f0b30598b6bc48 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_f2bc2f76fcf43dca1b71de10 -> node_c56852d541a0b6bf71cacf06;\n  node_b2f377f045f481fe73bcb8de -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_19c9ab235f32fc915b5fb1a3 -> node_7eab7da56b3a32542c071f40;\n  node_ca2414ca3661a39f1cdb5cd3 -> node_45b44c64602a4976e174a22e;\n  node_788e4ddcbaeaae302be60914 -> node_c56852d541a0b6bf71cacf06;\n  node_45b44c64602a4976e174a22e -> node_efc6fd23c8aae1c9d3956b7a;\n  node_97797544422c1665f6c845da -> node_6f243f840d3db3dda88b7bba;\n  node_19c9ab235f32fc915b5fb1a3 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_45b44c64602a4976e174a22e -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_104da2e8b1d8b42e0b6bd061 -> node_752868eb24b56f82737549dd;\n  node_8211df9626f0b30598b6bc48 -> node_19c9ab235f32fc915b5fb1a3;\n  node_dcb594a61a1461b96eafd8cb -> node_c12fc02444d581d657581ef6;\n  node_405fdce155b344263dd74580 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_788e4ddcbaeaae302be60914 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_b2f377f045f481fe73bcb8de -> node_ca2414ca3661a39f1cdb5cd3;\n  node_16318d4870001bd2347c7746 -> node_afb4caaa6aabf23b9d9d3c4e [condition=\"outcome=failed\"];\n  node_afb4caaa6aabf23b9d9d3c4e -> exit;\n  node_6f243f840d3db3dda88b7bba -> node_f2bc2f76fcf43dca1b71de10;\n}\n",
+      "workflow_slug": "workflow",
+      "workflow_version_id": "f0c1a26ed003f54b2ad8c0c29b216d46ad0008ff60d3da9b5f4fc6f6d0f9f135",
+      "target": {
+        "kind": "none"
+      },
+      "labels": {
+        "scope": "someip84-overnight"
+      },
+      "provenance": {
+        "server": {
+          "version": "0.362.0-nightly.0"
+        },
+        "client": {
+          "user_agent": "fabro-cli/0.362.0-nightly.0",
+          "name": "fabro-cli",
+          "version": "0.362.0-nightly.0"
+        },
+        "subject": {
+          "kind": "user",
+          "identity": {
+            "issuer": "fabro:dev",
+            "subject": "dev"
+          },
+          "login": "dev",
+          "auth_method": "dev_token"
+        }
+      },
+      "definition_blob": "6d2f340dc49a4354f161af8f6e4488d14ce818640d89fd3d9d82269d2b271719",
+      "spec_blob": "12d60f06c8852f397e3e3c794f07ee856292294a89cda3c2ee457b7d47e4e823",
+      "admission": {
+        "graph": {
+          "blob": "bfcb2be2f4f9761268e7dbff4d08db65ee620fc67dbb9b127bbb10ef1189ebab",
+          "digest": "bfcb2be2f4f9761268e7dbff4d08db65ee620fc67dbb9b127bbb10ef1189ebab"
+        }
+      }
+    },
+    "start_record": {
+      "start_time": "2026-10-01T22:37:06.702Z",
+      "run_branch": "fabro/run/01M3WSTF1DAJA248NQ5QQGQG52",
+      "base_sha": "a282596759571fcb1c46ae3a533de59b11190192"
+    },
+    "conclusion": null,
+    "checkpoint": {
+      "timestamp": "2026-10-01T22:37:08.594Z",
+      "current_node": "start",
+      "git_commit_sha": "a282596759571fcb1c46ae3a533de59b11190192"
+    },
+    "sandbox": {
+      "kind": "ready",
+      "plan": {
+        "provider": "docker",
+        "image": "python:3.11-slim-bookworm"
+      },
+      "instance": {
+        "provider": "docker",
+        "image": "score-someip84-agent:20261001",
+        "runtime": {
+          "id": "9ecafd9a89099cc37af9b0c2af2026070d80c23d468591b1528bfcbf8c72584a",
+          "working_directory": "/workspace"
+        },
+        "ready_duration_ms": 343
+      }
+    },
+    "stages": {
+      "node_53e4d71026616ad83debc1dd@1": {
+        "handler": "agent",
+        "state": "running",
+        "output": "warn: No usable model fallbacks remain for requested model `deepseek-v4-flash` after filtering its configured candidates.\n"
+      },
+      "start@1": {
+        "handler": "start",
+        "state": "succeeded",
+        "output": "checkout: [run.clone] is disabled; the workspace starts empty\n"
+      }
+    }
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/usr/bin/patch",
+    "--batch",
+    "-p1",
+    "-i",
+    "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/someip-84.patch"
+  ],
+  "exit_code": 0
+}

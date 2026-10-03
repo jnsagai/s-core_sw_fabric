@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-10-02T16:50:35.221857+00:00",
+  "run_id": "01M3YGTGYFEN406VDEVVTJTRWV",
+  "native_status": {
+    "kind": "failed",
+    "reason": "cancelled"
+  },
+  "worker_alive": false,
+  "response_bytes": {
+    "summary": 1820,
+    "/questions": 37,
+    "/state": 4592494
+  },
+  "supervision_read_bound_bytes": 4194304,
+  "compact_reads_pass": true,
+  "states": {
+    "succeeded": 40,
+    "cancelled": 1
+  },
+  "pending_questions": 0,
+  "engineering_acceptance": "pending"
+}

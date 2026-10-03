@@ -15,18 +15,18 @@ from pathlib import Path
 from typing import Any
 
 from score_sw_fabric.agents.models import (
-    input_file,
-    load_request,
     local_dir,
     protected_roots,
     relative_path,
     string_list,
 )
-from score_sw_fabric.assurance.models import stable_id
+from score_sw_fabric.assurance.models import stable_id, version
 from score_sw_fabric.catalog.export import canonical
 from score_sw_fabric.process_source.reader import InputError
+from score_sw_fabric.quality.controls import read_control, selected_bytes, yaml_tree
 from score_sw_fabric.quality.profile import load_profile, load_toolchain
-from score_sw_fabric.runtime.request import parse_yaml
+from score_sw_fabric.quality.source_includes import include_directives
+from score_sw_fabric.runtime.request import _no_links
 from score_sw_fabric.verification.design import root_files
 
 CAPABILITY_FIELDS = {
@@ -63,6 +63,7 @@ class Inputs:
     adapter: str = "clang-tidy"
     settings: dict[str, Any] = field(default_factory=dict)
     assets: dict[str, bytes] = field(default_factory=dict)
+    controls: dict[Path, bytes] = field(default_factory=dict)
 
 
 def digest(data: bytes) -> str:
@@ -87,21 +88,34 @@ def _unique_paths(value: Any, pointer: str, limit: int = 500) -> list[str]:
 
 
 def load_inputs(path: Path, operation: str, adapter: str = "clang-tidy") -> Inputs:
-    if adapter not in {"clang-tidy", "cppcheck", "asan", "ubsan"}:
+    if adapter not in {"clang-tidy", "cppcheck", "asan", "ubsan", "codeql"}:
         raise InputError("ADAPTER_UNSUPPORTED", "Unsupported or combined adapter")
     prefix = "quality" if adapter == "clang-tidy" else f"quality_{adapter}"
     kind = prefix + ("_capability_request" if operation == "capabilities" else "_run_request")
     fields = CAPABILITY_FIELDS if operation == "capabilities" else RUN_FIELDS
-    r, base = load_request(path, kind, fields)
+    if adapter == "codeql":
+        from score_sw_fabric.quality.codeql_models import request as codeql_request
+
+        r, base = codeql_request(path, kind, fields)
+    else:
+        path = _no_links(path.absolute(), "/request")
+        original_request = read_control(path, "/request")
+        r = version(yaml_tree(original_request, "/request"), kind, fields, "/request")
+        base = path.parent
     for key, low, high in [
         ("timeout_seconds", 1, 3600),
         ("output_limit_bytes", 1024, MAX_ARTIFACT),
     ]:
         if type(r[key]) is not int or not low <= r[key] <= high:
             raise InputError("LIMIT_EXCEEDED", f"Invalid {key}", f"/{key}")
-    pp, pb = input_file(base, r["profile"], "/profile")
-    tp, tb = input_file(base, r["toolchain"], "/toolchain")
-    cp, cb = input_file(base, r["config"], "/config")
+    select = selected_bytes
+    if adapter == "codeql":
+        from score_sw_fabric.quality.codeql_models import selection
+
+        select = selection
+    pp, pb = select(base, r["profile"], "/profile")
+    tp, tb = select(base, r["toolchain"], "/toolchain")
+    cp, cb = select(base, r["config"], "/config")
     if len(pb) > 1024 * 1024 or len(tb) > 1024 * 1024 or len(cb) > 1024 * 1024:
         raise InputError("LIMIT_EXCEEDED", "Profile/configuration too large")
     tool_kind = {
@@ -109,6 +123,7 @@ def load_inputs(path: Path, operation: str, adapter: str = "clang-tidy") -> Inpu
         "cppcheck": "quality_cppcheck_toolchain_profile",
         "asan": "quality_sanitizer_toolchain_profile",
         "ubsan": "quality_sanitizer_toolchain_profile",
+        "codeql": "quality_codeql_toolchain_profile",
     }[adapter]
     profile, chain = load_profile(pb), load_toolchain(tb, tool_kind)
     selected = Inputs(
@@ -120,13 +135,15 @@ def load_inputs(path: Path, operation: str, adapter: str = "clang-tidy") -> Inpu
         protected_roots(base, r["protected_roots"], "/protected_roots"),
         adapter=adapter,
     )
+    if adapter != "codeql":
+        selected.controls = {path: original_request, pp: pb, tp: tb, cp: cb}
     if adapter == "clang-tidy":
         native_config = next(s for s in profile["native_sources"] if s["id"] == "clang_tidy")
         if digest(cb) != native_config["sha256"]:
             raise InputError(
                 "CONFIG_IDENTITY_MISMATCH", "Configuration differs from pinned native bytes"
             )
-        config = parse_yaml(cb, "/config")
+        config = yaml_tree(cb, "/config")
         if not isinstance(config, dict) or any(
             k in config for k in ("ExtraArgs", "ExtraArgsBefore")
         ):
@@ -134,6 +151,24 @@ def load_inputs(path: Path, operation: str, adapter: str = "clang-tidy") -> Inpu
         if config.get("InheritParentConfig"):
             raise InputError(
                 "CONFIG_UNSUPPORTED", "Parent configuration inheritance is unsupported"
+            )
+    elif adapter == "codeql":
+        from score_sw_fabric.quality.codeql_models import configuration
+
+        if chain["tool"]["version"] != "2.21.4":
+            raise InputError("TOOL_IDENTITY_MISMATCH", "CodeQL baseline declares CLI 2.21.4")
+        selected.settings, selected.assets, paths = configuration(cb, cp.parent)
+        selected.assets.update(profile=pb, toolchain=tb, configuration=cb)
+        selected.inputs.extend(paths)
+        selected.protected.extend(
+            Path(value)
+            for key in ("source_root", "build_source_root", "compiled_pack_root")
+            if (value := selected.settings["effective"][key]) is not None
+        )
+        selected.protected.extend(Path(value) for value in selected.settings["native_roots"])
+        if selected.settings["reporting"] is not None:
+            selected.protected.extend(
+                Path(value) for value in selected.settings["reporting"]["library_dirs"]
             )
     else:
         from score_sw_fabric.quality.configuration import load_configuration
@@ -143,6 +178,8 @@ def load_inputs(path: Path, operation: str, adapter: str = "clang-tidy") -> Inpu
         )
         selected.inputs.extend(paths)
         selected.protected.extend(p.parent for p in paths)
+        if adapter in {"asan", "ubsan"}:
+            selected.controls.update(zip(paths, selected.assets.values(), strict=True))
     selected.inputs.extend(Path(d["path"]) for d in [chain["tool"], *chain["dependencies"]])
     selected.protected.extend(Path(d) for d in chain["library_dirs"])
     if operation == "capabilities":
@@ -193,11 +230,16 @@ def load_inputs(path: Path, operation: str, adapter: str = "clang-tidy") -> Inpu
             selected.gaps.append("UNAPPROVED_SUPPRESSION")
         if re.search(r"cppcheck-suppress", text):
             selected.gaps.append("UNAPPROVED_SUPPRESSION")
-        for match in re.finditer(
-            r'^\s*#\s*(?:include|include_next)\s+([<"])([^>"\n]+)[>"]', text, re.M
-        ):
-            target = relative_path(match[2], "/source/include")
-            if match[1] == '"':
+        for directive, delimiter, operand in include_directives(data):
+            if directive == "include_next":
+                selected.gaps.append("INCLUDE_NEXT_UNSUPPORTED")
+            elif directive == "import":
+                selected.gaps.append("IMPORT_UNSUPPORTED")
+            if operand is None:
+                selected.gaps.append("DYNAMIC_INCLUDE_UNKNOWN")
+                continue
+            target = relative_path(operand, "/source/include")
+            if delimiter == '"':
                 candidates = [
                     str(Path(name).parent / target),
                     target,
@@ -205,10 +247,6 @@ def load_inputs(path: Path, operation: str, adapter: str = "clang-tidy") -> Inpu
                 ]
                 if not any(p in selected.data for p in candidates):
                     selected.gaps.append("UNDECLARED_LOCAL_INCLUDE")
-        if re.search(r'^\s*#\s*(?:include|include_next)\s+[^<"\s]', text, re.M):
-            selected.gaps.append("DYNAMIC_INCLUDE_UNKNOWN")
-        if re.search(r"^\s*#\s*include_next\b", text, re.M):
-            selected.gaps.append("INCLUDE_NEXT_UNSUPPORTED")
     return selected
 
 
@@ -319,14 +357,24 @@ def execute(
 
 def identity_state(chain: dict[str, Any]) -> bool:
     """Missing assets are capabilities; changed assets are rejected identities."""
+    available = True
     for asset in [chain["tool"], *chain["dependencies"]]:
+        path = _no_links(Path(asset["path"]), "/tool_asset")
         try:
-            observed = file_digest(Path(asset["path"]))
+            observed = file_digest(path)
         except InputError:
-            return False
+            available = False
+            continue
         if observed != asset["sha256"]:
             raise InputError("TOOL_IDENTITY_MISMATCH", "Tool/runtime asset differs from selection")
-    return True
+    return available
+
+
+def recheck_controls(selected: Inputs) -> None:
+    """Refuse changed original selections rather than publishing obsolete current evidence."""
+    for path, original in selected.controls.items():
+        if read_control(path) != original:
+            raise InputError("INPUT_DRIFT", "Quality control changed during measurement")
 
 
 def baseline(selected: Inputs) -> dict[str, Any]:

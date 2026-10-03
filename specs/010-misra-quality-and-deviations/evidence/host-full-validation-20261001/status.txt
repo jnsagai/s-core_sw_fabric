@@ -1,0 +1,8 @@
+sync: exit 0 (expected 0)
+records: exit 0 (expected 0)
+ruff: exit 0 (expected 0)
+format: exit 0 (expected 0)
+mypy: exit 0 (expected 0)
+foundation: exit 0 (expected 0)
+regression: exit 0 (expected 0)
+build: exit 0 (expected 0)

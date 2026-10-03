@@ -6,10 +6,10 @@ import re
 from pathlib import Path
 from typing import Any
 
-from score_sw_fabric.agents.models import input_file, string_list
+from score_sw_fabric.agents.models import string_list
 from score_sw_fabric.assurance.models import nonempty, stable_id, version
 from score_sw_fabric.process_source.reader import InputError
-from score_sw_fabric.runtime.request import parse_yaml
+from score_sw_fabric.quality.controls import selected_bytes, yaml_tree
 
 CPPCHECK_FIELDS = {
     "id",
@@ -60,7 +60,7 @@ def load_configuration(
 ) -> tuple[dict[str, Any], dict[str, bytes], list[Path]]:
     if adapter == "cppcheck":
         c = version(
-            parse_yaml(data, "/config"),
+            yaml_tree(data, "/config"),
             "quality_cppcheck_configuration",
             CPPCHECK_FIELDS,
             "/config",
@@ -85,7 +85,7 @@ def load_configuration(
             raise InputError("CONFIG_UNSUPPORTED", "Unresearched or unsafe Cppcheck configuration")
         return c, {}, []
     c = version(
-        parse_yaml(data, "/config"), "quality_sanitizer_configuration", SANITIZER_FIELDS, "/config"
+        yaml_tree(data, "/config"), "quality_sanitizer_configuration", SANITIZER_FIELDS, "/config"
     )
     stable_id(c["id"], "/config/id")
     nonempty(c["status"], "/config/status", max_length=64)
@@ -100,7 +100,7 @@ def load_configuration(
         ("native_runtime", adapter + "_runtime"),
         ("native_suppressions", adapter + "_suppressions"),
     ]:
-        path, content = input_file(base, c[key], f"/{key}")
+        path, content = selected_bytes(base, c[key], f"/{key}")
         if len(content) > 1024 * 1024:
             raise InputError("LIMIT_EXCEEDED", "Native policy asset exceeds 1 MiB")
         source = next((s for s in profile["native_sources"] if s["id"] == ident), None)

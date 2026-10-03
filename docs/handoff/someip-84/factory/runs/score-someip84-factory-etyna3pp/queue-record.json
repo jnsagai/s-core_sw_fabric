@@ -1,0 +1,14 @@
+{
+  "status": "prepared_not_submitted",
+  "prepared_root": "/tmp/score-someip84-factory-etyna3pp",
+  "run_id": null,
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "reasoning_effort": "high",
+  "fallbacks": [],
+  "recovery": "user reports Flash is back; not independently probed",
+  "native_validation": "passed",
+  "previous_implementation_status": "failed",
+  "blocked_by": "Session denies sockets and Docker; Fabro MCP requires unavailable approval",
+  "engineering_acceptance": "pending"
+}

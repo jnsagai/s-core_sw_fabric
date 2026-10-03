@@ -1,0 +1,62 @@
+{
+  "observed_at": "2026-10-01T23:44:39.921381+00:00",
+  "run_id": "01M3WX09X84XFM5X08QY2944DF",
+  "root": "/tmp/score-someip84-factory-81ibm9qq",
+  "status": {
+    "kind": "running"
+  },
+  "container": {
+    "id": "2f8b6f9b5d0d",
+    "image_id": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+    "networks": {},
+    "run_label": "01M3WX09X84XFM5X08QY2944DF",
+    "managed": "true",
+    "state": "running"
+  },
+  "model": {
+    "provider": "deepseek",
+    "name": "deepseek-flash",
+    "fallbacks": {
+      "deepseek-flash": []
+    },
+    "controls": {
+      "reasoning_effort": "high",
+      "speed": null
+    }
+  },
+  "deadline": "2026-10-02T07:00:00+01:00",
+  "engineering_acceptance": "pending",
+  "live_deadline_expiry": "not_yet_observed",
+  "stages": [
+    {
+      "ref": "callsites",
+      "state": "succeeded"
+    },
+    {
+      "ref": "scope",
+      "state": "succeeded"
+    },
+    {
+      "ref": "unit_matrix",
+      "state": "running"
+    },
+    {
+      "ref": "key_fix",
+      "state": "succeeded"
+    },
+    {
+      "ref": "reproducer",
+      "state": "succeeded"
+    },
+    {
+      "ref": "invariants",
+      "state": "succeeded"
+    },
+    {
+      "ref": "start",
+      "state": "succeeded"
+    }
+  ],
+  "live_source_snapshot": "passed",
+  "query_suite_resolution": "passed_security_and_misra"
+}

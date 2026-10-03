@@ -1,0 +1,565 @@
+{
+  "origin": "derived_from_retained_deterministic_collector_results",
+  "results": [
+    {
+      "check": "codeql_misra",
+      "status": "findings_or_execution_failure",
+      "blockers": [
+        "MISRA applicability/mapping draft and incomplete",
+        "Default suite omits manual/audit obligations",
+        "Compiled query qualification and human deviations pending"
+      ],
+      "findings_count": 5892,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "database-create",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "analyze",
+          "exit_code": 0,
+          "reason": null
+        }
+      ],
+      "source_result_sha256": "d74f27b28e2b9a05794b45af516bd941b218b93864df5b15a21be8072eb22a05"
+    },
+    {
+      "check": "codeql_security",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 32,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "database-create",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "analyze",
+          "exit_code": 0,
+          "reason": null
+        }
+      ],
+      "source_result_sha256": "82e345821a1b86b6fa846859b40a02d9e438da3cad6c0f6e07d68c0493dd225e"
+    },
+    {
+      "check": "compiler_diagnostics",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "gcc-compile",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "gcc-tests",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "clang-compile",
+          "exit_code": 1,
+          "reason": null
+        }
+      ],
+      "source_result_sha256": "3c833718789309b8a0117eb1a1e58b00873f9f409617052832f925b418a02b24"
+    },
+    {
+      "check": "cross_compilation",
+      "status": "findings_or_execution_failure",
+      "blockers": [
+        "QNX SDK entitlement and target execution not configured; no credential acquired"
+      ],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "x86",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        },
+        {
+          "label": "arm",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "99fcc8141b50f1b7cf4d2e4a943312a02501b08265b995bcce2e269013f21529"
+    },
+    {
+      "check": "focused_asan_lsan",
+      "status": "completed",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "tests",
+          "exit_code": 0,
+          "reason": null
+        }
+      ],
+      "source_result_sha256": "e78b68741d577b07a934b24fd30b738d4cab2652e7731a5d5de8ac6c13c27798"
+    },
+    {
+      "check": "focused_clang_tidy",
+      "status": "findings_or_execution_failure",
+      "blockers": [
+        "Native analyzer configuration incompatible; no replacement called MISRA"
+      ],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "native-config",
+          "exit_code": 1,
+          "reason": null
+        }
+      ],
+      "source_result_sha256": "9bfced79c240f9c786e65fe9bcca5cde72f44851e095a824ed4bd38681283e2c"
+    },
+    {
+      "check": "focused_coverage",
+      "status": "completed",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": {
+        "files": [
+          "score/socom/impl/service_identifier.cpp",
+          "score/socom/impl/string_registry.cpp"
+        ],
+        "production_filter": "score/socom/impl/",
+        "tests_and_third_party_excluded": true,
+        "line_total": 36,
+        "line_covered": 36,
+        "branch_total": 14,
+        "branch_covered": 11,
+        "line_percent": 100.0,
+        "branch_percent": 78.6,
+        "platform_goals": {
+          "QM": 85,
+          "safety": 100
+        },
+        "safety_class": "unknown_requires_authorized_selection",
+        "complete_target_scope": false
+      },
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "tests",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "gcovr",
+          "exit_code": 0,
+          "reason": null
+        }
+      ],
+      "source_result_sha256": "2ef721231bc4a32c6e53170dbe60a173e3da66b90535beef1dc029dd5a86f61f"
+    },
+    {
+      "check": "focused_cppcheck",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "cppcheck",
+          "exit_code": 2,
+          "reason": null
+        }
+      ],
+      "source_result_sha256": "cd85fc1da77b44a565b19ba394f29b0f7c52e923854b0ff5156018a9e5551f2c"
+    },
+    {
+      "check": "focused_memcheck",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "memcheck",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/score-someip84-obligation-tools/usr/bin/valgrind'"
+        }
+      ],
+      "source_result_sha256": "0a8b91eeb42c6ea46ec5d32a3ce2d65e931ab8d8cfa855e044c53032fbc937b0"
+    },
+    {
+      "check": "focused_tsan",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "compile",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "tests",
+          "exit_code": -11,
+          "reason": null
+        }
+      ],
+      "source_result_sha256": "f4f8a919bb05c2f516823857c9483330a118ae546ef15b0748b98b6124bddbd4"
+    },
+    {
+      "check": "format_precommit",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "git-init",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "git-add",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "format",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        },
+        {
+          "label": "precommit",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/score-someip84-obligation-tools/bin/pre-commit'"
+        },
+        {
+          "label": "reuse",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/score-someip84-obligation-tools/bin/reuse'"
+        },
+        {
+          "label": "module-tidy",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        },
+        {
+          "label": "lockfile",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "82de86679c8439c7523f91a522414f3d55d46ab51162bcbe7ef76adc8c448811"
+    },
+    {
+      "check": "native_build",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "build",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "0dbc7a9e66353dd248b3b90ec0cc3b4281e45bbb2de5da1866e64e7cf9c7fe81"
+    },
+    {
+      "check": "native_coverage",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "coverage",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        },
+        {
+          "label": "report",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "7777b078cecb0c4cb37b60adecc4d3a89fb6edb32ca2bdc7860c459327974d22"
+    },
+    {
+      "check": "native_docs",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "docs",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "77fd54c0f5118cdd4e5df342009c2af2c8cf1af5c6a435deb1db568aa3dd99ed"
+    },
+    {
+      "check": "native_integration",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "qemu",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "9d971b2e0d11ccddc46d8eca3650ebc36fb12a3267a9d0936c04ef8e016408e3"
+    },
+    {
+      "check": "native_lint",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "clang-tidy",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        },
+        {
+          "label": "ruff",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "38e002104135d44cae235581731fa33f69767b2a3ab9a4fc0ec5cb01f2da8ad1"
+    },
+    {
+      "check": "native_performance",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "benchmarks",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        },
+        {
+          "label": "profiling",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "1b12214257c9d86769ef9c6ea910ec9c0729ab36163e6a8994e3e67f222fa8b6"
+    },
+    {
+      "check": "native_sanitizers",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "sanitizers",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "d7130a131d52d9f4676f816d425d77ecf3e0738f2f5b225025669a7dda2781b4"
+    },
+    {
+      "check": "native_tests",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "tests",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "c187c1896a55fa4ab887cd1194484e5ddf9f8ad47a91a3d9182b15c4aa217e61"
+    },
+    {
+      "check": "native_traceability",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "unit-component-tests",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        },
+        {
+          "label": "docs",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        },
+        {
+          "label": "traceability",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "c47a1df9005121ce9677cfd9445a435e7c526099f6990fdb7c85dbc931837b72"
+    },
+    {
+      "check": "native_tsan",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "tsan",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/s-core-001/bin/bazel'"
+        }
+      ],
+      "source_result_sha256": "073777042779a3c7ad5dea37a414be9092c50de0f52ccca20493899069b3051c"
+    },
+    {
+      "check": "process_checks",
+      "status": "completed_with_blockers",
+      "blockers": [
+        "Lexical metadata inventory cannot prove semantic requirement coverage",
+        "Safety/QM applicability and approved tailoring unknown",
+        "Independent inspection and acceptance required",
+        "External AoU and full integration verification require scoped review"
+      ],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [],
+      "source_result_sha256": "a614e1cc64575d3c15b37f9e59cc750b3ef3bd078e1fdfc5bf730933b7cd561c"
+    },
+    {
+      "check": "rework_progress",
+      "status": "completed",
+      "blockers": [],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [],
+      "source_result_sha256": "e72f9f3a0458347b9c9474f1204b172018c8d877f64ed097f210b5d105dd5e23"
+    },
+    {
+      "check": "secret_dependency_checks",
+      "status": "findings_or_execution_failure",
+      "blockers": [
+        "No adopted vulnerability database/ecosystem mapping or GitHub dependency scan receipt; dependency inventory is not a vulnerability scan"
+      ],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "gitleaks",
+          "exit_code": 127,
+          "reason": "[Errno 2] No such file or directory: '/tmp/score-someip84-obligation-tools/bin/gitleaks'"
+        }
+      ],
+      "source_result_sha256": "e86248346cdf9f8cdc75483f7cc22a78b8b113c92c245830a4e018427f94a869"
+    },
+    {
+      "check": "tool_assurance",
+      "status": "completed_with_blockers",
+      "blockers": [
+        "Tool confidence evaluation, qualification where applicable, and acceptance require authorized humans",
+        "Coverity not installed/adopted here; reconcile guideline/development-plan discrepancy",
+        "Memcheck is an optional complement, not a universal process mandate"
+      ],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [
+        {
+          "label": "version-0",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "version-1",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "version-2",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "version-4",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "version-5",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "version-6",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "version-7",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "version-11",
+          "exit_code": 0,
+          "reason": null
+        },
+        {
+          "label": "version-12",
+          "exit_code": 0,
+          "reason": null
+        }
+      ],
+      "source_result_sha256": "4f73e69e10e203f9807fdc2cd6c1f069b06718ab2f63641e7c6e0c581814dec5"
+    },
+    {
+      "check": "verification_report",
+      "status": "completed_with_blockers",
+      "blockers": [
+        "Independent PR approval pending",
+        "Safety/security/quality decisions, MISRA manual review and deviations pending",
+        "Module/platform release acceptance and target qualification pending"
+      ],
+      "findings_count": 0,
+      "coverage": null,
+      "commands": [],
+      "source_result_sha256": "60ccc2d4bc5ff14996658c4b4a859da6b51f72a116df28081b84acf707d5e4f9"
+    }
+  ],
+  "engineering_acceptance": "pending"
+}

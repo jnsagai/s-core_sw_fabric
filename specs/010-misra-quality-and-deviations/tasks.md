@@ -9,17 +9,30 @@ Installation evidence is separate from adapter implementation and acceptance.
 Tests are required by the spec. Write the relevant negative tests before implementation.
 `[P]` identifies independent files within the stated phase, not authorization for agents.
 
+2026-10-01 resumed checkpoint: [internal native phase contract](contracts/codeql-native-phases.md),
+35 negative-first contract cases and genuine synthetic CodeQL seed/fresh-fix demonstrations
+are implemented. [Measured evidence](codeql-native-demonstration-acceptance.md) records partial
+T002/T011/T012/T078/T079 progress. Public execution, native Python/XML/reporting and the full
+acceptance scope remain incomplete; the corresponding original checkboxes stay open.
+Task count at that checkpoint was 70/84 complete, 14 open; human reviews remained unchecked.
+
+The later [Python 3.9 reporting checkpoint](codeql-python39-reporting-acceptance.md) verifies
+installed dependencies, original configuration/XML phases and complete native reports using
+an explicit disposable recount variant of the selected upstream patch. Original failed reports
+remain preserved. Target-project execution and the original full acceptance tasks are still open; the later fixed
+public demonstration slice is recorded below.
+
 ## Phase 1: Setup
 
-- [ ] T001 Record pinned native policies, license notices, installed tool identities and compiled-pack/source discrepancy in profiles/s-core-quality-v1.yaml; use unknown mapping/category defaults (010-R01/R09/R11).
+- [x] T001 Record pinned native policies, license notices, installed tool identities and compiled-pack/source discrepancy in profiles/s-core-quality-v1.yaml; use unknown mapping/category defaults (010-R01/R09/R11).
 - [ ] T002 Define exact version 1 field names, required/nullable fields and enums for all five requests and records in specs/010-misra-quality-and-deviations/contracts/quality.md and schemas/quality-*.schema.json before validator implementation (010-R11).
 
 ## Phase 2: Foundation
 
-- [ ] T003 Add strict request/profile/digest/path/refusal tests in tests/contract/test_quality_contracts.py; reject duplicate/unknown/missing fields, unsafe roots, malformed selections and changed prior output (010-R02/R11).
-- [ ] T004 Implement shared records and bounds in src/score_sw_fabric/quality/models.py: control request at most 1 MiB, 500 source files, 32 tools; native output at most 16 MiB per artifact and 64 MiB combined, with bounded prefix/full-stream digest on truncation; at most 10000 findings, 1000 guideline rows, 1000 dispositions, 20 decision references; timeout integer 1–3600 seconds; no retries; schema_version 1 and engineering_readiness not_evaluated (010-R02/R10/R11).
-- [ ] T005 Implement strict sourced profile loading in src/score_sw_fabric/quality/profile.py and candidate profile profiles/cpp17-quality-local-v1.yaml; keep mapping_state unknown by default, decision_policy_ref null, primary/complementary roles, explicit C++17/MISRA edition, native statuses and suppression refs (010-R01/R05/R09).
-- [ ] T006 Add shared sealed fixtures and source manifests in tests/quality_support.py and tests/fixtures/quality/; label fixtures and local origins distinctly, with no production authority or fabricated guideline text (010-R10/R11).
+- [x] T003 Add strict request/profile/digest/path/refusal tests in tests/contract/test_quality_contracts.py; reject duplicate/unknown/missing fields, unsafe roots, malformed selections and changed prior output (010-R02/R11).
+- [x] T004 Implement shared records and bounds in src/score_sw_fabric/quality/models.py: control request at most 1 MiB, 500 source files, 32 tools; native output at most 16 MiB per artifact and 64 MiB combined, with bounded prefix/full-stream digest on truncation; at most 10000 findings, 1000 guideline rows, 1000 dispositions, 20 decision references; timeout integer 1–3600 seconds; no retries; schema_version 1 and engineering_readiness not_evaluated (010-R02/R10/R11).
+- [x] T005 Implement strict sourced profile loading in src/score_sw_fabric/quality/profile.py and candidate profile profiles/cpp17-quality-local-v1.yaml; keep mapping_state unknown by default, decision_policy_ref null, primary/complementary roles, explicit C++17/MISRA edition, native statuses and suppression refs (010-R01/R05/R09).
+- [x] T006 Add shared sealed fixtures and source manifests in tests/quality_support.py and tests/fixtures/quality/; label fixtures and local origins distinctly, with no production authority or fabricated guideline text (010-R10/R11).
 
 ## Phase 3: US1 — Available checks and capability gaps (P1, MVP)
 
@@ -28,12 +41,12 @@ Tests are required by the spec. Write the relevant negative tests before impleme
 request missing/unsupported tools and incompatible sanitizer combinations (AC010-01–04).
 
 - [ ] T007 [P] [US1] Add capability, drift, bounded output/timeout and disposable-copy tests in tests/contract/test_quality_execution.py, including unchanged protected inputs (010-R01/R02/R06/R09).
-- [ ] T008 [P] [US1] Add seeded/corrected C++ sources and actual Clang-Tidy, optional Cppcheck and separate ASan/UBSan integration checks in tests/integration/test_quality_tools.py and tests/fixtures/quality/seeded/, corrected/ and sanitizers/; require real native findings and fresh correction, never a fixture substitute (SC010-01; 010-R02/R06).
-- [ ] T009 [US1] Implement measured capability inventory in src/score_sw_fabric/quality/capabilities.py with available/unavailable/unsupported/unknown states, tool hashes/versions, expanded checks/effective config, pack/suite identities and eligibility/qualification gaps (010-R01/R09).
+- [x] T008 [P] [US1] Add seeded/corrected C++ sources and actual Clang-Tidy, optional Cppcheck and separate ASan/UBSan integration checks in tests/integration/test_quality_tools.py and tests/fixtures/quality/seeded/, corrected/ and sanitizers/; require real native findings and fresh correction, never a fixture substitute (SC010-01; 010-R02/R06).
+- [x] T009 [US1] Implement measured capability inventory in src/score_sw_fabric/quality/capabilities.py with available/unavailable/unsupported/unknown states, tool hashes/versions, expanded checks/effective config, pack/suite identities and eligibility/qualification gaps (010-R01/R09).
 - [ ] T010 [US1] Implement frozen source/include/generated-input and expected-unit manifests, inspected hooks, disposable copies and bounded adapter-owned argument execution in src/score_sw_fabric/quality/runner.py; retain phases/outputs/configs/digests, compiler/runtime/suppression settings and completed/findings/incomplete/unavailable/failed outcomes (010-R02/R03/R06/R11).
 - [ ] T011 [US1] Add gated CodeQL phase execution to src/score_sw_fabric/quality/runner.py only after exact CLI/library/pack/suite/config/patch identity and source/build reconciliation, eligible-use evidence and compatible reporting prerequisites; isolate user/cache, preserve every phase failure/filter/exclusion, and publish unknown prerequisites as blocked (010-R03/R09).
 - [ ] T012 [US1] Add genuine environment-selected CodeQL/native-report integration in tests/integration/test_quality_codeql.py; record unmet prerequisites explicitly and retain original SARIF/reports when eligible; unavailable runs stay unmet acceptance rather than replaced fixtures (010-R03/R09).
-- [ ] T013 [US1] Wire quality capabilities/run and stable 0/1/2 outcomes into src/score_sw_fabric/cli.py, preserving previous output on rejected selections (010-R11).
+- [x] T013 [US1] Wire quality capabilities/run and stable 0/1/2 outcomes into src/score_sw_fabric/cli.py, preserving previous output on rejected selections (010-R11).
 
 ## Phase 4: US2 — Native output and extraction (P1)
 
@@ -74,8 +87,8 @@ review/authority yield blocked or not_evaluated, with a portable pending-human p
 ## Phase 7: Cross-cutting validation and handoff
 
 - [x] T029 Verify pinned source/config hashes and read-only native repository status in tests/integration/test_quality_native_sources.py; record absent native CSV, measured identical source trees and unresolved compiled artifact provenance without inventing mappings (010-R01/R02/R11).
-- [ ] T030 Run uv sync --frozen, Ruff, mypy, pytest, uv run --frozen python scripts/check_foundation.py and uv build; record exact commands/outcomes, actual tool runs and unmet native CodeQL/report prerequisites in specs/010-misra-quality-and-deviations/acceptance.md (all SC010 criteria; 010-R11).
-- [ ] T031 Update README.md, docs/backlog/requirements-index.md, docs/backlog/roadmap.md and docs/handoff/010-to-011.md with actual implementation limits and owner-review questions; do not authorize 011 work (010-R10/R11).
+- [x] T030 Run uv sync --frozen, Ruff, mypy, pytest, uv run --frozen python scripts/check_foundation.py and uv build; record exact commands/outcomes, actual tool runs and unmet native CodeQL/report prerequisites in specs/010-misra-quality-and-deviations/acceptance.md (all SC010 criteria; 010-R11).
+- [x] T031 Update README.md, docs/backlog/requirements-index.md, docs/backlog/roadmap.md and docs/handoff/010-to-011.md with actual implementation limits and owner-review questions; do not authorize 011 work (010-R10/R11).
 - [ ] T032 Obtain authorized owner review of source/tool confidence, 009 T018, applicability denominator, allowed deviation/recategorization policy and CodeQL eligibility/report configuration; record authenticated decisions or remaining blockers in specs/010-misra-quality-and-deviations/acceptance.md. Human-owned: agents must not check off this task (010-R01/R05/R07/R09).
 
 ## Dependencies and parallel opportunities
@@ -238,3 +251,148 @@ T029 is complete with five environment-selected read-only tests and [measured ev
 The source-tree discrepancy is resolved without changing reviewed locks. Native CSV absence,
 compiled build provenance, reporting and use eligibility remain explicit. Current total: 68 tasks,
 50 complete, 18 original tasks open including human T032. No new engineering acceptance is recorded.
+
+## Autonomous CodeQL prerequisites and native runtime diagnosis
+
+The existing seven-hour authorization covers this prerequisite inspection and fail-closed
+runtime correction. These tasks record bounded implemented scope; they do not complete
+T011/T012 or the failed full validation gate T030. No human-owned decision is checked off.
+
+- [x] T069 Define exact CodeQL prerequisite requests, toolchain/configuration/inventory/run schemas in contracts/codeql-prerequisites.md and schemas/quality-codeql-*.schema.json before implementation (scoped T001/T002).
+- [x] T070 Write Git object, source/pack/library/suite/control identity, bounded inspection, drift/race and protected-output refusal tests before implementation in tests/contract/test_quality_codeql.py; add environment-selected installed-source inspection tests in tests/integration/test_quality_codeql.py (scoped T003/T007/T012; inspection does not satisfy genuine T012 analysis).
+- [x] T071 Implement bounded frozen prerequisite inspection in quality/codeql.py and codeql_models.py and guarded quality capabilities/run --adapter codeql routing, with unavailable execution, unverified eligibility and zero claims; protect native roots and reject accidental complementary execution (scoped T009/T013).
+- [x] T072 Retain actual selected prerequisite inventory/profiles/request and exact pass/fail verification results in codeql-prerequisites-acceptance.md, schemas/README.md and docs/handoff/010-codeql-prerequisites.md (scoped T030/T031; broad ASan validation remains failed).
+- [x] T073 Add failing contract cases before correcting LeakSanitizer fatal-error handling in quality/sanitizers.py: even exit 0 or exit 55 with an AddressSanitizer finding must keep scope incomplete; preserve original stderr/findings and precise runtime/ptrace gaps in sanitizer-environment.md (010-R02/R03/R09).
+
+Current total: 73 tasks, 55 complete, 18 original tasks open. Full validation T030 is
+failed in the restricted ASan runtime environment; CodeQL execution T011/T012 and human
+T032 remain pending. The [overnight handoff](../../docs/handoff/010-overnight.md) records
+the active window and current filesystem limits. No 011 continuation is authorized.
+
+
+## Phase 8: Convergence
+
+Current-code audit: 31 requirement/scenario/success items, seven plan decisions, twelve
+constitution principles and all 73 existing tasks. Three missing and eight partial findings;
+nine HIGH and two MEDIUM. No additional contradictory or unrequested behavior identified.
+These tasks preserve the original task scope and external/human gates; completing a scoped
+fix does not complete the full increment or authorize 011. F5/F6 require reviewed prerequisites;
+F11 is human-owned and must remain unchecked by agents.
+
+- [x] T074 Refreeze the original request, profile, toolchain, configuration and native sanitizer controls before returning local capability/run/disposition results in quality/models.py, capabilities.py, runner.py, complementary.py and dispositions.py; write control/source race and safe-publication tests before implementation per F1, 010-R02/R06/R11 and T007/T010/T019/T021 (partial, HIGH).
+- [x] T075 Bound live YAML controls/effective configuration/Clang-Tidy native output by depth/nodes and regular-file/control bytes in quality/models.py, profile.py, configuration.py, capabilities.py and native_outputs.py; refuse cycles, non-JSON and nonfinite values with stable exit 2 and prior output intact per F2, 010-R02/R11 and T003/T004/T007 (partial, HIGH).
+- [x] T076 Check every selected runtime asset even when another tool/dependency is unavailable in quality/models.py; missing capability cannot hide changed identities; write negative tests before implementation per F3, 010-R02/R09 and T007/T009 (partial, HIGH).
+- [x] T077 Share LeakSanitizer fatal-error interpretation across execution, original native import and offline packet replay in quality/sanitizers.py and imports.py; preserve findings/stderr and incomplete extraction for misleading zero/finding exits; test original-byte import and portable replay per F4, 010-R03/R04/R09 and AC010-06 (partial, HIGH).
+- [ ] T078 Implement isolated adapter-owned CodeQL/native-report phases and bounded original SARIF/supporting artifacts only after exact source/build/tool/library/pack/suite/config/patch/report compatibility and independently established eligible-use prerequisites in quality/codeql.py and runner.py per F5, 010-R03/R09 and T011 (missing, HIGH; external eligibility/configuration prerequisites remain pending).
+- [ ] T079 Add environment-selected genuine eligible CodeQL extraction/query/native-report seeded/corrected integration with original outputs and explicitly unmet unavailable prerequisites in tests/integration/test_quality_codeql.py per F6, 010-R03/R09, SC010-01 and T012 (missing, HIGH; prerequisite inspections and fixtures cannot satisfy this task).
+- [x] T080 Add CodeQL source/tool/pack/suite/policy context for imported disposition drafts and blocked corrections in quality/dispositions.py and disposition_models.py with compatible portable history/decision binding tests; prerequisite inspection must never count as fresh analysis per F7, 010-R06/R07/R10 and T019/T021 (partial, HIGH).
+- [x] T081 Complete current full validation and exact pass/fail records in acceptance.md with frozen sync, Ruff, mypy, pytest, foundation and build; retain existing ASan sandbox failures until a compatible runtime permits the original checks per F9, 010-R11 and T030 (partial, HIGH at audit; compatible-host gate now passes, historical failure retained).
+- [ ] T082 Obtain authenticated owner review of tool/source confidence, 009 profile review, applicability/mapping, deviation categories and CodeQL eligibility/report configuration; retain pending prerequisites in acceptance.md per F11, 010-R01/R05/R07/R09 and T032 (partial, HIGH; HUMAN-OWNED, agents must not check off).
+- [x] T083 Reconcile the full version 1 contract with implemented profile/toolchain/configuration composition, installed/source identities, schemas and explicit unimplemented native phases in contracts/quality.md and profile documentation; preserve historical transport hashes and unknown mappings per F8, 010-R01/R11 and T001/T002 (partial, MEDIUM).
+- [x] T084 Finish actual 010 implementation/verification/blocker handoff in docs/handoff/010-to-011.md and README/backlog indexes, preserving pending owner reviews and no authorization for 011 per F10, 010-R10/R11 and T031 (missing, MEDIUM).
+
+After audit: 84 tasks, 55 complete, 29 open including 18 original tasks. The full
+regression gate remains failed in the restricted ASan environment. Convergence appends
+work only; no checkbox, code, profile or spec was changed by this audit.
+
+
+Convergence implementation checkpoint: T074–T077 and T083 are complete with
+[negative-first verification](controls-validation.md). Current total: 84 tasks, 60 complete,
+24 open. T078/T079 native CodeQL, T080 CodeQL disposition context, T081 full validation,
+T082 human review and T084 final handoff remain open. Current ASan validation is still unmet.
+
+CodeQL context and handoff checkpoint: T080, T031 and T084 are complete with
+[context verification](codeql-dispositions-acceptance.md) and [actual handoff](../../docs/handoff/010-to-011.md).
+Current total: 84 tasks, 63 complete, 21 open (17 original tasks). Genuine CodeQL
+execution/integration T011/T012/T078/T079, failed full validation T030/T081 and
+human-owned T032/T082 remain open. No inspection or fixture establishes acceptance.
+
+Full-task reconciliation closes T003/T004/T005/T006/T009/T013 against their complete
+implemented scope and [measured evidence](task-reconciliation.md), including the corrected
+combined 32-tool bound. Current total: 84 tasks, 69 complete, 15 open (eleven original).
+
+04:22 UTC T001 follow-up: candidate installed context is now consolidated under its exact
+[contract](contracts/installed-context.md), with complete original notices and explicit unknown
+qualification/eligibility. Original profile bytes are retained for historical imports/packets;
+current selections use the new SHA. Current total: **84 tasks, 70 complete, 14 open** (ten
+original). Human gates and native CodeQL/full ASan validation remain open.
+Unimplemented eligible CodeQL execution, the failed ASan gate and human-owned reviews remain open.
+
+
+## Resumed public software demonstration slice (2026-10-01)
+
+User resumption authorizes the bounded synthetic demonstration integration below. These tasks
+implement parts of T002/T011/T012/T078/T079; they do not close target-project eligibility,
+qualification, human reviews or full ASan validation. No increment 011 work is authorized.
+
+- [x] T085 Define the distinct fixed demonstration request/result contract before validator implementation and publish matching strict schemas; prohibit target roots/files/build commands and bind original CLI terms, selected prerequisite/compiler/reporting controls and explicit patch mode (010-R02/R03/R09/R11).
+- [x] T086 Add negative-first demonstration scope/hash/license/output/failure tests and native SARIF self-index/default-line/source-root regressions; preserve native records and refuse unresolved paths/content drift (010-R02/R04/R06/R11).
+- [x] T087 Implement bounded public fixed CodeQL demonstration execution in quality/codeql_demonstration.py with shared capture bounds, isolated source/cache, complete native phases, independent extraction, original report failures and source/tool/control refreezing; retain inspection-only target requests and all qualification gates (010-R03/R09/R10).
+- [x] T088 Execute environment-selected public seeded/fresh-corrected integration, preserve sealed original SARIF/configuration/XML/native reports and failures, validate exact schemas and foundation gates, then reconcile acceptance/handoff without checking human-owned tasks (010-R03/R04/R09/R11).
+
+Completed [public demonstration slice](codeql-public-demonstration-acceptance.md): T085–T088
+are complete. Current total: **88 tasks, 74 complete, 14 open** (ten original tasks).
+Real public seeded/fresh-corrected integration passes with three/zero findings, adequate
+extraction and all native reports. Full target execution, ASan validation and human reviews
+remain open; no fixture, native status or test pass closes engineering acceptance.
+
+## ASan normal-terminal validation continuation
+
+The latest user resumption authorizes preparing/running the existing T030/T081 validation
+gates in a compatible host context. `scripts/validate_asan_host.sh` retains original capability,
+seed/fresh-fix records and the three affected integration checks, and can resume full gates in
+a new output directory without overwriting earlier evidence. Negative-first retained-record
+checks refuse changed phase exits, missing runtime, LeakSanitizer failures, changed native
+configuration/origin/kind, truncation and raw-byte mismatch.
+
+[Host ASan evidence](sanitizer-environment.md) now records genuine capability/defect/correction
+and three passing integration checks. Original host Ruff failure and agent-sandbox runtime
+failure remain preserved. T030/T081 stay open until the resumed full validation is complete.
+Task count remains 74/88 complete, 14 open; human-owned T032/T082 stay unchecked.
+
+
+## Completed host validation checkpoint
+
+The user's normal-terminal continuation completes [the selected full validation](asan-host-validation.md):
+1,773 passed, 13 explicitly documented external/native skips, 361.00 seconds; all static,
+foundation/frozen/build gates pass. All four actual Clang-Tidy/Cppcheck/ASan/UBSan seed/fresh-fix
+cases pass in the original full JUnit. T008's complete stated four-tool integration scope is
+verified; T030/T081's exact validation/recording scope is complete. Earlier failed measurements
+remain preserved; current agent-sandbox ASan failure does not invalidate the compatible host
+measurement or become silently cleared in that sandbox.
+
+Current total: **88 tasks, 77 complete, 11 open** (eight original tasks).
+T002/T007/T010/T011/T012/T019/T021/T032 and T078/T079/T082 remain open. Human-owned T032/T082,
+009 T018 and protected 005 T009 stay unchecked. No target CodeQL eligibility or engineering
+acceptance is inferred from this gate.
+
+## Shared source include validation follow-up
+
+[The source include correction](source-include-validation.md) retains 35 negative-first failures
+and a final passing focused gate, including five genuine Clang-Tidy selected-header spellings.
+Literal external paths obscured by comments/continuations/directive spelling now refuse before
+execution; unknown macro/import/include-next scope remains explicit. This is additional scoped
+T007/T010 progress. Their full target/generated-input work remains open; count stays 77/88.
+
+## Fabro SOME/IP execution correction (2026-10-01)
+
+Authorized by the user's continuation after identifying direct implementation
+outside the factory. Earlier provenance and all human gates remain intact.
+
+- [x] T089 Define the optional packaged command binding and bounded SOME/IP factory execution contract before code, preserving historical prototype replay and explicit live-agent admission (contracts/fabro-command-binding.md; 010-R03/R09/R11).
+- [x] T090 Write negative-first command binding/execution/exit/tampering tests in tests/contract/test_compiler_command_binding.py; fixtures cannot establish actual native execution (010-R03/R11).
+- [x] T091 Implement and verify explicit support-file script projection in compiler/mapping.py, ir.py, models.py and render.py without introducing a scheduler or implicit shell filename execution (010-R03/R11).
+- [x] T092 Compile a genuine bound SOME/IP measurement workflow with the pinned native validator and execute it through the existing fabric runtime; retain original Fabro events/checkpoints/outputs and all failures in docs/handoff/someip-84/factory/ (010-R03/R09/R11).
+- [ ] T093 Admit and execute a live Fabro implementation agent only after provider, spending limit and boundary configuration are available; preserve the earlier external candidate and stop explicitly if admission is unavailable (010-R09/R11; pending configuration).
+- [x] T094 Record actual command/native/static/foundation/build results and reconcile factory provenance/handoff without completing human reviews or claiming issue completion (010-R10/R11).
+
+[Actual factory evidence](../../docs/handoff/someip-84/factory/README.md) completes the
+bounded measurement/execution correction. Native run `01M3VZNAAQ1QXK5530X7E8HZ26`
+reproduces the expected baseline 7/13 failures and external-candidate 13/13 passes;
+complete portable export retains 63 events, three checkpoints and zero human answers.
+The operational configuration gate remains unanswered and has no 005 engineering subject.
+Earlier listener/authentication/interrupted-export failures stay preserved. The user's later
+DeepSeek Flash/spending selection is recorded; credential availability, enforceable native
+model/tool/path binding and runtime usage/admission remain required for T093. Selection and
+measurement do not complete live implementation. Current total: **94 tasks, 82 complete,
+12 open**, including all eleven previously open tasks. Human review markers remain unchanged.

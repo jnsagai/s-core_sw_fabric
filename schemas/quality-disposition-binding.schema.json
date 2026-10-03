@@ -26,7 +26,14 @@
       "const": "quality_disposition_binding"
     },
     "review": {
-      "$ref": "quality-disposition-review.schema.json"
+      "oneOf": [
+        {
+          "$ref": "quality-disposition-review.schema.json"
+        },
+        {
+          "$ref": "quality-codeql-disposition-review.schema.json"
+        }
+      ]
     },
     "policy": {
       "anyOf": [
@@ -58,7 +65,8 @@
             "clang-tidy",
             "cppcheck",
             "asan",
-            "ubsan"
+            "ubsan",
+            "codeql"
           ]
         },
         "profile": {
@@ -74,6 +82,9 @@
             },
             {
               "$ref": "quality-sanitizer-toolchain-profile.schema.json"
+            },
+            {
+              "$ref": "quality-codeql-toolchain-profile.schema.json"
             }
           ]
         },
@@ -133,7 +144,10 @@
       ]
     },
     "origin": {
-      "const": "local_unprotected_execution"
+      "enum": [
+        "local_unprotected_execution",
+        "local_unprotected_inspection"
+      ]
     },
     "assurance_eligibility": {
       "const": "not_eligible"

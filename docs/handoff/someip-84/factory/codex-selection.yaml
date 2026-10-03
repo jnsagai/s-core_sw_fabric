@@ -1,0 +1,46 @@
+kind: factory_agent_selection
+status: user_authorized_pending_fabro_admission
+provider: openai-codex
+model: gpt-6.1-sol
+reasoning_effort: medium
+authentication: existing Codex ChatGPT login
+data_destination: provider.openai-codex
+fallbacks: []
+authorization:
+  user_direction: Use my Codex non API account with Sol 6.1 Medium as an alternative to Flash; continue
+  scope: SOME/IP implementation through Fabro in a disposable workspace
+  spending: ChatGPT account usage; no platform API key selected
+  engineering_acceptance: pending
+account_smoke:
+  executed_on: '2026-10-01'
+  runtime: Codex CLI 0.159.3
+  model: gpt-6.1-sol
+  reasoning_effort: medium
+  forced_login_method: chatgpt
+  api_key_environment: removed
+  exit_code: 0
+  reply: OK
+  evidence_directory: /tmp/score-someip84-codex-account-smoke
+fabro_binding:
+  provider: openai-codex
+  protocol: openai-responses, codex mode
+  endpoint: https://chatgpt.com/backend-api/codex
+  catalogue: codex-catalogue.toml
+  native_tool_smoke: pending
+  implementation_run: not_created
+limits:
+  attempts: 1
+  wall_time_seconds: 14400
+  tool_calls: 1000
+  input_tokens: 1000000
+  output_tokens: 32000
+  platform_token_price: unknown; not applicable to account billing
+documentation:
+  - https://developers.openai.com/codex/auth
+  - https://developers.openai.com/api/docs/models/gpt-6.1-sol
+limitations:
+  - Codex CLI smoke confirms account access, not Fabro harness compatibility.
+  - The pinned native catalogue predates gpt-6.1-sol; a sourced isolated overlay is required.
+  - Fabro subscription usage remains subject to account limits.
+  - The resumed session denies local sockets, Docker and approval-dependent Fabro MCP calls.
+  - No implementation run or engineering acceptance is claimed.

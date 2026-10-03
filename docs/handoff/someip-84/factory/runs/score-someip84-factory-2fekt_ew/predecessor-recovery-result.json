@@ -1,0 +1,6 @@
+{
+  "status": "blocked",
+  "reason": "RuntimeError",
+  "detail": "Owned native worker still active; source application/restart refused",
+  "engineering_acceptance": "pending"
+}

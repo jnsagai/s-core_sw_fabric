@@ -1,0 +1,18 @@
+{
+  "baseline_digest": "125b21c72cb2ef8caef3fe8467aae3afc6894b52cab27dc05fceb4a8d3770e5f",
+  "creation_state": "run_known",
+  "digest": "4729db4917785cab139c1dd18f1f39b488c5ce5a8c9d539fb4fa6b3dcdd5aaa6",
+  "intent_digest": "326b8f87eb1b368d48dda6e44a00baae1783068e64d1a5e64be78113b816159b",
+  "intent_id": "score-someip84-factory-j5k5lpai",
+  "kind": "runtime_binding",
+  "native_observation": null,
+  "reason_codes": [],
+  "resume_attempts": 0,
+  "run_id": "01M3VZ48HZGTB0JAFTZ6MP9H37",
+  "runtime_commit": "1b4fb15281ebb724426f9e480dce48d0100ff79b",
+  "schema_version": 1,
+  "source_package_digest": "a3a813b4022b26d76f8e660123c5bcecd975649a9ea7765881e51ced19a841c6",
+  "start_state": "started",
+  "version_id": "da3942ed62c7fa7336d94fb8e93a2537ca58fbca1beaa895de3349ce6fa9e191",
+  "wire_digest": "da3942ed62c7fa7336d94fb8e93a2537ca58fbca1beaa895de3349ce6fa9e191"
+}

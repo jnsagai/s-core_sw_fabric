@@ -1,0 +1,13 @@
+{
+  "compiled_package_sha256": "df760d241b08eea91627aa768d034264a6c23a7a9f6a54a2fc87eed335cb0c5d",
+  "docker_image_id": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+  "image_identity_check": "recorded_identity_only; live check required",
+  "model": "gpt-6.1-sol",
+  "native_entrypoint_sha256": "97e6aef783dce9ddbcf2bb608424511987995d4faaf3dfe8783f137042b9d7c6",
+  "provider": "openai-codex",
+  "purpose": "Medium reasoning with disposable 32768-event Petri capacity; Docker isolation, denied network and file-only hook",
+  "reasoning_effort": "medium",
+  "sandbox_hook_sha256": "878076828ecb6f479e17aa9c13fd6357bc3d84ff7699ef7ad208bb98af04b187",
+  "status": "pending_live_admission",
+  "tool_hook_sha256": "55cefeb2f105a9bb43154f331e5940c5ea799a66be43473a7380a88cefd4691f"
+}

@@ -1,0 +1,12 @@
+{
+  "results": [
+    {
+      "model": "deepseek-v4-flash",
+      "provider": "deepseek",
+      "result": "pass"
+    }
+  ],
+  "total": 1,
+  "failures": 0,
+  "skipped": 0
+}

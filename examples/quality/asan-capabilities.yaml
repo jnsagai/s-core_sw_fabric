@@ -3,7 +3,7 @@ schema_version: 1
 kind: quality_asan_capability_request
 profile:
   path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
-  sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
+  sha256: c15507fb7047ccc45bb8a830f2af686879b9c38507e4589b65b1ed275ca3dd39
 toolchain:
   path: /home/jefferson/s-core_sw_fabric/profiles/gcc11-sanitizers-local-v1.yaml
   sha256: c19f6e1886a08b1f74a66ed4ca0c673acfdd4134af827bd1649e81a162299033

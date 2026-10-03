@@ -1,0 +1,1141 @@
+{
+  "repository": "eclipse-score/baselibs",
+  "tag": "v0.2.13",
+  "commit": "e7ddf3b69cafc4250200f582afcae2f787db0556",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "sha": "545d9f624bcd213c45640911da90cc53a5c55533",
+      "size": 10458
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "sha": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
+      "size": 10174
+    },
+    {
+      "path": "NOTICE",
+      "mode": "100644",
+      "sha": "8822d1227cbe501bfc3ebe95051a588e8525c859",
+      "size": 2182
+    },
+    {
+      "path": "score/language/futurecpp/include/score/algorithm.hpp",
+      "mode": "100644",
+      "sha": "23f49ca6ed0d66ff63aa04ffd1bc77e0c85b2e10",
+      "size": 1225
+    },
+    {
+      "path": "score/language/futurecpp/include/score/apply.hpp",
+      "mode": "100644",
+      "sha": "c553629fc02b28ca0eed8e8a09a0a8953b8e318a",
+      "size": 2217
+    },
+    {
+      "path": "score/language/futurecpp/include/score/assert.hpp",
+      "mode": "100644",
+      "sha": "5ca314f11072da9a0f1650e37edd7a5c2659c36b",
+      "size": 8649
+    },
+    {
+      "path": "score/language/futurecpp/include/score/assert_support.hpp",
+      "mode": "100644",
+      "sha": "9001f24964c87e5243855c6371fe132b7e675723",
+      "size": 3471
+    },
+    {
+      "path": "score/language/futurecpp/include/score/bit.hpp",
+      "mode": "100644",
+      "sha": "7aaf379471001adbb99c6ca648477e1521c71901",
+      "size": 12367
+    },
+    {
+      "path": "score/language/futurecpp/include/score/blank.hpp",
+      "mode": "100644",
+      "sha": "67e0e338bd9b2aeaef4dad23153f820d8b3eaaf2",
+      "size": 2260
+    },
+    {
+      "path": "score/language/futurecpp/include/score/callback.hpp",
+      "mode": "100644",
+      "sha": "f7b05585127dd1d3ddf2d490dfc19af723222c07",
+      "size": 1214
+    },
+    {
+      "path": "score/language/futurecpp/include/score/charconv.hpp",
+      "mode": "100644",
+      "sha": "6c4880c3cc49c53a9394366fddb16682ade8aff3",
+      "size": 2340
+    },
+    {
+      "path": "score/language/futurecpp/include/score/chrono.hpp",
+      "mode": "100644",
+      "sha": "f441621dee11608434f05b5854ab95ad54ac7684",
+      "size": 1269
+    },
+    {
+      "path": "score/language/futurecpp/include/score/circular_buffer.hpp",
+      "mode": "100644",
+      "sha": "42389a62b8b4be2752ef79e0d7c9850f961e153f",
+      "size": 16976
+    },
+    {
+      "path": "score/language/futurecpp/include/score/deque.hpp",
+      "mode": "100644",
+      "sha": "adcb0c8d3584805d6600d2e88492405a8d0fe53b",
+      "size": 1304
+    },
+    {
+      "path": "score/language/futurecpp/include/score/execution.hpp",
+      "mode": "100644",
+      "sha": "67111fd6d4b6079fcca822d6207e57dba1052495",
+      "size": 1650
+    },
+    {
+      "path": "score/language/futurecpp/include/score/expected.hpp",
+      "mode": "100644",
+      "sha": "33c2c3f9d29ead4af735fc942b391c93b51d7c3a",
+      "size": 28207
+    },
+    {
+      "path": "score/language/futurecpp/include/score/float.hpp",
+      "mode": "100644",
+      "sha": "fdc427e77e229dd6adb55d072f42017e00505931",
+      "size": 3174
+    },
+    {
+      "path": "score/language/futurecpp/include/score/for_each_tuple_element.hpp",
+      "mode": "100644",
+      "sha": "5a7a10a714db157424aecb634a246f76b2dcaf69",
+      "size": 2182
+    },
+    {
+      "path": "score/language/futurecpp/include/score/forward_list.hpp",
+      "mode": "100644",
+      "sha": "cabfea1073230f31993912b2b8d6f90a8179bff9",
+      "size": 1352
+    },
+    {
+      "path": "score/language/futurecpp/include/score/functional.hpp",
+      "mode": "100644",
+      "sha": "505ddf3d6a4b5d1f4dddd7a6986b98d180584331",
+      "size": 1197
+    },
+    {
+      "path": "score/language/futurecpp/include/score/hash.hpp",
+      "mode": "100644",
+      "sha": "f8fb6292a11a355b482f2c6dc432290d0510a60e",
+      "size": 4194
+    },
+    {
+      "path": "score/language/futurecpp/include/score/inplace_vector.hpp",
+      "mode": "100644",
+      "sha": "4b6d3c33d155ee7cd583a746bc2afe863e3c3549",
+      "size": 25355
+    },
+    {
+      "path": "score/language/futurecpp/include/score/jthread.hpp",
+      "mode": "100644",
+      "sha": "70d70135a85d6bfeea1428213fdbff6f03f898d1",
+      "size": 22664
+    },
+    {
+      "path": "score/language/futurecpp/include/score/latch.hpp",
+      "mode": "100644",
+      "sha": "55a2895dd9e81139b26af70d1ac275cd32aad7cf",
+      "size": 5496
+    },
+    {
+      "path": "score/language/futurecpp/include/score/list.hpp",
+      "mode": "100644",
+      "sha": "9ba0b6bb31f67ef19e75e941ddf8d32666fb146f",
+      "size": 1297
+    },
+    {
+      "path": "score/language/futurecpp/include/score/map.hpp",
+      "mode": "100644",
+      "sha": "16ebdac93980b27f0b8a24d5511d062dfcc57c1f",
+      "size": 1546
+    },
+    {
+      "path": "score/language/futurecpp/include/score/math.hpp",
+      "mode": "100644",
+      "sha": "615b32696aa663d4fcfff463bc43f4f9966a9f44",
+      "size": 27917
+    },
+    {
+      "path": "score/language/futurecpp/include/score/math_constants.hpp",
+      "mode": "100644",
+      "sha": "2204c52f970181971b423e8c7a945a867e7000fa",
+      "size": 15206
+    },
+    {
+      "path": "score/language/futurecpp/include/score/member_iterator.hpp",
+      "mode": "100644",
+      "sha": "428568ae5df3d7d9deac3a5bfa3616a7135de961",
+      "size": 8661
+    },
+    {
+      "path": "score/language/futurecpp/include/score/memory.hpp",
+      "mode": "100644",
+      "sha": "978a910bea90276a2689222fbb90f876d1079b1e",
+      "size": 1105
+    },
+    {
+      "path": "score/language/futurecpp/include/score/memory_resource.hpp",
+      "mode": "100644",
+      "sha": "6b8e01b0f388d42cd16a33a672eb9734fccda0d6",
+      "size": 1474
+    },
+    {
+      "path": "score/language/futurecpp/include/score/move_only_function.hpp",
+      "mode": "100644",
+      "sha": "7f4afb3deda81f8df499d71fcf326ab8bea312b8",
+      "size": 981
+    },
+    {
+      "path": "score/language/futurecpp/include/score/multi_span.hpp",
+      "mode": "100644",
+      "sha": "b6922fb1dd16e3f313d1d05535a90f07718846ec",
+      "size": 42168
+    },
+    {
+      "path": "score/language/futurecpp/include/score/narrow.hpp",
+      "mode": "100644",
+      "sha": "494e9a6f83c3d0a7d1dda0d524c1f80abb97ae54",
+      "size": 1563
+    },
+    {
+      "path": "score/language/futurecpp/include/score/numeric.hpp",
+      "mode": "100644",
+      "sha": "e981a2537588e777b83274db66183ac206affd66",
+      "size": 931
+    },
+    {
+      "path": "score/language/futurecpp/include/score/optional.hpp",
+      "mode": "100644",
+      "sha": "ee246a78d4db1e918fc33a8a8d2f6f91987f7c37",
+      "size": 30853
+    },
+    {
+      "path": "score/language/futurecpp/include/score/overload.hpp",
+      "mode": "100644",
+      "sha": "beab496b79025ff5b75c9224e18ff67bc9def590",
+      "size": 1580
+    },
+    {
+      "path": "score/language/futurecpp/include/score/pmr.hpp",
+      "mode": "100644",
+      "sha": "0a49e1dc46264406e5ce4f1ae15d681130772615",
+      "size": 878
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/algorithm/clamp.hpp",
+      "mode": "100644",
+      "sha": "b037b696081851f7a355fad92e8e2b701790d342",
+      "size": 2714
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/algorithm/find_if_unique.hpp",
+      "mode": "100644",
+      "sha": "cf6d9baf615b1e197496762e33b0cb3e8e6c3095",
+      "size": 1917
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/algorithm/map_to.hpp",
+      "mode": "100644",
+      "sha": "acb16bfb174b3360e4cc34586b1edeea84fdc3b4",
+      "size": 2621
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/algorithm/transform_if.hpp",
+      "mode": "100644",
+      "sha": "cd340d7a7fe851c9a67671c7091cb4b0f245b68d",
+      "size": 2312
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/assert/assert_impl.hpp",
+      "mode": "100644",
+      "sha": "bcef869f975b97725615862a47268911d50b1a56",
+      "size": 3928
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/assert/assert_support_impl.hpp",
+      "mode": "100644",
+      "sha": "dfcf83d5c6f8840320d667571e976c0ec6b1ea20",
+      "size": 6301
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/bit/bit_cast.hpp",
+      "mode": "100644",
+      "sha": "8151a1572d9fb3910418fd74bf7c7b3fd2543565",
+      "size": 1899
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/container/circular_buffer_iterator.hpp",
+      "mode": "100644",
+      "sha": "4bedd77bdcf7c84982d9858892fece5030f6da72",
+      "size": 10397
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/container/intrusive_forward_list.hpp",
+      "mode": "100644",
+      "sha": "a3ad090947ac790eb892c88d09a10087381372aa",
+      "size": 10341
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/back_binder.hpp",
+      "mode": "100644",
+      "sha": "2dc1f2de45bd6f02074d3b35dcf52374a451b8fb",
+      "size": 2705
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/basic_operation.hpp",
+      "mode": "100644",
+      "sha": "80e207791081ba1b988d0d7a5be086fa1712c2a5",
+      "size": 2328
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/connect.hpp",
+      "mode": "100644",
+      "sha": "5e98fbca9714409641828e8288dedf27c3359e3d",
+      "size": 2548
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/cpu_context.hpp",
+      "mode": "100644",
+      "sha": "1bc49c69a8a5ef33289f5f7b5518033b4cf2b7db",
+      "size": 4218
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/cpu_relax_aarch64.hpp",
+      "mode": "100644",
+      "sha": "2d5fe0a376248a4daea5681c066b433f012a492b",
+      "size": 2234
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/cpu_relax_x86_64.hpp",
+      "mode": "100644",
+      "sha": "ded419ef9785336a805d6358c365cde296209dc7",
+      "size": 2394
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/cpu_scheduler.hpp",
+      "mode": "100644",
+      "sha": "cfc2732be4a4a197735f5960124e239c0d1dc9e0",
+      "size": 2932
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/cpu_scheduler_op_state.hpp",
+      "mode": "100644",
+      "sha": "e278288fe96853f68162f8442cc7a78f6fe2e981",
+      "size": 2876
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/cpu_scheduler_sender.hpp",
+      "mode": "100644",
+      "sha": "14e2836eca6eb132950a6dd4093f8b1840a9aa3e",
+      "size": 1758
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/exponential_backoff.hpp",
+      "mode": "100644",
+      "sha": "05f139dd80b3e4354a638e40b9fa43fb977dec9d",
+      "size": 2217
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/operation_state_t.hpp",
+      "mode": "100644",
+      "sha": "f0ead40b2a9f4dad8ed7333fca490e16a12f9796",
+      "size": 1287
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/receiver_t.hpp",
+      "mode": "100644",
+      "sha": "312cc615604bf3f22e17ee568fcc06a820e2cfe7",
+      "size": 1237
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/schedule.hpp",
+      "mode": "100644",
+      "sha": "45d696b4528aa7c5eefcc77a928cafd40e5c8d6f",
+      "size": 2070
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/scheduler_t.hpp",
+      "mode": "100644",
+      "sha": "caa43eb1138bb22940ed3645bde5f24b53ccfc17",
+      "size": 1245
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/sender_adaptor_closure.hpp",
+      "mode": "100644",
+      "sha": "9aa73acc5891a0cd44a1eae1409a1700819ed5fd",
+      "size": 1706
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/sender_t.hpp",
+      "mode": "100644",
+      "sha": "a16fa0bf96369952bf1e95b9455bd41155b61c84",
+      "size": 1218
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/set_stopped.hpp",
+      "mode": "100644",
+      "sha": "dda46caa7f2d4871d899d0051bd718a9fe7cee22",
+      "size": 2380
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/set_value.hpp",
+      "mode": "100644",
+      "sha": "64e8a0e3dc429145f92094fcd7555f984c74ed55",
+      "size": 2419
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/spin_mutex.hpp",
+      "mode": "100644",
+      "sha": "21b77dcdde42e212d48d56450d593cb466591fd4",
+      "size": 2340
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/start.hpp",
+      "mode": "100644",
+      "sha": "e98523e2f8ef4a5dffef9f869702cbb33fdfd8ef",
+      "size": 2073
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/then.hpp",
+      "mode": "100644",
+      "sha": "54bb5edd55f913bb3fc525b407f94089be40bee2",
+      "size": 2615
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/then_receiver.hpp",
+      "mode": "100644",
+      "sha": "b529ae072f7fe7e833c8c1c4fbeba83e6ded0c4a",
+      "size": 2883
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/then_sender.hpp",
+      "mode": "100644",
+      "sha": "072140a9e51a7daafe0df6c53c6319c8bea0986f",
+      "size": 2828
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/thread_pool.hpp",
+      "mode": "100644",
+      "sha": "9a593be06d70b04a6e31077865d68a1abbf50dd7",
+      "size": 8471
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/thread_pool_queue.hpp",
+      "mode": "100644",
+      "sha": "e5f8172b2af215ed664c1ead9ca89af8c3743925",
+      "size": 5090
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/execution/thread_pool_worker_count.hpp",
+      "mode": "100644",
+      "sha": "01f14cde3699233b7bf46906ab6ea2076fcfe95a",
+      "size": 1347
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/functional/bind_back.hpp",
+      "mode": "100644",
+      "sha": "20cdf24443578086e79cf135523161070441c104",
+      "size": 4653
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/functional/bind_front.hpp",
+      "mode": "100644",
+      "sha": "3aba06ce99a82d0a560a08db19ca8cfc5110dc35",
+      "size": 4663
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/functional/identity.hpp",
+      "mode": "100644",
+      "sha": "3da6a3b9b60c15951a0d25c14c531a3752e1ddc8",
+      "size": 1252
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/functional/invoke.hpp",
+      "mode": "100644",
+      "sha": "849c5021a698df2d896a816dc00eebdfe6fd7687",
+      "size": 2454
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/functional/move_only_function.hpp",
+      "mode": "100644",
+      "sha": "84fcefe932d9466446b6727e027cb8dba573d84c",
+      "size": 10695
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/iterator/at.hpp",
+      "mode": "100644",
+      "sha": "46864efe87df9c8d3ea45be5458fa5cac66cb475",
+      "size": 4008
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/iterator/data.hpp",
+      "mode": "100644",
+      "sha": "4db4f3e0817ad6f2731afbc5cccf743c43781dcc",
+      "size": 2230
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/iterator/iterator.hpp",
+      "mode": "100644",
+      "sha": "210a77938f266c03d1daf516b679d6b630440ad2",
+      "size": 9981
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/iterator/size.hpp",
+      "mode": "100644",
+      "sha": "c34699b0226cfae1747f37baa9c917cad886a0f1",
+      "size": 2759
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/math/aarch64_neon.hpp",
+      "mode": "100644",
+      "sha": "970e2377bedba893f357f996d12eca9efd8d9a87",
+      "size": 8777
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/math/cmath.h",
+      "mode": "100644",
+      "sha": "1f8730604d7f74d01c941db2379213976dc1393b",
+      "size": 10061
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/math/div_round_closest.hpp",
+      "mode": "100644",
+      "sha": "62b4063d7b25d037bc06f7247adeef1349eecaa9",
+      "size": 2919
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/math/equals_bitexact.hpp",
+      "mode": "100644",
+      "sha": "30ef5a367f19cf2dc65760cdd1af8190b8ddc5ee",
+      "size": 2565
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/math/x86_64_sse42.hpp",
+      "mode": "100644",
+      "sha": "6395e569784470bbe529dbd14f21081f83da39f1",
+      "size": 9509
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory/construct_at.hpp",
+      "mode": "100644",
+      "sha": "c87c9c1be7218ded128eee429964e33ef9bfef77",
+      "size": 1607
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory/make_obj_using_allocator.hpp",
+      "mode": "100644",
+      "sha": "aac64c4110d83f5ea5e112af9b69ef614c1247e1",
+      "size": 1514
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory/make_shared.hpp",
+      "mode": "100644",
+      "sha": "a8fb76f4f8a4ebcbc3c1d8459ee3ab47823d1a9c",
+      "size": 1568
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory/uninitialized_construct_using_allocator.hpp",
+      "mode": "100644",
+      "sha": "ac8a673528922890101768bea6774519571f0d3d",
+      "size": 1728
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory/unique_ptr.hpp",
+      "mode": "100644",
+      "sha": "70b1aaec8cf447676dbc54c3bb91582f5ada911e",
+      "size": 7482
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory/unique_ptr_deleter.hpp",
+      "mode": "100644",
+      "sha": "cae061ac0cbd9897d7ad5fc173ed4e30b3fa77dd",
+      "size": 2366
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory/uses_allocator_construction_args.hpp",
+      "mode": "100644",
+      "sha": "6c8f8a32ac8aa21d6fb7d1132736ec6f73fd6b37",
+      "size": 11190
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory/voidify.hpp",
+      "mode": "100644",
+      "sha": "24aad26ffa5bbaed0f166f2991a3199a298bfdf5",
+      "size": 1088
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/chunk_list.hpp",
+      "mode": "100644",
+      "sha": "812b0edd5cdbc3eff4a3bd4518575daafe2155d3",
+      "size": 6549
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/chunk_size_and_alignment.hpp",
+      "mode": "100644",
+      "sha": "27c23d02539a6c09d34ae8883d7fe1ff08498c9e",
+      "size": 2161
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/free_list.hpp",
+      "mode": "100644",
+      "sha": "8339698399e7054db7b3de9ce8956f5c66f8ef52",
+      "size": 1688
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/memory_resource.hpp",
+      "mode": "100644",
+      "sha": "3695a2fc73a4c089797b8140b5d5fd789a826004",
+      "size": 5009
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/monotonic_buffer_resource.hpp",
+      "mode": "100644",
+      "sha": "03ce072b27322d484f1f3e5a5a2bd4549118c383",
+      "size": 12803
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/polymorphic_allocator.hpp",
+      "mode": "100644",
+      "sha": "32bb765821a41cdc9b499acdd721a8962486774e",
+      "size": 6190
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/pool.hpp",
+      "mode": "100644",
+      "sha": "6f8e72e9d0ed16c742ed1ce88512208a5909c3a4",
+      "size": 3825
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/pool_options.hpp",
+      "mode": "100644",
+      "sha": "ce8f579dee87441aa78fb55d44e2710d77cd38b6",
+      "size": 2223
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/resource_adaptor.hpp",
+      "mode": "100644",
+      "sha": "b7f5dee99c21c09c4db77bbbbf33e99fc1b2927f",
+      "size": 9818
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/memory_resource/unsynchronized_pool_resource.hpp",
+      "mode": "100644",
+      "sha": "3460d8b59271e867b49c2697b71812d90ab9d036",
+      "size": 15557
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/numeric/lerp.hpp",
+      "mode": "100644",
+      "sha": "3e2d2ea5c6ccad8b7b651d4987ded0c71be1c142",
+      "size": 2255
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/numeric/saturate_cast.hpp",
+      "mode": "100644",
+      "sha": "7612bc4e6079cd0c8e31d401a1bed1978ca7080c",
+      "size": 7743
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/simd/aarch64_neon_backend.hpp",
+      "mode": "100644",
+      "sha": "ce36bf533c27782ade9033e5ee8a491adfc6be42",
+      "size": 26195
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/simd/abi.hpp",
+      "mode": "100644",
+      "sha": "a4c1a4d853c9ffbf648b5a57bdc9d5407b2e1669",
+      "size": 1991
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/simd/array.hpp",
+      "mode": "100644",
+      "sha": "9d632dd95a53787a2b69215034e95549bcf40812",
+      "size": 8105
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/simd/data_types.hpp",
+      "mode": "100644",
+      "sha": "a6c4b18545a0c72d6c00bdb033c71423076ebb00",
+      "size": 33491
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/simd/default_backend.hpp",
+      "mode": "100644",
+      "sha": "080ef112ef1ae81635b9b8e4f54ec065c890009b",
+      "size": 6581
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/simd/math.hpp",
+      "mode": "100644",
+      "sha": "03d5c5200e33e066f57dda4de0e9033894e8e47e",
+      "size": 1888
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/simd/sse42_backend.hpp",
+      "mode": "100644",
+      "sha": "fb719e319c45a18709a3acb5c37343ca52cf7d1a",
+      "size": 24474
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/stop_token/nostopstate_t.hpp",
+      "mode": "100644",
+      "sha": "6f9884e70e5f006add17869dd997bbaa0e648784",
+      "size": 1508
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/stop_token/stop_callback.hpp",
+      "mode": "100644",
+      "sha": "02ca46281b3591d92b75d394e563181660e27b76",
+      "size": 8416
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/stop_token/stop_source.hpp",
+      "mode": "100644",
+      "sha": "e493b1e4fd9cf073c2d6263ad216122f0c641914",
+      "size": 10709
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/stop_token/stop_state.hpp",
+      "mode": "100644",
+      "sha": "89f19e9bd8f14bd5f78655bef62c8956a58de4b4",
+      "size": 4694
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/stop_token/stop_token.hpp",
+      "mode": "100644",
+      "sha": "701bf9ac41437a256ad82f2f4957f28c6f9a59a2",
+      "size": 7556
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/thread/pthread_attr.hpp",
+      "mode": "100644",
+      "sha": "a35f53e146fccd0eb5eec0c7f535c355af941b8a",
+      "size": 4214
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/thread/this_thread.hpp",
+      "mode": "100644",
+      "sha": "5b5e22ed4ee32a2386fa08b5338854e512015562",
+      "size": 1740
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/thread/thread.hpp",
+      "mode": "100644",
+      "sha": "5cc67f16059868075b5dedd151e7db1d636185ba",
+      "size": 1940
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/thread/thread_id.hpp",
+      "mode": "100644",
+      "sha": "cd18562b4261918f5006584783f6e254d359b9a6",
+      "size": 3152
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/thread/thread_name_hint.hpp",
+      "mode": "100644",
+      "sha": "3b0293a7211aff523d2524c0ff15c51d0488087d",
+      "size": 2843
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/thread/thread_priority_hint.hpp",
+      "mode": "100644",
+      "sha": "6e26b8fc08361db578954af93f98dee86a6d0329",
+      "size": 1875
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/thread/thread_stack_size_hint.hpp",
+      "mode": "100644",
+      "sha": "51286a3d875717c017ba79c09f128117119535e6",
+      "size": 2197
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/conjunction.hpp",
+      "mode": "100644",
+      "sha": "576ccc1ab958b70732d62ba48bdfb4301b3dfb44",
+      "size": 1424
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/has_operator_indirection.hpp",
+      "mode": "100644",
+      "sha": "73f9ef57235d75a69c644cb627f528745d3c2aad",
+      "size": 1769
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/has_operator_pre_increment.hpp",
+      "mode": "100644",
+      "sha": "54d2d07c810af07f2ff4c7e271dbb4576aae83b4",
+      "size": 1786
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/invoke_traits.hpp",
+      "mode": "100644",
+      "sha": "12c2b23b3e09fa1811eea143712508b22b75dde9",
+      "size": 4689
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_derived_from.hpp",
+      "mode": "100644",
+      "sha": "9bf8e5f307698d8be3502d6f825459bc1e34170c",
+      "size": 1299
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_detected.hpp",
+      "mode": "100644",
+      "sha": "7e27471af4c2b5da4ec3668568d4edc0829fb025",
+      "size": 2256
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_expected.hpp",
+      "mode": "100644",
+      "sha": "0156a4c34f1eadcf65846a3d1c7e239ba082fb13",
+      "size": 1520
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_hash_for.hpp",
+      "mode": "100644",
+      "sha": "6c7b079bc4b6c9c2b185dc280a2c140ffe27ef29",
+      "size": 2251
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_inplace_vector.hpp",
+      "mode": "100644",
+      "sha": "e4b63e319f6a47bb2a926ad2acaa6e81b974876d",
+      "size": 1516
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_iterable.hpp",
+      "mode": "100644",
+      "sha": "f6d68318e84659e390be6e094e792d3e8fa9e682",
+      "size": 4304
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_maplike_container.hpp",
+      "mode": "100644",
+      "sha": "f82f824aad59cfdb9c757223f9a83acb9ec3f21f",
+      "size": 1392
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_move_only_function.hpp",
+      "mode": "100644",
+      "sha": "03d8f7c72a4a3f8ea96e59c01fdb120ff342afab",
+      "size": 1470
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_not_equal_comparable.hpp",
+      "mode": "100644",
+      "sha": "1df7a2eb53edcab395401dfc89c7220fb00879ee",
+      "size": 1797
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_optional.hpp",
+      "mode": "100644",
+      "sha": "1cdd577adad84b87ff0e81fd3ac0813b5a24b593",
+      "size": 1513
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_pair.hpp",
+      "mode": "100644",
+      "sha": "2025171c65519fc20e9ec26226b2cbcbf266bd77",
+      "size": 1509
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_span.hpp",
+      "mode": "100644",
+      "sha": "5f5997621dc3fa7740a8bfdb95ca83441748594a",
+      "size": 1461
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_static_vector.hpp",
+      "mode": "100644",
+      "sha": "800a3706f7a4efe4b5820aef3c9e6d7e581a22e2",
+      "size": 1602
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_std_array.hpp",
+      "mode": "100644",
+      "sha": "3501e923d583255b154be5a297c27cd0ba217b18",
+      "size": 1409
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_tuple.hpp",
+      "mode": "100644",
+      "sha": "bb6df8f5cecc6b859f2fa766e98bf3ad047da318",
+      "size": 1508
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/is_unsigned_integer_type.hpp",
+      "mode": "100644",
+      "sha": "9ef3f5c7f9258d048f3d82acdb3ee6bceeb2784b",
+      "size": 1438
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/iterator_category.hpp",
+      "mode": "100644",
+      "sha": "76b2e2de12a54653cd21080e7131971b93d74eff",
+      "size": 1831
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/remove_cvref.hpp",
+      "mode": "100644",
+      "sha": "189e3b10e2597c5fc3e76e55b1db42c507014c56",
+      "size": 1616
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/type_identity.hpp",
+      "mode": "100644",
+      "sha": "a45bc8b00c5b43559611afc84ecad0dcc2d946d6",
+      "size": 1366
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/type_traits/void_t.hpp",
+      "mode": "100644",
+      "sha": "5a399e775d609b34604563324c3dc133f97b7298",
+      "size": 1178
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/utility/as_const.hpp",
+      "mode": "100644",
+      "sha": "88f809691923284a25f070bafed2b9b223ec5a50",
+      "size": 1321
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/utility/ignore.hpp",
+      "mode": "100644",
+      "sha": "b7b43519d788f8afe0b0c3fea6138e929d053b23",
+      "size": 1663
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/utility/in_place_t.hpp",
+      "mode": "100644",
+      "sha": "da1ee6f831d9faea0104f581c0d6582d86e8b825",
+      "size": 1175
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/utility/in_place_type_t.hpp",
+      "mode": "100644",
+      "sha": "e05f51f4ca5d477e5525bbeaae60726551a8c672",
+      "size": 1266
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/utility/in_range.hpp",
+      "mode": "100644",
+      "sha": "10247d62c01d24f4b3f7c40a19acc460c5befa20",
+      "size": 2272
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/utility/int_cmp.hpp",
+      "mode": "100644",
+      "sha": "7e647fc7edf8786b33f35055e11d2cde6cfa90da",
+      "size": 11800
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/utility/make_offset_index_sequence.hpp",
+      "mode": "100644",
+      "sha": "de5024ccc9ad4e0beb1a7ced1c05bcab42dd50c9",
+      "size": 1395
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/utility/static_const.hpp",
+      "mode": "100644",
+      "sha": "69ee8579719b41c8b9269db3950f230d4cefa87c",
+      "size": 1544
+    },
+    {
+      "path": "score/language/futurecpp/include/score/private/utility/to_underlying.hpp",
+      "mode": "100644",
+      "sha": "8681a2fc18f32dd10e1687e85c1a9d5cd8c8cf11",
+      "size": 1404
+    },
+    {
+      "path": "score/language/futurecpp/include/score/range_pair.hpp",
+      "mode": "100644",
+      "sha": "ea5536816d43ada5daafc1c078c0a28d3c26d7ed",
+      "size": 4435
+    },
+    {
+      "path": "score/language/futurecpp/include/score/set.hpp",
+      "mode": "100644",
+      "sha": "8bb5d366da6d4f2756179bfdee46280d3897f478",
+      "size": 1482
+    },
+    {
+      "path": "score/language/futurecpp/include/score/simd.hpp",
+      "mode": "100644",
+      "sha": "823d71e42f53851df0c80b8ef953ea9929f44fb8",
+      "size": 1285
+    },
+    {
+      "path": "score/language/futurecpp/include/score/size.hpp",
+      "mode": "100644",
+      "sha": "e357727bc5d23caf44eada5f53fdb6a814dd586b",
+      "size": 1579
+    },
+    {
+      "path": "score/language/futurecpp/include/score/span.hpp",
+      "mode": "100644",
+      "sha": "90c1ec0dcb8d979dff000c6630d26679b4ba8495",
+      "size": 18467
+    },
+    {
+      "path": "score/language/futurecpp/include/score/static_vector.hpp",
+      "mode": "100644",
+      "sha": "5e0ae5f764c57ae9761e3911a072dc7a1f09a792",
+      "size": 1061
+    },
+    {
+      "path": "score/language/futurecpp/include/score/stop_token.hpp",
+      "mode": "100644",
+      "sha": "7bc558bf23ff2a4f958bda020c3e9fe9c1cf52a2",
+      "size": 1843
+    },
+    {
+      "path": "score/language/futurecpp/include/score/string.hpp",
+      "mode": "100644",
+      "sha": "173703ee914b4a157b30bd82769c0ca9451d2dcd",
+      "size": 3808
+    },
+    {
+      "path": "score/language/futurecpp/include/score/string_view.hpp",
+      "mode": "100644",
+      "sha": "c41492ad71ac4b1bd179505a117d741ae78d43ca",
+      "size": 12892
+    },
+    {
+      "path": "score/language/futurecpp/include/score/tuple.hpp",
+      "mode": "100644",
+      "sha": "111f52328670393f804c2374ab2a2b86cff11940",
+      "size": 1838
+    },
+    {
+      "path": "score/language/futurecpp/include/score/type_map.hpp",
+      "mode": "100644",
+      "sha": "85a8dd41307f1d127de6d830aedb285b0c0326c6",
+      "size": 4221
+    },
+    {
+      "path": "score/language/futurecpp/include/score/type_traits.hpp",
+      "mode": "100644",
+      "sha": "1441b4321a564fa3677989affd1f032b656f87ba",
+      "size": 7693
+    },
+    {
+      "path": "score/language/futurecpp/include/score/unordered_map.hpp",
+      "mode": "100644",
+      "sha": "3c93c02fdab9177746c3b85993ed8a47d8cb7f69",
+      "size": 1705
+    },
+    {
+      "path": "score/language/futurecpp/include/score/unordered_set.hpp",
+      "mode": "100644",
+      "sha": "c26dc9755b1f1cedb976e21c99d049c264639700",
+      "size": 1637
+    },
+    {
+      "path": "score/language/futurecpp/include/score/utility.hpp",
+      "mode": "100644",
+      "sha": "9a3522e448843d2ec97afcd4ab6090beb96a9850",
+      "size": 3203
+    },
+    {
+      "path": "score/language/futurecpp/include/score/variant.hpp",
+      "mode": "100644",
+      "sha": "447c09904f2874418d4066d12148c49da0677c6f",
+      "size": 13444
+    },
+    {
+      "path": "score/language/futurecpp/include/score/vector.hpp",
+      "mode": "100644",
+      "sha": "7e1cc9d2c2d214f8b257fac198a69f1ba70ef5fc",
+      "size": 1311
+    },
+    {
+      "path": "score/language/futurecpp/include/score/zip_iterator.hpp",
+      "mode": "100644",
+      "sha": "d22fc4738bba517719a4263a199ea209e128fa35",
+      "size": 16945
+    },
+    {
+      "path": "score/result/details/expected/expected.h",
+      "mode": "100644",
+      "sha": "d6304f9bad5ed586ef583620a792645b6db9418e",
+      "size": 70076
+    },
+    {
+      "path": "score/result/details/expected/extensions.h",
+      "mode": "100644",
+      "sha": "584a749f408792aad4a11fb745d847f3ddeb0971",
+      "size": 3897
+    },
+    {
+      "path": "score/result/details/expected/test_type_traits.h",
+      "mode": "100644",
+      "sha": "c41f3dfb67a4ea97f99e52223f45c57fb7354e4e",
+      "size": 1618
+    },
+    {
+      "path": "score/result/details/expected/test_types.h",
+      "mode": "100644",
+      "sha": "11fd88dd5cf59902a25db5f7e878e48b65347be4",
+      "size": 3426
+    },
+    {
+      "path": "score/result/dummy_error_code.h",
+      "mode": "100644",
+      "sha": "e6ca8462018564779c9dced6f391666d0a72a538",
+      "size": 1482
+    },
+    {
+      "path": "score/result/error.h",
+      "mode": "100644",
+      "sha": "349363b9bdde671b2d561aa7cf11834fbd4229c0",
+      "size": 6217
+    },
+    {
+      "path": "score/result/error_code.h",
+      "mode": "100644",
+      "sha": "4c3bbb2bd18fe5367502dbe6d9fb3e73abce31f9",
+      "size": 1020
+    },
+    {
+      "path": "score/result/error_domain.h",
+      "mode": "100644",
+      "sha": "72ccca3029933e29e38b79fe0a37ab72382aafe0",
+      "size": 1857
+    },
+    {
+      "path": "score/result/error_msg_mapping.h",
+      "mode": "100644",
+      "sha": "16e6ae7e70d3b1343c70fb08674e743ea51cb1c5",
+      "size": 1152
+    },
+    {
+      "path": "score/result/result.h",
+      "mode": "100644",
+      "sha": "ef838b8c5bfe279efdf3ac2d16964ae3c7a17daa",
+      "size": 3269
+    },
+    {
+      "path": "score/result/rust/result_cxx.h",
+      "mode": "100644",
+      "sha": "06d3d55b4cd7ba0276c5cced653af9e263926c11",
+      "size": 1015
+    },
+    {
+      "path": "score/result/rust/result_example_cpp.h",
+      "mode": "100644",
+      "sha": "bae8ab471168f1b40adf01a34487e682f8f01d09",
+      "size": 1336
+    }
+  ]
+}

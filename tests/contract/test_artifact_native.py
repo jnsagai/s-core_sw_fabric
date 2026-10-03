@@ -94,7 +94,16 @@ def test_real_boundary_uses_fixed_argv_isolated_environment_and_cleans_up(
     ]
     assert all("shell" not in call for call in calls)
     assert all(call["timeout"] == 7 for call in calls)
-    assert all(set(call["env"]) == {"PATH", "HOME", "XDG_CACHE_HOME", "NO_COLOR"} for call in calls)
+    assert all(
+        set(call["env"])
+        == {"PATH", "HOME", "XDG_CACHE_HOME", "NO_COLOR", "TMPDIR", "BAZELISK_HOME", "TEST_TMPDIR"}
+        for call in calls
+    )
+    assert all(
+        Path(call["env"][name]).is_relative_to(Path(call["cwd"]))
+        for call in calls
+        for name in ("TMPDIR", "BAZELISK_HOME", "TEST_TMPDIR")
+    )
     assert all(str(call["cwd"]) not in json.dumps(receipt) for call in calls)
     assert receipt["validator"]["profile_digest"]
     assert receipt["validator"]["executable_sha256"]

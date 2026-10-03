@@ -1,0 +1,37 @@
+{
+  "observed_at": "2026-10-03T02:03:59.712191+00:00",
+  "authority": "User: commit and push to main",
+  "scope": "Pending fabric quality, installed-context, command-binding, shared storage and SOME/IP supervision/evidence work, plus existing development history",
+  "ruff_check": "passed",
+  "ruff_format_check": {
+    "status": "passed",
+    "maintained_python_files": 538,
+    "frozen_run_evidence_excluded": "docs/handoff/someip-84/factory/runs"
+  },
+  "mypy": {
+    "status": "passed",
+    "source_files": 122
+  },
+  "pytest_initial": {
+    "passed": 1870,
+    "failed": 64,
+    "skipped": 23,
+    "reason": "External --basetemp without shared storage environment; missing SCORE_FABRO_BIN; two offline replay tests blocked storage discovery in test setup"
+  },
+  "pytest_failed_cases_rerun": {
+    "passed": 64,
+    "failed": 0,
+    "command": "SCORE_FABRO_BIN=<installed pinned Fabro> uv run --frozen score-fabric storage exec -- uv run --frozen pytest -q --last-failed --last-failed-no-failures=none"
+  },
+  "offline_portability_contracts_after_setup_fix": {
+    "passed": 54,
+    "failed": 0
+  },
+  "pytest_coverage_note": "All collected cases were covered by the full initial run and the corrected rerun of every failed case; no second full-suite run claimed. Skips do not establish native readiness.",
+  "foundation_check": "passed",
+  "doctor": "passed_foundation_scope_only",
+  "uv_build": "passed_source_and_wheel",
+  "secret_review": "No credential values or private server state identified in files selected for publication; test credential literal is synthetic",
+  "engineering_acceptance": "pending",
+  "someip_verification_all_passed": false
+}

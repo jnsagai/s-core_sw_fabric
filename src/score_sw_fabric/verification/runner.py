@@ -6,7 +6,6 @@ import gzip
 import hashlib
 import json
 import subprocess
-import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
@@ -22,6 +21,7 @@ from score_sw_fabric.assurance.models import seal, stable_id
 from score_sw_fabric.catalog.export import canonical
 from score_sw_fabric.process_source.reader import InputError
 from score_sw_fabric.safety.native import links
+from score_sw_fabric.storage import temporary_directory
 from score_sw_fabric.verification.design import in_scope, requirement_needs, root_files
 from score_sw_fabric.verification.profile import load_profile, load_toolchain, verify_toolchain
 
@@ -63,7 +63,12 @@ def _step(
 
     try:
         completed = subprocess.run(
-            argv, cwd=cwd, env=ENVIRONMENT, capture_output=True, timeout=timeout, check=False
+            argv,
+            cwd=cwd,
+            env={**ENVIRONMENT, "TMPDIR": str(cwd)},
+            capture_output=True,
+            timeout=timeout,
+            check=False,
         )
         code, out, err, timed_out = completed.returncode, completed.stdout, completed.stderr, False
     except subprocess.TimeoutExpired as exc:
@@ -282,7 +287,7 @@ def run(request_path: Path) -> tuple[int, dict[str, Any], list[Path], list[Path]
     coverage: dict[str, Any] = {"status": "not_requested", "units": []}
     execution: dict[str, Any] | None = None
     compiler = toolchain["compiler"]["path"]
-    with tempfile.TemporaryDirectory(prefix="score-verify-") as directory:
+    with temporary_directory(prefix="score-verify-") as directory:
         build = Path(directory)
         replacements = {str(root): "$ROOT", str(build): "$BUILD"}
         objects = []

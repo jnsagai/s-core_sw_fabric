@@ -1,0 +1,45 @@
+{
+  "clone": {
+    "depth": 100,
+    "enabled": false
+  },
+  "credential_destination": "isolated Fabro vault",
+  "credential_source": "/home/jefferson/.config/sesn/deepseek.env",
+  "credential_value_recorded": false,
+  "engineering_acceptance": "pending",
+  "kind": "someip84_fabro_submitted_queue",
+  "limitations": [
+    "Submitted only; no agent stage has executed",
+    "Tool and path enforcement and runtime usage admission remain pending before start",
+    "Issue snapshot and source manifest are referenced by the mapping but not packaged into the agent target"
+  ],
+  "live_agent_admission": "pending",
+  "model": {
+    "controls": {
+      "reasoning_effort": "high",
+      "speed": null
+    },
+    "fallbacks": {},
+    "name": "deepseek-flash",
+    "provider": "deepseek"
+  },
+  "model_calls": 0,
+  "native_status": "submitted",
+  "package_sha256": "06807beebfe6d226ebd6ee263fe3a116349b25357de8b1d6ce39e5bf1e288181",
+  "provider_configured": true,
+  "run_branch": {
+    "enabled": false,
+    "push": false
+  },
+  "run_id": "01M3W4HERGBZ5SVR52BZ2NHQ9K",
+  "schema_version": 1,
+  "server_pid": 3390996,
+  "server_storage": "/tmp/score-someip84-factory-52ixww18/storage",
+  "server_url": "http://127.0.0.1:43914",
+  "start_record": null,
+  "target": {
+    "kind": "folder",
+    "path": "/tmp/score-someip84-factory-j3n0k9nl/target"
+  },
+  "workflow_toml_sha256": "564b4b6a28e0f2033f18d7ff40ed8c1de9fada10ca24d756f13526110f9ff285"
+}

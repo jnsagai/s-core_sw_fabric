@@ -1,0 +1,333 @@
+{
+  "kind": "native-component-candidate-trial",
+  "upstream_issue": "https://github.com/eclipse-score/inc_someip_gateway/issues/84",
+  "baseline_commit": "f8a196c3b16d5172d898394ab99b0ed81346d63d",
+  "engineering_acceptance": "pending",
+  "compiler": {
+    "local": "GCC 12.3.0",
+    "native_pin": "GCC 12.2.0",
+    "native_qualification": "pending"
+  },
+  "tests": {
+    "baseline": {
+      "exit_code": 1,
+      "total": 13,
+      "passed": 6,
+      "failed": 7
+    },
+    "corrected": {
+      "exit_code": 0,
+      "total": 13,
+      "passed": 13,
+      "failed": 0
+    },
+    "ubsan": {
+      "exit_code": 0,
+      "total": 13,
+      "passed": 13,
+      "failed": 0
+    },
+    "runtime_cases": {
+      "count": 8,
+      "syntax_exit_code": 0,
+      "execution": "pending"
+    }
+  },
+  "codeql": {
+    "version": "2.21.4",
+    "query_pack": "codeql/cpp-queries@1.4.1",
+    "suite": "cpp-security-and-quality.qls",
+    "query_count": 181,
+    "exit_code": 0,
+    "database": "work/.llm_tmp/codeql-db-linked",
+    "translation_units": [
+      "score/socom/impl/service_identifier.cpp",
+      "score/socom/impl/string_registry.cpp",
+      "score/socom/test/unit/service_identifier_tests.cpp",
+      ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+      ".llm_tmp/googletest/googletest/src/gtest_main.cc"
+    ],
+    "native_files_scanned": 7,
+    "native_cpp_files_total_reported": 150,
+    "results": [
+      {
+        "rule_id": "cpp/fixme-comment",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/gtest.h",
+        "line": 488,
+        "message": "FIXME comment: Validate attribute names are legal and human readable.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/commented-out-code",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/internal/gtest-port.h",
+        "line": 1022,
+        "message": "This comment appears to contain commented-out code.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/commented-out-code",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/internal/gtest-port.h",
+        "line": 296,
+        "message": "This comment appears to contain commented-out code.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/commented-out-code",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/internal/gtest-port.h",
+        "line": 290,
+        "message": "This comment appears to contain commented-out code.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/commented-out-code",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/gtest-matchers.h",
+        "line": 177,
+        "message": "This comment appears to contain commented-out code.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/commented-out-code",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/gtest.h",
+        "line": 2205,
+        "message": "This comment appears to contain commented-out code.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/commented-out-code",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 2310,
+        "message": "This comment appears to contain commented-out code.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/commented-out-code",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/gtest-death-test.h",
+        "line": 219,
+        "message": "This comment appears to contain commented-out code.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/large-parameter",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/internal/gtest-death-test-internal.h",
+        "line": 64,
+        "message": "This parameter of type [RE](1) is 168 bytes - consider passing a const pointer/reference instead.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/equality-on-floats",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/gtest-printers.h",
+        "line": 595,
+        "message": "Equality checks on floating point values can yield unexpected results.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/equality-on-floats",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/gtest-printers.h",
+        "line": 613,
+        "message": "Equality checks on floating point values can yield unexpected results.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/unused-local-variable",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/internal/gtest-param-util.h",
+        "line": 913,
+        "message": "Variable NextI is not used.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/unused-static-function",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 250,
+        "message": "Static function GetDefaultFailFast is unreachable",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/unused-static-function",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 239,
+        "message": "Static function GetDefaultFilter is unreachable",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/unused-static-function",
+        "path": "score/socom/test/unit/service_identifier_tests.cpp",
+        "line": 48,
+        "message": "Static function gtest_MinorVersionBoundariesServiceInstanceIdentifierMinorVersionTest_EvalGenerateName_ is unreachable ([gtest_MinorVersionBoundariesServiceInstanceIdentifierMinorVersionTest_dummy_](1) must be removed at the same time)\nStatic function gtest_MinorVersionBoundariesServiceInstanceIdentifierMinorVersionTest_EvalGenerator_ is unreachable ([gtest_MinorVersionBoundariesServiceInstanceIdentifierMinorVersionTest_dummy_](1) must be removed at the same time)",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/unused-static-variable",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/internal/gtest-death-test-internal.h",
+        "line": 58,
+        "message": "Static variable kInternalRunDeathTestFlag is never read.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/unused-static-variable",
+        "path": "score/socom/test/unit/service_identifier_tests.cpp",
+        "line": 48,
+        "message": "Static variable gtest_MinorVersionBoundariesServiceInstanceIdentifierMinorVersionTest_dummy_ is never read.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/rule-of-two",
+        "path": ".llm_tmp/googletest/googletest/include/gtest/internal/gtest-port.h",
+        "line": 985,
+        "message": "No matching copy assignment operator in class RE. It is good practice to match a copy constructor with a copy assignment operator.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/include-non-header",
+        "path": ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+        "line": 49,
+        "message": "The #include pre-processor directive should only be used to include header files.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/include-non-header",
+        "path": ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+        "line": 48,
+        "message": "The #include pre-processor directive should only be used to include header files.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/include-non-header",
+        "path": ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+        "line": 47,
+        "message": "The #include pre-processor directive should only be used to include header files.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/include-non-header",
+        "path": ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+        "line": 46,
+        "message": "The #include pre-processor directive should only be used to include header files.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/include-non-header",
+        "path": ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+        "line": 45,
+        "message": "The #include pre-processor directive should only be used to include header files.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/include-non-header",
+        "path": ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+        "line": 44,
+        "message": "The #include pre-processor directive should only be used to include header files.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/include-non-header",
+        "path": ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+        "line": 43,
+        "message": "The #include pre-processor directive should only be used to include header files.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/include-non-header",
+        "path": ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+        "line": 42,
+        "message": "The #include pre-processor directive should only be used to include header files.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/include-non-header",
+        "path": ".llm_tmp/googletest/googletest/src/gtest-all.cc",
+        "line": 41,
+        "message": "The #include pre-processor directive should only be used to include header files.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/trivial-switch",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 3781,
+        "message": "This switch statement should either handle more cases, or be rewritten as an if statement.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/trivial-switch",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 3563,
+        "message": "This switch statement should either handle more cases, or be rewritten as an if statement.",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/loop-variable-changed",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 6908,
+        "message": "Loop counters should not be modified in the body of the [loop](1).",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/loop-variable-changed",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 2153,
+        "message": "Loop counters should not be modified in the body of the [loop](1).",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/path-injection",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 6851,
+        "message": "This argument to a file access function is derived from [user input (a command-line argument)](1) and then passed to testing::internal::posix::FOpen(path), which calls fopen(__filename).",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/path-injection",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 6198,
+        "message": "This argument to a file access function is derived from [user input (an environment variable)](1) and then passed to testing::internal::posix::FOpen(path), which calls fopen(__filename).",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/path-injection",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 5928,
+        "message": "This argument to a file access function is derived from [user input (an environment variable)](1) and then passed to testing::internal::posix::FOpen(path), which calls fopen(__filename).",
+        "review_status": "pending"
+      },
+      {
+        "rule_id": "cpp/path-injection",
+        "path": ".llm_tmp/googletest/googletest/src/gtest.cc",
+        "line": 5174,
+        "message": "This argument to a file access function is derived from [user input (an environment variable)](1) and then passed to testing::internal::posix::FOpen(path), which calls fopen(__filename).",
+        "review_status": "pending"
+      }
+    ],
+    "sarif": "codeql-linked.sarif",
+    "engineering_dispositions": "pending"
+  },
+  "clang_tidy": {
+    "version": "19.1.7",
+    "native_pin": "22.1.7",
+    "trial_exit_code": 0,
+    "trial_checks": "-*,clang-analyzer-*,bugprone-use-after-move",
+    "translation_unit": "score/socom/impl/service_identifier.cpp",
+    "native_config_verify_exit_code": 1,
+    "native_policy_validation": "pending"
+  },
+  "native_bazel_exit_code": 127,
+  "native_pre_commit_exit_code": 127,
+  "patch_apply_check_exit_code": 0,
+  "patch_applied_files_hash_check": "pass",
+  "fabric_foundation": {
+    "exit_code": 0,
+    "scope": "foundation consistency only"
+  },
+  "fabric_build": {
+    "exit_code": 0,
+    "command": "UV_CACHE_DIR=/tmp/score-someip84-build-cache uv build --offline",
+    "dependency_source": "writable copy of existing user cache for the pinned backend and its dependencies"
+  },
+  "execution_provenance": {
+    "initiator": "Codex session",
+    "execution_path": "direct terminal tools",
+    "fabro_run_id": null,
+    "factory_agent_admission": "not_performed",
+    "factory_collector_receipt": "not_present",
+    "factory_demonstrator": "not_executed",
+    "engineering_provenance_review": "pending"
+  }
+}

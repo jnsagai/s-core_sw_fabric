@@ -1,0 +1,42 @@
+{
+  "auth_mode": "dev_token_disposable",
+  "base_url": "http://127.0.0.1:43913",
+  "declared_capabilities": [
+    "blob_read",
+    "event_read",
+    "output_read",
+    "question_read",
+    "run_cancel",
+    "run_create",
+    "run_inspect",
+    "run_start",
+    "stage_list",
+    "timeline_read",
+    "workflow_register"
+  ],
+  "demonstrated_capabilities": [
+    "blob_read",
+    "event_read",
+    "output_read",
+    "question_read",
+    "run_cancel",
+    "run_create",
+    "run_inspect",
+    "run_start",
+    "stage_list",
+    "timeline_read",
+    "workflow_register"
+  ],
+  "digest": "8f30d03c72db2e5830770122d3a041bea190f66c9a1db640d76b10f413e1bfe5",
+  "executable_sha256": "af2243916c8b11b98422c91de5da1fdb93a265b052dbe4f668b3eaaf87bbabf8",
+  "id": "someip84-disposable-candidate",
+  "kind": "runtime_profile",
+  "limits": {
+    "response_bytes": 4000000,
+    "timeout_seconds": 20
+  },
+  "schema_version": 1,
+  "source_api_sha256": "b760ef95cb3a7e3b50ea4a8336d7241716533fcb7b4ff6f8a7155b0684df21ed",
+  "source_commit": "1b4fb15281ebb724426f9e480dce48d0100ff79b",
+  "status": "candidate_only"
+}

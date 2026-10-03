@@ -487,6 +487,7 @@ def _quality(args: argparse.Namespace) -> int:
     from score_sw_fabric.quality import (
         assessment,
         capabilities,
+        codeql,
         complementary,
         coverage,
         decisions,
@@ -516,6 +517,11 @@ def _quality(args: argparse.Namespace) -> int:
             status, record, inputs, protected = dispositions.review(args.request, args.out)
         elif args.quality_command == "import":
             status, record, inputs, protected = imports.import_outputs(args.request, args.out)
+        elif args.adapter == "codeql":
+            codeql_handlers = {"capabilities": codeql.capabilities, "run": codeql.run}
+            status, record, inputs, protected = codeql_handlers[args.quality_command](
+                args.request, args.out
+            )
         elif args.adapter == "clang-tidy":
             status, record, inputs, protected = handlers[args.quality_command](
                 args.request, args.out
@@ -617,10 +623,57 @@ def _safety(args: argparse.Namespace) -> int:
     return status
 
 
+def _storage(args: argparse.Namespace) -> int:
+    import os
+    import subprocess
+    from dataclasses import asdict
+
+    from score_sw_fabric.storage import build_environment, new_run_root, select_storage
+    from score_sw_fabric.storage_setup import configure
+
+    try:
+        if args.storage_command == "status":
+            result = asdict(select_storage())
+        elif args.storage_command == "configure":
+            result = configure(args.uuid, args.size_gib)
+        else:
+            if args.storage_command == "exec":
+                command = args.argv
+                if command and command[0] == "--":
+                    command = command[1:]
+                if not command:
+                    raise ValueError("storage exec requires a command after --")
+            root = new_run_root()
+            if args.storage_command == "exec":
+                print(f"Fabric workspace: {root}", file=sys.stderr, flush=True)
+                return subprocess.run(
+                    command, env={**os.environ, **build_environment(root)}, check=False
+                ).returncode
+            result = {"workspace": str(root)}
+        print(json.dumps(result, indent=2))
+        return 0
+    except (OSError, ValueError, KeyError, TypeError, subprocess.SubprocessError) as exc:
+        print(json.dumps(_command_error(exc)), file=sys.stderr)
+        return 2
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", action="version", version=__version__)
     commands = parser.add_subparsers(dest="command", required=True)
+    storage = commands.add_parser("storage", help="shared external SSD storage preference")
+    storage_commands = storage.add_subparsers(dest="storage_command", required=True)
+    storage_commands.add_parser("status", help="measure the selected workspace storage")
+    storage_commands.add_parser("workspace", help="create a bound disposable workspace")
+    configure_storage = storage_commands.add_parser(
+        "configure", help="register a new Linux build image without reformatting the SSD"
+    )
+    configure_storage.add_argument("--uuid", required=True)
+    configure_storage.add_argument("--size-gib", type=int, default=128)
+    storage_exec = storage_commands.add_parser(
+        "exec", help="run a command with selected tool caches"
+    )
+    storage_exec.add_argument("argv", nargs=argparse.REMAINDER)
     doctor = commands.add_parser("doctor", help="check foundation lock envelopes offline")
     doctor.add_argument("--root", type=Path, default=Path.cwd())
     doctor.add_argument("--json", action="store_true", dest="as_json")
@@ -786,12 +839,21 @@ def main(argv: list[str] | None = None) -> int:
     for name in ("capabilities", "run"):
         quality_request = quality_commands.add_parser(name)
         quality_request.add_argument(
-            "--adapter", choices=("clang-tidy", "cppcheck", "asan", "ubsan"), default="clang-tidy"
+            "--adapter",
+            choices=("clang-tidy", "cppcheck", "asan", "ubsan", "codeql"),
+            default="clang-tidy",
         )
-        quality_request.add_argument("--request", type=Path, required=True)
+        quality_request.add_argument(
+            "--request",
+            type=Path,
+            required=True,
+            help="selected adapter request; CodeQL run also accepts fixed demonstration requests",
+        )
         quality_request.add_argument("--out", type=Path, required=True)
         quality_request.add_argument("--json", action="store_true", dest="as_json")
     args = parser.parse_args(argv)
+    if args.command == "storage":
+        return _storage(args)
     if args.command == "quality":
         return _quality(args)
     if args.command == "verify":

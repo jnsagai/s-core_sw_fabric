@@ -1,0 +1,20 @@
+{
+  "status": "prepared_not_submitted",
+  "run_id": null,
+  "prepared_root": "/tmp/score-someip84-factory-nz2flmbk",
+  "provider": "openai-codex",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "fallbacks": [],
+  "native_graph_validation": "passed",
+  "native_overlay_validation": "passed",
+  "native_model_tool_smoke": "not_executed",
+  "credential_imported": false,
+  "image_identity": "historical; live check required",
+  "blocked_by": [
+    "Local socket creation and Docker denied in resumed session",
+    "Fabro MCP requires approval but approval policy is never"
+  ],
+  "engineering_acceptance": "pending",
+  "launcher_live_path": "unverified"
+}

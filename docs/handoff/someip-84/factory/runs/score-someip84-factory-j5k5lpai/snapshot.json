@@ -1,0 +1,76 @@
+{
+  "assurance_decisions": 0,
+  "checkpoint_count": 1,
+  "complete": true,
+  "digest": "a19d0fbd03fcea403e9f4f5d1b211dfdb2970bd8193ae1f209baa1af965ca5a4",
+  "engineering_readiness": "not_evaluated",
+  "event_contract_version": 4,
+  "event_position": 34,
+  "gate_handoff": null,
+  "intent_id": "score-someip84-factory-j5k5lpai",
+  "kind": "runtime_snapshot",
+  "last_checkpoint": {
+    "attempt": 1,
+    "checkpoint_seq": 9,
+    "execution": 0,
+    "firing": 1,
+    "node_name": "start",
+    "ordinal": 1,
+    "run_commit_sha": "af797b062a52c207363b19698a2a58636a03edac",
+    "stage": "start@1",
+    "visit": 1,
+    "workspace": "invocation-0-scope-0"
+  },
+  "native_blocked_reason": null,
+  "native_reason": null,
+  "native_status": "running",
+  "next_action": "none",
+  "pending_control": null,
+  "questions": [],
+  "reason_codes": [],
+  "run_id": "01M3VZ48HZGTB0JAFTZ6MP9H37",
+  "schema_version": 1,
+  "stages": [
+    {
+      "graph_visit": 1,
+      "handler": "start",
+      "id": "start@1",
+      "name": "start",
+      "node_id": "start",
+      "started_at": "2026-10-01T14:50:36.144Z",
+      "status": "succeeded",
+      "usage": {
+        "tokens": {
+          "cache_read": 0,
+          "cache_write": 0,
+          "input": 0,
+          "output": 0,
+          "reasoning": 0
+        }
+      },
+      "visit": 1,
+      "wall_time_ms": 1
+    },
+    {
+      "graph_visit": 1,
+      "handler": "command",
+      "id": "node_f9fb889a6260f0b424c036ce@1",
+      "name": "node_f9fb889a6260f0b424c036ce",
+      "node_id": "node_f9fb889a6260f0b424c036ce",
+      "started_at": "2026-10-01T14:50:36.205Z",
+      "status": "running",
+      "usage": {
+        "tokens": {
+          "cache_read": 0,
+          "cache_write": 0,
+          "input": 0,
+          "output": 0,
+          "reasoning": 0
+        }
+      },
+      "visit": 1,
+      "wall_time_ms": 274
+    }
+  ],
+  "version_id": "da3942ed62c7fa7336d94fb8e93a2537ca58fbca1beaa895de3349ce6fa9e191"
+}

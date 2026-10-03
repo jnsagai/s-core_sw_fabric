@@ -1,0 +1,6 @@
+patching file score/socom/BUILD
+patching file score/socom/impl/service_identifier.cpp
+patching file score/socom/impl/service_identifier.hpp
+patching file score/socom/test/unit/BUILD
+patching file score/socom/test/unit/runtime_tests.cpp
+patching file score/socom/test/unit/service_identifier_tests.cpp

@@ -1,0 +1,21 @@
+Error while trying to load a compilation database:
+Could not auto-detect compilation database for file "score/socom/impl/service_identifier.cpp"
+No compilation database found in /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/score/socom/impl or any parent directory
+fixed-compilation-database: Error while opening fixed database: No such file or directory
+json-compilation-database: Error while opening JSON database: No such file or directory
+Running without flags.
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check '# --- autosar-severity-one --- bugprone-use-after-move' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check '# --- autosar-severity-two --- bugprone-forwarding-reference-overload' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check '# --- cert --- cert-err52-cpp' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check 'clang-analyzer-alpha.security.ArrayBoundV2' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check '# --- qnx-checks --- bugprone-reserved-identifier' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check '# --- extra --- bugprone-assert-side-effect' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check '#modernize-type-traits'; did you mean 'modernize-type-traits' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check 'Disabled because of too much noise' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check 'will later be re-enabled with a campaign to fix findings modernize-unary-static-assert' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check 'modernize-use-integer-sign-comparison' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check '#modernize-use-nodiscard'; did you mean 'modernize-use-nodiscard' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check 'Disabled because of too much noise' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check 'will later be re-enabled with a campaign to fix findings modernize-use-nullptr' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check '# --- style-readability --- misc-confusable-identifiers' [-verify-config]
+/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.clang-tidy: warning: unknown check option 'modernize-use-integer-sign-comparison.IncludeStyle' [-verify-config]

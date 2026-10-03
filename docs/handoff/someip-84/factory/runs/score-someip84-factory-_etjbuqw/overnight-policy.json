@@ -1,0 +1,352 @@
+{
+  "deadline": "2026-10-02T07:00:00+01:00",
+  "deadline_epoch": 1790920800.0,
+  "image_id": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+  "nodes": {
+    "exit": {
+      "mode": null,
+      "ref": "exit",
+      "repair_for": null,
+      "timeout_seconds": 6,
+      "write_paths": []
+    },
+    "node_08aafdf5761a2d334a1b32e9": {
+      "mode": null,
+      "ref": "repair_conversion_tests",
+      "repair_for": "check_conversion_tests",
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/repair_conversion_tests.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_104da2e8b1d8b42e0b6bd061": {
+      "mode": null,
+      "ref": "conversion_tests",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/conversion_tests.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_16318d4870001bd2347c7746": {
+      "mode": null,
+      "ref": "ordering_tests",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/ordering_tests.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_19c9ab235f32fc915b5fb1a3": {
+      "mode": null,
+      "ref": "bazel_plan",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/bazel_plan.md"
+      ]
+    },
+    "node_2efd6180fdadc928184b207d": {
+      "mode": null,
+      "ref": "concurrency_review",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/concurrency_review.md"
+      ]
+    },
+    "node_405fdce155b344263dd74580": {
+      "mode": null,
+      "ref": "callsites",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/callsites.md"
+      ]
+    },
+    "node_42ab57f3331a47d9f25dbf97": {
+      "mode": null,
+      "ref": "repair_review_packet",
+      "repair_for": "check_review_packet",
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/repair_review_packet.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_45b44c64602a4976e174a22e": {
+      "mode": null,
+      "ref": "key_fix",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/key_fix.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_4950ecb53dec3bcb35ccbd4a": {
+      "mode": "plain",
+      "ref": "check_unit_matrix",
+      "repair_for": null,
+      "timeout_seconds": 725,
+      "write_paths": []
+    },
+    "node_53e4d71026616ad83debc1dd": {
+      "mode": null,
+      "ref": "scope",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/scope.md"
+      ]
+    },
+    "node_6f243f840d3db3dda88b7bba": {
+      "mode": null,
+      "ref": "runtime_enabled",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/runtime_enabled.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_70e211e8a2ae7ce96f7a36a2": {
+      "mode": "ubsan",
+      "ref": "check_review_packet",
+      "repair_for": null,
+      "timeout_seconds": 725,
+      "write_paths": []
+    },
+    "node_752868eb24b56f82737549dd": {
+      "mode": "ubsan",
+      "ref": "check_conversion_tests",
+      "repair_for": null,
+      "timeout_seconds": 725,
+      "write_paths": []
+    },
+    "node_788e4ddcbaeaae302be60914": {
+      "mode": null,
+      "ref": "repair_lifetime_tests",
+      "repair_for": "check_lifetime_tests",
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/repair_lifetime_tests.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_7eab7da56b3a32542c071f40": {
+      "mode": null,
+      "ref": "analyzer_plan",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/analyzer_plan.md"
+      ]
+    },
+    "node_81dacd9fb5df6a7888667599": {
+      "mode": null,
+      "ref": "repair_unit_matrix",
+      "repair_for": "check_unit_matrix",
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/repair_unit_matrix.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_8211df9626f0b30598b6bc48": {
+      "mode": null,
+      "ref": "test_metadata",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/test_metadata.md"
+      ]
+    },
+    "node_8b4c04760cba5632fdeb6be7": {
+      "mode": null,
+      "ref": "lifetime_review",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/lifetime_review.md"
+      ]
+    },
+    "node_97797544422c1665f6c845da": {
+      "mode": null,
+      "ref": "runtime_disabled",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/runtime_disabled.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_99f3dbae466ac83ff948c419": {
+      "mode": null,
+      "ref": "compatibility",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/compatibility.md"
+      ]
+    },
+    "node_9c81fbb0055f1124c924c8f3": {
+      "mode": null,
+      "ref": "api_review",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/api_review.md"
+      ]
+    },
+    "node_afb4caaa6aabf23b9d9d3c4e": {
+      "mode": null,
+      "ref": "review_stop",
+      "repair_for": null,
+      "timeout_seconds": 425,
+      "write_paths": []
+    },
+    "node_b2f377f045f481fe73bcb8de": {
+      "mode": null,
+      "ref": "invariants",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/invariants.md"
+      ]
+    },
+    "node_c12fc02444d581d657581ef6": {
+      "mode": null,
+      "ref": "review_packet",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/review_packet.md"
+      ]
+    },
+    "node_c56852d541a0b6bf71cacf06": {
+      "mode": "plain",
+      "ref": "check_lifetime_tests",
+      "repair_for": null,
+      "timeout_seconds": 725,
+      "write_paths": []
+    },
+    "node_ca2414ca3661a39f1cdb5cd3": {
+      "mode": null,
+      "ref": "reproducer",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/reproducer.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_dcb594a61a1461b96eafd8cb": {
+      "mode": null,
+      "ref": "evidence_inventory",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/evidence_inventory.md"
+      ]
+    },
+    "node_efc6fd23c8aae1c9d3956b7a": {
+      "mode": null,
+      "ref": "unit_matrix",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/unit_matrix.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "node_f2bc2f76fcf43dca1b71de10": {
+      "mode": null,
+      "ref": "lifetime_tests",
+      "repair_for": null,
+      "timeout_seconds": 905,
+      "write_paths": [
+        "/workspace/.llm_tmp/overnight/reports/lifetime_tests.md",
+        "/workspace/score/socom/BUILD",
+        "/workspace/score/socom/impl/service_identifier.cpp",
+        "/workspace/score/socom/impl/service_identifier.hpp",
+        "/workspace/score/socom/test/unit/BUILD",
+        "/workspace/score/socom/test/unit/runtime_tests.cpp",
+        "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+      ]
+    },
+    "start": {
+      "mode": null,
+      "ref": "start",
+      "repair_for": null,
+      "timeout_seconds": 6,
+      "write_paths": []
+    }
+  },
+  "source_write_paths": [
+    "/workspace/score/socom/BUILD",
+    "/workspace/score/socom/impl/service_identifier.cpp",
+    "/workspace/score/socom/impl/service_identifier.hpp",
+    "/workspace/score/socom/test/unit/BUILD",
+    "/workspace/score/socom/test/unit/runtime_tests.cpp",
+    "/workspace/score/socom/test/unit/service_identifier_tests.cpp"
+  ]
+}

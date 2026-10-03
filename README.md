@@ -28,12 +28,31 @@ through `quality decision-subject` and `quality decision`, and the
 [guideline coverage matrix](specs/010-misra-quality-and-deviations/coverage-acceptance.md)
 through `quality coverage`, plus [portable review packets](specs/010-misra-quality-and-deviations/packet-acceptance.md)
 through `quality packet`, and [independent compliance blockers](specs/010-misra-quality-and-deviations/assessment-acceptance.md)
-through `quality assess`. Its remaining CodeQL/engineering review
+through `quality assess`. [CodeQL prerequisite inspection](specs/010-misra-quality-and-deviations/codeql-prerequisites-acceptance.md)
+uses `--adapter codeql`; capability and target requests stay blocked without execution.
+[Resumed native demonstrations](specs/010-misra-quality-and-deviations/codeql-native-demonstration-acceptance.md)
+separately verify real CodeQL seed/fresh-fix extraction and queries.
+[Python 3.9 reporting](specs/010-misra-quality-and-deviations/codeql-python39-reporting-acceptance.md)
+is now installed and measured with an explicit disposable upstream-patch variant; full
+target execution and engineering acceptance remain pending. The
+[public demonstrations](specs/010-misra-quality-and-deviations/codeql-public-demonstration-acceptance.md)
+adds an explicit fixed synthetic request under `quality run --adapter codeql`, preserving
+original native reports and unresolved engineering gates.
+[Imported CodeQL review context](specs/010-misra-quality-and-deviations/codeql-dispositions-acceptance.md)
+preserves unavailable inspection and blocked corrections. Its remaining CodeQL/engineering review
 work is [planned](specs/010-misra-quality-and-deviations/tasks.md). Local `clang-tidy` 19.1.7
 and `codeql` 2.21.4 resolve through `~/.local/bin/`; MISRA pack 2.61.0 is installed separately.
 [Installation evidence](specs/010-misra-quality-and-deviations/evidence/tool-installation.json)
-records hashes and probes. CodeQL eligible use, source/build reconciliation, reporting prerequisites
-and human engineering acceptance remain open.
+records hashes and probes. Reviewed/build source trees are reconciled; CodeQL eligible use,
+compiled artifact provenance, reporting prerequisites and human engineering acceptance remain open.
+The current [quality profile](profiles/s-core-quality-v1.yaml) also retains
+[candidate installed context](specs/010-misra-quality-and-deviations/contracts/installed-context.md)
+and original license notices; older profile/packet bytes remain preserved. Qualification and
+eligibility stay unknown, and this metadata does not select or adopt a tool.
+The current [010 handoff](docs/handoff/010-to-011.md) retains the historical ASan sandbox failure; [normal-terminal validation](specs/010-misra-quality-and-deviations/sanitizer-environment.md)
+now passes the three affected native checks. The [full host validation](specs/010-misra-quality-and-deviations/asan-host-validation.md)
+passes 1,773 tests with 13 documented external/native skips; engineering reviews remain open.
+The handoff does not authorize increment 011.
 
 Decision replay checks the exact draft/finding/source/tool/policy binding, signed fixture
 authority, category/scope and current validity. It reevaluates the complete 005 gate;
@@ -281,3 +300,9 @@ trust, readiness, registration, execution, release, and deployment remain outsid
 Checked-in profiles retain pending production review. Licensed fixture profiles use an explicit
 fixture-only review override. See the [004 quickstart](specs/004-native-artifact-traceability/quickstart.md)
 and [acceptance record](specs/004-native-artifact-traceability/acceptance.md).
+
+## Shared build storage
+
+New fabric build and analysis workspaces prefer a suitable mounted external SSD,
+with internal fallback. This applies across features. See [storage setup and
+commands](docs/storage.md).

@@ -2,7 +2,7 @@
 schema_version: 1
 kind: quality_import_request
 profile:
-  path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
+  path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/profiles/s-core-quality-legacy-v1.yaml
   sha256: 720a64d14ecc193e034a45e3c68dffed27df1d23837b886268af55acd1413ec9
 baseline:
   path: /home/jefferson/s-core_sw_fabric/tests/fixtures/quality/extraction/baseline.json

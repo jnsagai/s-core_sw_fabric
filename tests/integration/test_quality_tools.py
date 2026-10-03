@@ -7,6 +7,8 @@ import json
 import shutil
 from pathlib import Path
 
+import pytest
+
 from score_sw_fabric.cli import main
 from score_sw_fabric.quality.capabilities import capabilities
 from score_sw_fabric.quality.runner import run
@@ -83,14 +85,25 @@ def test_partial_scope_compile_error_and_suppression_are_not_clean(tmp_path: Pat
     assert code == 1 and "UNAPPROVED_SUPPRESSION" in record["gaps"]
 
 
-def test_selected_header_is_copied_and_diagnosed(tmp_path: Path) -> None:
+@pytest.mark.parametrize(
+    "directive",
+    [
+        '#include "value.h"',
+        '#/**/include "value.h"',
+        '#inc\\\nlude "value.h"',
+        '#include /* continued\ncomment */ "value.h"',
+        '%:include "value.h"',
+    ],
+)
+def test_selected_header_is_copied_and_diagnosed(tmp_path: Path, directive: str) -> None:
     from tests.quality_support import ref
 
     request(tmp_path)
     source = tmp_path / "component/check.cpp"
     header = tmp_path / "component/value.h"
     header.write_text("inline int value() { int* pointer = nullptr; return *pointer; }\n")
-    source.write_text('#include "value.h"\nint main() { return value(); }\n')
+    source.write_text(directive + "\nint main() { return value(); }\n")
+    originals = {path: path.read_bytes() for path in (source, header)}
     refs = [dict(ref(source), path="check.cpp"), dict(ref(header), path="value.h")]
     code, record, _, _ = run(request(tmp_path, files=refs))
     assert code == 1 and record["extraction"]["adequacy"] == "adequate"
@@ -98,3 +111,5 @@ def test_selected_header_is_copied_and_diagnosed(tmp_path: Path) -> None:
         d for d in record["diagnostics"] if d["native_id"] == "clang-analyzer-core.NullDereference"
     )
     assert any(loc["path"] == "value.h" for loc in d["locations"])
+    assert record["source_integrity"] == "unchanged"
+    assert all(path.read_bytes() == data for path, data in originals.items())

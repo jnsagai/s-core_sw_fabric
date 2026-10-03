@@ -1,0 +1,373 @@
+F.......FF...FFF                                                         [100%]
+=================================== FAILURES ===================================
+____________ test_bound_script_executes_and_preserves_nonzero_exit _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-jefferson/pytest-729/test_bound_script_executes_and0')
+
+    def test_bound_script_executes_and_preserves_nonzero_exit(tmp_path: Path) -> None:
+        selected = bound_case()
+>       graph = graph_for(selected)
+                ^^^^^^^^^^^^^^^^^^^
+
+tests/contract/test_compiler_command_binding.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/contract/test_compiler_command_binding.py:33: in graph_for
+    return build_ir(project_mapping(plan(), selected, profile), selected, profile)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+plan = {'schema_version': 1, 'plan_kind': 'draft', 'planning_status': 'complete', 'closure_complete': True, ...}
+mapping = {'schema_version': 1, 'id': 'fixture-linear', 'version': 1, 'plan_version': 1, ...}
+profile = {'schema_version': 1, 'id': 'deterministic-compiler-v1', 'version': 1, 'canonicalization': 'canonical-json-v1', ...}
+
+    def project_mapping(
+        plan: dict[str, Any], mapping: dict[str, Any], profile: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Return normalized actions and controls from an already reviewed mapping."""
+    
+        plan_ids = {item["instance_id"] for item in plan["instances"]}
+        allowed_actions = set(profile.get("allowed_actions", []))
+        capabilities = {item["id"]: item for item in profile.get("model_capabilities", [])}
+        ceilings = profile.get("limits", {}).get("action_budget", {})
+        if set(ceilings) != BUDGET_FIELDS:
+            raise InputError("COMPILER_PROFILE", "Compiler action-budget ceilings are incomplete")
+    
+        actions: list[dict[str, Any]] = []
+        refs: dict[str, bytes] = {}
+        coverage: dict[str, int] = {item: 0 for item in plan_ids}
+        rule_ids: set[str] = set()
+        for rule_index, rule in enumerate(mapping["rules"]):
+            pointer = f"/rules/{rule_index}"
+            if not isinstance(rule, dict) or set(rule) != {"id", "instance_ids", "actions"}:
+                raise InputError("MAPPING_RULE", f"Invalid rule fields at {pointer}", pointer)
+            rule_id = rule["id"]
+            if not isinstance(rule_id, str) or not rule_id or rule_id in rule_ids:
+                raise InputError("MAPPING_RULE", f"Invalid or duplicate rule id at {pointer}", pointer)
+            rule_ids.add(rule_id)
+            selected = _strings(rule["instance_ids"], pointer + "/instance_ids", nonempty=True)
+            if "*" in selected:
+                selected = sorted(plan_ids)
+            if not set(selected) <= plan_ids:
+                raise CompilerSemanticError(
+                    "MAPPING_SELECTOR", f"Rule {rule_id} selects unknown instances"
+                )
+            raw_actions = rule["actions"]
+            if not isinstance(raw_actions, list) or not raw_actions:
+                raise CompilerSemanticError("MAPPING_GAP", f"Rule {rule_id} has no actions")
+            rule_covered: set[str] = set()
+            for action_index, raw in enumerate(raw_actions):
+                action_pointer = f"{pointer}/actions/{action_index}"
+                if not isinstance(raw, dict) or set(raw) != ACTION_FIELDS:
+>                   raise InputError("MAPPING_ACTION", f"Invalid action fields at {action_pointer}")
+E                   score_sw_fabric.process_source.reader.InputError: Invalid action fields at /rules/0/actions/0
+
+src/score_sw_fabric/compiler/mapping.py:129: InputError
+_________________ test_binding_must_be_declared_by_the_action __________________
+
+    def test_binding_must_be_declared_by_the_action() -> None:
+        selected = bound_case()
+        selected["rules"][0]["actions"][0]["support_files"] = []
+        with pytest.raises(CompilerSemanticError, match="support"):
+>           graph_for(selected)
+
+tests/contract/test_compiler_command_binding.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/contract/test_compiler_command_binding.py:33: in graph_for
+    return build_ir(project_mapping(plan(), selected, profile), selected, profile)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+plan = {'schema_version': 1, 'plan_kind': 'draft', 'planning_status': 'complete', 'closure_complete': True, ...}
+mapping = {'schema_version': 1, 'id': 'fixture-linear', 'version': 1, 'plan_version': 1, ...}
+profile = {'schema_version': 1, 'id': 'deterministic-compiler-v1', 'version': 1, 'canonicalization': 'canonical-json-v1', ...}
+
+    def project_mapping(
+        plan: dict[str, Any], mapping: dict[str, Any], profile: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Return normalized actions and controls from an already reviewed mapping."""
+    
+        plan_ids = {item["instance_id"] for item in plan["instances"]}
+        allowed_actions = set(profile.get("allowed_actions", []))
+        capabilities = {item["id"]: item for item in profile.get("model_capabilities", [])}
+        ceilings = profile.get("limits", {}).get("action_budget", {})
+        if set(ceilings) != BUDGET_FIELDS:
+            raise InputError("COMPILER_PROFILE", "Compiler action-budget ceilings are incomplete")
+    
+        actions: list[dict[str, Any]] = []
+        refs: dict[str, bytes] = {}
+        coverage: dict[str, int] = {item: 0 for item in plan_ids}
+        rule_ids: set[str] = set()
+        for rule_index, rule in enumerate(mapping["rules"]):
+            pointer = f"/rules/{rule_index}"
+            if not isinstance(rule, dict) or set(rule) != {"id", "instance_ids", "actions"}:
+                raise InputError("MAPPING_RULE", f"Invalid rule fields at {pointer}", pointer)
+            rule_id = rule["id"]
+            if not isinstance(rule_id, str) or not rule_id or rule_id in rule_ids:
+                raise InputError("MAPPING_RULE", f"Invalid or duplicate rule id at {pointer}", pointer)
+            rule_ids.add(rule_id)
+            selected = _strings(rule["instance_ids"], pointer + "/instance_ids", nonempty=True)
+            if "*" in selected:
+                selected = sorted(plan_ids)
+            if not set(selected) <= plan_ids:
+                raise CompilerSemanticError(
+                    "MAPPING_SELECTOR", f"Rule {rule_id} selects unknown instances"
+                )
+            raw_actions = rule["actions"]
+            if not isinstance(raw_actions, list) or not raw_actions:
+                raise CompilerSemanticError("MAPPING_GAP", f"Rule {rule_id} has no actions")
+            rule_covered: set[str] = set()
+            for action_index, raw in enumerate(raw_actions):
+                action_pointer = f"{pointer}/actions/{action_index}"
+                if not isinstance(raw, dict) or set(raw) != ACTION_FIELDS:
+>                   raise InputError("MAPPING_ACTION", f"Invalid action fields at {action_pointer}")
+E                   score_sw_fabric.process_source.reader.InputError: Invalid action fields at /rules/0/actions/0
+
+src/score_sw_fabric/compiler/mapping.py:129: InputError
+_____________ test_missing_packaged_script_refused_instead_of_noop _____________
+
+    def test_missing_packaged_script_refused_instead_of_noop() -> None:
+>       graph = graph_for(bound_case())
+                ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/contract/test_compiler_command_binding.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/contract/test_compiler_command_binding.py:33: in graph_for
+    return build_ir(project_mapping(plan(), selected, profile), selected, profile)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+plan = {'schema_version': 1, 'plan_kind': 'draft', 'planning_status': 'complete', 'closure_complete': True, ...}
+mapping = {'schema_version': 1, 'id': 'fixture-linear', 'version': 1, 'plan_version': 1, ...}
+profile = {'schema_version': 1, 'id': 'deterministic-compiler-v1', 'version': 1, 'canonicalization': 'canonical-json-v1', ...}
+
+    def project_mapping(
+        plan: dict[str, Any], mapping: dict[str, Any], profile: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Return normalized actions and controls from an already reviewed mapping."""
+    
+        plan_ids = {item["instance_id"] for item in plan["instances"]}
+        allowed_actions = set(profile.get("allowed_actions", []))
+        capabilities = {item["id"]: item for item in profile.get("model_capabilities", [])}
+        ceilings = profile.get("limits", {}).get("action_budget", {})
+        if set(ceilings) != BUDGET_FIELDS:
+            raise InputError("COMPILER_PROFILE", "Compiler action-budget ceilings are incomplete")
+    
+        actions: list[dict[str, Any]] = []
+        refs: dict[str, bytes] = {}
+        coverage: dict[str, int] = {item: 0 for item in plan_ids}
+        rule_ids: set[str] = set()
+        for rule_index, rule in enumerate(mapping["rules"]):
+            pointer = f"/rules/{rule_index}"
+            if not isinstance(rule, dict) or set(rule) != {"id", "instance_ids", "actions"}:
+                raise InputError("MAPPING_RULE", f"Invalid rule fields at {pointer}", pointer)
+            rule_id = rule["id"]
+            if not isinstance(rule_id, str) or not rule_id or rule_id in rule_ids:
+                raise InputError("MAPPING_RULE", f"Invalid or duplicate rule id at {pointer}", pointer)
+            rule_ids.add(rule_id)
+            selected = _strings(rule["instance_ids"], pointer + "/instance_ids", nonempty=True)
+            if "*" in selected:
+                selected = sorted(plan_ids)
+            if not set(selected) <= plan_ids:
+                raise CompilerSemanticError(
+                    "MAPPING_SELECTOR", f"Rule {rule_id} selects unknown instances"
+                )
+            raw_actions = rule["actions"]
+            if not isinstance(raw_actions, list) or not raw_actions:
+                raise CompilerSemanticError("MAPPING_GAP", f"Rule {rule_id} has no actions")
+            rule_covered: set[str] = set()
+            for action_index, raw in enumerate(raw_actions):
+                action_pointer = f"{pointer}/actions/{action_index}"
+                if not isinstance(raw, dict) or set(raw) != ACTION_FIELDS:
+>                   raise InputError("MAPPING_ACTION", f"Invalid action fields at {action_pointer}")
+E                   score_sw_fabric.process_source.reader.InputError: Invalid action fields at /rules/0/actions/0
+
+src/score_sw_fabric/compiler/mapping.py:129: InputError
+______________________ test_binding_on_noncommand_refused ______________________
+
+    def test_binding_on_noncommand_refused() -> None:
+        selected = bound_case()
+        selected["rules"][0]["actions"][0]["type"] = "human"
+        with pytest.raises(CompilerSemanticError, match="command"):
+>           graph_for(selected)
+
+tests/contract/test_compiler_command_binding.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/contract/test_compiler_command_binding.py:33: in graph_for
+    return build_ir(project_mapping(plan(), selected, profile), selected, profile)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+plan = {'schema_version': 1, 'plan_kind': 'draft', 'planning_status': 'complete', 'closure_complete': True, ...}
+mapping = {'schema_version': 1, 'id': 'fixture-linear', 'version': 1, 'plan_version': 1, ...}
+profile = {'schema_version': 1, 'id': 'deterministic-compiler-v1', 'version': 1, 'canonicalization': 'canonical-json-v1', ...}
+
+    def project_mapping(
+        plan: dict[str, Any], mapping: dict[str, Any], profile: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Return normalized actions and controls from an already reviewed mapping."""
+    
+        plan_ids = {item["instance_id"] for item in plan["instances"]}
+        allowed_actions = set(profile.get("allowed_actions", []))
+        capabilities = {item["id"]: item for item in profile.get("model_capabilities", [])}
+        ceilings = profile.get("limits", {}).get("action_budget", {})
+        if set(ceilings) != BUDGET_FIELDS:
+            raise InputError("COMPILER_PROFILE", "Compiler action-budget ceilings are incomplete")
+    
+        actions: list[dict[str, Any]] = []
+        refs: dict[str, bytes] = {}
+        coverage: dict[str, int] = {item: 0 for item in plan_ids}
+        rule_ids: set[str] = set()
+        for rule_index, rule in enumerate(mapping["rules"]):
+            pointer = f"/rules/{rule_index}"
+            if not isinstance(rule, dict) or set(rule) != {"id", "instance_ids", "actions"}:
+                raise InputError("MAPPING_RULE", f"Invalid rule fields at {pointer}", pointer)
+            rule_id = rule["id"]
+            if not isinstance(rule_id, str) or not rule_id or rule_id in rule_ids:
+                raise InputError("MAPPING_RULE", f"Invalid or duplicate rule id at {pointer}", pointer)
+            rule_ids.add(rule_id)
+            selected = _strings(rule["instance_ids"], pointer + "/instance_ids", nonempty=True)
+            if "*" in selected:
+                selected = sorted(plan_ids)
+            if not set(selected) <= plan_ids:
+                raise CompilerSemanticError(
+                    "MAPPING_SELECTOR", f"Rule {rule_id} selects unknown instances"
+                )
+            raw_actions = rule["actions"]
+            if not isinstance(raw_actions, list) or not raw_actions:
+                raise CompilerSemanticError("MAPPING_GAP", f"Rule {rule_id} has no actions")
+            rule_covered: set[str] = set()
+            for action_index, raw in enumerate(raw_actions):
+                action_pointer = f"{pointer}/actions/{action_index}"
+                if not isinstance(raw, dict) or set(raw) != ACTION_FIELDS:
+>                   raise InputError("MAPPING_ACTION", f"Invalid action fields at {action_pointer}")
+E                   score_sw_fabric.process_source.reader.InputError: Invalid action fields at /rules/0/actions/0
+
+src/score_sw_fabric/compiler/mapping.py:129: InputError
+______________________ test_ir_binding_tampering_refused _______________________
+
+    def test_ir_binding_tampering_refused() -> None:
+        selected = bound_case()
+>       graph = graph_for(selected)
+                ^^^^^^^^^^^^^^^^^^^
+
+tests/contract/test_compiler_command_binding.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/contract/test_compiler_command_binding.py:33: in graph_for
+    return build_ir(project_mapping(plan(), selected, profile), selected, profile)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+plan = {'schema_version': 1, 'plan_kind': 'draft', 'planning_status': 'complete', 'closure_complete': True, ...}
+mapping = {'schema_version': 1, 'id': 'fixture-linear', 'version': 1, 'plan_version': 1, ...}
+profile = {'schema_version': 1, 'id': 'deterministic-compiler-v1', 'version': 1, 'canonicalization': 'canonical-json-v1', ...}
+
+    def project_mapping(
+        plan: dict[str, Any], mapping: dict[str, Any], profile: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Return normalized actions and controls from an already reviewed mapping."""
+    
+        plan_ids = {item["instance_id"] for item in plan["instances"]}
+        allowed_actions = set(profile.get("allowed_actions", []))
+        capabilities = {item["id"]: item for item in profile.get("model_capabilities", [])}
+        ceilings = profile.get("limits", {}).get("action_budget", {})
+        if set(ceilings) != BUDGET_FIELDS:
+            raise InputError("COMPILER_PROFILE", "Compiler action-budget ceilings are incomplete")
+    
+        actions: list[dict[str, Any]] = []
+        refs: dict[str, bytes] = {}
+        coverage: dict[str, int] = {item: 0 for item in plan_ids}
+        rule_ids: set[str] = set()
+        for rule_index, rule in enumerate(mapping["rules"]):
+            pointer = f"/rules/{rule_index}"
+            if not isinstance(rule, dict) or set(rule) != {"id", "instance_ids", "actions"}:
+                raise InputError("MAPPING_RULE", f"Invalid rule fields at {pointer}", pointer)
+            rule_id = rule["id"]
+            if not isinstance(rule_id, str) or not rule_id or rule_id in rule_ids:
+                raise InputError("MAPPING_RULE", f"Invalid or duplicate rule id at {pointer}", pointer)
+            rule_ids.add(rule_id)
+            selected = _strings(rule["instance_ids"], pointer + "/instance_ids", nonempty=True)
+            if "*" in selected:
+                selected = sorted(plan_ids)
+            if not set(selected) <= plan_ids:
+                raise CompilerSemanticError(
+                    "MAPPING_SELECTOR", f"Rule {rule_id} selects unknown instances"
+                )
+            raw_actions = rule["actions"]
+            if not isinstance(raw_actions, list) or not raw_actions:
+                raise CompilerSemanticError("MAPPING_GAP", f"Rule {rule_id} has no actions")
+            rule_covered: set[str] = set()
+            for action_index, raw in enumerate(raw_actions):
+                action_pointer = f"{pointer}/actions/{action_index}"
+                if not isinstance(raw, dict) or set(raw) != ACTION_FIELDS:
+>                   raise InputError("MAPPING_ACTION", f"Invalid action fields at {action_pointer}")
+E                   score_sw_fabric.process_source.reader.InputError: Invalid action fields at /rules/0/actions/0
+
+src/score_sw_fabric/compiler/mapping.py:129: InputError
+______ test_script_content_changes_native_render_and_normalizes_newlines _______
+
+    def test_script_content_changes_native_render_and_normalizes_newlines() -> None:
+        selected = bound_case("printf 'first'\r\nexit 0\r\n")
+>       graph = graph_for(selected)
+                ^^^^^^^^^^^^^^^^^^^
+
+tests/contract/test_compiler_command_binding.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/contract/test_compiler_command_binding.py:33: in graph_for
+    return build_ir(project_mapping(plan(), selected, profile), selected, profile)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+plan = {'schema_version': 1, 'plan_kind': 'draft', 'planning_status': 'complete', 'closure_complete': True, ...}
+mapping = {'schema_version': 1, 'id': 'fixture-linear', 'version': 1, 'plan_version': 1, ...}
+profile = {'schema_version': 1, 'id': 'deterministic-compiler-v1', 'version': 1, 'canonicalization': 'canonical-json-v1', ...}
+
+    def project_mapping(
+        plan: dict[str, Any], mapping: dict[str, Any], profile: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Return normalized actions and controls from an already reviewed mapping."""
+    
+        plan_ids = {item["instance_id"] for item in plan["instances"]}
+        allowed_actions = set(profile.get("allowed_actions", []))
+        capabilities = {item["id"]: item for item in profile.get("model_capabilities", [])}
+        ceilings = profile.get("limits", {}).get("action_budget", {})
+        if set(ceilings) != BUDGET_FIELDS:
+            raise InputError("COMPILER_PROFILE", "Compiler action-budget ceilings are incomplete")
+    
+        actions: list[dict[str, Any]] = []
+        refs: dict[str, bytes] = {}
+        coverage: dict[str, int] = {item: 0 for item in plan_ids}
+        rule_ids: set[str] = set()
+        for rule_index, rule in enumerate(mapping["rules"]):
+            pointer = f"/rules/{rule_index}"
+            if not isinstance(rule, dict) or set(rule) != {"id", "instance_ids", "actions"}:
+                raise InputError("MAPPING_RULE", f"Invalid rule fields at {pointer}", pointer)
+            rule_id = rule["id"]
+            if not isinstance(rule_id, str) or not rule_id or rule_id in rule_ids:
+                raise InputError("MAPPING_RULE", f"Invalid or duplicate rule id at {pointer}", pointer)
+            rule_ids.add(rule_id)
+            selected = _strings(rule["instance_ids"], pointer + "/instance_ids", nonempty=True)
+            if "*" in selected:
+                selected = sorted(plan_ids)
+            if not set(selected) <= plan_ids:
+                raise CompilerSemanticError(
+                    "MAPPING_SELECTOR", f"Rule {rule_id} selects unknown instances"
+                )
+            raw_actions = rule["actions"]
+            if not isinstance(raw_actions, list) or not raw_actions:
+                raise CompilerSemanticError("MAPPING_GAP", f"Rule {rule_id} has no actions")
+            rule_covered: set[str] = set()
+            for action_index, raw in enumerate(raw_actions):
+                action_pointer = f"{pointer}/actions/{action_index}"
+                if not isinstance(raw, dict) or set(raw) != ACTION_FIELDS:
+>                   raise InputError("MAPPING_ACTION", f"Invalid action fields at {action_pointer}")
+E                   score_sw_fabric.process_source.reader.InputError: Invalid action fields at /rules/0/actions/0
+
+src/score_sw_fabric/compiler/mapping.py:129: InputError
+=========================== short test summary info ============================
+FAILED tests/contract/test_compiler_command_binding.py::test_bound_script_executes_and_preserves_nonzero_exit
+FAILED tests/contract/test_compiler_command_binding.py::test_binding_must_be_declared_by_the_action
+FAILED tests/contract/test_compiler_command_binding.py::test_missing_packaged_script_refused_instead_of_noop
+FAILED tests/contract/test_compiler_command_binding.py::test_binding_on_noncommand_refused
+FAILED tests/contract/test_compiler_command_binding.py::test_ir_binding_tampering_refused
+FAILED tests/contract/test_compiler_command_binding.py::test_script_content_changes_native_render_and_normalizes_newlines
+6 failed, 10 passed in 0.15s

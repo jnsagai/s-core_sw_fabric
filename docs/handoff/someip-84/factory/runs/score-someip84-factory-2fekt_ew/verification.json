@@ -1,0 +1,23 @@
+{
+  "pytest": {
+    "passed": 91,
+    "skipped": 1,
+    "scope": "runtime supervision, storage, workspace transfer, SOME/IP collectors and handoff"
+  },
+  "ruff": "passed",
+  "ruff_format": "passed",
+  "mypy": {
+    "status": "passed",
+    "source_files": 122
+  },
+  "foundation": {
+    "status": "passed",
+    "requirements": 64,
+    "dependency_rows": 19
+  },
+  "uv_sync_frozen": "passed",
+  "uv_build": "passed",
+  "live_oversized_predecessor_observer": "passed",
+  "live_terminal_worker_reconciliation": "passed",
+  "engineering_acceptance": "pending"
+}

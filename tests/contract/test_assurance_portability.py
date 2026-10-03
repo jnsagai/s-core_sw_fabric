@@ -300,6 +300,13 @@ def test_portable_verifier_does_not_invoke_external_runtime(
 ) -> None:
     import subprocess
 
+    from score_sw_fabric import storage
+
+    # Measure the scratch volume before forbidding process calls during replay.
+    # Storage discovery probes the host; assessment replay must remain offline.
+    selected_storage = storage.select_storage()
+    monkeypatch.setattr(storage, "select_storage", lambda: selected_storage)
+
     def forbidden(*_args: Any, **_kwargs: Any) -> Any:
         raise AssertionError("Portable verifier invoked an external runtime")
 

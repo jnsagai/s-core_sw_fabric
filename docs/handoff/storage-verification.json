@@ -1,0 +1,166 @@
+{
+  "measured_at": "2026-10-02T07:39:23.489594+00:00",
+  "scope": "Fabric storage placement and native filesystem capability; engineering acceptance not evaluated",
+  "external": {
+    "kind": "external_ssd",
+    "run_parent": "/home/jefferson/.local/share/s-core/build-volumes/002B-CE31/.s-core-build/runs",
+    "mount": "/home/jefferson/.local/share/s-core/build-volumes/002B-CE31",
+    "backing_uuid": "002B-CE31",
+    "backing_mount": "/media/jefferson/Lexar",
+    "filesystem": "exfat",
+    "free_bytes": 120401448960,
+    "rejected": [],
+    "policy": "mounted_external_ssd_first",
+    "schema_version": 1,
+    "mount_device": 131
+  },
+  "forced_internal": {
+    "kind": "internal",
+    "run_parent": "/tmp",
+    "mount": null,
+    "backing_uuid": null,
+    "backing_mount": null,
+    "filesystem": null,
+    "free_bytes": 29866815488,
+    "rejected": [],
+    "policy": "mounted_external_ssd_first",
+    "schema_version": 1,
+    "mount_device": null
+  },
+  "simulated_absence": {
+    "kind": "internal",
+    "run_parent": "/tmp",
+    "mount": null,
+    "backing_uuid": null,
+    "backing_mount": null,
+    "filesystem": null,
+    "free_bytes": 29866815488,
+    "rejected": [],
+    "policy": "mounted_external_ssd_first",
+    "schema_version": 1,
+    "mount_device": null
+  },
+  "native_compile": {
+    "compiler": "/usr/bin/g++-12",
+    "exit_code": 0,
+    "execution_exit_code": 0,
+    "workspace": "/home/jefferson/.local/share/s-core/build-volumes/002B-CE31/.s-core-build/runs/score-fabric-native-proof-yc48fm8q",
+    "workspace_removed_after_verification": true
+  },
+  "runtime_target_boundary": {
+    "external_target_admitted": true,
+    "transport": "FakeFabro; no native run created"
+  },
+  "disconnection_simulation_rejected_bound_workspace": true,
+  "private_server_state_base": "/home/jefferson/.local/state/s-core/fabro",
+  "filesystem_image_size_bytes": 137438953472,
+  "portable_prerequisites": {
+    "origin": "Ubuntu Jammy signed package metadata",
+    "packages": [
+      {
+        "name": "fuse2fs_1.46.5-2ubuntu1.2_amd64.deb",
+        "sha256": "4a09d2183abcef64c0bbdbf5d5585541d3cfbcb27477301a651f7e7c79b0b5a3"
+      },
+      {
+        "name": "libext2fs2_1.46.5-2ubuntu1.2_amd64.deb",
+        "sha256": "4883114ed51508d27e06030d78ac8348e01c92d50fcf1069bb5582786ff82633"
+      },
+      {
+        "name": "libfuse2_2.9.9-5ubuntu3_amd64.deb",
+        "sha256": "accb0569b063a9d21e2c2a4e30b299da4e87d11af3b41ac1c01f7329ba393ea2"
+      }
+    ],
+    "system_installation": false
+  },
+  "checks": {
+    "frozen_sync": "passed",
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "mypy": "passed: 119 source files",
+    "storage_contracts": "18 passed",
+    "affected_regressions": "244 passed initially; one environment contract updated for new scratch/cache variables",
+    "updated_storage_native_artifact_agent_contracts": "59 passed after the environment contract update (before adding the additional alias case)",
+    "foundation": "passed: 64 unchanged FAB requirements; 19 dependency rows; skills, locks and local links",
+    "package_build": "passed: source distribution and wheel, build scratch/cache on external SSD"
+  },
+  "kernel_backend_followup": {
+    "observed_at": "2026-10-02T09:38:10.341857+00:00",
+    "external": {
+      "kind": "external_ssd",
+      "run_parent": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs",
+      "mount": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0",
+      "backing_uuid": "002B-CE31",
+      "backing_mount": "/media/jefferson/Lexar",
+      "filesystem": "exfat",
+      "free_bytes": 133885472768,
+      "rejected": [],
+      "policy": "mounted_external_ssd_first",
+      "schema_version": 1,
+      "mount_device": 1798
+    },
+    "diagnosis": "Repeated FUSE permission, read-only and connection failures during real Docker snapshots and focused coverage. Offline e2fsck -fn found no structural inconsistencies. The ext4 image and existing files were preserved.",
+    "mount_backend": "udisks",
+    "kernel_image_path": "/media/jefferson/Lexar/.s-core-build/build-volume-v1.ext4",
+    "collector_probe": [
+      {
+        "check": "compiler_diagnostics",
+        "status": "findings_or_execution_failure",
+        "blockers": [],
+        "command_exits": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "check": "focused_coverage",
+        "status": "completed",
+        "blockers": [],
+        "command_exits": [
+          0,
+          0,
+          0
+        ],
+        "coverage": {
+          "files": [
+            "score/socom/impl/service_identifier.cpp",
+            "score/socom/impl/string_registry.cpp"
+          ],
+          "production_filter": "score/socom/impl/",
+          "tests_and_third_party_excluded": true,
+          "line_total": 36,
+          "line_covered": 28,
+          "branch_total": 14,
+          "branch_covered": 9,
+          "line_percent": 77.8,
+          "branch_percent": 64.3,
+          "platform_goals": {
+            "QM": 85,
+            "safety": 100
+          },
+          "safety_class": "unknown_requires_authorized_selection",
+          "complete_target_scope": false
+        }
+      },
+      {
+        "check": "process_checks",
+        "status": "completed_with_blockers",
+        "blockers": [
+          "Lexical metadata inventory cannot prove semantic requirement coverage",
+          "Safety/QM applicability and approved tailoring unknown",
+          "Independent inspection and acceptance required",
+          "External AoU and full integration verification require scoped review"
+        ],
+        "command_exits": []
+      }
+    ],
+    "verification": {
+      "ruff": "passed",
+      "mypy": "passed: 120 source files",
+      "relevant_contracts": "46 passed",
+      "foundation": "passed",
+      "uv_build_on_kernel_ssd": "passed"
+    },
+    "engineering_acceptance": "pending"
+  }
+}

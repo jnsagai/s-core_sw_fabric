@@ -1,0 +1,45 @@
+{
+  "observed_at": "2026-10-02T14:42:39.232655+00:00",
+  "run_id": "01M3YGTGYFEN406VDEVVTJTRWV",
+  "prepared_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-mfwqxi3a",
+  "native_lifecycle": {
+    "status": {
+      "kind": "running"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "native_worker_alive": true,
+  "supervisor_receipt": {
+    "run_id": "01M3YGTGYFEN406VDEVVTJTRWV",
+    "policy_sha256": "3d043e2f52dbc1f2572e705151847a939aff9be13bf2097cc47467a2bd976c65",
+    "pid": 55499,
+    "process_identity": "afea70e0-5cf8-4b0f-a845-5fe250756152:296639",
+    "observed_at": 1790952159.05166,
+    "phase": "observing",
+    "dependencies_verified": true,
+    "unit": "score-fabric-supervisor-01m3ygtgyfen406vdevvtjtrwv"
+  },
+  "container": {
+    "id": "ecc83520d57bcc718421923e9f1014bfe0b0e9930d672ef4cb7310d94812c52b",
+    "image": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+    "running": true,
+    "networks": {}
+  },
+  "engineering_acceptance": "pending",
+  "recovery": "fresh_supervised_successor_from_preserved_work_original_checkpoint_lost",
+  "services": {
+    "score-fabric-someip84-server.service": {
+      "enabled": "enabled",
+      "active": "active"
+    },
+    "score-fabric-supervisor-01m3ygtgyfen406vdevvtjtrwv.service": {
+      "enabled": "enabled",
+      "active": "active"
+    }
+  }
+}

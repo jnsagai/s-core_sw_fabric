@@ -23,6 +23,33 @@ CodeQL execution and engineering review authority. The
 [the seven-hour autonomous window](../../docs/handoff/010-overnight.md); human acceptance stays pending. The
 [independent assessment slice](assessment-acceptance.md) implements T024/T027/T028 and
 T065–T068 under [its exact contract](contracts/assessment.md), with overall compliance blocked.
+The [CodeQL prerequisite slice](codeql-prerequisites-acceptance.md) measures Git source/build
+trees, native query closure, installed pack/library metadata and exact reporting controls;
+it does not execute or qualify the analyzer. Native ASan runtime remains incomplete under
+the current sandbox; [the diagnostic](sanitizer-environment.md) preserves this failed gate.
+The [CodeQL disposition context](codeql-dispositions-acceptance.md) retains original inspections,
+compares imported native identities and supports offline history/blocked 005 binding. It cannot
+establish a fresh CodeQL correction or clear eligible analysis prerequisites.
+
+The T001 [candidate installed context](contracts/installed-context.md) consolidates four
+toolchain snapshots, original notices and measured CodeQL source/build/pack identities in the
+current primary profile. Strict optional validation preserves historical version 1 profiles;
+new requests explicitly select the changed policy SHA. Qualification/eligibility remain unknown.
+This implements the profile/provenance boundary of 010-R01/R09/R11 without enabling CodeQL.
+
+After explicit user resumption, the [internal phase contract](contracts/codeql-native-phases.md)
+and negative-first tests precede a pure bounded recipe builder and independent extraction
+projection. The [native demonstrations](codeql-native-demonstration-acceptance.md) measure the
+installed tools against fixed synthetic seeded/corrected programs, preserving raw SARIF/CSV
+and diagnostic extraction queries. This is partial T002/T011/T012/T078/T079 progress; the public
+adapter remains inspection-only. After the initial GitHub DNS failure, the user installed
+Python 3.9 and pinned packages. [Reporting measurements](codeql-python39-reporting-acceptance.md)
+now verify configuration/XML phases and native reports with a disposable recount variant of
+the selected upstream patch. Original failed reporting is retained; complete target acceptance
+remains outstanding. The resumed [public demonstration slice](contracts/codeql-demonstration.md)
+adds a distinct strict request for internally fixed C++ programs, isolated execution, independent
+extraction, native SARIF normalization and all four original reports. Existing target requests
+remain inspection-only. T085–T088 trace this bounded integration.
 
 ## Summary
 
@@ -109,6 +136,18 @@ CodeQL invocation remains an explicit mode of the bounded runner after prerequis
 no copies of native wrappers become new fabric authority.
 
 ## Complexity Tracking
+
+## Factory execution correction (2026-10-01)
+
+The user's continuation authorizes correcting the direct SOME/IP demonstration
+into a Fabro execution demonstrator within 010. Follow
+[the command-binding contract](contracts/fabro-command-binding.md): extend the
+existing mapping/IR/renderer with a closed support-file binding, verify it with
+negative-first tests, restore the pinned runtime in a disposable copy, compile
+and execute real deterministic checks through the fabric runtime, and retain
+native exports alongside the earlier direct-work evidence. Agent implementation
+stops at missing admission/provider/budget; human engineering review stays pending.
+No new scheduler or increment is introduced.
 
 No constitutional violations. Multiple native output formats are required by the selected tools;
 one normalized finding representation keeps source-result provenance without pretending each

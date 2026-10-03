@@ -1,0 +1,24 @@
+{
+  "prepared_at": "2026-10-02T14:38:16.303629+00:00",
+  "predecessor_run_id": "01M3YGBHTTM3NCGTMYAN76363M",
+  "reason": "Replace preserved pre-agent PATH failure after reboot recovery; no candidate source changed",
+  "continuation_kind": "fresh_supervised_successor_from_preserved_source",
+  "preserved_source": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-crash-preservation-56atg_mt/workspace",
+  "preserved_source_sha256": {
+    "score/socom/BUILD": "68f4645a21e495fac43929fb125f7ba0b9e29fc84c0401fdb95238ffb7fd2cc8",
+    "score/socom/impl/service_identifier.cpp": "3c12b3f1dd3f1fa66cdf43766f374d7d067637bf8f11aba604c4e2688351f11a",
+    "score/socom/impl/service_identifier.hpp": "bdce3fcbc3cd78a8ecaece1ea36107d464011ab81c9bc39932d0be617befaea9",
+    "score/socom/test/unit/BUILD": "e909151e822370bebe8d59b86369bddeb4d6cacfa02f10061bf6e134671ff9d4",
+    "score/socom/test/unit/runtime_tests.cpp": "2280101d6be2a2513e5992599af514bad85d3c8c80dd5b375b816b4ebfe6db89",
+    "score/socom/test/unit/service_identifier_tests.cpp": "fb6dbf12c3254c9990cc8e58a53f5c3d36865cafbf11f9f6dbc296846f85a767"
+  },
+  "prior_reports": 13,
+  "runtime_provenance": "/home/jefferson/.local/share/s-core-tools/fabro-1b4fb152-agent32768/provenance.json",
+  "model": "deepseek-flash",
+  "reasoning_effort": "high",
+  "fallbacks": [],
+  "single_pass": true,
+  "deadline": null,
+  "engineering_acceptance": "pending",
+  "original_run_id": "01M3XZAQ65TTE35XSGXC4JAMAH"
+}

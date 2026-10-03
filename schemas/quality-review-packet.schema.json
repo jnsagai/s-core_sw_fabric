@@ -325,7 +325,10 @@
             "maxLength": 1024
           },
           "request": {
-            "$ref": "quality-disposition-request.schema.json"
+            "oneOf": [
+              {"$ref": "quality-disposition-request.schema.json"},
+              {"$ref": "quality-codeql-disposition-request.schema.json"}
+            ]
           },
           "origin_path": {
             "type": "string",
@@ -352,7 +355,10 @@
             ]
           },
           "review": {
-            "$ref": "quality-disposition-review.schema.json"
+            "oneOf": [
+              {"$ref": "quality-disposition-review.schema.json"},
+              {"$ref": "quality-codeql-disposition-review.schema.json"}
+            ]
           },
           "history": {
             "type": "array",
@@ -371,7 +377,10 @@
                   "maxLength": 1024
                 },
                 "record": {
-                  "$ref": "quality-disposition-review.schema.json"
+                  "oneOf": [
+                    {"$ref": "quality-disposition-review.schema.json"},
+                    {"$ref": "quality-codeql-disposition-review.schema.json"}
+                  ]
                 }
               }
             }

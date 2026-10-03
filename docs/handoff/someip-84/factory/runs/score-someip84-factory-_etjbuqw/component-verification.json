@@ -1,0 +1,42 @@
+{
+  "origin": "component_verification_not_Fabro_execution",
+  "checks": [
+    "implementation-source-allowed",
+    "review-source-denied",
+    "review-report-allowed",
+    "measurement-overwrite-denied",
+    "path-escape-denied",
+    "shell-denied",
+    "spawn_agent-denied",
+    "apply_patch-denied",
+    "web_fetch-denied",
+    "update_plan-denied",
+    "workspace-read-allowed",
+    "unknown-node-denied",
+    "deadline-with-reserved-grace-allowed",
+    "insufficient-time-denied",
+    "at-deadline-tool-denied",
+    "expired-deadline-process-denied",
+    "infrastructure-failure-not-reworked",
+    "real-GCC-baseline-fails-7-candidate-passes-13-with-stub-Docker"
+  ],
+  "passed": 18,
+  "transport": "Docker stub; live hook admission unverified",
+  "actual_measurement": {
+    "baseline": {
+      "compile_exit": 0,
+      "test_exit": 1,
+      "tests": 13,
+      "failures": 7,
+      "disabled": 0
+    },
+    "candidate": {
+      "compile_exit": 0,
+      "test_exit": 0,
+      "tests": 13,
+      "failures": 0,
+      "disabled": 0
+    }
+  },
+  "engineering_acceptance": "pending"
+}

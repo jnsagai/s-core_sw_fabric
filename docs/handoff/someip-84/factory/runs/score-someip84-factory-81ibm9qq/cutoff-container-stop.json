@@ -1,0 +1,9 @@
+{
+  "run_id": "01M3WX09X84XFM5X08QY2944DF",
+  "stopped_at": "2026-10-02T06:50:18.748902+00:00",
+  "container": "2f8b6f9b5d0d",
+  "state": "exited",
+  "native_cancel_response": 409,
+  "reason": "Only owned container stopped after cutoff; native cancellation rejected; preserve native state without editing database",
+  "workspace": "/tmp/score-someip84-factory-81ibm9qq/cutoff-workspace"
+}

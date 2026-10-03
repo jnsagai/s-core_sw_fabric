@@ -1,0 +1,10 @@
+{
+  "run_id": "01M3YGTGYFEN406VDEVVTJTRWV",
+  "kind": "observer_dependency_failure",
+  "measurement": {
+    "error_type": "ValueError",
+    "detail": "Native observation exceeds supervision read bound"
+  },
+  "native_status": null,
+  "native_conclusion": null
+}

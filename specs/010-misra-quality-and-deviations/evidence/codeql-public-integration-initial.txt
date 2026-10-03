@@ -1,0 +1,87 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______________ test_actual_public_fixed_demonstration[seeded-3-1] ______________
+
+tmp_path = PosixPath('/tmp/pytest-of-jefferson/pytest-711/test_actual_public_fixed_demon0')
+case = 'seeded', expected_count = 3, expected_exit = 1
+
+    @pytest.mark.parametrize(
+        "case,expected_count,expected_exit", [("seeded", 3, 1), ("corrected", 0, 0)]
+    )
+    def test_actual_public_fixed_demonstration(
+        tmp_path: Path,
+        case: str,
+        expected_count: int,
+        expected_exit: int,
+    ) -> None:
+        directory = os.environ.get("SCORE_CODEQL_DEMONSTRATION_REQUEST_DIRECTORY")
+        if not directory:
+            pytest.skip("select genuine fixed CodeQL demonstration requests explicitly")
+        selected = Path(directory) / f"codeql-demonstration-{case}.yaml"
+        output_dir = Path(os.environ.get("SCORE_CODEQL_DEMONSTRATION_OUTPUT_DIRECTORY", str(tmp_path)))
+        out = output_dir / f"codeql-public-demonstration-{case}.json"
+        assert not out.exists(), "retain earlier measurements; select a fresh output directory"
+        assert (
+            main(
+                ["quality", "run", "--adapter", "codeql", "--request", str(selected), "--out", str(out)]
+            )
+            == expected_exit
+        )
+        record = json.loads(out.read_bytes())
+>       verify_digest(record)
+E       TypeError: verify_digest() missing 1 required positional argument: 'pointer'
+
+tests/integration/test_quality_codeql.py:46: TypeError
+----------------------------- Captured stderr call -----------------------------
+{
+  "digest": "863b68dcd9694d1b8e528a33ab26aca8e56b1dbc84ba47648e1dd606af0bc73a",
+  "engineering_readiness": "not_evaluated",
+  "kind": "quality_codeql_demonstration_run",
+  "outcome": "findings",
+  "path": "/tmp/quality-010-public-final-20261001/codeql-public-demonstration-seeded.json"
+}
+____________ test_actual_public_fixed_demonstration[corrected-0-0] _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-jefferson/pytest-711/test_actual_public_fixed_demon1')
+case = 'corrected', expected_count = 0, expected_exit = 0
+
+    @pytest.mark.parametrize(
+        "case,expected_count,expected_exit", [("seeded", 3, 1), ("corrected", 0, 0)]
+    )
+    def test_actual_public_fixed_demonstration(
+        tmp_path: Path,
+        case: str,
+        expected_count: int,
+        expected_exit: int,
+    ) -> None:
+        directory = os.environ.get("SCORE_CODEQL_DEMONSTRATION_REQUEST_DIRECTORY")
+        if not directory:
+            pytest.skip("select genuine fixed CodeQL demonstration requests explicitly")
+        selected = Path(directory) / f"codeql-demonstration-{case}.yaml"
+        output_dir = Path(os.environ.get("SCORE_CODEQL_DEMONSTRATION_OUTPUT_DIRECTORY", str(tmp_path)))
+        out = output_dir / f"codeql-public-demonstration-{case}.json"
+        assert not out.exists(), "retain earlier measurements; select a fresh output directory"
+        assert (
+            main(
+                ["quality", "run", "--adapter", "codeql", "--request", str(selected), "--out", str(out)]
+            )
+            == expected_exit
+        )
+        record = json.loads(out.read_bytes())
+>       verify_digest(record, "/record")
+        ^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: verify_digest() missing 1 required positional argument: 'pointer'
+
+tests/integration/test_quality_codeql.py:46: TypeError
+----------------------------- Captured stdout call -----------------------------
+{
+  "digest": "9e5f391cf6aa9b82dedf2ecc905987c8810aa59759a9d859f876a2e84f9d8ea1",
+  "engineering_readiness": "not_evaluated",
+  "kind": "quality_codeql_demonstration_run",
+  "outcome": "completed",
+  "path": "/tmp/quality-010-public-final-20261001/codeql-public-demonstration-corrected.json"
+}
+=========================== short test summary info ============================
+FAILED tests/integration/test_quality_codeql.py::test_actual_public_fixed_demonstration[seeded-3-1]
+FAILED tests/integration/test_quality_codeql.py::test_actual_public_fixed_demonstration[corrected-0-0]
+2 failed, 3 deselected in 317.18s (0:05:17)

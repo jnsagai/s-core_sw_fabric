@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import base64
-import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -22,12 +21,19 @@ from score_sw_fabric.quality.import_models import choice, control, selected_cont
 from score_sw_fabric.quality.models import baseline, load_inputs
 from score_sw_fabric.quality.models import digest as byte_digest
 from score_sw_fabric.runtime.models import output_path
+from score_sw_fabric.storage import temporary_directory
 
 
 def _binding(path: Path, request: dict[str, Any]) -> tuple[dict[str, Any], list[Path], list[Path]]:
     base = path.absolute().parent
     disposition_path, selection = selected_control(base, request["disposition_request"], yaml=True)
-    version(selection, "quality_disposition_request", dm.REQUEST_FIELDS, "/disposition_request")
+    codeql_context = selection.get("kind") == "quality_codeql_disposition_request"
+    version(
+        selection,
+        "quality_codeql_disposition_request" if codeql_context else "quality_disposition_request",
+        dm.REQUEST_FIELDS,
+        "/disposition_request",
+    )
     if selection["action"] != "draft":
         raise InputError("DISPOSITION_ACTION", "Decision preparation requires action draft")
     # Freeze the selection again immediately before the no-execution draft reader.
@@ -74,6 +80,8 @@ def _binding(path: Path, request: dict[str, Any]) -> tuple[dict[str, Any], list[
     )
     finding_tool = review["subject"]["finding"].get("tool", current.adapter)
     reasons = models.permission(p, review, finding_tool)
+    if codeql_context:
+        reasons.extend(refreshed["reasons"])
     if (
         refreshed["state"] == "stale"
         or review["current_baseline"] != frozen
@@ -113,7 +121,9 @@ def _binding(path: Path, request: dict[str, Any]) -> tuple[dict[str, Any], list[
             "required_files": required,
             "reasons": sorted(set(reasons)),
             "outcome": "blocked" if reasons else "emitted",
-            "origin": "local_unprotected_execution",
+            "origin": "local_unprotected_inspection"
+            if codeql_context
+            else "local_unprotected_execution",
             "assurance_eligibility": "not_eligible",
             "engineering_readiness": "not_evaluated",
         }
@@ -216,7 +226,7 @@ def _current_gate(
 ) -> dict[str, Any]:
     """Reevaluate only after independent replay authenticated the complete byte closure."""
     gate = assessment["gate_results"][0]
-    with tempfile.TemporaryDirectory(prefix="quality-decision-") as temporary:
+    with temporary_directory(prefix="quality-decision-") as temporary:
         root = Path(temporary)
         for entry in assessment["raw_output_refs"]:
             logical = safe_path(entry["path"], "/raw_output/path")

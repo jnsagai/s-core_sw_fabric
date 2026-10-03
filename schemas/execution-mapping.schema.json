@@ -220,6 +220,11 @@
                     "minLength": 1
                   }
                 },
+                "command_file": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Optional packaged script binding, limited to command and deterministic_check actions; validated against action support_files."
+                },
                 "support_files": {
                   "type": "array",
                   "uniqueItems": true,

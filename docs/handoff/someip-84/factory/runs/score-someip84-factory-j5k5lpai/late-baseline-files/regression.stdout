@@ -1,0 +1,130 @@
+Running main() from /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest/googletest/src/gtest_main.cc
+[==========] Running 13 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from ServiceInstanceIdentifierTest
+[ RUN      ] ServiceInstanceIdentifierTest.DifferentServiceIdsUseDistinctRegistrationSlots
+[       OK ] ServiceInstanceIdentifierTest.DifferentServiceIdsUseDistinctRegistrationSlots (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DifferentMajorVersionsUseDistinctRegistrationSlots
+[       OK ] ServiceInstanceIdentifierTest.DifferentMajorVersionsUseDistinctRegistrationSlots (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DifferentInstancesUseDistinctRegistrationSlots
+[       OK ] ServiceInstanceIdentifierTest.DifferentInstancesUseDistinctRegistrationSlots (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SlotCanBeReusedWithNewMinorVersionAfterRemoval
+score/socom/test/unit/service_identifier_tests.cpp:96: Failure
+Value of: registrations.insert(second).second
+  Actual: true
+Expected: false
+
+score/socom/test/unit/service_identifier_tests.cpp:98: Failure
+Value of: registrations.insert(second).second
+  Actual: false
+Expected: true
+
+[  FAILED  ] ServiceInstanceIdentifierTest.SlotCanBeReusedWithNewMinorVersionAfterRemoval (0 ms)
+[----------] 4 tests from ServiceInstanceIdentifierTest (0 ms total)
+
+[----------] 9 tests from MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/0
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/0 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/1
+score/socom/test/unit/service_identifier_tests.cpp:44: Failure
+Value of: registrations.insert(second).second
+  Actual: true
+Expected: false
+
+score/socom/test/unit/service_identifier_tests.cpp:45: Failure
+Expected equality of these values:
+  1U
+    Which is: 1
+  registrations.size()
+    Which is: 2
+
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/1, where GetParam() = (0, 1) (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/2
+score/socom/test/unit/service_identifier_tests.cpp:44: Failure
+Value of: registrations.insert(second).second
+  Actual: true
+Expected: false
+
+score/socom/test/unit/service_identifier_tests.cpp:45: Failure
+Expected equality of these values:
+  1U
+    Which is: 1
+  registrations.size()
+    Which is: 2
+
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/2, where GetParam() = (0, 65535) (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/3
+score/socom/test/unit/service_identifier_tests.cpp:44: Failure
+Value of: registrations.insert(second).second
+  Actual: true
+Expected: false
+
+score/socom/test/unit/service_identifier_tests.cpp:45: Failure
+Expected equality of these values:
+  1U
+    Which is: 1
+  registrations.size()
+    Which is: 2
+
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/3, where GetParam() = (1, 0) (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/4
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/4 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/5
+score/socom/test/unit/service_identifier_tests.cpp:44: Failure
+Value of: registrations.insert(second).second
+  Actual: true
+Expected: false
+
+score/socom/test/unit/service_identifier_tests.cpp:45: Failure
+Expected equality of these values:
+  1U
+    Which is: 1
+  registrations.size()
+    Which is: 2
+
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/5, where GetParam() = (1, 65535) (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/6
+score/socom/test/unit/service_identifier_tests.cpp:44: Failure
+Value of: registrations.insert(second).second
+  Actual: true
+Expected: false
+
+score/socom/test/unit/service_identifier_tests.cpp:45: Failure
+Expected equality of these values:
+  1U
+    Which is: 1
+  registrations.size()
+    Which is: 2
+
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/6, where GetParam() = (65535, 0) (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/7
+score/socom/test/unit/service_identifier_tests.cpp:44: Failure
+Value of: registrations.insert(second).second
+  Actual: true
+Expected: false
+
+score/socom/test/unit/service_identifier_tests.cpp:45: Failure
+Expected equality of these values:
+  1U
+    Which is: 1
+  registrations.size()
+    Which is: 2
+
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/7, where GetParam() = (65535, 1) (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/8
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/8 (0 ms)
+[----------] 9 tests from MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 13 tests from 2 test suites ran. (0 ms total)
+[  PASSED  ] 6 tests.
+[  FAILED  ] 7 tests, listed below:
+[  FAILED  ] ServiceInstanceIdentifierTest.SlotCanBeReusedWithNewMinorVersionAfterRemoval
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/1, where GetParam() = (0, 1)
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/2, where GetParam() = (0, 65535)
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/3, where GetParam() = (1, 0)
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/5, where GetParam() = (1, 65535)
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/6, where GetParam() = (65535, 0)
+[  FAILED  ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/7, where GetParam() = (65535, 1)
+
+ 7 FAILED TESTS

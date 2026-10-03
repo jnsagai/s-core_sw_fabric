@@ -1,0 +1,30 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_resealed_ir_cannot_select_a_different_script _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-jefferson/pytest-731/test_resealed_ir_cannot_select0')
+
+    def test_resealed_ir_cannot_select_a_different_script(tmp_path: Path) -> None:
+        request, _ = prepare_case(tmp_path)
+        selected = bound_case()
+        action = selected["rules"][0]["actions"][0]
+        action["support_files"].append("commands/other.sh")
+        selected["support_files"].append(
+            {"path": "commands/other.sh", "content": "exit 0\n", "origin": action["origin"]}
+        )
+        inputs = replace(load_compiler_inputs(request), mapping=selected)
+        package = compile_package(inputs, native_validator=RecordingValidator())
+        assert validate_package(package, inputs.compiler_profile)["valid"] is True
+        graph = package["manifest"]["ir"]
+        node = next(n for n in graph["nodes"] if n["ref"] == "prepare")
+        node["command_file"] = "commands/other.sh"
+        package["manifest"]["ir_digest"] = hashlib.sha256(canonical(graph)).hexdigest()
+        package["digest"] = semantic_digest(package)
+>       with pytest.raises(InputError, match="binding"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE InputError
+
+tests/contract/test_compiler_command_binding.py:132: Failed
+=========================== short test summary info ============================
+FAILED tests/contract/test_compiler_command_binding.py::test_resealed_ir_cannot_select_a_different_script
+1 failed in 0.07s

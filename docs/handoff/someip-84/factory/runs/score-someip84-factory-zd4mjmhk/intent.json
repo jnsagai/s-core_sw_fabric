@@ -1,0 +1,36 @@
+{
+  "baseline": {
+    "evidence_digests": [],
+    "policy_digest": "092a742e69257ab8f03138f92cb55168088d4b41203524e7aa096bfced10bf77",
+    "process_digest": "b52ee7c68811ab81eba6723494162bc9ee1b88335b10cb7dac9d574ebdcc5c37",
+    "source_digest": "1785d101d278cf11f386cad89b606172945df13c3898a2e09717bfb6b3be8cb2",
+    "subject_digest": "fc73d4b6038bce099304ab3f4dd33013ffd21192cbe6633e4fadbf8a00f18559",
+    "tool_digest": "aff9394ec6f50de6f117c7ba218327e35e20080a18c66307ecec67e5d252cfa3"
+  },
+  "digest": "917a1326352175a8f8dd96690e855eabe0ff686ee8e6fd1d9364892a5f170fd6",
+  "intent_id": "score-someip84-factory-zd4mjmhk",
+  "kind": "runtime_intent",
+  "limits": {
+    "attempts": 1,
+    "event_pages": 100,
+    "output_bytes": 4000000,
+    "timeout_seconds": 20
+  },
+  "package_ref": {
+    "path": "out/package.json",
+    "semantic_digest": "d2a809852ebd774262654282a422572da86e415d1e5787bf1cb4a5db8f82ffe5",
+    "sha256": "9b21bd8ccf838099018688a9b40462e9b60b762701a0aea1f72c6c08018265f9"
+  },
+  "runtime_profile_ref": {
+    "path": "runtime-profile.json",
+    "semantic_digest": "8f30d03c72db2e5830770122d3a041bea190f66c9a1db640d76b10f413e1bfe5",
+    "sha256": "fc3ce9ac648915b38ec92118dd7bdc821b79d0d3145223ca8d033328814276c9"
+  },
+  "schema_version": 1,
+  "start_args": {
+    "labels": {
+      "scope": "external-candidate-measurement"
+    },
+    "target_id": "local"
+  }
+}

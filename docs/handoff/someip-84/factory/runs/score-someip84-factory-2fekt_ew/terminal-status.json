@@ -1,0 +1,40 @@
+{
+  "observed_at": "2026-10-03T01:56:13.094043+00:00",
+  "run_id": "01M3YRJEGXNY6CB81T7TKW774B",
+  "native_lifecycle": {
+    "status": {
+      "kind": "failed",
+      "reason": "workflow_error"
+    },
+    "approval": null,
+    "pending_control": null,
+    "queue_position": null,
+    "error": null,
+    "archived": false,
+    "archived_at": null
+  },
+  "native_timestamps": {
+    "created_at": "2026-10-02T16:53:44.093Z",
+    "started_at": "2026-10-02T16:53:45.343Z",
+    "last_event_at": "2026-10-02T18:57:50.037Z",
+    "completed_at": "2026-10-02T18:56:00.935Z"
+  },
+  "conclusion": {
+    "status": "failed",
+    "failure": {
+      "reason": "workflow_error",
+      "detail": {
+        "message": "human gate timeout, no default",
+        "category": "deterministic"
+      }
+    }
+  },
+  "stage_counts": {
+    "succeeded": 93,
+    "failed": 1
+  },
+  "worker_alive": false,
+  "superseded_by": null,
+  "engineering_acceptance": "pending",
+  "verification_all_passed": false
+}

@@ -1,0 +1,57 @@
+E501 Line too long (106 > 100)
+  --> scripts/verify_asan_host_records.py:59:101
+   |
+57 |         raise ValueError("Corrected source is not a new baseline")
+58 |     print(
+59 |         "Original sealed ASan capability, defect and fresh correction verified; no engineering acceptance"
+   |                                                                                                     ^^^^^^
+60 |     )
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/contract/test_asan_host_records.py:3:1
+   |
+ 1 |   """Host handoff record checks use preserved historical bytes, never current capability proof."""
+ 2 |
+ 3 | / import base64
+ 4 | | import json
+ 5 | | from pathlib import Path
+ 6 | |
+ 7 | | import pytest
+ 8 | |
+ 9 | | from scripts.verify_asan_host_records import verify
+10 | | from score_sw_fabric.assurance.models import seal
+11 | | from score_sw_fabric.quality.models import Budget
+   | |_________________________________________________^
+help: Organize imports
+   |
+8  |
+   - from scripts.verify_asan_host_records import verify
+9  | from score_sw_fabric.assurance.models import seal
+10 | from score_sw_fabric.quality.models import Budget
+11 + from scripts.verify_asan_host_records import verify
+12 |
+   |
+
+E501 Line too long (142 > 100)
+  --> tests/contract/test_asan_host_records.py:29:101
+   |
+29 | …runtime", "leak_failure", "origin", "kind", "configuration", "truncated", "raw_bytes"])
+   |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+30 | …d(tmp_path: Path, mutation: str) -> None:
+31 | …
+   |
+
+E501 Line too long (128 > 100)
+  --> tests/contract/test_asan_host_records.py:40:101
+   |
+38 |     elif mutation == "leak_failure":
+39 |         original = base64.b64decode(record["phases"][-1]["stderr"]["base64"])
+40 |         record["phases"][-1]["stderr"] = Budget(1048576).capture(original + b"\nLeakSanitizer has encountered a fatal error.\n")
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+41 |     elif mutation == "origin":
+42 |         record["origin"] = "fixture"
+   |
+
+Found 4 errors.
+[*] 1 fixable with the `--fix` option.

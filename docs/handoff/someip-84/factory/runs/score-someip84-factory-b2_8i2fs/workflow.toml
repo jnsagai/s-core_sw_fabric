@@ -1,0 +1,65 @@
+_version = 1
+
+[workflow]
+graph = "workflow.fabro"
+
+[run.model]
+provider = "deepseek"
+name = "deepseek-flash"
+
+[run.model.fallbacks]
+"deepseek-flash" = []
+
+[run.model.controls]
+reasoning_effort = "high"
+
+[run.clone]
+enabled = false
+
+[run.run_branch]
+enabled = false
+push = false
+
+[run.environment.image]
+docker = "score-someip84-agent:20261001"
+
+[run.environment.lifecycle]
+preserve = true
+stop_on_terminal = true
+
+[run.agent]
+fabro_tools = false
+
+[[run.hooks]]
+id = "someip84-docker-isolation"
+event = "sandbox_ready"
+blocking = true
+sandbox = false
+timeout = "15s"
+command = ["/usr/bin/python3", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs/isolate_docker.py", "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs/target", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs/native-run-id"]
+
+
+[[run.hooks]]
+id = "overnight-stage_start"
+event = "stage_start"
+blocking = true
+sandbox = false
+timeout = "5s"
+command = ["/home/jefferson/s-core_sw_fabric/.venv/bin/python", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs/overnight_hooks.py", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs", "guard"]
+
+[[run.hooks]]
+id = "overnight-pre_tool_use"
+event = "pre_tool_use"
+blocking = true
+sandbox = false
+timeout = "5s"
+command = ["/home/jefferson/s-core_sw_fabric/.venv/bin/python", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs/overnight_hooks.py", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs", "guard"]
+
+[[run.hooks]]
+id = "overnight-host-measurement"
+event = "stage_start"
+matcher = "^(node_0130bce9c983a01ece454637|node_01f223c3694c56874f0744d6|node_05ab0ce1e14fc5d4c36f3f72|node_05f36c0423cb6e7be7d42a57|node_0ee21e2336421484e5988c6e|node_0fa2280b9a2e9c4b103e514b|node_10e3e463b53cffcb6d96fa3f|node_1855922b8317435376f9a415|node_1b84ab53cff4b821ddf6a93e|node_204a888d1b785c598d79c13e|node_22b16b39c5b03c19e46b1be5|node_23c7065520bf2391025c64e8|node_272ed519c49a46df16aa38c7|node_2d2d12243324eec1e01211e0|node_3586de18f656d334f8c236e2|node_4519853a737679ffa948ff6d|node_48ffe49227f98ad3469d0d5e|node_4950ecb53dec3bcb35ccbd4a|node_6124ad8af4ecfd7fa327ed39|node_69e210c541acd866588fd485|node_6ea11f155d1527d342eaf02e|node_70e211e8a2ae7ce96f7a36a2|node_752868eb24b56f82737549dd|node_7ae5a2c5d7742163c1509daf|node_827d36602d9c3a65539b3c6c|node_8387daca11cf4acebefe3a97|node_8d54cda9cc0a486be8834bb5|node_8e762b7612c155d8da115b68|node_8fc4e74a0f5ca8937188da45|node_97dad694b6de2e879ed7c1a4|node_9a8878913640565ffbd8c7d3|node_9b034eec265cdc4c1bc3b215|node_a1b4363d99330f7b420b53c1|node_a230c50f0c9e8db703fe2592|node_a91e5b6e4cf97b63e6cb9115|node_ac6d5e9bf8148da50c2b6220|node_ac81b7b63ca85d6860e82a06|node_ad759dfe2ad22fe1397f4911|node_aff89d57abdda77ea4d9cfc3|node_b0b485d4189fc47477fa4374|node_c3e63b3cc93ebe52f82bbfe5|node_c56852d541a0b6bf71cacf06|node_ca2c15e84a5b0b3af82a59f6|node_ce097dd3f4acf5f004d2d7d9|node_d0130573645a072323dffc20|node_d2e86f736e75179930c99746|node_e7bec2c7fa3a11538fb463bf|node_e8d5abe065bd039539297923|node_f161a51ab6361c1e38c59934|node_f3ccb905ed0fe81ed561a364|node_f4691ea49fe408cb9b629c72|node_f5f181071f55c0d6103cf342|node_f954bd7f5bfce78c3ed8e809|node_fe18fb9b317c66f433abf7c3)$"
+blocking = true
+sandbox = false
+timeout = "960s"
+command = ["/home/jefferson/s-core_sw_fabric/.venv/bin/python", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs/overnight_hooks.py", "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs", "measure"]

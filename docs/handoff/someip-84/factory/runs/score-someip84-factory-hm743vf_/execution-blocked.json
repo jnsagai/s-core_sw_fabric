@@ -1,0 +1,7 @@
+{
+  "engineering_acceptance": "pending",
+  "error": "Fabro server failed to start; see preserved server.log",
+  "exception": "RuntimeError",
+  "fabro_run_created": false,
+  "live_agent_implementation": "not_performed"
+}

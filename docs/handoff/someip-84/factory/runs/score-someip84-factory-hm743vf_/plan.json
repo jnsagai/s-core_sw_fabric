@@ -1,0 +1,42 @@
+{
+  "change": {
+    "id": "someip84-factory-measurement"
+  },
+  "closure_complete": true,
+  "coverage": [],
+  "digest": "7b74f9b2efac7a3ba55b95e30656800e1b1f367adf37620c3e0aed757a618bc1",
+  "engineering_readiness": "not_evaluated",
+  "findings": [],
+  "instances": [
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "local-baseline-measurement"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [
+        "local-baseline-measurement"
+      ],
+      "effective_disposition": "create",
+      "instance_id": "local-external-candidate-measurement"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [
+        "local-external-candidate-measurement"
+      ],
+      "effective_disposition": "create",
+      "instance_id": "local-agent-admission"
+    }
+  ],
+  "plan_kind": "draft",
+  "planning_status": "complete",
+  "schema_version": 1,
+  "scopes": [],
+  "semantic_inputs": {
+    "task_authority": "fc73d4b6038bce099304ab3f4dd33013ffd21192cbe6633e4fadbf8a00f18559"
+  },
+  "target_namespace": "local-operational-demonstrator"
+}

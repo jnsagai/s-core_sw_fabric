@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+cd "$root"
+g++-12 -std=c++17 -Wall -Wextra -Werror -pthread \
+    -I. -I.llm_tmp/googletest/googletest/include -I.llm_tmp/googletest/googletest \
+    score/socom/impl/service_identifier.cpp score/socom/impl/string_registry.cpp \
+    score/socom/test/unit/service_identifier_tests.cpp \
+    .llm_tmp/googletest/googletest/src/gtest-all.cc \
+    .llm_tmp/googletest/googletest/src/gtest_main.cc \
+    -o .llm_tmp/codeql-service-identifier
+.llm_tmp/codeql-service-identifier --gtest_output=json:.llm_tmp/evidence/codeql-build-tests.json

@@ -92,10 +92,18 @@ def test_imported_native_contributors_stay_pending_and_cannot_prove_correction(
     tmp_path: Path,
 ) -> None:
     _, original, _, _ = imports.import_outputs(ROOT / "examples/quality/native-import.yaml")
-    current = request(tmp_path, component=original["baseline"]["component"])
+    current = request(
+        tmp_path,
+        component=original["baseline"]["component"],
+        profile=original["baseline"]["profile"],
+    )
     source = tmp_path / "component/check.cpp"
     source.write_bytes((ROOT / "tests/fixtures/quality/extraction/source/check.cpp").read_bytes())
-    current = request(tmp_path, component=original["baseline"]["component"])
+    current = request(
+        tmp_path,
+        component=original["baseline"]["component"],
+        profile=original["baseline"]["profile"],
+    )
     path = selection(tmp_path, original, current)
     change_draft(path, requested_kind="deviation")
     _, proposed, _, _ = dispositions.review(path)
@@ -108,3 +116,22 @@ def test_imported_native_contributors_stay_pending_and_cannot_prove_correction(
     _, blocked, _, _ = dispositions.review(path)
     assert blocked["state"] == "blocked" and blocked["fresh_run"] is None
     assert "IMPORTED_CORRECTION_SCOPE_UNVERIFIED" in blocked["reasons"]
+
+
+def test_legacy_import_is_stale_under_current_installed_profile(tmp_path: Path) -> None:
+    _, original, _, _ = imports.import_outputs(ROOT / "examples/quality/native-import.yaml")
+    current = request(tmp_path, component=original["baseline"]["component"])
+    source = tmp_path / "component/check.cpp"
+    source.write_bytes((ROOT / "tests/fixtures/quality/extraction/source/check.cpp").read_bytes())
+    current = request(tmp_path, component=original["baseline"]["component"])
+    assert (
+        json.loads(current.read_bytes())["profile"]["sha256"]
+        != original["baseline"]["profile"]["sha256"]
+    )
+    path = selection(tmp_path, original, current)
+    change_draft(path, requested_kind="deviation")
+    code, proposed, _, _ = dispositions.review(path)
+    assert code == 1 and proposed["state"] == "stale"
+    assert "POLICY_CHANGED" in proposed["reasons"] and proposed["fresh_run"] is None
+    assert proposed["subject"]["finding"]["contributors"] == original["findings"][0]["contributors"]
+    assert proposed["assurance_eligibility"] == "not_eligible"

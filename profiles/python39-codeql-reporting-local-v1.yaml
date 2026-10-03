@@ -1,0 +1,55 @@
+schema_version: 1
+kind: quality_codeql_reporting_toolchain_profile
+id: python39-codeql-reporting-local-v1
+status: candidate_installation_observed_qualification_unknown
+tool:
+  path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/bin/score-codeql-python39
+  sha256: 84c920f304e265c53096e42d83309c6f7b829988f937a7dd15c24eebcb63f59a
+  version: Python 3.9.25
+dependencies:
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/__init__.py
+  sha256: 7c015aa44caacd223132ac00b7e0ba975250a57a6c6d1991309e4285f669d78d
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/composer.py
+  sha256: fcaa37d16afa783594794a5ab94193dcb720f503c19ce3d59539c8311189f453
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/constructor.py
+  sha256: 90d8247da78b524c10618fd0e857f54f3d97570fe91b5c5513d024ef3faf88b0
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/cyaml.py
+  sha256: e99ac01bd7c062f7557b614aff0d21997a06ed962ca185306a91bc0a20bbd87d
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/dumper.py
+  sha256: 3cb72d66563064ba7b5e679477046ebf89d8399d940670c8532f3e94a7cb17ea
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/emitter.py
+  sha256: 8e086d694ede170837d5b1b407b45979aff6f40762f422a65eafd08e04290a44
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/error.py
+  sha256: 021f73fada072546c4f63f8cf18a7181244ce4280b09cc15cc980b2d1176171a
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/events.py
+  sha256: e74fd392c810884e2ea7e94aa3f57e9c1cbeb402319083d0c58e6a0e1282787c
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/loader.py
+  sha256: 5156becc8aa6905482218abf3e04869b835226db4763645fff3438fdbd5f1cdd
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/nodes.py
+  sha256: 80f28d8fca4a09d87677882bde021820d9cf39a3b11a12405226211919cf13ce
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/parser.py
+  sha256: 8a55a9e6fbe0a07146cef3990c8b45a068c3e83e369e1959ad9ca30306b4a09a
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/reader.py
+  sha256: d1d9b38ab3a20c6e17a38d519ee412ecaf6b918df18c78956ac7c330d4ea08dc
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/representer.py
+  sha256: f3650cdd9c5440aaac28017896d58ec424ba8c63c816d5e91acee6beacafe17b
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/resolver.py
+  sha256: 6755bc00e300e8fae8cb88083b63a150ee083d2fdb14d025d026b7af00a1a4f8
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/scanner.py
+  sha256: 29e4082863654b23c4f100f08a89c7c72f4281ba84e6d789133d39151f7e9c08
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/serializer.py
+  sha256: 0a1b85826854d35863e31808f0668abfabdf33606e8f06bd8bb7761401e3edc0
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/tokens.py
+  sha256: 953408cd2570f0c83dc2fe39f7e4e388e41eeb05738aa69196a5f6ffcf6ba79e
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/yaml/_yaml.cpython-39-x86_64-linux-gnu.so
+  sha256: 78220bb05d7e3831e29fc11599e206c9adbb23573aa18657c82a6f317e6e1552
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/PyYAML-5.4.dist-info/METADATA
+  sha256: 2ff824fba2dad0bd0aa298915872b04b2cc9e5688cf6452a7bf4ca6c76e4fcd3
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/lib/python3.9/site-packages/pytest-7.2.0.dist-info/METADATA
+  sha256: 00254d90a0b30087510352b4a257d8af955f34645f6060a2e3cbedc1d6888af0
+- path: /home/jefferson/s-core_sw_fabric/.tools/codeql-reporting-venv/pyvenv.cfg
+  sha256: 21d01ee6f587ac5aa1bcb75bfc6fd520af279b65fa910d4f2f35e41afde8097f
+- path: /home/jefferson/s-core_sw_fabric/.tools/python/cpython-3.9.25-linux-x86_64-gnu/lib/libpython3.9.so.1.0
+  sha256: a4e80dcc0eec148c396173b3a59485fd9face51adcafe12812e2e716d13a69f5
+library_dirs:
+- /home/jefferson/s-core_sw_fabric/.tools/python/cpython-3.9.25-linux-x86_64-gnu/lib

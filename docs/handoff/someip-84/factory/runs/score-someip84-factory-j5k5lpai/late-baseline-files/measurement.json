@@ -1,0 +1,21 @@
+{
+  "phase": "baseline",
+  "initiator": "Fabro native command stage",
+  "inputs_sha256": "230e6b92411c953a6921a0689fa3027a0daee5f6fd012ec923c0446bb24c533c",
+  "source_commit": "f8a196c3b16d5172d898394ab99b0ed81346d63d",
+  "compiler": "/usr/bin/x86_64-linux-gnu-g++-12",
+  "exit_code": 1,
+  "tests": 13,
+  "failures": 7,
+  "engineering_acceptance": "pending",
+  "agent_implementation": "not_performed",
+  "outputs": {
+    "compile.json": "01477b207801928e89cdef0e5db73ef338228a712c0398ec952eabb94d8aa982",
+    "compile.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compile.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "regression.json": "13c220c69ae9a9c98adafff4cbdca2b6e5ad600691125068e262970ba8c1c574",
+    "regression.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "regression.stdout": "322135e91519e5d110234317676791d59cef4386845f386a365ad02be03e5cc5",
+    "tests.json": "29c623dd19422039e66d9fc077e49c1ea7e9c841f74faadda29dd6b26ac74265"
+  }
+}

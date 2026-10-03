@@ -1,0 +1,7 @@
+{
+  "native_status": {
+    "kind": "failed",
+    "reason": "cancelled"
+  },
+  "worker_alive": false
+}

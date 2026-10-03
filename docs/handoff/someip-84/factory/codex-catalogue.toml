@@ -1,0 +1,21 @@
+# Isolated Fabro server settings for the explicitly requested account alternative.
+# Model ID and medium effort: official model docs and successful account CLI smoke.
+# Other capabilities remain unknown unless explicitly listed here.
+_version = 1
+
+[server.auth]
+methods = ["dev-token"]
+
+[llm.providers.openai-codex]
+default_model = "gpt-6.1-sol"
+
+[llm.providers.openai-codex.models."gpt-6.1-sol"]
+display_name = "GPT-6.1 Sol"
+api_model = "gpt-6.1-sol"
+limits = { context_tokens = 1050000, max_output_tokens = 128000 }
+capabilities = { text = true, tools = true, reasoning = true, reasoning_effort = { medium = true } }
+protocol_options = { reasoning_effort_levels = true }
+family = "gpt-6"
+
+[llm.providers.openai-codex.models."gpt-6.1-sol".metadata.agent]
+profile = "openai"

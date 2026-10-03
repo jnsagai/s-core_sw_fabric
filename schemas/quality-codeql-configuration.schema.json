@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-codeql-configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "status",
+    "source_lock",
+    "source_root",
+    "build_source_root",
+    "compiled_pack_root",
+    "suite",
+    "scan_config",
+    "report_patch",
+    "native_sources",
+    "reporting_toolchain",
+    "eligibility"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "quality_codeql_configuration"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "source_lock": {
+      "$ref": "quality-capability-request.schema.json#/properties/profile"
+    },
+    "source_root": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "pattern": "^/"
+    },
+    "build_source_root": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024,
+          "pattern": "^/"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "compiled_pack_root": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024,
+          "pattern": "^/"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "suite": {
+      "type": "string",
+      "maxLength": 1024,
+      "pattern": "^codeql-suites/[A-Za-z0-9_.-]+\\.qls$"
+    },
+    "scan_config": {
+      "$ref": "quality-capability-request.schema.json#/properties/profile"
+    },
+    "report_patch": {
+      "$ref": "quality-capability-request.schema.json#/properties/profile"
+    },
+    "native_sources": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "$ref": "quality-profile.schema.json#/properties/native_sources/items"
+      }
+    },
+    "reporting_toolchain": {
+      "anyOf": [
+        {
+          "$ref": "quality-capability-request.schema.json#/properties/profile"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "eligibility": {
+      "anyOf": [
+        {
+          "$ref": "quality-capability-request.schema.json#/properties/profile"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

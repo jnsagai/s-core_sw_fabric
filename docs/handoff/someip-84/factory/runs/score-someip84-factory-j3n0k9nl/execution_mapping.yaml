@@ -1,0 +1,287 @@
+compiler_profile: deterministic-compiler-v1
+digest: 5cf4c424eb0a7e2f8dcf6accbadd4c2004eea86bf3d7b6b5ec272d80971e7044
+edges:
+- condition: null
+  loop_id: null
+  origin: &id001
+    decision_ref: user-continuation-20261001
+    kind: authorized_human_decision
+    pointer: /scope
+    rationale: User authorized operational execution; engineering decisions remain
+      pending.
+    source_ref:
+      path: task-authority.json
+      sha256: fc73d4b6038bce099304ab3f4dd33013ffd21192cbe6633e4fadbf8a00f18559
+  outcome: null
+  source: start
+  target: baseline
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: baseline
+  target: implement
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: baseline
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: implement
+  target: review_stop
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: implement
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: review_stop
+  target: exit
+  type: success
+fan_groups: []
+id: someip84-operational-implementation-queue
+loop_policies: []
+plan_version: 1
+review:
+  reference:
+    path: task-authority.json
+    scope: Authorized operational queue only; native mapping review pending
+    sha256: 4047fd4ec298320bdbfe2edc7f1224130b23b472914cee77e972c8074104a8ec
+  state: reviewed
+rules:
+- actions:
+  - allowed_inputs:
+    - measurement-inputs.json
+    - task-authority.json
+    allowed_paths:
+    - /tmp/score-someip84-factory-j3n0k9nl/target
+    - /home/jefferson/s-core_sw_fabric/.tools/someip-84/baseline
+    - /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest
+    budget:
+      attempts: 1
+      cost_microunits: 0
+      input_tokens: 0
+      output_tokens: 0
+      tool_calls: 4
+      wall_time_seconds: 420
+    command_file: commands/baseline.sh
+    completion_predicate: Expected phase exits and 13 native test counts match
+    data_destinations:
+    - local:disposable-target
+    evidence_expectation: Original native output and JSON counts
+    expected_outputs:
+    - .llm_tmp/baseline/measurement.json
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - local-baseline-measurement
+    label: baseline
+    model_capability: none
+    origin: &id002
+      decision_ref: user-queue-deepseek-20261001
+      kind: authorized_human_decision
+      pointer: /scope
+      rationale: User authorized a submitted run; native engineering review is pending.
+      source_ref:
+        path: task-authority.json
+        sha256: 4047fd4ec298320bdbfe2edc7f1224130b23b472914cee77e972c8074104a8ec
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: Measure baseline using frozen native sources and external regression
+    ref: baseline
+    role: measurement_runner
+    support_files:
+    - commands/baseline.sh
+    tool_profile: frozen-gcc12-native-gtest-measurement-v1
+    type: deterministic_check
+    write_scope:
+    - /tmp/score-someip84-factory-j3n0k9nl/target/.llm_tmp
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /tmp/score-someip84-factory-j3n0k9nl/target
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 100000
+      output_tokens: 32000
+      tool_calls: 100
+      wall_time_seconds: 14400
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.deepseek
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - draft source changes and agent result
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - local-agent-implementation
+    label: Draft SOME/IP correction with DeepSeek Flash
+    model_capability: bounded-agent-v1
+    origin: *id002
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Draft the focused SOME/IP #84 duplicate-server registration-key correction
+      in this disposable source copy. Read the issue and source context. Work only
+      in the six paths named in candidate-files.json. Preserve notices. Do not use
+      the existing external candidate patch as your implementation, claim engineering
+      acceptance, publish, merge, or deploy. Report changed paths and unresolved validation;
+      stop when the bounded draft is done.'
+    ref: implement
+    role: developer_draft
+    support_files: []
+    tool_profile: agent-role-developer-draft-v1
+    type: agent
+    write_scope:
+    - /tmp/score-someip84-factory-j3n0k9nl/target/score/socom/BUILD
+    - /tmp/score-someip84-factory-j3n0k9nl/target/score/socom/impl/service_identifier.cpp
+    - /tmp/score-someip84-factory-j3n0k9nl/target/score/socom/impl/service_identifier.hpp
+    - /tmp/score-someip84-factory-j3n0k9nl/target/score/socom/test/unit/BUILD
+    - /tmp/score-someip84-factory-j3n0k9nl/target/score/socom/test/unit/runtime_tests.cpp
+    - /tmp/score-someip84-factory-j3n0k9nl/target/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - measurement-inputs.json
+    - task-authority.json
+    allowed_paths:
+    - /tmp/score-someip84-factory-j3n0k9nl/target
+    - /home/jefferson/s-core_sw_fabric/.tools/someip-84/baseline
+    - /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest
+    budget:
+      attempts: 1
+      cost_microunits: 0
+      input_tokens: 0
+      output_tokens: 0
+      tool_calls: 4
+      wall_time_seconds: 420
+    completion_predicate: External review remains pending
+    data_destinations:
+    - local:disposable-target
+    evidence_expectation: No agent or engineering decision is admitted by this demonstration
+    expected_outputs: []
+    fallible_outcomes:
+    - success
+    instance_ids: &id003
+    - local-baseline-measurement
+    - local-agent-implementation
+    - local-review-stop
+    label: Draft complete; external review required
+    model_capability: none
+    origin: *id002
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: Stop for external review; no engineering decision is collected here
+    ref: review_stop
+    role: configuration_owner
+    support_files: []
+    tool_profile: none
+    type: human
+    write_scope: []
+  id: authorized-operational-demonstration
+  instance_ids: *id003
+schema_version: 1
+support_files:
+- content: "exec /home/jefferson/s-core_sw_fabric/.venv/bin/python - baseline /tmp/score-someip84-factory-j3n0k9nl/measurement-inputs.json\
+    \ fefe5a360184b234bb806745508e9444dd1d4b4f7c216b572fad27f86b6ffa6c <<'SCORE_MEASUREMENT_PY'\n\
+    \"\"\"Fixed native measurement payload; Fabro invokes this in a disposable target.\n\
+    \nThis validates an external candidate. It neither implements through an agent\
+    \ nor\nprovides trusted engineering evidence. Source and test notices stay in\
+    \ the copies.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport hashlib\n\
+    import json\nimport os\nimport shutil\nimport subprocess\nimport sys\nfrom pathlib\
+    \ import Path\n\n\ndef digest(path: Path) -> str:\n    return hashlib.sha256(path.read_bytes()).hexdigest()\n\
+    \n\ndef verify_tree(root: Path, manifest: dict) -> None:\n    for entry in manifest[\"\
+    files\"]:\n        path = root / entry[\"path\"]\n        data = os.readlink(path).encode()\
+    \ if entry[\"mode\"] == \"120000\" else path.read_bytes()\n        blob = hashlib.sha1(b\"\
+    blob \" + str(len(data)).encode() + b\"\\0\" + data).hexdigest()\n        if blob\
+    \ != entry[\"sha\"] or len(data) != entry[\"size\"]:\n            raise ValueError(f\"\
+    Source drift: {entry['path']}\")\n\n\ndef main() -> None:\n    phase, raw_inputs,\
+    \ expected = sys.argv[1:]\n    if phase not in {\"baseline\", \"external-candidate\"\
+    }:\n        raise ValueError(\"Unsupported measurement phase\")\n    inputs_path\
+    \ = Path(raw_inputs)\n    if digest(inputs_path) != expected:\n        raise ValueError(\"\
+    Measurement inputs changed\")\n    inputs = json.loads(inputs_path.read_bytes())\n\
+    \    target = Path(inputs[\"target\"]).resolve(strict=True)\n    if not target.is_relative_to(Path(inputs[\"\
+    disposable_root\"]).resolve(strict=True)):\n        raise ValueError(\"Target\
+    \ is not disposable\")\n    for item in inputs[\"controls\"]:\n        if digest(Path(item[\"\
+    path\"])) != item[\"sha256\"]:\n            raise ValueError(f\"Control drift:\
+    \ {item['path']}\")\n    source = Path(inputs[\"baseline\"])\n    gtest = Path(inputs[\"\
+    googletest\"])\n    source_manifest = json.loads(Path(inputs[\"source_manifest\"\
+    ]).read_bytes())\n    gtest_manifest = json.loads(Path(inputs[\"googletest_manifest\"\
+    ]).read_bytes())\n    verify_tree(source, source_manifest)\n    verify_tree(gtest,\
+    \ gtest_manifest)\n    out = target / \".llm_tmp\" / phase\n    out.mkdir(parents=True,\
+    \ exist_ok=False)\n    work = out / \"source\"\n    shutil.copytree(source, work,\
+    \ symlinks=True)\n\n    def run(name: str, command: list[str], expected_exit:\
+    \ int) -> None:\n        with (out / f\"{name}.stdout\").open(\"wb\") as stdout:\n\
+    \            with (out / f\"{name}.stderr\").open(\"wb\") as stderr:\n       \
+    \         result = subprocess.run(\n                    command, cwd=work, stdout=stdout,\
+    \ stderr=stderr, timeout=180, check=False\n                )\n        (out / f\"\
+    {name}.json\").write_text(\n            json.dumps({\"argv\": command, \"exit_code\"\
+    : result.returncode}, indent=2) + \"\\n\"\n        )\n        if result.returncode\
+    \ != expected_exit:\n            raise ValueError(f\"{name}: exit {result.returncode},\
+    \ expected {expected_exit}\")\n\n    candidates = json.loads(Path(inputs[\"candidate_files\"\
+    ]).read_bytes())\n    if phase == \"external-candidate\":\n        run(\n    \
+    \        \"apply-external-patch\",\n            [inputs[\"patch_tool\"], \"--batch\"\
+    , \"-p1\", \"-i\", inputs[\"patch\"]],\n            0,\n        )\n        for\
+    \ name, identity in candidates.items():\n            if digest(work / name) !=\
+    \ identity[\"sha256\"]:\n                raise ValueError(f\"External candidate\
+    \ differs: {name}\")\n    else:\n        # The regression is an external test\
+    \ input; production source stays at the baseline.\n        test = \"score/socom/test/unit/service_identifier_tests.cpp\"\
+    \n        payload = Path(inputs[\"candidate_root\"]) / test\n        if digest(payload)\
+    \ != candidates[test][\"sha256\"]:\n            raise ValueError(\"External regression\
+    \ test changed\")\n        shutil.copyfile(payload, work / test)\n\n    exe =\
+    \ out / \"service-identifier-tests\"\n    run(\n        \"compile\",\n       \
+    \ [\n            inputs[\"compiler\"],\n            \"-std=c++17\",\n        \
+    \    \"-Wall\",\n            \"-Wextra\",\n            \"-Werror\",\n        \
+    \    \"-pthread\",\n            \"-I.\",\n            f\"-I{gtest}/googletest/include\"\
+    ,\n            f\"-I{gtest}/googletest\",\n            \"score/socom/impl/service_identifier.cpp\"\
+    ,\n            \"score/socom/impl/string_registry.cpp\",\n            \"score/socom/test/unit/service_identifier_tests.cpp\"\
+    ,\n            f\"{gtest}/googletest/src/gtest-all.cc\",\n            f\"{gtest}/googletest/src/gtest_main.cc\"\
+    ,\n            \"-o\",\n            str(exe),\n        ],\n        0,\n    )\n\
+    \    expected_exit, failures = (1, 7) if phase == \"baseline\" else (0, 0)\n \
+    \   run(\"regression\", [str(exe), f\"--gtest_output=json:{out}/tests.json\"],\
+    \ expected_exit)\n    result = json.loads((out / \"tests.json\").read_bytes())\n\
+    \    if result[\"tests\"] != 13 or result[\"failures\"] != failures or result[\"\
+    disabled\"] != 0:\n        raise ValueError(\"Unexpected native test counts\"\
+    )\n    verify_tree(source, source_manifest)\n    verify_tree(gtest, gtest_manifest)\n\
+    \    if digest(inputs_path) != expected:\n        raise ValueError(\"Measurement\
+    \ inputs changed during execution\")\n    for item in inputs[\"controls\"]:\n\
+    \        if digest(Path(item[\"path\"])) != item[\"sha256\"]:\n            raise\
+    \ ValueError(f\"Control changed during execution: {item['path']}\")\n    record\
+    \ = {\n        \"phase\": phase,\n        \"initiator\": \"Fabro native command\
+    \ stage\",\n        \"inputs_sha256\": expected,\n        \"source_commit\": source_manifest[\"\
+    commit\"],\n        \"compiler\": inputs[\"compiler\"],\n        \"exit_code\"\
+    : expected_exit,\n        \"tests\": result[\"tests\"],\n        \"failures\"\
+    : result[\"failures\"],\n        \"engineering_acceptance\": \"pending\",\n  \
+    \      \"agent_implementation\": \"not_performed\",\n        \"outputs\": {p.name:\
+    \ digest(p) for p in sorted(out.iterdir()) if p.is_file() and p != exe},\n   \
+    \ }\n    (out / \"measurement.json\").write_text(json.dumps(record, indent=2)\
+    \ + \"\\n\")\n    print(json.dumps(record, sort_keys=True), flush=True)\n\n\n\
+    if __name__ == \"__main__\":\n    main()\n\nSCORE_MEASUREMENT_PY\n"
+  origin: *id002
+  path: commands/baseline.sh
+version: 1

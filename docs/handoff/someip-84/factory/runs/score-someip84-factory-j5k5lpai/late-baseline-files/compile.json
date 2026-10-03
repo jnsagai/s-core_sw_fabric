@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/usr/bin/x86_64-linux-gnu-g++-12",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pthread",
+    "-I.",
+    "-I/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest/googletest/include",
+    "-I/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest/googletest",
+    "score/socom/impl/service_identifier.cpp",
+    "score/socom/impl/string_registry.cpp",
+    "score/socom/test/unit/service_identifier_tests.cpp",
+    "/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest/googletest/src/gtest-all.cc",
+    "/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest/googletest/src/gtest_main.cc",
+    "-o",
+    "/tmp/score-someip84-factory-j5k5lpai/target/.llm_tmp/baseline/service-identifier-tests"
+  ],
+  "exit_code": 0
+}

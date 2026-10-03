@@ -1,0 +1,602 @@
+{
+  "change": {
+    "id": "someip84-overnight"
+  },
+  "closure_complete": true,
+  "coverage": [],
+  "digest": "534f3e6bbf0b3b7d3ba7f29f863b2fa409ad68f831d8e3f7085483d60c2bf46c",
+  "engineering_readiness": "not_evaluated",
+  "findings": [],
+  "instances": [
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-scope"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-callsites"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-invariants"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-reproducer"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-key_fix"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-unit_matrix"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-check_unit_matrix"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-repair_unit_matrix"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-runtime_disabled"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-runtime_enabled"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-lifetime_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-check_lifetime_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-repair_lifetime_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-ordering_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-conversion_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-check_conversion_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-repair_conversion_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-test_metadata"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_compiler_diagnostics"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_focused_coverage"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_focused_asan_lsan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_focused_tsan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_focused_clang_tidy"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_focused_cppcheck"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_focused_memcheck"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_secret_dependency_checks"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_build"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_coverage"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_lint"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_sanitizers"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_tsan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_integration"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_performance"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_cross_compilation"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_docs"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_native_traceability"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_format_precommit"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_codeql_security"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_codeql_misra"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_process_checks"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_tool_assurance"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-tool_findings_repair"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-coverage_tests_repair"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_compiler_diagnostics"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_focused_coverage"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_focused_asan_lsan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_focused_tsan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_focused_clang_tidy"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_focused_cppcheck"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_focused_memcheck"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_secret_dependency_checks"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_build"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_coverage"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_lint"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_sanitizers"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_tsan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_integration"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_performance"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_cross_compilation"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_docs"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_native_traceability"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_format_precommit"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_codeql_security"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_codeql_misra"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_process_checks"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-recollect_tool_assurance"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_rework_progress"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-compatibility"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-lifetime_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-concurrency_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-api_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-bazel_plan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-analyzer_plan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-coverage_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-misra_applicability"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-misra_manual_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-finding_classification"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-deviation_drafts"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-native_build_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-integration_aou_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-sanitizer_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-performance_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-cross_target_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-traceability_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-tool_assurance_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-security_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-design_inspection_draft"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-verification_report_draft"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-independent_review_handoff"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-evidence_inventory"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-review_packet"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-check_review_packet"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-repair_review_packet"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-collect_verification_report"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-review_stop"
+    }
+  ],
+  "plan_kind": "draft",
+  "planning_status": "complete",
+  "schema_version": 1,
+  "scopes": [],
+  "semantic_inputs": {
+    "task_authority": "65708ce18f7bdf7df268d342fed1e0d1b8e5a502a5a3c4926fbc4450f7cd3a66"
+  },
+  "target_namespace": "local-operational-demonstrator"
+}

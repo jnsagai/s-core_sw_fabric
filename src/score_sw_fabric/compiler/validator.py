@@ -6,7 +6,6 @@ import hashlib
 import json
 import os
 import subprocess
-import tempfile
 from collections.abc import Callable
 from pathlib import Path, PurePosixPath
 from typing import Any
@@ -14,6 +13,7 @@ from typing import Any
 from score_sw_fabric.catalog.export import canonical
 from score_sw_fabric.compiler.models import CompilerSemanticError
 from score_sw_fabric.process_source.reader import InputError
+from score_sw_fabric.storage import temporary_directory
 
 Runner = Callable[..., subprocess.CompletedProcess[str]]
 MAX_VALIDATOR_OUTPUT = 1024 * 1024
@@ -91,11 +91,12 @@ def validate_native(
         "FABRO_NO_UPGRADE_CHECK": "true",
         "NO_COLOR": "1",
     }
-    with tempfile.TemporaryDirectory(prefix="score-fabro-validate-") as raw_root:
+    with temporary_directory(prefix="score-fabro-validate-") as raw_root:
         root = Path(raw_root)
         home = root / "home"
         home.mkdir()
         clean_env["HOME"] = str(home)
+        clean_env["TMPDIR"] = str(root)
         for logical, content in sorted(files.items()):
             path = PurePosixPath(logical)
             if path.is_absolute() or any(part in ("", ".", "..") for part in path.parts):

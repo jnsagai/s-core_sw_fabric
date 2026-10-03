@@ -1,0 +1,8 @@
+{
+  "engineering_review": "pending",
+  "live_agent_admission": "pending; submitted run must not be started yet",
+  "model_selection": "docs/handoff/someip-84/factory/deepseek-selection.yaml",
+  "paid_calls": "authorized by recorded user selection, not invoked by preparation",
+  "scope": "Draft SOME/IP #84 registration-key implementation in a disposable copy",
+  "user_direction": "Queue a Fabro run for the SOME/IP DeepSeek implementation"
+}

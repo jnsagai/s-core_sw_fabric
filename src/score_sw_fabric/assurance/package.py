@@ -479,7 +479,6 @@ def verify_assessment(value: Any, trust_context: Any, *, _history_depth: int = 0
     import base64
     import binascii
     import hashlib
-    from tempfile import TemporaryDirectory
 
     from score_sw_fabric.assurance.gates import evaluate_gate
     from score_sw_fabric.assurance.models import (
@@ -500,6 +499,7 @@ def verify_assessment(value: Any, trust_context: Any, *, _history_depth: int = 0
     from score_sw_fabric.assurance.reader import safe_path
     from score_sw_fabric.compiler.reader import semantic_digest, verify_self_digest
     from score_sw_fabric.process_source.reader import read_json, read_yaml
+    from score_sw_fabric.storage import temporary_directory
 
     if _history_depth > MAX_DEPTH:
         raise InputError("LIMIT_EXCEEDED", "Assessment history exceeds nesting limit")
@@ -596,7 +596,7 @@ def verify_assessment(value: Any, trust_context: Any, *, _history_depth: int = 0
         return failure("CLOSURE_MISSING")
     records: dict[str, Any] = {}
     source_overrides: dict[str, bytes] = {}
-    with TemporaryDirectory(prefix="assurance-verify-") as temporary:
+    with temporary_directory(prefix="assurance-verify-") as temporary:
         root = Path(temporary)
         for name, wrapper in closure.items():
             entry = exact(

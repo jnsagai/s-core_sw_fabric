@@ -1,0 +1,194 @@
+{
+  "change": {
+    "id": "someip84-overnight"
+  },
+  "closure_complete": true,
+  "coverage": [],
+  "digest": "27fa3b88a2a3430f8bcc55462f0cdce4e798cad673c562079023eb2ea7b8439d",
+  "engineering_readiness": "not_evaluated",
+  "findings": [],
+  "instances": [
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-scope"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-callsites"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-invariants"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-reproducer"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-key_fix"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-unit_matrix"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-check_unit_matrix"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-repair_unit_matrix"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-runtime_disabled"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-runtime_enabled"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-lifetime_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-check_lifetime_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-repair_lifetime_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-ordering_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-conversion_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-check_conversion_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-repair_conversion_tests"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-compatibility"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-lifetime_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-concurrency_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-api_review"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-test_metadata"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-bazel_plan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-analyzer_plan"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-evidence_inventory"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-review_packet"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-check_review_packet"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-repair_review_packet"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "overnight-review_stop"
+    }
+  ],
+  "plan_kind": "draft",
+  "planning_status": "complete",
+  "schema_version": 1,
+  "scopes": [],
+  "semantic_inputs": {
+    "task_authority": "d24648d025bdc71d8ce3b1ae85377ecd49b6790db5bb4478108de45b77db7f3a"
+  },
+  "target_namespace": "local-operational-demonstrator"
+}

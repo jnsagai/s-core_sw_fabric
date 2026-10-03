@@ -1,0 +1,82 @@
+kind: factory_agent_selection
+status: user_authorized_pending_admission
+provider: deepseek
+model: deepseek-flash
+reasoning_effort: high
+authorization:
+  user_answer: for with deepseek flash with no limits
+  spending: authorized without a user spending cap
+  scope: SOME/IP implementation through Fabro
+  engineering_acceptance: pending
+technical_execution_ceiling:
+  cost_microunits: 100000000
+  input_tokens: 1000000
+  output_tokens: 200000
+  wall_time_seconds: 14400
+  attempts: 20
+model_output_tokens_per_call: 32000
+data_destination: provider.deepseek
+fallbacks: []
+catalogue_evidence:
+- path: docs/evidence/007/fabro-catalogue/models-offset-0.json
+  sha256: d5fd82e4b8f000c0a0b3f477e6d67fa252e3cb23c40277f3fd120680e2b9ce86
+captured_offering:
+  id: deepseek-v4-flash
+  provider: deepseek
+  family: deepseek-v4
+  display_name: DeepSeek V4 Flash
+  limits:
+    context_window: 1048576
+    max_output: 384000
+  training: null
+  knowledge_cutoff: null
+  features:
+    tools: true
+    vision: false
+    reasoning: true
+    prompt_cache: true
+    sampling: false
+  controls:
+    reasoning_effort:
+    - low
+    - medium
+    - high
+    - xhigh
+    - max
+  costs:
+    input_cost_per_mtok: 0.14
+    output_cost_per_mtok: 0.28
+    cache_input_cost_per_mtok: 0.0028
+  estimated_output_tps: null
+  aliases:
+  - deepseek-v4
+  - deepseek
+  - deepseek-flash
+  default: true
+  small_default: true
+  configured: false
+credential_presence_in_session: false
+live_call_executed: false
+runtime_binding: not_implemented
+limitations:
+- Model catalogue observation is not a live call or credential probe.
+- Existing 007 admission is a pre-call diagnostic and always returns call_authorized=false.
+- Native agent model binding, enforceable tool/path boundaries and runtime usage accounting
+  remain required.
+- Earlier external candidate patch is direct Codex work; this selection does not change
+  its provenance.
+- Captured V4 Flash capability/price metadata must not be treated as current V4.1
+  Flash live evidence.
+provider_documentation_check:
+  checked_on: '2026-10-01'
+  canonical_model: deepseek-flash
+  model_version: DeepSeek-V4.1-Flash
+  legacy_catalogue_model: deepseek-v4-flash
+  legacy_model_behavior: Compatibility alias routes to V4.1 Flash; old version retired
+  requested_medium_effort_maps_to: high
+  source_pages:
+  - https://api-docs.deepseek.com/updates/
+  - https://api-docs.deepseek.com/quick_start/pricing/
+  - https://api-docs.deepseek.com/guides/thinking_mode/
+  admission_implication: Captured Fabro offering is stale relative to provider documentation;
+    fresh runtime/catalogue/model/price probe required before live admission

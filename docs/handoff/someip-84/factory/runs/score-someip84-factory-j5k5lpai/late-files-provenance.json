@@ -1,0 +1,41 @@
+{
+  "origin": "Files observed after the interrupted run and its early native export",
+  "native_stage_completion": "not_present_in_original_export",
+  "source": "/tmp/score-someip84-factory-j5k5lpai/target/.llm_tmp/baseline",
+  "files": {
+    "compile.json": {
+      "sha256": "01477b207801928e89cdef0e5db73ef338228a712c0398ec952eabb94d8aa982",
+      "bytes": 837
+    },
+    "compile.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "compile.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "measurement.json": {
+      "sha256": "75e874f512ad0b242fcf0a9b27b35e063bffc12270373c719364496e27a6f6c2",
+      "bytes": 1053
+    },
+    "regression.json": {
+      "sha256": "13c220c69ae9a9c98adafff4cbdca2b6e5ad600691125068e262970ba8c1c574",
+      "bytes": 231
+    },
+    "regression.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "regression.stdout": {
+      "sha256": "322135e91519e5d110234317676791d59cef4386845f386a365ad02be03e5cc5",
+      "bytes": 6879
+    },
+    "tests.json": {
+      "sha256": "29c623dd19422039e66d9fc077e49c1ea7e9c841f74faadda29dd6b26ac74265",
+      "bytes": 9596
+    }
+  },
+  "factory_measurement_acceptance": "incomplete",
+  "engineering_acceptance": "pending"
+}

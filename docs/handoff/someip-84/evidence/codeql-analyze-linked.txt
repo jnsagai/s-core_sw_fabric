@@ -1,0 +1,732 @@
+Running queries.
+[1/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Header Cleanup/Cleanup-DuplicateIncludeGuard.qlx.
+[2/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Documentation/FixmeComments.qlx.
+[3/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Documentation/CommentedOutCode.qlx.
+[4/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/LargeParameter.qlx.
+[5/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/UseAfterFree.qlx.
+[6/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/DeadCodeGoto.qlx.
+[7/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/IncorrectCheckScanf.qlx.
+[8/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/NewDeleteArrayMismatch.qlx.
+[9/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/NewArrayDeleteMismatch.qlx.
+[10/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/DoubleFree.qlx.
+[11/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/NewFreeMismatch.qlx.
+[12/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/OverflowStatic.qlx.
+[13/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/ContinueInFalseLoop.qlx.
+[14/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/LossyPointerCast.qlx.
+[15/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/ArrayArgSizeMismatch.qlx.
+[16/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/ImplicitDowncastFromBitfield.qlx.
+[17/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/CastArrayPointerArithmetic.qlx.
+[18/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/UnsignedGEZero.qlx.
+[19/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/PointlessSelfComparison.qlx.
+[20/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/IntMultToLong.qlx.
+[21/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/FloatComparison.qlx.
+[22/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/ComparisonPrecedence.qlx.
+[23/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/PointlessComparison.qlx.
+[24/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/BadAdditionOverflowCheck.qlx.
+[25/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/SignedOverflowCheck.qlx.
+[26/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/BitwiseSignCheck.qlx.
+[27/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/RedundantNullCheckSimple.qlx.
+[28/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/ReturnConstType.qlx.
+[29/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/UsingStrcpyAsBoolean.qlx.
+[30/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/CompareWhereAssignMeant.qlx.
+[31/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/ExprHasNoEffect.qlx.
+[32/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/ShortCircuitBitMask.qlx.
+[33/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/inconsistentLoopDirection.qlx.
+[34/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/AssignWhereCompareMeant.qlx.
+[35/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/FutileConditional.qlx.
+[36/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/DubiousNullCheck.qlx.
+[37/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/OO/IncorrectConstructorDelegation.qlx.
+[38/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/OO/UnsafeUseOfThis.qlx.
+[39/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/OO/ThrowInDestructor.qlx.
+[40/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/OO/NonVirtualDestructorInBaseClass.qlx.
+[41/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/WrongNumberOfFormatArguments.qlx.
+[42/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/WrongTypeFormatArguments.qlx.
+[43/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/NonConstantFormat.qlx.
+[44/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/SnprintfOverflow.qlx.
+[45/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/TooManyFormatArguments.qlx.
+[46/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/AmbiguouslySignedBitField.qlx.
+[47/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Underspecified Functions/TooManyArguments.qlx.
+[48/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Underspecified Functions/ImplicitFunctionDeclaration.qlx.
+[49/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Underspecified Functions/TooFewArguments.qlx.
+[50/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/ReturnStackAllocatedMemory.qlx.
+[51/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/SuspiciousCallToStrncat.qlx.
+[52/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/PointerOverflow.qlx.
+[53/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/UsingExpiredStackAddress.qlx.
+[54/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/ReturnCstrOfLocalStdString.qlx.
+[55/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/AllocaInLoop.qlx.
+[56/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/UseInOwnInitializer.qlx.
+[57/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/ReturnConstTypeMember.qlx.
+[58/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Unused Entities/UnusedLocals.qlx.
+[59/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Unused Entities/UnusedStaticFunctions.qlx.
+[60/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Unused Entities/UnusedStaticVariables.qlx.
+[61/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/BlockWithTooManyStatements.qlx.
+[62/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/SwitchLongCase.qlx.
+[63/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/GuardedFree.qlx.
+[64/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/UseOfGoto.qlx.
+[65/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Likely Errors/Slicing.qlx.
+[66/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Likely Errors/EmptyBlock.qlx.
+[67/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/ComplexCondition.qlx.
+[68/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/RuleOfTwo.qlx.
+[69/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Exceptions/LeakyCatch.qlx.
+[70/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Exceptions/CatchingByValue.qlx.
+[71/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Exceptions/AccidentalRethrow.qlx.
+[72/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Exceptions/ThrowingPointers.qlx.
+[73/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Hiding/LocalVariableHidesGlobalVariable.qlx.
+[74/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Hiding/DeclarationHidesVariable.qlx.
+[75/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Hiding/DeclarationHidesParameter.qlx.
+[76/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/SloppyGlobal.qlx.
+[77/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.16 Initialization/AV Rule 145.qlx.
+[78/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.13 Functions/AV Rule 114.qlx.
+[79/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.13 Functions/AV Rule 107.qlx.
+[80/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.06 Pre-Processing Directives/AV Rule 32.qlx.
+[81/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 71.1.qlx.
+[82/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 88.qlx.
+[83/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 82.qlx.
+[84/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 95.qlx.
+[85/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 79.qlx.
+[86/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 89.qlx.
+[87/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 97.qlx.
+[88/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.24 Control Flow Structures/AV Rule 196.qlx.
+[89/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.24 Control Flow Structures/AV Rule 197.qlx.
+[90/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.24 Control Flow Structures/AV Rule 201.qlx.
+[91/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.07 Header Files/AV Rule 35.qlx.
+[92/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.21 Operators/AV Rule 166.qlx.
+[93/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-732/OpenCallMissingModeArgument.qlx.
+[94/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-732/UnsafeDaclSecurityDescriptor.qlx.
+[95/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/VeryLikelyOverrunWrite.qlx.
+[96/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/BadlyBoundedWrite.qlx.
+[97/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-134/UncontrolledFormatString.qlx.
+[98/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-191/UnsignedDifferenceExpressionComparedZero.qlx.
+[99/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-327/BrokenCryptoAlgorithm.qlx.
+[100/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-327/OpenSslHeartbleed.qlx.
+[101/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-367/TOCTOUFilesystemRace.qlx.
+[102/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-131/NoSpaceForZeroTerminator.qlx.
+[103/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-416/UseOfStringAfterLifetimeEnds.qlx.
+[104/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-416/IteratorToExpiredContainer.qlx.
+[105/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-416/UseOfUniquePointerAfterLifetimeEnds.qlx.
+[106/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-014/MemsetMayBeDeleted.qlx.
+[107/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-326/InsufficientKeySize.qlx.
+[108/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-704/WcharCharConversion.qlx.
+[109/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-468/SuspiciousAddWithSizeof.qlx.
+[110/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-611/XXE.qlx.
+[111/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-078/ExecTainted.qlx.
+[112/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-311/CleartextTransmission.qlx.
+[113/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-311/CleartextFileWrite.qlx.
+[114/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-676/DangerousFunctionOverflow.qlx.
+[115/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-676/DangerousUseOfCin.qlx.
+[116/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-079/CgiXss.qlx.
+[117/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-253/HResultBooleanConversion.qlx.
+[118/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-190/ComparisonWithWiderType.qlx.
+[119/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-190/ArithmeticUncontrolled.qlx.
+[120/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-089/SqlTainted.qlx.
+[121/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-319/UseOfHttp.qlx.
+[122/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-497/ExposedSystemData.qlx.
+[123/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Documentation/UncommentedFunction.qlx.
+[124/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/SizeCheck2.qlx.
+[125/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/SizeCheck.qlx.
+[126/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/MissingCheckScanf.qlx.
+[127/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/InconsistentCallOnResult.qlx.
+[128/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/LossyFunctionResultCast.qlx.
+[129/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/BadCheckOdd.qlx.
+[130/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/MissingEnumCaseInSwitch.qlx.
+[131/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/IncorrectNotOperatorUsage.qlx.
+[132/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/InconsistentCheckReturnNull.qlx.
+[133/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Leap Year/UncheckedReturnValueForTimeFunctions.qlx.
+[134/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Leap Year/UncheckedLeapYearAfterYearModification.qlx.
+[135/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Leap Year/Adding365DaysPerYear.qlx.
+[136/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Underspecified Functions/MistypedFunctionArguments.qlx.
+[137/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/StrncpyFlippedArgs.qlx.
+[138/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/UnsafeUseOfStrcat.qlx.
+[139/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/UninitializedLocal.qlx.
+[140/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/SuspiciousSizeof.qlx.
+[141/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/StackAddressEscapes.qlx.
+[142/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/NestedLoopSameVar.qlx.
+[143/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Protocols/UseOfDeprecatedHardcodedProtocol.qlx.
+[144/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Protocols/TlsSettingsMisconfiguration.qlx.
+[145/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Likely Errors/CommaBeforeMisleadingIndentation.qlx.
+[146/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Likely Errors/OffsetUseBeforeRangeCheck.qlx.
+[147/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.17 Types/AV Rule 148.qlx.
+[148/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-313/CleartextSqliteDatabase.qlx.
+[149/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-114/UncontrolledProcessOperation.qlx.
+[150/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-022/TaintedPath.qlx.
+[151/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-732/DoNotCreateWorldWritable.qlx.
+[152/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/OverrunWrite.qlx.
+[153/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/UnboundedWrite.qlx.
+[154/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/OverrunWriteFloat.qlx.
+[155/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-807/TaintedCondition.qlx.
+[156/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-193/InvalidPointerDeref.qlx.
+[157/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-290/AuthenticationBypass.qlx.
+[158/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-121/UnterminatedVarargsCall.qlx.
+[159/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-295/SSLResultNotChecked.qlx.
+[160/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-295/SSLResultConflation.qlx.
+[161/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-119/OverrunWriteProductFlow.qlx.
+[162/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-119/OverflowBuffer.qlx.
+[163/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-843/TypeConfusion.qlx.
+[164/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-468/IncorrectPointerScaling.qlx.
+[165/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-468/IncorrectPointerScalingVoid.qlx.
+[166/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-311/CleartextBufferWrite.qlx.
+[167/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-570/IncorrectAllocationErrorHandling.qlx.
+[168/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-676/PotentiallyDangerousFunction.qlx.
+[169/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-190/TaintedAllocationSize.qlx.
+[170/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-428/UnsafeCreateProcessCall.qlx.
+[171/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-497/PotentiallyExposedSystemData.qlx.
+[172/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Diagnostics/ExtractionWarnings.qlx.
+[173/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Diagnostics/ExtractedFiles.qlx.
+[174/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Diagnostics/FailedExtractorInvocations.qlx.
+[175/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Summary/LinesOfCode.qlx.
+[176/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Summary/LinesOfUserCode.qlx.
+[177/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/MissingIncludes.qlx.
+[178/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/ExtractionMetrics.qlx.
+[179/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/CompilerErrors.qlx.
+[180/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/SucceededIncludes.qlx.
+[181/181] Loaded /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/DatabaseQuality.qlx.
+Starting evaluation of codeql/cpp-queries/Best Practices/BlockWithTooManyStatements.ql.
+Starting evaluation of codeql/cpp-queries/Best Practices/ComplexCondition.ql.
+[1/181 eval 1.2s] Evaluation done; writing results to codeql/cpp-queries/Best Practices/BlockWithTooManyStatements.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Exceptions/AccidentalRethrow.ql.
+[2/181 eval 95ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/ComplexCondition.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Exceptions/CatchingByValue.ql.
+[3/181 eval 144ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Exceptions/AccidentalRethrow.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Exceptions/LeakyCatch.ql.
+[4/181 eval 32ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Exceptions/CatchingByValue.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Exceptions/ThrowingPointers.ql.
+[5/181 eval 122ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Exceptions/LeakyCatch.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/GuardedFree.ql.
+[6/181 eval 10ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Exceptions/ThrowingPointers.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Hiding/DeclarationHidesParameter.ql.
+[7/181 eval 10.9s] Evaluation done; writing results to codeql/cpp-queries/Best Practices/GuardedFree.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Hiding/DeclarationHidesVariable.ql.
+[8/181 eval 44ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Hiding/DeclarationHidesParameter.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Hiding/LocalVariableHidesGlobalVariable.ql.
+[9/181 eval 85ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Hiding/DeclarationHidesVariable.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Likely Errors/CommaBeforeMisleadingIndentation.ql.
+[10/181 eval 18ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Hiding/LocalVariableHidesGlobalVariable.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Likely Errors/EmptyBlock.ql.
+[11/181 eval 167ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Likely Errors/CommaBeforeMisleadingIndentation.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Likely Errors/OffsetUseBeforeRangeCheck.ql.
+[12/181 eval 61ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Likely Errors/EmptyBlock.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Likely Errors/Slicing.ql.
+[13/181 eval 11ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Likely Errors/OffsetUseBeforeRangeCheck.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/RuleOfTwo.ql.
+[14/181 eval 17ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Likely Errors/Slicing.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/SloppyGlobal.ql.
+[15/181 eval 258ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/RuleOfTwo.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/SwitchLongCase.ql.
+Starting evaluation of codeql/cpp-queries/Best Practices/Unused Entities/UnusedLocals.ql.
+[16/181 eval 19ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/SloppyGlobal.bqrs.
+[17/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/SwitchLongCase.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Unused Entities/UnusedStaticFunctions.ql.
+[18/181 eval 51ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Unused Entities/UnusedLocals.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/Unused Entities/UnusedStaticVariables.ql.
+[19/181 eval 159ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Unused Entities/UnusedStaticFunctions.bqrs.
+Starting evaluation of codeql/cpp-queries/Best Practices/UseOfGoto.ql.
+Starting evaluation of codeql/cpp-queries/Critical/DeadCodeGoto.ql.
+[20/181 eval 21ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/Unused Entities/UnusedStaticVariables.bqrs.
+[21/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Best Practices/UseOfGoto.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/DoubleFree.ql.
+[22/181 eval 16ms] Evaluation done; writing results to codeql/cpp-queries/Critical/DeadCodeGoto.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/IncorrectCheckScanf.ql.
+[23/181 eval 10.6s] Evaluation done; writing results to codeql/cpp-queries/Critical/DoubleFree.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/LargeParameter.ql.
+[24/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Critical/IncorrectCheckScanf.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/MissingCheckScanf.ql.
+[25/181 eval 59ms] Evaluation done; writing results to codeql/cpp-queries/Critical/LargeParameter.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/NewArrayDeleteMismatch.ql.
+[26/181 eval 52ms] Evaluation done; writing results to codeql/cpp-queries/Critical/MissingCheckScanf.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/NewDeleteArrayMismatch.ql.
+[27/181 eval 458ms] Evaluation done; writing results to codeql/cpp-queries/Critical/NewArrayDeleteMismatch.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/NewFreeMismatch.ql.
+[28/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Critical/NewDeleteArrayMismatch.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/OverflowStatic.ql.
+[29/181 eval 13ms] Evaluation done; writing results to codeql/cpp-queries/Critical/NewFreeMismatch.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/SizeCheck.ql.
+[30/181 eval 1.2s] Evaluation done; writing results to codeql/cpp-queries/Critical/OverflowStatic.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/SizeCheck2.ql.
+[31/181 eval 26ms] Evaluation done; writing results to codeql/cpp-queries/Critical/SizeCheck.bqrs.
+Starting evaluation of codeql/cpp-queries/Critical/UseAfterFree.ql.
+[32/181 eval 13ms] Evaluation done; writing results to codeql/cpp-queries/Critical/SizeCheck2.bqrs.
+Starting evaluation of codeql/cpp-queries/Diagnostics/ExtractedFiles.ql.
+[33/181 eval 359ms] Evaluation done; writing results to codeql/cpp-queries/Critical/UseAfterFree.bqrs.
+Starting evaluation of codeql/cpp-queries/Diagnostics/ExtractionWarnings.ql.
+Starting evaluation of codeql/cpp-queries/Diagnostics/FailedExtractorInvocations.ql.
+[34/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Diagnostics/ExtractedFiles.bqrs.
+Starting evaluation of codeql/cpp-queries/Documentation/CommentedOutCode.ql.
+[35/181 eval 1ms] Evaluation done; writing results to codeql/cpp-queries/Diagnostics/ExtractionWarnings.bqrs.
+[36/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Diagnostics/FailedExtractorInvocations.bqrs.
+Starting evaluation of codeql/cpp-queries/Documentation/FixmeComments.ql.
+[37/181 eval 1.9s] Evaluation done; writing results to codeql/cpp-queries/Documentation/CommentedOutCode.bqrs.
+Starting evaluation of codeql/cpp-queries/Documentation/UncommentedFunction.ql.
+[38/181 eval 20ms] Evaluation done; writing results to codeql/cpp-queries/Documentation/FixmeComments.bqrs.
+Starting evaluation of codeql/cpp-queries/Header Cleanup/Cleanup-DuplicateIncludeGuard.ql.
+[39/181 eval 4ms] Evaluation done; writing results to codeql/cpp-queries/Documentation/UncommentedFunction.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/AmbiguouslySignedBitField.ql.
+[40/181 eval 44ms] Evaluation done; writing results to codeql/cpp-queries/Header Cleanup/Cleanup-DuplicateIncludeGuard.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/BadAdditionOverflowCheck.ql.
+[41/181 eval 9ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/AmbiguouslySignedBitField.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/BadCheckOdd.ql.
+[42/181 eval 51ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/BadAdditionOverflowCheck.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/BitwiseSignCheck.ql.
+[43/181 eval 5ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/BadCheckOdd.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/ComparisonPrecedence.ql.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/FloatComparison.ql.
+[44/181 eval 7ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/BitwiseSignCheck.bqrs.
+[45/181 eval 1ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/ComparisonPrecedence.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/IntMultToLong.ql.
+[46/181 eval 11ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/FloatComparison.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/PointlessComparison.ql.
+[47/181 eval 67ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/IntMultToLong.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/PointlessSelfComparison.ql.
+[48/181 eval 97ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/PointlessComparison.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/SignedOverflowCheck.ql.
+[49/181 eval 18ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/PointlessSelfComparison.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Arithmetic/UnsignedGEZero.ql.
+[50/181 eval 18ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/SignedOverflowCheck.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/ContinueInFalseLoop.ql.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Conversion/ArrayArgSizeMismatch.ql.
+[51/181 eval 12ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Arithmetic/UnsignedGEZero.bqrs.
+[52/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/ContinueInFalseLoop.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Conversion/CastArrayPointerArithmetic.ql.
+[53/181 eval 18ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Conversion/ArrayArgSizeMismatch.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Conversion/ImplicitDowncastFromBitfield.ql.
+[54/181 eval 160ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Conversion/CastArrayPointerArithmetic.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Conversion/LossyFunctionResultCast.ql.
+[55/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Conversion/ImplicitDowncastFromBitfield.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Conversion/LossyPointerCast.ql.
+[56/181 eval 22ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Conversion/LossyFunctionResultCast.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Format/NonConstantFormat.ql.
+[57/181 eval 14ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Conversion/LossyPointerCast.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Format/SnprintfOverflow.ql.
+[58/181 eval 977ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Format/NonConstantFormat.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Format/TooManyFormatArguments.ql.
+[59/181 eval 48ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Format/SnprintfOverflow.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Format/WrongNumberOfFormatArguments.ql.
+[60/181 eval 80ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Format/TooManyFormatArguments.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Format/WrongTypeFormatArguments.ql.
+[61/181 eval 35ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Format/WrongNumberOfFormatArguments.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/InconsistentCallOnResult.ql.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/InconsistentCheckReturnNull.ql.
+[62/181 eval 53ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Format/WrongTypeFormatArguments.bqrs.
+[63/181 eval 1ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/InconsistentCallOnResult.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Leap Year/Adding365DaysPerYear.ql.
+[64/181 eval 122ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/InconsistentCheckReturnNull.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Leap Year/UncheckedLeapYearAfterYearModification.ql.
+[65/181 eval 59ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Leap Year/Adding365DaysPerYear.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Leap Year/UncheckedReturnValueForTimeFunctions.ql.
+[66/181 eval 14ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Leap Year/UncheckedLeapYearAfterYearModification.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/AssignWhereCompareMeant.ql.
+[67/181 eval 23ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Leap Year/UncheckedReturnValueForTimeFunctions.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/CompareWhereAssignMeant.ql.
+[68/181 eval 4ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/AssignWhereCompareMeant.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/DubiousNullCheck.ql.
+[69/181 eval 33ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/CompareWhereAssignMeant.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/ExprHasNoEffect.ql.
+[70/181 eval 4ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/DubiousNullCheck.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/FutileConditional.ql.
+[71/181 eval 145ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/ExprHasNoEffect.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/IncorrectNotOperatorUsage.ql.
+[72/181 eval 34ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/FutileConditional.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/MissingEnumCaseInSwitch.ql.
+[73/181 eval 4ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/IncorrectNotOperatorUsage.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/ShortCircuitBitMask.ql.
+[74/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/MissingEnumCaseInSwitch.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/UsingStrcpyAsBoolean.ql.
+[75/181 eval 8ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/ShortCircuitBitMask.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Likely Typos/inconsistentLoopDirection.ql.
+[76/181 eval 31ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/UsingStrcpyAsBoolean.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/AllocaInLoop.ql.
+[77/181 eval 13ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Likely Typos/inconsistentLoopDirection.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/PointerOverflow.ql.
+[78/181 eval 40ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/AllocaInLoop.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/ReturnCstrOfLocalStdString.ql.
+[79/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/PointerOverflow.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/ReturnStackAllocatedMemory.ql.
+[80/181 eval 69ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/ReturnCstrOfLocalStdString.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/StackAddressEscapes.ql.
+[81/181 eval 216ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/ReturnStackAllocatedMemory.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/StrncpyFlippedArgs.ql.
+[82/181 eval 57ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/StackAddressEscapes.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/SuspiciousCallToStrncat.ql.
+[83/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/StrncpyFlippedArgs.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/SuspiciousSizeof.ql.
+[84/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/SuspiciousCallToStrncat.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/UninitializedLocal.ql.
+[85/181 eval 16ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/SuspiciousSizeof.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/UnsafeUseOfStrcat.ql.
+[86/181 eval 162ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/UninitializedLocal.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Memory Management/UsingExpiredStackAddress.ql.
+[87/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/UnsafeUseOfStrcat.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/NestedLoopSameVar.ql.
+[88/181 eval 122ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Memory Management/UsingExpiredStackAddress.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/OO/IncorrectConstructorDelegation.ql.
+[89/181 eval 11ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/NestedLoopSameVar.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/OO/NonVirtualDestructorInBaseClass.ql.
+[90/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/OO/IncorrectConstructorDelegation.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/OO/ThrowInDestructor.ql.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/OO/UnsafeUseOfThis.ql.
+[91/181 eval 4ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/OO/NonVirtualDestructorInBaseClass.bqrs.
+[92/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/OO/ThrowInDestructor.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Protocols/TlsSettingsMisconfiguration.ql.
+[93/181 eval 34ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/OO/UnsafeUseOfThis.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Protocols/UseOfDeprecatedHardcodedProtocol.ql.
+[94/181 eval 73ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Protocols/TlsSettingsMisconfiguration.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/RedundantNullCheckSimple.ql.
+[95/181 eval 61ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Protocols/UseOfDeprecatedHardcodedProtocol.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/ReturnConstType.ql.
+[96/181 eval 38ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/RedundantNullCheckSimple.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/ReturnConstTypeMember.ql.
+[97/181 eval 8ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/ReturnConstType.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Underspecified Functions/ImplicitFunctionDeclaration.ql.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Underspecified Functions/MistypedFunctionArguments.ql.
+[98/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/ReturnConstTypeMember.bqrs.
+[99/181 eval 1ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Underspecified Functions/ImplicitFunctionDeclaration.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Underspecified Functions/TooFewArguments.ql.
+[100/181 eval 4ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Underspecified Functions/MistypedFunctionArguments.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/Underspecified Functions/TooManyArguments.ql.
+[101/181 eval 6ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Underspecified Functions/TooFewArguments.bqrs.
+Starting evaluation of codeql/cpp-queries/Likely Bugs/UseInOwnInitializer.ql.
+[102/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/Underspecified Functions/TooManyArguments.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-014/MemsetMayBeDeleted.ql.
+[103/181 eval 31ms] Evaluation done; writing results to codeql/cpp-queries/Likely Bugs/UseInOwnInitializer.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-022/TaintedPath.ql.
+[104/181 eval 98ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-014/MemsetMayBeDeleted.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-078/ExecTainted.ql.
+[105/181 eval 950ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-022/TaintedPath.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-079/CgiXss.ql.
+[106/181 eval 58ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-078/ExecTainted.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-089/SqlTainted.ql.
+[107/181 eval 15ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-079/CgiXss.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-114/UncontrolledProcessOperation.ql.
+[108/181 eval 38ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-089/SqlTainted.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-119/OverflowBuffer.ql.
+[109/181 eval 371ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-114/UncontrolledProcessOperation.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-119/OverrunWriteProductFlow.ql.
+[110/181 eval 20ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-119/OverflowBuffer.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-120/BadlyBoundedWrite.ql.
+[111/181 eval 1.9s] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-119/OverrunWriteProductFlow.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-120/OverrunWrite.ql.
+[112/181 eval 92ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-120/BadlyBoundedWrite.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-120/OverrunWriteFloat.ql.
+[113/181 eval 103ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-120/OverrunWrite.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-120/UnboundedWrite.ql.
+[114/181 eval 8ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-120/OverrunWriteFloat.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-120/VeryLikelyOverrunWrite.ql.
+[115/181 eval 54ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-120/UnboundedWrite.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-121/UnterminatedVarargsCall.ql.
+[116/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-120/VeryLikelyOverrunWrite.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-131/NoSpaceForZeroTerminator.ql.
+[117/181 eval 24ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-121/UnterminatedVarargsCall.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-134/UncontrolledFormatString.ql.
+[118/181 eval 56ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-131/NoSpaceForZeroTerminator.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-190/ArithmeticUncontrolled.ql.
+[119/181 eval 249ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-134/UncontrolledFormatString.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-190/ComparisonWithWiderType.ql.
+[120/181 eval 133ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-190/ArithmeticUncontrolled.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-190/TaintedAllocationSize.ql.
+[121/181 eval 70ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-190/ComparisonWithWiderType.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-191/UnsignedDifferenceExpressionComparedZero.ql.
+[122/181 eval 192ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-190/TaintedAllocationSize.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-193/InvalidPointerDeref.ql.
+[123/181 eval 46ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-191/UnsignedDifferenceExpressionComparedZero.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-253/HResultBooleanConversion.ql.
+[124/181 eval 894ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-193/InvalidPointerDeref.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-290/AuthenticationBypass.ql.
+[125/181 eval 18ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-253/HResultBooleanConversion.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-295/SSLResultConflation.ql.
+[126/181 eval 198ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-290/AuthenticationBypass.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-295/SSLResultNotChecked.ql.
+[127/181 eval 25ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-295/SSLResultConflation.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-311/CleartextBufferWrite.ql.
+[128/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-295/SSLResultNotChecked.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-311/CleartextFileWrite.ql.
+[129/181 eval 280ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-311/CleartextBufferWrite.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-311/CleartextTransmission.ql.
+[130/181 eval 36ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-311/CleartextFileWrite.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-313/CleartextSqliteDatabase.ql.
+[131/181 eval 502ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-311/CleartextTransmission.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-319/UseOfHttp.ql.
+[132/181 eval 20ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-313/CleartextSqliteDatabase.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-326/InsufficientKeySize.ql.
+[133/181 eval 52ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-319/UseOfHttp.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-327/BrokenCryptoAlgorithm.ql.
+[134/181 eval 11ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-326/InsufficientKeySize.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-327/OpenSslHeartbleed.ql.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-367/TOCTOUFilesystemRace.ql.
+[135/181 eval 256ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-327/BrokenCryptoAlgorithm.bqrs.
+[136/181 eval 1ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-327/OpenSslHeartbleed.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-416/IteratorToExpiredContainer.ql.
+[137/181 eval 48ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-367/TOCTOUFilesystemRace.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-416/UseOfStringAfterLifetimeEnds.ql.
+[138/181 eval 56ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-416/IteratorToExpiredContainer.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-416/UseOfUniquePointerAfterLifetimeEnds.ql.
+[139/181 eval 26ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-416/UseOfStringAfterLifetimeEnds.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-428/UnsafeCreateProcessCall.ql.
+[140/181 eval 15ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-416/UseOfUniquePointerAfterLifetimeEnds.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-468/IncorrectPointerScaling.ql.
+[141/181 eval 12ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-428/UnsafeCreateProcessCall.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-468/IncorrectPointerScalingVoid.ql.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-468/SuspiciousAddWithSizeof.ql.
+[142/181 eval 36ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-468/IncorrectPointerScaling.bqrs.
+[143/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-468/IncorrectPointerScalingVoid.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-497/ExposedSystemData.ql.
+[144/181 eval 4ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-468/SuspiciousAddWithSizeof.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-497/PotentiallyExposedSystemData.ql.
+[145/181 eval 19ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-497/ExposedSystemData.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-570/IncorrectAllocationErrorHandling.ql.
+[146/181 eval 99ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-497/PotentiallyExposedSystemData.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-611/XXE.ql.
+[147/181 eval 72ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-570/IncorrectAllocationErrorHandling.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-676/DangerousFunctionOverflow.ql.
+[148/181 eval 24ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-611/XXE.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-676/DangerousUseOfCin.ql.
+[149/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-676/DangerousFunctionOverflow.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-676/PotentiallyDangerousFunction.ql.
+[150/181 eval 28ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-676/DangerousUseOfCin.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-704/WcharCharConversion.ql.
+[151/181 eval 15ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-676/PotentiallyDangerousFunction.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-732/DoNotCreateWorldWritable.ql.
+[152/181 eval 124ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-704/WcharCharConversion.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-732/OpenCallMissingModeArgument.ql.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-732/UnsafeDaclSecurityDescriptor.ql.
+[153/181 eval 10ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-732/DoNotCreateWorldWritable.bqrs.
+[154/181 eval 5ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-732/OpenCallMissingModeArgument.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-807/TaintedCondition.ql.
+[155/181 eval 11ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-732/UnsafeDaclSecurityDescriptor.bqrs.
+Starting evaluation of codeql/cpp-queries/Security/CWE/CWE-843/TypeConfusion.ql.
+[156/181 eval 26ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-807/TaintedCondition.bqrs.
+Starting evaluation of codeql/cpp-queries/Summary/LinesOfCode.ql.
+[157/181 eval 450ms] Evaluation done; writing results to codeql/cpp-queries/Security/CWE/CWE-843/TypeConfusion.bqrs.
+Starting evaluation of codeql/cpp-queries/Summary/LinesOfUserCode.ql.
+[158/181 eval 1ms] Evaluation done; writing results to codeql/cpp-queries/Summary/LinesOfCode.bqrs.
+Starting evaluation of codeql/cpp-queries/Telemetry/CompilerErrors.ql.
+Starting evaluation of codeql/cpp-queries/Telemetry/DatabaseQuality.ql.
+[159/181 eval 280ms] Evaluation done; writing results to codeql/cpp-queries/Summary/LinesOfUserCode.bqrs.
+[160/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Telemetry/CompilerErrors.bqrs.
+Starting evaluation of codeql/cpp-queries/Telemetry/ExtractionMetrics.ql.
+Starting evaluation of codeql/cpp-queries/Telemetry/MissingIncludes.ql.
+Starting evaluation of codeql/cpp-queries/Telemetry/SucceededIncludes.ql.
+[161/181 eval 54ms] Evaluation done; writing results to codeql/cpp-queries/Telemetry/DatabaseQuality.bqrs.
+[162/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Telemetry/MissingIncludes.bqrs.
+[163/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/Telemetry/ExtractionMetrics.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.06 Pre-Processing Directives/AV Rule 32.ql.
+Starting evaluation of codeql/cpp-queries/jsf/4.07 Header Files/AV Rule 35.ql.
+[164/181 eval 4ms] Evaluation done; writing results to codeql/cpp-queries/Telemetry/SucceededIncludes.bqrs.
+[165/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.06 Pre-Processing Directives/AV Rule 32.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.10 Classes/AV Rule 71.1.ql.
+[166/181 eval 88ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.07 Header Files/AV Rule 35.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.10 Classes/AV Rule 79.ql.
+[167/181 eval 12ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.10 Classes/AV Rule 71.1.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.10 Classes/AV Rule 82.ql.
+[168/181 eval 46ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.10 Classes/AV Rule 79.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.10 Classes/AV Rule 88.ql.
+[169/181 eval 58ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.10 Classes/AV Rule 82.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.10 Classes/AV Rule 89.ql.
+[170/181 eval 11ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.10 Classes/AV Rule 88.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.10 Classes/AV Rule 95.ql.
+[171/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.10 Classes/AV Rule 89.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.10 Classes/AV Rule 97.ql.
+[172/181 eval 4ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.10 Classes/AV Rule 95.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.13 Functions/AV Rule 107.ql.
+[173/181 eval 5ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.10 Classes/AV Rule 97.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.13 Functions/AV Rule 114.ql.
+[174/181 eval 6ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.13 Functions/AV Rule 107.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.16 Initialization/AV Rule 145.ql.
+[175/181 eval 33ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.13 Functions/AV Rule 114.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.17 Types/AV Rule 148.ql.
+[176/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.16 Initialization/AV Rule 145.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.21 Operators/AV Rule 166.ql.
+[177/181 eval 13ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.17 Types/AV Rule 148.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.24 Control Flow Structures/AV Rule 196.ql.
+[178/181 eval 178ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.21 Operators/AV Rule 166.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.24 Control Flow Structures/AV Rule 197.ql.
+[179/181 eval 2ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.24 Control Flow Structures/AV Rule 196.bqrs.
+Starting evaluation of codeql/cpp-queries/jsf/4.24 Control Flow Structures/AV Rule 201.ql.
+[180/181 eval 3ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.24 Control Flow Structures/AV Rule 197.bqrs.
+[181/181 eval 472ms] Evaluation done; writing results to codeql/cpp-queries/jsf/4.24 Control Flow Structures/AV Rule 201.bqrs.
+Shutting down query evaluator.
+Interpreting results.
+Resolving extensions
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Header Cleanup/Cleanup-DuplicateIncludeGuard.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Documentation/FixmeComments.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Documentation/CommentedOutCode.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/LargeParameter.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/UseAfterFree.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/DeadCodeGoto.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/IncorrectCheckScanf.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/NewDeleteArrayMismatch.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/NewArrayDeleteMismatch.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/DoubleFree.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/NewFreeMismatch.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/OverflowStatic.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/ContinueInFalseLoop.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/LossyPointerCast.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/ArrayArgSizeMismatch.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/ImplicitDowncastFromBitfield.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/CastArrayPointerArithmetic.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/UnsignedGEZero.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/PointlessSelfComparison.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/IntMultToLong.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/FloatComparison.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/ComparisonPrecedence.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/PointlessComparison.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/BadAdditionOverflowCheck.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/SignedOverflowCheck.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/BitwiseSignCheck.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/RedundantNullCheckSimple.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/ReturnConstType.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/UsingStrcpyAsBoolean.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/CompareWhereAssignMeant.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/ExprHasNoEffect.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/ShortCircuitBitMask.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/inconsistentLoopDirection.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/AssignWhereCompareMeant.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/FutileConditional.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/DubiousNullCheck.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/OO/IncorrectConstructorDelegation.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/OO/UnsafeUseOfThis.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/OO/ThrowInDestructor.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/OO/NonVirtualDestructorInBaseClass.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/WrongNumberOfFormatArguments.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/WrongTypeFormatArguments.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/NonConstantFormat.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/SnprintfOverflow.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Format/TooManyFormatArguments.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/AmbiguouslySignedBitField.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Underspecified Functions/TooManyArguments.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Underspecified Functions/ImplicitFunctionDeclaration.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Underspecified Functions/TooFewArguments.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/ReturnStackAllocatedMemory.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/SuspiciousCallToStrncat.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/PointerOverflow.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/UsingExpiredStackAddress.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/ReturnCstrOfLocalStdString.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/AllocaInLoop.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/UseInOwnInitializer.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/ReturnConstTypeMember.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Unused Entities/UnusedLocals.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Unused Entities/UnusedStaticFunctions.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Unused Entities/UnusedStaticVariables.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/BlockWithTooManyStatements.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/SwitchLongCase.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/GuardedFree.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/UseOfGoto.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Likely Errors/Slicing.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Likely Errors/EmptyBlock.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/ComplexCondition.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/RuleOfTwo.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Exceptions/LeakyCatch.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Exceptions/CatchingByValue.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Exceptions/AccidentalRethrow.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Exceptions/ThrowingPointers.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Hiding/LocalVariableHidesGlobalVariable.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Hiding/DeclarationHidesVariable.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Hiding/DeclarationHidesParameter.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/SloppyGlobal.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.16 Initialization/AV Rule 145.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.13 Functions/AV Rule 114.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.13 Functions/AV Rule 107.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.06 Pre-Processing Directives/AV Rule 32.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 71.1.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 88.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 82.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 95.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 79.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 89.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.10 Classes/AV Rule 97.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.24 Control Flow Structures/AV Rule 196.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.24 Control Flow Structures/AV Rule 197.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.24 Control Flow Structures/AV Rule 201.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.07 Header Files/AV Rule 35.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.21 Operators/AV Rule 166.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-732/OpenCallMissingModeArgument.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-732/UnsafeDaclSecurityDescriptor.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/VeryLikelyOverrunWrite.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/BadlyBoundedWrite.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-134/UncontrolledFormatString.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-191/UnsignedDifferenceExpressionComparedZero.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-327/BrokenCryptoAlgorithm.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-327/OpenSslHeartbleed.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-367/TOCTOUFilesystemRace.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-131/NoSpaceForZeroTerminator.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-416/UseOfStringAfterLifetimeEnds.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-416/IteratorToExpiredContainer.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-416/UseOfUniquePointerAfterLifetimeEnds.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-014/MemsetMayBeDeleted.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-326/InsufficientKeySize.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-704/WcharCharConversion.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-468/SuspiciousAddWithSizeof.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-611/XXE.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-078/ExecTainted.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-311/CleartextTransmission.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-311/CleartextFileWrite.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-676/DangerousFunctionOverflow.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-676/DangerousUseOfCin.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-079/CgiXss.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-253/HResultBooleanConversion.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-190/ComparisonWithWiderType.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-190/ArithmeticUncontrolled.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-089/SqlTainted.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-319/UseOfHttp.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-497/ExposedSystemData.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Documentation/UncommentedFunction.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/SizeCheck2.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/SizeCheck.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Critical/MissingCheckScanf.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/InconsistentCallOnResult.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Conversion/LossyFunctionResultCast.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Arithmetic/BadCheckOdd.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/MissingEnumCaseInSwitch.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Likely Typos/IncorrectNotOperatorUsage.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/InconsistentCheckReturnNull.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Leap Year/UncheckedReturnValueForTimeFunctions.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Leap Year/UncheckedLeapYearAfterYearModification.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Leap Year/Adding365DaysPerYear.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Underspecified Functions/MistypedFunctionArguments.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/StrncpyFlippedArgs.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/UnsafeUseOfStrcat.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/UninitializedLocal.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/SuspiciousSizeof.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Memory Management/StackAddressEscapes.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/NestedLoopSameVar.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Protocols/UseOfDeprecatedHardcodedProtocol.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Likely Bugs/Protocols/TlsSettingsMisconfiguration.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Likely Errors/CommaBeforeMisleadingIndentation.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Best Practices/Likely Errors/OffsetUseBeforeRangeCheck.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/jsf/4.17 Types/AV Rule 148.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-313/CleartextSqliteDatabase.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-114/UncontrolledProcessOperation.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-022/TaintedPath.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-732/DoNotCreateWorldWritable.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/OverrunWrite.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/UnboundedWrite.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-120/OverrunWriteFloat.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-807/TaintedCondition.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-193/InvalidPointerDeref.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-290/AuthenticationBypass.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-121/UnterminatedVarargsCall.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-295/SSLResultNotChecked.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-295/SSLResultConflation.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-119/OverrunWriteProductFlow.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-119/OverflowBuffer.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-843/TypeConfusion.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-468/IncorrectPointerScaling.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-468/IncorrectPointerScalingVoid.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-311/CleartextBufferWrite.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-570/IncorrectAllocationErrorHandling.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-676/PotentiallyDangerousFunction.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-190/TaintedAllocationSize.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-428/UnsafeCreateProcessCall.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Security/CWE/CWE-497/PotentiallyExposedSystemData.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Diagnostics/ExtractionWarnings.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Diagnostics/ExtractedFiles.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Diagnostics/FailedExtractorInvocations.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Summary/LinesOfCode.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Summary/LinesOfUserCode.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/MissingIncludes.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/ExtractionMetrics.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/CompilerErrors.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/SucceededIncludes.ql...
+Interpreting /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/qlpacks/codeql/cpp-queries/1.4.1/Telemetry/DatabaseQuality.ql...
+Reading source archive /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/codeql-db-linked/src.zip
+CodeQL scanned 7 out of 150 C/C++ files in this invocation. Typically CodeQL is configured to analyze a single CodeQL language per invocation, so check other invocations to determine overall coverage information.
+Exporting results to SARIF v2.1.0...
+Exported results to SARIF v2.1.0 (116ms).

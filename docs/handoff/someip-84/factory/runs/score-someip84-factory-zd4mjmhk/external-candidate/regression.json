@@ -1,0 +1,7 @@
+{
+  "argv": [
+    "/tmp/score-someip84-factory-zd4mjmhk/target/.llm_tmp/external-candidate/service-identifier-tests",
+    "--gtest_output=json:/tmp/score-someip84-factory-zd4mjmhk/target/.llm_tmp/external-candidate/tests.json"
+  ],
+  "exit_code": 0
+}

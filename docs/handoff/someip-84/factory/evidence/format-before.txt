@@ -1,0 +1,12 @@
+unformatted: File would be reformatted
+   --> src/score_sw_fabric/compiler/package.py:403:30
+    |
+402 |         if rendered != package["files"]:
+    -             raise InputError("COMMAND_BINDING", "Packaged command binding differs from native source")
+403 +             raise InputError(
+404 +                 "COMMAND_BINDING", "Packaged command binding differs from native source"
+405 +             )
+406 |     expected_subjects = {
+    |
+
+1 file would be reformatted, 284 files already formatted

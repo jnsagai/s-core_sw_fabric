@@ -1,0 +1,23 @@
+schema_version: 1
+kind: quality_codeql_demonstration_request
+id: codeql-demo-corrected
+purpose: software_demonstration
+case: corrected
+prerequisites:
+  path: /home/jefferson/s-core_sw_fabric/examples/quality/codeql-prerequisites.yaml
+  sha256: b61c70bdda1cd472d7296149e9efff9cf362acb14e5501d93799676425d56c19
+compiler:
+  path: /home/jefferson/s-core_sw_fabric/profiles/gcc11-sanitizers-local-v1.yaml
+  sha256: c19f6e1886a08b1f74a66ed4ca0c673acfdd4134af827bd1649e81a162299033
+reporting_toolchain:
+  path: /home/jefferson/s-core_sw_fabric/profiles/python39-codeql-reporting-local-v1.yaml
+  sha256: cab8864e94ac5fac6ffdb6c7e740732c2a926783a4e38651f0cd4e3dfe8da6fa
+license:
+  path: /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/LICENSE.md
+  sha256: d0d6cfdc857c1e0153bbd2b6f0d4ab42dfc38acec9b97b2f7f55c1f51ffe9fbf
+report_patch_mode: git_recount
+timeout_seconds: 300
+total_timeout_seconds: 600
+output_limit_bytes: 1048576
+protected_roots:
+- /home/jefferson/s-core_sw_fabric

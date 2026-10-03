@@ -19,6 +19,37 @@ from tests.quality_disposition_support import change_draft, change_request, sele
 from tests.quality_support import ROOT, ref, request
 
 
+@pytest.mark.parametrize("target", ["request", "origin", "draft", "source"])
+def test_late_correction_input_drift_preserves_output(
+    selected: tuple[Path, dict[str, Any]], target: str, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    path, _ = selected
+    corrected_selection(path)
+    change_request(path, action="check_correction")
+    selection_record = json.loads(path.read_bytes())
+    current = Path(selection_record["current"]["request"]["path"])
+    _, fresh, inputs, protected = run(current)
+    changed = (
+        path
+        if target == "request"
+        else path.parent / "component/check.cpp"
+        if target == "source"
+        else Path(selection_record[target]["path"])
+    )
+    if not changed.is_absolute():
+        changed = path.parent / changed
+
+    def drift(*args: Any, **kwargs: Any) -> Any:
+        changed.write_bytes(changed.read_bytes() + b"\n")
+        return 0, fresh, inputs, protected
+
+    monkeypatch.setattr(dispositions, "execute_current", drift)
+    output = path.parent / "unchanged-review.json"
+    output.write_text("prior review")
+    assert main(["quality", "disposition", "--request", str(path), "--out", str(output)]) == 2
+    assert output.read_text() == "prior review"
+
+
 @pytest.fixture
 def selected(tmp_path: Path) -> tuple[Path, dict[str, Any]]:
     current = request(tmp_path)

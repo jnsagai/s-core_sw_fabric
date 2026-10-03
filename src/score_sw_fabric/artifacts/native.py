@@ -7,7 +7,6 @@ import json
 import os
 import shutil
 import subprocess
-import tempfile
 import time
 from collections.abc import Callable
 from pathlib import Path
@@ -17,6 +16,7 @@ from score_sw_fabric.artifacts.models import enforce_limit
 from score_sw_fabric.catalog.export import canonical
 from score_sw_fabric.compiler.reader import verify_self_digest
 from score_sw_fabric.process_source.reader import InputError, read_json, read_yaml
+from score_sw_fabric.storage import temporary_directory
 
 Runner = Callable[..., subprocess.CompletedProcess[str]]
 
@@ -151,7 +151,7 @@ def validate_native(
     exit_classes: list[int] = []
     export: dict[str, Any] | None = None
     output_bytes = 0
-    with tempfile.TemporaryDirectory(prefix="score-artifact-native-") as raw_root:
+    with temporary_directory(prefix="score-artifact-native-") as raw_root:
         root = Path(raw_root)
         source = local_paths.get("native_consumer")
         if isinstance(source, str):
@@ -181,6 +181,9 @@ def validate_native(
             "PATH": os.environ.get("PATH", ""),
             "HOME": str(home),
             "XDG_CACHE_HOME": str(cache),
+            "TMPDIR": str(root),
+            "BAZELISK_HOME": str(cache / "bazelisk"),
+            "TEST_TMPDIR": str(cache / "bazel"),
             "NO_COLOR": "1",
         }
         timeout = limits["native_timeout_seconds"]

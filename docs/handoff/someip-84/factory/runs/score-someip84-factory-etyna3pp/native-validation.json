@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "diagnostics": [],
+  "edges": 4,
+  "nodes": 4,
+  "source_set_digest": "aee51f4a813eb587f00ad570f19ef2511ea28ade9a02dba0d0e8822ce63b1a81",
+  "validator": {
+    "executable_sha256": "44aadc7ddc9a0e410c885bf67ae58e0a2f0da17244941a754666a8b64d28c716",
+    "profile": "debug",
+    "source_commit": "1b4fb15281ebb724426f9e480dce48d0100ff79b",
+    "version": "0.362.0-nightly.0"
+  },
+  "workflow_name": "SCoreWorkflow"
+}

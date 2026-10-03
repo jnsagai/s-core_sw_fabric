@@ -14,8 +14,79 @@ from score_sw_fabric.assurance.models import digest, seal
 from score_sw_fabric.cli import main
 from score_sw_fabric.process_source.reader import InputError
 from score_sw_fabric.quality.imports import import_outputs
+from score_sw_fabric.quality.sarif import Locations
 from tests.quality_import_support import identity, sarif, selection
 from tests.quality_support import ref
+
+
+def test_sarif_artifact_self_index_and_default_end_line_preserve_native(tmp_path: Path) -> None:
+    native = sarif()
+    run = native["runs"][0]
+    run["artifacts"] = [{"location": {"uri": "check.cpp", "index": 0}}]
+    physical = run["results"][0]["locations"][0]["physicalLocation"]
+    physical["artifactLocation"]["index"] = 0
+    physical["region"]["endColumn"] = 4
+    original = copy.deepcopy(native)
+    code, record, _, _ = import_outputs(selection(tmp_path, native=native))
+    assert code == 1
+    contributor = record["findings"][0]["contributors"][0]
+    assert contributor["native_record"] == original["runs"][0]["results"][0]
+    assert contributor["locations"][0]["region"] == physical["region"]
+    assert native == original
+
+
+@pytest.mark.parametrize(
+    "location",
+    [{"index": 0}, {"uri": "check.cpp", "index": True}, {"uri": "check.cpp", "index": 1}],
+)
+def test_sarif_artifact_invalid_self_index_refused(tmp_path: Path, location: dict) -> None:
+    resolver = Locations(
+        {"artifacts": [{"location": location}, {"location": {"uri": "check.cpp", "index": 0}}]},
+        tmp_path,
+        {"check.cpp": b"abcd\n"},
+    )
+    with pytest.raises(InputError):
+        resolver.artifact({"index": 0})
+
+
+@pytest.mark.parametrize(
+    "descriptor", [{"hashes": {"sha-256": "0" * 64}}, {"contents": {"text": "different"}}]
+)
+def test_sarif_self_index_still_checks_embedded_source(tmp_path: Path, descriptor: dict) -> None:
+    resolver = Locations(
+        {"artifacts": [{"location": {"uri": "check.cpp", "index": 0}, **descriptor}]},
+        tmp_path,
+        {"check.cpp": b"abcd\n"},
+    )
+    with pytest.raises(InputError, match="differs"):
+        resolver.artifact({"index": 0})
+
+
+@pytest.mark.parametrize(
+    "region",
+    [
+        {"startLine": 1, "endColumn": 6},
+        {"startLine": 1, "startColumn": 4, "endColumn": 2},
+        {"endColumn": 2},
+    ],
+)
+def test_sarif_default_end_line_still_rejects_invalid_columns(tmp_path: Path, region: dict) -> None:
+    resolver = Locations({}, tmp_path, {"check.cpp": b"abcd\n"})
+    with pytest.raises(InputError):
+        resolver.region(region, "check.cpp")
+
+
+def test_sarif_explicit_source_root_base_never_resolves_unknown_bases(tmp_path: Path) -> None:
+    original = {
+        "artifacts": [{"location": {"uri": "check.cpp", "uriBaseId": "%SRCROOT%", "index": 0}}]
+    }
+    resolver = Locations(original, tmp_path, {"check.cpp": b"abcd\n"}, source_root_base="%SRCROOT%")
+    assert resolver.artifact({"index": 0}) == "check.cpp"
+    assert "originalUriBaseIds" not in original
+    with pytest.raises(InputError):
+        resolver.artifact({"uri": "check.cpp", "uriBaseId": "UNKNOWN"})
+    with pytest.raises(InputError):
+        resolver.artifact({"uri": "../outside.cpp", "uriBaseId": "%SRCROOT%"})
 
 
 def test_all_native_contributors_and_multiple_runs(tmp_path: Path) -> None:

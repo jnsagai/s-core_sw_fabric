@@ -1,0 +1,2357 @@
+{
+  "repository": "eclipse-score/inc_someip_gateway",
+  "commit": "f8a196c3b16d5172d898394ab99b0ed81346d63d",
+  "files": [
+    {
+      "path": ".bazelrc",
+      "mode": "100644",
+      "sha": "1f964e84539709ae148b28ae50b6709a82021658",
+      "size": 7766
+    },
+    {
+      "path": ".bazelversion",
+      "mode": "100644",
+      "sha": "acd405b1d62e3db6545a68a7084bd5fa5dade317",
+      "size": 6
+    },
+    {
+      "path": ".clang-format",
+      "mode": "100644",
+      "sha": "254f674c0a360846c755153289e3877148461518",
+      "size": 729
+    },
+    {
+      "path": ".clang-tidy",
+      "mode": "100644",
+      "sha": "312929e2db9fc7953cb3f84ca97c028068d4ce3a",
+      "size": 11020
+    },
+    {
+      "path": ".devcontainer/Dockerfile",
+      "mode": "100644",
+      "sha": "464442e106126984e2ef719d05856f4262638c07",
+      "size": 1530
+    },
+    {
+      "path": ".devcontainer/devcontainer-lock.json",
+      "mode": "100644",
+      "sha": "fbc79c1987e49f00ea93cf7c3920699ee70d8d9b",
+      "size": 349
+    },
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "mode": "100644",
+      "sha": "b5729cd15b3c3a552d079ce41b7bc9cc1ac4a559",
+      "size": 1435
+    },
+    {
+      "path": ".devcontainer/run-tool",
+      "mode": "100755",
+      "sha": "7821981d0de718d45fff1ea6d67f850cc3365611",
+      "size": 1459
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "mode": "100644",
+      "sha": "5c36feecbc7a7137e343da50ff7b8e028a0af7fc",
+      "size": 1588
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_fix.md",
+      "mode": "100644",
+      "sha": "7d6c290a0d45b5f317c235a6eb404b6e3f272222",
+      "size": 761
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/improvement.md",
+      "mode": "100644",
+      "sha": "769b0e7db1c265cac5bc657c50dc1b0aea719a09",
+      "size": 786
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE/bug_fix.md",
+      "mode": "100644",
+      "sha": "fb543416a4af0d074769aaaa8561b52799f67082",
+      "size": 1176
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE/improvement.md",
+      "mode": "100644",
+      "sha": "334ce940c22f67613da04143f1697a309075aa70",
+      "size": 1202
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "mode": "100644",
+      "sha": "74102eae65b91d3181cab8ccec1b1950f02f69e1",
+      "size": 2050
+    },
+    {
+      "path": ".github/instructions/agent-behavior.md",
+      "mode": "100644",
+      "sha": "3863b26728bf0da53af0a5d447e609a9af60af0f",
+      "size": 2813
+    },
+    {
+      "path": ".github/instructions/architecture.md",
+      "mode": "100644",
+      "sha": "38a7665e62b73e6656153f4e1115481b125b0ff4",
+      "size": 1657
+    },
+    {
+      "path": ".github/instructions/build-and-test.md",
+      "mode": "100644",
+      "sha": "04b58fe4581960c345e190d5afd09a0763ab71d5",
+      "size": 1295
+    },
+    {
+      "path": ".github/instructions/code-style.md",
+      "mode": "100644",
+      "sha": "6825a6b6f8d8307458cd12bf69e14fce60cea4b8",
+      "size": 1707
+    },
+    {
+      "path": ".github/instructions/contributing.md",
+      "mode": "100644",
+      "sha": "72cc3f7878066bb334fd02fe3ecbb5973a521415",
+      "size": 785
+    },
+    {
+      "path": ".github/instructions/project-structure.md",
+      "mode": "100644",
+      "sha": "e0b960bb9a08b710ff9de9031a5c7335072300c3",
+      "size": 877
+    },
+    {
+      "path": ".github/skills/fix-failing-test/SKILL.md",
+      "mode": "100644",
+      "sha": "a87c411d59fe38db882d003f0e0890647c2d99be",
+      "size": 3754
+    },
+    {
+      "path": ".github/skills/memory-profiling/SKILL.md",
+      "mode": "100644",
+      "sha": "0def4b2e919c9cffc4b03a9cfb1b16626ca2ca9f",
+      "size": 5102
+    },
+    {
+      "path": ".github/skills/memory-profiling/references/INTERPRETATION.md",
+      "mode": "100644",
+      "sha": "6d66da6b9892526f7f988605df8018aac425dc83",
+      "size": 6482
+    },
+    {
+      "path": ".github/skills/memory-profiling/references/best_practices.md",
+      "mode": "100644",
+      "sha": "fd1c5e7f7b0f5f621395772d9107fc959e05f189",
+      "size": 6490
+    },
+    {
+      "path": ".github/skills/memory-profiling/scripts/run_massif_profile.sh",
+      "mode": "100755",
+      "sha": "a5b21be241288bd6bc83170f330e6077acde30a6",
+      "size": 3052
+    },
+    {
+      "path": ".github/skills/memory-profiling/scripts/run_memusage_profile.sh",
+      "mode": "100755",
+      "sha": "a6b9b39dc509e3160418c1c869bdb19c68d58b8b",
+      "size": 3140
+    },
+    {
+      "path": ".github/tools/qnx_credential_helper.py",
+      "mode": "100755",
+      "sha": "a6a4261ec1fe279a3839ea7dd8f0e481871f53ca",
+      "size": 2382
+    },
+    {
+      "path": ".github/workflows/build_and_test_cross_compilation.yml",
+      "mode": "100644",
+      "sha": "8e724585e0b30828319da06395369ca7d54e3b0a",
+      "size": 2043
+    },
+    {
+      "path": ".github/workflows/build_and_test_host.yml",
+      "mode": "100644",
+      "sha": "71bf48d44a4a5edaf6f84b5fe018f2fde36c1b43",
+      "size": 5096
+    },
+    {
+      "path": ".github/workflows/build_and_test_qnx.yml",
+      "mode": "100644",
+      "sha": "cd891c930582c7e5ef2d0829cd9de975fc1ada41",
+      "size": 1690
+    },
+    {
+      "path": ".github/workflows/cache_maintenance.yml",
+      "mode": "100644",
+      "sha": "3c1ecb7edd8d719636303fd4f0fd82d56d1104bf",
+      "size": 2735
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "sha": "e02ef619b067ccab5c2df9112d371013d2c0631c",
+      "size": 2860
+    },
+    {
+      "path": ".github/workflows/ci_pull_request_target.yml",
+      "mode": "100644",
+      "sha": "bad55df914f06bd7a7c92a6c24b31bc606c75215",
+      "size": 2411
+    },
+    {
+      "path": ".github/workflows/copilot-setup-steps.yml",
+      "mode": "100644",
+      "sha": "14648e20c05e2810b30a411a89ba601008466f74",
+      "size": 2183
+    },
+    {
+      "path": ".github/workflows/copyright.yml",
+      "mode": "100644",
+      "sha": "de19b53be41aa7ad079a6c8e9d05b522a1cb7dbf",
+      "size": 843
+    },
+    {
+      "path": ".github/workflows/coverage-publish.yml",
+      "mode": "100644",
+      "sha": "768d1d132d8513b780afdf7323d76b62f23fdc5f",
+      "size": 3847
+    },
+    {
+      "path": ".github/workflows/coverage.yml",
+      "mode": "100644",
+      "sha": "74fb7ada732b1338d8a36b97fa18df90b1fd6903",
+      "size": 2281
+    },
+    {
+      "path": ".github/workflows/docs-cleanup.yml",
+      "mode": "100644",
+      "sha": "f1043d197c4f13c8dd0059da69800e06a77fb4bb",
+      "size": 935
+    },
+    {
+      "path": ".github/workflows/docs-publish.yml",
+      "mode": "100644",
+      "sha": "5ddb7f216ad6f1b7ace32708129bd6e9204ec9cb",
+      "size": 1427
+    },
+    {
+      "path": ".github/workflows/docs.yml",
+      "mode": "100644",
+      "sha": "5765679dff633e6f1f929aa21f5358cff02afc64",
+      "size": 819
+    },
+    {
+      "path": ".github/workflows/format.yml",
+      "mode": "100644",
+      "sha": "ceca7895ac2fd3aeb18b7e3f26ad143e993d22da",
+      "size": 874
+    },
+    {
+      "path": ".github/workflows/license_check.yml",
+      "mode": "100644",
+      "sha": "af49398402300cc042c00e0510272d341c683244",
+      "size": 886
+    },
+    {
+      "path": ".github/workflows/pr-title-semantic.yaml",
+      "mode": "100644",
+      "sha": "1d31b8737870183d3255f606de7ba0d359ed3541",
+      "size": 2591
+    },
+    {
+      "path": ".github/workflows/quality_pack-publish.yml",
+      "mode": "100644",
+      "sha": "826dc9d1441b277fcdd81d43fbd2eacb9a3683cf",
+      "size": 4553
+    },
+    {
+      "path": ".github/workflows/quality_pack.yml",
+      "mode": "100644",
+      "sha": "b7cb63a5dec8783658a443fa382b2c6d6830a4c6",
+      "size": 3176
+    },
+    {
+      "path": ".github/workflows/static-code-analysis.yml",
+      "mode": "100644",
+      "sha": "e4156194da41c4282f47041ecef0e825672dfa77",
+      "size": 1532
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "sha": "f1d06bc6d6412f14d3ab89c320cbd6577bbcaa7d",
+      "size": 1245
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "mode": "100644",
+      "sha": "07d075f47a1d55a63ae0c5ee3ee33c40634d4af9",
+      "size": 2204
+    },
+    {
+      "path": ".ruff.toml",
+      "mode": "100644",
+      "sha": "1cc725f913746e356d24a4fcb5c075f47b80a2b1",
+      "size": 1046
+    },
+    {
+      "path": ".shellcheckrc",
+      "mode": "100644",
+      "sha": "742992dbb366fe0534ccfa1af0904bf89f5a3801",
+      "size": 1143
+    },
+    {
+      "path": ".vscode/extensions.json",
+      "mode": "100644",
+      "sha": "ef87e4891ad05efd6476a679a83505796b85779a",
+      "size": 916
+    },
+    {
+      "path": ".vscode/restructuredtext.code-snippets",
+      "mode": "100644",
+      "sha": "1e66353873e326e2ea12f943167e6d2fbc084e31",
+      "size": 9047
+    },
+    {
+      "path": ".vscode/settings.json",
+      "mode": "100644",
+      "sha": "6869333c0c3067d7bdd295c1052e6e708a1fbc2c",
+      "size": 4244
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "mode": "100644",
+      "sha": "93f79ab6fce050f55e32e8113ddc3551355580c1",
+      "size": 608
+    },
+    {
+      "path": ".yamlfmt",
+      "mode": "100644",
+      "sha": "d4b32e79c43833f197d5d5ed64c69bb8fb151d78",
+      "size": 644
+    },
+    {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "sha": "5a608605fc7412796d2e146b6af74ddf37ab4be8",
+      "size": 2468
+    },
+    {
+      "path": "BUILD",
+      "mode": "100644",
+      "sha": "038c612be1367147887bdc5a871b93ce0c4a708d",
+      "size": 4505
+    },
+    {
+      "path": "CLAUDE.md",
+      "mode": "120000",
+      "sha": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+      "size": 9
+    },
+    {
+      "path": "CONTRIBUTION.md",
+      "mode": "100644",
+      "sha": "cfbec3610634fa083f0dee7f2d98d61b05848cb9",
+      "size": 4536
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "sha": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
+      "size": 10174
+    },
+    {
+      "path": "LICENSES/Apache-2.0.txt",
+      "mode": "100644",
+      "sha": "137069b823873b8bcf42979bcf8e9371052d26a2",
+      "size": 10280
+    },
+    {
+      "path": "MODULE.bazel",
+      "mode": "100644",
+      "sha": "b40b140fa578de05374f89717e04470a2b59889a",
+      "size": 14521
+    },
+    {
+      "path": "MODULE.bazel.lock",
+      "mode": "100644",
+      "sha": "c3b38e23e261b3ab10aa3d901e7fc8299b526338",
+      "size": 2094245
+    },
+    {
+      "path": "NOTICE",
+      "mode": "100644",
+      "sha": "98e32167152deae3ae31882da815be62be3779f4",
+      "size": 1728
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "sha": "d90f96c5f699a483ecd60e61626e2d6ec29c5475",
+      "size": 6118
+    },
+    {
+      "path": "REUSE.toml",
+      "mode": "100644",
+      "sha": "012a6bd296fa1f189c2ed38f4cd6d00eb44d7b2a",
+      "size": 2272
+    },
+    {
+      "path": "bazel/tools/BUILD.bazel",
+      "mode": "100644",
+      "sha": "67834572397cdd8919ca095a127d419d22fa4254",
+      "size": 850
+    },
+    {
+      "path": "bazel/tools/json_schema_validator.bzl",
+      "mode": "100644",
+      "sha": "7f6287153dc1947d6da3b6c325ecca483b525288",
+      "size": 2627
+    },
+    {
+      "path": "bazel/tools/someip_config.bzl",
+      "mode": "100644",
+      "sha": "e25fcc4bbbddf626e80a20a1adcad8824d9a292c",
+      "size": 4837
+    },
+    {
+      "path": "config/BUILD",
+      "mode": "100644",
+      "sha": "414d36da0c48a8b8561fb0ac973be4ed3ab0edce",
+      "size": 757
+    },
+    {
+      "path": "coverage.bazelrc",
+      "mode": "100644",
+      "sha": "dfe16ab2861df0e8d548c17624c2cf10ea3f865e",
+      "size": 3432
+    },
+    {
+      "path": "deployment/BUILD.bazel",
+      "mode": "100644",
+      "sha": "053e72a5f545940a93f28a97b91225f2d5a0475b",
+      "size": 3819
+    },
+    {
+      "path": "deployment/defs.bzl",
+      "mode": "100644",
+      "sha": "b345590e0494886d192fbfe70d8e914021320ead",
+      "size": 2918
+    },
+    {
+      "path": "deployment/run_gateway.sh",
+      "mode": "100755",
+      "sha": "a5fa07f52176d040bc405ae6fbcc1f063af9d44f",
+      "size": 2466
+    },
+    {
+      "path": "docs/architecture/components.rst",
+      "mode": "100644",
+      "sha": "bae93f8702675f7bf7a98d6589c386f597a1dee4",
+      "size": 2154
+    },
+    {
+      "path": "docs/architecture/dec_ipc_implementation.rst",
+      "mode": "100644",
+      "sha": "4d31d1b7c7f287e55141c4e4f0340c3e015e570e",
+      "size": 4637
+    },
+    {
+      "path": "docs/architecture/dec_someip_api_abstraction.rst",
+      "mode": "100644",
+      "sha": "23f09ddd1721b2b53719fe3f3f53d5e045d0c4aa",
+      "size": 5465
+    },
+    {
+      "path": "docs/architecture/dec_someipgw_registration.rst",
+      "mode": "100644",
+      "sha": "9eee3cb448d1636236d2d147a7b2a0301d8818e6",
+      "size": 6901
+    },
+    {
+      "path": "docs/architecture/features.rst",
+      "mode": "100644",
+      "sha": "1cc9b3f06cd1e4080592525ec88a4d964014adca",
+      "size": 919
+    },
+    {
+      "path": "docs/architecture/index.rst",
+      "mode": "100644",
+      "sha": "968da67e3fdd47794c377cbed7b26b7aed289353",
+      "size": 1033
+    },
+    {
+      "path": "docs/architecture/score-someip-car-window-overview.drawio",
+      "mode": "100644",
+      "sha": "ccfa64d688391a58caf0a234f1cebba392f26939",
+      "size": 8226
+    },
+    {
+      "path": "docs/architecture/score-someip-car-window-overview.drawio.png",
+      "mode": "100644",
+      "sha": "7b982b94e578ae6bd1fbac57dc54417dc992bbbb",
+      "size": 33332
+    },
+    {
+      "path": "docs/architecture/tc8_conformance_testing.rst",
+      "mode": "100644",
+      "sha": "3c168e71ba0f0d128adb678a729d5d8a1d2538ed",
+      "size": 8744
+    },
+    {
+      "path": "docs/components.rst",
+      "mode": "100644",
+      "sha": "31b5ca522fb0ffd5a8ed16259a56fcb87c5723ee",
+      "size": 667
+    },
+    {
+      "path": "docs/conf.py",
+      "mode": "100644",
+      "sha": "d413484a27cd237da403c9fe64696dbce95fa9af",
+      "size": 716
+    },
+    {
+      "path": "docs/images/someip_gateway_overview.drawio.svg",
+      "mode": "100644",
+      "sha": "21f46819a91e345b1f3c3a67d760ea7798237e92",
+      "size": 33961
+    },
+    {
+      "path": "docs/index.rst",
+      "mode": "100644",
+      "sha": "944be9c3c1619241747d52f3be6e622ad1ecdebb",
+      "size": 4644
+    },
+    {
+      "path": "docs/requirements/component/index.rst",
+      "mode": "100644",
+      "sha": "07366d102c701de2c11655074aa6811efe21d07e",
+      "size": 1279
+    },
+    {
+      "path": "docs/requirements/feature/index.rst",
+      "mode": "100644",
+      "sha": "c5de8d1ca29c66ecd72532777a062a3344fc91f5",
+      "size": 1156
+    },
+    {
+      "path": "docs/requirements/index.rst",
+      "mode": "100644",
+      "sha": "017a1c1347fb4a6281bd8ad2d7aae99b9ed7ed28",
+      "size": 3824
+    },
+    {
+      "path": "docs/requirements/stakeholder.rst",
+      "mode": "100644",
+      "sha": "28dbc44e85ee0fe5999a8d39b1fc7b802341fb57",
+      "size": 2167
+    },
+    {
+      "path": "docs/tc8_conformance/index.rst",
+      "mode": "100644",
+      "sha": "d65927481ff4c278446c98c0066cbc465be1e8ef",
+      "size": 2322
+    },
+    {
+      "path": "docs/tc8_conformance/requirements.rst",
+      "mode": "100644",
+      "sha": "be1771a0d0001a264d623294b18e0e8a5cf766d6",
+      "size": 10178
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "sha": "0cb7b234b2043711c7e062eba6458bd5c022fc79",
+      "size": 1154
+    },
+    {
+      "path": "python_requirements_lock.txt",
+      "mode": "100644",
+      "sha": "83925e82ba2c5b9e85ba03abb669f9150d71843a",
+      "size": 1403
+    },
+    {
+      "path": "quality/README.md",
+      "mode": "100644",
+      "sha": "5cd3c620e4127c54f61fdf2babc22e1ee54026d5",
+      "size": 1855
+    },
+    {
+      "path": "quality/integration_testing/BUILD",
+      "mode": "100644",
+      "sha": "14ee8285170a23bc55b37f4a42702b089cd6a032",
+      "size": 676
+    },
+    {
+      "path": "quality/integration_testing/environments/BUILD",
+      "mode": "100644",
+      "sha": "6bdeed2c504d839f3d72915d1f2ca221edea86e4",
+      "size": 565
+    },
+    {
+      "path": "quality/integration_testing/environments/qnx8_qemu/BUILD",
+      "mode": "100644",
+      "sha": "5340986db0c1d3a8f286e23959ea334552a218c7",
+      "size": 1059
+    },
+    {
+      "path": "quality/integration_testing/environments/qnx8_qemu/init_x86_64.build",
+      "mode": "100644",
+      "sha": "fc583b76290722d81b61541ec190e1fadb4d3738",
+      "size": 25197
+    },
+    {
+      "path": "quality/integration_testing/environments/qnx8_qemu/qcrypto.conf",
+      "mode": "100644",
+      "sha": "67c7a46cd32f202caf5ca333953783c009f78913",
+      "size": 823
+    },
+    {
+      "path": "quality/integration_testing/environments/qnx8_qemu/qemu_config.json",
+      "mode": "100644",
+      "sha": "3bef2b9c13efa96a5c8fa47a7583cbfe324700ae",
+      "size": 232
+    },
+    {
+      "path": "quality/integration_testing/flags/BUILD",
+      "mode": "100644",
+      "sha": "90739a1207b92387c66589ba566444deb62ec4d8",
+      "size": 996
+    },
+    {
+      "path": "quality/integration_testing/integration_testing.bzl",
+      "mode": "100644",
+      "sha": "0378102db635ea5c85dbe1e35615d4830b0b0887",
+      "size": 6143
+    },
+    {
+      "path": "quality/integration_testing/requirements.txt",
+      "mode": "100644",
+      "sha": "a10fbcc3e9494b91e4605794e4e693982f53ed41",
+      "size": 615
+    },
+    {
+      "path": "quality/pytest/BUILD.bazel",
+      "mode": "100644",
+      "sha": "de0722a1259dd2530fedb2dd91228ccce1092a09",
+      "size": 818
+    },
+    {
+      "path": "quality/pytest/__init__.py",
+      "mode": "100644",
+      "sha": "ca5de742e9c0e8f6162ef2a764a327db465f6634",
+      "size": 565
+    },
+    {
+      "path": "quality/pytest/process.py",
+      "mode": "100644",
+      "sha": "977e859bb6dc65a82cf4afa62530e4bcb6aee38d",
+      "size": 3141
+    },
+    {
+      "path": "score/config/BUILD.bazel",
+      "mode": "100644",
+      "sha": "e1d72d2edfed7a95e9f167fb406e3d94990ddb67",
+      "size": 1636
+    },
+    {
+      "path": "score/config/docs/BUILD",
+      "mode": "100644",
+      "sha": "8468d3310c91325f59ad78d7caf56da3a76e11b2",
+      "size": 848
+    },
+    {
+      "path": "score/config/docs/index.rst",
+      "mode": "100644",
+      "sha": "d850a2f57a22512930b60ef3ad84ce50d4ed35ef",
+      "size": 915
+    },
+    {
+      "path": "score/config/mw_someip_config.fbs",
+      "mode": "100644",
+      "sha": "3149aa59466ffcb12d14fae79b0e8aced453f59f",
+      "size": 3687
+    },
+    {
+      "path": "score/config/mw_someip_config.json",
+      "mode": "100644",
+      "sha": "443b1e1d7e2fbd4d97856b6272c1218bbfe2bb5e",
+      "size": 5274
+    },
+    {
+      "path": "score/config/mw_someip_config.schema.json",
+      "mode": "100644",
+      "sha": "9754aa256b834ec25189298fc0e0112e72ae1ab7",
+      "size": 7467
+    },
+    {
+      "path": "score/gateway_ipc_binding/BUILD",
+      "mode": "100644",
+      "sha": "107d02b98b60bf5b52307ee79de371233288257e",
+      "size": 1217
+    },
+    {
+      "path": "score/gateway_ipc_binding/README.md",
+      "mode": "100644",
+      "sha": "7d37a27c1416aa71ec5504c64d9ef93550513909",
+      "size": 1310
+    },
+    {
+      "path": "score/gateway_ipc_binding/benchmark/BUILD",
+      "mode": "100644",
+      "sha": "f827657165bda8e69b5562577ddf5bfb7b20717d",
+      "size": 1887
+    },
+    {
+      "path": "score/gateway_ipc_binding/benchmark/README.md",
+      "mode": "100644",
+      "sha": "9705a7e3fffa23251ad06bcd3a3a065e70c51b26",
+      "size": 8108
+    },
+    {
+      "path": "score/gateway_ipc_binding/benchmark/event_transmission_benchmark_context.hpp",
+      "mode": "100644",
+      "sha": "a07e875baa69706e7d70165c5e626dd0424fbc7f",
+      "size": 13135
+    },
+    {
+      "path": "score/gateway_ipc_binding/benchmark/event_transmission_client_to_server_benchmark.cpp",
+      "mode": "100644",
+      "sha": "258d092e57052c3553fd21dca5776bf2fc0a3efd",
+      "size": 1642
+    },
+    {
+      "path": "score/gateway_ipc_binding/benchmark/event_transmission_client_to_server_memory.cpp",
+      "mode": "100644",
+      "sha": "47e885cfae3c5d12d3570086d7c5603b0b0ab1c6",
+      "size": 2263
+    },
+    {
+      "path": "score/gateway_ipc_binding/benchmark/read_only_memory_managers_benchmark.cpp",
+      "mode": "100644",
+      "sha": "ddc6006f6d19aa1c1ff9c25412666f07a8a26337",
+      "size": 3008
+    },
+    {
+      "path": "score/gateway_ipc_binding/benchmark/tsan.supp",
+      "mode": "100644",
+      "sha": "51b8ecc8095811714087978d5a2b47838afbd8f5",
+      "size": 767
+    },
+    {
+      "path": "score/gateway_ipc_binding/docs/BUILD",
+      "mode": "100644",
+      "sha": "2bf2ea57870d7b77db621ac7526a8ff0ecae2e0b",
+      "size": 846
+    },
+    {
+      "path": "score/gateway_ipc_binding/docs/index.rst",
+      "mode": "100644",
+      "sha": "d0501472c6f02240ff9b38954c5383f178f62b83",
+      "size": 6507
+    },
+    {
+      "path": "score/gateway_ipc_binding/docs/ipc_protocol.rst",
+      "mode": "100644",
+      "sha": "195311139d915db43ea9477ec6a80d02437f0193",
+      "size": 8562
+    },
+    {
+      "path": "score/gateway_ipc_binding/docs/models/component_diagram_gateway_ipc_binding.puml",
+      "mode": "100644",
+      "sha": "35d4ec140634c13d3f55aa760457a8b22b3c95fe",
+      "size": 1722
+    },
+    {
+      "path": "score/gateway_ipc_binding/docs/models/current_connection_and_event_flow.puml",
+      "mode": "100644",
+      "sha": "c871d1f4398eff654d979ee3ca0fc634407ad5c0",
+      "size": 1769
+    },
+    {
+      "path": "score/gateway_ipc_binding/docs/shared_memory.rst",
+      "mode": "100644",
+      "sha": "8568da31829dc56da40aec39b6427dd8833d1b4e",
+      "size": 5227
+    },
+    {
+      "path": "score/gateway_ipc_binding/error.hpp",
+      "mode": "100644",
+      "sha": "7c099d32dc8d736f06477d4925c5b84e45693266",
+      "size": 3064
+    },
+    {
+      "path": "score/gateway_ipc_binding/fixed_size_container.hpp",
+      "mode": "100644",
+      "sha": "1663d4957e3f1413eb82579e6f5d0460f887c7b5",
+      "size": 4054
+    },
+    {
+      "path": "score/gateway_ipc_binding/gateway_ipc_binding.hpp",
+      "mode": "100644",
+      "sha": "d34476f4c36cf8eca32177048f3990ba836adbad",
+      "size": 12245
+    },
+    {
+      "path": "score/gateway_ipc_binding/gateway_ipc_binding_client.hpp",
+      "mode": "100644",
+      "sha": "23466de16dcc490d147c59e4d49d3580f718dc95",
+      "size": 4394
+    },
+    {
+      "path": "score/gateway_ipc_binding/gateway_ipc_binding_server.hpp",
+      "mode": "100644",
+      "sha": "2c1ffa48a39d0673393bef38a37fa6fecd484164",
+      "size": 4507
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/binding_base.cpp",
+      "mode": "100644",
+      "sha": "7a0a69436cb50fcc7f44ace593c28212f7188ae9",
+      "size": 29605
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/binding_base.hpp",
+      "mode": "100644",
+      "sha": "4988449a0464341f27770ca58fb397b6dbd78271",
+      "size": 5894
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/connection_metadata.hpp",
+      "mode": "100644",
+      "sha": "c5bf50c824eab299f0c884819a0da5d7ec8e7d00",
+      "size": 7284
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/connections.hpp",
+      "mode": "100644",
+      "sha": "e7e77be30c999e53479e0fdb1e0b9c245a2a9659",
+      "size": 2941
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/error.cpp",
+      "mode": "100644",
+      "sha": "0f268f9d47cb99debc56fde2b0fe26037de4ae2b",
+      "size": 4972
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/fixed_size_container.cpp",
+      "mode": "100644",
+      "sha": "cd3e8c85760e4c8b406ff936b45fb4ce157fcf00",
+      "size": 734
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/gateway_ipc_binding.cpp",
+      "mode": "100644",
+      "sha": "cd6f17d6b7f292880f0507fb81b5c53a2d633b5e",
+      "size": 5154
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/gateway_ipc_binding_client.cpp",
+      "mode": "100644",
+      "sha": "336b3fcf19d185b8fefb4351c85a09d58206194c",
+      "size": 8740
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/gateway_ipc_binding_server.cpp",
+      "mode": "100644",
+      "sha": "8f1b75f5210b68d8c90f143192817a39b34cf781",
+      "size": 9048
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/gateway_ipc_binding_util.hpp",
+      "mode": "100644",
+      "sha": "d599b6fd785f04dd6bd05565907c58d6c9afa16c",
+      "size": 3813
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/key.hpp",
+      "mode": "100644",
+      "sha": "8514ee93ff1838a45899aa99d3626d9169dfa521",
+      "size": 4406
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/pending_connects.hpp",
+      "mode": "100644",
+      "sha": "d98827f97fb6bf864f76d6f588ba6c1253f363ab",
+      "size": 2231
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/reply_channel.hpp",
+      "mode": "100644",
+      "sha": "4313caae5173aa5f3e6d3a63ec411f1d510ad4ce",
+      "size": 2602
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/request_service_handle.hpp",
+      "mode": "100644",
+      "sha": "c1028d787449a46f1a04b621220262655aab566f",
+      "size": 2102
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/service_state.hpp",
+      "mode": "100644",
+      "sha": "8939c38485290aca2d9ac8212b872e93dcbe471b",
+      "size": 16257
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/shared_memory_managers.hpp",
+      "mode": "100644",
+      "sha": "0529a845a414299c0b63dc926c7b0207cad3eef2",
+      "size": 6356
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/shared_memory_payload.hpp",
+      "mode": "100644",
+      "sha": "b15ec528edde9baa407e40d34db190510f9fbcb3",
+      "size": 1507
+    },
+    {
+      "path": "score/gateway_ipc_binding/impl/shared_memory_slot_manager.cpp",
+      "mode": "100644",
+      "sha": "31d9bacede48c5390bcb212717b71614009eb17a",
+      "size": 16184
+    },
+    {
+      "path": "score/gateway_ipc_binding/shared_memory_slot_manager.hpp",
+      "mode": "100644",
+      "sha": "91c00f0f37d5647c2bc0c1bc186889a7f2934787",
+      "size": 14450
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/BUILD",
+      "mode": "100644",
+      "sha": "dbf58aa4f8511b2fbb175b149420f8a365c77a79",
+      "size": 1329
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/bidirectional_different_interface_ids_int_test.cpp",
+      "mode": "100644",
+      "sha": "ff7c15d52b4b327cb99e2f43ed9c609f4c8ac6a2",
+      "size": 6422
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/bidirectional_int_test.cpp",
+      "mode": "100644",
+      "sha": "1bce47e56b7ba24994e8791799391307cb110062",
+      "size": 15492
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/bidirectional_many_events_int_test.cpp",
+      "mode": "100644",
+      "sha": "d3cc1c11feafc0bb9d5c60b16b8bf4169d35f0d9",
+      "size": 5045
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/bidirectional_sync_state_at_connect_int_test.cpp",
+      "mode": "100644",
+      "sha": "ba315f781c23d3d4b453975b1919fb0a51deac9a",
+      "size": 8396
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/client_server_test.cpp",
+      "mode": "100644",
+      "sha": "0d8eaaf0ffd72f1a10b8bdd60bec1c6504fbc9e9",
+      "size": 21050
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/main.cpp",
+      "mode": "100644",
+      "sha": "85ab765390eb59b27f082bca85ecdbfec5a48e35",
+      "size": 1368
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/many_clients_int_test.cpp",
+      "mode": "100644",
+      "sha": "4a6dd8a65ed3b42d35f0fad2f71fe437f45475af",
+      "size": 18333
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/many_services_int_test.cpp",
+      "mode": "100644",
+      "sha": "4238cf3376e870004ade2f86faaf75eef7a9c6a6",
+      "size": 11742
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/mocks.hpp",
+      "mode": "100644",
+      "sha": "b8f1ef1bceba9a71de4a2739bdb32ca12b07d7b8",
+      "size": 3327
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/shared_memory_path_test.cpp",
+      "mode": "100644",
+      "sha": "820b2fbdb10b508ef49cd31a84d2fad40c28fd46",
+      "size": 3905
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/shared_memory_slot_manager_test.cpp",
+      "mode": "100644",
+      "sha": "b0f3189e68f6a502b62369b8052cda4cc7c108f9",
+      "size": 27990
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/subscribe_find_service_int_test.cpp",
+      "mode": "100644",
+      "sha": "656341110f09dd836b2298fd607cc40aacf3f04a",
+      "size": 5208
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/test_constants.hpp",
+      "mode": "100644",
+      "sha": "b38359f52ad162d6e906873d7df0bb2faa49204c",
+      "size": 3121
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/test_fixtures.hpp",
+      "mode": "100644",
+      "sha": "ce50923535d55b7581b4048244da146a2b92092f",
+      "size": 6371
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/tsan.supp",
+      "mode": "100644",
+      "sha": "51b8ecc8095811714087978d5a2b47838afbd8f5",
+      "size": 767
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/util.cpp",
+      "mode": "100644",
+      "sha": "25668d91c43b5e5de365dc73d4663cc98f035d77",
+      "size": 6772
+    },
+    {
+      "path": "score/gateway_ipc_binding/test/util.hpp",
+      "mode": "100644",
+      "sha": "29fe24266daaec23ca4865b6972fb680d705d788",
+      "size": 4900
+    },
+    {
+      "path": "score/gatewayd/BUILD.bazel",
+      "mode": "100644",
+      "sha": "7f571d64f2a43971ac3036be86a2e39e82e3d447",
+      "size": 2935
+    },
+    {
+      "path": "score/gatewayd/docs/BUILD",
+      "mode": "100644",
+      "sha": "8468d3310c91325f59ad78d7caf56da3a76e11b2",
+      "size": 848
+    },
+    {
+      "path": "score/gatewayd/docs/index.rst",
+      "mode": "100644",
+      "sha": "62b7efdeb6bb11a288d676e915ed9f09d3b13e7b",
+      "size": 856
+    },
+    {
+      "path": "score/gatewayd/etc/mw_com_config.json",
+      "mode": "100644",
+      "sha": "8e14f026d85a7a0b5747a68a3eb1fa6c8b89616a",
+      "size": 4858
+    },
+    {
+      "path": "score/gatewayd/impl/local_service_instance.cpp",
+      "mode": "100644",
+      "sha": "837314ceae3495e39d5cec18cdae28d36f36ffd7",
+      "size": 15142
+    },
+    {
+      "path": "score/gatewayd/impl/local_service_instance.h",
+      "mode": "100644",
+      "sha": "6aecc0ebf60de0ab49bfe70dc888d5f096c19555",
+      "size": 5735
+    },
+    {
+      "path": "score/gatewayd/impl/remote_service_instance.cpp",
+      "mode": "100644",
+      "sha": "922bf59fea1ed3550014f7f8685f770c52d28886",
+      "size": 13225
+    },
+    {
+      "path": "score/gatewayd/impl/remote_service_instance.h",
+      "mode": "100644",
+      "sha": "1b4673a39e86316066e42a3485ad2237307fcbf3",
+      "size": 5749
+    },
+    {
+      "path": "score/gatewayd/main.cpp",
+      "mode": "100644",
+      "sha": "4fd7168d266859e43a018c8ce6db225fdc12c9ff",
+      "size": 16879
+    },
+    {
+      "path": "score/gatewayd/test/BUILD.bazel",
+      "mode": "100644",
+      "sha": "1e85923c60d4fd1386da223d91cc25737691b1cf",
+      "size": 1494
+    },
+    {
+      "path": "score/gatewayd/test/gatewayd_test.py",
+      "mode": "100644",
+      "sha": "114aaf7ca18de79af6376038464380dec607d9dc",
+      "size": 2874
+    },
+    {
+      "path": "score/serializer/BUILD.bazel",
+      "mode": "100644",
+      "sha": "49f5546dbd51337504969a757c571e76c27e6800",
+      "size": 2869
+    },
+    {
+      "path": "score/serializer/docs/BUILD",
+      "mode": "100644",
+      "sha": "8468d3310c91325f59ad78d7caf56da3a76e11b2",
+      "size": 848
+    },
+    {
+      "path": "score/serializer/docs/index.rst",
+      "mode": "100644",
+      "sha": "5d9ce95050bb9f260e7bc5c405bf397df77dfdc4",
+      "size": 812
+    },
+    {
+      "path": "score/serializer/exported_symbols.lds",
+      "mode": "100644",
+      "sha": "2840d3f606863c935bfe9995d2f8947760a444ac",
+      "size": 641
+    },
+    {
+      "path": "score/serializer/null_serializer.cpp",
+      "mode": "100644",
+      "sha": "4cf1278c1bb220318f4e0e160fad32ca79acbb0a",
+      "size": 9238
+    },
+    {
+      "path": "score/serializer/null_serializer_test.cpp",
+      "mode": "100644",
+      "sha": "0c7d832d9700e835ad16a1f19600763eedad8d73",
+      "size": 16843
+    },
+    {
+      "path": "score/serializer/pre_serialized_data.h",
+      "mode": "100644",
+      "sha": "4bf194b6f10880d03d979034cf3aabeb74f3bd84",
+      "size": 2038
+    },
+    {
+      "path": "score/serializer/serializer.h",
+      "mode": "100644",
+      "sha": "75e28e9a8622634fefd40317df80d9c01a41e307",
+      "size": 6334
+    },
+    {
+      "path": "score/socom/BUILD",
+      "mode": "100644",
+      "sha": "3477ea0851fdcd82ec6ea9d71424013cbdf41962",
+      "size": 1520
+    },
+    {
+      "path": "score/socom/README.adoc",
+      "mode": "100644",
+      "sha": "e6d8811ce8abe7978110ba25002d180997746da8",
+      "size": 1352
+    },
+    {
+      "path": "score/socom/client_connector.hpp",
+      "mode": "100644",
+      "sha": "cd4fd00d2498fb1d43abe0508366089a6e038951",
+      "size": 13223
+    },
+    {
+      "path": "score/socom/docs/BUILD",
+      "mode": "100644",
+      "sha": "d0ae3749967afa28357503159efdb40d7824185f",
+      "size": 828
+    },
+    {
+      "path": "score/socom/docs/design/30_structural_view.rst",
+      "mode": "100644",
+      "sha": "0a87cc7194d9ae7c82c553d4dba21a9923b42bce",
+      "size": 2579
+    },
+    {
+      "path": "score/socom/docs/design/40_behavioral_view.rst",
+      "mode": "100644",
+      "sha": "42dbd6de8e2a5c47099aede6f078f2541f548a07",
+      "size": 6211
+    },
+    {
+      "path": "score/socom/docs/design/50_state_dynamics_view.rst",
+      "mode": "100644",
+      "sha": "ace405d00f1cf9aefca27933b3320a5947ee09d7",
+      "size": 3706
+    },
+    {
+      "path": "score/socom/docs/design/index.rst",
+      "mode": "100644",
+      "sha": "622306bd7af4d84dbcdfc15cfab63c866a4c007e",
+      "size": 839
+    },
+    {
+      "path": "score/socom/docs/design/models/component_diagram_socom.puml",
+      "mode": "100644",
+      "sha": "76ad016f343ce035fd1e653f771e82cfae6b2650",
+      "size": 1282
+    },
+    {
+      "path": "score/socom/docs/design/models/interaction_diagram_client_connector_deadlocks.puml",
+      "mode": "100644",
+      "sha": "37ff70f2a4e0b7811417bd786563a91bfcbc2beb",
+      "size": 3549
+    },
+    {
+      "path": "score/socom/docs/design/models/interaction_diagram_event_communication.puml",
+      "mode": "100644",
+      "sha": "dda5e47c0d81cfe40053fc6f302772b1e94a34da",
+      "size": 1409
+    },
+    {
+      "path": "score/socom/docs/design/models/interaction_diagram_field_notification_communication.puml",
+      "mode": "100644",
+      "sha": "efde36d3bd706b260229cc3b6555abe9d0032f11",
+      "size": 1554
+    },
+    {
+      "path": "score/socom/docs/design/models/interaction_diagram_method_communication.puml",
+      "mode": "100644",
+      "sha": "ef8b7d4af4ee4567727b36aaee48106b9d7571fe",
+      "size": 1847
+    },
+    {
+      "path": "score/socom/docs/design/models/interaction_diagram_server_connector_deadlocks.puml",
+      "mode": "100644",
+      "sha": "1e7d928d62a0bd58fdd1a8d6c923e1bd146a3128",
+      "size": 2154
+    },
+    {
+      "path": "score/socom/docs/design/models/interaction_diagram_service_gateway_provide_service.puml",
+      "mode": "100644",
+      "sha": "c60332db619861cd06157594a1f87d2ceeb10d8b",
+      "size": 2159
+    },
+    {
+      "path": "score/socom/docs/design/models/interaction_diagram_service_gateway_require_service.puml",
+      "mode": "100644",
+      "sha": "231790024fe0fdf6df6d1bad8167d73746eb3b49",
+      "size": 2107
+    },
+    {
+      "path": "score/socom/docs/design/models/state_diagram_event_subscription_state.puml",
+      "mode": "100644",
+      "sha": "dd1582877bd6009e187c2d8b244afe4c721cc7aa",
+      "size": 1180
+    },
+    {
+      "path": "score/socom/docs/design/models/state_diagram_service_state.puml",
+      "mode": "100644",
+      "sha": "8a56320c275e3c147c45fe5c9a52303b19e6b0d3",
+      "size": 1052
+    },
+    {
+      "path": "score/socom/docs/design/models/zero_copy_event_update.puml",
+      "mode": "100644",
+      "sha": "255d4e6e294abfbb5362a1994012d09094ba0390",
+      "size": 3378
+    },
+    {
+      "path": "score/socom/docs/index.rst",
+      "mode": "100644",
+      "sha": "e1d4a71723bffbc234eb2b16d0c785ce7fcb55be",
+      "size": 960
+    },
+    {
+      "path": "score/socom/error.hpp",
+      "mode": "100644",
+      "sha": "7bade7c16fefc4fb9c01ffcfa9b30deeab9f8e84",
+      "size": 2470
+    },
+    {
+      "path": "score/socom/event.hpp",
+      "mode": "100644",
+      "sha": "df0b42e08ae011e8dbf01c4de8de5dbbaaea81dd",
+      "size": 1518
+    },
+    {
+      "path": "score/socom/final_action.hpp",
+      "mode": "100644",
+      "sha": "bc0cbc380315e4548d0b9f190a2864a604794a19",
+      "size": 2034
+    },
+    {
+      "path": "score/socom/impl/client_connector_impl.cpp",
+      "mode": "100644",
+      "sha": "0fcd6a36c300a0bd749c32163e83dc3430c9a732",
+      "size": 7820
+    },
+    {
+      "path": "score/socom/impl/client_connector_impl.hpp",
+      "mode": "100644",
+      "sha": "94a4223ced7b5a02f21a36c1288139827817c22c",
+      "size": 4965
+    },
+    {
+      "path": "score/socom/impl/endpoint.hpp",
+      "mode": "100644",
+      "sha": "892efbd51832ec4510797c4f8fb0460b04aa5fda",
+      "size": 1713
+    },
+    {
+      "path": "score/socom/impl/error.cpp",
+      "mode": "100644",
+      "sha": "feaec91c08ca480155adf134527d527f3745123f",
+      "size": 3476
+    },
+    {
+      "path": "score/socom/impl/messages.hpp",
+      "mode": "100644",
+      "sha": "7507f2ae1d41aa6039ca1485c36de2503aa10f35",
+      "size": 2484
+    },
+    {
+      "path": "score/socom/impl/method.cpp",
+      "mode": "100644",
+      "sha": "3c5063d3ec4e5d70c9f5b8ff6ec1f5cf8eac823f",
+      "size": 1911
+    },
+    {
+      "path": "score/socom/impl/payload.cpp",
+      "mode": "100644",
+      "sha": "e8889612163d450ce42a905980a4c0245dc99fa6",
+      "size": 1179
+    },
+    {
+      "path": "score/socom/impl/runtime.cpp",
+      "mode": "100644",
+      "sha": "aee84ca66ad7d742368ece44a8c55d50f920fc55",
+      "size": 793
+    },
+    {
+      "path": "score/socom/impl/runtime_impl.cpp",
+      "mode": "100644",
+      "sha": "926f50570b70cd73183e78cac5dd4540feda1e02",
+      "size": 26168
+    },
+    {
+      "path": "score/socom/impl/runtime_impl.hpp",
+      "mode": "100644",
+      "sha": "f1f7ac821466f41d4c25d90dab0a67627ea83164",
+      "size": 9281
+    },
+    {
+      "path": "score/socom/impl/runtime_registration.hpp",
+      "mode": "100644",
+      "sha": "b3b80d5aee16b013260c199974665fc3c4ee42fb",
+      "size": 1201
+    },
+    {
+      "path": "score/socom/impl/server_connector_impl.cpp",
+      "mode": "100644",
+      "sha": "4530e6d93437d678f9fd9382229f76103c6d7a2b",
+      "size": 15644
+    },
+    {
+      "path": "score/socom/impl/server_connector_impl.hpp",
+      "mode": "100644",
+      "sha": "d66a5705280ff62b881a55125508905fd76ef38a",
+      "size": 7855
+    },
+    {
+      "path": "score/socom/impl/service_identifier.cpp",
+      "mode": "100644",
+      "sha": "6c7e7a4e22355242009fe20dada2a9a0d0c7a9c7",
+      "size": 875
+    },
+    {
+      "path": "score/socom/impl/service_identifier.hpp",
+      "mode": "100644",
+      "sha": "c8bae7908da9f087c518934f7b9f8d86db9a20ec",
+      "size": 1269
+    },
+    {
+      "path": "score/socom/impl/service_interface_definition.cpp",
+      "mode": "100644",
+      "sha": "5ce1112712df5a9243f623dc9ca7d60acdc919f6",
+      "size": 2843
+    },
+    {
+      "path": "score/socom/impl/string_registry.cpp",
+      "mode": "100644",
+      "sha": "245e06974f0d49f0a36e71a85c86acd21577a9d4",
+      "size": 3227
+    },
+    {
+      "path": "score/socom/impl/temporary_thread_id_add.cpp",
+      "mode": "100644",
+      "sha": "1432079c562b8b6f51771c5a201c6fc6dc72c8c2",
+      "size": 2495
+    },
+    {
+      "path": "score/socom/impl/temporary_thread_id_add.hpp",
+      "mode": "100644",
+      "sha": "312885b2fd97c6063abde01a2460c20f0f0758d1",
+      "size": 3927
+    },
+    {
+      "path": "score/socom/method.hpp",
+      "mode": "100644",
+      "sha": "a6278185ddc91b0ee159bbafd2e8a10584161abf",
+      "size": 6941
+    },
+    {
+      "path": "score/socom/mock/score/socom/callback_mocks.hpp",
+      "mode": "100644",
+      "sha": "c1b64e686c0f33e88f2cb8e032d7895a2639d4e6",
+      "size": 2069
+    },
+    {
+      "path": "score/socom/mock/score/socom/client_connector_mock.hpp",
+      "mode": "100644",
+      "sha": "dc87f116ed39f985a8325e7c28892c2e9143e6f5",
+      "size": 1922
+    },
+    {
+      "path": "score/socom/mock/score/socom/move_only_function_mock.hpp",
+      "mode": "100644",
+      "sha": "b4c88795aa0a23bcbea049a1aee284c53046eb5c",
+      "size": 2815
+    },
+    {
+      "path": "score/socom/mock/score/socom/runtime_mock.hpp",
+      "mode": "100644",
+      "sha": "a0518ec798a5255b37fbdfa22231cc12463009b8",
+      "size": 2224
+    },
+    {
+      "path": "score/socom/mock/score/socom/server_connector_mock.hpp",
+      "mode": "100644",
+      "sha": "2aa9e6705d8c57538c35cf5e713385f70b546d26",
+      "size": 1751
+    },
+    {
+      "path": "score/socom/payload.hpp",
+      "mode": "100644",
+      "sha": "c6cd15a6bb91c37a4969edf1cd290883d3354c3d",
+      "size": 9788
+    },
+    {
+      "path": "score/socom/posix_credentials.hpp",
+      "mode": "100644",
+      "sha": "c64bc606d20515ad5038b44b61a25e4c14660ad7",
+      "size": 934
+    },
+    {
+      "path": "score/socom/reference_token.hpp",
+      "mode": "100644",
+      "sha": "ba5a21abd091702f7974f8f2a18c8658c97e5864",
+      "size": 936
+    },
+    {
+      "path": "score/socom/registry_string_view.hpp",
+      "mode": "100644",
+      "sha": "ed7c795d99d5f894d31d3c20b031f317daedcb45",
+      "size": 6339
+    },
+    {
+      "path": "score/socom/runtime.hpp",
+      "mode": "100644",
+      "sha": "ae89601b3ad3b877d512ce9af6151abb6814e5f4",
+      "size": 10735
+    },
+    {
+      "path": "score/socom/server_connector.hpp",
+      "mode": "100644",
+      "sha": "33ad25bc1dcb573f04fce1b66899775bfde79a4b",
+      "size": 10896
+    },
+    {
+      "path": "score/socom/service_interface_definition.hpp",
+      "mode": "100644",
+      "sha": "bcd90c53e02303c58eec2d738df1fe298171d85f",
+      "size": 4815
+    },
+    {
+      "path": "score/socom/service_interface_identifier.hpp",
+      "mode": "100644",
+      "sha": "b69151016f187a7da9efd979e86879b90ffad853",
+      "size": 7895
+    },
+    {
+      "path": "score/socom/string_registry.hpp",
+      "mode": "100644",
+      "sha": "7c83fb2f6b0869ae5d267c9483f851ed86c96d5c",
+      "size": 3162
+    },
+    {
+      "path": "score/socom/test/framework/BUILD",
+      "mode": "100644",
+      "sha": "afce28d18a66379b2417d42ea2b0c1283142fc6d",
+      "size": 1001
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/bridge_t.hpp",
+      "mode": "100644",
+      "sha": "832a08fae3c398f429fc318c3f9b68f6987ea6cb",
+      "size": 4113
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/clients_t.hpp",
+      "mode": "100644",
+      "sha": "3bad928dc8117db2046d594561aa9d20af6c89f0",
+      "size": 16880
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/connector_factory.hpp",
+      "mode": "100644",
+      "sha": "16d1498632c06c21543816d483a3ba7a94225031",
+      "size": 12000
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/multi_threaded_test_template.hpp",
+      "mode": "100644",
+      "sha": "95d5b13cc6513f7f13b075afd2a0835719f232b1",
+      "size": 2327
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/server_t.hpp",
+      "mode": "100644",
+      "sha": "3f8864446fce490126e6c52b18c3c77ae3166384",
+      "size": 10087
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/single_connection_test_fixture.hpp",
+      "mode": "100644",
+      "sha": "3de1b4de3201e0e344a7716da4593f946bd4b199",
+      "size": 2384
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/socom_mocks.hpp",
+      "mode": "100644",
+      "sha": "a3b7c3d41047b5cfc7fe61c962e4e289f67776cc",
+      "size": 3869
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/temporary_event_subscription.hpp",
+      "mode": "100644",
+      "sha": "da2f34759d2350d777415da59e9bc808ea1affba",
+      "size": 2904
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/utilities.hpp",
+      "mode": "100644",
+      "sha": "46b9f03cbde8775936d7ee7b193183074a396b2b",
+      "size": 8788
+    },
+    {
+      "path": "score/socom/test/framework/inc/score/socom/vector_payload.hpp",
+      "mode": "100644",
+      "sha": "18ca3f2a97bcd0015792e3ff55dbbc2b2fc06e76",
+      "size": 3112
+    },
+    {
+      "path": "score/socom/test/framework/src/bridge_t.cpp",
+      "mode": "100644",
+      "sha": "33b722757fce4d675c0e6cc68eb9b5455e419bc4",
+      "size": 4098
+    },
+    {
+      "path": "score/socom/test/framework/src/clients_t.cpp",
+      "mode": "100644",
+      "sha": "25fc8398cb74f29b0b563a174f0bbaa7f36f8e16",
+      "size": 16528
+    },
+    {
+      "path": "score/socom/test/framework/src/connector_factory.cpp",
+      "mode": "100644",
+      "sha": "4f9d443386f0f2bf827afe787eb88d67ac3abe5e",
+      "size": 10622
+    },
+    {
+      "path": "score/socom/test/framework/src/multi_threaded_test_template.cpp",
+      "mode": "100644",
+      "sha": "9232e5c8fe368e8e37a891a192816a716f93fc20",
+      "size": 3239
+    },
+    {
+      "path": "score/socom/test/framework/src/server_t.cpp",
+      "mode": "100644",
+      "sha": "cd141aa9c6aaf3e148644a3d8e3a852b091eba74",
+      "size": 9798
+    },
+    {
+      "path": "score/socom/test/framework/src/single_connection_test_fixture.cpp",
+      "mode": "100644",
+      "sha": "be49686239eb46434a3603752bdf97740d47f259",
+      "size": 1066
+    },
+    {
+      "path": "score/socom/test/framework/src/socom_mocks.cpp",
+      "mode": "100644",
+      "sha": "3c274b90a03d025776425193c56e8e787c797b31",
+      "size": 3049
+    },
+    {
+      "path": "score/socom/test/framework/src/temporary_event_subscription.cpp",
+      "mode": "100644",
+      "sha": "3bc5502eeb1a7b3b9cfc397974dda16a73c16d29",
+      "size": 1906
+    },
+    {
+      "path": "score/socom/test/framework/src/utilities.cpp",
+      "mode": "100644",
+      "sha": "f4dd408d632d3df5c86a6cc756dc2a3b38935bdc",
+      "size": 5273
+    },
+    {
+      "path": "score/socom/test/framework/src/vector_payload.cpp",
+      "mode": "100644",
+      "sha": "6836271d81d595fa581b1512727da4d2cd6e71ef",
+      "size": 2874
+    },
+    {
+      "path": "score/socom/test/stress/BUILD",
+      "mode": "100644",
+      "sha": "ae62d56e53e3236af3fb715f21a9aba184683870",
+      "size": 1072
+    },
+    {
+      "path": "score/socom/test/stress/client_multi_threading_tests.cpp",
+      "mode": "100644",
+      "sha": "f2864499800251caf724296bf5c21bbd33246810",
+      "size": 4263
+    },
+    {
+      "path": "score/socom/test/stress/connection_multi_threading_tests.cpp",
+      "mode": "100644",
+      "sha": "456132e34e302bed1481c7296a53039211464df4",
+      "size": 12195
+    },
+    {
+      "path": "score/socom/test/stress/runtime_multi_threading_tests.cpp",
+      "mode": "100644",
+      "sha": "7e2036188fba32119f006ed05b6066cc5683ea93",
+      "size": 8020
+    },
+    {
+      "path": "score/socom/test/stress/tsan.supp",
+      "mode": "100644",
+      "sha": "c7400f5bf13db35fcc0681d9e5cba4e1e0f51689",
+      "size": 708
+    },
+    {
+      "path": "score/socom/test/unit/BUILD",
+      "mode": "100644",
+      "sha": "3c03a7b14286051f97fa5022206564bd63645171",
+      "size": 983
+    },
+    {
+      "path": "score/socom/test/unit/client_tests.cpp",
+      "mode": "100644",
+      "sha": "b1535e6a26aed50f55047a855ee8d09addec73de",
+      "size": 37692
+    },
+    {
+      "path": "score/socom/test/unit/connection_tests.cpp",
+      "mode": "100644",
+      "sha": "a5a893f8da1f696278a008f3d400ce6f8027de39",
+      "size": 5250
+    },
+    {
+      "path": "score/socom/test/unit/error_tests.cpp",
+      "mode": "100644",
+      "sha": "4316992ef437f04560b8bae72ebcb029d188df06",
+      "size": 5112
+    },
+    {
+      "path": "score/socom/test/unit/event_tests.cpp",
+      "mode": "100644",
+      "sha": "1e7beb5001b567f044864287f55f2f54e4948eda",
+      "size": 10903
+    },
+    {
+      "path": "score/socom/test/unit/final_action_tests.cpp",
+      "mode": "100644",
+      "sha": "319f578fc6a8dfc964f55efb09e15ffcb3345406",
+      "size": 2089
+    },
+    {
+      "path": "score/socom/test/unit/identity_tests.cpp",
+      "mode": "100644",
+      "sha": "10054cb6c5aec77bd49dc5085296da0b5f9abf76",
+      "size": 1367
+    },
+    {
+      "path": "score/socom/test/unit/interface_compatibility_tests.cpp",
+      "mode": "100644",
+      "sha": "8c1619614533b18f98853c7897d244503c7bc584",
+      "size": 9040
+    },
+    {
+      "path": "score/socom/test/unit/method_call_tests.cpp",
+      "mode": "100644",
+      "sha": "14fe13ca757b7a16456b291eb680e924578bb121",
+      "size": 8989
+    },
+    {
+      "path": "score/socom/test/unit/mock_tests.cpp",
+      "mode": "100644",
+      "sha": "0065553b43f6aa5231789ab497786f0eaa02ef90",
+      "size": 1064
+    },
+    {
+      "path": "score/socom/test/unit/move_only_function_mock.cpp",
+      "mode": "100644",
+      "sha": "97d68c6315852a7fa91694b7e91b4c525e6d1764",
+      "size": 2925
+    },
+    {
+      "path": "score/socom/test/unit/multi_connection_tests.cpp",
+      "mode": "100644",
+      "sha": "753f6765f337559d6be30a0d940b98fc7f878729",
+      "size": 4226
+    },
+    {
+      "path": "score/socom/test/unit/multiple_runtimes_tests.cpp",
+      "mode": "100644",
+      "sha": "38d17b5d28800e5e64ecaeeb1cd2b947a4bc1957",
+      "size": 6684
+    },
+    {
+      "path": "score/socom/test/unit/payload_tests.cpp",
+      "mode": "100644",
+      "sha": "d70c77a201e77e33fe653f404e90d9559292e3e9",
+      "size": 13143
+    },
+    {
+      "path": "score/socom/test/unit/registry_string_view_tests.cpp",
+      "mode": "100644",
+      "sha": "2e818f9c7dbfe8b3a3231f27105b6e44ce39468c",
+      "size": 8370
+    },
+    {
+      "path": "score/socom/test/unit/runtime_tests.cpp",
+      "mode": "100644",
+      "sha": "8ecf5ab726db8bf994c960045d6fd7fdf84d7395",
+      "size": 16559
+    },
+    {
+      "path": "score/socom/test/unit/server_tests.cpp",
+      "mode": "100644",
+      "sha": "51ce51ce75295a9d75bad0a677b50dc88e82dcd1",
+      "size": 13143
+    },
+    {
+      "path": "score/socom/test/unit/service_interface_identifier_tests.cpp",
+      "mode": "100644",
+      "sha": "ac32e9b6c5053ce8a263712f1b48f5b558464538",
+      "size": 6410
+    },
+    {
+      "path": "score/socom/test/unit/smoke_test.cpp",
+      "mode": "100644",
+      "sha": "b7009bbc4efdb0f1e200dec0378ce6d7bef4fdbc",
+      "size": 5986
+    },
+    {
+      "path": "score/socom/test/unit/string_registry_tests.cpp",
+      "mode": "100644",
+      "sha": "ebc590a022a75979b0d57ad340dcc11b934dcb7b",
+      "size": 5941
+    },
+    {
+      "path": "score/someip/BUILD.bazel",
+      "mode": "100644",
+      "sha": "1851ae6e5dd09648ad8f7e8429c20ac64e631751",
+      "size": 1068
+    },
+    {
+      "path": "score/someip/constants.h",
+      "mode": "100644",
+      "sha": "5de0dc69a29ed3f1b8a65bdff4dfa384d3a38d80",
+      "size": 2003
+    },
+    {
+      "path": "score/someip/docs/BUILD",
+      "mode": "100644",
+      "sha": "8468d3310c91325f59ad78d7caf56da3a76e11b2",
+      "size": 848
+    },
+    {
+      "path": "score/someip/docs/index.rst",
+      "mode": "100644",
+      "sha": "ee7c071cd9d4fad533ebd8232acfc29475e1af73",
+      "size": 940
+    },
+    {
+      "path": "score/someip/impl/someip_error.cpp",
+      "mode": "100644",
+      "sha": "fdb6aede0e3b560c4216d273f97a795a98aabf1c",
+      "size": 2469
+    },
+    {
+      "path": "score/someip/someip_error.h",
+      "mode": "100644",
+      "sha": "da86e602a7d5f4e7f285eb430de63ea7f5d8756d",
+      "size": 1717
+    },
+    {
+      "path": "score/someip/types.h",
+      "mode": "100644",
+      "sha": "bda10c165c48b604c104433d6ab5d30f1af079c2",
+      "size": 900
+    },
+    {
+      "path": "score/someipd/BUILD.bazel",
+      "mode": "100644",
+      "sha": "56e9ca24d23488764bb01a58323591cf301843ca",
+      "size": 2920
+    },
+    {
+      "path": "score/someipd/docs/BUILD",
+      "mode": "100644",
+      "sha": "8468d3310c91325f59ad78d7caf56da3a76e11b2",
+      "size": 848
+    },
+    {
+      "path": "score/someipd/docs/index.rst",
+      "mode": "100644",
+      "sha": "ed59483b60af79e11166e17772a064c6ebc8564d",
+      "size": 800
+    },
+    {
+      "path": "score/someipd/impl/local_network_service.cpp",
+      "mode": "100644",
+      "sha": "3990f6e879a16bb69a06ab28cc780763043c5090",
+      "size": 7030
+    },
+    {
+      "path": "score/someipd/impl/local_network_service.h",
+      "mode": "100644",
+      "sha": "97cd5dfe1c0f91ea30ae7e0327cffdeaccfbc202",
+      "size": 3257
+    },
+    {
+      "path": "score/someipd/impl/remote_network_service.cpp",
+      "mode": "100644",
+      "sha": "90a91688d6b16603aabfbe36b0afb9380df4fecc",
+      "size": 8436
+    },
+    {
+      "path": "score/someipd/impl/remote_network_service.h",
+      "mode": "100644",
+      "sha": "13d32b0bf267b8d8ac569de309cf72a8033fbe90",
+      "size": 3570
+    },
+    {
+      "path": "score/someipd/impl/routing.cpp",
+      "mode": "100644",
+      "sha": "6276c736d4042cc4a8b3ee7a7811978a7c497b78",
+      "size": 5939
+    },
+    {
+      "path": "score/someipd/impl/routing.h",
+      "mode": "100644",
+      "sha": "2694540c66c152b7ef29f1df751a04096a7efad4",
+      "size": 3341
+    },
+    {
+      "path": "score/someipd/main.cpp",
+      "mode": "100644",
+      "sha": "bf7ac32a3f5053e13c309bb17255432e63d48ff4",
+      "size": 10007
+    },
+    {
+      "path": "score/someipd/test/BUILD.bazel",
+      "mode": "100644",
+      "sha": "c3fba5ea5f9880f9f0f22fa35de59b5914fab1fc",
+      "size": 1036
+    },
+    {
+      "path": "score/someipd/test/someipd_test.py",
+      "mode": "100644",
+      "sha": "e3be949b1a06a974e0d6b0e65421f1552bb5e931",
+      "size": 1998
+    },
+    {
+      "path": "static_analysis.bazelrc",
+      "mode": "100644",
+      "sha": "314c9efb90e4f342dd2486f3d4a1eb186d286aef",
+      "size": 2055
+    },
+    {
+      "path": "tests/benchmarks/BUILD.bazel",
+      "mode": "100644",
+      "sha": "61b4bb4c15fbf194bb52b57578eabf4c3fcd2afc",
+      "size": 4690
+    },
+    {
+      "path": "tests/benchmarks/README.md",
+      "mode": "100644",
+      "sha": "7e8f81f0a9f1164d7554f48d6f1f6b188b548b3e",
+      "size": 2208
+    },
+    {
+      "path": "tests/benchmarks/benchmarks_analysis.md",
+      "mode": "100644",
+      "sha": "666af268041017cfa4c0d676ffb927fc5b0f57a9",
+      "size": 66285
+    },
+    {
+      "path": "tests/benchmarks/config/bench/mw_com_config.json",
+      "mode": "100644",
+      "sha": "1fb6d446d9779555567156f6810fe4188b2c9042",
+      "size": 6364
+    },
+    {
+      "path": "tests/benchmarks/config/bench/someip_config.json",
+      "mode": "100644",
+      "sha": "3df4f49d4f01f955113dfd84fa2068dcbd8286b4",
+      "size": 4753
+    },
+    {
+      "path": "tests/benchmarks/config/bench/vsomeip.json",
+      "mode": "100644",
+      "sha": "a578190d766fe25a65af79beac5c535e093a0272",
+      "size": 2783
+    },
+    {
+      "path": "tests/benchmarks/config/echo/mw_com_config.json",
+      "mode": "100644",
+      "sha": "8ffa37db4823cc42c606b11a2c898c6e759ced13",
+      "size": 6364
+    },
+    {
+      "path": "tests/benchmarks/config/echo/someip_config.json",
+      "mode": "100644",
+      "sha": "17bed2a37c90f82b8a02f899cca1a94b9ce3a438",
+      "size": 4753
+    },
+    {
+      "path": "tests/benchmarks/config/echo/vsomeip.json",
+      "mode": "100644",
+      "sha": "aaf857468c4e175f4799099d4c777615e6d2abad",
+      "size": 2783
+    },
+    {
+      "path": "tests/benchmarks/e2e_benchmark_runner.py",
+      "mode": "100644",
+      "sha": "a34f5133ecf915f957b8a4307d75c55e1d04ae47",
+      "size": 4419
+    },
+    {
+      "path": "tests/benchmarks/echo_server.cpp",
+      "mode": "100644",
+      "sha": "589b7220f39278caccf3a760c0123414b9941a13",
+      "size": 11637
+    },
+    {
+      "path": "tests/benchmarks/echo_service.h",
+      "mode": "100644",
+      "sha": "bde1ef079a5a8b1399c52280206178ed42ec23b2",
+      "size": 11715
+    },
+    {
+      "path": "tests/benchmarks/ipc_benchmarks.cpp",
+      "mode": "100644",
+      "sha": "9d483c6f21c5db39c6b4432843f4450e06d9511a",
+      "size": 28654
+    },
+    {
+      "path": "tests/benchmarks/nodes.py",
+      "mode": "100644",
+      "sha": "259faaabb323ebd49fa6850f8bb54f1a33172e92",
+      "size": 12937
+    },
+    {
+      "path": "tests/benchmarks/setup_network.sh",
+      "mode": "100755",
+      "sha": "d0d6666271d3fad5af6bc12151bdd6cf6e631a9f",
+      "size": 1691
+    },
+    {
+      "path": "tests/benchmarks/test_e2e_benchmarks.py",
+      "mode": "100644",
+      "sha": "9bb472e020c5802badb60fc991ec74d9d93bdfe8",
+      "size": 1023
+    },
+    {
+      "path": "tests/benchmarks/test_e2e_benchmarks_profiling.py",
+      "mode": "100644",
+      "sha": "1c3947aa02abd4a040b63b1d59c60dc806beda2e",
+      "size": 1091
+    },
+    {
+      "path": "tests/common/BUILD",
+      "mode": "100644",
+      "sha": "d1df25643a77fdbd766907f6e5eab97fde36e08b",
+      "size": 1418
+    },
+    {
+      "path": "tests/common/capture.py",
+      "mode": "100644",
+      "sha": "503b4c8852fb5d95108a8584d424ff933d0fca81",
+      "size": 10164
+    },
+    {
+      "path": "tests/common/test_capture.py",
+      "mode": "100644",
+      "sha": "8b9a7fbf7bfab2d44f9ff1cef02b16e4d30187c3",
+      "size": 24561
+    },
+    {
+      "path": "tests/integration_test/BUILD",
+      "mode": "100644",
+      "sha": "0dd210f60ab3be23661eba8256a04b1b6c0b1391",
+      "size": 4102
+    },
+    {
+      "path": "tests/integration_test/README.md",
+      "mode": "100644",
+      "sha": "fd87b48ef92e4986b5bc14eebd60aaf06c2ee2a5",
+      "size": 1743
+    },
+    {
+      "path": "tests/integration_test/conftest.py",
+      "mode": "100644",
+      "sha": "e39970ac1aac981666642cde8cb939ddd516a93d",
+      "size": 3566
+    },
+    {
+      "path": "tests/integration_test/gatewayd_startup.py",
+      "mode": "100644",
+      "sha": "6b971ad519bf41664622a822e1e53e15d1fbbcaa",
+      "size": 1647
+    },
+    {
+      "path": "tests/integration_test/score_test_applications.py",
+      "mode": "100644",
+      "sha": "132d84cf416950027e5047c105b5162d349fb942",
+      "size": 3500
+    },
+    {
+      "path": "tests/integration_test/someipd_sends_someip-sd_message.py",
+      "mode": "100644",
+      "sha": "824caedbe40dc09412e129b4e51f3442cb8386bc",
+      "size": 1082
+    },
+    {
+      "path": "tests/integration_test/someipd_started_by_test.py",
+      "mode": "100644",
+      "sha": "2792d01e296e75c6aeb182fc1162c1cf18971174",
+      "size": 2354
+    },
+    {
+      "path": "tests/integration_test/someipd_startup.py",
+      "mode": "100644",
+      "sha": "b44c936dcaaa0382f284e708b38707c3562c8646",
+      "size": 1669
+    },
+    {
+      "path": "tests/integration_test/tcpdump.py",
+      "mode": "100644",
+      "sha": "a578b63dc44d77fb433bd98997695abafb0e9a46",
+      "size": 6406
+    },
+    {
+      "path": "tests/integration_test/util.py",
+      "mode": "100644",
+      "sha": "0520718893a47772f59727160cac05316aba4f06",
+      "size": 5521
+    },
+    {
+      "path": "tests/integration_test/vsomeip.json",
+      "mode": "100644",
+      "sha": "77444a64ad95b24c27335810aa7bf9a78be95ea7",
+      "size": 1279
+    },
+    {
+      "path": "tests/tc8_conformance/BUILD.bazel",
+      "mode": "100644",
+      "sha": "611c739b32d05d867394c4ccdf88727ef9d96eb2",
+      "size": 5217
+    },
+    {
+      "path": "tests/tc8_conformance/README.md",
+      "mode": "100644",
+      "sha": "82daa539e368888f9f04fd8946d9bc27e044d6c3",
+      "size": 2256
+    },
+    {
+      "path": "tests/tc8_conformance/application/README.md",
+      "mode": "100644",
+      "sha": "02c51595efef2e671b89a3169c991d6571cfbd24",
+      "size": 1211
+    },
+    {
+      "path": "tests/tc8_conformance/application/ets_stub/BUILD.bazel",
+      "mode": "100644",
+      "sha": "777e7796bf73af9b21fcf2703d5e3742086590be",
+      "size": 1135
+    },
+    {
+      "path": "tests/tc8_conformance/application/ets_stub/config/tc8_ets_stub_mw_com_config.json",
+      "mode": "100644",
+      "sha": "8b986e7b6384eb74457a3199adb1a09fbebe9138",
+      "size": 3022
+    },
+    {
+      "path": "tests/tc8_conformance/application/ets_stub/tc8_ets_stub.cpp",
+      "mode": "100644",
+      "sha": "53cd25222d4ad291f06c37c5102c324bf67266dc",
+      "size": 4443
+    },
+    {
+      "path": "tests/tc8_conformance/application/shared/BUILD.bazel",
+      "mode": "100644",
+      "sha": "eedd8f3f0fef89a7eb2cb13902e121c43df49428",
+      "size": 887
+    },
+    {
+      "path": "tests/tc8_conformance/application/shared/tc8_ets_service.h",
+      "mode": "100644",
+      "sha": "4543626ad5d6414c32eadac0b66be6bfb1e6dcb6",
+      "size": 1996
+    },
+    {
+      "path": "tests/tc8_conformance/config/tc8_gatewayd_mw_com_config.json",
+      "mode": "100644",
+      "sha": "ccb94e44002c8a17f87608f679174f61e42b3fb6",
+      "size": 2337
+    },
+    {
+      "path": "tests/tc8_conformance/config/tc8_logging.json",
+      "mode": "100644",
+      "sha": "554a41ece70f7079d315b4197a02c2af653cd762",
+      "size": 143
+    },
+    {
+      "path": "tests/tc8_conformance/config/tc8_someipd_config.json",
+      "mode": "100644",
+      "sha": "99dd1e1781873714b7d5ae7f4d4492752d707ee2",
+      "size": 3712
+    },
+    {
+      "path": "tests/tc8_conformance/config/tc8_someipd_multi.json",
+      "mode": "100644",
+      "sha": "30b7d038c88ba45d89a46d6367d56a9f8ac781e9",
+      "size": 1924
+    },
+    {
+      "path": "tests/tc8_conformance/config/tc8_someipd_sd.json",
+      "mode": "100644",
+      "sha": "c466f1085e98303d5590eca2fce0cb1c04423777",
+      "size": 1997
+    },
+    {
+      "path": "tests/tc8_conformance/config/tc8_someipd_service.json",
+      "mode": "100644",
+      "sha": "7f475e7e1f4d1be07f2ec103e73b6d47d59178a2",
+      "size": 3862
+    },
+    {
+      "path": "tests/tc8_conformance/config/tc8_vsomeip_config.schema.json",
+      "mode": "100644",
+      "sha": "6364510c181d893899d74032760dd6d93c58f254",
+      "size": 10484
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/__init__.py",
+      "mode": "100644",
+      "sha": "86ac71d4bec8e7555b9057584c9cab6929fd5768",
+      "size": 608
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/constants.py",
+      "mode": "100644",
+      "sha": "eec3fcf17ecff0f39141c1fd8a86b5f3aee79850",
+      "size": 5913
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/dut_lifecycle.py",
+      "mode": "100644",
+      "sha": "cf8999da41444af5fbefd6ff29aace5389390db4",
+      "size": 13842
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/event_helpers.py",
+      "mode": "100644",
+      "sha": "19de99f4eb90dd4b25ef9cabda4e8b15c4c2407e",
+      "size": 5602
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/field_helpers.py",
+      "mode": "100644",
+      "sha": "aa82f1852270e9f04da9e55d039f38e6de2b2339",
+      "size": 3482
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/message_builder.py",
+      "mode": "100644",
+      "sha": "51e63927addd401f3515233b8b275054fb3bdb70",
+      "size": 5941
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/sd_helpers.py",
+      "mode": "100644",
+      "sha": "9a5b45d543f840a2266d371b6ca75603f59d09f3",
+      "size": 4488
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/sd_malformed.py",
+      "mode": "100644",
+      "sha": "f099764bc7c2c94bccc82ef9e319a1f3f7a49e2a",
+      "size": 25080
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/sd_sender.py",
+      "mode": "100644",
+      "sha": "1645d87d73478ba97aea08772d1f6dd6a4bc6bfd",
+      "size": 13985
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/socket_transport.py",
+      "mode": "100644",
+      "sha": "d3cc5829b09b19fad298816d9a0dc8f5bef74c97",
+      "size": 3267
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/someip_assertions.py",
+      "mode": "100644",
+      "sha": "078db996eb4427b035d0530aaddcecba7fdee14d",
+      "size": 6379
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/someip_types.py",
+      "mode": "100644",
+      "sha": "e1bedc89367662e445720e552e3dcf6f3240ca28",
+      "size": 17863
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/tcp_helpers.py",
+      "mode": "100644",
+      "sha": "3afb09f35af020eba431469f1a44236b933ce1d6",
+      "size": 6768
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/test_helper_regressions.py",
+      "mode": "100644",
+      "sha": "14f95d76beb7ac6e43228292da5483cb04995be6",
+      "size": 4628
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/timing.py",
+      "mode": "100644",
+      "sha": "9c86e42c6bc7848c57afa39cdec88cfa8f1268e7",
+      "size": 2647
+    },
+    {
+      "path": "tests/tc8_conformance/helpers/udp_helpers.py",
+      "mode": "100644",
+      "sha": "54c0939678cd3922fd156c48d8633cb941aab63b",
+      "size": 4212
+    },
+    {
+      "path": "tests/tc8_conformance/tc8_itf_conftest.py",
+      "mode": "100644",
+      "sha": "bec0de78bf3e605133349e142d05161f832f426c",
+      "size": 8311
+    },
+    {
+      "path": "tests/tc8_conformance/test_golden_vectors.py",
+      "mode": "100644",
+      "sha": "16345c3fd37aa16c1a6ba3fa971e1936216053bd",
+      "size": 28111
+    },
+    {
+      "path": "third_party/boost-asio_qnx.patch",
+      "mode": "100644",
+      "sha": "692dbd34ccaa4e7406e6ab5c4e4c06315f35c0c6",
+      "size": 595
+    },
+    {
+      "path": "third_party/json_schema_validator/BUILD",
+      "mode": "100644",
+      "sha": "6bdeed2c504d839f3d72915d1f2ca221edea86e4",
+      "size": 565
+    },
+    {
+      "path": "third_party/json_schema_validator/json_schema_validator.BUILD",
+      "mode": "100644",
+      "sha": "d4631f05c1693e2247bbbd253333517732650c96",
+      "size": 1105
+    },
+    {
+      "path": "third_party/rules_foreign_cc-dont_block_network.patch",
+      "mode": "100644",
+      "sha": "8d56f7fd57e34ccf841208a9c523dc24cb6db2c7",
+      "size": 598
+    },
+    {
+      "path": "third_party/rules_foreign_cc-fix_proc_self_cwd.patch",
+      "mode": "100644",
+      "sha": "525fba513aabb2ba0143a928a83dd3181bd39729",
+      "size": 738
+    },
+    {
+      "path": "third_party/score_baselibs/BUILD",
+      "mode": "100644",
+      "sha": "0197d75b3b60b05bf84f5e7b3596ea60ba78e69e",
+      "size": 619
+    },
+    {
+      "path": "third_party/score_baselibs/restore_qnx8_poll_workaround.patch",
+      "mode": "100644",
+      "sha": "60b0991c1180e7f1cd941fc8f9fddebcbc2b02a6",
+      "size": 4760
+    },
+    {
+      "path": "third_party/score_itf-qemu-ping-timeout.patch",
+      "mode": "100644",
+      "sha": "540406ab5670f93afd708abdeb047ab3beaecab3",
+      "size": 508
+    },
+    {
+      "path": "third_party/vsomeip-no-werror.patch",
+      "mode": "100644",
+      "sha": "903e08864727455d480a3150c5b4c45bfbee3768",
+      "size": 1111
+    },
+    {
+      "path": "third_party/vsomeip-qnx8.patch",
+      "mode": "100644",
+      "sha": "3a2b6a8ed1cd1f45a1bc5105b7d34841ef9e1475",
+      "size": 3477
+    },
+    {
+      "path": "third_party/vsomeip.BUILD.bazel",
+      "mode": "100644",
+      "sha": "a081e2e0bfbaf2c91401263ab3dcfec3772dab15",
+      "size": 2603
+    },
+    {
+      "path": "tools/coverage/BUILD",
+      "mode": "100644",
+      "sha": "0eab293c827993e00ad961ad94eeef9b77344f7b",
+      "size": 1394
+    },
+    {
+      "path": "tools/lint/BUILD.bazel",
+      "mode": "100644",
+      "sha": "118bc39b0c8d17b1a418c1e92a79666251524aeb",
+      "size": 600
+    },
+    {
+      "path": "tools/lint/linters.bzl",
+      "mode": "100644",
+      "sha": "3e68075064e4392146cc149810d25625f24cb9d1",
+      "size": 5604
+    }
+  ],
+  "symlink": {
+    "path": "CLAUDE.md",
+    "target": "AGENTS.md"
+  },
+  "tree": "826a77c2f3ec0838f37230319f9397e442cef407"
+}

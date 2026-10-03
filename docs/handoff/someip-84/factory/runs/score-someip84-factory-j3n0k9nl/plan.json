@@ -1,0 +1,42 @@
+{
+  "change": {
+    "id": "someip84-factory-implementation-queue"
+  },
+  "closure_complete": true,
+  "coverage": [],
+  "digest": "4835bd2734ba3cf04ca121f16f1f75c40842ebf9a866d67add4b16daa1747057",
+  "engineering_readiness": "not_evaluated",
+  "findings": [],
+  "instances": [
+    {
+      "applicability": "required",
+      "dependency_ids": [],
+      "effective_disposition": "create",
+      "instance_id": "local-baseline-measurement"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [
+        "local-baseline-measurement"
+      ],
+      "effective_disposition": "create",
+      "instance_id": "local-agent-implementation"
+    },
+    {
+      "applicability": "required",
+      "dependency_ids": [
+        "local-agent-implementation"
+      ],
+      "effective_disposition": "create",
+      "instance_id": "local-review-stop"
+    }
+  ],
+  "plan_kind": "draft",
+  "planning_status": "complete",
+  "schema_version": 1,
+  "scopes": [],
+  "semantic_inputs": {
+    "task_authority": "4047fd4ec298320bdbfe2edc7f1224130b23b472914cee77e972c8074104a8ec"
+  },
+  "target_namespace": "local-operational-demonstrator"
+}

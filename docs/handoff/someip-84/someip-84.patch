@@ -1,0 +1,259 @@
+diff --git a/score/socom/BUILD b/score/socom/BUILD
+--- a/score/socom/BUILD
++++ b/score/socom/BUILD
+@@ -19,6 +19,17 @@
+     srcs = glob([
+         "*.hpp",
+     ]),
++)
++
++filegroup(
++    name = "service_identifier_test_sources",
++    srcs = [
++        "impl/service_identifier.cpp",
++        "impl/service_identifier.hpp",
++        "impl/string_registry.cpp",
++        ":headers",
++    ],
++    visibility = ["//score/socom/test/unit:__pkg__"],
+ )
+ 
+ cc_library(
+diff --git a/score/socom/impl/service_identifier.cpp b/score/socom/impl/service_identifier.cpp
+--- a/score/socom/impl/service_identifier.cpp
++++ b/score/socom/impl/service_identifier.cpp
+@@ -18,7 +18,8 @@
+ namespace score::socom {
+ 
+ bool operator<(Service_instance_identifier const& lhs, Service_instance_identifier const& rhs) {
+-    return std::tie(lhs.instance, lhs.interface) < std::tie(rhs.instance, rhs.interface);
++    return std::tie(lhs.instance, lhs.interface.id, lhs.interface.version.major) <
++           std::tie(rhs.instance, rhs.interface.id, rhs.interface.version.major);
+ }
+ 
+ }  // namespace score::socom
+diff --git a/score/socom/impl/service_identifier.hpp b/score/socom/impl/service_identifier.hpp
+--- a/score/socom/impl/service_identifier.hpp
++++ b/score/socom/impl/service_identifier.hpp
+@@ -23,6 +23,7 @@
+ ///
+ /// This is only used to check if any (Disabled, Enabled) Server_connector for the given interface
+ /// and instance already exists.
++/// Minor versions share the same registration slot, as in Service_database.
+ struct Service_instance_identifier final {
+     Service_interface_identifier interface;
+     Service_instance instance;
+diff --git a/score/socom/test/unit/BUILD b/score/socom/test/unit/BUILD
+--- a/score/socom/test/unit/BUILD
++++ b/score/socom/test/unit/BUILD
+@@ -16,7 +16,10 @@
+ cc_test(
+     name = "socom_test",
+     size = "small",
+-    srcs = glob(include = ["*.cpp"]),
++    srcs = glob(
++        include = ["*.cpp"],
++        exclude = ["service_identifier_tests.cpp"],
++    ),
+     linkstatic = True,
+     tags = ["unit"],
+     visibility = ["//tests/integration_test:__pkg__"],
+@@ -27,3 +30,18 @@
+         "@googletest//:gtest_main",
+     ],
+ )
++
++cc_test(
++    name = "service_identifier_test",
++    size = "small",
++    srcs = [
++        "service_identifier_tests.cpp",
++        "//score/socom:service_identifier_test_sources",
++    ],
++    linkstatic = True,
++    tags = ["unit"],
++    deps = [
++        "@googletest//:gtest",
++        "@googletest//:gtest_main",
++    ],
++)
+diff --git a/score/socom/test/unit/runtime_tests.cpp b/score/socom/test/unit/runtime_tests.cpp
+--- a/score/socom/test/unit/runtime_tests.cpp
++++ b/score/socom/test/unit/runtime_tests.cpp
+@@ -12,10 +12,13 @@
+  ********************************************************************************/
+ 
+ #include <algorithm>
++#include <cstdint>
+ #include <iterator>
++#include <limits>
+ #include <memory>
+ #include <set>
+ #include <string>
++#include <tuple>
+ 
+ #include "score/socom/bridge_t.hpp"
+ #include "score/socom/client_connector.hpp"
+@@ -326,6 +329,55 @@
+     EXPECT_EQ(duplicate_service, scd_2);
+ }
+ 
++using Server_minor_versions = std::tuple<std::uint16_t, std::uint16_t, bool>;
++
++class RuntimeMinorVersionTest : public RuntimeTest,
++                               public WithParamInterface<Server_minor_versions> {};
++
++TEST_P(RuntimeMinorVersionTest, RejectDuplicateMinorVersionUntilOriginalServerIsDestroyed) {
++    auto runtime = create_runtime();
++    auto const& configuration = connector_factory.get_configuration();
++    auto const& interface = configuration.get_interface();
++    auto const& instance = connector_factory.get_instance();
++    auto const make_configuration = [&configuration, &interface](std::uint16_t minor) {
++        return Server_service_interface_definition{
++            Service_interface_identifier{interface.id, {interface.version.major, minor}},
++            to_num_of_methods(configuration.get_num_methods()),
++            to_num_of_events(configuration.get_num_events())};
++    };
++    auto const first_configuration = make_configuration(std::get<0>(GetParam()));
++    auto const second_configuration = make_configuration(std::get<1>(GetParam()));
++    Server_connector_callbacks_mock first_callbacks;
++    Server_connector_callbacks_mock second_callbacks;
++    auto first = runtime->make_server_connector(first_configuration, instance,
++                                                create_server_callbacks(first_callbacks));
++    ASSERT_TRUE(first.has_value());
++
++    Enabled_server_connector::Uptr enabled;
++    if (std::get<2>(GetParam())) {
++        enabled = Disabled_server_connector::enable(std::move(first.value()));
++    }
++
++    {
++        auto const duplicate = runtime->make_server_connector(
++            second_configuration, instance, create_server_callbacks(second_callbacks));
++        score::Result<Disabled_server_connector::Uptr> const duplicate_service =
++            score::MakeUnexpected(Construction_error::duplicate_service);
++        EXPECT_EQ(duplicate_service, duplicate);
++    }
++
++    enabled.reset();
++    first.value().reset();
++    auto const replacement = runtime->make_server_connector(
++        second_configuration, instance, create_server_callbacks(second_callbacks));
++    EXPECT_TRUE(replacement.has_value());
++}
++
++INSTANTIATE_TEST_SUITE_P(
++    DisabledAndEnabledServers, RuntimeMinorVersionTest,
++    Combine(Values(0, std::numeric_limits<std::uint16_t>::max()),
++            Values(0, std::numeric_limits<std::uint16_t>::max()), Bool()));
++
+ TEST_F(RuntimeTest, ConstructDuplicateMultipleTimesReturnsDuplicateServiceError) {
+     Server_connector_callbacks_mock callbacks;
+     auto const scd = connector_factory.create_server_connector_with_result(callbacks);
+diff --git a/score/socom/test/unit/service_identifier_tests.cpp b/score/socom/test/unit/service_identifier_tests.cpp
+new file mode 100644
+--- /dev/null
++++ b/score/socom/test/unit/service_identifier_tests.cpp
+@@ -0,0 +1,102 @@
++/********************************************************************************
++ * Copyright (c) 2026 Contributors to the Eclipse Foundation
++ *
++ * See the NOTICE file(s) distributed with this work for additional
++ * information regarding copyright ownership.
++ *
++ * This program and the accompanying materials are made available under the
++ * terms of the Apache License Version 2.0 which is available at
++ * https://www.apache.org/licenses/LICENSE-2.0
++ *
++ * SPDX-License-Identifier: Apache-2.0
++ ********************************************************************************/
++
++#include <cstdint>
++#include <limits>
++#include <set>
++#include <tuple>
++
++#include "gtest/gtest.h"
++#include "score/socom/impl/service_identifier.hpp"
++
++namespace score::someip_gateway {
++
++using socom::Literal_tag;
++using socom::Service_instance;
++using socom::Service_instance_identifier;
++using socom::Service_interface_identifier;
++
++using Minor_versions = std::tuple<std::uint16_t, std::uint16_t>;
++
++class ServiceInstanceIdentifierMinorVersionTest
++    : public ::testing::TestWithParam<Minor_versions> {};
++
++TEST_P(ServiceInstanceIdentifierMinorVersionTest, MinorVersionsUseSameRegistrationSlot) {
++    Service_instance const instance{"instance", Literal_tag{}};
++    Service_instance_identifier const first{
++        Service_interface_identifier{"service", Literal_tag{}, {1, std::get<0>(GetParam())}},
++        instance};
++    Service_instance_identifier const second{
++        Service_interface_identifier{"service", Literal_tag{}, {1, std::get<1>(GetParam())}},
++        instance};
++    std::set<Service_instance_identifier> registrations{first};
++
++    EXPECT_FALSE(registrations.insert(second).second);
++    EXPECT_EQ(1U, registrations.size());
++}
++
++INSTANTIATE_TEST_SUITE_P(
++    MinorVersionBoundaries, ServiceInstanceIdentifierMinorVersionTest,
++    ::testing::Combine(::testing::Values(0, 1, std::numeric_limits<std::uint16_t>::max()),
++                       ::testing::Values(0, 1, std::numeric_limits<std::uint16_t>::max())));
++
++TEST(ServiceInstanceIdentifierTest, DifferentServiceIdsUseDistinctRegistrationSlots) {
++    Service_instance const instance{"instance", Literal_tag{}};
++    std::set<Service_instance_identifier> registrations{
++        {Service_interface_identifier{"first", Literal_tag{}, {1, 0}}, instance}};
++
++    EXPECT_TRUE(registrations
++                    .insert({Service_interface_identifier{"second", Literal_tag{}, {1, 1}},
++                             instance})
++                    .second);
++}
++
++TEST(ServiceInstanceIdentifierTest, DifferentMajorVersionsUseDistinctRegistrationSlots) {
++    Service_instance const instance{"instance", Literal_tag{}};
++    std::set<Service_instance_identifier> registrations;
++
++    for (auto const major : {0, 1, 255, 65535}) {
++        EXPECT_TRUE(registrations
++                        .insert({Service_interface_identifier{
++                                     "service", Literal_tag{},
++                                     {static_cast<std::uint16_t>(major), 0}},
++                                 instance})
++                        .second);
++    }
++    EXPECT_EQ(4U, registrations.size());
++}
++
++TEST(ServiceInstanceIdentifierTest, DifferentInstancesUseDistinctRegistrationSlots) {
++    Service_interface_identifier const interface{"service", Literal_tag{}, {1, 0}};
++    std::set<Service_instance_identifier> registrations{
++        {interface, Service_instance{"first", Literal_tag{}}}};
++
++    EXPECT_TRUE(registrations.insert({interface, Service_instance{"second", Literal_tag{}}})
++                    .second);
++}
++
++TEST(ServiceInstanceIdentifierTest, SlotCanBeReusedWithNewMinorVersionAfterRemoval) {
++    Service_instance const instance{"instance", Literal_tag{}};
++    Service_instance_identifier const first{
++        Service_interface_identifier{"service", Literal_tag{}, {1, 0}}, instance};
++    Service_instance_identifier const second{
++        Service_interface_identifier{"service", Literal_tag{}, {1, 1}}, instance};
++    std::set<Service_instance_identifier> registrations{first};
++
++    EXPECT_FALSE(registrations.insert(second).second);
++    EXPECT_EQ(1U, registrations.erase(first));
++    EXPECT_TRUE(registrations.insert(second).second);
++    EXPECT_EQ(1U, registrations.size());
++}
++
++}  // namespace score::someip_gateway

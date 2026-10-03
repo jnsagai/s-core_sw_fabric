@@ -1,0 +1,25 @@
+{
+  "label": "resolve-0",
+  "argv": [
+    "/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/codeql",
+    "resolve",
+    "queries",
+    "codeql/cpp-queries@1.4.1:codeql-suites/cpp-security-and-quality.qls",
+    "--format=json"
+  ],
+  "cwd": "/tmp/score-someip84-factory-81ibm9qq/target",
+  "environment": {
+    "PATH": "/tmp/score-someip84-obligation-tools/bin:/tmp/s-core-001/bin:/usr/local/bin:/usr/bin:/bin",
+    "HOME": "/tmp/score-someip84-factory-81ibm9qq/tool-home",
+    "TMPDIR": "/tmp/score-someip84-factory-81ibm9qq/tool-tmp",
+    "BAZELISK_HOME": "/tmp/score-someip84-factory-81ibm9qq/bazelisk",
+    "USE_BAZEL_VERSION": "8.6.0",
+    "PRE_COMMIT_HOME": "/tmp/score-someip84-factory-81ibm9qq/precommit-cache",
+    "XDG_CACHE_HOME": "/tmp/score-someip84-factory-81ibm9qq/tool-cache",
+    "LANG": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/home/jefferson/.local/share/s-core-tools/llvm-19.1.7/usr/lib/x86_64-linux-gnu",
+    "VALGRIND_LIB": "/tmp/score-someip84-obligation-tools/usr/libexec/valgrind"
+  },
+  "timeout_seconds": 45,
+  "exit_code": 0
+}

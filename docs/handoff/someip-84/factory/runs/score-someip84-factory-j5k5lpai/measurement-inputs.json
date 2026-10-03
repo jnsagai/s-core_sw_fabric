@@ -1,0 +1,47 @@
+{
+  "baseline": "/home/jefferson/s-core_sw_fabric/.tools/someip-84/baseline",
+  "candidate_files": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/candidate-files.json",
+  "candidate_root": "/home/jefferson/s-core_sw_fabric/.tools/someip-84/work",
+  "compiler": "/usr/bin/x86_64-linux-gnu-g++-12",
+  "controls": [
+    {
+      "path": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/source-manifest.json",
+      "sha256": "01ada05fab4eef7ea59a4417f35389915163c8bfa74dce261d74d2433ac6fdd7"
+    },
+    {
+      "path": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/googletest-manifest.json",
+      "sha256": "a7154a21ee8103bf173f4c03692818d37873d1b5a54a9cf975cd0873b267d951"
+    },
+    {
+      "path": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/candidate-files.json",
+      "sha256": "8f56cf4d0f751fcc210c1d1bb84c27467df857d708583170026056efeba96dc5"
+    },
+    {
+      "path": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/someip-84.patch",
+      "sha256": "875d2253d8db619c24ab8144dfdcd661e2bbf36350cc22e8e56ffbd23feb7bb0"
+    },
+    {
+      "path": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/issue-snapshot.json",
+      "sha256": "92fc6ca2968460fc16a38d0128e232d19e5b627aded5aa658bd03f894e39e696"
+    },
+    {
+      "path": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/factory/measure.py",
+      "sha256": "6c1e0a4270e55f4a8c3bdee660e36901f6d2f675d008b9ba84022bc95c83da0f"
+    },
+    {
+      "path": "/usr/bin/x86_64-linux-gnu-g++-12",
+      "sha256": "88315fd2d961a1f4e4070b104d7bd4c7670df19d9949409879ba269466c196d3"
+    },
+    {
+      "path": "/usr/bin/patch",
+      "sha256": "4eeeadd2ad2b18e977b63440ef2be720a82c68f43f843f68fc7e89e6f77deb3d"
+    }
+  ],
+  "disposable_root": "/tmp/score-someip84-factory-j5k5lpai",
+  "googletest": "/home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest",
+  "googletest_manifest": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/googletest-manifest.json",
+  "patch": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/someip-84.patch",
+  "patch_tool": "/usr/bin/patch",
+  "source_manifest": "/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/source-manifest.json",
+  "target": "/tmp/score-someip84-factory-j5k5lpai/target"
+}

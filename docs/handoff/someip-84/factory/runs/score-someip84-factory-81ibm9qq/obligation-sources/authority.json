@@ -1,0 +1,7 @@
+{
+  "codeql_scope": "Public Apache-2.0 eclipse-score/inc_someip_gateway; no upload",
+  "engineering_acceptance": "pending",
+  "human_reviews": "unanswered",
+  "instruction": "Abort the prior run; include all sourced obligations and additional checks; restart unattended until 7 AM Lisbon",
+  "safety_class": "unknown"
+}

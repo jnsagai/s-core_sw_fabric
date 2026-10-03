@@ -1,0 +1,12 @@
+{
+  "observed_at": "2026-10-02T14:17:52.901881+00:00",
+  "predecessor_run_id": "01M3XZAQ65TTE35XSGXC4JAMAH",
+  "status": "runtime_rebuild_in_progress",
+  "native_checkpoint_state": "unavailable_after_reboot_cleared_tmp",
+  "preserved_workspace": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-crash-preservation-56atg_mt/workspace",
+  "preserved_reports": 13,
+  "old_storage_binding_unchanged": true,
+  "rebuild_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-fabro-reboot-build-y6fx0nz6",
+  "private_server_root": "/home/jefferson/.local/state/s-core/fabro/someip84-server",
+  "engineering_acceptance": "pending"
+}

@@ -10,10 +10,24 @@ unverified/fixture inputs. Disposition drafts and fresh local correction/history
 are implemented; independent 005 fixture decision replay and the guideline coverage matrix
 are implemented. Portable review packets and offline structural replay are implemented.
 Independent compliance blocker evaluation is implemented for the unmapped profile.
-CodeQL execution, full 010
+CodeQL prerequisite inspection and imported disposition context are implemented; those public
+interfaces execute no analyzer or native reports and correction checks remain blocked.
+The internal phase builder and separate approved software demonstrations now execute genuine
+seeded/fresh-corrected extraction and query phases. [Measured scope](codeql-native-demonstration-acceptance.md)
+retains three findings then zero. [Installed Python 3.9 reporting](codeql-python39-reporting-acceptance.md)
+now executes configuration/XML phases and native reports with the explicit local patch variant;
+original report failures and native patch qualification limits remain recorded.
+The distinct [public fixed demonstration contract](contracts/codeql-demonstration.md) now
+adds bounded execution through `quality run --adapter codeql`; target-source requests retain
+inspection-only behavior. Full target CodeQL execution, full 010
 implementation and engineering acceptance remain pending. The 009 verification/toolchain profiles still await owner
 review (T018). Production authority remains unavailable (005 T009). No compliance acceptance
-or eligible CodeQL execution is recorded.
+or target-project eligible CodeQL execution is recorded.
+
+T001 consolidates candidate installation identities and complete original notices in the
+current profile under the [installed-context contract](contracts/installed-context.md).
+Historical profiles/packets retain exact bytes; current policy transitions invalidate reuse.
+Qualification, project-use eligibility and compiled artifact provenance remain unresolved.
 
 **Input**: The [009 handoff](../../docs/handoff/009-to-010.md), brief §§12.2–12.8 and §20.13,
 and FAB-039–FAB-042. Integrate selected native quality policies, actual complementary analysis,
@@ -197,8 +211,37 @@ rule mapping or manual review is missing; inspect the resulting blockers and rev
   inferred. A reviewed external mapping can contain IDs/references, with licensed text external.
 - Clang-Tidy 19.1.7 and CodeQL 2.21.4 are installed locally, with compiled MISRA pack 2.61.0.
   Installation probes establish availability only. Cppcheck is complementary only. CodeQL
-  project-use eligibility, compiled-pack/source reconciliation and compatible report execution
-  remain unresolved prerequisites.
+  project-use eligibility, compiled artifact provenance and compatible report execution
+  remain unresolved prerequisites. Reviewed and declared-build source trees have been measured
+  identical; this resolves the source-tree discrepancy without verifying the compiled build.
 - All development checks are fabric evidence. Required engineering acceptance stays human-owned.
 - Contract tests and real complementary analyzer integration tests are required for implementation;
   synthetic native-output tests are labelled fixtures and cannot replace a genuine licensed run.
+
+## Measured implementation limits (2026-10-01)
+
+The [CodeQL prerequisite contract](contracts/codeql-prerequisites.md) supplies explicit
+capability/run inspection with `local_unprotected_inspection` origin. No CodeQL/native report
+execution is implemented by this slice; T011/T012 remain unmet. Inspection cannot establish
+project-use eligibility or qualification. [Evidence](codeql-prerequisites-acceptance.md)
+retains the measured installation and source/library/suite blockers.
+
+The restricted overnight sandbox cannot complete the native ASan clean probe: LeakSanitizer
+reports a fatal thread attachment failure and a ptrace incompatibility hint. Native runtime
+settings remain unchanged. ASan integration remains failed in this environment; neither clean
+scope nor a correction can be claimed from the interrupted probe. See
+[runtime evidence](sanitizer-environment.md).
+
+## Authorized factory demonstration continuation (2026-10-01)
+
+The user identified that direct SOME/IP feature implementation did not exercise the
+software factory and authorized correcting that execution path. Within 010-R03/R09/R11,
+bind deterministic commands to closed packaged support content and run fresh native
+measurements through the existing compiler/runtime. Preserve earlier direct-work provenance,
+native failures, disposable source/tool identities and required human gates. Local operational
+demonstration IDs must not be represented as native S-CORE work-product identifiers.
+The user's later selection authorizes DeepSeek Flash spending without a user cap; finite
+technical execution budgets still apply. Live implementation requires explicit provider
+configuration, model/tool/path binding and admission, and remains distinct from validating
+the pre-existing external candidate. This continuation neither authorizes 011 nor accepts
+the target engineering change.

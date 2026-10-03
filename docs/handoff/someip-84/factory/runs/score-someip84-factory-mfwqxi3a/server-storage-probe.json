@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-02T14:38:16.297195+00:00",
+  "server_pid": 54628,
+  "server_process_identity": "afea70e0-5cf8-4b0f-a845-5fe250756152:286782",
+  "storage_module_sha256": "87cec0494fac266a12527ec4799e5b8caec3d8ac65e4b7da49636292f42bb851",
+  "exit_code": 0,
+  "losetup": "/usr/sbin/losetup",
+  "stdout": "Exact server environment storage probe passed\n"
+}

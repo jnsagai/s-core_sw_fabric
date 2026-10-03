@@ -123,6 +123,8 @@ def build_ir(
             "support_files": action["support_files"],
             "origins": [action["origin"]],
         }
+        if "command_file" in action:
+            node["command_file"] = action["command_file"]
         nodes.append(node)
         by_ref[action["ref"]] = node
 

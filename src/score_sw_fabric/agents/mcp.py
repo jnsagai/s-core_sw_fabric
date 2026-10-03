@@ -46,7 +46,7 @@ class McpSession:
         self._line_bytes = line_bytes
         self._buffer = b""
         self._next_id = 1
-        self._stderr = tempfile.TemporaryFile()
+        self._stderr = tempfile.TemporaryFile(dir="/tmp")
         self._process: subprocess.Popen[bytes] | None = None
         self.returncode: int | None = None
         self.stderr_sha256: str | None = None

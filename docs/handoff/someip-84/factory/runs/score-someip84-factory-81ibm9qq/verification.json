@@ -1,0 +1,16 @@
+{
+  "verified_at": "2026-10-01T23:32:40.263235+00:00",
+  "collector_contract_tests": {
+    "passed": 10,
+    "command": "uv run --frozen pytest -q tests/contract/test_someip_obligation_collectors.py"
+  },
+  "ruff": "passed",
+  "native_graph_overlay_validation": "passed_99_nodes_194_edges",
+  "coverage_component_record": "/tmp/score-someip84-obligation-tools-test-7avrr0xc/production-collector/result.json",
+  "memcheck_component_record": "/tmp/score-someip84-obligation-tools-test-7avrr0xc/focused_memcheck/result.json",
+  "component_source_origin": "separate_preexisting_external_candidate_not_agent_draft",
+  "preserved_agent_compile_failure": "/tmp/score-someip84-obligation-component-8quu7bm2/coverage/compile.stderr",
+  "engineering_acceptance": "pending",
+  "live_source_snapshot": "passed_owned_container_and_frozen_inputs; agent_scope_report_written",
+  "codeql_query_resolution": "security_and_misra_suites_resolve_with_isolated_tool_HOME"
+}

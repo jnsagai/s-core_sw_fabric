@@ -5,8 +5,9 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from score_sw_fabric.assurance.models import nonempty
 from score_sw_fabric.process_source.reader import InputError
-from score_sw_fabric.runtime.request import parse_yaml
+from score_sw_fabric.quality.controls import yaml_tree
 
 
 def diagnostics(
@@ -17,7 +18,7 @@ def diagnostics(
     *,
     include_ranges: bool = False,
 ) -> list[dict[str, Any]]:
-    record = parse_yaml(data, "/clang-tidy-yaml")
+    record = yaml_tree(data, "/clang-tidy-yaml", max_bytes=16 * 1024 * 1024)
     if not isinstance(record, dict) or not isinstance(record.get("Diagnostics"), list):
         raise InputError("NATIVE_OUTPUT_INVALID", "Missing native Diagnostics list")
     raw = record["Diagnostics"]
@@ -31,6 +32,9 @@ def diagnostics(
             or not isinstance(d.get("DiagnosticMessage"), dict)
         ):
             raise InputError("NATIVE_OUTPUT_INVALID", "Malformed native diagnostic")
+        nonempty(d["DiagnosticName"], "/native_id", max_length=1024)
+        if d.get("Level") is not None:
+            nonempty(d["Level"], "/native_level", max_length=1024)
         locations = []
         notes = d.get("Notes", [])
         if not isinstance(notes, list) or len(notes) > 1000:
@@ -99,6 +103,8 @@ def diagnostics(
                                 "kind": key,
                             }
                         )
+        if len(locations) > 1000:
+            raise InputError("LIMIT_EXCEEDED", "Too many aggregate native diagnostic locations")
         findings.append(
             {
                 "native_id": d["DiagnosticName"],

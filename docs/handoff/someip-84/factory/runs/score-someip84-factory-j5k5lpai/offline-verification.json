@@ -1,0 +1,20 @@
+{
+  "assurance_decisions": 0,
+  "assurance_references": [],
+  "blob_count": 6,
+  "completeness": "incomplete",
+  "engineering_readiness": "not_evaluated",
+  "event_count": 34,
+  "export_digest": "bfd05e4884732b57ec5834cc75e168c9a8bd006d7cee2e3d1f01fbe80d58452c",
+  "native_answers_observed": 0,
+  "native_reason": null,
+  "native_status": "running",
+  "native_terminal": false,
+  "reason_codes": [
+    "BLOB_MISSING",
+    "EXPORT_INCOMPLETE"
+  ],
+  "reproduced": true,
+  "run_id": "01M3VZ48HZGTB0JAFTZ6MP9H37",
+  "version_id": "da3942ed62c7fa7336d94fb8e93a2537ca58fbca1beaa895de3349ce6fa9e191"
+}

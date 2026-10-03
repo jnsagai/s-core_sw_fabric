@@ -12,8 +12,9 @@ from score_sw_fabric.catalog.export import canonical
 from score_sw_fabric.process_source.reader import InputError
 from score_sw_fabric.quality import complementary, runner
 from score_sw_fabric.quality import disposition_models as dm
-from score_sw_fabric.quality.import_models import choice, control, selected_control
-from score_sw_fabric.quality.models import baseline, identity_state, load_inputs
+from score_sw_fabric.quality.controls import read_control, yaml_tree
+from score_sw_fabric.quality.import_models import choice, selected_control
+from score_sw_fabric.quality.models import baseline, identity_state, load_inputs, recheck_controls
 from score_sw_fabric.runtime.models import output_path
 
 
@@ -148,8 +149,14 @@ def review(
 ) -> tuple[int, dict[str, Any], list[Path], list[Path]]:
     """Publish a proposal/history observation, never authenticated engineering acceptance."""
     request_path = request_path.absolute()
+    request_bytes = read_control(request_path, "/request")
+    parsed = yaml_tree(request_bytes, "/request")
+    if isinstance(parsed, dict) and parsed.get("kind") == "quality_codeql_disposition_request":
+        from score_sw_fabric.quality.codeql_dispositions import review as codeql_review
+
+        return codeql_review(request_path, parsed, request_bytes, out, draft_only=draft_only)
     request = version(
-        control(request_path, yaml=True),
+        parsed,
         "quality_disposition_request",
         dm.REQUEST_FIELDS,
         "/request",
@@ -226,7 +233,8 @@ def review(
             reasons.append("POLICY_CHANGED")
         if original["toolchain"] != current.toolchain:
             reasons.append("TOOL_CHANGED")
-    if not identity_state(current.toolchain):
+    tool_available = identity_state(current.toolchain)
+    if not tool_available:
         reasons.append("CAPABILITY_UNAVAILABLE")
     if (
         draft["expires_at"] is not None
@@ -317,6 +325,21 @@ def review(
     )
     if len(canonical(record)) > dm.MAX_RECORD:
         raise InputError("LIMIT_EXCEEDED", "Disposition review exceeds 96 MiB")
+    if read_control(request_path, "/request") != request_bytes:
+        raise InputError("INPUT_DRIFT", "Disposition request changed during observation")
+    selected_control(base, request["origin"], max_bytes=dm.MAX_RECORD)
+    selected_control(base, request["draft"])
+    if request["previous"] is not None:
+        _history(base, request["previous"], draft, subject)
+    for key in ("compensating_evidence", "decision_refs"):
+        for ref in draft[key]:
+            input_file(draft_path.parent, ref, "/draft/" + key)
+    input_file(base, current_selection["request"], "/current/request")
+    recheck_controls(current)
+    for ref in current.request["files"]:
+        input_file(Path(current.request["root"]), ref, "/current/files")
+    if identity_state(current.toolchain) != tool_available:
+        raise InputError("INPUT_DRIFT", "Tool availability changed during observation")
     if out is not None:
         output_path(out, inputs, protected)
     return 0 if state == "corrected" else 1, record, inputs, protected

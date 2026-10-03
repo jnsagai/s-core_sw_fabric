@@ -1,0 +1,36 @@
+{
+  "workflow_name": "SCoreWorkflow",
+  "nodes": 4,
+  "edges": 4,
+  "valid": true,
+  "diagnostics": [
+    {
+      "rule": "ignored.workflow_toml.run.run_branch",
+      "severity": "Warning",
+      "message": "`[run.run_branch]` in `../../../tmp/score-someip84-factory-nz2flmbk/workflow/workflow.toml` is ignored: the standalone runner performs no Git operations of its own",
+      "node_id": null,
+      "edge": null,
+      "fix": null,
+      "source_path": "../../../tmp/score-someip84-factory-nz2flmbk/workflow/workflow.toml",
+      "line": null,
+      "column": null,
+      "span_start": null,
+      "span_len": null,
+      "related": []
+    },
+    {
+      "rule": "ignored.workflow_toml.environments.default.resources",
+      "severity": "Warning",
+      "message": "`[environments.default.resources]` in `settings.toml` is ignored: resource limits apply to a Daytona runner; the host and Docker providers run unconstrained",
+      "node_id": null,
+      "edge": null,
+      "fix": null,
+      "source_path": "settings.toml",
+      "line": null,
+      "column": null,
+      "span_start": null,
+      "span_len": null,
+      "related": []
+    }
+  ]
+}

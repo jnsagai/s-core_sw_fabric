@@ -1,0 +1,149 @@
+compiler_profile: deterministic-compiler-v1
+digest: 31d2efce360c18eb4d35eaf3a3f72fddd8cb91b1db896cd7f04b353caec95102
+edges:
+- condition: null
+  loop_id: null
+  origin: &id001
+    decision_ref: user-go-codex-20261001
+    kind: authorized_human_decision
+    pointer: /scope
+    rationale: User authorized operational execution; native engineering review is
+      pending.
+    source_ref:
+      path: task-authority.json
+      sha256: 43bdde7015388ff6ff518ba7b1bad2daf0e740f7f9d3498b53551d5a6e93ea1c
+  outcome: null
+  source: start
+  target: implement
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: implement
+  target: review_stop
+  type: success
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: failure
+  source: implement
+  target: review_stop
+  type: failure
+- condition: null
+  loop_id: null
+  origin: *id001
+  outcome: success
+  source: review_stop
+  target: exit
+  type: success
+fan_groups: []
+id: someip84-operational-implementation-queue
+loop_policies: []
+plan_version: 1
+review:
+  reference:
+    path: task-authority.json
+    scope: Authorized operational queue only; native mapping review pending
+    sha256: 43bdde7015388ff6ff518ba7b1bad2daf0e740f7f9d3498b53551d5a6e93ea1c
+  state: reviewed
+rules:
+- actions:
+  - allowed_inputs:
+    - task-authority.json
+    - source-manifest.json
+    - issue-snapshot.json
+    allowed_paths:
+    - /workspace
+    budget:
+      attempts: 1
+      cost_microunits: 100000000
+      input_tokens: 1000000
+      output_tokens: 32000
+      tool_calls: 1000
+      wall_time_seconds: 14400
+    completion_predicate: Draft files and report available for validation
+    data_destinations:
+    - provider.openai-codex
+    evidence_expectation: Agent output is an assertion until independent checks run
+    expected_outputs:
+    - draft source changes and agent result
+    fallible_outcomes:
+    - failure
+    - success
+    instance_ids:
+    - local-agent-implementation
+    label: Draft SOME/IP correction with gpt-6.1-sol
+    model_capability: bounded-agent-v1
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: 'Draft the focused SOME/IP #84 duplicate-server registration-key correction
+      in this disposable source copy. Read .llm_tmp/context/issue-snapshot.json and
+      the source context. Work only in the six paths named in .llm_tmp/context/candidate-files.json.
+      Preserve notices. Use only read_file, grep, glob, and write_file tools. Read
+      the issue snapshot and the directly relevant source, then draft the correction
+      promptly. Limit exploratory reads; create the named test file if it is absent.
+      Do not call shell or delegate. Do not use the existing external candidate patch
+      as your implementation, claim engineering acceptance, publish, merge, or deploy.
+      Report changed paths and unresolved validation; stop when the bounded draft
+      is done.'
+    ref: implement
+    role: developer_draft
+    support_files: []
+    tool_profile: someip84-file-only-host-hook-v1
+    type: agent
+    write_scope:
+    - /workspace/score/socom/BUILD
+    - /workspace/score/socom/impl/service_identifier.cpp
+    - /workspace/score/socom/impl/service_identifier.hpp
+    - /workspace/score/socom/test/unit/BUILD
+    - /workspace/score/socom/test/unit/runtime_tests.cpp
+    - /workspace/score/socom/test/unit/service_identifier_tests.cpp
+  - allowed_inputs:
+    - measurement-inputs.json
+    - task-authority.json
+    allowed_paths:
+    - /tmp/score-someip84-factory-nz2flmbk/target
+    - /home/jefferson/s-core_sw_fabric/.tools/someip-84/baseline
+    - /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/googletest
+    budget:
+      attempts: 1
+      cost_microunits: 0
+      input_tokens: 0
+      output_tokens: 0
+      tool_calls: 4
+      wall_time_seconds: 420
+    completion_predicate: External review remains pending
+    data_destinations:
+    - local:disposable-target
+    evidence_expectation: No agent or engineering decision is admitted by this demonstration
+    expected_outputs: []
+    fallible_outcomes:
+    - success
+    instance_ids: &id002
+    - local-agent-implementation
+    - local-review-stop
+    label: Draft complete; external review required
+    model_capability: none
+    origin: *id001
+    prohibited_authority:
+    - approval
+    - trusted_evidence_collection
+    - automatic_approval
+    - replayed_approval
+    purpose: Stop for external review; no engineering decision is collected here
+    ref: review_stop
+    role: configuration_owner
+    support_files: []
+    tool_profile: none
+    type: human
+    write_scope: []
+  id: authorized-operational-demonstration
+  instance_ids: *id002
+schema_version: 1
+support_files: []
+version: 1

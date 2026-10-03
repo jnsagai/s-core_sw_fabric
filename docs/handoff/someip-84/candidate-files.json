@@ -1,0 +1,26 @@
+{
+  "score/socom/BUILD": {
+    "sha256": "dee826163ac5e6336d51a293136b424696c2884aa1b2592395e1e06423c0ba44",
+    "baseline_git_blob": "3477ea0851fdcd82ec6ea9d71424013cbdf41962"
+  },
+  "score/socom/impl/service_identifier.cpp": {
+    "sha256": "d766902e4bda5306095a6e5326ea91d28df3a6e1ef4e77dc9ba47556ed559a9a",
+    "baseline_git_blob": "6c7e7a4e22355242009fe20dada2a9a0d0c7a9c7"
+  },
+  "score/socom/impl/service_identifier.hpp": {
+    "sha256": "96b33a1fee4d54577ae9bc46c313409a0d59336f76df85ef1925ffebdd1a2119",
+    "baseline_git_blob": "c8bae7908da9f087c518934f7b9f8d86db9a20ec"
+  },
+  "score/socom/test/unit/BUILD": {
+    "sha256": "9b3c5b341211e2c387858fd1fe5c669a6a422b6e8b5e80fce35ba22c61186799",
+    "baseline_git_blob": "3c03a7b14286051f97fa5022206564bd63645171"
+  },
+  "score/socom/test/unit/runtime_tests.cpp": {
+    "sha256": "5e35e24d0abcfa361b5a5283a005b307b86026a970464a3423be7c6eed66631e",
+    "baseline_git_blob": "8ecf5ab726db8bf994c960045d6fd7fdf84d7395"
+  },
+  "score/socom/test/unit/service_identifier_tests.cpp": {
+    "sha256": "45d073998108df76c8f4534508d65f02cead28aa568cd5c45b5a3d8a4fd36a25",
+    "baseline_git_blob": null
+  }
+}

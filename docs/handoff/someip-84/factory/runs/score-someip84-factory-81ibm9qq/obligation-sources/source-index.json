@@ -1,0 +1,74 @@
+[
+  {
+    "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+    "id": "coding_guidelines",
+    "native_acceptance": "not_inferred",
+    "path": "docs/contribute/development/cpp/coding_guidelines.rst",
+    "repository": "score",
+    "sha256": "472572e9adf89fae175193f82bbb8aff6dc55bf1aa29b65357cb22d4e6b36333"
+  },
+  {
+    "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+    "id": "code_analysis",
+    "native_acceptance": "not_inferred",
+    "path": "docs/contribute/development/cpp/code_analysis.rst",
+    "repository": "score",
+    "sha256": "b959cdaea697ad8b46b7e179fedeb5d57fc0017544393666d1bdcf79714fd367"
+  },
+  {
+    "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+    "id": "misra_mapping",
+    "native_acceptance": "not_inferred",
+    "path": "docs/contribute/development/cpp/misra_2023_rule_mapping.rst",
+    "repository": "score",
+    "sha256": "09f6d917db2001c4dd0bec60913089ed8f4533326320b3cd4cbc66e1bdf09600"
+  },
+  {
+    "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+    "id": "verification_plan",
+    "native_acceptance": "not_inferred",
+    "path": "docs/platform_management_plan/software_verification.rst",
+    "repository": "score",
+    "sha256": "874381003c8024b57cfa611e1eb529371bd1b115f0f0b94ef00b8edae53e6c5a"
+  },
+  {
+    "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+    "id": "development_plan",
+    "native_acceptance": "not_inferred",
+    "path": "docs/platform_management_plan/software_development.rst",
+    "repository": "score",
+    "sha256": "11199194c1e220640ab4252d4caea6f2e546d04e59b9bb3a0355636f7364f023"
+  },
+  {
+    "commit": "e2373d822fc2f6e9a3f8a0538904f3faa39309ea",
+    "id": "tool_management",
+    "native_acceptance": "not_inferred",
+    "path": "docs/platform_management_plan/tool_management.rst",
+    "repository": "score",
+    "sha256": "22f407c24ab834f12cd2ae603512d3d00128d46ef081838a3054c118e096915b"
+  },
+  {
+    "commit": "98d1d5f42dad412a09a888ea25e59c62fa6371ce",
+    "id": "verification_process",
+    "native_acceptance": "not_inferred",
+    "path": "process/process_areas/verification/guidance/verification_process_reqs.rst",
+    "repository": "process_description",
+    "sha256": "e8969129de240560a88c9b69b1352b8068bdb815240dc8a39a2866d5dd6a3144"
+  },
+  {
+    "commit": "98d1d5f42dad412a09a888ea25e59c62fa6371ce",
+    "id": "verification_guideline",
+    "native_acceptance": "not_inferred",
+    "path": "process/process_areas/verification/guidance/verification_guideline.rst",
+    "repository": "process_description",
+    "sha256": "2e2003751d05bda60a1ae20eb1fc7d7975b5475f83e51fb16ad54e704640c15f"
+  },
+  {
+    "commit": "c4d4ad090c6584e58279f0e5d0b6894f7fc4cf0d",
+    "id": "inspection_checklist",
+    "native_acceptance": "not_inferred",
+    "path": "score/component_example/docs/detailed_design/chklst_impl_inspection.rst",
+    "repository": "module_template",
+    "sha256": "e0c4f070d8f9ce5f2a42d3be4d188617c5c0313d05552dc60a6222ef3ab59dee"
+  }
+]

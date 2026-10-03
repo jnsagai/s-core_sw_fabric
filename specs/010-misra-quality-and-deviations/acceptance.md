@@ -3,9 +3,21 @@
 2026-09-30. Implemented for local complementary use. Full increment 010 is incomplete;
 engineering acceptance remains pending and human-owned T032 is unchecked.
 
+**Latest resumed checkpoint (2026-10-01):** [genuine CodeQL software demonstrations](codeql-native-demonstration-acceptance.md)
+retain three seeded findings and zero on a fresh corrected database, independently verified
+extraction and no extraction errors. The new internal phase component has 35 contract cases;
+214 focused checks pass. The later [Python 3.9 checkpoint](codeql-python39-reporting-acceptance.md)
+verifies installed pinned dependencies, native Python/XML phases and complete reports with an
+explicit disposable patch variant. Original failures are retained. The failed full ASan gate,
+full target CodeQL adapter and human reviews remain open. The
+[public fixed demonstration slice](codeql-public-demonstration-acceptance.md) now executes
+through a distinct bounded request; target-source inspection remains blocked.
+
 This records the initial Clang-Tidy slice and its historical validation. The subsequent
 [Cppcheck/ASan/UBSan slice](complementary-acceptance.md) implements those additional adapters;
 its current profiles and validation supersede the earlier unimplemented capability status.
+The current overnight full gate and task reconciliation are recorded below; historical passes
+do not clear the current restricted ASan runtime failure or required engineering review.
 
 ## Implemented scope
 
@@ -95,3 +107,156 @@ Final validation on this workstation:
 
 These checks validate the local adapter slice only. Full 010 requirements/owner acceptance
 and CodeQL/sanitizer/compliance evidence remain open.
+
+## Current overnight validation (2026-10-01)
+
+The seven-hour user authorization covers remaining increment 010 implementation and reviewable
+handoff. It does not authorize 011, engineering acceptance, publishing, merging or deployment.
+[Actual handoff](../../docs/handoff/010-to-011.md) and [task reconciliation](task-reconciliation.md)
+record 84 tasks: 69 complete, 15 open. Human T032/T082, 009 T018 and protected 005 T009 remain open.
+
+| Gate | Current measured result |
+| --- | --- |
+| `UV_CACHE_DIR=/tmp/s-core-quality-uv-cache uv sync --frozen` | Pass, 18 packages checked; lock unchanged |
+| Ruff check/format | Pass; mypy/foundation details below |
+| `uv run --frozen mypy` with writable cache | Pass, 111 source files |
+| `uv run --frozen python scripts/check_foundation.py` with writable cache | Pass, 64 unchanged FAB requirements and 19 dependency rows; no engineering acceptance |
+| `uv build --offline` with writable cache | Pass, sdist and wheel; cached pinned backend dependencies are byte-verified copies |
+| Full selected pytest suite | **Failed: 1,509 passed, 11 skipped, three native ASan failures; 252.06 seconds** |
+| Combined review/decision/packet checkpoint | 106 passed, 98.57 seconds |
+| Final foundation/CodeQL/context/actual installation checkpoint | 94 passed, 15.95 seconds |
+| Synthetic public CLI and local Draft 2020-12 checks | Review exit 1, 005 binding exit 1, packet exit 0; all four request/result schemas validate with format checking |
+
+The exact full native selector command is retained in
+[CodeQL validation](codeql-prerequisites-acceptance.md#verification), and the complete current
+[pytest output](evidence/overnight-regression.txt) preserves the three failed ASan cases.
+The native LeakSanitizer stderr/capability/run originals are in
+[sandbox diagnosis](sanitizer-environment.md). They show fatal thread attachment failure; original
+native flags/suppressions remain unchanged. Three existing native Fabro compiler tests were
+excluded because that runtime is not selected; eleven external/native skips do not imply readiness.
+T030/T081 remain open. No full green gate is claimed.
+
+The full run preceded the final two shared tool-count and eleven malformed CodeQL phase/suite
+cases. Their negative-first fixes pass the final 94-case checkpoint. A deterministic 60-case
+malformed inspection probe then produced no unexpected exceptions. Static/foundation/build checks
+were repeated after these bounded fixes. That checkpoint preserved the failed full result;
+the later shared reader corrections have their own full result below. Historical
+profiles/transport hashes remain unchanged.
+
+[CodeQL disposition context](codeql-dispositions-acceptance.md) adds original unavailable
+inspection, native identity comparison, immutable portable history and blocked 005 binding.
+Installed-pack integration uses a synthetic finding and cannot satisfy genuine CodeQL evidence.
+T011/T012/T078/T079 remain unimplemented and gated by reviewed eligible-use and native report/runtime
+prerequisites. Source/build tree equality is measured; compiled provenance and confidence remain
+unverified. Unknown applicability/mapping/manual/deviation/production authority gaps remain visible.
+
+Current `.git`/agent/native-install permissions are read-only with approval unavailable. New
+CodeQL/control/sanitizer/schema/docs changes remain a reviewable worktree; no commit was attempted
+under that restriction. Earlier packet/assessment/source-reconciliation commits remain retained.
+Tests, fixtures, analyzer cleanliness and Fabro results do not establish engineering acceptance.
+
+Subsequent bounded metadata-history fixes pass 101 combined cases and the unchanged legacy packet
+replay; original library metadata is now retained. The unavailable-native-Git guard fix passes
+52 CodeQL/context/installed checks. These checkpoints preserve the earlier failed full-suite
+record and do not establish licensed analysis or clear the ASan runtime gate.
+
+## 03:23 UTC shared reader validation checkpoint
+
+The later profile/retained CodeQL metadata corrections pass 130 new negative cases and 299
+combined contract checks. Ruff/formatting (468 files), mypy (111 source files), foundation
+consistency and offline sdist/wheel build pass. Exact changes and commands are in
+[controls validation](controls-validation.md).
+
+The full regression under the same documented native selectors finishes with **1,657 passed,
+11 skipped, three ASan failures**, 258.45 seconds. [Original output](evidence/overnight-regression-types.txt)
+retains the same three failing seed/fix, disposition and import cases. This full
+checkpoint leaves T030/T081 open; later checkpoints below preserve this historical evidence.
+Native CodeQL/reporting, applicability/tool confidence and human acceptance are still unresolved.
+
+The 03:35 UTC source/build observation replay adds six contradiction refusals and two
+partial-failure cases. **232 combined cases pass, 22.78 seconds**, including installed-context,
+portable assessment/compliance and unchanged legacy replay. Ruff/formatting (469 files), mypy
+(112 sources), foundation consistency and offline build pass. This focused checkpoint follows
+the full run above and preserves its failed native ASan gate; it does not establish eligible
+CodeQL execution or engineering acceptance.
+
+## 04:28 UTC installed-context checkpoint
+
+T001 consolidation and explicit original/current policy migration are implemented under the
+[installed-context contract and validation](installed-context-acceptance.md). Both profiles
+and four current CLI outputs pass local schemas; actual current packet replay forbids host
+reads/probes. Fresh read-only CodeQL inspection preserves all fourteen gaps. Current task
+count is **70/84 complete, 14 open**, with human and native execution gates open.
+
+The first consolidation regression retained four failures (three ASan and one incorrect
+same-policy test expectation). Explicit original policy selection plus a separate changed-policy
+case fixed the test scope; production's stale response was correct. Final full gate under the
+same native selectors: **1,682 passed, 11 skipped, three ASan failures**, 358.60 seconds.
+[Original output](evidence/overnight-regression-installed-context.txt) retains all three native
+failures. This supersedes earlier full checkpoints without deleting their evidence. No full
+green gate is claimed; T030/T081 remain open. Frozen sync, Ruff/format (474 files), mypy (113
+sources), foundation consistency and offline sdist/wheel build pass. The original flags,
+suppressions, source locks and historical packet bytes remain intact.
+
+## Public fixed demonstration integration checkpoint
+
+[Scoped public validation](codeql-public-demonstration-acceptance.md) records the distinct
+request/record schemas, initial parser/harness failures, strict guard tests and genuine public
+seed/fresh-fix native integration: **2 passed, 316.02 seconds**, three/zero native findings,
+adequate extraction and all four original reports. T085–T088 are complete; current count is
+**74/88 complete, 14 open**. Full target execution, failed ASan validation and authenticated
+engineering reviews remain open. No compliance or production readiness is accepted.
+
+Final focused public/parser/extraction/packet/installed-source checks: **302 passed, 2 deselected,
+24.18 seconds**. Frozen sync, Ruff, formatting, mypy, foundation, offline build and diff checks
+pass. This supplements the two real native integration passes; it does not clear the earlier
+full-suite ASan failure. Original failed logs and measurements remain unchanged.
+
+## Compatible host full validation checkpoint
+
+The [complete host validation](asan-host-validation.md) passes **1,773 tests, 13 documented
+external/native skips, 361.00 seconds**, with zero failures/errors. Sync, Ruff, formatting, mypy,
+foundation and offline build pass. Fresh ASan capability, native defect/fix and all three formerly
+failing integration cases pass without changing native settings. Original failed logs remain
+retained. T008/T030/T081 are complete; current count is **77/88 complete, 11 open**.
+
+The agent sandbox still cannot complete LeakSanitizer thread attachment. The compatible host
+result resolves the native validation need for that host context; neither the thirteen skips nor
+the three explicitly excluded native Fabro compiler cases count as readiness. Eligible target
+CodeQL, manual/mapping/profile/provenance review and protected human authority remain open.
+
+## Shared source include selection follow-up
+
+[The source include validation](source-include-validation.md) preserves the original 35 failing
+cases and the corrected focused native/contract checks. Comments, continued lines and `%:` can
+no longer hide literal external paths from shared input inspection. Native selected-header runs
+still diagnose the original defect and retain unchanged protected source/header bytes. Complete
+target/generated-input closure and human acceptance remain open; task count stays 77/88.
+## Fabro SOME/IP execution correction (2026-10-01)
+
+The user's continuation authorizes the bounded command-binding contract and real factory
+measurement demonstrator. T089–T092/T094 are complete with
+[retained evidence](../../docs/handoff/someip-84/factory/README.md); T093 remains incomplete.
+This is local operational draft execution, not native engineering plan acceptance.
+
+- Negative-first binding gate: six initial failures; separate resealed-IR binding substitution
+  fails before its integrity correction. Final binding/host gate: 21 passed.
+- Negative-first host handoff: three initial failures; native CLI auth parsing and incomplete
+  phase preservation pass after correction. The original user host failure remains retained.
+- Compiler/runtime regression: 258 passed; native compiler integration: four passed.
+- Frozen sync, Ruff, format, mypy (117 source files), foundation and offline build pass.
+  Initial Ruff/format failures are retained separately. Build uses the existing writable
+  copy of pinned cached backend dependencies; no network dependency fetch is claimed.
+- Actual pinned Fabro host run `01M3VZNAAQ1QXK5530X7E8HZ26` starts both bound commands;
+  expected baseline exit 1 with seven failures out of 13, external-candidate exit 0 with
+  zero failures out of 13. Both measurement stages succeed after checking the expectations.
+- Complete native export reproduces offline: 63 events, three checkpoints, nine blobs,
+  one unanswered question, zero human answers and no portable closure reason codes.
+  Native status is `blocked`, reason `human_input_required`. The fabric snapshot explicitly
+  retains `QUESTION_SUBJECT_UNKNOWN` for the operational configuration question.
+- The user's DeepSeek Flash/spending selection does not alter old disabled draft profiles,
+  authorize another provider, imply a successful live call, or create engineering acceptance.
+  Credentials, native agent binding/enforcement and usage/admission remain pending.
+
+The external candidate remains earlier direct Codex work. No collector receipt, engineering
+approval, qualification, complete native test suite or issue completion is inferred.

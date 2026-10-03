@@ -1,0 +1,103 @@
+{
+  "observed_at": "2026-10-02T09:38:10.341857+00:00",
+  "run_id": "01M3XZAQ65TTE35XSGXC4JAMAH",
+  "prepared_root": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs/score-someip84-factory-b2_8i2fs",
+  "native_status": {
+    "kind": "running"
+  },
+  "native_conclusion": null,
+  "native_timestamps": {
+    "created_at": "2026-10-02T09:32:36.421Z",
+    "started_at": "2026-10-02T09:32:36.834Z",
+    "last_event_at": "2026-10-02T09:38:10.256Z",
+    "completed_at": null
+  },
+  "stage_refs": [
+    "scope",
+    "start",
+    "invariants",
+    "callsites"
+  ],
+  "worker_pid": 785832,
+  "container_id": "506777c061a67ff0eb7636dfc293d17a9eb85aeb5181cbd5dc27f0064b31a798",
+  "container_running": true,
+  "container_networks": {},
+  "image_verified": true,
+  "model": [
+    {
+      "provider": "deepseek",
+      "name": "deepseek-v4-flash"
+    }
+  ],
+  "reasoning_effort": "high",
+  "fallbacks": [],
+  "single_pass": true,
+  "deadline": null,
+  "storage": {
+    "kind": "external_ssd",
+    "run_parent": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0/.s-core-build/runs",
+    "mount": "/media/jefferson/11c42dee-73a3-4c2b-ab42-a0440011d9e0",
+    "backing_uuid": "002B-CE31",
+    "backing_mount": "/media/jefferson/Lexar",
+    "filesystem": "exfat",
+    "free_bytes": 133885472768,
+    "rejected": [],
+    "policy": "mounted_external_ssd_first",
+    "schema_version": 1,
+    "mount_device": 1798
+  },
+  "collector_probe": [
+    {
+      "check": "compiler_diagnostics",
+      "status": "findings_or_execution_failure",
+      "blockers": [],
+      "command_exits": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "check": "focused_coverage",
+      "status": "completed",
+      "blockers": [],
+      "command_exits": [
+        0,
+        0,
+        0
+      ],
+      "coverage": {
+        "files": [
+          "score/socom/impl/service_identifier.cpp",
+          "score/socom/impl/string_registry.cpp"
+        ],
+        "production_filter": "score/socom/impl/",
+        "tests_and_third_party_excluded": true,
+        "line_total": 36,
+        "line_covered": 28,
+        "branch_total": 14,
+        "branch_covered": 9,
+        "line_percent": 77.8,
+        "branch_percent": 64.3,
+        "platform_goals": {
+          "QM": 85,
+          "safety": 100
+        },
+        "safety_class": "unknown_requires_authorized_selection",
+        "complete_target_scope": false
+      }
+    },
+    {
+      "check": "process_checks",
+      "status": "completed_with_blockers",
+      "blockers": [
+        "Lexical metadata inventory cannot prove semantic requirement coverage",
+        "Safety/QM applicability and approved tailoring unknown",
+        "Independent inspection and acceptance required",
+        "External AoU and full integration verification require scoped review"
+      ],
+      "command_exits": []
+    }
+  ],
+  "engineering_acceptance": "pending"
+}

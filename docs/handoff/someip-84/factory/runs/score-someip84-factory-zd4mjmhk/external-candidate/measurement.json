@@ -1,0 +1,24 @@
+{
+  "phase": "external-candidate",
+  "initiator": "Fabro native command stage",
+  "inputs_sha256": "1785d101d278cf11f386cad89b606172945df13c3898a2e09717bfb6b3be8cb2",
+  "source_commit": "f8a196c3b16d5172d898394ab99b0ed81346d63d",
+  "compiler": "/usr/bin/x86_64-linux-gnu-g++-12",
+  "exit_code": 0,
+  "tests": 13,
+  "failures": 0,
+  "engineering_acceptance": "pending",
+  "agent_implementation": "not_performed",
+  "outputs": {
+    "apply-external-patch.json": "7470a9b9044a2d872b9e27a168010cd496a64039ea299cfdac22fa3687eaaeb3",
+    "apply-external-patch.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "apply-external-patch.stdout": "88f30fb5284e11d2a2129831605b2642fcb7e52125615a310a1b2e43b840cf49",
+    "compile.json": "17b76821a597bef93b571b2cb025040664dbfcc6ff83e5eb98f791ddb35ecb48",
+    "compile.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compile.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "regression.json": "94a49b248ac1614e790039dcfb57258c02b796f1362f70555069c40a24086b3c",
+    "regression.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "regression.stdout": "9ccbb218806bbb7ab9057079d7fec172b6df24649b1f567b1c7f63cd0bbd353b",
+    "tests.json": "c7e530e10ba872bc3e10f1800dfb1b5ef60192516befe5b6f4a50da8ada08429"
+  }
+}

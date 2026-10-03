@@ -1,0 +1,2 @@
+src/score_sw_fabric/compiler/package.py:403:101: E501 Line too long (102 > 100)
+Found 1 error.

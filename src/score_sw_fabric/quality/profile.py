@@ -9,7 +9,8 @@ from typing import Any
 from score_sw_fabric.agents.models import relative_path, string_list
 from score_sw_fabric.assurance.models import exact, nonempty, sha, stable_id, version
 from score_sw_fabric.process_source.reader import InputError
-from score_sw_fabric.runtime.request import _no_links, parse_yaml
+from score_sw_fabric.quality.controls import yaml_tree
+from score_sw_fabric.runtime.request import _no_links
 
 PROFILE_FIELDS = {
     "id",
@@ -26,18 +27,23 @@ PROFILE_FIELDS = {
 TOOLCHAIN_FIELDS = {"id", "status", "tool", "dependencies", "library_dirs"}
 
 
-def absolute_file(value: Any, pointer: str) -> dict[str, Any]:
+def absolute_file(value: Any, pointer: str, *, check_paths: bool = True) -> dict[str, Any]:
     record = exact(value, {"path", "sha256"}, pointer)
     text = nonempty(record["path"], pointer + "/path", max_length=1024)
     if not text.startswith("/") or ".." in Path(text).parts or "\x00" in text:
         raise InputError("INPUT_PATH", "Tool paths must be absolute", pointer)
-    _no_links(Path(text), pointer)
+    if check_paths:
+        _no_links(Path(text), pointer)
     sha(record["sha256"], pointer + "/sha256")
     return record
 
 
 def load_profile(data: bytes) -> dict[str, Any]:
-    p = version(parse_yaml(data, "/profile"), "quality_profile", PROFILE_FIELDS, "/profile")
+    value = yaml_tree(data, "/profile")
+    fields = PROFILE_FIELDS
+    if isinstance(value, dict) and "installed_context" in value:
+        fields = fields | {"installed_context"}
+    p = version(value, "quality_profile", fields, "/profile")
     stable_id(p["id"], "/profile/id")
     nonempty(p["status"], "/profile/status", max_length=64)
     if (
@@ -83,34 +89,56 @@ def load_profile(data: bytes) -> dict[str, Any]:
             if identifier in ids:
                 raise InputError("DUPLICATE_ID", "Duplicate tool")
             ids.add(identifier)
-            if item["state"] not in {"candidate", "unimplemented", "unavailable", "unknown"}:
+            if not isinstance(item["state"], str) or item["state"] not in {
+                "candidate",
+                "unimplemented",
+                "unavailable",
+                "unknown",
+            }:
                 raise InputError("FIELD_ENUM", "Unknown tool state")
-            if key == "analyzers" and item["role"] not in {"primary", "complementary"}:
+            if key == "analyzers" and (
+                not isinstance(item["role"], str)
+                or item["role"] not in {"primary", "complementary"}
+            ):
                 raise InputError("FIELD_ENUM", "Unknown tool role")
+    if len(p["analyzers"]) + len(p["sanitizers"]) > 32:
+        raise InputError(
+            "LIMIT_EXCEEDED", "Too many selected tools across analyzer/sanitizer modes"
+        )
     if not any(a["id"] == "clang-tidy" and a["role"] == "complementary" for a in p["analyzers"]):
         raise InputError("PROFILE_FIELD", "Clang-Tidy must remain complementary")
+    if "installed_context" in p:
+        from score_sw_fabric.quality.installed_context import validate
+
+        validate(p["installed_context"])
     return p
 
 
-def load_toolchain(data: bytes, kind: str = "quality_toolchain_profile") -> dict[str, Any]:
-    p = version(parse_yaml(data, "/toolchain"), kind, TOOLCHAIN_FIELDS, "/toolchain")
+def load_toolchain(
+    data: bytes, kind: str = "quality_toolchain_profile", *, check_paths: bool = True
+) -> dict[str, Any]:
+    p = version(yaml_tree(data, "/toolchain"), kind, TOOLCHAIN_FIELDS, "/toolchain")
     stable_id(p["id"], "/toolchain/id")
     nonempty(p["status"], "/toolchain/status", max_length=64)
     tool = exact(p["tool"], {"path", "sha256", "version"}, "/tool")
-    absolute_file({"path": tool["path"], "sha256": tool["sha256"]}, "/tool")
+    absolute_file(
+        {"path": tool["path"], "sha256": tool["sha256"]}, "/tool", check_paths=check_paths
+    )
     nonempty(tool["version"], "/tool/version", max_length=256)
+    if kind == "quality_codeql_toolchain_profile" and tool["version"] != "2.21.4":
+        raise InputError("VERSION_UNSUPPORTED", "Selected CodeQL CLI version differs")
     deps = p["dependencies"]
     if not isinstance(deps, list) or len(deps) > 32:
         raise InputError("LIMIT_EXCEEDED", "Too many runtime assets")
     paths = []
     for dep in deps:
-        paths.append(absolute_file(dep, "/dependencies")["path"])
+        paths.append(absolute_file(dep, "/dependencies", check_paths=check_paths)["path"])
     if len(set(paths)) != len(paths):
         raise InputError("DUPLICATE_ID", "Duplicate runtime asset")
     dirs = string_list(p["library_dirs"], "/library_dirs", limit=8)
     for d in dirs:
-        absolute_file({"path": d, "sha256": "0" * 64}, "/library_dirs")
-        if not Path(d).is_dir():
+        absolute_file({"path": d, "sha256": "0" * 64}, "/library_dirs", check_paths=check_paths)
+        if check_paths and not Path(d).is_dir():
             raise InputError("INPUT_NOT_DIRECTORY", "Library directory is unavailable")
     if kind == "quality_toolchain_profile" and any(
         not any(Path(d).is_relative_to(Path(lib)) for lib in dirs) for d in paths

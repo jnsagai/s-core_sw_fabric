@@ -1,0 +1,15 @@
+schema_version: 1
+kind: quality_codeql_capability_request
+profile:
+  path: /home/jefferson/s-core_sw_fabric/profiles/s-core-quality-v1.yaml
+  sha256: c15507fb7047ccc45bb8a830f2af686879b9c38507e4589b65b1ed275ca3dd39
+toolchain:
+  path: /home/jefferson/s-core_sw_fabric/profiles/codeql2214-local-v1.yaml
+  sha256: db65706b7182e4f3532c0609f5f4d1fb30788ffcae712ce80b0a3e8aedef4d11
+config:
+  path: /home/jefferson/s-core_sw_fabric/profiles/codeql261-prerequisites-local-v1.yaml
+  sha256: bf9af95c9e775360e7ad1ce2e9da6de6f6a53748e77e47fd41bedd60de862ce7
+timeout_seconds: 30
+output_limit_bytes: 1048576
+protected_roots:
+- /home/jefferson/s-core_sw_fabric

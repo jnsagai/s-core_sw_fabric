@@ -1,0 +1,3 @@
+2026-10-01T14:43:22.494640Z  INFO fabro_server::server: Slack integration disabled by server configuration
+  × Operation not permitted (os error 1)
+

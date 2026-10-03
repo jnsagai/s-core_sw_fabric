@@ -1,0 +1,79 @@
+{
+  "checks": {
+    "sections": [
+      {
+        "checks": [
+          {
+            "details": [
+              {
+                "text": "Setup commands: 0",
+                "warn": false
+              },
+              {
+                "text": "Git: unknown",
+                "warn": false
+              }
+            ],
+            "name": "Repository",
+            "status": "pass",
+            "summary": "unknown"
+          },
+          {
+            "details": [
+              {
+                "text": "Nodes: 99",
+                "warn": false
+              },
+              {
+                "text": "Edges: 194",
+                "warn": false
+              },
+              {
+                "text": "Goal: Execute reviewed S-CORE obligations",
+                "warn": false
+              }
+            ],
+            "name": "Workflow",
+            "status": "pass",
+            "summary": "SCoreWorkflow"
+          },
+          {
+            "details": [
+              {
+                "text": "Provider: local",
+                "warn": false
+              }
+            ],
+            "name": "Sandbox",
+            "status": "pass",
+            "summary": "local"
+          }
+        ],
+        "title": ""
+      }
+    ],
+    "title": "Run Preflight"
+  },
+  "ok": true,
+  "workflow": {
+    "diagnostics": [
+      {
+        "message": "`[run.run_branch]` in `workflow/workflow.toml` is ignored: the standalone runner performs no Git operations of its own",
+        "rule": "ignored.workflow_toml.run.run_branch",
+        "severity": "warning",
+        "source_path": "workflow/workflow.toml"
+      },
+      {
+        "message": "`[environments.default.image]` in `workflow/workflow.toml` is ignored: the `local` provider runs on the host; an image applies to `docker` and `daytona`",
+        "rule": "ignored.workflow_toml.environments.default.image",
+        "severity": "warning",
+        "source_path": "workflow/workflow.toml"
+      }
+    ],
+    "edges": 194,
+    "goal": "Execute reviewed S-CORE obligations",
+    "graph_path": "workflow/workflow.fabro",
+    "name": "SCoreWorkflow",
+    "nodes": 99
+  }
+}

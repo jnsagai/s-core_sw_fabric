@@ -1,0 +1,13 @@
+{
+  "compiled_package_sha256": "e3cda3f08fc0d58035f729bde36a8abe59dbb7b18fcd691dab36f39903dad689",
+  "dependencies": {
+    "guard_agent_tools.py": "55cefeb2f105a9bb43154f331e5940c5ea799a66be43473a7380a88cefd4691f",
+    "isolate_docker.py": "0e0ee6f9ce2d2e0303ec53eea3c9c2880d024c6167fad83b1a802a8be17535e4",
+    "measure.py": "6c1e0a4270e55f4a8c3bdee660e36901f6d2f675d008b9ba84022bc95c83da0f",
+    "measurement-inputs.json": "16ea6eee16764478605a261e3bf3182e3fc77f30c30c871d38859e9ac2bafd20"
+  },
+  "entrypoint_sha256": "c70594ddad596c1c5e6798d13d4af37443ef18165870538679871689e4b472d2",
+  "hook_sha256": "4238bbefc9404c9bc03a2516436b6052cfa1fe0b9e310a7260fbb4fb8cd458d7",
+  "policy_sha256": "6d4207ba374b9caac2bae4f5f7817c3f087e9e02d18baa5e0ea39692cbb9926f",
+  "workflow_sha256": "279f244f90303cd05e485da2a44aa94ade5dbe00abb79eacb9d9f0ed119fba04"
+}

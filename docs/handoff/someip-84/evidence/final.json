@@ -1,0 +1,172 @@
+{
+  "tests": 13,
+  "failures": 0,
+  "disabled": 0,
+  "errors": 0,
+  "timestamp": "2026-10-01T13:42:00Z",
+  "time": "0s",
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "ServiceInstanceIdentifierTest",
+      "tests": 4,
+      "failures": 0,
+      "disabled": 0,
+      "errors": 0,
+      "timestamp": "2026-10-01T13:42:00Z",
+      "time": "0s",
+      "testsuite": [
+        {
+          "name": "DifferentServiceIdsUseDistinctRegistrationSlots",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 53,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "ServiceInstanceIdentifierTest"
+        },
+        {
+          "name": "DifferentMajorVersionsUseDistinctRegistrationSlots",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 64,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "ServiceInstanceIdentifierTest"
+        },
+        {
+          "name": "DifferentInstancesUseDistinctRegistrationSlots",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 79,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "ServiceInstanceIdentifierTest"
+        },
+        {
+          "name": "SlotCanBeReusedWithNewMinorVersionAfterRemoval",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 88,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "ServiceInstanceIdentifierTest"
+        }
+      ]
+    },
+    {
+      "name": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest",
+      "tests": 9,
+      "failures": 0,
+      "disabled": 0,
+      "errors": 0,
+      "timestamp": "2026-10-01T13:42:00Z",
+      "time": "0s",
+      "testsuite": [
+        {
+          "name": "MinorVersionsUseSameRegistrationSlot\/0",
+          "value_param": "(0, 0)",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 34,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest"
+        },
+        {
+          "name": "MinorVersionsUseSameRegistrationSlot\/1",
+          "value_param": "(0, 1)",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 34,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest"
+        },
+        {
+          "name": "MinorVersionsUseSameRegistrationSlot\/2",
+          "value_param": "(0, 65535)",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 34,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest"
+        },
+        {
+          "name": "MinorVersionsUseSameRegistrationSlot\/3",
+          "value_param": "(1, 0)",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 34,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest"
+        },
+        {
+          "name": "MinorVersionsUseSameRegistrationSlot\/4",
+          "value_param": "(1, 1)",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 34,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest"
+        },
+        {
+          "name": "MinorVersionsUseSameRegistrationSlot\/5",
+          "value_param": "(1, 65535)",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 34,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest"
+        },
+        {
+          "name": "MinorVersionsUseSameRegistrationSlot\/6",
+          "value_param": "(65535, 0)",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 34,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest"
+        },
+        {
+          "name": "MinorVersionsUseSameRegistrationSlot\/7",
+          "value_param": "(65535, 1)",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 34,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest"
+        },
+        {
+          "name": "MinorVersionsUseSameRegistrationSlot\/8",
+          "value_param": "(65535, 65535)",
+          "file": "score\/socom\/test\/unit\/service_identifier_tests.cpp",
+          "line": 34,
+          "status": "RUN",
+          "result": "COMPLETED",
+          "timestamp": "2026-10-01T13:42:00Z",
+          "time": "0s",
+          "classname": "MinorVersionBoundaries\/ServiceInstanceIdentifierMinorVersionTest"
+        }
+      ]
+    }
+  ]
+}

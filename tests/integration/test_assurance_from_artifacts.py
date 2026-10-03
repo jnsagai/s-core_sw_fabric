@@ -618,8 +618,12 @@ def test_public_verify_exits_for_replay_mismatch_and_malformed_input(
 ) -> None:
     import subprocess
 
+    from score_sw_fabric import storage
     from score_sw_fabric.assurance.models import seal
     from score_sw_fabric.catalog.export import canonical
+
+    selected_storage = storage.select_storage()
+    monkeypatch.setattr(storage, "select_storage", lambda: selected_storage)
 
     def forbidden(*_args: object, **_kwargs: object) -> object:
         raise AssertionError("Offline verifier invoked an external runtime")

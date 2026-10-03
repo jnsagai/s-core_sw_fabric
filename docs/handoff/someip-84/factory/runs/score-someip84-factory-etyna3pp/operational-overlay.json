@@ -1,0 +1,13 @@
+{
+  "compiled_package_sha256": "895b2c9644a4ed57362c0503920a86a2c2acdd178a471e60c76e6947f78e639e",
+  "docker_image_id": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+  "image_identity_check": "recorded_identity_only; live check required",
+  "model": "deepseek-flash",
+  "native_entrypoint_sha256": "a3b9e2d8a19928c738562bd9638871607ba4ad76e38b0b381b799f3d239d41f5",
+  "provider": "deepseek",
+  "purpose": "High reasoning with disposable 32768-event Petri capacity; Docker isolation, denied network and file-only hook",
+  "reasoning_effort": "high",
+  "sandbox_hook_sha256": "878076828ecb6f479e17aa9c13fd6357bc3d84ff7699ef7ad208bb98af04b187",
+  "status": "pending_live_admission",
+  "tool_hook_sha256": "55cefeb2f105a9bb43154f331e5940c5ea799a66be43473a7380a88cefd4691f"
+}

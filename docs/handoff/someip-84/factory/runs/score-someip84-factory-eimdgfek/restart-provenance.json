@@ -1,0 +1,7 @@
+{
+  "previous_run": "01M3WX09X84XFM5X08QY2944DF",
+  "preserved_from": "/tmp/score-someip84-factory-81ibm9qq/cutoff-workspace",
+  "user_direction": "now run the queue that failed; one complete pass",
+  "model": "deepseek-flash",
+  "scope": "all prior S-CORE obligations and additional checks; engineering acceptance pending"
+}

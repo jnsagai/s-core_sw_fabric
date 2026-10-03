@@ -1,0 +1,13 @@
+{
+  "run_id": "01M3YGTGYFEN406VDEVVTJTRWV",
+  "exit_code": 0,
+  "observer_state": {
+    "phase": "finished",
+    "native_status": "failed"
+  },
+  "incidents_created": false,
+  "observer_sha256": "dad205f6db0cce7969a56f9f1272e77e0dc256a91c9337ac701ed6a8f8cf997c",
+  "full_projection_bytes": 4592494,
+  "read_limit_unchanged_bytes": 4194304,
+  "engineering_acceptance": "pending"
+}

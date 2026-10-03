@@ -1,0 +1,38 @@
+schema_version: 1
+kind: quality_codeql_configuration
+id: codeql261-prerequisites-local-v1
+status: proposed_owner_review_pending
+source_lock:
+  path: /home/jefferson/s-core_sw_fabric/upstream.lock.yaml
+  sha256: 00bb9e6ee5e9ceb72578211e49cf6855306582e9024070ef1d200a8ae37ef828
+source_root: /tmp/s-core-foundation/references/codeql-coding-standards
+build_source_root: /tmp/quality-010-codeql-reconcile
+compiled_pack_root: /home/jefferson/.local/share/s-core-tools/codeql-coding-standards-2.61.0
+suite: codeql-suites/misra-cpp-default.qls
+scan_config:
+  path: /tmp/s-core-foundation/references/time/tools/static_analysis/config.yaml
+  sha256: 31b56a258fefa61b321653e2450931758c8698dc76253c0ef7b4ebc65907d536
+report_patch:
+  path: /tmp/s-core-foundation/references/time/third_party/codeql/codeql_coding_standards_misra.patch
+  sha256: c45662cdc8845c11fb9d71d153eee5c22d9f3421e245791b249392e7f8f3ea08
+native_sources:
+- id: scan_config
+  repository: https://github.com/eclipse-score/time
+  commit: 3723ce687e4abc7d6cb4c0efdbbd30455ed7c303
+  path: tools/static_analysis/config.yaml
+  sha256: 31b56a258fefa61b321653e2450931758c8698dc76253c0ef7b4ebc65907d536
+  native_status: source example; proposed selection; owner review pending
+  license: Apache-2.0
+  notice: Preserve original upstream copyright/LICENSE/NOTICE; reference source remains
+    read only.
+- id: report_patch
+  repository: https://github.com/eclipse-score/time
+  commit: 3723ce687e4abc7d6cb4c0efdbbd30455ed7c303
+  path: third_party/codeql/codeql_coding_standards_misra.patch
+  sha256: c45662cdc8845c11fb9d71d153eee5c22d9f3421e245791b249392e7f8f3ea08
+  native_status: source example; proposed selection; owner review pending
+  license: Apache-2.0
+  notice: Preserve original upstream copyright/LICENSE/NOTICE; reference source remains
+    read only.
+reporting_toolchain: null
+eligibility: null

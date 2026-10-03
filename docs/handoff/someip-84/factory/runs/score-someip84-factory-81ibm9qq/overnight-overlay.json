@@ -1,0 +1,15 @@
+{
+  "compiled_package_sha256": "1c72e8e94488ec0ae99414e09acd7b40ba603ecd92292df2a861586b2f5e225b",
+  "dependencies": {
+    "collect_obligations.py": "b36ab3ee759e99c4a57427edb672275ca5ee6ae048e13622ceb7012d88027da7",
+    "guard_agent_tools.py": "55cefeb2f105a9bb43154f331e5940c5ea799a66be43473a7380a88cefd4691f",
+    "isolate_docker.py": "0e0ee6f9ce2d2e0303ec53eea3c9c2880d024c6167fad83b1a802a8be17535e4",
+    "measure.py": "6c1e0a4270e55f4a8c3bdee660e36901f6d2f675d008b9ba84022bc95c83da0f",
+    "measurement-inputs.json": "7706d81f021e4edab0291c89da989961b1cc090c5d8ff6f4133efb20c276dcf2",
+    "obligations.py": "252a8521fdd5b7225daf37597933bd868fc4d69ec2a80755e619d3272577e467"
+  },
+  "entrypoint_sha256": "f66f96b87adc0ca4e60b4b1116cebebbc5043a0d5b1d5bd72a6d268cf7de36b1",
+  "hook_sha256": "17d65b3d75756cf6a307f0076d42410ea0362bb0b1945d12559eda755c68e80c",
+  "policy_sha256": "ec2b80141d1f4aeb670a9ec0fc2b8687f37a1978ea02ad1d9af89d9ace503c94",
+  "workflow_sha256": "efd05c02719bf10c45fe5e4d2c03eb674fe48c018a58dff2b72942d2034cef83"
+}

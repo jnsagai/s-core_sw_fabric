@@ -2,6 +2,11 @@
 
 All schemas use JSON Schema draft 2020-12 and exact integer `schema_version: 1`.
 
+`quality-profile` accepts the strict optional `quality-installed-context` section for candidate
+toolchains, original notice bytes and CodeQL source/build discrepancy. Its presence does not
+qualify/select tools or establish eligibility. Historical profiles without it remain valid;
+runtime validation also enforces original notice SHA/size and candidate ID uniqueness.
+
 - `source-manifest.schema.json` and `catalogue.schema.json` define the 001 import boundary.
 - `intake.schema.json`, `planning-profile.schema.json`,
   `applicability-mapping.schema.json`, `artifact-inventory.schema.json`, and
@@ -113,3 +118,22 @@ supporting 005 replay/exact packet binding and current fixture disposition valid
 evaluation and offline replay preserve unknown denominator/freshness and missing primary/manual/
 authority blockers. Overall pass is unavailable under the supported unmapped profile; accepted
 claims remain zero and all engineering reviews remain pending.
+
+Increment 010 adds explicit CodeQL capability/run request, toolchain, reporting-toolchain,
+configuration and inventory/run schemas. These records measure prerequisites through bounded
+Git object and installed-file inspection. `local_unprotected_inspection` cannot substitute for
+analysis execution: outcomes remain unavailable, extraction unknown, eligibility unverified
+and accepted claims zero. Original controls, suite filters, native statuses and notices are
+retained; matching source trees do not verify compiled artifact provenance.
+
+CodeQL disposition request/review kinds retain unavailable inspection with unresolved states.
+The packet and 005 binding schemas include these distinct variants and CodeQL toolchain context.
+Existing local record shapes are preserved; corrected and accepted CodeQL inspection states
+are unavailable. [Contract and verification](../specs/010-misra-quality-and-deviations/codeql-dispositions-acceptance.md).
+
+The fixed public CodeQL software demonstration has distinct
+`quality-codeql-demonstration-request.schema.json` and
+`quality-codeql-demonstration-run.schema.json` contracts. It accepts no target source selection;
+its diagnostic native objects and original raw artifacts remain intact. Existing capability/run
+inspection records retain their exact shapes and unresolved engineering status. See the
+[exact demonstration contract](../specs/010-misra-quality-and-deviations/contracts/codeql-demonstration.md).

@@ -26,13 +26,23 @@ def index_value(value: Any, items: list[Any]) -> int:
 
 
 class Locations:
-    def __init__(self, run: dict[str, Any], root: Path, files: dict[str, bytes]) -> None:
+    def __init__(
+        self,
+        run: dict[str, Any],
+        root: Path,
+        files: dict[str, bytes],
+        *,
+        source_root_base: str | None = None,
+    ) -> None:
         self.run, self.root, self.files = run, root, files
         self.artifacts = bounded_list(run.get("artifacts", []), 10000, "/sarif/artifacts")
         self.logical = bounded_list(
             run.get("logicalLocations", []), 10000, "/sarif/logicalLocations"
         )
-        self.bases = object_value(run.get("originalUriBaseIds", {}))
+        self.bases = dict(object_value(run.get("originalUriBaseIds", {})))
+        if source_root_base is not None:
+            # Explicit consumer context takes precedence (SARIF §3.4.4).
+            self.bases[source_root_base] = {"uri": root.as_uri() + "/"}
         if len(self.bases) > 32:
             raise InputError("LIMIT_EXCEEDED", "Too many URI bases")
         self.column_kind = choice(
@@ -86,7 +96,15 @@ class Locations:
             if index in seen or len(seen) >= 32:
                 raise InputError("NATIVE_REFERENCE_UNRESOLVED", "Cyclic artifact index")
             descriptor = object_value(self.artifacts[index])
-            resolved = self.artifact(descriptor.get("location"), (*seen, index))
+            location = object_value(descriptor.get("location"))
+            if "index" in location:
+                # SARIF 2.1.0 §3.4.5 permits a descriptor's own array index.
+                if index_value(location["index"], self.artifacts) != index:
+                    raise InputError(
+                        "NATIVE_REFERENCE_UNRESOLVED", "Descriptor index differs from its row"
+                    )
+                location = {key: value for key, value in location.items() if key != "index"}
+            resolved = self.artifact(location, (*seen, index))
             hashes = object_value(descriptor.get("hashes", {}))
             if "sha-256" in hashes and hashes["sha-256"] != digest(self.files[resolved]):
                 raise InputError("BASELINE_DRIFT", "Embedded artifact source hash differs")
@@ -154,6 +172,8 @@ class Locations:
                 raise InputError("NATIVE_LOCATION_UNRESOLVED", "Region exceeds frozen source lines")
         for prefix in ("start", "end"):
             line, column = region.get(prefix + "Line"), region.get(prefix + "Column")
+            if prefix == "end" and line is None:
+                line = region.get("startLine")  # SARIF 2.1.0 §3.30.7.
             if column is not None:
                 if line is None:
                     raise InputError("NATIVE_OUTPUT_UNSUPPORTED", "Column without its line")
@@ -304,7 +324,13 @@ def message_value(
 
 
 def parse_report(
-    data: bytes, artifact_id: str, root: Path, files: dict[str, bytes], identity: dict[str, Any]
+    data: bytes,
+    artifact_id: str,
+    root: Path,
+    files: dict[str, bytes],
+    identity: dict[str, Any],
+    *,
+    source_root_base: str | None = None,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     try:
         document = object_value(parse_json(data, "/sarif"))
@@ -344,7 +370,7 @@ def parse_report(
             observed[name] = ext.get("semanticVersion", ext.get("version"))
         if observed != {p["name"]: p["version"] for p in declared}:
             raise InputError("QUERY_PACK_IDENTITY_MISMATCH", "Native extension selection differs")
-        locations = Locations(run, root, files)
+        locations = Locations(run, root, files, source_root_base=source_root_base)
         # Validate all indexed descriptor paths, even if no result references them.
         for index in range(len(locations.artifacts)):
             locations.artifact({"index": index})

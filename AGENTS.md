@@ -6,6 +6,15 @@ Read `.specify/memory/constitution.md`, the active `specs/<increment>/` and
 
 - Preserve user work, including the original brief. Never write/build in reference
   repositories. Use disposable copies for native builds; inspect hooks first.
+- Fabric-wide storage rule: prefer a mounted, writable external SSD for new
+  disposable workspaces, native builds, analysis scratch and tool caches; fall back
+  to internal storage when none is suitable. Use `score_sw_fabric.storage` and
+  `score-fabric storage` across all features. Honor explicit artifact destinations.
+  Require measured Linux filesystem capabilities; use a registered Linux build
+  image on incompatible filesystems without reformatting existing disks or files.
+  Bind each workspace to its selected volume; stop on disconnection rather than
+  silently relocating active work. Keep credentials and private server state on
+  internal storage. Do not migrate running queues or alter global tool storage.
 - Spec Kit controls fabric development. S-CORE owns target semantics and native
   artifacts. Fabro owns execution and run state. APM/MCP provides context/tools.
 - Source locks are reviewed baselines. Unknown capability or applicability remains

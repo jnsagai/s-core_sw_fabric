@@ -1,0 +1,7 @@
+{
+  "engineering_acceptance": "pending",
+  "error": "[Errno 2] No such file or directory: '/tmp/score-someip84-factory-j5k5lpai/target/.llm_tmp/external-candidate'",
+  "exception": "FileNotFoundError",
+  "fabro_run_created": true,
+  "live_agent_implementation": "not_performed"
+}

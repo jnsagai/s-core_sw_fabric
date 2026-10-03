@@ -1,0 +1,12 @@
+{
+  "origin": "component_verification_with_stub_Docker",
+  "passed": 3,
+  "checks": [
+    "own",
+    "foreign",
+    "two-owned"
+  ],
+  "foreign_container_mutations": 0,
+  "live_concurrency": "not_verified",
+  "engineering_acceptance": "pending"
+}

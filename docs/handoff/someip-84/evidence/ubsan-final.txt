@@ -1,0 +1,38 @@
+Running main() from .llm_tmp/googletest/googletest/src/gtest_main.cc
+[==========] Running 13 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from ServiceInstanceIdentifierTest
+[ RUN      ] ServiceInstanceIdentifierTest.DifferentServiceIdsUseDistinctRegistrationSlots
+[       OK ] ServiceInstanceIdentifierTest.DifferentServiceIdsUseDistinctRegistrationSlots (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DifferentMajorVersionsUseDistinctRegistrationSlots
+[       OK ] ServiceInstanceIdentifierTest.DifferentMajorVersionsUseDistinctRegistrationSlots (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.DifferentInstancesUseDistinctRegistrationSlots
+[       OK ] ServiceInstanceIdentifierTest.DifferentInstancesUseDistinctRegistrationSlots (0 ms)
+[ RUN      ] ServiceInstanceIdentifierTest.SlotCanBeReusedWithNewMinorVersionAfterRemoval
+[       OK ] ServiceInstanceIdentifierTest.SlotCanBeReusedWithNewMinorVersionAfterRemoval (0 ms)
+[----------] 4 tests from ServiceInstanceIdentifierTest (0 ms total)
+
+[----------] 9 tests from MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/0
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/0 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/1
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/1 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/2
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/2 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/3
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/3 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/4
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/4 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/5
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/5 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/6
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/6 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/7
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/7 (0 ms)
+[ RUN      ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/8
+[       OK ] MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest.MinorVersionsUseSameRegistrationSlot/8 (0 ms)
+[----------] 9 tests from MinorVersionBoundaries/ServiceInstanceIdentifierMinorVersionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 13 tests from 2 test suites ran. (0 ms total)
+[  PASSED  ] 13 tests.

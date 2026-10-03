@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Any
 from unittest.mock import patch
 
 import pytest
@@ -13,7 +14,8 @@ from score_sw_fabric.cli import main
 from score_sw_fabric.process_source.reader import InputError
 from score_sw_fabric.quality.complementary import capabilities
 from score_sw_fabric.quality.cppcheck import parse_report
-from score_sw_fabric.quality.models import load_inputs
+from score_sw_fabric.quality.models import Budget, load_inputs
+from score_sw_fabric.quality.sanitizers import build_and_execute
 from tests.quality_support import ROOT, complementary_request, ref
 
 
@@ -131,3 +133,41 @@ def test_missing_selected_runtime_is_unavailable(tmp_path: Path) -> None:
         code, record, _, _ = capabilities(path, "ubsan")
     assert code == 1 and record["capability"]["state"] == "unavailable"
     assert "CAPABILITY_UNAVAILABLE" in record["gaps"]
+
+
+@pytest.mark.parametrize("exit_code", [0, 55])
+@pytest.mark.parametrize("with_finding", [False, True])
+def test_leak_runtime_failure_blocks_even_success_or_address_finding(
+    tmp_path: Path, exit_code: int, with_finding: bool
+) -> None:
+    selected = load_inputs(complementary_request(tmp_path, "asan"), "run", "asan")
+    work = tmp_path / "work"
+    work.mkdir()
+    budget = Budget(1024 * 1024)
+    stderr = b"LeakSanitizer has encountered a fatal error.\n"
+    stderr += b"HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)\n"
+    if with_finding:
+        stderr += b"ERROR: AddressSanitizer: heap-buffer-overflow\n"
+
+    def phase(name: str, argv: list[str], *args: Any) -> dict[str, Any]:
+        if name != "runtime":
+            Path(argv[argv.index("-o") + 1]).write_bytes(b"fixture-build-artifact")
+        return {
+            "name": name,
+            "exit_code": exit_code if name == "runtime" else 0,
+            "timed_out": False,
+            "error": None,
+            "stdout": budget.capture(b""),
+            "stderr": budget.capture(stderr if name == "runtime" else b""),
+        }
+
+    with patch("score_sw_fabric.quality.sanitizers.execute", side_effect=phase):
+        phases, artifacts, findings, processed, gaps = build_and_execute(
+            selected, work, budget, ["check.cpp"], selected.data
+        )
+    assert processed == []
+    assert "SANITIZER_RUNTIME_INCOMPLETE" in gaps
+    assert "LEAK_SANITIZER_RUNTIME_FAILED" in gaps
+    assert "LEAK_SANITIZER_PTRACE_UNSUPPORTED" in gaps
+    assert bool(findings) is with_finding
+    assert len(phases) == 3 and artifacts[0]["base64"] == phases[-1]["stderr"]["base64"]

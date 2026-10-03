@@ -1,0 +1,13 @@
+Initializing database at /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/codeql-db.
+Running build command: [bash, .llm_tmp/compile-native.sh]
+Running command in /home/jefferson/s-core_sw_fabric/.tools/someip-84/work: [bash, .llm_tmp/compile-native.sh]
+Finalizing database at /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/codeql-db.
+Running pre-finalize script /home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/cpp/tools/pre-finalize.sh in /home/jefferson/s-core_sw_fabric/.tools/someip-84/work.
+Running command in /home/jefferson/s-core_sw_fabric/.tools/someip-84/work: [/home/jefferson/.local/share/s-core-tools/codeql-2.21.4/codeql/cpp/tools/pre-finalize.sh]
+Running TRAP import for CodeQL database at /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/codeql-db...
+Importing TRAP files
+Merging relations
+Finished writing database (relations: 3.96 MiB; string pool: 5.53 MiB).
+TRAP import complete (3.1s).
+Finished zipping source archive (1.11 MiB).
+Successfully created database at /home/jefferson/s-core_sw_fabric/.tools/someip-84/work/.llm_tmp/codeql-db.

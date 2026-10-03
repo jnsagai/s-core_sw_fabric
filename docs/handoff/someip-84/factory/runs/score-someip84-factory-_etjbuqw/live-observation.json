@@ -1,0 +1,83 @@
+{
+  "run_id": "01M3WSTF1DAJA248NQ5QQGQG52",
+  "status": {
+    "kind": "running"
+  },
+  "observed_at": "2026-10-01T22:39:16.937516+00:00",
+  "stages": {
+    "node_53e4d71026616ad83debc1dd@1": {
+      "handler": "agent",
+      "state": "running",
+      "output": "warn: No usable model fallbacks remain for requested model `deepseek-v4-flash` after filtering its configured candidates.\n"
+    },
+    "start@1": {
+      "handler": "start",
+      "state": "succeeded",
+      "output": "checkout: [run.clone] is disabled; the workspace starts empty\n"
+    }
+  },
+  "model": {
+    "provider": "deepseek",
+    "name": "deepseek-flash",
+    "fallbacks": {
+      "deepseek-flash": []
+    },
+    "controls": {
+      "reasoning_effort": "high",
+      "speed": null
+    }
+  },
+  "environment": {
+    "id": "someip84",
+    "provider": "docker",
+    "image": {
+      "docker": "python:3.11-slim-bookworm",
+      "dockerfile": null
+    },
+    "resources": {
+      "cpu": null,
+      "memory": null,
+      "disk": null
+    },
+    "network": {
+      "mode": "block",
+      "allow": []
+    },
+    "lifecycle": {
+      "preserve": true,
+      "stop_on_terminal": true,
+      "auto_stop": null
+    },
+    "labels": {},
+    "env": {}
+  },
+  "sandbox": {
+    "kind": "ready",
+    "plan": {
+      "provider": "docker",
+      "image": "python:3.11-slim-bookworm"
+    },
+    "instance": {
+      "provider": "docker",
+      "image": "score-someip84-agent:20261001",
+      "runtime": {
+        "id": "9ecafd9a89099cc37af9b0c2af2026070d80c23d468591b1528bfcbf8c72584a",
+        "working_directory": "/workspace"
+      },
+      "ready_duration_ms": 343
+    }
+  },
+  "container": {
+    "image_id": "sha256:d762acf09b6cafe166c68c6b44293fdd658510379562f21c17d78eba007d6ce4",
+    "labels": {
+      "petri.lease": "0",
+      "petri.run": "01M3WSTF1DAJA248NQ5QQGQG52",
+      "petri.workspace": "01M3WSTF1DAJA248NQ5QQGQG52/invocation-0-scope-0",
+      "sh.sandbox-driver.managed": "true"
+    },
+    "networks": {}
+  },
+  "preflight_scope": "Client preflight uses seeded default, reports local; native create resolves server-managed someip84 Docker environment. Actual ready container checked separately.",
+  "engineering_acceptance": "pending",
+  "first_report": "scope.md exists; first agent stage still running at observation"
+}

@@ -1,0 +1,56 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+________________ test_native_cli_reads_private_disposable_auth _________________
+
+tmp_path = PosixPath('/tmp/pytest-of-jefferson/pytest-734/test_native_cli_reads_private_0')
+handoff = <module 'run_host' from '/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/factory/run_host.py'>
+
+    def test_native_cli_reads_private_disposable_auth(
+        tmp_path: Path, handoff: Any
+    ) -> None:
+        binary = Path("/tmp/score-fabro-build-kDgEvg/target/debug/fabro")
+        if not binary.exists():
+            pytest.skip("Pinned rebuilt Fabro is unavailable")
+        token = "fabro_dev_" + "b" * 64
+>       path = handoff.cli_auth_file(tmp_path, "http://127.0.0.1:43913", token)
+               ^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'run_host' has no attribute 'cli_auth_file'
+
+tests/contract/test_someip_factory_handoff.py:30: AttributeError
+______________ test_missing_phase_keeps_available_original_bytes _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-jefferson/pytest-734/test_missing_phase_keeps_avail0')
+handoff = <module 'run_host' from '/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/factory/run_host.py'>
+
+    def test_missing_phase_keeps_available_original_bytes(tmp_path: Path, handoff: Any) -> None:
+        source = tmp_path / "target/.llm_tmp/baseline"
+        source.mkdir(parents=True)
+        (source / "regression.stderr").write_bytes(b"original\x00bytes\n")
+        dest = tmp_path / "evidence"
+        dest.mkdir()
+>       result = handoff.collect_measurements(tmp_path, dest)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'run_host' has no attribute 'collect_measurements'
+
+tests/contract/test_someip_factory_handoff.py:49: AttributeError
+_________ test_partial_measurements_cannot_count_as_factory_validation _________
+
+tmp_path = PosixPath('/tmp/pytest-of-jefferson/pytest-734/test_partial_measurements_cann0')
+handoff = <module 'run_host' from '/home/jefferson/s-core_sw_fabric/docs/handoff/someip-84/factory/run_host.py'>
+
+    def test_partial_measurements_cannot_count_as_factory_validation(tmp_path: Path, handoff: Any) -> None:
+        source = tmp_path / "target/.llm_tmp/baseline"
+        source.mkdir(parents=True)
+        (source / "measurement.json").write_text(json.dumps({"tests": 13, "failures": 7}))
+        dest = tmp_path / "evidence"
+        dest.mkdir()
+>       result = handoff.collect_measurements(tmp_path, dest)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'run_host' has no attribute 'collect_measurements'
+
+tests/contract/test_someip_factory_handoff.py:61: AttributeError
+=========================== short test summary info ============================
+FAILED tests/contract/test_someip_factory_handoff.py::test_native_cli_reads_private_disposable_auth
+FAILED tests/contract/test_someip_factory_handoff.py::test_missing_phase_keeps_available_original_bytes
+FAILED tests/contract/test_someip_factory_handoff.py::test_partial_measurements_cannot_count_as_factory_validation
+3 failed in 0.07s
